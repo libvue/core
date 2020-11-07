@@ -1,0 +1,23 @@
+{
+  "name": "libvue",
+  "version": "0.0.1",
+  "private": false,
+  "engines": {
+    "node": "^15.0.1",
+    "npm": "^7.0.3"
+  },
+  "main": "./index.js",
+  "files": [
+    "components/*",
+    "scss/*",
+    "utils/*",
+    "*.json",
+    "*.js",
+    "README.md"
+  ],
+  "peerDependencies": {
+    "vue": "^2.6.11",
+    "sass-loader": "^10.0.5",
+    "sass": "^1.29.0"
+  }
+}
