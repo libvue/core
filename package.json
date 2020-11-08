@@ -1,13 +1,16 @@
 {
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/docs",
+    "packages/libvue"
   ],
   "engines": {
-    "node": "^15.0.1",
+    "node": "^15.1.0",
     "npm": "^7.0.7"
   },
   "scripts": {
+    "serve:docs": "vue-cli-service serve ./packages/docs/src/main.js",
+    "build:docs": "vue-cli-service build ./packages/docs/src/main.js --dest dist/docs",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:js": "eslint . --ext .js,.vue --config .eslintrc.js --fix",
     "lint:css": "stylelint ./**/*.{vue,scss} --fix"

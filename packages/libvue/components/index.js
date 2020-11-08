@@ -1,8 +1,8 @@
-const components = {
-  LvInput: () => import(/* webpackChunkName: "LvInput" */'./Input/Input.vue'),
-}
+import Input from './Input/Input.vue';
 
-// Named exports (using module.exports because export { ...object } is not supported
-module.exports = components;
+const components = {
+  LvInput: Input,
+};
+
 // Export default
-module.exports.default = components;
+export default components;
