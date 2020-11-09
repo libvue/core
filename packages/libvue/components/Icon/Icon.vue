@@ -9,19 +9,19 @@ export default {
     },
     size: {
       type: Number,
-      default: 16
-    }
+      default: 16,
+    },
   },
-   setup(props) {
+  setup(props) {
     const Icon = require('vue-feather-icon')[props.name].default;
     return () => h(Icon, {
       class: ['lv-icon'],
       width: props.size,
       height: props.size,
-      stroke: 'currentColor'
-    })
-  }
-}
+      stroke: 'currentColor',
+    });
+  },
+};
 </script>
 
 <style lang="scss">
