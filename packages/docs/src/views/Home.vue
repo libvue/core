@@ -1,6 +1,7 @@
 <template>
   <div>
-    <lv-input></lv-input>
+    <lv-icon />
+    <lv-input placeholder="Enter your text here"/>
   </div>
 </template>
 
