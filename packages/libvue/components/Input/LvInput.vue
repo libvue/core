@@ -3,11 +3,11 @@
 </template>
 
 <script>
-import InputText from "./InputText.vue";
+import LvInputText from "./LvInputText.vue";
 
 export default {
   components: {
-    LvInputText: InputText,
+    LvInputText,
   },
   props: {
     type: {

@@ -1,9 +1,9 @@
-import Input from './Input/Input.vue';
+import LvInput from './Input/LvInput.vue';
 import Icon from './Icon/Icon.vue';
 
 const components = {
   LvIcon: Icon,
-  LvInput: Input,
+  LvInput,
 };
 
 // Export default
