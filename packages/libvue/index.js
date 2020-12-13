@@ -1,4 +1,5 @@
 import Components from './components';
+import { setAppInstance } from "./utils/instance";
 
 const defaultOptions = {
   style: true,
@@ -6,6 +7,9 @@ const defaultOptions = {
 
 export default {
   install: (app, opt = {}) => {
+    // Write away the app instance
+    setAppInstance(app);
+
     // Merge the given options with the default options
     const options = { ...defaultOptions, ...opt };
 

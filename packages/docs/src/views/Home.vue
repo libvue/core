@@ -1,10 +1,8 @@
 <template>
-  <div>
-    <lv-icon />
-    <lv-input placeholder="Enter your text here"/>
-  </div>
+  <lv-input state="warning" :placeholder="'Hello World'"></lv-input>
 </template>
 
 <script>
-export default {};
+export default {
+};
 </script>

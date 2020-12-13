@@ -18,7 +18,7 @@
   "peerDependencies": {
     "sass": "^1.29.0",
     "sass-loader": "^10.0.5",
-    "vue": "^3.0.0"
+    "vue": "^3.0.4"
   },
   "dependencies": {
     "vue-feather-icon": "^1.2.0"

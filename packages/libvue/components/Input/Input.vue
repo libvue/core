@@ -1,21 +1,27 @@
 <template>
-  <input class="libvue-input" type="text">
+  <component :is="componentName" />
 </template>
 
 <script>
+import InputText from "./InputText.vue";
+
 export default {
-
-}
+  components: {
+    LvInputText: InputText,
+  },
+  props: {
+    type: {
+      type: String,
+      default: 'text',
+      validator: (val) => {
+        return ['text', 'tel', 'email', 'password', 'number', 'range', 'datetime'].includes(val);
+      }
+    }
+  },
+  computed: {
+    componentName() {
+      return `lv-input-${this.type}`;
+    },
+  },
+};
 </script>
-
-<style lang="scss">
-.libvue-input {
-  outline: none;
-  border-radius: var(--input-border-radius, var(--border-radius, 5px));
-  border: 1px solid var(--input-border-color, var(--border-color, #cacaca));
-  padding: var(--input-padding, var(--padding, 5px));
-  &:focus {
-    border: 1px solid var(--input-border-color-focus, var(--border-color-focus, #333));
-  }
-}
-</style>
