@@ -1,10 +1,9 @@
 <template>
-  <div>
-    <lv-icon />
-    <lv-input placeholder="Enter your text here" />
-  </div>
+  <lv-input label="First name" :placeholder="'Enter your first name'"></lv-input>
 </template>
 
 <script>
-export default {};
+export default {
+
+};
 </script>
