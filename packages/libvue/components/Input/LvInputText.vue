@@ -16,13 +16,9 @@
       class="lv-input-text__input"
       type="text"
       :placeholder="placeholder"
-      @input="$emit('input')"
-      @change="$emit('change')"
-      @focus="$emit('focus')"
-      @blur="$emit('blur')"
-      @click="$emit('click')"
-      :value="value"
-    />
+      v-bind="$attrs"
+      v-model="modelValue"
+      />
   </div>
 </template>
 
@@ -40,7 +36,7 @@ export default {
       type: String,
       default: '',
     },
-    value: {
+    modelValue: {
       type: [String, Number],
       default: '',
     },
