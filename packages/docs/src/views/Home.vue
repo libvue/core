@@ -1,5 +1,5 @@
 <template>
-  <lv-input v-model="firstName" label="First name" :placeholder="'Enter your first name'"></lv-input>
+  <lv-input v-model="firstName" label="First Name" icon="Lock" hint="The name your parents gave you." :placeholder="'Enter your first name'"></lv-input>
 </template>
 
 <script>
@@ -11,3 +11,9 @@ export default {
   },
 };
 </script>
+
+<style>
+body {
+  padding: 40px;
+}
+</style>

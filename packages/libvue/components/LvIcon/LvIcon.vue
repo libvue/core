@@ -23,9 +23,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-.lv-icon {
-  color: red;
-}
-</style>

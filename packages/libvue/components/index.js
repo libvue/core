@@ -1,9 +1,9 @@
-import LvInput from './Input/LvInput.vue';
-import LvInputText from './Input/LvInputText.vue';
-import Icon from './Icon/Icon.vue';
+import LvInput from './LvInput/LvInput.vue';
+import LvInputText from './LvInput/LvInputText.vue';
+import LvIcon from './LvIcon/LvIcon.vue';
 
 const components = {
-  LvIcon: Icon,
+  LvIcon,
   LvInput,
   LvInputText
 };
