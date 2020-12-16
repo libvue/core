@@ -5,7 +5,8 @@
       'lv-input-text--error': error,
       'lv-input-text--icon': icon,
       'lv-input-text--readonly': readonly,
-      'lv-input-text--disabled': disabled,
+      'lv-input-text--disabled': disabled || loading,
+      'lv-input-text--loading': loading,
     }"
   >
     <lv-icon
@@ -20,7 +21,6 @@
       {{ label }}
     </label>
     <input
-      ref="input"
       class="lv-input-text__input"
       type="text"
       :placeholder="placeholder"
@@ -28,7 +28,13 @@
       :readonly="readonly"
       v-bind="$attrs"
       v-model="modelValue"
-      />
+    />
+    <lv-icon
+      v-if="loading"
+      class="lv-input-text__loading"
+      :size="16"
+      name="Loader"
+    />
     <div class="lv-input-text__hint" v-if="hint">
       {{ hint }}
     </div>
@@ -84,12 +90,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+// Block
 .lv-input-text {
   $self: &;
   display: inline-block;
   position: relative;
   font-family: var(--input-font-family, var(--font-family, sans-serif));
   color: var(--input-text-color, var(--text-color, #192024));
+
+  // Elements
 
   &__label {
     position: absolute;
@@ -99,7 +108,6 @@ export default {
     color: var(--input-text-color-dimmed, var(--text-color-dimmed, #192024));
     background-color: var(--input-background-color, var(--background-color, #ffffff));
     padding: 0 4px;
-    box-sizing: border-box;
   }
 
   &__icon {
@@ -115,7 +123,7 @@ export default {
     border-radius: var(--input-border-radius, var(--border-radius, 5px));
     border: 1px solid var(--input-border-color, var(--border-color, #cacaca));
     padding: var(--input-padding, var(--padding, 5px));
-    box-sizing: border-box;
+    padding-right: calc(var(--input-padding, var(--padding, 5px)) + 22px);
     color: var(--input-text-color, var(--text-color, #192024));
     transition: var(--input-transition-time, var(--transition-time, .2s)) all var(--input-transition-easing, var(--transition-easing, ease-in-out));
     &:focus {
@@ -127,12 +135,23 @@ export default {
       color: var(--input-placeholder-color, var(--placeholder-color, #808F98));
     }
   }
+
   &__hint {
     font-size: var(--input-font-size-label, var(--font-size-label, 12px));
     color: var(--input-text-color-dimmed, var(--text-color-dimmed, #192024));
     padding: 4px;
-    box-sizing: border-box;
   }
+
+  &__loading {
+    position: absolute;
+    top: 16px;
+    color: var(--input-text-color-dimmed, var(--text-color-dimmed, #192024));
+    right: calc(var(--input-padding, var(--padding, 5px)) - 2px); // Optical Fix
+    animation: rotate-cw 1s infinite linear;
+  }
+
+  // Modifiers
+
   &--error {
     color: var(--input-color-warning, var(--color-warning, #E41654));
 
@@ -150,7 +169,8 @@ export default {
     }
     #{$self}__label,
     #{$self}__icon,
-    #{$self}__hint {
+    #{$self}__hint,
+    #{$self}__loading {
       color: var(--input-placeholder-color-warning, var(--placeholder-color-warning, #fdabc4));
     }
   }
