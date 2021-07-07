@@ -1,0 +1,8 @@
+@function fallback($default, $fallback) {
+  @if($default) {
+    @return $default;
+  }
+  @else if($fallback) {
+    @return $default;
+  }
+}

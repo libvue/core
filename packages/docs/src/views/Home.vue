@@ -1,5 +1,13 @@
 <template>
-  <lv-input v-model="firstName" label="First Name" icon="Lock" hint="The name your parents gave you." :placeholder="'Enter your first name'"></lv-input>
+  <lv-group>
+    <lv-button content="Default"/>
+    <lv-button type="primary" content="Primary"/>
+    <lv-button icon="AlertTriangle" content="Warning" type="warning"/>
+    <lv-button icon="Info" content="Info" type="info"/>
+    <lv-button icon="Check" content="Success" type="success"/>
+    <lv-button content="Loading" loading/>
+    <lv-button content="Disabled" disabled/>
+  </lv-group>
 </template>
 
 <script>

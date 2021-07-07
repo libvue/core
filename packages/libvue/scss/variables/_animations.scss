@@ -1,0 +1,14 @@
+/* Highlight an element by placing a shadow behind it */
+/* Probably best to add to the :before of the element */
+/* To prevent overwriting styling */
+@keyframes lv-highlight {
+  0% {
+    box-shadow: 0 0 0 0 transparent;
+  }
+  50% {
+    box-shadow: 0 0 0 4px #6941e7;
+  }
+  100% {
+    box-shadow: 0 0 0 9px transparent;
+  }
+}

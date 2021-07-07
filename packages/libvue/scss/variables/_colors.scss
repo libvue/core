@@ -1,18 +1,34 @@
-:root {
-  --border-color: #D9DADE;
-  --border-color-focus: #4e1cd9;
-  --background-color: #FFFFFF;
-  --text-color: #192024;
-  --text-color-dimmed: #808F98;
-  --text-color-inverted: #F3F7F9;
-  --placeholder-color: #808F98;
-  --placeholder-color-warning: #db99a8;
-  --placeholder-color-success: #67cdbb;
-  --color-primary: #4e1cd9;
-  --color-info: #0C92DD;
-  --color-warning: #E41654;
-  --color-success: #00CA99;
-  --shadow-focus: 0px 3px 5px 0px rgba(78, 28, 217, 0.08);
-  --shadow-focus-warning: 0px 3px 5px 0px rgba(228, 22, 84, 0.17);
-  --shadow-focus-success: 0px 3px 5px 0px rgba(0, 202, 153, 0.19);
-}
+/* Tint */
+$color-default: #16161a !default;
+$color-primary: #6C5DD3 !default;
+$color-info: #3F8CFF !default;
+$color-success: #00CA99 !default;
+$color-warning: #ff5427 !default;
+
+/* Text */
+$text-color-dimmed: #808F98 !default;
+$text-color-inverted: #F3F7F9 !default;
+$text-color: #192024 !default;
+
+/* Background */
+$background-color: #FFFFFF !default;
+
+/* Borders */
+$border-color: #D9DADE !default;
+$border-color-focus: $color-default !default;
+
+/* Placeholders */
+$placeholder-color-primary: lighten($color-primary, 30) !default;
+$placeholder-color-success: lighten($color-success, 30) !default;
+$placeholder-color-info: lighten($color-info, 30) !default;
+$placeholder-color-warning: lighten($color-warning, 30) !default;
+$placeholder-color: lighten($color-default, 30) !default;
+
+/* Shadows */
+$shadow-focus-primary: 0px 0px 0px 3px rgba($color-primary, 0.23) !default;
+$shadow-focus-success: 0px 0px 0px 3px rgba($color-success, 0.27) !default;
+$shadow-focus-warning: 0px 0px 0px 3px rgba($color-warning, 0.24) !default;
+$shadow-focus-info: 0px 0px 0px 3px rgba($color-info, 0.23) !default;
+$shadow-focus: 0px 0px 0px 3px rgba($color-default, 0.4 ) !default;
+
+
