@@ -10,18 +10,3 @@
   </lv-group>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      firstName: '',
-    };
-  },
-};
-</script>
-
-<style>
-body {
-  padding: 40px;
-}
-</style>

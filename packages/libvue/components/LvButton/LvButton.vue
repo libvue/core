@@ -5,6 +5,7 @@
       'lv-button--warning': type === 'warning',
       'lv-button--success': type === 'success',
       'lv-button--primary': type === 'primary',
+      'lv-button--ghost': type === 'ghost',
       'lv-button--info': type === 'info',
       'lv-button--disabled': disabled || loading,
       'lv-button--loading': loading,
@@ -49,7 +50,7 @@ export default {
       type: String,
       default: 'default',
       validator: (value) => {
-        return ['default', 'primary', 'warning', 'info', 'success'].includes(value);
+        return ['default', 'primary', 'warning', 'info', 'success', 'ghost'].includes(value);
       }
     },
     disabled: {
