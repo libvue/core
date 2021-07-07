@@ -3,6 +3,7 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 import libvue from '../../libvue';
+import './assets/sass/app.scss';
 
 // Create app
 const app = createApp(App);

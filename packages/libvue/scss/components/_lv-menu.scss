@@ -1,0 +1,10 @@
+$menu-width: 200px;
+$menu-background-color: $background-color;
+
+.lv-menu {
+  width: $menu-width;
+  background-color: fallback($menu-background-color, $background-color);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
