@@ -1,7 +1,9 @@
 <template>
-  <button
+  <component
+    :is="href ? 'a' : 'button'"
+    :href="href"
     class="lv-button"
-     :class="{
+    :class="{
       'lv-button--warning': type === 'warning',
       'lv-button--success': type === 'success',
       'lv-button--primary': type === 'primary',
@@ -11,6 +13,7 @@
       'lv-button--loading': loading,
     }"
     :disabled="disabled"
+    @click="onClick"
   >
     <lv-icon
       v-if="icon"
@@ -25,33 +28,35 @@
       :size="16"
       name="Loader"
     />
-    <span class="lv-button__content"       :class="{ 'lv-button__content--hidden' : loading }"
+    <span
+      class="lv-button__content"
+      :class="{ 'lv-button__content--hidden' : loading }"
     >
       <slot>
-        {{ content }}
+        {{ label }}
       </slot>
     </span>
-  </button>
+  </component>
 </template>
 
 <script>
-import LvIcon from "../LvIcon/LvIcon";
+import LvIcon from '../LvIcon/LvIcon.vue';
+import navigationMixin from '../../mixins/navigationMixin';
 
 export default {
   components: {
     LvIcon,
   },
+  mixins: [navigationMixin],
   props: {
-    content: {
+    label: {
       type: String,
       default: '',
     },
     type: {
       type: String,
       default: 'default',
-      validator: (value) => {
-        return ['default', 'primary', 'warning', 'info', 'success', 'ghost'].includes(value);
-      }
+      validator: (value) => ['default', 'primary', 'warning', 'info', 'success', 'ghost'].includes(value),
     },
     disabled: {
       type: Boolean,
@@ -64,7 +69,7 @@ export default {
     icon: {
       type: String,
       default: '',
-    }
-  }
-}
+    },
+  },
+};
 </script>

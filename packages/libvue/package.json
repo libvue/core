@@ -2,10 +2,6 @@
   "name": "libvue",
   "version": "0.0.1",
   "private": false,
-  "engines": {
-    "node": "^15.1.0",
-    "npm": "^7.0.7"
-  },
   "main": "./index.js",
   "files": [
     "components/*",
@@ -18,7 +14,8 @@
   "peerDependencies": {
     "sass": "^1.29.0",
     "sass-loader": "^10.0.5",
-    "vue": "^3.0.4"
+    "vue": "^3.0.4",
+    "vue-router": "^4.0.0"
   },
   "dependencies": {
     "vue-feather-icon": "^1.2.0"

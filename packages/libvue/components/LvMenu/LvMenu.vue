@@ -1,5 +1,5 @@
 <template>
   <div class="lv-menu">
-      <slot></slot>
+    <slot />
   </div>
 </template>

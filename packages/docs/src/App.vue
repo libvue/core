@@ -2,7 +2,7 @@
   <lv-layout>
     <template #menu>
       <lv-menu>
-        <lv-button type="ghost">Home</lv-button>
+        <lv-menu-item to="http://www.google.com" label="Getting Started"/>
       </lv-menu>
     </template>
     <template #content>

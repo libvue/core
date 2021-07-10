@@ -4,6 +4,8 @@ import LvInputText from './LvInput/LvInputText.vue';
 import LvButton from './LvButton/LvButton.vue';
 import LvGroup from './LvGroup/LvGroup.vue';
 import LvMenu from './LvMenu/LvMenu.vue';
+import LvMenuItem from './LvMenu/LvMenuItem.vue';
+import LvMenuList from './LvMenu/LvMenuList.vue';
 import LvLayout from './LvLayout/LvLayout.vue';
 
 const components = {
@@ -13,7 +15,9 @@ const components = {
   LvButton,
   LvGroup,
   LvMenu,
-  LvLayout
+  LvLayout,
+  LvMenuList,
+  LvMenuItem,
 };
 
 // Export default
