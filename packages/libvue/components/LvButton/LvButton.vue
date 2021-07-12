@@ -9,8 +9,12 @@
       'lv-button--primary': type === 'primary',
       'lv-button--ghost': type === 'ghost',
       'lv-button--info': type === 'info',
+      'lv-button--align-left': align === 'left',
+      'lv-button--align-right': align === 'right',
+      'lv-button--align-center': align === 'center',
       'lv-button--disabled': disabled || loading,
       'lv-button--loading': loading,
+      'lv-button--active': toEqualsCurrentRoute && activeOnRouteMatch
     }"
     :disabled="disabled"
     @click="onClick"
@@ -19,14 +23,12 @@
       v-if="icon"
       class="lv-button__icon"
       :class="{ 'lv-button__icon--hidden' : loading }"
-      :size="16"
       :name="icon"
     />
     <lv-icon
       v-if="loading"
       class="lv-button__loading"
-      :size="16"
-      name="Loader"
+      name="spinner"
     />
     <span
       class="lv-button__content"
@@ -69,6 +71,16 @@ export default {
     icon: {
       type: String,
       default: '',
+    },
+    align: {
+      type: String,
+      default: 'center',
+      validator: (value) => ['center', 'left', 'right'].includes(value),
+    },
+    /* Advanced Props */
+    activeOnRouteMatch: {
+      type: Boolean,
+      default: false,
     },
   },
 };

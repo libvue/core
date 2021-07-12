@@ -24,11 +24,17 @@ const navigationMixin = {
      * @returns {boolean}
      */
     toEqualsCurrentRoute() {
+      // Check first if a object is given
       if (this.to && this.to.constructor.name === 'Object') {
-        if (this.to.name && this.$router.currentRoute.name === this.to.name) {
+        if (this.to.name && this.$route.name === this.to.name) {
           return true;
         }
-        if (this.to.path && this.$router.currentRoute.path === this.to.path) {
+        if (this.to.path && this.$route.path === this.to.path) {
+          return true;
+        }
+      } else if (this.to && !URLValidator(this.to)) {
+        const resolved = this.$router.resolve({ path: this.to });
+        if (resolved.name === this.$route.name) {
           return true;
         }
       }

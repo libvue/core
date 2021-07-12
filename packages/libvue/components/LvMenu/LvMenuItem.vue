@@ -3,6 +3,8 @@
     class="lv-menu-item"
     type="ghost"
     v-bind="$attrs"
+    active-on-route-match
+    align="left"
   >
     <slot>{{ label }}</slot>
   </lv-button>

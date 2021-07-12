@@ -1,0 +1,26 @@
+
+.lv-menu-group {
+  font-family: $font-family;
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: $font-size-label;
+    color: $placeholder-color;
+    margin-bottom: 20px;
+    margin-top: 0;
+  }
+  &__icon {
+    margin-right: 5px;
+  }
+}

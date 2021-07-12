@@ -1,5 +1,5 @@
 import Components from './components';
-import { setAppInstance } from "./utils/instance";
+import { setAppInstance } from './plugin/instance';
 
 export default {
   install: (app, opt = {}) => {

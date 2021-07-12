@@ -1,25 +1,36 @@
+<template>
+  <svg
+    class="lv-icon"
+    viewBox="0 0 24 24"
+    :width="size"
+    :height="size"
+  >
+    <use :href="`${spritePath}#${name}`" />
+  </svg>
+</template>
+
 <script>
-import { h } from 'vue';
 
 export default {
   props: {
     name: {
       type: String,
-      default: 'AlertTriangle',
+      default: 'exclamation-triangle',
     },
     size: {
       type: Number,
       default: 16,
     },
+    type: {
+      type: String,
+      default: 'line',
+      validator: (value) => ['line', 'solid', 'thinline'].includes(value),
+    },
   },
-  setup(props) {
-    const Icon = require('vue-feather-icon')[props.name].default;
-    return () => h(Icon, {
-      class: ['lv-icon'],
-      width: props.size,
-      height: props.size,
-      stroke: 'currentColor',
-    });
+  computed: {
+    spritePath() {
+      return require(`@iconscout/unicons/sprite/${this.type}/unicons.svg`);
+    },
   },
 };
 </script>
