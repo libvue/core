@@ -1,13 +1,13 @@
 <template>
   <div class="lv-layout">
     <div class="lv-layout__menu">
-      <slot name="menu"></slot>
+      <slot name="menu" />
     </div>
     <div class="lv-layout__content">
-      <slot name="content"></slot>
+      <slot name="content" />
     </div>
     <div class="lv-layout__footer">
-      <slot name="footer"></slot>
+      <slot name="footer" />
     </div>
   </div>
 </template>
@@ -18,9 +18,7 @@ export default {
     menuPosition: {
       type: String,
       default: 'menu-left',
-      validator: (value) => {
-        return ['menu-left', 'menu-top'].includes(value);
-      }
+      validator: (value) => ['menu-left', 'menu-top'].includes(value),
     },
     responsiveMenu: {
       type: Boolean,
@@ -29,10 +27,8 @@ export default {
     footerPosition: {
       type: String,
       default: 'content-relative',
-      validator: (value) => {
-        return ['content-relative', 'content-fixed', 'menu-relative', 'menu-fixed'].includes(value);
-      }
-    }
-  }
-}
+      validator: (value) => ['content-relative', 'content-fixed', 'menu-relative', 'menu-fixed'].includes(value),
+    },
+  },
+};
 </script>

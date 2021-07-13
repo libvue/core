@@ -1,5 +1,7 @@
 <template>
   <div class="lv-menu">
-      <slot></slot>
+    <slot name="header"></slot>
+    <slot />
+    <slot name="footer"></slot>
   </div>
 </template>

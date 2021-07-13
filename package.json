@@ -4,10 +4,6 @@
     "packages/docs",
     "packages/libvue"
   ],
-  "engines": {
-    "node": "^15.1.0",
-    "npm": "^7.0.7"
-  },
   "scripts": {
     "serve": "npm run serve:docs",
     "serve:docs": "vue-cli-service serve ./packages/docs/src/main.js",

@@ -1,22 +1,24 @@
 <template>
-  <component :is="componentName" v-model="value" v-bind="$attrs"/>
+  <component
+    :is="componentName"
+    v-model="value"
+    v-bind="$attrs"
+  />
 </template>
 
 <script>
-import LvInputText from "./LvInputText.vue";
+import LvInputText from './LvInputText.vue';
 
 export default {
-  inheritAttrs: false,
   components: {
     LvInputText,
   },
+  inheritAttrs: false,
   props: {
     type: {
       type: String,
       default: 'text',
-      validator: (val) => {
-        return ['text', 'tel', 'email', 'password', 'number', 'range', 'datetime'].includes(val);
-      }
+      validator: (val) => ['text', 'tel', 'email', 'password', 'number', 'range', 'datetime'].includes(val),
     },
     value: {
       type: [String, Number],
