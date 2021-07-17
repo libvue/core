@@ -16,8 +16,8 @@ $text-color: #192024 !default;
 
 
 /* Borders */
-$border-color: #eaeaea !default;
-$border-color-focus: $color-default !default;
+$border-color: #e0e0e0 !default;
+$border-color-focus: lighten($color-default, 50) !default;
 
 /* Placeholders */
 $placeholder-color-primary: lighten($color-primary, 30) !default;
@@ -31,7 +31,7 @@ $shadow-focus-primary: 0px 0px 0px 3px rgba($color-primary, 0.23) !default;
 $shadow-focus-success: 0px 0px 0px 3px rgba($color-success, 0.27) !default;
 $shadow-focus-warning: 0px 0px 0px 3px rgba($color-warning, 0.24) !default;
 $shadow-focus-info: 0px 0px 0px 3px rgba($color-info, 0.23) !default;
-$shadow-focus-ghost: 0px 0px 0px 3px rgba($color-ghost, 0.23) !default;
-$shadow-focus: 0px 0px 0px 3px rgba($color-default, 0.4 ) !default;
+$shadow-focus-ghost: 0px 0px 0px 3px rgba(darken($color-ghost, 26), 0.23) !default;
+$shadow-focus: 0px 0px 0px 3px rgba($color-default, 0.2) !default;
 
 

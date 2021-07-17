@@ -7,4 +7,10 @@ $menu-background-color: $background-color;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
+  font-family: $font-family;
+
+  &__header {
+    padding: 0 10px 38px 10px;
+    font-weight: bold;
+  }
 }
