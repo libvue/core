@@ -1,4 +1,4 @@
-$input-background-color: $background-color;
+$input-background-color: darken($background-color, 10);
 $input-border-color-focus: $border-color-focus;
 $input-border-color: $border-color;
 $input-border-radius: $border-radius;
@@ -23,16 +23,15 @@ $input-transition-time: $transition-time;
   position: relative;
   font-family: fallback($input-font-family, fallback($font-family, sans-serif));
   color: fallback($input-text-color, fallback($text-color, #192024));
+  display: flex;
+  flex-direction: column;
 
   // Elements
 
   &__label {
-    position: absolute;
-    top: -6px;
     left: calc(fallback($input-padding, fallback($padding, 5px)) - 2px);
     font-size: fallback($input-font-size-label, fallback($font-size-label, 12px));
     color: fallback($input-text-color-dimmed, fallback($text-color-dimmed, #192024));
-    background-color: fallback($input-background-color, fallback($background-color, #ffffff));
     padding: 0 4px;
   }
 

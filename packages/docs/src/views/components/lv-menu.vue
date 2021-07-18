@@ -1,5 +1,5 @@
 <template>
   <lv-group>
-    <lv-input label='Username' required/>
+    menu
   </lv-group>
 </template>

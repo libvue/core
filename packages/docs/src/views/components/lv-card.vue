@@ -1,5 +1,5 @@
 <template>
   <lv-group>
-    <lv-input label='Username' required/>
+    card
   </lv-group>
 </template>

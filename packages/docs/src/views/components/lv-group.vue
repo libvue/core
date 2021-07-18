@@ -1,5 +1,5 @@
 <template>
   <lv-group>
-    <lv-input label='Username' required/>
+    group
   </lv-group>
 </template>
