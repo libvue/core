@@ -1,0 +1,36 @@
+$code-padding: 20px;
+
+.lv-code {
+  $self: &;
+
+  &__title {
+    background-color: lighten($code-color, 20);
+    display: inline-block;
+    color: $text-color-inverted;
+    font-family: $font-family;
+    border-radius: $border-radius $border-radius 0 0;
+    font-size: $font-size-label;
+    margin-bottom: 0;
+    padding: 3px 8px;
+  }
+
+  &__content {
+    background-color: $code-color;
+    color: $text-color-inverted;
+    padding: fallback($code-padding, $padding);
+    border-radius: $border-radius;
+  }
+  &__pre {
+    margin: 0;
+    padding: 0;
+  }
+  &__code {
+    font-family: $font-family-monospace;
+    font-size: $font-size-monospace;
+  }
+  &--title {
+    #{$self}__content {
+      border-radius: 0 $border-radius $border-radius $border-radius;
+    }
+  }
+}

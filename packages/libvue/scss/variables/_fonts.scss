@@ -1,12 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
 
 $font-family: 'Inter', sans-serif !default;
+$font-family-monospace: 'Roboto Mono', monospace !default;
 $font-size: 16px !default;
-$font-size-h1: 36px !default;
-$font-size-h2: 32px !default;
-$font-size-h3: 28px !default;
-$font-size-h4: 24px !default;
-$font-size-h5: 18px !default;
-$font-size-h6: 16px !default;
+$font-size-monospace: 14px !default;
+$font-size-h1: 32px !default;
+$font-size-h2: $font-size-h1 * 0.9 !default;
+$font-size-h3: $font-size-h1 * 0.8 !default;
+$font-size-h4: $font-size-h1 * 0.7 !default;
+$font-size-h5: $font-size-h1 * 0.6 !default;
+$font-size-h6: $font-size-h1 * 0.5 !default;
 $font-size-paragraph: 16px !default;
 $font-size-label: 12px !default;
