@@ -21,5 +21,8 @@
     "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard": "^20.0.0",
     "stylelint-declaration-block-no-ignored-properties": "^2.3.0"
+  },
+  "dependencies": {
+    "highlight.js": "^10.7.3"
   }
 }

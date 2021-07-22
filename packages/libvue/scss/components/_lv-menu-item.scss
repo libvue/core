@@ -7,6 +7,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
+  font-size: $font-size;
 
   &:hover:not(#{$self}--active) {
     background-color: lighten($color-default, 87);

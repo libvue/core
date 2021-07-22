@@ -10,21 +10,32 @@
       class="lv-code__title"
     >
       {{ title }}
+      <lv-icon
+        class="lv-code__title-copy"
+        name="copy"
+        @click="copyCodeToClipboard"
+      />
     </div>
     <div class="lv-code__content">
-      <pre
-        v-if="inline"
-        class="lv-code__pre"
-      ><code class="lv-code__code lv-code__code--inline"><slot /></code></pre>
-      <code
-        v-else
+      <div
         class="lv-code__code"
-      ><slot /></code>
+        v-html="html"
+      />
+      <lv-icon
+        v-if="!title"
+        class="lv-code__content-copy"
+        name="copy"
+        @click="copyCodeToClipboard"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import hljs from 'highlight.js';
+import 'highlight.js/styles/darcula.css';
+import copyToClipboard from '../../utils/copyToClipboard';
+
 export default {
   props: {
     title: {
@@ -33,7 +44,21 @@ export default {
     },
     inline: {
       type: Boolean,
-      default: true,
+      default: false,
+    },
+    code: {
+      type: String,
+      default: '<span>Hello World</span>',
+    },
+  },
+  computed: {
+    html() {
+      return hljs.highlightAuto(this.code).value;
+    },
+  },
+  methods: {
+    copyCodeToClipboard() {
+      return copyToClipboard(this.code);
     },
   },
 };

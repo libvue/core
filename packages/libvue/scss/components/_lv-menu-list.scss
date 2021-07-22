@@ -6,6 +6,7 @@ $menu-list-padding: $padding;
   width: 100%;
   display: flex;
   flex-direction: column;
+  font-size: $font-size;
 
   &:last-of-type {
     margin-bottom: 0;
