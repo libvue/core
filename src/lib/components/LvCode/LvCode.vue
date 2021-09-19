@@ -33,7 +33,7 @@
 
 <script>
 import hljs from 'highlight.js';
-import 'highlight.js/styles/darcula.css';
+//import 'node_modules/highlight.js/styles/base16/darcula.css';
 import copyToClipboard from '../../utils/copyToClipboard';
 
 export default {

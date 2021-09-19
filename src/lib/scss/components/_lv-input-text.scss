@@ -19,11 +19,10 @@ $input-transition-time: $transition-time;
 // Block
 .lv-input-text {
   $self: &;
-  display: inline-block;
+  display: flex;
   position: relative;
   font-family: fallback($input-font-family, fallback($font-family, sans-serif));
   color: fallback($input-text-color, fallback($text-color, #192024));
-  display: flex;
   flex-direction: column;
 
   // Elements

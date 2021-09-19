@@ -10,7 +10,6 @@
 </template>
 
 <script>
-
 export default {
   props: {
     name: {
@@ -21,15 +20,10 @@ export default {
       type: Number,
       default: 16,
     },
-    type: {
-      type: String,
-      default: 'line',
-      validator: (value) => ['line', 'solid', 'thinline'].includes(value),
-    },
   },
   computed: {
     spritePath() {
-      return require(`@iconscout/unicons/sprite/${this.type}/unicons.svg`);
+      return './node_modules/@iconscout/unicons/sprite/line/unicons.svg';
     },
   },
 };

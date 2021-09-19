@@ -24,10 +24,11 @@ export default {
       },
     },
     level: {
-      type: Number,
+      type: [Number, String],
       default: 1,
       validator(value) {
-        return value > 0 && value < 6;
+        const number = Number.parseInt(value, 10);
+        return number > 0 && number <= 6;
       },
     },
     sticky: {
