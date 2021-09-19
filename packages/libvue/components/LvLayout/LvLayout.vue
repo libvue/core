@@ -1,12 +1,12 @@
 <template>
   <div class="lv-layout">
-    <div class="lv-layout__menu">
+    <div class="lv-layout__menu" v-if="!!$slots.menu">
       <slot name="menu" />
     </div>
-    <div class="lv-layout__content">
+    <div class="lv-layout__content" v-if="!!$slots.content">
       <slot name="content" />
     </div>
-    <div class="lv-layout__footer">
+    <div class="lv-layout__footer" v-if="!!$slots.footer">
       <slot name="footer" />
     </div>
   </div>

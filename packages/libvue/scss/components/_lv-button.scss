@@ -47,7 +47,7 @@ $button-transition-time: $transition-time;
   }
 
   &:focus {
-    box-shadow: fallback($button-shadow-focus, fallback($shadow-focus, 0px 0px 0px 4px rgba(0, 0, 0, 0.04)));
+    box-shadow: fallback($button-shadow-focus, fallback($shadow-focus, 0px 0px 0px 4px rgba(0, 0, 0, 0.24)));
   }
 
   // Elements

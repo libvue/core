@@ -1,5 +1,5 @@
 $layout-padding: 30px;
-$layout-menu-border-color: $border-color;
+$layout-menu-border-color: lighten($border-color, 8);
 
 .lv-layout {
   display: flex;

@@ -8,6 +8,9 @@ import LvMenuGroup from './LvMenu/LvMenuGroup.vue';
 import LvMenuItem from './LvMenu/LvMenuItem.vue';
 import LvMenuList from './LvMenu/LvMenuList.vue';
 import LvLayout from './LvLayout/LvLayout.vue';
+import LvHeading from './LvHeading/LvHeading.vue';
+import LvCode from './LvCode/LvCode.vue';
+import LvCard from './LvCard/LvCard.vue';
 
 const components = {
   LvIcon,
@@ -20,6 +23,9 @@ const components = {
   LvMenuGroup,
   LvMenuList,
   LvMenuItem,
+  LvHeading,
+  LvCode,
+  LvCard,
 };
 
 // Export default

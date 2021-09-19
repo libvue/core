@@ -3,11 +3,9 @@
     class="lv-group"
     :class="[ 'lv-group--align-' + align, 'lv-group--direction-' + direction ]"
     :style="`--item-distance: ${gap}px;`"
-    data-testid="group"
   >
     <slot />
   </div>
-
 </template>
 
 <script>
@@ -16,9 +14,7 @@ export default {
     direction: {
       type: String,
       default: 'row',
-      validator: (value) => {
-        return ['row', 'column'].includes(value);
-      }
+      validator: (value) => ['row', 'column'].includes(value),
     },
     align: {
       type: String,
@@ -28,11 +24,10 @@ export default {
         return ['left', 'center', 'right', 'justify'].includes(value);
       },
     },
-
     gap: {
       type: [String, Number],
       default: 10,
-    }
-  }
-}
+    },
+  },
+};
 </script>
