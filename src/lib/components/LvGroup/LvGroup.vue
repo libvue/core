@@ -33,7 +33,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/libvue';
+@import '../../scss/core';
 
 .lv-group {
   --item-distance: $margin-inter-item;

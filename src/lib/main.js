@@ -19,9 +19,6 @@ export default {
     // Write away the app instance
     setAppInstance(app);
 
-    // Import the styling
-    import('./scss/libvue.scss');
-
     // Register all components
     app.component('lv-button', LvButton);
     app.component('lv-card', LvCard);

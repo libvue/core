@@ -87,7 +87,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/libvue';
+@import '../../scss/core';
 
 $button-border-color-focus: $border-color-focus;
 $button-border-radius: $border-radius;

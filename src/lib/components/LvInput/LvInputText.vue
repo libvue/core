@@ -90,7 +90,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/libvue';
+@import '../../scss/core';
 
 $input-background-color: darken($background-color, 10);
 $input-border-color-focus: $border-color-focus;

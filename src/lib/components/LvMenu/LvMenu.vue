@@ -24,7 +24,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/libvue';
+@import '../../scss/core';
 
 $menu-width: 200px;
 $menu-background-color: $background-color;

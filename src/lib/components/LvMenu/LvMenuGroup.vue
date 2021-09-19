@@ -23,7 +23,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/libvue';
+@import '../../scss/core';
 
 .lv-menu-group {
   font-family: $font-family;

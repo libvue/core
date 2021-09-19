@@ -49,7 +49,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/libvue';
+@import '../../scss/core';
 
 $heading-margin-bottom: 20px;
 

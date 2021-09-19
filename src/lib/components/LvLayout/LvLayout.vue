@@ -34,7 +34,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/libvue';
+@import '../../scss/core';
 
 $layout-padding: 30px;
 $layout-menu-border-color: lighten($border-color, 8);
