@@ -28,3 +28,14 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+@import '../../scss/libvue';
+
+.lv-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  fill: currentColor;
+}
+</style>

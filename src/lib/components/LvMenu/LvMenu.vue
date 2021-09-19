@@ -22,3 +22,24 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+@import '../../scss/libvue';
+
+$menu-width: 200px;
+$menu-background-color: $background-color;
+
+.lv-menu {
+  width: $menu-width;
+  background-color: fallback($menu-background-color, $background-color);
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  font-family: $font-family;
+
+  &__header {
+    padding: 0 10px 38px 10px;
+    font-weight: bold;
+  }
+}
+</style>

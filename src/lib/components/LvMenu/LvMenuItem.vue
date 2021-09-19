@@ -47,3 +47,33 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+@import '../../scss/libvue';
+
+.lv-menu-item {
+  $self: &;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius :5px;
+  transition: all .1s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: $font-size;
+
+  &:hover:not(#{$self}--active) {
+    background-color: lighten($color-default, 87);
+  }
+
+  &--active {
+    background-color: lighten($color-primary, 37);
+    color: $color-primary;
+  }
+
+  &__icon {
+    margin-right: 10px;
+  }
+
+}
+</style>

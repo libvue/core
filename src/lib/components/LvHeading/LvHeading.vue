@@ -47,3 +47,45 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+@import '../../scss/libvue';
+
+$heading-margin-bottom: 20px;
+
+.lv-heading {
+  margin-top: 0;
+  font-family: $font-family;
+  display: block;
+  width: 100%;
+  color: $color-default;
+  font-weight: 600;
+  margin-bottom: $heading-margin-bottom;
+
+  &--h1 {
+    font-size: $font-size-h1;
+  }
+  &--h2 {
+    font-size: $font-size-h2;
+  }
+  &--h3 {
+    font-size: $font-size-h3;
+  }
+  &--h4 {
+    font-size: $font-size-h4;
+  }
+  &--h5 {
+    font-size: $font-size-h5;
+  }
+  &--h6 {
+    font-size: $font-size-h6;
+
+  }
+  &--sticky {
+    margin-bottom: 5px;
+  }
+  &--sub {
+    color: lighten($color-default, 50);
+  }
+}
+</style>

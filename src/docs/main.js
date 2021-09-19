@@ -1,7 +1,9 @@
+// For testing using the source file
+import libvue from '../lib/main.js';
+
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';
-import libvue from '../lib/main.js';
 import './assets/sass/app.scss';
 
 // Create app

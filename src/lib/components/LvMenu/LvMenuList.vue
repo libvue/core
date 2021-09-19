@@ -50,3 +50,53 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+@import '../../scss/libvue';
+
+$menu-list-padding: $padding;
+
+.lv-menu-list {
+  font-family: $font-family;
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: $font-size;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  &__icon {
+    margin-right: 10px;
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+    margin-top: 0;
+    padding: 10px;
+    border-radius :5px;
+
+    &:hover {
+      background-color: lighten($color-default, 87);
+    }
+
+    &-icon {
+      margin-left: auto;
+    }
+  }
+
+  &__dropdown {
+    display: flex;
+    flex-direction: column;
+
+    > [class^='lv-menu-item'] {
+      text-indent: 15px;
+    }
+  }
+
+}</style>

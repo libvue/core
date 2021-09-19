@@ -21,3 +21,38 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+@import '../../scss/libvue';
+
+.lv-menu-group {
+  font-family: $font-family;
+  flex-grow: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  cursor: pointer;
+  font-size: $font-size;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+
+  &__label {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: $font-size-label;
+    color: $placeholder-color;
+    margin-top: 0;
+    padding: 10px;
+
+  }
+
+  &__icon {
+    margin-right: 5px;
+  }
+}
+</style>
