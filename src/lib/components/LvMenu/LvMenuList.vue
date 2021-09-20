@@ -93,9 +93,14 @@ $menu-list-padding: $padding;
   &__dropdown {
     display: flex;
     flex-direction: column;
+    border-left: 1px solid #eaeaea;
+    padding-left: 13px;
+    margin-left: 18px;
 
     > [class^='lv-menu-item'] {
-      text-indent: 15px;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
     }
   }
 

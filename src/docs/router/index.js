@@ -12,6 +12,9 @@ import LvQuote from '../views/components/lv-quote.vue';
 import LvCode from '../views/components/lv-code.vue';
 import LvGroup from '../views/components/lv-group.vue';
 import LvCard from '../views/components/lv-card.vue';
+import LvTable from '../views/components/lv-table.vue';
+import LvChart from '../views/components/lv-chart.vue';
+import LvNotice from '../views/components/lv-notice.vue';
 
 const routes = [
   { path: '/', redirect: '/getting-started' },
@@ -64,6 +67,21 @@ const routes = [
     path: '/lv-card',
     name: 'lv-card',
     component: LvCard,
+  },
+  {
+    path: '/lv-table',
+    name: 'lv-table',
+    component: LvTable,
+  },
+  {
+    path: '/lv-chart',
+    name: 'lv-chart',
+    component: LvChart,
+  },
+  {
+    path: '/lv-notice',
+    name: 'lv-notice',
+    component: LvNotice,
   },
 ];
 

@@ -1,6 +1,12 @@
 // For testing using the source file
 import libvue from '../lib/main.js';
 
+// /**
+//  * Testing Live Mode
+//  */
+// import '../../dist/style.css';
+// import libvue from '../../dist/libvue.es.js';
+
 import { createApp } from 'vue';
 import App from './App.vue';
 import router from './router';

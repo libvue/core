@@ -1,9 +1,9 @@
 <template>
   <lv-layout>
     <template #menu>
-      <lv-menu>
+      <lv-menu @click-header="$router.push('/')">
         <template #header>
-          Libvue Beta
+          <lv-icon name="vuejs-alt" class="logo" :size="16"/> Libvue
         </template>
         <lv-menu-group label="Installation">
           <lv-menu-item icon="rocket" to="getting-started" label="Getting Started"/>
@@ -24,6 +24,13 @@
             <lv-menu-item to="lv-button" label="Button"/>
             <lv-menu-item to="lv-input" label="Input"/>
           </lv-menu-list>
+          <lv-menu-list icon="analytics" label="Data Visualization">
+            <lv-menu-item to="lv-table" label="Table"/>
+            <lv-menu-item to="lv-chart" label="Chart"/>
+          </lv-menu-list>
+          <lv-menu-list icon="question-circle" label="Undefined">
+            <lv-menu-item to="lv-notice" label="Notice"/>
+          </lv-menu-list>
         </lv-menu-group>
       </lv-menu>
     </template>
@@ -32,3 +39,11 @@
     </template>
   </lv-layout>
 </template>
+
+<style scoped>
+
+.logo {
+  margin-right: 5px;
+  color: #ff2e77;
+}
+</style>

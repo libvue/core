@@ -11,6 +11,7 @@ import LvLayout from './LvLayout/LvLayout.vue';
 import LvHeading from './LvHeading/LvHeading.vue';
 import LvCode from './LvCode/LvCode.vue';
 import LvCard from './LvCard/LvCard.vue';
+import LvTable from './LvTable/LvTable.vue';
 
 const components = {
   LvIcon,
@@ -26,6 +27,7 @@ const components = {
   LvHeading,
   LvCode,
   LvCard,
+  LvTable
 };
 
 // Export default

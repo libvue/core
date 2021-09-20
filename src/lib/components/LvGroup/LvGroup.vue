@@ -36,7 +36,7 @@ export default {
 @import '../../scss/core';
 
 .lv-group {
-  --item-distance: $margin-inter-item;
+  --item-distance: #{$margin-inter-item};
 
   display: flex;
   flex-wrap: wrap;

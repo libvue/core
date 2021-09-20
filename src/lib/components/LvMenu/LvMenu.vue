@@ -1,6 +1,6 @@
 <template>
   <div class="lv-menu">
-    <div class="lv-menu__header" v-if="hasHeaderSlot">
+    <div class="lv-menu__header" v-if="hasHeaderSlot" @click="$emit('click-header')">
       <slot name="header" />
     </div>
     <slot />
@@ -38,8 +38,12 @@ $menu-background-color: $background-color;
   font-family: $font-family;
 
   &__header {
-    padding: 0 10px 38px 10px;
+    display: flex;
+    padding: 0 10px 0px 10px;
+    margin-bottom: 38px;
     font-weight: bold;
+    align-items: center;
+    cursor: pointer;
   }
 }
 </style>
