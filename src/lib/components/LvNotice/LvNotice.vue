@@ -48,6 +48,7 @@ export default {
 
   &__icon {
     margin-right: 10px;
+    flex-shrink: 0;
   }
 
   &--ghost {

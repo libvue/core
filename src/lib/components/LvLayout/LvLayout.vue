@@ -52,6 +52,8 @@ $layout-menu-border-color: lighten($border-color, 8);
   }
   &__content {
     flex-grow: 1;
+    overflow-x: auto;
+    overflow-y: auto;
   }
   &__menu {
     border-right: 1px solid fallback($layout-menu-border-color, $border-color);

@@ -5,6 +5,7 @@ import GettingStarted from '../views/installation/getting-started.vue';
 // Components
 import LvButton from '../views/components/lv-button.vue';
 import LvInput from '../views/components/lv-input.vue';
+import LvCheckbox from '../views/components/lv-checkbox.vue';
 import LvMenu from '../views/components/lv-menu.vue';
 import LvHeading from '../views/components/lv-heading.vue';
 import LvParagraph from '../views/components/lv-paragraph.vue';
@@ -37,6 +38,11 @@ const routes = [
     path: '/lv-input',
     name: 'lv-input',
     component: LvInput,
+  },
+  {
+    path: '/lv-checkbox',
+    name: 'lv-checkbox',
+    component: LvCheckbox,
   },
   {
     path: '/lv-heading',

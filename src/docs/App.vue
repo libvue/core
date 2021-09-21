@@ -26,6 +26,7 @@
           </lv-menu-list>
           <lv-menu-list icon="clipboard-notes" label="Form Elements">
             <lv-menu-item to="lv-input" label="Input"/>
+            <lv-menu-item to="lv-checkbox" label="Checkbox"/>
           </lv-menu-list>
           <lv-menu-list icon="analytics" label="Data Visualization">
             <lv-menu-item to="lv-table" label="Table"/>

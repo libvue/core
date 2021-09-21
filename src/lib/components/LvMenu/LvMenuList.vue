@@ -96,6 +96,7 @@ $menu-list-padding: $padding;
     border-left: 1px solid #eaeaea;
     padding-left: 13px;
     margin-left: 18px;
+    margin-bottom: 10px;
 
     > [class^='lv-menu-item'] {
       &:last-of-type {

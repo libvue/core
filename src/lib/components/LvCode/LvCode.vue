@@ -2,7 +2,7 @@
   <div
     class="lv-code"
     :class="{
-      'lv-code--title': title,
+      'lv-code--titled': title,
     }"
   >
     <div
@@ -101,7 +101,7 @@ $code-background-color: lighten($color-default, 12);
     position: relative;
     background-color: $code-background-color;
     color: $text-color-inverted;
-    padding: fallback($code-padding, $padding);
+    padding: $padding ;
     border-radius: $border-radius;
     font-family: $font-family-monospace;
     font-size: $font-size;
@@ -115,15 +115,17 @@ $code-background-color: lighten($color-default, 12);
     }
   }
 
-  &--title {
+  &--titled {
     #{$self}__content {
       border-radius: 0 0 $border-radius $border-radius;
+      padding-right: $code-padding;
     }
   }
 
   &__code {
     margin: 0;
     padding: 0;
+    overflow-x: auto;
   }
 }
 </style>

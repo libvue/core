@@ -1,6 +1,7 @@
 // Components
 import LvButton from "./components/LvButton/LvButton.vue";
 import LvCard from "./components/LvCard/LvCard.vue";
+import LvCheckbox from "./components/LvCheckbox/LvCheckbox.vue";
 import LvCode from "./components/LvCode/LvCode.vue";
 import LvGroup from "./components/LvGroup/LvGroup.vue";
 import LvHeading from "./components/LvHeading/LvHeading.vue";
@@ -11,8 +12,8 @@ import LvMenu from "./components/LvMenu/LvMenu.vue";
 import LvMenuGroup from "./components/LvMenu/LvMenuGroup.vue";
 import LvMenuItem from "./components/LvMenu/LvMenuItem.vue";
 import LvMenuList from "./components/LvMenu/LvMenuList.vue";
-import LvTable from "./components/LvTable/LvTable.vue";
 import LvNotice from "./components/LvNotice/LvNotice.vue";
+import LvTable from "./components/LvTable/LvTable.vue";
 
 import { setAppInstance } from './plugin/instance';
 
@@ -29,19 +30,21 @@ export default {
     app.component('lv-heading', LvHeading);
     app.component('lv-icon', LvIcon);
     app.component('lv-input', LvInput);
+    app.component('lv-checkbox', LvCheckbox);
     app.component('lv-layout', LvLayout);
     app.component('lv-menu', LvMenu);
     app.component('lv-menu-group', LvMenuGroup);
     app.component('lv-menu-item', LvMenuItem);
     app.component('lv-menu-list', LvMenuList);
-    app.component('lv-table', LvTable);
     app.component('lv-notice', LvNotice);
+    app.component('lv-table', LvTable);
   },
 };
 
 export {
   LvButton,
   LvCard,
+  LvCheckbox,
   LvCode,
   LvGroup,
   LvHeading,
@@ -52,6 +55,6 @@ export {
   LvMenuGroup,
   LvMenuItem,
   LvMenuList,
+  LvNotice,
   LvTable,
-  LvNotice
 }
