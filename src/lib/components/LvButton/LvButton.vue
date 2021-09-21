@@ -179,10 +179,10 @@ $button-transition-time: $transition-time;
 
   &--active,
   &--primary {
-    background-color: fallback($button-color-primary, fallback($color-primary, #6C5DD3));
+    background-color: fallback($button-color-primary, fallback($color-primary, #ff2e77));
     color: fallback($button-text-color-inverted, fallback($text-color-inverted, #FFFFFF));
     &:hover {
-      background-color: darken(fallback($button-color-primary, fallback($color-primary, #6C5DD3)), 6);
+      background-color: darken(fallback($button-color-primary, fallback($color-primary, #ff2e77)), 6);
     }
 
     &:focus {

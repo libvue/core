@@ -5,6 +5,7 @@
     <lv-table
         checkable
         clickable-rows
+        local-sort
         :rows="rows"
         :columns="columns"
         :sort-field="sortField"

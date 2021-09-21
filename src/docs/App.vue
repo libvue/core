@@ -19,17 +19,17 @@
             <lv-menu-item to="lv-paragraph" label="Paragraph"/>
             <lv-menu-item to="lv-quote" label="Quote"/>
             <lv-menu-item to="lv-code" label="Code"/>
+            <lv-menu-item to="lv-notice" label="Notice"/>
+          </lv-menu-list>
+          <lv-menu-list icon="compass" label="Navigation">
+            <lv-menu-item to="lv-button" label="Button"/>
           </lv-menu-list>
           <lv-menu-list icon="clipboard-notes" label="Form Elements">
-            <lv-menu-item to="lv-button" label="Button"/>
             <lv-menu-item to="lv-input" label="Input"/>
           </lv-menu-list>
           <lv-menu-list icon="analytics" label="Data Visualization">
             <lv-menu-item to="lv-table" label="Table"/>
             <lv-menu-item to="lv-chart" label="Chart"/>
-          </lv-menu-list>
-          <lv-menu-list icon="question-circle" label="Undefined">
-            <lv-menu-item to="lv-notice" label="Notice"/>
           </lv-menu-list>
         </lv-menu-group>
       </lv-menu>

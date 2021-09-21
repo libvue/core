@@ -8,7 +8,7 @@
   <lv-heading :level="5">Cherry pick some components</lv-heading>
   <lv-code title="main.js" :code="installCherryCode" lang="js"/>
 
-  Note: both use a global css file so that this library can also be used in a SSR environment.
+  <lv-notice icon="bell"> Note: both use a global css file so that this library can also be used in a SSR environment.</lv-notice>
 </template>
 
 <script>

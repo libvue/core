@@ -12,6 +12,7 @@ import LvMenuGroup from "./components/LvMenu/LvMenuGroup.vue";
 import LvMenuItem from "./components/LvMenu/LvMenuItem.vue";
 import LvMenuList from "./components/LvMenu/LvMenuList.vue";
 import LvTable from "./components/LvTable/LvTable.vue";
+import LvNotice from "./components/LvNotice/LvNotice.vue";
 
 import { setAppInstance } from './plugin/instance';
 
@@ -34,6 +35,7 @@ export default {
     app.component('lv-menu-item', LvMenuItem);
     app.component('lv-menu-list', LvMenuList);
     app.component('lv-table', LvTable);
+    app.component('lv-notice', LvNotice);
   },
 };
 
@@ -50,5 +52,6 @@ export {
   LvMenuGroup,
   LvMenuItem,
   LvMenuList,
-  LvTable
+  LvTable,
+  LvNotice
 }

@@ -20,7 +20,7 @@
     </div>
 
     <div class="lv-table__rows">
-      <div class="lv-table__row" v-for="row in rows" @click="onClickRow(row)">
+      <div class="lv-table__row" v-for="row in computedRows" @click="onClickRow(row)">
         <!-- Checkbox Cell -->
         <div class="lv-table__cell" v-if="checkable">
           checkbox
@@ -134,6 +134,13 @@ export default {
     visibleColumnCount() {
       if (this.checkable) return this.visibleColumns.length + 1;
       return this.visibleColumns.length;
+    },
+    computedRows() {
+      if(this.localSort) {
+        if(this.sortDirection === 'asc') return this.rows.sort((a,b) => (a[this.sortField] > b[this.sortField]) ? 1 : ((b[this.sortField] > a[this.sortField]) ? -1 : 0))
+        return this.rows.sort((a,b) => (a[this.sortField] > b[this.sortField]) ? 1 : ((b[this.sortField] > a[this.sortField]) ? -1 : 0)).reverse();
+      }
+      return this.rows;
     }
   },
   methods: {
