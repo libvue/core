@@ -3,10 +3,10 @@
   <lv-heading sub :level="6">How to get started with libvue</lv-heading>
 
   <lv-heading :level="5">Install entire library</lv-heading>
-  <lv-code title="In Terminal" lang="bash" code="npm install --save libvue@latest"/>
-  <lv-code title="main.js" :code="installFullCode" lang="js"/>
+  <lv-code lang="bash" code="npm install --save libvue@latest"/>
+  <lv-code :code="installFullCode" lang="js"/>
   <lv-heading :level="5">Cherry pick some components</lv-heading>
-  <lv-code title="main.js" :code="installCherryCode" lang="js"/>
+  <lv-code :code="installCherryCode" lang="js"/>
 
   <lv-notice icon="bell"> Note: both use a global css file so that this library can also be used in a SSR environment.</lv-notice>
 </template>
