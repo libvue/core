@@ -97,6 +97,7 @@ $menu-list-padding: $padding;
     padding-left: 13px;
     margin-left: 18px;
     margin-bottom: 10px;
+    background-color: $background-color;
 
     > [class^='lv-menu-item'] {
       &:last-of-type {

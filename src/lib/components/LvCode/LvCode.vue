@@ -12,7 +12,7 @@
       {{ title }}
       <lv-icon
         class="lv-code__title-copy"
-        name="copy"
+        :name="copyIcon"
         @click="copyCodeToClipboard"
       />
     </div>
@@ -24,7 +24,7 @@
       <lv-icon
         v-if="!title"
         class="lv-code__content-copy"
-        name="copy"
+        :name="copyIcon"
         @click="copyCodeToClipboard"
       />
     </div>
@@ -55,6 +55,11 @@ export default {
       }
     }
   },
+  data() {
+    return {
+      copyIcon: 'clipboard-notes',
+    };
+  },
   computed: {
     html() {
       return hljs.highlightAuto(this.code, [this.lang]).value;
@@ -62,7 +67,11 @@ export default {
   },
   methods: {
     copyCodeToClipboard() {
-      return copyToClipboard(this.code);
+      this.copyIcon = 'check';
+      setTimeout(() => {
+        this.copyIcon = 'clipboard-notes';
+      }, 1000);
+      copyToClipboard(this.code);
     },
   },
 };
@@ -90,6 +99,7 @@ $code-background-color: lighten($color-default, 12);
     font-size: $font-size;
     margin-bottom: 0;
     padding: 14px;
+    align-items: center;
 
     &-copy {
       margin-left: auto;
@@ -101,11 +111,12 @@ $code-background-color: lighten($color-default, 12);
     position: relative;
     background-color: $code-background-color;
     color: $text-color-inverted;
-    padding: $padding ;
+    padding: $padding ($padding * 1.5);
     border-radius: $border-radius;
     font-family: $font-family-monospace;
     font-size: $font-size;
     padding-right: 35px;
+    line-height: 24px;
 
     &-copy {
       cursor: pointer;

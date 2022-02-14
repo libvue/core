@@ -39,7 +39,6 @@ export default {
     margin-bottom: 0;
   }
 
-
   &__label {
     display: flex;
     align-items: center;
@@ -48,7 +47,6 @@ export default {
     color: $placeholder-color;
     margin-top: 0;
     padding: 10px;
-
   }
 
   &__icon {

@@ -13,5 +13,6 @@
   padding: $padding * 2;
   border-radius: $border-radius;
   box-shadow: 0 20px 25px rgba(0,0,0,0.03);
+  background-color: $background-color;
 }
 </style>
