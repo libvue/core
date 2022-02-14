@@ -1,28 +1,32 @@
 {
-  "private": true,
-  "workspaces": [
-    "packages/docs",
-    "packages/libvue"
-  ],
+  "name": "libvue",
+  "version": "0.0.0",
   "scripts": {
-    "serve": "npm run serve:docs",
-    "serve:docs": "vue-cli-service serve ./packages/docs/src/main.js",
-    "build:docs": "vue-cli-service build ./packages/docs/src/main.js --dest dist/docs",
-    "lint": "npm run lint:js && npm run lint:css",
-    "lint:js": "eslint . --ext .js,.vue --config .eslintrc.js --fix",
-    "lint:css": "stylelint ./**/*.{vue,scss} --fix"
-  },
-  "devDependencies": {
-    "eslint": "^7.12.1",
-    "eslint-config-airbnb-base": "^14.2.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-vue": "^7.1.0",
-    "stylelint": "^13.7.2",
-    "stylelint-config-rational-order": "^0.1.2",
-    "stylelint-config-standard": "^20.0.0",
-    "stylelint-declaration-block-no-ignored-properties": "^2.3.0"
+    "dev": "vite",
+    "build": "vite build"
   },
   "dependencies": {
-    "highlight.js": "^10.7.3"
+    "@iconscout/unicons": "^4.0.0",
+    "highlight.js": "^11.2.0",
+    "vue": "^3.2.6"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^2.2.0",
+    "@vue/compiler-sfc": "^3.2.6",
+    "sass": "^1.41.1",
+    "sass-loader": "^12.1.0",
+    "vite": "^2.5.4",
+    "vue-router": "^4.0.11"
+  },
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/libvue.umd.js",
+  "module": "./dist/libvue.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/libvue.es.js",
+      "require": "./dist/libvue.umd.js"
+    }
   }
 }

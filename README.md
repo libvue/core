@@ -1,2 +1,13 @@
-# libvue
-A vue.js component library
+# 🗃️ libvue
+
+A **tree-shake-able component library** made for vue3 containing:
+
+- 🗺️ Layout's
+- ✒️ Writing
+- 🔗 Navigation
+- 📋 Forms
+- 📈 Data Visualization
+- 🖼️ Media
+- 🪁 Overlays
+
+
