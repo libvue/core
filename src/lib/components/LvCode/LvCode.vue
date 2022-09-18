@@ -86,7 +86,6 @@ $code-background-color: lighten($color-default, 12);
 .lv-code {
   $self: &;
   width: 100%;
-  margin-bottom: 20px;
 
   &__title {
     display: flex;

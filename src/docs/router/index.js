@@ -1,6 +1,12 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-// Installation
-import GettingStarted from '../views/installation/getting-started.vue';
+// Getting Started
+import About from '../views/getting-started/about.vue';
+import Install from '../views/getting-started/install.vue';
+
+// Concepts
+import Grids from '../views/concepts/grids.vue';
+import Spacing from '../views/concepts/spacing.vue';
+import Theming from '../views/concepts/theming.vue';
 
 // Components
 import LvButton from '../views/components/lv-button.vue';
@@ -18,11 +24,35 @@ import LvChart from '../views/components/lv-chart.vue';
 import LvNotice from '../views/components/lv-notice.vue';
 
 const routes = [
-  { path: '/', redirect: '/getting-started' },
+  { path: '/', redirect: '/about' },
   {
-    path: '/getting-started',
-    name: 'getting-started',
-    component: GettingStarted,
+    path: '/about',
+    name: 'about',
+    component: About,
+    meta: {
+      hideMenu: true,
+    }
+  },
+
+  {
+    path: '/install',
+    name: 'install',
+    component: Install,
+  },
+  {
+    path: '/spacing',
+    name: 'spacing',
+    component: Spacing,
+  },
+  {
+    path: '/theming',
+    name: 'theming',
+    component: Theming,
+  },
+  {
+    path: '/grids',
+    name: 'grids',
+    component: Grids,
   },
   {
     path: '/lv-button',
