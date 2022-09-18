@@ -51,8 +51,6 @@ export default {
 <style lang="scss">
 @import '../../scss/core';
 
-$heading-margin-bottom: 20px;
-
 .lv-heading {
   margin-top: 0;
   font-family: $font-family;
@@ -60,8 +58,7 @@ $heading-margin-bottom: 20px;
   width: 100%;
   color: $color-default;
   font-weight: 600;
-  margin-bottom: $heading-margin-bottom;
-
+    margin-bottom: 0;
   &--h1 {
     font-size: $font-size-h1;
   }

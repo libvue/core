@@ -3,10 +3,15 @@
     <template #menu-header>
       <lv-icon name="vuejs-alt" class="logo" :size="16"/> Libvue
     </template>
-    <template #menu>
-      <lv-menu-group label="Installation">
-        <lv-menu-item icon="rocket" to="getting-started" label="Getting Started"/>
+    <template #menu v-if="!hideMenu">
+      <lv-menu-group label="Getting Started">
+          <lv-menu-item icon="rocket" to="install" label="Installation"/>
       </lv-menu-group>
+    <lv-menu-group label="Concepts">
+        <lv-menu-item icon="swatchbook" to="theming" label="Theming"/>
+        <lv-menu-item icon="apps" to="spacing" label="Spacing"/>
+        <lv-menu-item icon="web-grid    " to="grids" label="Grids"/>
+    </lv-menu-group>
       <lv-menu-group label="Components">
         <lv-menu-list icon="grid" label="Layout">
           <lv-menu-item label="Layout"/>
@@ -62,8 +67,17 @@
   </lv-layout>
 </template>
 
-<style scoped>
+<script>
+export default {
+    computed: {
+        hideMenu() {
+            return !!this.$route.meta.hideMenu;
+        }
+    }
+}
+</script>
 
+<style scoped>
 .logo {
   margin-right: 5px;
   color: #ff2e77;

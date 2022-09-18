@@ -93,7 +93,7 @@ export default {
   color: fallback($text-color, #192024);
   flex-direction: column;
   justify-content: center;
-
+    margin-bottom: 0;
   // Elements
   &__icon {
     position: absolute;
