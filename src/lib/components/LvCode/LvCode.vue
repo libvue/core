@@ -63,10 +63,10 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/core';
+@import '../../scss/variables';
 
 $code-padding: 14px;
-$code-background-color: lighten($color-default, 12);
+$code-background-color: lighten($text-color, 12);
 
 .lv-code {
     $self: &;

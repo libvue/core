@@ -31,10 +31,6 @@ export default {
                 return number > 0 && number <= 6;
             },
         },
-        sticky: {
-            type: Boolean,
-            default: false,
-        },
         sub: {
             type: Boolean,
             default: false,
@@ -49,16 +45,17 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/core';
+@import '../../scss/variables';
 
 .lv-heading {
     margin-top: 0;
     font-family: $font-family;
     display: block;
     width: 100%;
-    color: $color-default;
+    color: $text-color;
     font-weight: 600;
     margin-bottom: 0;
+
     &--h1 {
         font-size: $font-size-h1;
     }
@@ -77,11 +74,8 @@ export default {
     &--h6 {
         font-size: $font-size-h6;
     }
-    &--sticky {
-        margin-bottom: 5px;
-    }
     &--sub {
-        color: lighten($color-default, 50);
+        color: lighten($text-color, 50);
     }
 }
 </style>

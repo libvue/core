@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/core';
+@import '../../scss/variables';
 
 .lv-menu-group {
     font-family: $font-family;

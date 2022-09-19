@@ -1,5 +1,5 @@
 <template>
-    <div class="lv-group" :class="['lv-group--align-' + align, 'lv-group--direction-' + direction]" :style="`--item-distance: ${gap}px;`">
+    <div class="lv-group" :class="['lv-group--align-' + align, 'lv-group--direction-' + direction]">
         <slot />
     </div>
 </template>
@@ -22,18 +22,19 @@ export default {
         },
         gap: {
             type: [String, Number],
-            default: 10,
+            default: '10px',
         },
     },
 };
 </script>
 
 <style lang="scss">
-@import '../../scss/core';
+@import '../../scss/variables';
 
 .lv-group {
     display: flex;
     flex-wrap: wrap;
+    gap: v-bind(gap);
 
     &--align-left {
         justify-content: flex-start;

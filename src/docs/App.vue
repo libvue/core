@@ -75,9 +75,11 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import 'src/lib/scss/variables';
+
 .logo {
     margin-right: 5px;
-    color: #ff2e77;
+    color: $color-primary;
 }
 </style>

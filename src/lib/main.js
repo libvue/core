@@ -14,6 +14,9 @@ import LvMenuItem from './components/LvMenu/LvMenuItem.vue';
 import LvMenuList from './components/LvMenu/LvMenuList.vue';
 import LvNotice from './components/LvNotice/LvNotice.vue';
 import LvTable from './components/LvTable/LvTable.vue';
+import LvParagraph from './components/LvParagraph/LvParagraph.vue';
+
+import spaceAfter from './directives/spaceAfter';
 
 import { setAppInstance } from './plugin/instance';
 
@@ -22,6 +25,9 @@ export default {
         // Write away the app instance
         setAppInstance(app);
 
+        // Register the spaceAfter directive
+        app.directive('space-after', spaceAfter);
+
         // Register all components
         app.component('lv-button', LvButton);
         app.component('lv-card', LvCard);
@@ -29,6 +35,7 @@ export default {
         app.component('lv-group', LvGroup);
         app.component('lv-heading', LvHeading);
         app.component('lv-icon', LvIcon);
+        app.component('lv-paragraph', LvParagraph);
         app.component('lv-input', LvInput);
         app.component('lv-checkbox', LvCheckbox);
         app.component('lv-layout', LvLayout);

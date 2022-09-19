@@ -45,7 +45,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/core';
+@import '../../scss/variables';
 
 $menu-list-padding: $padding;
 
@@ -75,7 +75,7 @@ $menu-list-padding: $padding;
         border-radius: 5px;
 
         &:hover {
-            background-color: lighten($color-default, 87);
+            background-color: lighten($text-color, 87);
         }
 
         &-icon {

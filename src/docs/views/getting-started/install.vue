@@ -1,6 +1,6 @@
 <template>
-    <lv-heading :level="3" sticky>Getting Started</lv-heading>
-    <lv-heading sub :level="6">How to get started with libvue</lv-heading>
+    <lv-heading :level="3" v-space-after="0.5">Getting Started</lv-heading>
+    <lv-heading sub :level="6" v-space-after="1">How to get started with libvue</lv-heading>
 
     <lv-heading :level="5">Install entire library</lv-heading>
     <lv-code lang="bash" code="npm install --save libvue@latest" />

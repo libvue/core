@@ -1,6 +1,6 @@
 <template>
-    <lv-heading :level="3" sticky>Input</lv-heading>
-    <lv-heading sub :level="6">An multi-typed input for your fancy forms</lv-heading>
+    <lv-heading :level="3" v-space-after="0.5">Input</lv-heading>
+    <lv-heading sub :level="6" v-space-after="1">An multi-typed input for your fancy forms</lv-heading>
     <lv-heading :level="5">Types</lv-heading>
     <lv-heading :level="6">Text</lv-heading>
     <lv-group direction="column">

@@ -49,7 +49,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/core';
+@import '../../scss/variables';
 
 $layout-menu-border-color: lighten($border-color, 8);
 $layout-menu-left-width: 300px;
@@ -84,7 +84,7 @@ $layout-menu-left-width: 300px;
         max-height: 100vh;
     }
     &__menu {
-        border-right: 1px solid fallback($layout-menu-border-color, $border-color);
+        border-right: 1px solid $layout-menu-border-color;
         overflow-y: auto;
         max-height: 100vh;
         width: $layout-menu-left-width;
