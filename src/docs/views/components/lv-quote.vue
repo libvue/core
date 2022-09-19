@@ -1,5 +1,3 @@
 <template>
-  <lv-group>
-    quote
-  </lv-group>
+    <lv-group> quote </lv-group>
 </template>

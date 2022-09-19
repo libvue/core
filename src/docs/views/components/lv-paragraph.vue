@@ -1,5 +1,3 @@
 <template>
-  <lv-group>
-    paragraph
-  </lv-group>
+    <lv-group> paragraph </lv-group>
 </template>
