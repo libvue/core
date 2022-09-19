@@ -1,7 +1,7 @@
 <template>
     <div class="splash">
         <div class="splash__logo" v-space-after="0.5">
-            <lv-icon name="vuejs-alt" class="splash__logo-icon" :size="28" />
+            <img class="splash__logo-brand" src="/logo.svg" v-space-after="2" alt="">
             <div class="splash__logo-text">Libvue</div>
         </div>
         <lv-paragraph class="splash__about" v-space-after="2"> Yet another opinionated vue framework. </lv-paragraph>
@@ -18,7 +18,7 @@ export default {
         goToGithub() {
             window.open('https://github.com/harmendv/libvue', '_blank');
         }
-    }
+    },
 };
 </script>
 
@@ -39,9 +39,12 @@ export default {
     &__logo {
         display: flex;
         align-items: center;
-        &-icon {
+        flex-direction: column;
+        justify-content: center;
+        &-brand {
             margin-right: 5px;
             color: $color-primary;
+            width: 200px;
         }
         &-text {
             font-size: 21px;

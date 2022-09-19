@@ -1,6 +1,8 @@
 <template>
     <lv-layout menu-position="left">
-        <template #menu-header> <lv-icon name="vuejs-alt" class="logo" :size="16" /> Libvue </template>
+        <template #menu-header>
+            <img class="logo" src="public/logo.svg" v-space-after="0.5" alt=""> Libvue
+        </template>
         <template #menu v-if="!hideMenu">
             <lv-menu-group label="Getting Started">
                 <lv-menu-item icon="rocket" to="install" label="Installation" />
@@ -79,7 +81,7 @@ export default {
 @import 'src/lib/scss/variables';
 
 .logo {
-    margin-right: 5px;
+    width: 28px;
     color: $color-primary;
 }
 </style>
