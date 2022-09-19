@@ -1,7 +1,7 @@
 <template>
     <div class="splash">
         <div class="splash__logo" v-space-after="0.5">
-            <img class="splash__logo-brand" src="/logo.svg" v-space-after="2" alt="">
+            <img class="splash__logo-brand" src="/logo-indented.svg" v-space-after="2" alt="">
             <div class="splash__logo-text">Libvue</div>
         </div>
         <lv-paragraph class="splash__about" v-space-after="2"> Yet another opinionated vue framework. </lv-paragraph>
