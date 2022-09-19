@@ -1,6 +1,6 @@
 <svg width="273" height="235" viewBox="0 0 273 235" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_5_2)">
-<rect width="273" height="235" fill="white"/>
+<rect width="273" height="235"/>
 <path d="M0 11C0 4.92486 4.92487 0 11 0H80C86.0751 0 91 4.92487 91 11V235H11C4.92487 235 0 230.075 0 224V11Z" fill="#4637F3"/>
 <path fill-rule="evenodd" clip-rule="evenodd" d="M11 0C4.92487 0 0 4.92486 0 11V224C0 230.075 4.92487 235 11 235H91V233.782L1.23285 15.1784C-1.73958 7.93988 3.58324 0 11.4083 0H11Z" fill="#9C6BFE"/>
 <g style="mix-blend-mode:darken">
