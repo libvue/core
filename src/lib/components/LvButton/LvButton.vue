@@ -75,11 +75,11 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/core';
+@import '../../scss/variables';
 
 $button-border-color-focus: $border-color-focus;
 $button-border-radius: $border-radius;
-$button-color-default: $color-default;
+$button-color-default: $text-color;
 $button-color-ghost: $color-ghost;
 $button-color-info: $color-info;
 $button-color-primary: $color-primary;
@@ -104,16 +104,15 @@ $button-transition-time: $transition-time;
     $self: &;
     display: inline-flex;
     position: relative;
-    font-family: fallback($button-font-family, fallback($font-family, sans-serif));
+    font-family: $button-font-family;
     outline: none;
-    font-size: fallback($button-font-size, fallback($font-size, 16px));
-    border-radius: fallback($button-border-radius, fallback($border-radius, 5px));
-    padding: fallback($button-padding, fallback($padding, 5px));
-    color: fallback($button-text-color-inverted, fallback($text-color-inverted, #f3f7f9));
-    transition: fallback($button-transition-time, fallback($transition-time, 0.2s)) all
-        fallback($button-transition-easing, fallback($transition-easing, ease-in-out));
+    font-size: $button-font-size;
+    border-radius: $button-border-radius;
+    padding: $button-padding;
+    color: $button-text-color-inverted;
+    transition: $button-transition-time all $button-transition-easing;
     cursor: pointer;
-    background-color: fallback($button-color-default, $color-default);
+    background-color: $button-color-default;
     text-align: center;
     font-weight: 500;
     box-shadow: none;
@@ -123,25 +122,25 @@ $button-transition-time: $transition-time;
     text-decoration: none;
 
     &:hover {
-        background-color: darken(fallback($button-color-default, $color-default), 6);
+        background-color: $button-color-default;
     }
 
     &:focus {
-        box-shadow: fallback($button-shadow-focus, fallback($shadow-focus, 0px 0px 0px 4px rgba(0, 0, 0, 0.24)));
+        box-shadow: $button-shadow-focus 0px 0px 4px rgba(0, 0, 0, 0.24);
     }
 
     // Elements
     &__icon {
         display: inline-block;
         margin-right: 5px; // Optical Fix
-        content: fallback($button-padding, fallback($padding, 5px));
+        content: $button-padding;
         &--hidden {
             opacity: 0;
         }
     }
 
     &__loading {
-        color: fallback($button-text-color-inverted, fallback($text-color-inverted, #f3f7f9));
+        color: $button-text-color-inverted;
         animation: rotate-cw 1s infinite linear;
         position: absolute;
         left: calc(50% - 8px);
@@ -155,67 +154,67 @@ $button-transition-time: $transition-time;
     }
 
     &--ghost {
-        background-color: fallback($button-color-ghost, fallback($color-ghost, #ffffff));
-        color: fallback($button-text-color, fallback($text-color, #f3f7f9));
+        background-color: $button-color-ghost;
+        color: $button-text-color;
         &:hover {
-            background-color: darken(fallback($button-color-ghost, fallback($color-ghost, #ffffff)), 6);
+            background-color: darken($button-color-ghost, 6);
         }
 
         &:focus {
-            box-shadow: fallback($button-shadow-focus-ghost, fallback($shadow-focus-ghost, 0px 0px 0px 4px rgba(0, 0, 0, 0.04)));
+            box-shadow: $button-shadow-focus-ghost 0px 0px 4px rgba(0, 0, 0, 0.04);
         }
     }
 
     &--active,
     &--primary {
-        background-color: fallback($button-color-primary, fallback($color-primary, #ff2e77));
-        color: fallback($button-text-color-inverted, fallback($text-color-inverted, #ffffff));
+        background-color: $button-color-primary;
+        color: $button-text-color-inverted;
         &:hover {
-            background-color: darken(fallback($button-color-primary, fallback($color-primary, #ff2e77)), 6);
+            background-color: darken($button-color-primary, 6);
         }
 
         &:focus {
-            box-shadow: fallback($button-shadow-focus-primary, fallback($shadow-focus-primary, 0px 0px 0px 4px rgba(0, 0, 0, 0.04)));
+            box-shadow: $button-shadow-focus-primary 0px 0px 4px rgba(0, 0, 0, 0.04);
         }
     }
 
     // Modifiers
     &--warning {
-        background-color: fallback($button-color-warning, fallback($color-warning, #ff5427));
-        color: fallback($button-text-color-inverted, fallback($text-color-inverted, #ffffff));
+        background-color: $button-color-warning;
+        color: $button-text-color-inverted;
 
         &:hover {
-            background-color: darken(fallback($button-color-warning, fallback($color-warning, #ff5427)), 6);
+            background-color: darken($button-color-warning, 6);
         }
 
         &:focus {
-            box-shadow: fallback($button-shadow-focus-warning, fallback($shadow-focus-warning, 0px 0px 0px 4px rgba(0, 0, 0, 0.04)));
+            box-shadow: $button-shadow-focus-warning 0px 0px 4px rgba(0, 0, 0, 0.04);
         }
     }
 
     &--success {
-        background-color: fallback($button-color-success, fallback($color-success, #00ca99));
-        color: fallback($button-text-color-inverted, fallback($text-color-inverted, #ffffff));
+        background-color: $button-color-success;
+        color: $button-text-color-inverted;
 
         &:hover {
-            background-color: darken(fallback($button-color-success, fallback($color-success, #00ca99)), 6);
+            background-color: darken($button-color-success, 6);
         }
 
         &:focus {
-            box-shadow: fallback($button-shadow-focus-success, fallback($shadow-focus-success, 0px 0px 0px 4px rgba(0, 0, 0, 0.04)));
+            box-shadow: $button-shadow-focus-success 0px 0px 4px rgba(0, 0, 0, 0.04);
         }
     }
 
     &--info {
-        background-color: fallback($button-color-info, fallback($color-info, #0c92dd));
-        color: fallback($button-text-color-inverted, fallback($text-color-inverted, #ffffff));
+        background-color: $button-color-info;
+        color: $button-text-color-inverted;
 
         &:hover {
-            background-color: darken(fallback($button-color-info, fallback($color-info, #0c92dd)), 6);
+            background-color: darken($button-color-info, 6);
         }
 
         &:focus {
-            box-shadow: fallback($button-shadow-focus-info, fallback($shadow-focus-info, 0px 0px 0px 4px rgba(0, 0, 0, 0.04)));
+            box-shadow: $button-shadow-focus-info 0px 0px 4px rgba(0, 0, 0, 0.04);
         }
     }
 

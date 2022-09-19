@@ -45,7 +45,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/core';
+@import '../../scss/variables';
 
 .lv-menu-item {
     $self: &;
@@ -59,7 +59,7 @@ export default {
     font-size: $font-size;
 
     &:hover:not(#{$self}--active) {
-        background-color: lighten($color-default, 87);
+        background-color: lighten($text-color, 87);
     }
 
     &--active {

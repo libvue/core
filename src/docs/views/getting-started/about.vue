@@ -1,22 +1,30 @@
 <template>
     <div class="splash">
-        <div class="splash__logo">
+        <div class="splash__logo" v-space-after="0.5">
             <lv-icon name="vuejs-alt" class="splash__logo-icon" :size="28" />
             <div class="splash__logo-text">Libvue</div>
         </div>
-        <lv-paragraph class="splash__about"> Yet another opinionated vue framework. </lv-paragraph>
+        <lv-paragraph class="splash__about" v-space-after="2"> Yet another opinionated vue framework. </lv-paragraph>
         <lv-group>
             <lv-button type="primary" @click="$router.push('install')" icon="book-open">Documentation</lv-button>
-            <lv-button type="ghost" @click="$router.push('install')" icon="github">Github</lv-button>
+            <lv-button type="ghost" @click="goToGithub" icon="github">Github</lv-button>
         </lv-group>
     </div>
 </template>
 
 <script>
-export default {};
+export default {
+    methods: {
+        goToGithub() {
+            window.open('https://github.com/harmendv/libvue', '_blank');
+        }
+    }
+};
 </script>
 
 <style lang="scss">
+@import 'src/lib/scss/variables';
+
 .splash {
     display: flex;
     align-items: center;
@@ -26,16 +34,14 @@ export default {};
     max-width: 400px;
     margin: auto;
     &__about {
-        margin-bottom: 2rem;
         text-align: center;
     }
     &__logo {
         display: flex;
         align-items: center;
-        margin-bottom: 0.5rem;
         &-icon {
-            color: #ff2e77;
             margin-right: 5px;
+            color: $color-primary;
         }
         &-text {
             font-size: 21px;

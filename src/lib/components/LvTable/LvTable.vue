@@ -168,7 +168,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/core';
+@import '../../scss/variables';
 
 $table-column-color: lighten($text-color, 50);
 
@@ -182,7 +182,7 @@ $table-column-color: lighten($text-color, 50);
             cursor: pointer;
 
             &:hover {
-                background-color: lighten($color-default, 89);
+                background-color: lighten($text-color, 89);
             }
         }
     }

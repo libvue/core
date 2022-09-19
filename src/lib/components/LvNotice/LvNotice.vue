@@ -38,7 +38,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/core';
+@import '../../scss/variables';
 
 .lv-notice {
     padding: 10px 13px;
@@ -54,30 +54,30 @@ export default {
     }
 
     &--ghost {
-        background-color: fallback($color-ghost, #ffffff);
-        color: fallback($text-color, #f3f7f9);
+        background-color: $color-ghost;
+        color: $text-color;
     }
 
     &--active,
     &--primary {
-        background-color: fallback($color-primary, #ff2e77);
-        color: fallback($text-color-inverted, #ffffff);
+        background-color: $color-primary;
+        color: $text-color-inverted;
     }
 
     // Modifiers
     &--warning {
-        background-color: fallback($color-warning, #ff5427);
-        color: fallback($text-color-inverted, #ffffff);
+        background-color: $color-warning;
+        color: $text-color-inverted;
     }
 
     &--success {
-        background-color: fallback($color-success, #00ca99);
-        color: fallback($text-color-inverted, #ffffff);
+        background-color: $color-success;
+        color: $text-color-inverted;
     }
 
     &--info {
-        background-color: fallback($color-info, #0c92dd);
-        color: fallback($text-color-inverted, #ffffff);
+        background-color: $color-info;
+        color: $text-color-inverted;
     }
 }
 </style>

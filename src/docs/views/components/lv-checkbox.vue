@@ -1,6 +1,6 @@
 <template>
-    <lv-heading :level="3" sticky>Checkbox</lv-heading>
-    <lv-heading sub :level="6">A simple checkbox</lv-heading>
+    <lv-heading :level="3" v-space-after="0.5">Checkbox</lv-heading>
+    <lv-heading sub :level="6" v-space-after="1">A simple checkbox</lv-heading>
     <lv-group direction="column">
         <lv-checkbox :model-value="true" label="im a checkbox" />
         <lv-checkbox :model-value="true" disabled label="im a checkbox" />

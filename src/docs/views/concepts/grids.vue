@@ -1,6 +1,6 @@
 <template>
-    <lv-heading :level="3" sticky>Grids</lv-heading>
-    <lv-heading sub :level="6">Abracadabra</lv-heading>
+    <lv-heading :level="3" v-space-after="0.5">Grids</lv-heading>
+    <lv-heading sub :level="6" v-space-after="1">Abracadabra</lv-heading>
 
     <lv-heading :level="5">Use CSS for layout</lv-heading>
     <lv-paragraph>

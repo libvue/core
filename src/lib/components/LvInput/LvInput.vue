@@ -71,15 +71,15 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/core';
+@import '../../scss/variables';
 
 // Block
 .lv-input-text {
     $self: &;
     display: flex;
     position: relative;
-    font-family: fallback($font-family, sans-serif);
-    color: fallback($text-color, #192024);
+    font-family: $font-family;
+    color: $text-color;
     flex-direction: column;
     justify-content: center;
     margin-bottom: 0;
@@ -87,37 +87,37 @@ export default {
     &__icon {
         position: absolute;
         top: 13px;
-        color: fallback($text-color, #192024);
-        left: calc(fallback($padding, 5px) - 2px); // Optical Fix
+        color: $text-color;
+        left: $padding - 2px; // Optical Fix
     }
 
     &__input {
         outline: none;
-        font-size: fallback($font-size, 16px);
-        font-family: fallback($font-family, sans-serif);
-        border-radius: fallback($border-radius, 5px);
-        padding: fallback($padding, 5px);
-        color: fallback($text-color, #192024);
+        font-size: $font-size;
+        font-family: $font-family;
+        border-radius: $border-radius;
+        padding: $padding;
+        color: $text-color;
         background-color: #fafafa;
         border: 0;
-        transition: fallback($transition-time, 0.2s) all fallback($transition-easing, ease-in-out);
+        transition: $transition-time.2s all $transition-easing;
 
         &::placeholder {
-            color: fallback($placeholder-color, #808f98);
+            color: $placeholder-color;
         }
     }
 
     &__hint {
-        font-size: fallback($font-size-label, 12px);
-        color: fallback($text-color-dimmed, #192024);
+        font-size: $font-size-label;
+        color: $text-color-dimmed;
         padding: 4px;
     }
 
     &__loading {
         position: absolute;
         top: 13px;
-        color: fallback($text-color-dimmed, #192024);
-        right: calc(fallback($padding, 5px) - 2px); // Optical Fix
+        color: $text-color-dimmed;
+        right: $padding - 2px; // Optical Fix
         animation: rotate-cw 1s infinite linear;
         background-color: #fafafa;
     }
@@ -132,7 +132,7 @@ export default {
             color: $color-warning;
 
             &::placeholder {
-                color: fallback($placeholder-color-warning, #fdabc4);
+                color: $placeholder-color-warning;
             }
         }
         #{$self}__icon,
@@ -143,7 +143,7 @@ export default {
 
     &--icon {
         #{$self}__input {
-            padding-left: calc(fallback($padding, 5px) + 16px + 4px);
+            padding-left: $padding + 16px + 4px;
             box-sizing: border-box;
         }
     }
@@ -153,7 +153,7 @@ export default {
         user-select: none;
         opacity: 1;
         #{$self}__icon {
-            color: fallback($text-color-dimmed, #192024);
+            color: $text-color-dimmed;
         }
         #{$self}__input {
             background-color: #fdfdfd;

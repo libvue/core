@@ -1,7 +1,7 @@
 <template>
     <lv-group>
-        <lv-heading :level="3" sticky>Table</lv-heading>
-        <lv-heading sub :level="6">Just a table</lv-heading>
+        <lv-heading :level="3" v-space-after="0.5">Table</lv-heading>
+        <lv-heading sub :level="6" v-space-after="1">Just a table</lv-heading>
         <lv-table
             checkable
             clickable-rows
