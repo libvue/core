@@ -1,5 +1,3 @@
 <template>
-  <lv-group>
-    menu
-  </lv-group>
+    <lv-group> menu </lv-group>
 </template>

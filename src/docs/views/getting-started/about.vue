@@ -1,12 +1,10 @@
 <template>
     <div class="splash">
         <div class="splash__logo">
-            <lv-icon name="vuejs-alt" class="splash__logo-icon" :size="28"/>
+            <lv-icon name="vuejs-alt" class="splash__logo-icon" :size="28" />
             <div class="splash__logo-text">Libvue</div>
         </div>
-        <lv-paragraph class="splash__about">
-            Yet another opinionated vue framework.
-        </lv-paragraph>
+        <lv-paragraph class="splash__about"> Yet another opinionated vue framework. </lv-paragraph>
         <lv-group>
             <lv-button type="primary" @click="$router.push('install')" icon="book-open">Documentation</lv-button>
             <lv-button type="ghost" @click="$router.push('install')" icon="github">Github</lv-button>
@@ -34,7 +32,7 @@ export default {};
     &__logo {
         display: flex;
         align-items: center;
-        margin-bottom: .5rem;
+        margin-bottom: 0.5rem;
         &-icon {
             color: #ff2e77;
             margin-right: 5px;
@@ -45,5 +43,4 @@ export default {};
         }
     }
 }
-
 </style>
