@@ -7,7 +7,7 @@
         <lv-checkbox disabled label="im a checkbox" />
         <lv-checkbox loading label="im a checkbox" />
     </lv-group>
-    <lv-code title="code" lang="html" :code="code" />
+    <lv-code v-space-after="1" title="code" lang="html" :code="code" />
 </template>
 
 <script>

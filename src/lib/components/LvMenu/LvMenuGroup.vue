@@ -41,7 +41,7 @@ export default {
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        font-size: $font-size-label;
+        font-size: $font-size-small;
         color: $placeholder-color;
         margin-top: 0;
         padding: 10px;

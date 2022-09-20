@@ -1,6 +1,6 @@
 <template>
     <p class="lv-paragraph">
-       <slot></slot>
+        <slot></slot>
     </p>
 </template>
 
@@ -9,7 +9,9 @@ export default {};
 </script>
 
 <style lang="scss">
-    .lv-paragraph {
-        margin: 0;
-    }
+@import '../../scss/variables';
+.lv-paragraph {
+    margin: 0;
+    font-size: $font-size;
+}
 </style>

@@ -75,7 +75,7 @@ export default {
         font-size: $font-size-h6;
     }
     &--sub {
-        color: lighten($text-color, 50);
+        color: lighten($text-color, 60);
     }
 }
 </style>

@@ -18,7 +18,7 @@
 
 <script>
 import hljs from 'highlight.js';
-import 'highlight.js/styles/agate.css';
+import 'highlight.js/styles/base16/atelier-cave-light.css';
 import copyToClipboard from '../../utils/copyToClipboard';
 
 export default {
@@ -66,7 +66,6 @@ export default {
 @import '../../scss/variables';
 
 $code-padding: 14px;
-$code-background-color: lighten($text-color, 12);
 
 .lv-code {
     $self: &;
@@ -75,9 +74,8 @@ $code-background-color: lighten($text-color, 12);
     &__title {
         display: flex;
         flex-direction: row;
-        background-color: lighten($code-background-color, 4);
-        border-bottom: 1px solid lighten($code-background-color, 4);
-        color: $text-color-inverted;
+        background-color: darken($code-background-color, 4);
+        color: $text-color;
         font-family: $font-family;
         border-radius: $border-radius $border-radius 0 0;
         font-size: $font-size;
@@ -94,7 +92,7 @@ $code-background-color: lighten($text-color, 12);
     &__content {
         position: relative;
         background-color: $code-background-color;
-        color: $text-color-inverted;
+        color: $text-color-dimmed;
         padding: $padding ($padding * 1.5);
         border-radius: $border-radius;
         font-family: $font-family-monospace;

@@ -6,7 +6,7 @@
         <lv-notice icon="bell" type="info">Hello Im a notice!</lv-notice>
         <lv-notice icon="bell" type="success">Hello Im a notice!</lv-notice>
     </lv-group>
-    <lv-code title="code" lang="html" :code="code" />
+    <lv-code v-space-after="1" title="code" lang="html" :code="code" />
 </template>
 
 <script>

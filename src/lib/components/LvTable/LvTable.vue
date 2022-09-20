@@ -196,7 +196,7 @@ $table-column-color: lighten($text-color, 50);
 
     &__column {
         display: flex;
-        font-size: $font-size-label;
+        font-size: $font-size-small;
         color: $table-column-color;
         margin-bottom: 15px;
         font-weight: 600;

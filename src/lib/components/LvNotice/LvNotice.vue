@@ -47,6 +47,7 @@ export default {
     border-radius: $border-radius;
     display: flex;
     align-items: center;
+    font-size: $font-size;
 
     &__icon {
         margin-right: 10px;

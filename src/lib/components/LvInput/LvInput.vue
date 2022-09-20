@@ -83,6 +83,7 @@ export default {
     flex-direction: column;
     justify-content: center;
     margin-bottom: 0;
+
     // Elements
     &__icon {
         position: absolute;
@@ -96,10 +97,11 @@ export default {
         font-size: $font-size;
         font-family: $font-family;
         border-radius: $border-radius;
+        border: 1px solid $border-color;
         padding: $padding;
         color: $text-color;
-        background-color: #fafafa;
-        border: 0;
+        background-color: #fff;
+        margin-bottom: 0;
         transition: $transition-time.2s all $transition-easing;
 
         &::placeholder {
@@ -108,7 +110,7 @@ export default {
     }
 
     &__hint {
-        font-size: $font-size-label;
+        font-size: $font-size-small;
         color: $text-color-dimmed;
         padding: 4px;
     }
@@ -153,7 +155,7 @@ export default {
         user-select: none;
         opacity: 1;
         #{$self}__icon {
-            color: $text-color-dimmed;
+            color: $placeholder-color;
         }
         #{$self}__input {
             background-color: #fdfdfd;

@@ -8,7 +8,7 @@
         <lv-button label="Hello"/>
         <lv-button label="Hello"/>
     </lv-group>
-    <lv-code title="code" lang="html" :code="code" />
+    <lv-code v-space-after="1" lang="html" :code="code" />
 </template>
 
 <script>
