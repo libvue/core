@@ -1,8 +1,6 @@
 <template>
     <lv-layout menu-position="left">
-        <template #menu-header>
-            <img class="logo" src="public/logo.svg" v-space-after="0.5" alt=""> Libvue
-        </template>
+        <template #menu-header> <img class="logo" src="public/logo.svg" v-space-after="0.5" alt="" /> Libvue </template>
         <template #menu v-if="!hideMenu">
             <lv-menu-group label="Getting Started">
                 <lv-menu-item icon="rocket" to="install" label="Installation" />
@@ -19,20 +17,11 @@
                     <lv-menu-item to="lv-card" label="Card" />
                     <lv-menu-item label="Menu" />
                 </lv-menu-list>
-                <lv-menu-list icon="pen" label="Writing">
-                    <lv-menu-item to="lv-heading" label="Heading" />
-                    <lv-menu-item label="Paragraph" />
-                    <lv-menu-item label="Quote" />
-                    <lv-menu-item label="Kbd" />
-                    <lv-menu-item label="Divider" />
-                    <lv-menu-item to="lv-code" label="Code" />
-                    <lv-menu-item to="lv-notice" label="Notice" />
-                </lv-menu-list>
                 <lv-menu-list icon="compass" label="Navigation">
                     <lv-menu-item to="lv-button" label="Button" />
                     <lv-menu-item label="Link" />
                     <lv-menu-item label="Breadcrumb" />
-                    <lv-menu-item label="Tabs" />
+                    <lv-menu-item to="lv-tabs" label="Tabs" />
                 </lv-menu-list>
                 <lv-menu-list icon="clipboard-notes" label="Form Elements">
                     <lv-menu-item to="lv-input" label="Input" />
@@ -48,6 +37,15 @@
                     <lv-menu-item label="Tag" />
                     <lv-menu-item label="Badge" />
                 </lv-menu-list>
+                <lv-menu-list icon="pen" label="Writing">
+                    <lv-menu-item to="lv-heading" label="Heading" />
+                    <lv-menu-item label="Paragraph" />
+                    <lv-menu-item label="Quote" />
+                    <lv-menu-item label="Kbd" />
+                    <lv-menu-item label="Divider" />
+                    <lv-menu-item to="lv-code" label="Code" />
+                    <lv-menu-item to="lv-notice" label="Notice" />
+                </lv-menu-list>
                 <lv-menu-list icon="image" label="Media">
                     <lv-menu-item label="Icon" />
                     <lv-menu-item label="Image" />
@@ -62,7 +60,7 @@
             </lv-menu-group>
         </template>
         <template #content>
-            <router-view />
+            <router-view v-slot="{ Component, route }"></router-view>
         </template>
     </lv-layout>
 </template>

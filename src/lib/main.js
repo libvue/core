@@ -15,6 +15,7 @@ import LvMenuList from './components/LvMenu/LvMenuList.vue';
 import LvNotice from './components/LvNotice/LvNotice.vue';
 import LvTable from './components/LvTable/LvTable.vue';
 import LvParagraph from './components/LvParagraph/LvParagraph.vue';
+import LvTabs from './components/LvTabs/LvTabs.vue';
 
 import spaceAfter from './directives/spaceAfter';
 
@@ -45,6 +46,7 @@ export default {
         app.component('lv-menu-list', LvMenuList);
         app.component('lv-notice', LvNotice);
         app.component('lv-table', LvTable);
+        app.component('lv-tabs', LvTabs);
     },
 };
 
@@ -64,4 +66,5 @@ export {
     LvMenuList,
     LvNotice,
     LvTable,
+    LvTabs,
 };

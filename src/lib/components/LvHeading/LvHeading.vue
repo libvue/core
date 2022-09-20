@@ -4,7 +4,6 @@
         class="lv-heading"
         :class="{
             [`lv-heading--${tagName}`]: tagName,
-            'lv-heading--sticky': sticky,
             'lv-heading--sub': sub,
         }"
     >

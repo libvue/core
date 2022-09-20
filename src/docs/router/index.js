@@ -20,6 +20,7 @@ import LvCode from '../views/components/lv-code.vue';
 import LvGroup from '../views/components/lv-group.vue';
 import LvCard from '../views/components/lv-card.vue';
 import LvTable from '../views/components/lv-table.vue';
+import LvTabs from '../views/components/lv-tabs.vue';
 import LvChart from '../views/components/lv-chart.vue';
 import LvNotice from '../views/components/lv-notice.vue';
 
@@ -108,6 +109,11 @@ const routes = [
         path: '/lv-table',
         name: 'lv-table',
         component: LvTable,
+    },
+    {
+        path: '/lv-tabs',
+        name: 'lv-tabs',
+        component: LvTabs,
     },
     {
         path: '/lv-chart',
