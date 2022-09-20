@@ -42,12 +42,13 @@ export default {
 
 .lv-notice {
     padding: 10px 13px;
-    background-color: #f3f3f3;
+    background-color: $border-color;
     width: 100%;
     border-radius: $border-radius;
     display: flex;
     align-items: center;
     font-size: $font-size;
+    box-sizing: border-box;
 
     &__icon {
         margin-right: 10px;
