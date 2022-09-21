@@ -103,7 +103,7 @@ export default {
         align-items: center;
         justify-content: flex-start;
         font-size: $font-size-small;
-        color: $placeholder-color;
+        color: $text-color;
         margin-top: 0;
         margin-bottom: 10px;
         padding: 10px;

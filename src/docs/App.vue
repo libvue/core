@@ -1,7 +1,7 @@
 <template>
     <lv-layout :layout="windowWidth > 1200 ? 'horizontal' : 'vertical'">
         <template #logo>
-            <img @click="$router.push('/')" class="logo" src="logo.svg" v-space-after="0.5" /> Libvue
+            <img @click="$router.push('/')" class="logo" src="logo.svg" v-space-after="0.5" />
         </template>
         <template #menu v-if="!hideMenu">
             <lv-menu>
@@ -99,7 +99,7 @@ export default {
 @import 'src/lib/scss/variables';
 
 .logo {
-    width: 21px;
+    width: 100px;
     color: $color-primary;
 }
 </style>

@@ -1,10 +1,10 @@
 <template>
     <div class="splash">
         <div class="splash__logo" v-space-after="0.5">
-            <img class="splash__logo-brand" src="/logo-indented.svg" v-space-after="2" alt="">
+            <img class="splash__logo-brand" src="/logo-splash.svg" v-space-after="2" alt="">
             <div class="splash__logo-text">Libvue</div>
         </div>
-        <lv-paragraph class="splash__about" v-space-after="2"> Yet another opinionated vue framework. </lv-paragraph>
+        <lv-paragraph class="splash__about" v-space-after="2">A vue component library for quickly building interfaces.</lv-paragraph>
         <lv-group>
             <lv-button type="primary" @click="$router.push('install')" icon="book-open">Documentation</lv-button>
             <lv-button type="ghost" @click="goToGithub" icon="github">Github</lv-button>
