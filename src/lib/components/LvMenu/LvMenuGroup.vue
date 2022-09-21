@@ -85,6 +85,7 @@ export default {
             padding: 15px;
             position: absolute;
             top: 50px;
+            transform: translateX(calc(-50% + 30px));
             background-color: #fff;
             z-index: 3;
             box-shadow: 0 0 10px rgba(0,0,0,0.2);
