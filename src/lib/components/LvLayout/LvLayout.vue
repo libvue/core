@@ -1,22 +1,10 @@
 <template>
-    <div
-        class="lv-layout"
-        :class="{
-            'lv-layout--menu-top': menuPosition === 'top',
-        }"
-    >
+    <div class="lv-layout" :class="classObject">
         <div class="lv-layout__menu" v-if="!!$slots.menu">
-            <lv-menu :direction="menuPosition === 'top' ? 'row' : 'column'" @click-header="$router.push('/')">
-                <template #header>
-                    <slot name="menu-header"></slot>
-                </template>
-                <template #default>
-                    <slot name="menu"></slot>
-                </template>
-                <template #footer>
-                    <slot name="menu-footer"></slot>
-                </template>
-            </lv-menu>
+            <div class="lv-layout__menu-logo" v-if="!!$slots.logo">
+                <slot name="logo"></slot>
+            </div>
+            <slot name="menu"></slot>
         </div>
         <div class="lv-layout__content" v-if="!!$slots.content">
             <slot name="content" />
@@ -28,23 +16,30 @@
 </template>
 
 <script>
+import { computed } from 'vue';
+
 export default {
     props: {
-        menuPosition: {
+        layout: {
             type: String,
-            default: 'left',
-            validator: (value) => ['left', 'top'].includes(value),
-        },
-        responsiveMenu: {
-            type: Boolean,
-            default: true,
-        },
-        footerPosition: {
-            type: String,
-            default: 'content-relative',
-            validator: (value) => ['content-relative', 'content-fixed', 'menu-relative', 'menu-fixed'].includes(value),
+            default: 'horizontal',
+            validator(val) {
+                return ['horizontal', 'vertical'].includes(val)
+            }
         },
     },
+    provide() {
+        return {
+            layout: computed(() => this.layout)
+        }
+    },
+    computed: {
+        classObject() {
+            return {
+                [`lv-layout--layout-${this.layout}`]: !!this.layout
+            };
+        }
+    }
 };
 </script>
 
@@ -52,7 +47,7 @@ export default {
 @import '../../scss/variables';
 
 $layout-menu-border-color: lighten($border-color, 8);
-$layout-menu-left-width: 300px;
+$layout-menu-left-width: 250px;
 
 .lv-layout {
     $self: &;
@@ -63,13 +58,21 @@ $layout-menu-left-width: 300px;
     flex-grow: 1;
     width: 100%;
 
-    &--menu-top {
+    &--layout-vertical {
         flex-direction: column;
+
         #{$self}__menu {
             display: flex;
             width: 100%;
+            padding: 0 30px;
+            box-sizing: border-box;
+            border-bottom: 1px solid $layout-menu-border-color;
             overflow-y: inherit;
-            padding: 10px 30px;
+            &-logo {
+                flex-direction: row;
+                margin-bottom: 0;
+                margin-right: 10px;
+            }
         }
     }
 
@@ -89,6 +92,13 @@ $layout-menu-left-width: 300px;
         max-height: 100vh;
         width: $layout-menu-left-width;
         flex-shrink: 0;
+        &-logo {
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
     }
 }
 </style>

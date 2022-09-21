@@ -92,7 +92,7 @@ $code-padding: 14px;
     &__content {
         position: relative;
         background-color: $code-background-color;
-        color: $text-color-dimmed;
+        color: $text-color;
         padding: $padding ($padding * 1.5);
         border-radius: $border-radius;
         font-family: $font-family-monospace;

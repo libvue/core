@@ -5,11 +5,11 @@
     <lv-heading :level="6" v-space-after="1">Use CSS for layout</lv-heading>
     <lv-paragraph v-space-after="1">
         We don't offer any grid system because we believe grid or flex will do fine for simple layouts. Also predefined grids are not always working
-        nice with content. We believe that content should lead.
+        nice with content.
     </lv-paragraph>
 
-    <lv-heading :level="6" v-space-after="1">Use LvGroup for a simple grid component</lv-heading>
-    <lv-paragraph v-space-after="1"> Setting up flex or grid is not difficult but you'll need to wrap it, think of a class etc. Just use LvGroup. </lv-paragraph>
+    <lv-heading :level="6" v-space-after="1">Use LvGroup for content</lv-heading>
+    <lv-paragraph v-space-after="1">If you want to show a grid of thumbnails with an equal with or you want a grid with different widths. LvGroup will help you out!</lv-paragraph>
 </template>
 
 <script></script>

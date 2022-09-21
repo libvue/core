@@ -62,6 +62,10 @@ export default {
         background-color: lighten($text-color, 87);
     }
 
+    &:last-of-type {
+        margin-bottom: 0;
+    }
+
     &--active {
         background-color: lighten($color-primary, 37);
         color: $color-primary;
