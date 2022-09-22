@@ -1,5 +1,5 @@
 <template>
-    <lv-heading :level="3" v-space-after="0.5"><lv-icon name="rocket"/> Installation</lv-heading>
+    <lv-heading :level="3" v-space-after="0.5">Installation</lv-heading>
     <lv-heading sub :level="6" v-space-after="1">How to get started with libvue</lv-heading>
 
     <lv-heading :level="6" v-space-after="1">Install entire library</lv-heading>
