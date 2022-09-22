@@ -99,7 +99,7 @@ export default {
 @import 'src/lib/scss/variables';
 
 .logo {
-    width: 100px;
+    width: 80px;
     color: $color-primary;
 }
 </style>

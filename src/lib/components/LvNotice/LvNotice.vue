@@ -42,7 +42,7 @@ export default {
 
 .lv-notice {
     padding: 10px 13px;
-    background-color: $border-color;
+    background-color: lighten($text-color, 92);
     width: 100%;
     border-radius: $border-radius;
     display: flex;

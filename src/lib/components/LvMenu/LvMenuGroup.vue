@@ -3,9 +3,11 @@
         <h1 class="lv-menu-group__label" >
             <lv-icon class="lv-menu-group__icon" v-if="icon" :name="icon" /> {{ label }}
         </h1>
-       <div class="lv-menu-group__content" v-show="showContent">
-           <slot />
-       </div>
+        <transition name="fade">
+           <div class="lv-menu-group__content" v-show="showContent">
+               <slot />
+           </div>
+        </transition>
     </div>
 </template>
 
@@ -56,6 +58,7 @@ export default {
 
 <style lang="scss">
 @import '../../scss/variables';
+@import '../../scss/transitions/fade';
 
 .lv-menu-group {
     $self: &;
@@ -64,7 +67,7 @@ export default {
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     cursor: pointer;
     font-size: $font-size;
     position: relative;
@@ -90,7 +93,6 @@ export default {
             z-index: 3;
             box-shadow: 0 0 10px rgba(0,0,0,0.2);
             border-radius: $border-radius;
-            max-height: 50vh;
             overflow-y: auto;
         }
     }
@@ -106,8 +108,7 @@ export default {
         font-size: $font-size-small;
         color: $text-color;
         margin-top: 0;
-        margin-bottom: 10px;
-        padding: 10px;
+        padding: 5px;
     }
 
     &__icon {

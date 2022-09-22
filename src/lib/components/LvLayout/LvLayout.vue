@@ -72,6 +72,7 @@ $layout-menu-left-width: 250px;
                 flex-direction: row;
                 margin-bottom: 0;
                 margin-right: 10px;
+                padding: 15px 0;
             }
         }
     }
@@ -93,10 +94,10 @@ $layout-menu-left-width: 250px;
         width: $layout-menu-left-width;
         flex-shrink: 0;
         &-logo {
-            padding: 15px;
+            padding: 5px;
             display: flex;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             font-weight: bold;
         }
     }

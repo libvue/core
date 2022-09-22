@@ -28,9 +28,10 @@ export default {
 @import '../../scss/variables';
 
 .lv-icon {
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
     fill: currentColor;
+    font-size: inherit;
 }
 </style>

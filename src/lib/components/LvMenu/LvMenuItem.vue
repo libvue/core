@@ -50,16 +50,18 @@ export default {
 .lv-menu-item {
     $self: &;
     margin-bottom: 10px;
-    padding: 10px;
+    padding: 5px;
     border-radius: 5px;
     transition: all 0.1s;
     cursor: pointer;
     display: flex;
     align-items: center;
     font-size: $font-size;
+    color: $text-color;
+    font-weight: 500;
 
     &:hover:not(#{$self}--active) {
-        background-color: lighten($text-color, 87);
+        color: #000;
     }
 
     &:last-of-type {
@@ -67,7 +69,6 @@ export default {
     }
 
     &--active {
-        background-color: lighten($color-primary, 37);
         color: $color-primary;
     }
 

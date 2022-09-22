@@ -1,7 +1,8 @@
 <template>
     <div class="lv-menu-list">
         <div class="lv-menu-list__label" @click="toggleState">
-            <lv-icon v-if="icon" :name="icon" class="lv-menu-list__icon" /> {{ label }}
+            <lv-icon v-if="icon" :name="icon" class="lv-menu-list__icon" />
+            <div class="lv-menu-list__label-text">{{ label }}</div>
             <lv-icon class="lv-menu-list__label-icon" :name="iconName"></lv-icon>
         </div>
         <div class="lv-menu-list__dropdown" v-show="isOpen">
@@ -71,15 +72,19 @@ $menu-list-padding: $padding;
         justify-content: flex-start;
         margin-bottom: 10px;
         margin-top: 0;
-        padding: 10px;
+        padding: 5px;
         border-radius: 5px;
+        white-space: nowrap;
 
         &:hover {
-            background-color: lighten($text-color, 87);
+            background-color: lighten($text-color, 92);
         }
 
         &-icon {
             margin-left: auto;
+        }
+        &-text {
+            margin-right: 10px;
         }
     }
 

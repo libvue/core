@@ -10,7 +10,7 @@ $color-ghost: $background-color !default;
 
 /* Text */
 $text-color: #0b0b0c !default;
-$text-color-dimmed: lighten($text-color, 60) !default;
+$text-color-dimmed: lighten($text-color, 40) !default;
 $text-color-inverted: invert($text-color) !default;
 
 /* Borders */
