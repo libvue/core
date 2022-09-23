@@ -12,3 +12,22 @@
         box-shadow: 0 0 0 9px transparent;
     }
 }
+
+@keyframes rotate-cw {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(359.9deg);
+    }
+}
+
+@keyframes rotate-ccw {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(-359.9deg);
+    }
+}
+

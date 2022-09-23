@@ -1,5 +1,5 @@
 <template>
-    <div class="lv-group" :class="['lv-group--align-' + align, 'lv-group--direction-' + direction]">
+    <div class="lv-group" :class="classObject">
         <slot />
     </div>
 </template>
@@ -24,6 +24,19 @@ export default {
             type: [String, Number],
             default: '10px',
         },
+        fill: {
+            type: Boolean,
+            default: false,
+        }
+    },
+    computed: {
+        classObject() {
+            return {
+                [`lv-group--align-${this.align}`]: !!this.align,
+                [`lv-group--direction-${this.direction}`]: !!this.direction,
+                'lv-group--fill': this.fill,
+            };
+        },
     },
 };
 </script>
@@ -35,6 +48,7 @@ export default {
     display: flex;
     flex-wrap: wrap;
     gap: v-bind(gap);
+    width: 100%;
 
     &--align-left {
         justify-content: flex-start;
@@ -50,6 +64,12 @@ export default {
 
     &--direction-column {
         flex-direction: column;
+    }
+
+    &--fill {
+        > * {
+            flex-grow: 1;
+        }
     }
 }
 </style>

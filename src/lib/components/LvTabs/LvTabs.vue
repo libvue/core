@@ -1,6 +1,6 @@
 <template>
     <div class="lv-tabs">
-        <lv-group class="lv-tabs__buttons" v-space-after="1">
+        <lv-group class="lv-tabs__buttons" v-space-after="1" gap="20px">
             <div
                 v-for="tab in tabs"
                 :key="tab.id"
@@ -59,10 +59,9 @@ export default {
 
     &__button {
         display: flex;
-        flex-grow: 1;
         align-items: center;
         justify-content: center;
-        padding: 10px 0;
+        padding: 5px 0px;
         font-weight: bold;
         color: $text-color;
         white-space: nowrap;
@@ -74,6 +73,10 @@ export default {
         cursor: pointer;
         transition: 0.2s all;
         user-select: none;
+        &:focus:not(&--active) {
+            border-color: lighten($color-primary, 30);
+        }
+
         &--active {
             border-color: $color-primary;
             color: $color-primary;
