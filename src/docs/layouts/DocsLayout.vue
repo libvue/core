@@ -16,7 +16,7 @@
                 <lv-menu-group label="Components">
                     <lv-menu-list icon="grid" label="Layout">
                         <lv-menu-item label="Layout" to="lv-layout" />
-                        <lv-menu-item label="Menu" />
+                        <lv-menu-item label="Menu" to="lv-menu" />
                         <lv-menu-item label="Card" to="lv-card"  />
                         <lv-menu-item label="Group" to="lv-group"  />
                     </lv-menu-list>

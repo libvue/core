@@ -31,6 +31,10 @@ export default {
         horizontalMenuWidth: {
             type: String,
             default: '200px',
+        },
+        verticalMenuHeight: {
+            type: String,
+            default: '50px',
         }
     },
     provide() {
@@ -66,6 +70,7 @@ $layout-menu-border-color: lighten($border-color, 8);
         flex-direction: column;
 
         > #{$self}__menu {
+            $menu: &;
             display: flex;
             width: 100%;
             padding: 0 30px;
@@ -73,11 +78,12 @@ $layout-menu-border-color: lighten($border-color, 8);
             border-bottom: 1px solid $layout-menu-border-color;
             overflow-y: inherit;
             flex-shrink: 0;
-        }
-        #{$self}__menu-logo {
-            flex-direction: row;
-            margin-bottom: 0;
-            margin-right: 10px;
+            height: v-bind(verticalMenuHeight);
+            align-items: center;
+            #{$self}__#{menu}-logo {
+                margin-right: 10px;
+                margin-bottom: 0;
+            }
         }
     }
 
@@ -100,7 +106,7 @@ $layout-menu-border-color: lighten($border-color, 8);
         &-logo {
             display: flex;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
             font-weight: bold;
         }
     }

@@ -9,26 +9,32 @@
 
 <script>
 import { providedLayout } from "../../utils/provideKeys";
+import { computed } from "vue";
 
 export default {
     props: {
         layout: {
             type: String,
-            default: 'horizontal',
+            default: null,
             validator(val) {
-                return ['horizontal', 'vertical'].includes(val)
+                return ['horizontal', 'vertical', null].includes(val)
             }
         },
     },
     inject: {
         providedLayout: { from: providedLayout },
     },
+    provide() {
+        return {
+            [providedLayout]: computed(() => this.layout || this.providedLayout)
+        }
+    },
     computed: {
         providedOrPropLayout() {
-            if(this.providedLayout) {
-                return this.providedLayout;
+            if(this.layout) {
+                return this.layout;
             }
-            return this.layout;
+            return this.providedLayout;
         },
         classObject() {
             return {

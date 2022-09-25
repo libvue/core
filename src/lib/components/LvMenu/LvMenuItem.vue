@@ -2,19 +2,17 @@
     <div
         class="lv-menu-item"
         :href="href"
-        :class="{
-            'lv-menu-item--disabled': disabled || loading,
-            'lv-menu-item--loading': loading,
-            'lv-menu-item--active': toEqualsCurrentRoute,
-        }"
+        :class="classObject"
         @click="onClick"
     >
-        <lv-icon v-if="icon" :name="icon" class="lv-menu-item__icon" /> {{ label }}
+        <lv-icon v-if="icon" :name="icon" class="lv-menu-item__icon" />
+        <div class="lv-menu-item__label">{{ label }}</div>
     </div>
 </template>
 
 <script>
 import navigationMixin from '../../mixins/navigationMixin';
+import { providedLayout } from "../../utils/provideKeys";
 
 
 export default {
@@ -42,6 +40,25 @@ export default {
             default: false,
         },
     },
+    inject: {
+        providedLayout: { from: providedLayout },
+    },
+    computed: {
+        providedOrPropLayout() {
+            if(this.providedLayout) {
+                return this.providedLayout;
+            }
+            return this.layout;
+        },
+        classObject() {
+            return {
+                'lv-menu-item--disabled': this.disabled || this.loading,
+                'lv-menu-item--loading': this.loading,
+                'lv-menu-item--active': this.toEqualsCurrentRoute,
+                [`lv-menu-item--layout-${this.providedOrPropLayout}`]: !!this.providedOrPropLayout
+            };
+        }
+    }
 };
 </script>
 
@@ -60,6 +77,7 @@ export default {
     font-size: $font-size;
     color: $text-color;
     font-weight: 500;
+    flex-shrink: 0;
 
     &:hover:not(#{$self}--active) {
         color: #000;
@@ -74,6 +92,14 @@ export default {
     }
 
     &__icon {
+        margin-right: 10px;
+        flex-shrink: 0;
+    }
+    &__label {
+        white-space: nowrap;
+    }
+    &--layout-vertical {
+        margin-bottom: 0;
         margin-right: 10px;
     }
 }

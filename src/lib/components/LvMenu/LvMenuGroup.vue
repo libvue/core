@@ -40,8 +40,11 @@ export default {
         }
     },
     watch: {
-        providedOrPropLayout(val) {
-            this.showContent = val !== 'vertical';
+        providedOrPropLayout: {
+            handler(val) {
+                this.showContent = val !== 'vertical';
+            },
+            immediate: true,
         },
     },
     computed: {
@@ -98,12 +101,12 @@ export default {
         justify-content: center;
         #{$self}__label {
             margin-bottom: 0;
-            padding: 20px 0;
+            padding: 0;
         }
         #{$self}__content {
             padding: 15px;
             position: absolute;
-            top: 50px;
+            top: 30px;
             transform: translateX(calc(-50% + 30px));
             background-color: #fff;
             z-index: 3;
@@ -125,6 +128,7 @@ export default {
         color: $text-color;
         margin-top: 0;
         padding: 5px 0;
+        line-height: 0.75;
     }
 
     &__icon {

@@ -48,15 +48,15 @@ export default {
 <style lang="scss">
 @import '../../scss/variables';
 
-$menu-list-padding: $padding;
-
 .lv-menu-list {
+    $self: &;
     font-family: $font-family;
     flex-grow: 1;
     width: 100%;
     display: flex;
     flex-direction: column;
     font-size: $font-size;
+    margin-bottom: 10px;
 
     &:last-of-type {
         margin-bottom: 0;
@@ -71,15 +71,10 @@ $menu-list-padding: $padding;
         display: flex;
         align-items: center;
         justify-content: flex-start;
-        margin-bottom: 10px;
         margin-top: 0;
-        padding: 5px;
+        padding: 5px 0;
         border-radius: 5px;
         white-space: nowrap;
-
-        &:hover {
-            background-color: lighten($text-color, 92);
-        }
 
         &-icon {
             margin-left: auto;
@@ -97,6 +92,7 @@ $menu-list-padding: $padding;
         padding-left: 13px;
         margin-left: 18px;
         margin-bottom: 10px;
+        margin-top: 10px;
         background-color: $background-color;
 
         > [class^='lv-menu-item'] {
