@@ -1,5 +1,14 @@
 <template>
-    <component :is="href ? 'a' : 'button'" :href="href" v-bind="$attrs" tabindex="0" class="lv-button" :class="classObject" :disabled="disabled" @click="onClick">
+    <component
+        :is="href ? 'a' : 'button'"
+        :href="href"
+        v-bind="$attrs"
+        tabindex="0"
+        class="lv-button"
+        :class="classObject"
+        :disabled="disabled"
+        @click="onClick"
+    >
         <lv-icon v-if="icon" class="lv-button__icon" :class="{ 'lv-button__icon--hidden': loading }" :name="icon" />
         <lv-icon v-if="loading" class="lv-button__loading" name="spinner" />
         <span class="lv-button__content" :class="{ 'lv-button__content--hidden': loading }">
@@ -11,17 +20,15 @@
 </template>
 
 <script>
+import navigationMixin from '../../mixins/navigationMixin';
 import LvIcon from '../LvIcon/LvIcon.vue';
 
 export default {
     components: {
         LvIcon,
     },
+    mixins: [navigationMixin],
     props: {
-        href: {
-            type: String,
-            default: null,
-        },
         label: {
             type: String,
             default: '',

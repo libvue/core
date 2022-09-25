@@ -17,8 +17,8 @@
                     <lv-menu-list icon="grid" label="Layout">
                         <lv-menu-item label="Layout" to="lv-layout" />
                         <lv-menu-item label="Menu" to="lv-menu" />
-                        <lv-menu-item label="Card" to="lv-card"  />
-                        <lv-menu-item label="Group" to="lv-group"  />
+                        <lv-menu-item label="Card" to="lv-card" />
+                        <lv-menu-item label="Group" to="lv-group" />
                     </lv-menu-list>
                     <lv-menu-list icon="compass" label="Navigation">
                         <lv-menu-item to="lv-button" label="Button" />
@@ -61,12 +61,20 @@
                         <lv-menu-item label="Tooltip" />
                     </lv-menu-list>
                 </lv-menu-group>
+                <lv-menu-group label="Utilities">
+                    <lv-menu-list icon="create-dashboard" label="Mixins">
+                        <lv-menu-item label="navigationMixin" to="lv-layout" />
+                    </lv-menu-list>
+                    <lv-menu-list icon="adjust-half" label="Directives">
+                        <lv-menu-item label="v-space-after" to="lv-layout" />
+                    </lv-menu-list>
+                </lv-menu-group>
             </lv-menu>
         </template>
         <template #content>
             <router-view v-slot="{ Component, route }">
                 <transition name="fade" mode="out-in">
-                    <div class="wrapper" :key="route.path" >
+                    <div class="wrapper" :key="route.path">
                         <component :is="Component" />
                     </div>
                 </transition>
@@ -104,5 +112,4 @@ export default {
     width: 80px;
     color: $color-primary;
 }
-
 </style>

@@ -14,7 +14,6 @@
 import navigationMixin from '../../mixins/navigationMixin';
 import { providedLayout } from "../../utils/provideKeys";
 
-
 export default {
     mixins: [navigationMixin],
     inheritAttrs: false,
