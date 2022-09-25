@@ -4,7 +4,6 @@
 
     <lv-tabs :tabs="tabs" :active="activeTab" @change="(v) => activeTab = v">
         <template #colors="{ tab }">
-            <lv-heading :level="6" v-space-after="1">Colors</lv-heading>
             <lv-group v-space-after="1">
                 <lv-button label="Default" />
                 <lv-button label="Primary" color="primary" />
@@ -15,7 +14,6 @@
             <lv-code v-space-after="1" lang="html" :code="code.color" />
         </template>
         <template #types="{ tab }">
-            <lv-heading :level="6" v-space-after="1">Types</lv-heading>
             <lv-group v-space-after="1">
                 <lv-button label="Default" />
                 <lv-button label="Ghost" type="ghost" />
@@ -26,7 +24,6 @@
             <lv-code v-space-after="1" lang="html" :code="code.types" />
         </template>
         <template #states="{ tab }">
-            <lv-heading :level="6" v-space-after="1">States</lv-heading>
             <lv-group v-space-after="1">
                 <lv-button label="loading" loading />
                 <lv-button disabled label="Disabled" />
@@ -34,14 +31,12 @@
             <lv-code v-space-after="1" lang="html" :code="code.states" />
         </template>
         <template #icons="{ tab }">
-            <lv-heading :level="6" v-space-after="1">Icon Support</lv-heading>
             <lv-group v-space-after="1">
                 <lv-button icon="rocket" label="Hello" />
             </lv-group>
             <lv-code v-space-after="1" lang="html" :code="code.icons" />
         </template>
         <template #align>
-            <lv-heading :level="6" v-space-after="1">Text Alignment</lv-heading>
             <lv-group v-space-after="1" fill>
                 <lv-button icon="rocket" label="Default (center)" />
                 <lv-button icon="rocket" label="Left" align="left" />
