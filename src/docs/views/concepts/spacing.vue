@@ -4,7 +4,7 @@
 
     <lv-heading :level="6" v-space-after="1">Use v-space-after directive</lv-heading>
     <lv-paragraph v-space-after="1">
-        For all of the components we don't know the spacing we should apply after, so we don't apply any. Use the v-space-after directive to apply
+        We don't know the spacing we should apply, so we do NOT apply any. Use the v-space-after directive to apply
         spacing to the components. This directive automatically checks for the direction if you are using flex.
     </lv-paragraph>
     <lv-code v-space-after="1" :code="directiveCode" lang="html" />

@@ -1,13 +1,13 @@
 <template>
     <div class="splash">
         <div class="splash__logo" v-space-after="0.5">
-            <img class="splash__logo-brand" src="/logo-splash.svg" v-space-after="2" alt="">
+            <img class="splash__logo-brand" src="/logo-splash.svg" v-space-after="1" alt="">
             <div class="splash__logo-text">Libvue</div>
         </div>
         <lv-paragraph class="splash__about" v-space-after="2">A vue component library for quickly building interfaces.</lv-paragraph>
         <lv-group>
             <lv-button type="primary" @click="$router.push('install')" icon="book-open">Documentation</lv-button>
-            <lv-button type="ghost" @click="goToGithub" icon="github">Github</lv-button>
+            <lv-button type="outline" @click="goToGithub" icon="github">Github</lv-button>
         </lv-group>
     </div>
 </template>
@@ -31,7 +31,7 @@ export default {
     justify-content: center;
     flex-direction: column;
     height: 100%;
-    max-width: 400px;
+    max-width: 350px;
     margin: auto;
     &__about {
         text-align: center;
@@ -44,7 +44,7 @@ export default {
         &-brand {
             margin-right: 5px;
             color: $color-primary;
-            width: 200px;
+            width: 160px;
         }
         &-text {
             font-size: 21px;

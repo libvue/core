@@ -27,6 +27,9 @@ $placeholder-color-danger: lighten($color-danger, 30) !default;
 $placeholder-color: lighten($text-color, 40) !default;
 
 /* Shadows */
+$shadow: 0 12px 8px -8px rgba(0,0,0,0.05);
+
+/* Shadow Focus */
 $shadow-focus-primary: 0px 0px 0px 3px rgba($color-primary, 0.23) !default;
 $shadow-focus-success: 0px 0px 0px 3px rgba($color-success, 0.27) !default;
 $shadow-focus-warning: 0px 0px 0px 3px rgba($color-warning, 0.24) !default;

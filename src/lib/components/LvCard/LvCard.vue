@@ -12,5 +12,6 @@
     border-radius: $border-radius;
     border: 1px solid $border-color;
     background-color: $background-color;
+    box-shadow: $shadow;
 }
 </style>

@@ -1,15 +1,17 @@
 <template>
     <lv-heading :level="3" v-space-after="0.5">Grids</lv-heading>
-    <lv-heading sub :level="6" v-space-after="1">Abracadabra</lv-heading>
+    <lv-heading sub :level="6" v-space-after="1">Sorry, wrong address</lv-heading>
 
-    <lv-heading :level="6" v-space-after="1">Use CSS for layout</lv-heading>
+    <lv-heading :level="6" v-space-after="1">Use plain old CSS for content</lv-heading>
     <lv-paragraph v-space-after="1">
-        We don't offer any grid system because we believe grid or flex will do fine for simple layouts. Also predefined grids are not always working
-        nice with content.
+        We don't offer any grid system because we believe there are only two main use-cases: layout & content. Layout is
+        most of the time a one-time-job and creating a grid system for content that satisfies all needs is impossible.
+        To help you out for the most simple use-cases we've made two simple components for layout and grouping content.
+        The rest is up to your CSS skills.
     </lv-paragraph>
-
-    <lv-heading :level="6" v-space-after="1">Use LvGroup for content</lv-heading>
-    <lv-paragraph v-space-after="1">If you want to show a grid of thumbnails with an equal with or you want a grid with different widths. LvGroup will help you out!</lv-paragraph>
+    <lv-paragraph>
+        Read more about LvGroup and LvLayout.
+    </lv-paragraph>
 </template>
 
 <script></script>
