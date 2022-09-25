@@ -15,11 +15,9 @@
             </div>
         </lv-group>
         <div class="lv-tabs__tabs">
-            <transition-group name="lv-tabs-content" tag="div" class="lv-tabs__transition-group">
-                <div v-for="tab in tabs" v-show="tab.id === active" :key="tab.id" class="lv-tabs__tab lv-tabs__transition-group-item">
-                    <slot :name="tab.id" :tab="tab" />
-                </div>
-            </transition-group>
+            <div v-for="tab in tabs" v-show="tab.id === active" :key="tab.id" class="lv-tabs__tab">
+                <slot :name="tab.id" :tab="tab" />
+            </div>
         </div>
     </div>
 </template>
@@ -56,6 +54,8 @@ export default {
 
 .lv-tabs {
     $self: &;
+    display: block;
+    width: 100%;
 
     &__button {
         display: flex;
@@ -83,7 +83,7 @@ export default {
         }
 
         &--disabled {
-            color: #cacaca;
+            opacity: 0.4;
             cursor: not-allowed;
             pointer-events: none;
         }
@@ -92,18 +92,6 @@ export default {
             transition: 0.2s all;
         }
     }
-    &__transition-group {
-        position: relative;
-    }
 }
-.lv-tabs-content-enter-active,
-.lv-tabs-content-leave-active {
-    position: absolute;
-    width: 100%;
-    transition: all 0.3s;
-}
-.lv-tabs-content-enter,
-.lv-tabs-content-leave-to {
-    opacity: 0;
-}
+
 </style>

@@ -1,8 +1,7 @@
 <template>
-    <lv-group>
-        <lv-heading :level="3" v-space-after="0.5">Table</lv-heading>
-        <lv-heading sub :level="6" v-space-after="1">Just a table</lv-heading>
-        <lv-table
+    <lv-heading :level="3" v-space-after="0.5">Table</lv-heading>
+    <lv-heading sub :level="6" v-space-after="1">Just a table</lv-heading>
+    <lv-table
             checkable
             clickable-rows
             local-sort
@@ -11,8 +10,7 @@
             :sort-field="sortField"
             :sort-direction="sortDirection"
             @sort="onSort"
-        />
-    </lv-group>
+    />
 </template>
 
 <script>

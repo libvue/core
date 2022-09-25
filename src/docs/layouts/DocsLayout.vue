@@ -22,9 +22,9 @@
                     </lv-menu-list>
                     <lv-menu-list icon="compass" label="Navigation">
                         <lv-menu-item to="lv-button" label="Button" />
+                        <lv-menu-item to="lv-tabs" label="Tabs" />
                         <lv-menu-item label="Link" />
                         <lv-menu-item label="Breadcrumb" />
-                        <lv-menu-item to="lv-tabs" label="Tabs" />
                     </lv-menu-list>
                     <lv-menu-list icon="clipboard-notes" label="Form Elements">
                         <lv-menu-item to="lv-input" label="Input" />
