@@ -18,6 +18,7 @@ import LvParagraph from '../views/components/lv-paragraph.vue';
 import LvQuote from '../views/components/lv-quote.vue';
 import LvCode from '../views/components/lv-code.vue';
 import LvGroup from '../views/components/lv-group.vue';
+import LvLayout from '../views/components/lv-layout.vue';
 import LvCard from '../views/components/lv-card.vue';
 import LvTable from '../views/components/lv-table.vue';
 import LvTabs from '../views/components/lv-tabs.vue';
@@ -31,7 +32,7 @@ const routes = [
         name: 'about',
         component: About,
         meta: {
-            hideMenu: true,
+            layout: 'splash',
         },
     },
 
@@ -95,6 +96,12 @@ const routes = [
         name: 'lv-code',
         component: LvCode,
     },
+    {
+        path: '/lv-layout',
+        name: 'lv-layout',
+        component: LvLayout,
+    },
+
     {
         path: '/lv-group',
         name: 'lv-group',

@@ -16,6 +16,7 @@
 <script>
 import navigationMixin from '../../mixins/navigationMixin';
 
+
 export default {
     mixins: [navigationMixin],
     inheritAttrs: false,
@@ -50,7 +51,7 @@ export default {
 .lv-menu-item {
     $self: &;
     margin-bottom: 10px;
-    padding: 5px;
+    padding: 5px 0;
     border-radius: 5px;
     transition: all 0.1s;
     cursor: pointer;

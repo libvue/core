@@ -12,6 +12,7 @@
 </template>
 
 <script>
+import { providedLayout } from "../../utils/provideKeys";
 export default {
     props: {
         label: {
@@ -22,33 +23,48 @@ export default {
             type: String,
             default: '',
         },
+        layout: {
+            type: String,
+            default: 'horizontal',
+            validator(val) {
+                return ['horizontal', 'vertical'].includes(val)
+            }
+        },
     },
-    inject: ['layout'],
+    inject: {
+        providedLayout: { from: providedLayout },
+    },
     data() {
         return {
-            showContent: this.layout.value !== 'vertical',
+            showContent: this.providedOrPropLayout !== 'vertical',
         }
     },
     watch: {
-        'layout.value'(val) {
+        providedOrPropLayout(val) {
             this.showContent = val !== 'vertical';
         },
     },
     computed: {
+        providedOrPropLayout() {
+            if(this.providedLayout) {
+                return this.providedLayout;
+            }
+            return this.layout;
+        },
         classObject() {
             return {
-                [`lv-menu-group--layout-${this.layout.value}`]: !!this.layout.value
+                [`lv-menu-group--layout-${this.providedOrPropLayout}`]: !!this.providedOrPropLayout
             };
         }
     },
     methods: {
         onHoverLabel() {
-            if(this.layout.value === 'vertical') {
+            if(this.providedOrPropLayout === 'vertical') {
                 this.showContent = true;
             }
         },
         onBlurLabel() {
-            if(this.layout.value === 'vertical') {
+            if(this.providedOrPropLayout === 'vertical') {
                 this.showContent = false;
             }
         }
@@ -82,7 +98,7 @@ export default {
         justify-content: center;
         #{$self}__label {
             margin-bottom: 0;
-            padding:0;
+            padding: 20px 0;
         }
         #{$self}__content {
             padding: 15px;
@@ -108,7 +124,7 @@ export default {
         font-size: $font-size-small;
         color: $text-color;
         margin-top: 0;
-        padding: 5px;
+        padding: 5px 0;
     }
 
     &__icon {

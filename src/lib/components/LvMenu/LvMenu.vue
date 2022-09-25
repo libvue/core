@@ -8,12 +8,31 @@
 </template>
 
 <script>
+import { providedLayout } from "../../utils/provideKeys";
+
 export default {
-    inject: ['layout'],
+    props: {
+        layout: {
+            type: String,
+            default: 'horizontal',
+            validator(val) {
+                return ['horizontal', 'vertical'].includes(val)
+            }
+        },
+    },
+    inject: {
+        providedLayout: { from: providedLayout },
+    },
     computed: {
+        providedOrPropLayout() {
+            if(this.providedLayout) {
+                return this.providedLayout;
+            }
+            return this.layout;
+        },
         classObject() {
             return {
-                [`lv-menu--layout-${this.layout.value}`]: !!this.layout.value
+                [`lv-menu--layout-${this.providedOrPropLayout}`]: !!this.providedOrPropLayout
             };
         }
     }

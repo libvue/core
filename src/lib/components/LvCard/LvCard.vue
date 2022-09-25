@@ -8,9 +8,9 @@
 @import '../../scss/variables';
 
 .lv-card {
-    padding: $padding * 2;
+    padding: $padding * 1.5;
     border-radius: $border-radius;
-    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.03);
+    border: 1px solid $border-color;
     background-color: $background-color;
 }
 </style>

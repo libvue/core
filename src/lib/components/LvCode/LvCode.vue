@@ -36,7 +36,7 @@ export default {
             default: 'shell',
             required: false,
             validator: (value) => {
-                return ['js', 'vue', 'html', 'php', 'bash', 'shell', 'typescript', 'blade'].includes(value);
+                return ['js', 'vue', 'html', 'php', 'bash', 'shell', 'typescript', 'blade', 'scss'].includes(value);
             },
         },
     },

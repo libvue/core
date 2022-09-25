@@ -64,6 +64,7 @@ $menu-list-padding: $padding;
 
     &__icon {
         margin-right: 10px;
+        flex-shrink: 0;
     }
 
     &__label {
@@ -82,6 +83,7 @@ $menu-list-padding: $padding;
 
         &-icon {
             margin-left: auto;
+            flex-shrink: 0;
         }
         &-text {
             margin-right: 10px;

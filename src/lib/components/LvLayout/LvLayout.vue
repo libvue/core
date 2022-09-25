@@ -17,6 +17,7 @@
 
 <script>
 import { computed } from 'vue';
+import { providedLayout } from "../../utils/provideKeys";
 
 export default {
     props: {
@@ -27,10 +28,14 @@ export default {
                 return ['horizontal', 'vertical'].includes(val)
             }
         },
+        horizontalMenuWidth: {
+            type: String,
+            default: '200px',
+        }
     },
     provide() {
         return {
-            layout: computed(() => this.layout)
+            [providedLayout]: computed(() => this.layout)
         }
     },
     computed: {
@@ -47,7 +52,6 @@ export default {
 @import '../../scss/variables';
 
 $layout-menu-border-color: lighten($border-color, 8);
-$layout-menu-left-width: 250px;
 
 .lv-layout {
     $self: &;
@@ -61,19 +65,19 @@ $layout-menu-left-width: 250px;
     &--layout-vertical {
         flex-direction: column;
 
-        #{$self}__menu {
+        > #{$self}__menu {
             display: flex;
             width: 100%;
             padding: 0 30px;
             box-sizing: border-box;
             border-bottom: 1px solid $layout-menu-border-color;
             overflow-y: inherit;
-            &-logo {
-                flex-direction: row;
-                margin-bottom: 0;
-                margin-right: 10px;
-                padding: 15px 0;
-            }
+            flex-shrink: 0;
+        }
+        #{$self}__menu-logo {
+            flex-direction: row;
+            margin-bottom: 0;
+            margin-right: 10px;
         }
     }
 
@@ -91,10 +95,9 @@ $layout-menu-left-width: 250px;
         border-right: 1px solid $layout-menu-border-color;
         overflow-y: auto;
         max-height: 100vh;
-        width: $layout-menu-left-width;
+        width: v-bind(horizontalMenuWidth);
         flex-shrink: 0;
         &-logo {
-            padding: 5px;
             display: flex;
             align-items: center;
             margin-bottom: 20px;

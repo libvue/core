@@ -15,6 +15,9 @@ import './assets/sass/app.scss';
 // Create app
 const app = createApp(App);
 
+//
+app.config.unwrapInjectedRef = true;
+
 // Use plugins
 app.use(router);
 app.use(libvue);
