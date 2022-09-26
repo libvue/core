@@ -1,4 +1,4 @@
-![](public/logo.svg)
+![](public/logo-color-scheme.svg)
 # libevue
 
 A **tree-shake-able component library** made for vue3 containing:
