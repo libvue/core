@@ -21,7 +21,7 @@
                 @click="onClickColumn(column)"
             >
                 {{ column.title ? column.title : column.field }}
-                <lv-icon v-if="column.sortable" class="lv-table__sort" :name="sortDirection === 'asc' ? 'angle-down' : 'angle-up'" />
+                <lv-icon v-if="column.sortable" class="lv-table__sort" :name="sortDirection === 'asc' ? 'chevron-down' : 'chevron-up'" />
             </div>
         </div>
 

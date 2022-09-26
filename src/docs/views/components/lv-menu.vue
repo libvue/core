@@ -6,11 +6,11 @@
     <lv-card v-space-after="1">
         <lv-menu layout="vertical">
             <lv-menu-group label="Group">
-                <lv-menu-item icon="file-alt" label="Menu Item" />
-                <lv-menu-item icon="file-alt" label="Menu Item" />
+                <lv-menu-item icon="file" label="Menu Item" />
+                <lv-menu-item icon="file" label="Menu Item" />
             </lv-menu-group>
             <lv-menu-group label="Group">
-                <lv-menu-list icon="layer-group" label="Menu List">
+                <lv-menu-list icon="boxes" label="Menu List">
                     <lv-menu-item label="Menu Item"/>
                     <lv-menu-item label="Menu Item"/>
                     <lv-menu-item label="Menu Item" />
@@ -25,11 +25,11 @@
     <lv-card v-space-after="1">
         <lv-menu layout="horizontal">
             <lv-menu-group label="Group">
-                <lv-menu-item icon="file-alt" label="Menu Item" />
-                <lv-menu-item icon="file-alt" label="Menu Item" />
+                <lv-menu-item icon="file" label="Menu Item" />
+                <lv-menu-item icon="file" label="Menu Item" />
             </lv-menu-group>
             <lv-menu-group label="Group">
-                <lv-menu-list icon="layer-group" label="Menu List">
+                <lv-menu-list icon="boxes" label="Menu List">
                     <lv-menu-item label="Menu Item"/>
                     <lv-menu-item label="Menu Item"/>
                     <lv-menu-item label="Menu Item" />

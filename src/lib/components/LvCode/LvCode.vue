@@ -42,7 +42,7 @@ export default {
     },
     data() {
         return {
-            copyIcon: 'clipboard-notes',
+            copyIcon: 'copy',
         };
     },
     computed: {
@@ -54,7 +54,7 @@ export default {
         copyCodeToClipboard() {
             this.copyIcon = 'check';
             setTimeout(() => {
-                this.copyIcon = 'clipboard-notes';
+                this.copyIcon = 'copy';
             }, 1000);
             copyToClipboard(this.code);
         },

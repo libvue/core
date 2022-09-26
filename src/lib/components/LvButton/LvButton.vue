@@ -10,7 +10,7 @@
         @click="onClick"
     >
         <lv-icon v-if="icon" class="lv-button__icon" :class="{ 'lv-button__icon--hidden': loading }" :name="icon" />
-        <lv-icon v-if="loading" class="lv-button__loading" name="spinner" />
+        <lv-icon v-if="loading" class="lv-button__loading" name="loader-2" />
         <span class="lv-button__content" :class="{ 'lv-button__content--hidden': loading }">
             <slot>
                 {{ label }}

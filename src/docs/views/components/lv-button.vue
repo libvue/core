@@ -63,10 +63,10 @@ export default {
         return {
             activeTab: 'colors',
             tabs: [
-                { id: 'colors', title: 'Colors', icon: 'paint-tool' },
-                { id: 'types', title: 'Types', icon: 'minus-path' },
-                { id: 'states', title: 'States', icon: 'spinner' },
-                { id: 'icons', title: 'Icons', icon: 'icons' },
+                { id: 'colors', title: 'Colors', icon: 'palette' },
+                { id: 'types', title: 'Types', icon: 'type' },
+                { id: 'states', title: 'States', icon: 'loader-2' },
+                { id: 'icons', title: 'Icons', icon: 'box-select' },
                 { id: 'align', title: 'Text Alignment', icon: 'align-center' },
             ],
             code: {

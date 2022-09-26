@@ -19,7 +19,7 @@
             v-bind="$attrs"
             v-model="modelValue"
         />
-        <lv-icon v-if="loading" class="lv-input-text__loading" :size="16" name="spinner" />
+        <lv-icon v-if="loading" class="lv-input-text__loading" :size="16" name="loading-2" />
     </div>
 </template>
 

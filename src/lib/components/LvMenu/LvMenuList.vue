@@ -34,7 +34,7 @@ export default {
     },
     computed: {
         iconName() {
-            return this.isOpen ? 'angle-up' : 'angle-down';
+            return this.isOpen ? 'chevron-up' : 'chevron-down';
         },
     },
     methods: {
