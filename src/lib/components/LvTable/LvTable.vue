@@ -1,167 +1,283 @@
 <template>
-    <lv-card
-        class="lv-table"
-        :style="`--columns: ${visibleColumnCount}`"
-        :class="{
-            'lv-table--clickable-rows': this.clickableRows,
-        }"
-    >
-        <!-- Columns -->
-        <div class="lv-table__columns">
-            <!-- Checkbox Column -->
-            <div class="lv-table__column" v-if="checkable">checkbox</div>
-            <!-- User Given Columns -->
-            <div
-                class="lv-table__column"
-                :class="{
-                    'lv-table__column--active-sort': column.field === sortField,
-                    'lv-table__column--sortable': column.sortable,
-                }"
-                v-for="column in visibleColumns"
-                @click="onClickColumn(column)"
-            >
-                {{ column.title ? column.title : column.field }}
-                <lv-icon v-if="column.sortable" class="lv-table__sort" :name="sortDirection === 'asc' ? 'chevron-down' : 'chevron-up'" />
-            </div>
-        </div>
+    <div class="lv-table" :class="classObject">
+        <table class="lv-table__table">
+            <!-- Table Head -->
+            <thead v-if="!hideHead" class="lv-table__table-head">
+                <tr class="lv-table__row">
+                    <th v-for="(column, columnKey) in columns" :key="columnKey" class="lv-table__cell" :class="getCellModifiers(column)">
+                        {{ column.title || columnKey }}
+                    </th>
+                </tr>
+            </thead>
 
-        <div class="lv-table__rows">
-            <div class="lv-table__row" v-for="row in computedRows" @click="onClickRow(row)">
-                <!-- Checkbox Cell -->
-                <div class="lv-table__cell" v-if="checkable">checkbox</div>
-                <!-- User Given Cells -->
-                <template v-for="column in visibleColumns">
-                    <div class="lv-table__cell" v-if="row[column.field]">
-                        <slot :name="column.field ? column.field : column.field" :row="row" :value="row[column.field]" :column="column">
-                            {{ row[column.field] }}
-                        </slot>
-                    </div>
-                </template>
-                <!-- Magic Cells -->
-            </div>
-        </div>
-    </lv-card>
+            <!-- Grouped Rows (With separate tbody's) -->
+            <template v-if="groupRowsBy">
+                <tbody v-for="(group, groupKey, groupIndex) in groupedParsedRows" :key="groupIndex" class="lv-table__table-body">
+                    <tr :key="groupIndex">
+                        <td :colspan="visibleColumnCount" class="lv-table__cell lv-table__cell--bold lv-table__cell--group-title">{{ groupKey }}</td>
+                    </tr>
+                    <!-- Normal Rows -->
+                    <tr v-for="(row, rowIndex) in group" :key="`${groupIndex}${rowIndex}`" class="lv-table__row">
+                        <!-- Create a cell for each key in a row if the key exists in columns -->
+                        <template v-for="(value, rowKey) in row">
+                            <td
+                                v-if="typeof columns[rowKey] !== 'undefined'"
+                                :key="`${groupIndex}${rowKey}`"
+                                class="lv-table__cell"
+                                :class="getCellModifiers(columns[rowKey])"
+                            >
+                                <!-- Make it slotable with props so you can mutate the data where you use it! -->
+                                <slot :name="rowKey" :value="value" :row="row">
+                                    {{ value }}
+                                </slot>
+                            </td>
+                        </template>
+                    </tr>
+                </tbody>
+            </template>
+
+            <!-- Normal rows -->
+            <tbody v-else class="lv-table__table-body">
+                <!-- No Rows -->
+                <tr v-if="!hasRows" class="lv-table__row">
+                    <td class="lv-table__cell lv-table__cell--no-data">
+                        <base-icon name="ban" />
+                        {{ noDataText }}
+                    </td>
+                </tr>
+
+                <!-- Normal Rows -->
+                <tr v-for="(row, rowIndex) in parsedRows" :key="rowIndex" class="lv-table__row">
+                    <!-- Create a cell for each key in a row if the key exists in columns -->
+                    <template v-for="(value, rowKey) in row">
+                        <td
+                            v-if="typeof columns[rowKey] !== 'undefined'"
+                            :key="rowKey"
+                            class="lv-table__cell"
+                            :class="getCellModifiers(columns[rowKey])"
+                        >
+                            <!-- Make it slotable with props so you can mutate the data where you use it! -->
+                            <slot :name="rowKey" :value="value" :row="row">
+                                {{ value }}
+                            </slot>
+                        </td>
+                    </template>
+                </tr>
+            </tbody>
+
+            <!-- Table Foot (Totals) -->
+            <tfoot v-if="showFoot" class="lv-table__table-foot">
+                <!-- Totals -->
+                <tr v-if="showTotalsRow" class="lv-table__row lv-table__row--totals">
+                    <td v-for="(columnData, columnKey, index) in columns" :key="index" class="lv-table__cell" :class="getCellModifiers(columnData)">
+                        <template v-if="index === 0">
+                            <template v-if="columnData.totals">
+                                {{ getTotal(columnKey, columnData.totals) }}
+                            </template>
+                            <template v-else> Totaal: </template>
+                        </template>
+                        <template v-else-if="columnData.totals">
+                            {{ getTotal(columnKey, columnData.totals) }}
+                        </template>
+                    </td>
+                </tr>
+                <!-- footerRows -->
+                <tr v-for="(row, rowIndex) in footerRows" :key="rowIndex" class="lv-table__row">
+                    <!-- Create a cell for each key in a row if the key exists in columns -->
+                    <template v-for="(value, rowKey) in row">
+                        <td
+                            v-if="typeof columns[rowKey] !== 'undefined'"
+                            :key="rowKey"
+                            class="lv-table__cell"
+                            :class="getCellModifiers(columns[rowKey])"
+                        >
+                            <!-- Make it slotable with props so you can mutate the data where you use it! -->
+                            <slot :name="rowKey" :value="value" :row="row">
+                                {{ value }}
+                            </slot>
+                        </td>
+                    </template>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
 </template>
 
 <script>
-import LvCard from '../LvCard/LvCard.vue';
-import LvIcon from '../LvIcon/LvIcon.vue';
-
-const COLUMN_CONFIG = [
-    { key: 'field', required: true, default: null, description: 'The field of the column.' },
-    {
-        key: 'title',
-        required: false,
-        default: null,
-        description: 'The title of the column. Falls back to the field if not present.',
-    },
-    { key: 'hidden', required: false, default: false, description: 'Hides the entire column.' },
-    { key: 'sortable', required: false, default: false, description: 'Makes the column sortable.' },
-    { key: 'description', required: false, default: null, description: 'Show a description to the column on hover.' },
-    { key: 'totals', required: false, default: false, description: 'Adds the total of all the rows at the bottom.' },
-    { key: 'averages', required: false, default: false, description: 'Adds the averages of all the rows at the bottom.' },
-    { key: 'align', required: false, default: 'left', description: 'Sets the text-align for this column.' },
-];
-
+import number from '../../utils/number.js';
 export default {
-    components: {
-        LvCard,
-        LvIcon,
-    },
     props: {
+        /**
+         * columns
+         * @optional
+         * @format [{ id: Number, ...args }]
+         */
         rows: {
             type: Array,
             default: () => [],
         },
+        /**
+         * columns
+         * @optional
+         * @format { id: <String | Object({ title?: <String>, totals?: <Boolean|Function>, sortable?: <Boolean>, hidden?: <Boolean|Function>, align?: <String(left|center|right)>, fitContent?: <Boolean|Function> })> }
+         */
         columns: {
+            type: Object,
+            default: () => ({}),
+        },
+        /**
+         * footerRows
+         * @optional
+         * @format [{ id: Number, ...args }]
+         *
+         */
+        footerRows: {
             type: Array,
             default: () => [],
-            validator: (columns) => {
-                // Walk through every column
-                columns.forEach((column) => {
-                    COLUMN_CONFIG.forEach((cc) => {
-                        // Check if required column is missing.
-                        if (cc.required && !column[cc.key]) {
-                            return false;
-                        }
-                    });
-                });
-                return true;
-            },
+        },
+        /**
+         * footerColumns
+         * @optional
+         * @format { id: <String | Object({ title?: <String>, hidden?: <Boolean|Function>, align?: <String(left|center|right)>, fitContent?: <Boolean|Function> })> }
+         * @note Preferably use columns.totals if you want totals
+         */
+        footerColumns: {
+            type: Object,
+            default: () => ({}),
+        },
+        bordered: {
+            type: Boolean,
+            default: true,
         },
         loading: {
             type: Boolean,
             default: false,
         },
-        bordered: {
+        hideHead: {
             type: Boolean,
             default: false,
         },
-        striped: {
+        hideRowLines: {
             type: Boolean,
             default: false,
         },
-        checkable: {
+        condensed: {
             type: Boolean,
             default: false,
         },
-        clickableRows: {
-            type: Boolean,
-            default: false,
+        noDataText: {
+            type: String,
+            default: 'Geen data beschikbaar',
         },
-        expandable: {
-            type: Boolean,
-            default: false,
-        },
-        sortField: {
+        groupRowsBy: {
             type: String,
             default: null,
         },
-        sortDirection: {
-            type: String,
-            default: 'asc',
-            validator(value) {
-                return ['asc', 'desc'].includes(value);
-            },
-        },
-        localSort: {
+        horizontalScroll: {
             type: Boolean,
-            default: false,
+            default: true,
         },
     },
     computed: {
-        visibleColumns() {
-            return this.columns.filter((column) => !column.hidden);
+        parsedRows() {
+            const parsedRows = [];
+            // Pick only the given columns from the rows
+            // And froce the order in the columns in each row
+            this.rows.forEach((row) => {
+                const newRow = {};
+                // Get only the given columns
+                Object.keys(this.columns).forEach((column) => {
+                    if (typeof row[column] !== 'undefined') {
+                        newRow[column] = row[column];
+                    }
+                });
+                // Add the groupRowsBy column
+                if (this.groupRowsBy && row[this.groupRowsBy]) {
+                    newRow[this.groupRowsBy] = row[this.groupRowsBy];
+                }
+                parsedRows.push(newRow);
+            });
+            // If groupRowsBy is set, sort the rows by groupRowsBy value
+            return parsedRows;
+        },
+        groupedParsedRows() {
+            if (this.groupRowsBy) {
+                // First sort the rows by field name
+                const groups = {};
+                this.parsedRows.forEach((row) => {
+                    if (!groups[row[this.groupRowsBy]]) {
+                        groups[row[this.groupRowsBy]] = [];
+                    }
+                    groups[row[this.groupRowsBy]].push(row);
+                });
+                return groups;
+            }
+            return false;
+        },
+        hasRows() {
+            return this.rows.length > 0;
         },
         visibleColumnCount() {
-            if (this.checkable) return this.visibleColumns.length + 1;
-            return this.visibleColumns.length;
+            return Object.keys(this.columns).length;
         },
-        computedRows() {
-            if (this.localSort) {
-                if (this.sortDirection === 'asc')
-                    return this.rows.sort((a, b) => (a[this.sortField] > b[this.sortField] ? 1 : b[this.sortField] > a[this.sortField] ? -1 : 0));
-                return this.rows
-                    .sort((a, b) => (a[this.sortField] > b[this.sortField] ? 1 : b[this.sortField] > a[this.sortField] ? -1 : 0))
-                    .reverse();
-            }
-            return this.rows;
+        showFoot() {
+            let showFoot = false;
+            Object.entries(this.columns).forEach(([, column]) => {
+                if (column.totals) {
+                    showFoot = true;
+                }
+            });
+            return showFoot;
+        },
+        showTotalsRow() {
+            let showTotalsRow = false;
+            Object.entries(this.columns).forEach(([, column]) => {
+                if (column.totals) {
+                    showTotalsRow = true;
+                }
+            });
+            return showTotalsRow;
+        },
+        classObject() {
+            return {
+                'lv-table--bordered': !!this.bordered,
+                'lv-table--condensed': !!this.condensed,
+                'lv-table--hide-row-lines': !!this.hideRowLines,
+                'lv-table--loading': !!this.loading,
+                'lv-table--horizontal-scroll': !!this.horizontalScroll,
+            };
         },
     },
     methods: {
-        onClickRow(row) {
-            if (this.clickableRows) this.$emit('row-click', row);
-        },
-        onClickColumn(column) {
-            if (this.sortField !== column.field) {
-                this.$emit('sort', { field: column.field, direction: this.sortDirection });
-            } else {
-                if (this.sortDirection === 'asc') {
-                    this.$emit('sort', { field: column.field, direction: 'desc' });
-                } else {
-                    this.$emit('sort', { field: column.field, direction: 'asc' });
-                }
+        getTotal(columnKey, callback) {
+            let total = 0;
+            this.rows.forEach((row) => {
+                total += Number.parseFloat(row[columnKey], 10);
+            });
+            // Check if type of totals is a function, use it as a formatter
+            if (typeof callback === 'function') {
+                return callback(total);
             }
+            return number(total);
+        },
+        getCellModifiers(column) {
+            const classes = [];
+            if (column.align && column.align === 'right') {
+                classes.push('lv-table__cell--align-right');
+            }
+            if (column.align && column.align === 'center') {
+                classes.push('lv-table__cell--align-center');
+            }
+            if (column.fitContent) {
+                classes.push('lv-table__cell--fit-content');
+            }
+            if (column.bold) {
+                classes.push('lv-table__cell--bold');
+            }
+            if (column.italic) {
+                classes.push('lv-table__cell--italic');
+            }
+            return classes;
         },
     },
 };
@@ -169,60 +285,117 @@ export default {
 
 <style lang="scss">
 @import '../../scss/variables';
-
-$table-column-color: lighten($text-color, 50);
-
 .lv-table {
     $self: &;
-    --columns: 0;
-    width: 100%;
-
-    &--clickable-rows {
-        #{$self}__row {
-            cursor: pointer;
-
-            &:hover {
-                background-color: lighten($text-color, 89);
+    /* Elements */
+    &__table {
+        border-collapse: collapse;
+        width: 100%;
+        &-head {
+            th {
+                font-weight: bold;
+                padding: 0.75rem 0.25rem;
+            }
+        }
+        &-body {
+            border-bottom: 8px solid #fff;
+            &:last-of-type {
+                border-bottom: none;
+            }
+            &:last-of-type:not(:first-of-type) {
+                tr:last-of-type td {
+                    padding-bottom: 1rem;
+                }
+            }
+            tr {
+                border-top: 1px solid #e3e3e3;
+                &:first-of-type {
+                    border-top: 0;
+                }
+                td {
+                    padding: 0.75rem 0.25rem;
+                }
+            }
+        }
+        &-foot {
+            tr {
+                &:first-of-type {
+                    border-top: 1px solid #cacaca;
+                    td {
+                        padding-top: 0.75rem;
+                    }
+                }
+                &:nth-of-type(2n) {
+                    td {
+                        padding-top: 0;
+                    }
+                }
+                td {
+                    font-weight: 600;
+                    padding: 0.75rem 0.25rem;
+                    font-style: italic;
+                }
             }
         }
     }
-
-    &__columns {
-        display: grid;
-        grid-template-columns: repeat(var(--columns), 1fr);
-        border-bottom: 1px solid #f5f5f5;
-        padding: 10px;
-    }
-
-    &__column {
-        display: flex;
-        font-size: $font-size-small;
-        color: $table-column-color;
-        margin-bottom: 15px;
-        font-weight: 600;
-
-        &--sortable {
-            cursor: pointer;
-        }
-
-        &--active-sort {
-            color: $color-primary;
-        }
-    }
-
-    &__rows {
-        display: block;
-    }
-
     &__row {
-        border-bottom: 1px solid #f5f5f5;
-        display: grid;
-        grid-template-columns: repeat(var(--columns), minmax(100px, 1fr));
-        padding: 10px;
-        font-size: $font-size;
-
         &:last-of-type {
-            border-bottom: 0;
+            border-bottom: none;
+        }
+        &--totals {
+            font-size: 1.2rem;
+        }
+        &:first-of-type {
+            #{$self}__cell--group-title {
+                padding-top: 0;
+            }
+        }
+    }
+    &__cell {
+        text-align: left;
+        &--align-right {
+            text-align: right;
+        }
+        &--align-center {
+            text-align: center;
+        }
+        &--fit-content {
+            width: 0;
+        }
+        &--no-data {
+            opacity: 0.5;
+        }
+        &--bold {
+            font-weight: 600;
+        }
+        &--italic {
+            font-style: italic;
+        }
+    }
+    /* Modifiers */
+    &--bordered {
+        border: 1px solid $border-color;
+        border-radius: 3px;
+        padding: 0.5rem 1rem;
+    }
+    &--hide-row-lines {
+        #{$self}__table-body tr {
+            border-top: none;
+        }
+    }
+    &--condensed {
+        padding: 0.75rem 1rem;
+        #{$self}__table-head th,
+        #{$self}__table-foot td,
+        #{$self}__table-body td {
+            padding: 0.3rem 0.25rem;
+        }
+    }
+    &--horizontal-scroll {
+        overflow-y: auto; // enables y scrolling on mobile
+        #{$self}__table-body tr td,
+        #{$self}__table-head th {
+            white-space: nowrap;
         }
     }
 }
