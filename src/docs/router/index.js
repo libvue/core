@@ -25,8 +25,22 @@ import LvTabs from '../views/components/lv-tabs.vue';
 import LvChart from '../views/components/lv-chart.vue';
 import LvNotice from '../views/components/lv-notice.vue';
 
+// Utilities
+import NavigationMixin from '../views/utilities/navigation-mixin.vue';
+import VSpaceAfter from '../views/utilities/v-space-after.vue';
+
 const routes = [
     { path: '/', redirect: '/about' },
+    {
+        path: '/navigation-mixin',
+        name: 'navigation-mixin',
+        component: NavigationMixin,
+    },
+    {
+        path: '/v-space-after',
+        name: 'v-space-after',
+        component: VSpaceAfter,
+    },
     {
         path: '/about',
         name: 'about',
@@ -35,7 +49,6 @@ const routes = [
             layout: 'splash',
         },
     },
-
     {
         path: '/install',
         name: 'install',

@@ -63,10 +63,10 @@
                 </lv-menu-group>
                 <lv-menu-group label="Utilities">
                     <lv-menu-list icon="corner-down-right" label="Mixins">
-                        <lv-menu-item label="navigationMixin" to="lv-layout" />
+                        <lv-menu-item label="navigationMixin" to="navigation-mixin" />
                     </lv-menu-list>
                     <lv-menu-list icon="wand-2" label="Directives">
-                        <lv-menu-item label="v-space-after" to="lv-layout" />
+                        <lv-menu-item label="v-space-after" to="v-space-after" />
                     </lv-menu-list>
                 </lv-menu-group>
             </lv-menu>
