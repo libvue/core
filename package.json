@@ -6,8 +6,8 @@
         "build": "vite build"
     },
     "dependencies": {
-        "@iconscout/unicons": "^4.0.1",
         "highlight.js": "^11.6.0",
+        "lucide-static": "^0.90.0",
         "vue": "^3.2.39"
     },
     "devDependencies": {
