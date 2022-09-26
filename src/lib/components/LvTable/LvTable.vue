@@ -74,10 +74,24 @@
                             <template v-if="columnData.totals">
                                 {{ getTotal(columnKey, columnData.totals) }}
                             </template>
-                            <template v-else> Totaal: </template>
+                            <template v-else> Total </template>
                         </template>
                         <template v-else-if="columnData.totals">
                             {{ getTotal(columnKey, columnData.totals) }}
+                        </template>
+                    </td>
+                </tr>
+                <!-- Averages -->
+                <tr v-if="showAverageRow" class="lv-table__row lv-table__row--average">
+                    <td v-for="(columnData, columnKey, index) in columns" :key="index" class="lv-table__cell" :class="getCellModifiers(columnData)">
+                        <template v-if="index === 0">
+                            <template v-if="columnData.averages">
+                                {{ getAverage(columnKey, columnData.averages) }}
+                            </template>
+                            <template v-else> Average </template>
+                        </template>
+                        <template v-else-if="columnData.averages">
+                            {{ getAverage(columnKey, columnData.averages) }}
                         </template>
                     </td>
                 </tr>
@@ -119,7 +133,7 @@ export default {
         /**
          * columns
          * @optional
-         * @format { id: <String | Object({ title?: <String>, totals?: <Boolean|Function>, sortable?: <Boolean>, hidden?: <Boolean|Function>, align?: <String(left|center|right)>, fitContent?: <Boolean|Function> })> }
+         * @format { id: <String | Object({ title?: <String>, totals?: <Boolean|Function> average?: <Boolean|Function> ,hidden?: <Boolean|Function>, align?: <String(left|center|right)>, fitContent?: <Boolean|Function> })> }
          */
         columns: {
             type: Object,
@@ -223,7 +237,7 @@ export default {
         showFoot() {
             let showFoot = false;
             Object.entries(this.columns).forEach(([, column]) => {
-                if (column.totals) {
+                if (column.totals || column.averages) {
                     showFoot = true;
                 }
             });
@@ -237,6 +251,15 @@ export default {
                 }
             });
             return showTotalsRow;
+        },
+        showAverageRow() {
+            let showAverageRow = false;
+            Object.entries(this.columns).forEach(([, column]) => {
+                if (column.averages) {
+                    showAverageRow = true;
+                }
+            });
+            return showAverageRow;
         },
         classObject() {
             return {
@@ -259,6 +282,16 @@ export default {
                 return callback(total);
             }
             return number(total);
+        },
+        getAverage(columnKey, callback) {
+            let total = this.getTotal(columnKey);
+            const average = total / this.rows.length;
+
+            // Check if type of totals is a function, use it as a formatter
+            if (typeof callback === 'function') {
+                return callback(average);
+            }
+            return number(average);
         },
         getCellModifiers(column) {
             const classes = [];
@@ -287,6 +320,7 @@ export default {
 @import '../../scss/variables';
 .lv-table {
     $self: &;
+    font-size: $font-size;
     /* Elements */
     &__table {
         border-collapse: collapse;
@@ -294,11 +328,12 @@ export default {
         &-head {
             th {
                 font-weight: bold;
+
                 padding: 0.75rem 0.25rem;
             }
         }
         &-body {
-            border-bottom: 8px solid #fff;
+            border-bottom: 8px solid $background-color;
             &:last-of-type {
                 border-bottom: none;
             }
@@ -308,10 +343,7 @@ export default {
                 }
             }
             tr {
-                border-top: 1px solid #e3e3e3;
-                &:first-of-type {
-                    border-top: 0;
-                }
+                border-top: 1px solid lighten($border-color, 8);
                 td {
                     padding: 0.75rem 0.25rem;
                 }
@@ -320,7 +352,6 @@ export default {
         &-foot {
             tr {
                 &:first-of-type {
-                    border-top: 1px solid #cacaca;
                     td {
                         padding-top: 0.75rem;
                     }
@@ -333,7 +364,6 @@ export default {
                 td {
                     font-weight: 600;
                     padding: 0.75rem 0.25rem;
-                    font-style: italic;
                 }
             }
         }
@@ -342,9 +372,7 @@ export default {
         &:last-of-type {
             border-bottom: none;
         }
-        &--totals {
-            font-size: 1.2rem;
-        }
+
         &:first-of-type {
             #{$self}__cell--group-title {
                 padding-top: 0;
@@ -375,8 +403,9 @@ export default {
     /* Modifiers */
     &--bordered {
         border: 1px solid $border-color;
-        border-radius: 3px;
+        border-radius: $border-radius;
         padding: 0.5rem 1rem;
+        box-shadow: $shadow;
     }
     &--hide-row-lines {
         #{$self}__table-body tr {

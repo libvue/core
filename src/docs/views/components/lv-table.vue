@@ -1,54 +1,56 @@
 <template>
     <lv-heading :level="3" v-space-after="0.5">Table</lv-heading>
-    <lv-heading sub :level="6" v-space-after="1">Just a table</lv-heading>
+    <lv-heading sub :level="6" v-space-after="1">Organize your rows</lv-heading>
+
+    <lv-heading :level="6" v-space-after="1">Simple Table</lv-heading>
     <lv-table
-            checkable
-            clickable-rows
-            local-sort
-            :rows="rows"
-            :columns="columns"
-            :sort-field="sortField"
-            :sort-direction="sortDirection"
-            @sort="onSort"
-    />
+        :rows="rows"
+        :columns="columns"
+        v-space-after="1"
+    >
+        <template #weight="{ value }">
+            {{ value }} kg
+        </template>
+        <template #age="{ value }">
+            {{ value }} years
+        </template>
+    </lv-table>
+    <lv-code v-space-after="1" lang="html" :code="codeTemplate" />
+    <lv-code v-space-after="1" lang="javascript" :code="codeScript" />
 </template>
 
 <script>
 export default {
     data() {
         return {
-            sortField: 'name',
-            sortDirection: 'asc',
             rows: [
-                { age: 33, gender: 'male', name: 'Bob' },
-                { age: 43, gender: 'female', name: 'Jane' },
-                { age: 56, gender: 'male', name: 'George' },
-                { age: 82, gender: 'female', name: 'Eva' },
+                { age: 33, gender: 'male', name: 'Bob', weight: 80 },
+                { age: 43, gender: 'female', name: 'Jane', weight: 69 },
+                { age: 56, gender: 'male', name: 'George', weight: 131 },
             ],
-            columns: [
-                {
-                    field: 'name',
+            columns: {
+                name: {
                     title: 'Name',
-                    sortable: true,
                 },
-                {
-                    field: 'age',
-                    title: 'Age',
-                    sortable: true,
-                },
-                {
-                    field: 'gender',
+                gender: {
                     title: 'Gender',
-                    sortable: true,
                 },
-            ],
+                age: {
+                    title: 'Age',
+                    totals: (val) => {
+                        return `${Math.round(val)} years`
+                    },
+                },
+                weight: {
+                    title: 'Weight',
+                    averages: (val) => {
+                        return `${Math.round(val)} kg`
+                    },
+                },
+            },
+            codeTemplate: `<lv-table\n  :rows="rows"\n  :columns="columns"\n  v-space-after="1"\n>\n  <template #weight="{ value }">\n    {{ value }} kg\n  </template>\n  <template #age="{ value }">\n    {{ value }} years\n  </template>\n</lv-table>`,
+            codeScript: `export default {\n  data() {\n    rows: [\n      { age: 33, gender: 'male', name: 'Bob', weight: 80 },\n      { age: 43, gender: 'female', name: 'Jane', weight: 69 },\n      { age: 56, gender: 'male', name: 'George', weight: 131 },\n    ],\n    columns: {\n      name: {\n        title: 'Name',\n      },\n      gender: {\n        title: 'Gender',\n      },\n      age: {\n        title: 'Age',\n        totals: (val) => {\n          return \`\${Math.round(val)} years\`\n        },\n      },\n      weight: {\n        title: 'Weight',\n        averages: (val) => {\n          return \`\${Math.round(val)} kg\`\n        },\n      },\n    },\n  }\n}`,
         };
-    },
-    methods: {
-        onSort(data) {
-            this.sortField = data.field;
-            this.sortDirection = data.direction;
-        },
     },
 };
 </script>
