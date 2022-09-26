@@ -18,7 +18,7 @@ export default {
     },
     computed: {
         spritePath() {
-            return './node_modules/@iconscout/unicons/sprite/line/unicons.svg';
+            return './node_modules/lucide-static/sprite.svg';
         },
     },
 };
@@ -31,7 +31,11 @@ export default {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    fill: currentColor;
+    fill: none;
     font-size: inherit;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 </style>

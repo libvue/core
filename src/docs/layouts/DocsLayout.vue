@@ -9,12 +9,12 @@
                     <lv-menu-item icon="rocket" to="install" label="Installation" />
                 </lv-menu-group>
                 <lv-menu-group label="Concepts">
-                    <lv-menu-item icon="swatchbook" to="theming" label="Theming" />
-                    <lv-menu-item icon="apps" to="spacing" label="Spacing" />
-                    <lv-menu-item icon="web-grid" to="grids" label="Grids" />
+                    <lv-menu-item icon="palette" to="theming" label="Theming" />
+                    <lv-menu-item icon="align-vertical-space-around" to="spacing" label="Spacing" />
+                    <lv-menu-item icon="grid" to="grids" label="Grids" />
                 </lv-menu-group>
                 <lv-menu-group label="Components">
-                    <lv-menu-list icon="grid" label="Layout">
+                    <lv-menu-list icon="layout" label="Layout">
                         <lv-menu-item label="Layout" to="lv-layout" />
                         <lv-menu-item label="Menu" to="lv-menu" />
                         <lv-menu-item label="Card" to="lv-card" />
@@ -26,21 +26,21 @@
                         <lv-menu-item label="Link" />
                         <lv-menu-item label="Breadcrumb" />
                     </lv-menu-list>
-                    <lv-menu-list icon="clipboard-notes" label="Form Elements">
+                    <lv-menu-list icon="form-input" label="Form Elements">
                         <lv-menu-item to="lv-input" label="Input" />
                         <lv-menu-item to="lv-checkbox" label="Checkbox" />
                         <lv-menu-item label="Select" />
                         <lv-menu-item label="Radio" />
                         <lv-menu-item label="Switch" />
                     </lv-menu-list>
-                    <lv-menu-list icon="analytics" label="Data Visualization">
+                    <lv-menu-list icon="bar-chart-2" label="Data Visualization">
                         <lv-menu-item to="lv-table" label="Table" />
                         <lv-menu-item to="lv-chart" label="Chart" />
                         <lv-menu-item label="Widget" />
                         <lv-menu-item label="Tag" />
                         <lv-menu-item label="Badge" />
                     </lv-menu-list>
-                    <lv-menu-list icon="pen" label="Writing">
+                    <lv-menu-list icon="pencil" label="Writing">
                         <lv-menu-item to="lv-heading" label="Heading" />
                         <lv-menu-item label="Paragraph" />
                         <lv-menu-item label="Quote" />
@@ -62,10 +62,10 @@
                     </lv-menu-list>
                 </lv-menu-group>
                 <lv-menu-group label="Utilities">
-                    <lv-menu-list icon="create-dashboard" label="Mixins">
+                    <lv-menu-list icon="corner-down-right" label="Mixins">
                         <lv-menu-item label="navigationMixin" to="lv-layout" />
                     </lv-menu-list>
-                    <lv-menu-list icon="adjust-half" label="Directives">
+                    <lv-menu-list icon="wand-2" label="Directives">
                         <lv-menu-item label="v-space-after" to="lv-layout" />
                     </lv-menu-list>
                 </lv-menu-group>
