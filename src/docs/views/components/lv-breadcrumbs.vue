@@ -5,7 +5,7 @@
         <lv-breadcrumbs :crumbs="crumbs" home-path="/" show-home />
     </lv-card>
     <lv-code v-space-after="1" lang="html" :code="code" />
-    <lv-code v-space-after="1" lang="javascript" :code="codeScript" />
+    <lv-code v-space-after="1" lang="js" :code="codeScript" />
 </template>
 
 <script>
