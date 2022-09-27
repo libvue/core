@@ -53,7 +53,7 @@ const navigationMixin = {
                 const resolve = this.$router.resolve(this.to);
                 return resolve.href;
             }
-            return false; // Returning false to prevent a :href attr to be set
+            return null; // Returning false to prevent a :href attr to be set
         },
         isExternalLink() {
             return this.to ? URLValidator(this.to) : false;
