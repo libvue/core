@@ -23,42 +23,42 @@
                     <lv-menu-list icon="compass" label="Navigation">
                         <lv-menu-item to="lv-button" label="Button" />
                         <lv-menu-item to="lv-tabs" label="Tabs" />
-                        <lv-menu-item label="Link" />
-                        <lv-menu-item label="Breadcrumb" />
+                        <lv-menu-item label="Link" to="lv-link" />
+                        <lv-menu-item label="Breadcrumbs" to="lv-breadcrumbs" />
                     </lv-menu-list>
                     <lv-menu-list icon="form-input" label="Form Elements">
                         <lv-menu-item to="lv-input" label="Input" />
                         <lv-menu-item to="lv-checkbox" label="Checkbox" />
-                        <lv-menu-item label="Select" />
-                        <lv-menu-item label="Radio" />
-                        <lv-menu-item label="Switch" />
+                        <lv-menu-item label="Select" to="lv-select" />
+                        <lv-menu-item label="Radio" to="lv-radio" />
+                        <lv-menu-item label="Switch" to="lv-switch" />
                     </lv-menu-list>
                     <lv-menu-list icon="bar-chart-2" label="Data Visualization">
                         <lv-menu-item to="lv-table" label="Table" />
                         <lv-menu-item to="lv-chart" label="Chart" />
-                        <lv-menu-item label="Widget" />
-                        <lv-menu-item label="Tag" />
-                        <lv-menu-item label="Badge" />
+                        <lv-menu-item label="Widget" to="lv-widget" />
+                        <lv-menu-item label="Tag" to="lv-tag" />
+                        <lv-menu-item label="Badge" to="lv-badge" />
                     </lv-menu-list>
                     <lv-menu-list icon="pencil" label="Writing">
                         <lv-menu-item to="lv-heading" label="Heading" />
-                        <lv-menu-item label="Paragraph" />
-                        <lv-menu-item label="Quote" />
-                        <lv-menu-item label="Kbd" />
-                        <lv-menu-item label="Divider" />
+                        <lv-menu-item label="Paragraph" to="lv-paragraph" />
+                        <lv-menu-item label="Quote" to="lv-quote" />
+                        <lv-menu-item label="Kbd" to="lv-kbd"/>
+                        <lv-menu-item label="Divider" to="lv-divider" />
                         <lv-menu-item to="lv-code" label="Code" />
                         <lv-menu-item to="lv-notice" label="Notice" />
                     </lv-menu-list>
                     <lv-menu-list icon="image" label="Media">
-                        <lv-menu-item label="Icon" />
-                        <lv-menu-item label="Image" />
-                        <lv-menu-item label="Avatar" />
+                        <lv-menu-item label="Icon" to="lv-icon" />
+                        <lv-menu-item label="Image" to="lv-image" />
+                        <lv-menu-item label="Avatar" to="lv-avatar" />
                     </lv-menu-list>
                     <lv-menu-list icon="layers" label="Overlay">
-                        <lv-menu-item label="Modal" />
-                        <lv-menu-item label="Drawer" />
-                        <lv-menu-item label="Confirm" />
-                        <lv-menu-item label="Tooltip" />
+                        <lv-menu-item label="Modal" to="lv-modal" />
+                        <lv-menu-item label="Drawer" to="lv-drawer" />
+                        <lv-menu-item label="Confirm" to="lv-confirm" />
+                        <lv-menu-item label="Tooltip" to="lv-tooltip" />
                     </lv-menu-list>
                 </lv-menu-group>
                 <lv-menu-group label="Utilities">
