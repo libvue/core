@@ -26,7 +26,6 @@ const handler = (el, binding) => {
             spacingValue = `calc(${spacingValue} - ${parentGap})`;
         }
         if (parentFlexDirection === 'column') {
-            console.log(parentGap);
             el.style.marginBottom = spacingValue;
         }
         if (parentFlexDirection === 'row') {
