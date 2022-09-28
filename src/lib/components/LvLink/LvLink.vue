@@ -20,6 +20,8 @@ export default {
     color: $text-color;
     text-decoration: none;
     border-bottom: 1px dashed $text-color;
+    transition: all $transition-time;
+
     &[href]:hover {
         color: $color-primary;
         border-bottom-color: $color-primary;

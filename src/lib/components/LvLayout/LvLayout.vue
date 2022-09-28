@@ -5,12 +5,12 @@
                 <slot name="logo"></slot>
             </div>
             <slot name="menu"></slot>
+            <div class="lv-layout__menu-footer" v-if="!!$slots['menu-footer']">
+                <slot name="menu-footer"></slot>
+            </div>
         </div>
         <div class="lv-layout__content" v-if="!!$slots.content">
             <slot name="content" />
-        </div>
-        <div class="lv-layout__footer" v-if="!!$slots.footer">
-            <slot name="footer" />
         </div>
     </div>
 </template>
@@ -80,16 +80,22 @@ $layout-menu-border-color: lighten($border-color, 8);
             flex-shrink: 0;
             height: v-bind(verticalMenuHeight);
             align-items: center;
+            flex-direction: row;
+
             #{$self}__#{menu}-logo {
                 margin-right: 10px;
                 margin-bottom: 0;
+            }
+
+            #{$self}__#{menu}-footer {
+                margin-top: 0;
+                margin-left: auto;
             }
         }
     }
 
     &__menu,
-    &__content,
-    &__footer {
+    &__content {
         padding: 30px;
     }
     &__content {
@@ -103,11 +109,17 @@ $layout-menu-border-color: lighten($border-color, 8);
         max-height: 100vh;
         width: v-bind(horizontalMenuWidth);
         flex-shrink: 0;
+        display: flex;
+        flex-direction: column;
+
         &-logo {
             display: flex;
             align-items: center;
             margin-bottom: 30px;
             font-weight: bold;
+        }
+        &-footer {
+            margin-top: auto;
         }
     }
 }
