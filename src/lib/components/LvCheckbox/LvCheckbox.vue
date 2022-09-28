@@ -8,7 +8,7 @@
     >
         <input class="lv-checkbox__input" type="checkbox" :checked="model" v-bind="$attrs" @input="toggleCheckbox" />
         <lv-icon class="lv-checkbox__icon" name="check" v-if="model && !loading" />
-        <lv-icon class="lv-checkbox__loader" name="loading-2" v-if="loading" />
+        <lv-icon class="lv-checkbox__loader" name="loader-2" v-if="loading" />
         <div class="lv-checkbox__label" v-if="label" @click="toggleCheckbox">{{ label }}</div>
     </div>
 </template>

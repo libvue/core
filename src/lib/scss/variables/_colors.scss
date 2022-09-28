@@ -4,7 +4,7 @@ $background-color: #ffffff !default;
 /* Tint */
 $color-primary: #5937f3 !default;
 $color-info: #3f8cff !default;
-$color-success: #00ca99 !default;
+$color-success: #13c083 !default;
 $color-warning: #ff7a27 !default;
 $color-danger: #ff2740 !default;
 $color-ghost: $background-color !default;
@@ -20,7 +20,7 @@ $border-color-focus: lighten($text-color, 50) !default;
 
 /* Placeholders */
 $placeholder-color-primary: lighten($color-primary, 30) !default;
-$placeholder-color-success: lighten($color-success, 30) !default;
+$placeholder-color-success: lighten($color-success, 10) !default;
 $placeholder-color-info: lighten($color-info, 30) !default;
 $placeholder-color-warning: lighten($color-warning, 30) !default;
 $placeholder-color-danger: lighten($color-danger, 30) !default;

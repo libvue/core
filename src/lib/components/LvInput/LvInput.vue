@@ -1,17 +1,11 @@
 <template>
     <div
-        class="lv-input-text"
-        :class="{
-            'lv-input-text--error': error,
-            'lv-input-text--icon': icon,
-            'lv-input-text--readonly': readonly,
-            'lv-input-text--disabled': disabled || loading,
-            'lv-input-text--loading': loading,
-        }"
+        class="lv-input"
+        :class="classObject"
     >
-        <lv-icon v-if="icon" class="lv-input-text__icon" :size="16" :name="icon" />
+        <lv-icon v-if="icon" class="lv-input__icon" :size="16" :name="icon" />
         <input
-            class="lv-input-text__input"
+            class="lv-input__input"
             :type="type"
             :placeholder="placeholder"
             :disabled="disabled"
@@ -19,7 +13,7 @@
             v-bind="$attrs"
             v-model="modelValue"
         />
-        <lv-icon v-if="loading" class="lv-input-text__loading" :size="16" name="loading-2" />
+        <lv-icon v-if="loading" class="lv-input__loading" :size="16" name="loader-2" />
     </div>
 </template>
 
@@ -40,7 +34,11 @@ export default {
             default: '',
         },
         error: {
-            type: [Boolean, String, Array],
+            type: Boolean,
+            default: false,
+        },
+        success: {
+            type: Boolean,
             default: false,
         },
         disabled: {
@@ -67,6 +65,18 @@ export default {
             },
         },
     },
+    computed: {
+        classObject() {
+            return {
+                'lv-input--error': this.error,
+                'lv-input--success': this.success,
+                'lv-input--icon': this.icon,
+                'lv-input--readonly': this.readonly,
+                'lv-input--disabled': this.disabled || this.loading,
+                'lv-input--loading': this.loading,
+            };
+        }
+    }
 };
 </script>
 
@@ -74,7 +84,7 @@ export default {
 @import '../../scss/variables';
 
 // Block
-.lv-input-text {
+.lv-input {
     $self: &;
     display: flex;
     position: relative;
@@ -127,19 +137,40 @@ export default {
     // Modifiers
 
     &--error {
-        color: $color-warning;
+        color: $color-danger;
 
         #{$self}__input {
-            background: lighten($color-warning, 40);
-            color: $color-warning;
+            background: lighten($color-danger, 40);
+            color: $color-danger;
+            border-color: $color-danger;
+
 
             &::placeholder {
-                color: $placeholder-color-warning;
+                color: $placeholder-color-danger;
             }
         }
         #{$self}__icon,
         #{$self}__loading {
-            color: $color-warning;
+            color: $color-danger;
+        }
+    }
+
+    &--success {
+        color: $color-success;
+
+        #{$self}__input {
+            background: lighten($color-success, 55);
+            color: $color-success;
+            border-color: $color-success;
+
+
+            &::placeholder {
+                color: $placeholder-color-success;
+            }
+        }
+        #{$self}__icon,
+        #{$self}__loading {
+            color: $color-success;
         }
     }
 

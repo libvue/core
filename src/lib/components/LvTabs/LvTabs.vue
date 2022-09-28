@@ -7,7 +7,7 @@
                 class="lv-tabs__button"
                 :tabindex="tab.disabled ? '-1' : '0'"
                 :class="{ 'lv-tabs__button--active': tab.id === active, 'lv-tabs__button--disabled': !!tab.disabled }"
-                @click="onClickButton(tab)"
+                @click.stop="onClickButton(tab)"
                 @keydown.enter.space="onKeyDown(tab)"
             >
                 <lv-icon v-if="tab.icon" class="lv-tabs__button-icon" :name="tab.icon" />
@@ -37,12 +37,12 @@ export default {
     methods: {
         onClickButton(tab) {
             if (!tab.disabled) {
-                this.$emit('change', tab.id);
+                this.$emit('change-tab', tab.id);
             }
         },
         onKeyDown(tab) {
             if (!tab.disabled) {
-                this.$emit('change', tab.id);
+                this.$emit('change-tab', tab.id);
             }
         },
     },
