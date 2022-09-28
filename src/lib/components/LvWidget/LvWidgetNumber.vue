@@ -1,0 +1,87 @@
+<template>
+    <lv-card class="lv-widget-number" inline>
+        <div class="lv-widget-number__head">
+            <div class="lv-widget-number__title">
+                {{ title }}
+            </div>
+            <div
+                class="lv-widget-number__diff"
+                v-if="diff"
+                :class="{ 'lv-widget-number__diff--negative': diff < 0 }"
+            >
+                <template v-if="diff > 0">+</template>{{ diff }}%
+            </div>
+        </div>
+        <div class="lv-widget-number__amount">
+            <span class="lv-widget-number__prefix" v-if="prefix">{{ prefix }}</span>
+            {{ amount }}
+        </div>
+    </lv-card>
+</template>
+
+<script>
+export default {
+    props: {
+        type: {
+            type: String,
+            default: 'number',
+            validator: (val) => ['number', 'graph', 'bar', 'list'].includes(val),
+        },
+        title: {
+            type: String,
+            default: null,
+        },
+        amount: {
+            type: String,
+            default: null,
+        },
+        diff: {
+            type: Number,
+            default: null,
+        },
+        prefix: {
+            type: String,
+            default: null,
+        }
+    },
+};
+</script>
+
+<style lang="scss">
+@import '../../scss/variables';
+.lv-widget-number {
+    padding: 1rem;
+
+    &__head {
+        margin-bottom: 10px;
+        color: $text-color-dimmed;
+        font-weight: 500;
+        display: flex;
+    }
+    &__title {
+        margin-right: 10px;
+    }
+    &__diff {
+        margin-left: auto;
+        color: $color-success;
+        &--negative {
+            color: $color-danger;
+        }
+    }
+    &__amount {
+        display: flex;
+        align-items: flex-start;
+        font-size: 1.7rem;
+        line-height: 1.7rem;
+        font-weight: 600;
+    }
+
+    &__prefix {
+        font-size: 1.2rem;
+        line-height: 1.2rem;
+        margin-right: 5px;
+        color: $text-color-dimmed;
+        font-weight: 500;
+    }
+}
+</style>

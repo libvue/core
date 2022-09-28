@@ -18,6 +18,8 @@ import LvParagraph from './components/LvParagraph/LvParagraph.vue';
 import LvTabs from './components/LvTabs/LvTabs.vue';
 import LvLink from './components/LvLink/LvLink.vue';
 import LvBreadcrumbs from './components/LvBreadcrumbs/LvBreadcrumbs.vue';
+import LvWidget from './components/LvWidget/LvWidget.vue';
+import LvChart from './components/LvChart/LvChart.vue';
 
 import spaceAfter from './directives/spaceAfter';
 
@@ -51,6 +53,8 @@ export default {
         app.component('lv-tabs', LvTabs);
         app.component('lv-link', LvLink);
         app.component('lv-breadcrumbs', LvBreadcrumbs);
+        app.component('lv-widget', LvWidget);
+        app.component('lv-chart', LvChart);
     },
 };
 
@@ -73,4 +77,6 @@ export {
     LvTable,
     LvTabs,
     LvLink,
+    LvWidget,
+    LvChart,
 };
