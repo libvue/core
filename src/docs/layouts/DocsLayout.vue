@@ -37,8 +37,7 @@
                         <lv-menu-item to="lv-table" label="Table" />
                         <lv-menu-item to="lv-chart" label="Chart" />
                         <lv-menu-item label="Widget" to="lv-widget" />
-                        <lv-menu-item label="Tag" to="lv-tag" />
-                        <lv-menu-item label="Badge" to="lv-badge" />
+                        <lv-menu-item label="Pill" to="lv-pill" />
                     </lv-menu-list>
                     <lv-menu-list icon="pencil" label="Writing">
                         <lv-menu-item to="lv-heading" label="Heading" />
@@ -67,6 +66,7 @@
                     </lv-menu-list>
                     <lv-menu-list icon="wand-2" label="Directives">
                         <lv-menu-item label="v-space-after" to="v-space-after" />
+                        <lv-menu-item label="v-badge" to="v-badge" />
                     </lv-menu-list>
                 </lv-menu-group>
             </lv-menu>

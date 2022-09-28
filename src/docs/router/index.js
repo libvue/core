@@ -24,15 +24,13 @@ import LvTable from '../views/components/lv-table.vue';
 import LvTabs from '../views/components/lv-tabs.vue';
 import LvChart from '../views/components/lv-chart.vue';
 import LvNotice from '../views/components/lv-notice.vue';
-
 import LvLink from '../views/components/lv-link.vue';
 import LvBreadcrumbs from '../views/components/lv-breadcrumbs.vue';
 import LvSelect from '../views/components/lv-select.vue';
 import LvRadio from '../views/components/lv-radio.vue';
 import LvSwitch from '../views/components/lv-switch.vue';
 import LvWidget from '../views/components/lv-widget.vue';
-import LvTag from '../views/components/lv-tag.vue';
-import LvBadge from '../views/components/lv-badge.vue';
+import LvPill from '../views/components/lv-pill.vue';
 import LvKbd from '../views/components/lv-kbd.vue';
 import LvDivider from '../views/components/lv-divider.vue';
 import LvIcon from '../views/components/lv-icon.vue';
@@ -46,6 +44,7 @@ import LvTooltip from '../views/components/lv-tooltip.vue';
 // Utilities
 import NavigationMixin from '../views/utilities/navigation-mixin.vue';
 import VSpaceAfter from '../views/utilities/v-space-after.vue';
+import VBadge from '../views/utilities/v-badge.vue';
 
 const routes = [
     { path: '/', redirect: '/about' },
@@ -100,14 +99,9 @@ const routes = [
         component: LvKbd,
     },
     {
-        path: '/lv-badge',
-        name: 'lv-badge',
-        component: LvBadge,
-    },
-    {
-        path: '/lv-tag',
-        name: 'lv-tag',
-        component: LvTag,
+        path: '/lv-pill',
+        name: 'lv-pill',
+        component: LvPill,
     },
     {
         path: '/lv-widget',
@@ -143,6 +137,11 @@ const routes = [
         path: '/v-space-after',
         name: 'v-space-after',
         component: VSpaceAfter,
+    },
+    {
+        path: '/v-badge',
+        name: 'v-badge',
+        component: VBadge,
     },
     {
         path: '/about',
