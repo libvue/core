@@ -1,8 +1,19 @@
 <template>
-    <div class="lv-card">
+    <div class="lv-card" :class="{ 'lv-card--inline': !!inline }">
         <slot />
     </div>
 </template>
+
+<script>
+export default {
+    props: {
+        inline: {
+            type: Boolean,
+            default: false,
+        },
+    }
+}
+</script>
 
 <style lang="scss">
 @import '../../scss/variables';
@@ -13,5 +24,9 @@
     border: 1px solid $border-color;
     background-color: $background-color;
     box-shadow: $shadow;
+
+    &--inline {
+        display: inline-block;
+    }
 }
 </style>
