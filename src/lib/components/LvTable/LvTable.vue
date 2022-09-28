@@ -41,7 +41,7 @@
                 <!-- No Rows -->
                 <tr v-if="!hasRows" class="lv-table__row">
                     <td class="lv-table__cell lv-table__cell--no-data">
-                        <base-icon name="ban" />
+                        <lv-icon name="ban" />
                         {{ noDataText }}
                     </td>
                 </tr>
