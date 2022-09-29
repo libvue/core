@@ -2,7 +2,7 @@
     <lv-heading :level="3" v-space-after="0.5">Button</lv-heading>
     <lv-heading sub :level="6" v-space-after="1">A simple button component</lv-heading>
 
-    <lv-tabs :tabs="tabs" :active="activeTab" @change="(v) => (activeTab = v)">
+    <lv-tabs :tabs="tabs" :active="activeTab" @change-tab="(v) => (activeTab = v)">
         <template #colors="{ tab }">
             <lv-card v-space-after="1">
                 <lv-group>
