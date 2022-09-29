@@ -26,18 +26,18 @@
                         <lv-menu-item label="Link" to="lv-link" />
                         <lv-menu-item label="Breadcrumbs" to="lv-breadcrumbs" />
                     </lv-menu-list>
+                    <lv-menu-list icon="bar-chart-2" label="Data Visualization">
+                        <lv-menu-item to="lv-table" label="Table" />
+                        <lv-menu-item to="lv-chart" label="Chart" />
+                        <lv-menu-item label="Widget" to="lv-widget" />
+                        <lv-menu-item label="Pill" to="lv-pill" />
+                    </lv-menu-list>
                     <lv-menu-list icon="form-input" label="Form Elements">
                         <lv-menu-item to="lv-input" label="Input" />
                         <lv-menu-item to="lv-checkbox" label="Checkbox" />
                         <lv-menu-item label="Select" to="lv-select" />
                         <lv-menu-item label="Radio" to="lv-radio" />
                         <lv-menu-item label="Switch" to="lv-switch" />
-                    </lv-menu-list>
-                    <lv-menu-list icon="bar-chart-2" label="Data Visualization">
-                        <lv-menu-item to="lv-table" label="Table" />
-                        <lv-menu-item to="lv-chart" label="Chart" />
-                        <lv-menu-item label="Widget" to="lv-widget" />
-                        <lv-menu-item label="Pill" to="lv-pill" />
                     </lv-menu-list>
                     <lv-menu-list icon="pencil" label="Writing">
                         <lv-menu-item to="lv-heading" label="Heading" />

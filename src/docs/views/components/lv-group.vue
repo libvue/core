@@ -3,19 +3,23 @@
     <lv-heading sub :level="6" v-space-after="1">Group elements with the power of flexbox</lv-heading>
 
     <lv-heading :level="6" v-space-after="1">Row Direction (Default)</lv-heading>
-    <lv-group v-space-after="1">
-        <lv-button label="Hello" type="outline"/>
-        <lv-button label="Hello" type="outline"/>
-        <lv-button label="Hello" type="outline"/>
-    </lv-group>
+    <lv-card v-space-after="1">
+        <lv-group>
+            <lv-button label="Hello" type="outline"/>
+            <lv-button label="Hello" type="outline"/>
+            <lv-button label="Hello" type="outline"/>
+        </lv-group>
+    </lv-card>
     <lv-code v-space-after="1" lang="html" :code="code" />
 
     <lv-heading :level="6" v-space-after="1">Column Direction</lv-heading>
-    <lv-group v-space-after="1" direction="column" gap="2px">
-        <lv-button label="Hello" type="outline"/>
-        <lv-button label="Hello" type="outline"/>
-        <lv-button label="Hello" type="outline"/>
-    </lv-group>
+    <lv-card v-space-after="1">
+        <lv-group direction="column" gap="2px">
+            <lv-button label="Hello" type="outline"/>
+            <lv-button label="Hello" type="outline"/>
+            <lv-button label="Hello" type="outline"/>
+        </lv-group>
+    </lv-card>
     <lv-code v-space-after="1" lang="html" :code="codeColumn" />
 </template>
 
