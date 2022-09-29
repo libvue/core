@@ -16,7 +16,7 @@
                 </div>
             </div>
         </div>
-        <lv-chart height="100px" :datasets="datasets" :labels="labels" :show-axis="false" :show-dots="false" />
+        <lv-chart height="100px" :datasets="datasets" :labels="labels" :type="chartType" :show-axis="false" />
     </lv-card>
 </template>
 
@@ -38,6 +38,11 @@ export default {
         prefix: {
             type: String,
             default: null,
+        },
+        chartType: {
+            type: String,
+            default: 'line',
+            validator: (val) => ['line', 'bar'].includes(val),
         },
         labels: {
             type: Array,

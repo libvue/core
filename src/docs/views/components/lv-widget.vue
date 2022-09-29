@@ -12,7 +12,7 @@
     <lv-heading :level="6" v-space-after="1">Chart Widget</lv-heading>
     <lv-group v-space-after="1">
         <lv-widget title="Followers" amount="2,530" :diff="10" type="chart" :labels="labels" :datasets="followersDatasets"/>
-        <lv-widget title="Subscribers" amount="3,122" :diff="-2" type="chart" :labels="labels" :datasets="subscribersDatasets"/>
+        <lv-widget title="Subscribers" chart-type="bar" amount="3,122" :diff="-2" type="chart" :labels="labels" :datasets="subscribersDatasets"/>
     </lv-group>
     <lv-code lang="html" :code="codeChartWidget" v-space-after="1"/>
     <lv-code lang="js" :code="codeChartWidgetScript" v-space-after="1"/>
@@ -20,7 +20,7 @@
 
 <script>
 const codeNumberWidget = `<lv-widget title="Avg. Revenue" amount="1.239,21" prefix="$" :diff="-10" type="number" />\n<lv-widget title="Total Payout" amount="632,37" prefix="€" :diff="75" type="number" />`.trim();
-const codeChartWidget = `<lv-widget title="Followers" amount="2,530" :diff="10" type="chart" :labels="labels" :datasets="followersDatasets"/>\n<lv-widget title="Subscribers" amount="3,122" :diff="-2" type="chart" :labels="labels" :datasets="subscribersDatasets"/>`.trim();
+const codeChartWidget = `<lv-widget title="Followers" amount="2,530" :diff="10" type="chart" :labels="labels" :datasets="followersDatasets"/>\n<lv-widget title="Subscribers" chart-type="bar" amount="3,122" :diff="-2" type="chart" :labels="labels" :datasets="subscribersDatasets"/>`.trim();
 const codeChartWidgetScript = `
 export default {
     data() {
@@ -30,14 +30,14 @@ export default {
                 {
                     label: 'Followers',
                     hue: 24,
-                    data: [55, 12, 20, 34, 1, 4],
+                    data: [55, 12, 20, 34, 7, 4],
                 },
             ],
             subscribersDatasets: [
                 {
                     label: 'Subscribers',
                     hue: 36,
-                    data: [20, 34, 1, 4,55, 12],
+                    data: [20, 34, 6, 4,55, 12],
                 },
             ],
         }
@@ -55,14 +55,14 @@ export default {
                 {
                     label: 'Followers',
                     hue: 24,
-                    data: [55, 12, 20, 34, 1, 4],
+                    data: [55, 12, 20, 34, 7, 4],
                 },
             ],
             subscribersDatasets: [
                 {
                     label: 'Subscribers',
                     hue: 36,
-                    data: [20, 34, 1, 4,55, 12],
+                    data: [20, 34, 6, 4,55, 12],
                 },
             ],
         }

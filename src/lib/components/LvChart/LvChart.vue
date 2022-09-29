@@ -1,6 +1,6 @@
 <template>
     <div class="lv-chart" :style="`height: ${height}; width: ${width}`">
-        <canvas v-if="hasDatasets && hasLabels" ref="canvas"  :style="`height: ${height}; width: ${width}`"></canvas>
+        <canvas v-if="hasDatasets && hasLabels" ref="canvas" :height="height" :style="`height: ${height}; width: ${width}`"></canvas>
         <lv-paragraph class="lv-chart__message" v-else>
             <lv-icon class="lv-chart__message-icon" name="alert-circle"/> No data found
         </lv-paragraph>
@@ -78,15 +78,20 @@ export default {
         parsedDataSets() {
             const parsedDataSets = [];
             this.datasets.forEach((dataset) => {
-                const ctx = this.$refs.canvas.getContext('2d');
-                const gradientBackground = ctx.createLinearGradient(0, 0, 0, parseInt(this.height, 10));
-                gradientBackground.addColorStop(0, 'hsla(' + dataset.hue + ', 100%, 60%, 0.2)');
-                gradientBackground.addColorStop(1, 'hsla(' + dataset.hue + ', 100%, 60%, 0)');
+                if(this.type === 'line') {
+                    const ctx = this.$refs.canvas.getContext('2d');
+                    const gradientBackground = ctx.createLinearGradient(0, 0, 0, parseInt(this.height, 10));
+                    gradientBackground.addColorStop(0, 'hsla(' + dataset.hue + ', 100%, 60%, 0.2)');
+                    gradientBackground.addColorStop(1, 'hsla(' + dataset.hue + ', 100%, 60%, 0)');
+                    dataset.backgroundColor = gradientBackground;
+                }
+                if(this.type === 'bar') {
+                    dataset.backgroundColor = 'hsla(' + dataset.hue + ', 100%, 60%, 1)';
+                }
                 dataset.borderColor = 'hsla(' + dataset.hue + ', 100%, 60%, 1)';
                 dataset.pointBackgroundColor = 'hsla(' + dataset.hue + ', 100%, 60%, 1)';
                 dataset.fill = true;
                 dataset.tension = 0.4;
-                dataset.backgroundColor = gradientBackground;
                 parsedDataSets.push(dataset);
             });
             return parsedDataSets;
@@ -99,6 +104,7 @@ export default {
                     datasets: this.parsedDataSets,
                 },
                 options: {
+                    animations: false,
                     plugins: {
                         legend: {
                             display: this.showLegend,
@@ -112,7 +118,6 @@ export default {
                             hitRadius: this.showDots ? 8 : 5,
                         }
                     },
-
                     responsive: true,
                     maintainAspectRatio: false,
                     scales: {
@@ -137,29 +142,23 @@ export default {
         this.createChart();
     },
     watch: {
-        height() {
-            this.updateChart();
-        },
-        width() {
-            this.updateChart();
-        },
         datasets() {
-            this.updateChart();
+            this.updateDatasets();
         },
         labels() {
-            this.updateChart();
+            this.updateLabels();
         },
         showGrid() {
-            this.updateChart();
+            this.updateOptions();
         },
         showLegend() {
-            this.updateChart();
+            this.updateOptions();
+        },
+        showDots() {
+            this.updateOptions();
         },
         showAxis() {
-            this.updateChart();
-        },
-        options() {
-            this.updateChart();
+            this.updateOptions();
         },
     },
     methods: {
@@ -168,11 +167,17 @@ export default {
                 this.chart = new Chart(this.$refs.canvas, this.config);
             }
         },
-        updateChart() {
-            this.chart.destroy();
-            this.$nextTick(() => {
-                this.createChart();
-            });
+        updateOptions() {
+            this.chart.options = this.config.options;
+            this.chart.update();
+        },
+        updateDatasets() {
+            this.chart.data.datasets = this.datasets;
+            this.chart.update();
+        },
+        updateLabels() {
+            this.chart.data.labels = this.labels;
+            this.chart.update();
         }
     },
 };
