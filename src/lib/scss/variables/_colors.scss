@@ -1,13 +1,22 @@
 /* Background */
 $background-color: #ffffff !default;
 
-/* Tint */
+/* Colors */
+$color-default: #0b0b0c !default;
 $color-primary: #5937f3 !default;
 $color-info: #3f8cff !default;
 $color-success: #13c083 !default;
 $color-warning: #ff7a27 !default;
 $color-danger: #ff2740 !default;
 $color-ghost: $background-color !default;
+
+/* Light Colors */
+$color-light-default: lighten($color-default, 85) !default;
+$color-light-primary: lighten($color-primary, 30) !default;
+$color-light-info: lighten($color-info, 30) !default;
+$color-light-success: lighten($color-success, 50) !default;
+$color-light-warning: lighten($color-warning, 35) !default;
+$color-light-danger: lighten($color-danger, 35) !default;
 
 /* Text */
 $text-color: #0b0b0c !default;

@@ -11,18 +11,21 @@
             <lv-pill text="Warning" color="warning"/>
             <lv-pill text="Danger" color="primary"/>
             <lv-pill text="Info" color="info"/>
+
+            <lv-pill text="Light Default" color="light-default"/>
             <lv-pill text="Light Danger" color="light-danger"/>
             <lv-pill text="Light Success" color="light-success"/>
             <lv-pill text="Light Warning" color="light-warning"/>
             <lv-pill text="Light Danger" color="light-primary" icon="github"/>
             <lv-pill text="Light Info" color="light-info"/>
+
             <lv-pill text="Default" color-type="outline"/>
             <lv-pill text="Danger" color="danger" color-type="outline"/>
             <lv-pill text="Success" color="success" color-type="outline"/>
             <lv-pill text="Warning" color="warning" color-type="outline" icon="github"/>
             <lv-pill text="Danger" color="primary" color-type="outline"/>
             <lv-pill text="Info" color="info" color-type="outline"/>
-
+            <lv-pill text="Light Default" color="light-default" color-type="outline"/>
             <lv-pill text="Light Danger" color="light-danger" color-type="outline"/>
             <lv-pill text="Light Success" color="light-success" color-type="outline"/>
             <lv-pill text="Light Warning" color="light-warning" color-type="outline" icon="github"/>

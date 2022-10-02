@@ -17,7 +17,6 @@ import propColorMixin from "../../mixins/propColorMixin";
 import propSizeMixin from "../../mixins/propSizeMixin";
 
 export default {
-    name: 'lv-pill',
     mixins: [propColorMixin('default', 'solid'), propSizeMixin],
     props: {
         text: {
@@ -55,7 +54,7 @@ export default {
     border-radius: 1rem;
 
     &__icon {
-        padding: 0.5rem 0 0.5rem 0.5rem;
+        padding: 0.5rem 0 0.5rem 0.625rem;
         font-size: $font-size;
         line-height: $font-size;
         display: flex;
@@ -63,13 +62,13 @@ export default {
     }
 
     &__text {
-        padding: 0.5rem 0.5rem;
+        padding: 0.5rem 0.625rem;
         display: flex;
         align-items: center;
     }
 
     &__close {
-        padding: 0.5rem 0.5rem 0.5rem 0.25rem;
+        padding: 0.5rem 0.625rem 0.5rem 0;
         display: flex;
         background-color: rgba(0, 0, 0, 0.05);
         align-items: center;

@@ -11,21 +11,24 @@
                     <lv-button label="Warning" color="warning" />
                     <lv-button label="Info" color="info" />
                     <lv-button label="Success" color="success" />
+                    <lv-button label="Light Default" color="light-default"/>
+                    <lv-button label="Light Primary" color="light-primary" />
+                    <lv-button label="Light Warning" color="light-warning" />
+                    <lv-button label="Light Info" color="light-info" />
+                    <lv-button label="Light Success" color="light-success" />
+                    <lv-button label="Outline Default" color-type="outline"/>
+                    <lv-button label="Outline Primary" color="primary" color-type="outline" />
+                    <lv-button label="Outline Warning" color="warning" color-type="outline" />
+                    <lv-button label="Outline Info" color="info" color-type="outline" />
+                    <lv-button label="Outline Success" color="success" color-type="outline" />
+                    <lv-button label="Outline Light Default" color="light-default" color-type="outline"/>
+                    <lv-button label="Outline Light Primary" color="light-primary" color-type="outline" />
+                    <lv-button label="Outline Light Warning" color="light-warning" color-type="outline" />
+                    <lv-button label="Outline Light Info" color="light-info" color-type="outline" />
+                    <lv-button label="Outline Light Success" color="light-success" color-type="outline" />
                 </lv-group>
             </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="code.color" />
-        </template>
-        <template #types="{ tab }">
-            <lv-card v-space-after="1">
-                <lv-group>
-                    <lv-button label="Default" />
-                    <lv-button label="Ghost" type="ghost" />
-                    <lv-button label="Ghost Primary" type="ghost" color="primary" />
-                    <lv-button label="Outline" type="outline" />
-                    <lv-button label="Outline Primary" type="outline" color="primary" />
-                </lv-group>
-            </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="code.types" />
+            <lv-code v-space-after="1" lang="html" :code="colorCode" />
         </template>
         <template #states="{ tab }">
             <lv-card v-space-after="1">
@@ -58,20 +61,40 @@
 </template>
 
 <script>
+const colorCode = `
+<lv-button label="Default" />
+<lv-button label="Primary" color="primary" />
+<lv-button label="Warning" color="warning" />
+<lv-button label="Info" color="info" />
+<lv-button label="Success" color="success" />
+<lv-button label="Light Default" color="light-default"/>
+<lv-button label="Light Primary" color="light-primary" />
+<lv-button label="Light Warning" color="light-warning" />
+<lv-button label="Light Info" color="light-info" />
+<lv-button label="Light Success" color="light-success" />
+<lv-button label="Outline Default" color-type="outline"/>
+<lv-button label="Outline Primary" color="primary" color-type="outline" />
+<lv-button label="Outline Warning" color="warning" color-type="outline" />
+<lv-button label="Outline Info" color="info" color-type="outline" />
+<lv-button label="Outline Success" color="success" color-type="outline" />
+<lv-button label="Outline Light Default" color="light-default" color-type="outline"/>
+<lv-button label="Outline Light Primary" color="light-primary" color-type="outline" />
+<lv-button label="Outline Light Warning" color="light-warning" color-type="outline" />
+<lv-button label="Outline Light Info" color="light-info" color-type="outline" />
+<lv-button label="Outline Light Success" color="light-success" color-type="outline" />
+`.trim();
 export default {
     data() {
         return {
             activeTab: 'colors',
             tabs: [
                 { id: 'colors', title: 'Colors', icon: 'palette' },
-                { id: 'types', title: 'Types', icon: 'type' },
                 { id: 'states', title: 'States', icon: 'loader-2' },
                 { id: 'icons', title: 'Icons', icon: 'box-select' },
                 { id: 'align', title: 'Text Alignment', icon: 'align-center' },
             ],
+            colorCode,
             code: {
-                color: `<lv-button label="Default" />\n<lv-button label="Primary" color="primary" />\n<lv-button label="Warning" color="warning" />\n<lv-button label="Info" color="info" />\n<lv-button label="Success" color="success" />`,
-                types: `<lv-button label="Default" />\n<lv-button label="Ghost" type="ghost" />\n<lv-button label="Ghost Primary" type="ghost" color="primary" />\n<lv-button label="Outline" type="outline" />\n<lv-button label="Outline Primary" type="outline" color="primary" />`,
                 states: `<lv-button label="loading" loading />\n<lv-button disabled label="Disabled" />`,
                 icons: `<lv-button icon="rocket" label="Hello" />`,
                 align: `<lv-button icon="rocket" label="Default (center)" />\n<lv-button icon="rocket" label="Left" align="left" />\n<lv-button icon="rocket" label="Right" align="right" />`,

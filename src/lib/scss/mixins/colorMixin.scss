@@ -4,8 +4,8 @@
     
     // Solid Colors
     &--color-solid-default {
-        background-color: $border-color;
-        color: $text-color;
+        background-color: $color-default;
+        color: $text-color-inverted;
     }
     &--color-solid-danger {
         background-color: $color-danger;
@@ -27,30 +27,34 @@
         background-color: $color-info;
         color: $text-color-inverted;
     }
+    &--color-solid-light-default {
+        background-color: $color-light-default;
+        color: $text-color;
+    }
     &--color-solid-light-danger {
-        background-color: lighten($color-danger, 35);
+        background-color: $color-light-danger;
         color: $text-color;
     }
     &--color-solid-light-warning {
-        background-color: lighten($color-warning, 35);
+        background-color: $color-light-warning;
         color: $text-color;
     }
     &--color-solid-light-success {
-        background-color: lighten($color-success, 50);
+        background-color: $color-light-success;
         color: $text-color;
     }
     &--color-solid-light-primary {
-        background-color: lighten($color-primary, 30);
+        background-color: $color-light-primary;
         color: $text-color;
     }
     &--color-solid-light-info {
-        background-color: lighten($color-info, 30);
+        background-color: $color-light-info;
         color: $text-color;
     }
 
     // Outline colors
     &--color-outline-default {
-        border: 1px solid $border-color;
+        border: 1px solid $color-default;
         color: $text-color;
     }
     &--color-outline-danger {
@@ -73,25 +77,29 @@
         border: 1px solid $color-info;
         color: $color-info;
     }
+    &--color-outline-light-default {
+        border: 1px solid $color-light-default;
+        color: $color-light-default;
+    }
     &--color-outline-light-danger {
-        border: 1px solid lighten($color-danger, 35);
-        color: lighten($color-danger, 35);
+        border: 1px solid $color-light-danger;
+        color: $color-light-danger;
     }
     &--color-outline-light-warning {
-        border: 1px solid lighten($color-warning, 35);
-        color: lighten($color-warning, 35);
+        border: 1px solid $color-light-warning;
+        color: $color-light-warning;
     }
     &--color-outline-light-success {
-        border: 1px solid lighten($color-success, 50);
-        color: lighten($color-success, 50);
+        border: 1px solid $color-light-success;
+        color: $color-light-success;
     }
     &--color-outline-light-primary {
-        border: 1px solid lighten($color-primary, 30);
-        color: lighten($color-primary, 30);
+        border: 1px solid $color-light-primary;
+        color: $color-light-primary;
     }
     &--color-outline-light-info {
-        border: 1px solid lighten($color-info, 30);
-        color: lighten($color-info, 30);
+        border: 1px solid $color-light-info;
+        color: $color-light-info;
     }
     
 }
