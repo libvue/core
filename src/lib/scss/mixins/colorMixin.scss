@@ -1,0 +1,97 @@
+@import "../variables/colors";
+
+@mixin color-mixin {
+    
+    // Solid Colors
+    &--color-solid-default {
+        background-color: $border-color;
+        color: $text-color;
+    }
+    &--color-solid-danger {
+        background-color: $color-danger;
+        color: $text-color-inverted;
+    }
+    &--color-solid-warning {
+        background-color: $color-warning;
+        color: $text-color-inverted;
+    }
+    &--color-solid-success {
+        background-color: $color-success;
+        color: $text-color-inverted;
+    }
+    &--color-solid-primary {
+        background-color: $color-primary;
+        color: $text-color-inverted;
+    }
+    &--color-solid-info {
+        background-color: $color-info;
+        color: $text-color-inverted;
+    }
+    &--color-solid-light-danger {
+        background-color: lighten($color-danger, 35);
+        color: $text-color;
+    }
+    &--color-solid-light-warning {
+        background-color: lighten($color-warning, 35);
+        color: $text-color;
+    }
+    &--color-solid-light-success {
+        background-color: lighten($color-success, 50);
+        color: $text-color;
+    }
+    &--color-solid-light-primary {
+        background-color: lighten($color-primary, 30);
+        color: $text-color;
+    }
+    &--color-solid-light-info {
+        background-color: lighten($color-info, 30);
+        color: $text-color;
+    }
+
+    // Outline colors
+    &--color-outline-default {
+        border: 1px solid $border-color;
+        color: $text-color;
+    }
+    &--color-outline-danger {
+        border: 1px solid $color-danger;
+        color: $color-danger;
+    }
+    &--color-outline-warning {
+        border: 1px solid $color-warning;
+        color: $color-warning;
+    }
+    &--color-outline-success {
+        border: 1px solid $color-success;
+        color: $color-success;
+    }
+    &--color-outline-primary {
+        border: 1px solid $color-primary;
+        color: $color-primary;
+    }
+    &--color-outline-info {
+        border: 1px solid $color-info;
+        color: $color-info;
+    }
+    &--color-outline-light-danger {
+        border: 1px solid lighten($color-danger, 35);
+        color: lighten($color-danger, 35);
+    }
+    &--color-outline-light-warning {
+        border: 1px solid lighten($color-warning, 35);
+        color: lighten($color-warning, 35);
+    }
+    &--color-outline-light-success {
+        border: 1px solid lighten($color-success, 50);
+        color: lighten($color-success, 50);
+    }
+    &--color-outline-light-primary {
+        border: 1px solid lighten($color-primary, 30);
+        color: lighten($color-primary, 30);
+    }
+    &--color-outline-light-info {
+        border: 1px solid lighten($color-info, 30);
+        color: lighten($color-info, 30);
+    }
+    
+}

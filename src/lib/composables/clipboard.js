@@ -1,4 +1,4 @@
-export default function copyToClipboard(str) {
+export default function useCopyToClipboard(str) {
     /* ——— Derived from: https://hackernoon.com/copying-text-to-clipboard-with-javascript-df4d4988697f
          improved to add iOS device compatibility——— */
     const el = document.createElement('textarea'); // Create a <textarea> element

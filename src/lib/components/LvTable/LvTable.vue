@@ -118,7 +118,8 @@
 </template>
 
 <script>
-import number from '../../utils/number.js';
+import useNumber from "../../composables/number";
+
 export default {
     props: {
         /**
@@ -281,7 +282,7 @@ export default {
             if (typeof callback === 'function') {
                 return callback(total);
             }
-            return number(total);
+            return useNumber(total);
         },
         getAverage(columnKey, callback) {
             let total = this.getTotal(columnKey);
@@ -291,7 +292,7 @@ export default {
             if (typeof callback === 'function') {
                 return callback(average);
             }
-            return number(average);
+            return useNumber(average);
         },
         getCellModifiers(column) {
             const classes = [];

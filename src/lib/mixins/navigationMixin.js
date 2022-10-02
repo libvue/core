@@ -1,4 +1,4 @@
-import URLValidator from '../utils/URLValidator';
+import useURLValidator from '../composables/validators';
 
 const navigationMixin = {
     props: {
@@ -32,7 +32,7 @@ const navigationMixin = {
                 if (this.to.path && this.$route.path === this.to.path) {
                     return true;
                 }
-            } else if (this.to && !URLValidator(this.to)) {
+            } else if (this.to && !useURLValidator(this.to)) {
                 const resolved = this.$router.resolve({ path: this.to });
                 if (resolved.name === this.$route.name) {
                     return true;
@@ -47,7 +47,7 @@ const navigationMixin = {
          */
         href() {
             if (this.to) {
-                if (URLValidator(this.to)) {
+                if (useURLValidator(this.to)) {
                     return this.to;
                 }
                 const resolve = this.$router.resolve(this.to);
@@ -56,7 +56,7 @@ const navigationMixin = {
             return null; // Returning false to prevent a :href attr to be set
         },
         isExternalLink() {
-            return this.to ? URLValidator(this.to) : false;
+            return this.to ? useURLValidator(this.to) : false;
         },
     },
     methods: {
