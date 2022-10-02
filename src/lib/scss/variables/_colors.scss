@@ -1,7 +1,7 @@
-/* Background */
+// Background
 $background-color: #ffffff !default;
 
-/* Colors */
+// Colors
 $color-default: #0b0b0c !default;
 $color-primary: #5937f3 !default;
 $color-info: #3f8cff !default;
@@ -10,7 +10,7 @@ $color-warning: #ff7a27 !default;
 $color-danger: #ff2740 !default;
 $color-ghost: $background-color !default;
 
-/* Light Colors */
+// Light Colors
 $color-light-default: lighten($color-default, 85) !default;
 $color-light-primary: lighten($color-primary, 30) !default;
 $color-light-info: lighten($color-info, 30) !default;
@@ -18,16 +18,16 @@ $color-light-success: lighten($color-success, 50) !default;
 $color-light-warning: lighten($color-warning, 35) !default;
 $color-light-danger: lighten($color-danger, 35) !default;
 
-/* Text */
+// Text
 $text-color: #0b0b0c !default;
 $text-color-dimmed: lighten($text-color, 40) !default;
 $text-color-inverted: invert($text-color) !default;
 
-/* Borders */
+// Borders
 $border-color: #e0e0e0 !default;
 $border-color-focus: lighten($text-color, 50) !default;
 
-/* Placeholders */
+// Placeholders
 $placeholder-color-primary: lighten($color-primary, 30) !default;
 $placeholder-color-success: lighten($color-success, 10) !default;
 $placeholder-color-info: lighten($color-info, 30) !default;
@@ -35,10 +35,10 @@ $placeholder-color-warning: lighten($color-warning, 30) !default;
 $placeholder-color-danger: lighten($color-danger, 30) !default;
 $placeholder-color: lighten($text-color, 40) !default;
 
-/* Shadows */
+// Shadows
 $shadow: 0 12px 8px -8px rgba(0,0,0,0.05);
 
-/* Shadow Focus */
+// Shadow Focus
 $shadow-focus-primary: 0px 0px 0px 3px rgba($color-primary, 0.23) !default;
 $shadow-focus-success: 0px 0px 0px 3px rgba($color-success, 0.27) !default;
 $shadow-focus-warning: 0px 0px 0px 3px rgba($color-warning, 0.24) !default;
@@ -47,5 +47,5 @@ $shadow-focus-info: 0px 0px 0px 3px rgba($color-info, 0.23) !default;
 $shadow-focus-ghost: 0px 0px 0px 3px rgba(darken($color-ghost, 56), 0.23) !default;
 $shadow-focus: 0px 0px 0px 3px rgba($text-color, 0.2) !default;
 
-/* Code */
+// Code
 $code-background-color: #f9f9f9;
