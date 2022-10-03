@@ -10,6 +10,7 @@
                     <lv-button label="Default" />
                     <lv-button label="Primary" color="primary" />
                     <lv-button label="Warning" color="warning" />
+                    <lv-button label="Danger" color="danger" />
                     <lv-button label="Info" color="info" />
                     <lv-button label="Success" color="success" />
                 </lv-group>
@@ -22,6 +23,7 @@
                     <lv-button label="Light Default" color="light-default"/>
                     <lv-button label="Light Primary" color="light-primary" />
                     <lv-button label="Light Warning" color="light-warning" />
+                    <lv-button label="Light Danger" color="light-danger" />
                     <lv-button label="Light Info" color="light-info" />
                     <lv-button label="Light Success" color="light-success" />
                 </lv-group>
@@ -34,6 +36,7 @@
                     <lv-button label="Outline Default" color-type="outline"/>
                     <lv-button label="Outline Primary" color="primary" color-type="outline" />
                     <lv-button label="Outline Warning" color="warning" color-type="outline" />
+                    <lv-button label="Outline Danger" color="danger" color-type="outline" />
                     <lv-button label="Outline Info" color="info" color-type="outline" />
                     <lv-button label="Outline Success" color="success" color-type="outline" />
                 </lv-group>
@@ -46,6 +49,7 @@
                     <lv-button label="Outline Light Default" color="light-default" color-type="outline"/>
                     <lv-button label="Outline Light Primary" color="light-primary" color-type="outline" />
                     <lv-button label="Outline Light Warning" color="light-warning" color-type="outline" />
+                    <lv-button label="Outline Light Danger" color="light-danger" color-type="outline" />
                     <lv-button label="Outline Light Info" color="light-info" color-type="outline" />
                     <lv-button label="Outline Light Success" color="light-success" color-type="outline" />
                 </lv-group>
@@ -88,6 +92,7 @@ const codeColorSolid = `
 <lv-button label="Default" />
 <lv-button label="Primary" color="primary" />
 <lv-button label="Warning" color="warning" />
+<lv-button label="Danger" color="danger" />
 <lv-button label="Info" color="info" />
 <lv-button label="Success" color="success" />
 `.trim();
@@ -95,6 +100,7 @@ const codeColorSolidLight = `
 <lv-button label="Light Default" color="light-default"/>
 <lv-button label="Light Primary" color="light-primary" />
 <lv-button label="Light Warning" color="light-warning" />
+<lv-button label="Light Danger" color="light-danger" />
 <lv-button label="Light Info" color="light-info" />
 <lv-button label="Light Success" color="light-success" />
 `.trim();
@@ -102,6 +108,7 @@ const codeColorOutline = `
 <lv-button label="Outline Default" color-type="outline"/>
 <lv-button label="Outline Primary" color="primary" color-type="outline" />
 <lv-button label="Outline Warning" color="warning" color-type="outline" />
+<lv-button label="Outline Danger" color="danger" color-type="outline" />
 <lv-button label="Outline Info" color="info" color-type="outline" />
 <lv-button label="Outline Success" color="success" color-type="outline" />
 `.trim();
@@ -109,6 +116,7 @@ const codeColorOutlineLight = `
 <lv-button label="Outline Light Default" color="light-default" color-type="outline"/>
 <lv-button label="Outline Light Primary" color="light-primary" color-type="outline" />
 <lv-button label="Outline Light Warning" color="light-warning" color-type="outline" />
+<lv-button label="Outline Light Danger" color="light-danger" color-type="outline" />
 <lv-button label="Outline Light Info" color="light-info" color-type="outline" />
 <lv-button label="Outline Light Success" color="light-success" color-type="outline" />
 `.trim();
