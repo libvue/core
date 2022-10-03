@@ -6,7 +6,7 @@
         <div class="lv-pill__text">
             {{ text }}
         </div>
-        <div class="lv-pill__close" v-if="closable">
+        <div class="lv-pill__close" v-if="closable" @click="onClickClose">
             <lv-icon name="x" :size="14"/>
         </div>
     </div>
@@ -38,6 +38,11 @@ export default {
                 [`lv-pill--color-${this.colorType}-${this.color}`]: true,
             }
         }
+    },
+    methods: {
+        onClickClose() {
+            this.$emit('close')
+        }
     }
 }
 </script>
@@ -68,15 +73,15 @@ export default {
     }
 
     &__close {
-        padding: 0.5rem 0.625rem 0.5rem 0;
+        padding: 0.5rem 0.5rem 0.5rem 0.25rem;
         display: flex;
-        background-color: rgba(0, 0, 0, 0.05);
+        background-color: rgba(0, 0, 0, 0.1);
         align-items: center;
         border-radius: 0 1rem 1rem 0;
         cursor: pointer;
 
         &:hover {
-            background-color: rgba(0, 0, 0, 0.1);
+            background-color: rgba(0, 0, 0, 0.15);
         }
     }
 
