@@ -15,33 +15,6 @@
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codePassword" />
 
-            <lv-heading :level="6" v-space-after="0.75">Date</lv-heading>
-            <lv-card v-space-after="1">
-                <lv-input type="date" v-model="models.date" v-space-after="1" />
-                <lv-paragraph>
-                    v-model: {{ models.date }}
-                </lv-paragraph>
-            </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeDate" />
-
-            <lv-heading :level="6" v-space-after="0.75">Time</lv-heading>
-            <lv-card v-space-after="1">
-                <lv-input type="time" v-model="models.time" v-space-after="1" />
-                <lv-paragraph>
-                    v-model: {{ models.time }}
-                </lv-paragraph>
-            </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeTime" />
-
-            <lv-heading :level="6" v-space-after="0.75">Datetime-local</lv-heading>
-            <lv-card v-space-after="1">
-                <lv-input type="datetime-local" v-model="models.dateTimeLocal" v-space-after="1"  />
-                <lv-paragraph>
-                    v-model: {{ models.dateTimeLocal }}
-                </lv-paragraph>
-            </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeDateTimeLocal" />
-
             <lv-heading :level="6" v-space-after="0.75">E-mail</lv-heading>
             <lv-card v-space-after="1">
                 <lv-input type="email" placeholder="Enter your e-mail" />
@@ -103,9 +76,6 @@
 <script>
 const codeText = `<lv-input type="text" placeholder="Enter your username" />`.trim();
 const codePassword = `<lv-input type="password" placeholder="Enter your password" />`.trim();
-const codeDate = `<lv-input type="date" v-model="models.date" />`.trim();
-const codeTime = `<lv-input type="time" v-modes="models.time" />`.trim();
-const codeDateTimeLocal = `<lv-input type="datetime-local" v-model="models.dateTimeLocal" />`.trim();
 const codeEmail = `<lv-input type="email" placeholder="Enter your e-mail" />`.trim();
 const codeTel = ` <lv-input type="tel" placeholder="Enter your phonenumber" />`.trim();
 const codeFile = `<lv-input type="file" placeholder="Select a file" />`.trim();
@@ -122,9 +92,6 @@ export default {
         return {
             codeText,
             codePassword,
-            codeDate,
-            codeTime,
-            codeDateTimeLocal,
             codeEmail,
             codeTel,
             codeFile,
@@ -139,11 +106,6 @@ export default {
                 { id: 'types', title: 'Types', icon: 'type' },
                 { id: 'states', title: 'States', icon: 'loader-2' },
             ],
-            models: {
-                date: '',
-                time: '',
-                dateTimeLocal: '',
-            }
         };
     },
     methods: {

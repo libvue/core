@@ -61,7 +61,7 @@ export default {
             type: String,
             default: 'text',
             validator(value) {
-                return ['text', 'email', 'password'];
+                return ['text', 'email', 'password', 'tel', 'file'].includes(value);
             },
         },
     },
