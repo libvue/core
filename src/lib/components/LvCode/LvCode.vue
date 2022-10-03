@@ -19,7 +19,7 @@
 <script>
 import hljs from 'highlight.js';
 import 'highlight.js/styles/base16/atelier-cave-light.css';
-import copyToClipboard from '../../utils/copyToClipboard';
+import useCopyToClipboard from '../../composables/clipboard';
 
 export default {
     props: {
@@ -56,7 +56,7 @@ export default {
             setTimeout(() => {
                 this.copyIcon = 'copy';
             }, 1000);
-            copyToClipboard(this.code);
+            useCopyToClipboard(this.code);
         },
     },
 };

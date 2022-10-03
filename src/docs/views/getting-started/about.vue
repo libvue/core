@@ -6,8 +6,8 @@
         </div>
         <lv-paragraph class="splash__about" v-space-after="2">A vue component library for quickly building interfaces.</lv-paragraph>
         <lv-group>
-            <lv-button type="primary" @click="$router.push('install')" icon="book-open">Documentation</lv-button>
-            <lv-button type="outline" @click="goToGithub" icon="github">Github</lv-button>
+            <lv-button color="primary" @click="$router.push('install')" icon="book-open">Documentation</lv-button>
+            <lv-button color-type="outline" @click="goToGithub" icon="github">Github</lv-button>
         </lv-group>
     </div>
 </template>
