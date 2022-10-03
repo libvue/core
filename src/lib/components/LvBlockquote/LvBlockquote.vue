@@ -1,0 +1,37 @@
+<template>
+    <figure class="lv-figure">
+        <blockquote class="lv-blockquote">
+            "<slot />"
+        </blockquote>
+        <figcaption v-if="caption" class="lv-caption">
+            ⎯ {{ caption }}
+        </figcaption>
+    </figure>
+</template>
+
+<script>
+export default {
+    props: {
+        caption: {
+            type: String,
+            default: null,
+        }
+    }
+}
+</script>
+
+<style lang="scss">
+@import '../../scss/variables';
+.lv-blockquote {
+    background-color: $color-default-light;
+    margin: 0;
+    margin-left: initial;
+    padding: 1rem;
+    border-radius: $border-radius;
+    font-style: italic;
+}
+.lv-caption {
+    margin-top: 0.5rem;
+    font-style: italic;
+}
+</style>

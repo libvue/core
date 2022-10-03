@@ -21,6 +21,7 @@ import LvBreadcrumbs from './components/LvBreadcrumbs/LvBreadcrumbs.vue';
 import LvWidget from './components/LvWidget/LvWidget.vue';
 import LvChart from './components/LvChart/LvChart.vue';
 import LvPill from './components/LvPill/LvPill.vue';
+import LvBlockquote from './components/LvBlockquote/LvBlockquote.vue';
 
 import spaceAfter from './directives/spaceAfter';
 
@@ -57,11 +58,13 @@ export default {
         app.component('lv-widget', LvWidget);
         app.component('lv-chart', LvChart);
         app.component('lv-pill', LvPill);
+        app.component('lv-blockquote', LvBlockquote);
     },
 };
 
 export {
     LvButton,
+    LvBlockquote,
     LvBreadcrumbs,
     LvCard,
     LvCheckbox,

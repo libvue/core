@@ -42,7 +42,7 @@
                     <lv-menu-list icon="pencil" label="Writing">
                         <lv-menu-item to="lv-heading" label="Heading" />
                         <lv-menu-item label="Paragraph" to="lv-paragraph" />
-                        <lv-menu-item label="Quote" to="lv-quote" />
+                        <lv-menu-item label="Blockquote" to="lv-blockquote" />
                         <lv-menu-item label="Kbd" to="lv-kbd"/>
                         <lv-menu-item label="Divider" to="lv-divider" />
                         <lv-menu-item to="lv-code" label="Code" />

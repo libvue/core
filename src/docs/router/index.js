@@ -15,7 +15,7 @@ import LvCheckbox from '../views/components/lv-checkbox.vue';
 import LvMenu from '../views/components/lv-menu.vue';
 import LvHeading from '../views/components/lv-heading.vue';
 import LvParagraph from '../views/components/lv-paragraph.vue';
-import LvQuote from '../views/components/lv-quote.vue';
+import LvBlockquote from '../views/components/lv-blockquote.vue';
 import LvCode from '../views/components/lv-code.vue';
 import LvGroup from '../views/components/lv-group.vue';
 import LvLayout from '../views/components/lv-layout.vue';
@@ -202,9 +202,9 @@ const routes = [
         component: LvParagraph,
     },
     {
-        path: '/lv-quote',
-        name: 'lv-quote',
-        component: LvQuote,
+        path: '/lv-blockquote',
+        name: 'lv-blockquote',
+        component: LvBlockquote,
     },
     {
         path: '/lv-code',
