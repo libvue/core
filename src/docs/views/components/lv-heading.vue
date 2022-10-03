@@ -2,24 +2,44 @@
     <lv-heading :level="3" v-space-after="0.5">Heading</lv-heading>
     <lv-heading sub :level="6" v-space-after="1">Headings rock</lv-heading>
 
-    <lv-group>
-        <lv-heading :level="1" > Heading1</lv-heading>
-        <lv-heading :level="6" sub>Level 6 sub heading</lv-heading>
-        <lv-heading :level="2">Heading2</lv-heading>
-        <lv-heading :level="3">Heading3</lv-heading>
-        <lv-heading :level="4">Heading4</lv-heading>
+    <lv-heading :level="6" v-space-after="1">Levels</lv-heading>
+    <lv-card v-space-after="1">
+        <lv-heading :level="1" v-space-after="1">Heading1</lv-heading>
+        <lv-heading :level="2" v-space-after="1">Heading2</lv-heading>
+        <lv-heading :level="3" v-space-after="1">Heading3</lv-heading>
+        <lv-heading :level="4" v-space-after="1">Heading4</lv-heading>
         <lv-heading :level="5" v-space-after="1">Heading5</lv-heading>
-        <lv-heading :level="6" v-space-after="0.75">Heading6</lv-heading>
-    </lv-group>
+        <lv-heading :level="6">Heading6</lv-heading>
+    </lv-card>
+    <lv-code v-space-after="1" lang="html" :code="codeLevels" />
 
-    <lv-code v-space-after="1" title="code" lang="html" :code="code" />
+    <lv-heading :level="6" v-space-after="1">Subheading</lv-heading>
+    <lv-card v-space-after="1">
+        <lv-heading :level="1" v-space-after="0.5">Heading1</lv-heading>
+        <lv-heading sub :level="6">Subheading</lv-heading>
+    </lv-card>
+    <lv-code v-space-after="1" lang="html" :code="codeSub" />
 </template>
 
 <script>
+const codeLevels = `
+<lv-heading :level="1" v-space-after="1">Heading1</lv-heading>
+<lv-heading :level="2" v-space-after="1">Heading2</lv-heading>
+<lv-heading :level="3" v-space-after="1">Heading3</lv-heading>
+<lv-heading :level="4" v-space-after="1">Heading4</lv-heading>
+<lv-heading :level="5" v-space-after="1">Heading5</lv-heading>
+<lv-heading :level="6">Heading6</lv-heading>
+`.trim();
+
+const codeSub = `
+<lv-heading :level="1" v-space-after="0.5">Heading1</lv-heading>
+<lv-heading sub :level="6">Subheading</lv-heading>
+`.trim();
 export default {
     data() {
         return {
-            code: `<lv-heading :level="1" > Heading1</lv-heading>\n<lv-heading :level="6" sub>Level 6 sub heading</lv-heading>\n<lv-heading :level="2">Heading2</lv-heading>\n<lv-heading :level="3">Heading3</lv-heading>\n<lv-heading :level="4">Heading4</lv-heading>\n<lv-heading :level="5" v-space-after="1">Heading5</lv-heading>\n<lv-heading :level="6" v-space-after="0.75">Heading6</lv-heading>`,
+            codeLevels,
+            codeSub
         };
     },
 };
