@@ -28,27 +28,27 @@
         color: $text-color-inverted;
     }
     &--color-solid-light-default {
-        background-color: $color-light-default;
+        background-color: $color-default-light;
         color: $text-color;
     }
     &--color-solid-light-danger {
-        background-color: $color-light-danger;
+        background-color: $color-danger-light;
         color: $text-color;
     }
     &--color-solid-light-warning {
-        background-color: $color-light-warning;
+        background-color: $color-warning-light;
         color: $text-color;
     }
     &--color-solid-light-success {
-        background-color: $color-light-success;
+        background-color: $color-success-light;
         color: $text-color;
     }
     &--color-solid-light-primary {
-        background-color: $color-light-primary;
+        background-color: $color-primary-light;
         color: $text-color;
     }
     &--color-solid-light-info {
-        background-color: $color-light-info;
+        background-color: $color-info-light;
         color: $text-color;
     }
 
@@ -78,28 +78,28 @@
         color: $color-info;
     }
     &--color-outline-light-default {
-        border: 1px solid $color-light-default;
-        color: $color-light-default;
+        border: 1px solid $color-default-light;
+        color: $color-default-light;
     }
     &--color-outline-light-danger {
-        border: 1px solid $color-light-danger;
-        color: $color-light-danger;
+        border: 1px solid $color-danger-light;
+        color: $color-danger-light;
     }
     &--color-outline-light-warning {
-        border: 1px solid $color-light-warning;
-        color: $color-light-warning;
+        border: 1px solid $color-warning-light;
+        color: $color-warning-light;
     }
     &--color-outline-light-success {
-        border: 1px solid $color-light-success;
-        color: $color-light-success;
+        border: 1px solid $color-success-light;
+        color: $color-success-light;
     }
     &--color-outline-light-primary {
-        border: 1px solid $color-light-primary;
-        color: $color-light-primary;
+        border: 1px solid $color-primary-light;
+        color: $color-primary-light;
     }
     &--color-outline-light-info {
-        border: 1px solid $color-light-info;
-        color: $color-light-info;
+        border: 1px solid $color-info-light;
+        color: $color-info-light;
     }
     
 }
