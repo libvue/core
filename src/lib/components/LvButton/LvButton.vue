@@ -84,7 +84,6 @@ export default {
     text-align: center;
     background: transparent;
     font-weight: 500;
-    box-shadow: none;
     align-items: center;
     justify-content: center;
     text-decoration: none;

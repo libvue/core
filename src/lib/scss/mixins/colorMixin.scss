@@ -1,105 +1,72 @@
 @import "../variables/colors";
 
-@mixin color-mixin {
-    
-    // Solid Colors
-    &--color-solid-default {
-        background-color: $color-default;
-        color: $text-color-inverted;
-    }
-    &--color-solid-danger {
-        background-color: $color-danger;
-        color: $text-color-inverted;
-    }
-    &--color-solid-warning {
-        background-color: $color-warning;
-        color: $text-color-inverted;
-    }
-    &--color-solid-success {
-        background-color: $color-success;
-        color: $text-color-inverted;
-    }
-    &--color-solid-primary {
-        background-color: $color-primary;
-        color: $text-color-inverted;
-    }
-    &--color-solid-info {
-        background-color: $color-info;
-        color: $text-color-inverted;
-    }
-    &--color-solid-light-default {
-        background-color: $color-default-light;
-        color: $text-color;
-    }
-    &--color-solid-light-danger {
-        background-color: $color-danger-light;
-        color: $text-color;
-    }
-    &--color-solid-light-warning {
-        background-color: $color-warning-light;
-        color: $text-color;
-    }
-    &--color-solid-light-success {
-        background-color: $color-success-light;
-        color: $text-color;
-    }
-    &--color-solid-light-primary {
-        background-color: $color-primary-light;
-        color: $text-color;
-    }
-    &--color-solid-light-info {
-        background-color: $color-info-light;
-        color: $text-color;
-    }
+$colors: (
+    "default": (
+        normal: $color-default,
+        light: $color-default-light,
+        shadowFocus: $shadow-focus-default,
+    ),
+    "danger": (
+        normal: $color-danger,
+        light: $color-danger-light,
+        shadowFocus: $shadow-focus-danger,
+    ),
+    "warning": (
+        normal: $color-warning,
+        light: $color-warning-light,
+        shadowFocus: $shadow-focus-warning,
+    ),
+    "success": (
+        normal: $color-success,
+        light: $color-success-light,
+        shadowFocus: $shadow-focus-success,
+    ),
+    "primary": (
+        normal: $color-primary,
+        light: $color-primary-light,
+        shadowFocus: $shadow-focus-primary,
+    ),
+    "info": (
+        normal: $color-info,
+        light: $color-info-light,
+        shadowFocus: $shadow-focus-info,
+    ),
+);
 
-    // Outline colors
-    &--color-outline-default {
-        border: 1px solid $color-default;
-        color: $text-color;
+@mixin color-mixin {
+    // Walk through each color and create classes for every combination of colorType + color
+    @each $color, $classMap in $colors {
+        // Solid
+        &--color-solid-#{$color} {
+            background-color: map-get($classMap, "normal");
+            color: $text-color-inverted;
+            &:focus {
+                box-shadow: map-get($classMap, "shadowFocus");
+            }
+        }
+        // Solid Light
+        &--color-solid-light-#{$color} {
+            background-color: map-get($classMap, "light");
+            color: $text-color;
+            &:focus {
+                box-shadow: map-get($classMap, "shadowFocus");
+            }
+        }
+        // Outline
+        &--color-outline-#{$color} {
+            border: 1px solid map-get($classMap, "normal");
+            color: map-get($classMap, "normal");
+            &:focus {
+                box-shadow: map-get($classMap, "shadowFocus");
+            }
+        }
+        // Outline Light
+        &--color-outline-light-#{$color} {
+            border: 1px solid map-get($classMap, "light");
+            color: map-get($classMap, "light");
+            &:focus {
+                box-shadow: map-get($classMap, "shadowFocus");
+            }
+        }
     }
-    &--color-outline-danger {
-        border: 1px solid $color-danger;
-        color: $color-danger;
-    }
-    &--color-outline-warning {
-        border: 1px solid $color-warning;
-        color: $color-warning;
-    }
-    &--color-outline-success {
-        border: 1px solid $color-success;
-        color: $color-success;
-    }
-    &--color-outline-primary {
-        border: 1px solid $color-primary;
-        color: $color-primary;
-    }
-    &--color-outline-info {
-        border: 1px solid $color-info;
-        color: $color-info;
-    }
-    &--color-outline-light-default {
-        border: 1px solid $color-default-light;
-        color: $color-default-light;
-    }
-    &--color-outline-light-danger {
-        border: 1px solid $color-danger-light;
-        color: $color-danger-light;
-    }
-    &--color-outline-light-warning {
-        border: 1px solid $color-warning-light;
-        color: $color-warning-light;
-    }
-    &--color-outline-light-success {
-        border: 1px solid $color-success-light;
-        color: $color-success-light;
-    }
-    &--color-outline-light-primary {
-        border: 1px solid $color-primary-light;
-        color: $color-primary-light;
-    }
-    &--color-outline-light-info {
-        border: 1px solid $color-info-light;
-        color: $color-info-light;
-    }
-    
 }

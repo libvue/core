@@ -37,10 +37,10 @@ $placeholder-color: lighten($text-color, 40) !default;
 $shadow: 0 12px 8px -8px rgba(0,0,0,0.05);
 
 // Shadow Focus
-$shadow-focus-default: 0px 0px 0px 3px rgba($color-default-light, 0.2) !default;
-$shadow-focus-primary: 0px 0px 0px 3px rgba($color-primary, 0.23) !default;
-$shadow-focus-success: 0px 0px 0px 3px rgba($color-success, 0.27) !default;
-$shadow-focus-warning: 0px 0px 0px 3px rgba($color-warning, 0.24) !default;
+$shadow-focus-default: 0px 0px 0px 3px rgba($color-default, 0.06) !default;
+$shadow-focus-primary: 0px 0px 0px 3px rgba($color-primary, 0.12) !default;
+$shadow-focus-success: 0px 0px 0px 3px rgba($color-success, 0.12) !default;
+$shadow-focus-warning: 0px 0px 0px 3px rgba($color-warning, 0.14) !default;
 $shadow-focus-danger: 0px 0px 0px 3px rgba($color-danger, 0.24) !default;
 $shadow-focus-info: 0px 0px 0px 3px rgba($color-info, 0.23) !default;
 $shadow-focus-ghost: 0px 0px 0px 3px rgba(darken($color-ghost, 56), 0.23) !default;
