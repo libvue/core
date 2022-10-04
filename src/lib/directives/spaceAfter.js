@@ -16,7 +16,7 @@
 
 const handler = (el, binding) => {
     const parentStyling = window.getComputedStyle(el.parentNode);
-    const parentGap = parseInt(parentStyling.gap) ? parentStyling.gap : false;
+    const parentGap = parseInt(parentStyling.gap) ? parentStyling.gap.split(' ')[0] : false;
     const parentFlexDirection = parentStyling.flexDirection;
     const parentDisplay = parentStyling.display;
     let spacingValue = `${binding.value}rem`;
