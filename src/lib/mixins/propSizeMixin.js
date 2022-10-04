@@ -1,11 +1,11 @@
-const propSizeMixin = {
-    props: {
-        size: {
-            type: String,
-            default: 'default',
-            validator: (value) => ['default', 'small', 'large'].includes(value),
+export default function propSizeMixin(defaultSize = 'default') {
+    return {
+        props: {
+            size: {
+                type: String,
+                default: defaultSize,
+                validator: (value) => ['default', 'small', 'large'].includes(value),
+            },
         },
-    },
-};
-
-export default propSizeMixin;
+    };
+}

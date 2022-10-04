@@ -20,7 +20,8 @@
 </template>
 
 <script>
-import propColorMixin from "../../mixins/propColorMixin";
+import propColorMixin from '../../mixins/propColorMixin';
+import propSizeMixin from '../../mixins/propSizeMixin';
 import navigationMixin from '../../mixins/navigationMixin';
 import LvIcon from '../LvIcon/LvIcon.vue';
 
@@ -28,7 +29,7 @@ export default {
     components: {
         LvIcon,
     },
-    mixins: [propColorMixin('default', 'solid'), navigationMixin],
+    mixins: [propColorMixin('default', 'solid'), navigationMixin, propSizeMixin()],
     props: {
         label: {
             type: String,
@@ -56,6 +57,7 @@ export default {
         classObject() {
             return {
                 [`lv-button--color-${this.colorType}-${this.color}`]: true,
+                [`lv-button--size-${this.size}`]: true,
                 [`lv-button--align-${this.align}`]: !!this.align,
                 'lv-button--disabled': this.disabled || this.loading,
                 'lv-button--loading': this.loading,
@@ -68,6 +70,7 @@ export default {
 <style lang="scss">
 @import '../../scss/variables';
 @import '../../scss/mixins/colorMixin';
+@import '../../scss/mixins/sizeMixin';
 
 .lv-button {
     $self: &;
@@ -77,7 +80,6 @@ export default {
     outline: none;
     font-size: $font-size;
     border-radius: $border-radius;
-    padding: calc(0.75rem - 2px) calc(1rem - 2px);
     color: $text-color-inverted;
     transition: $transition-time all $transition-easing;
     cursor: pointer;
@@ -87,7 +89,7 @@ export default {
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    border: 2px solid transparent;
+    border: 1px solid transparent; // Compensate for the outline variant
 
     // Elements
     &__icon {
@@ -132,5 +134,6 @@ export default {
     }
 
     @include color-mixin;
+    @include size-mixin;
 }
 </style>

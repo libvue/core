@@ -84,6 +84,16 @@
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="code.align" />
         </template>
+        <template #sizes>
+            <lv-card v-space-after="1">
+                <lv-group>
+                    <lv-button label="Large" size="large" icon="github"/>
+                    <lv-button label="Default" size="default" icon="github"/>
+                    <lv-button label="Small" size="small" icon="github"/>
+                </lv-group>
+            </lv-card>
+            <lv-code v-space-after="1" lang="html" :code="code.align" />
+        </template>
     </lv-tabs>
 </template>
 
@@ -129,6 +139,7 @@ export default {
                 { id: 'states', title: 'States', icon: 'loader-2' },
                 { id: 'icons', title: 'Icons', icon: 'box-select' },
                 { id: 'align', title: 'Text Alignment', icon: 'align-center' },
+                { id: 'sizes', title: 'Sizes', icon: 'scaling' },
             ],
             codeColorSolid,
             codeColorSolidLight,

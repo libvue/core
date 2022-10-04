@@ -12,6 +12,7 @@ export default function propColorMixin(defaultColor = 'default', defaultColorTyp
                         'info',
                         'danger',
                         'success',
+                        'light-default',
                         'light-primary',
                         'light-warning',
                         'light-info',

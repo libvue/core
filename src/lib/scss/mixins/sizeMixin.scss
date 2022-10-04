@@ -1,0 +1,29 @@
+@import "../variables/fonts";
+
+$sizes: (
+    "large": (
+        paddingX: 0.75rem,
+        paddingY: 0.75rem,
+        fontSize: $font-size-large,
+    ),
+    "default": (
+        paddingX: 0.625rem,
+        paddingY: 0.625rem,
+        fontSize: $font-size,
+    ),
+    "small": (
+        paddingX: 0.33rem,
+        paddingY: 0.33rem,
+        fontSize: $font-size-small,
+    ),
+);
+
+@mixin size-mixin {
+    @each $size, $sizeMap in $sizes {
+        &--size-#{$size} {
+            padding: map-get($sizeMap, 'paddingY') map-get($sizeMap, 'paddingX');
+            font-size: map-get($sizeMap, 'fontSize');
+            line-height: map-get($sizeMap, 'fontSize');
+        }
+    }
+}

@@ -1,5 +1,5 @@
 <template>
-    <svg class="lv-icon" viewBox="0 0 24 24" :width="size" :height="size">
+    <svg ref="icon" class="lv-icon" viewBox="0 0 24 24" :width="computedSize" :height="computedSize">
         <use :href="`${spritePath}#${name}`" />
     </svg>
 </template>
@@ -13,12 +13,41 @@ export default {
         },
         size: {
             type: Number,
-            default: 16,
+            default: null,
         },
     },
+    data() {
+        return {
+            fallbackSize: 14, // equal to 0.875rem
+            parentFontSize: null,
+        };
+    },
+    mounted() {
+        this.parentFontSize = this.getParentFontSize();
+    },
     computed: {
+        computedSize() {
+            // If prop:size is set, this must lead
+            if (this.size) {
+                return this.size;
+            }
+            // If we can get the fontsize from the parent, use it!
+            if (this.parentFontSize) {
+                return this.parentFontSize;
+            }
+            // Otherwise use the fallback size
+            return this.fallbackSize;
+        },
         spritePath() {
             return './node_modules/lucide-static/sprite.svg';
+        },
+    },
+    methods: {
+        getParentFontSize() {
+            if (this.$parent.$el) {
+                return window.getComputedStyle(this.$parent.$el).getPropertyValue('font-size');
+            }
+            return null;
         },
     },
 };
