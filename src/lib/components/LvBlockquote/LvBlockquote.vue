@@ -22,16 +22,18 @@ export default {
 
 <style lang="scss">
 @import '../../scss/variables';
+.lv-figure {
+    margin: 0;
+}
 .lv-blockquote {
     background-color: $color-default-light;
     margin: 0;
-    margin-left: initial;
     padding: 1rem;
     border-radius: $border-radius;
     font-style: italic;
 }
 .lv-caption {
     margin-top: 0.5rem;
-    font-style: italic;
+    font-weight: 500;
 }
 </style>
