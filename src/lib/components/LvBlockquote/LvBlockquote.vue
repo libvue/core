@@ -26,7 +26,7 @@ export default {
     margin: 0;
 }
 .lv-blockquote {
-    background-color: $color-default-light;
+    background-color: $blockquote-background-color;
     margin: 0;
     padding: 1rem;
     border-radius: $border-radius;
