@@ -31,7 +31,7 @@ import LvRadio from '../views/components/lv-radio.vue';
 import LvSwitch from '../views/components/lv-switch.vue';
 import LvWidget from '../views/components/lv-widget.vue';
 import LvPill from '../views/components/lv-pill.vue';
-import LvKbd from '../views/components/lv-kbd.vue';
+import LvKeyboard from '../views/components/lv-keyboard.vue';
 import LvDivider from '../views/components/lv-divider.vue';
 import LvIcon from '../views/components/lv-icon.vue';
 import LvImage from '../views/components/lv-image.vue';
@@ -94,9 +94,9 @@ const routes = [
         component: LvDivider,
     },
     {
-        path: '/lv-kbd',
-        name: 'lv-kbd',
-        component: LvKbd,
+        path: '/lv-keyboard',
+        name: 'lv-keyboard',
+        component: LvKeyboard,
     },
     {
         path: '/lv-pill',
