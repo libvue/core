@@ -48,7 +48,6 @@ export default {
     display: flex;
     flex-wrap: wrap;
     gap: v-bind(gap);
-    align-items: flex-start;
 
     &--align-left {
         justify-content: flex-start;

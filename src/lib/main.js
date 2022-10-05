@@ -6,6 +6,7 @@ import LvCard from './components/LvCard/LvCard.vue';
 import LvChart from './components/LvChart/LvChart.vue';
 import LvCheckbox from './components/LvCheckbox/LvCheckbox.vue';
 import LvCode from './components/LvCode/LvCode.vue';
+import LvDivider from './components/LvDivider/LvDivider.vue';
 import LvGroup from './components/LvGroup/LvGroup.vue';
 import LvHeading from './components/LvHeading/LvHeading.vue';
 import LvIcon from './components/LvIcon/LvIcon.vue';
@@ -44,6 +45,7 @@ export default {
         app.component('lv-chart', LvChart);
         app.component('lv-checkbox', LvCheckbox);
         app.component('lv-code', LvCode);
+        app.component('lv-divider', LvDivider);
         app.component('lv-group', LvGroup);
         app.component('lv-heading', LvHeading);
         app.component('lv-icon', LvIcon);
@@ -72,6 +74,7 @@ export {
     LvChart,
     LvCheckbox,
     LvCode,
+    LvDivider,
     LvGroup,
     LvHeading,
     LvIcon,
