@@ -74,18 +74,21 @@ $code-padding: 14px;
     &__title {
         display: flex;
         flex-direction: row;
-        background-color: darken($code-background-color, 4);
-        color: $text-color;
+        background-color: darken($code-background-color, 2);
+        color: $text-color-dimmed;
         font-family: $font-family;
+        font-size: $font-size-small;
+        font-weight: 500;
         border-radius: $border-radius $border-radius 0 0;
-        font-size: $font-size;
         margin-bottom: 0;
-        padding: 14px;
+        padding: 0.5rem ($padding * 1.5);
         align-items: center;
 
         &-copy {
             margin-left: auto;
             cursor: pointer;
+            color: $text-color;
+            font-size: $font-size;
         }
     }
 
