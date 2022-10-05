@@ -75,6 +75,7 @@ export default {
         padding: 5px 0;
         border-radius: 5px;
         white-space: nowrap;
+        font-weight: 500;
 
         &-icon {
             margin-left: auto;
