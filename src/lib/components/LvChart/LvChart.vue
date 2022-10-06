@@ -62,6 +62,11 @@ export default {
             type: String,
             default: '100%',
         },
+        tension: {
+            type: Number,
+            default: 0,
+            validator: (val) => val >= 0 && val <= 1,
+        }
     },
     data() {
         return {
@@ -69,6 +74,9 @@ export default {
         };
     },
     computed: {
+        canvas() {
+            return this.$el.querySelector('canvas')
+        },
         hasDatasets() {
             return this.datasets.length > 0;
         },
@@ -77,21 +85,27 @@ export default {
         },
         parsedDataSets() {
             const parsedDataSets = [];
-            this.datasets.forEach((dataset) => {
+            // Clone the dataset to avoid reference collisions when having more then one chart in use!
+            const clonedDatasets = JSON.parse(JSON.stringify(this.datasets));
+            clonedDatasets.forEach((dataset) => {
+                const ctx = this.canvas.getContext('2d');
+                const gradientBackground = ctx.createLinearGradient(0, 0, 0, parseInt(this.height, 10));
+                gradientBackground.addColorStop(0, 'hsla(' + dataset.hue + ', 100%, 60%, 0.2)');
+                gradientBackground.addColorStop(1, 'hsla(' + dataset.hue + ', 100%, 60%, 0)');
+
                 if(this.type === 'line') {
-                    const ctx = this.$refs.canvas.getContext('2d');
-                    const gradientBackground = ctx.createLinearGradient(0, 0, 0, parseInt(this.height, 10));
-                    gradientBackground.addColorStop(0, 'hsla(' + dataset.hue + ', 100%, 60%, 0.2)');
-                    gradientBackground.addColorStop(1, 'hsla(' + dataset.hue + ', 100%, 60%, 0)');
                     dataset.backgroundColor = gradientBackground;
                 }
                 if(this.type === 'bar') {
                     dataset.backgroundColor = 'hsla(' + dataset.hue + ', 100%, 60%, 1)';
                 }
+
+                console.log(this.type, dataset);
+
                 dataset.borderColor = 'hsla(' + dataset.hue + ', 100%, 60%, 1)';
                 dataset.pointBackgroundColor = 'hsla(' + dataset.hue + ', 100%, 60%, 1)';
                 dataset.fill = true;
-                dataset.tension = 0.4;
+                dataset.tension = this.tension;
                 parsedDataSets.push(dataset);
             });
             return parsedDataSets;
@@ -164,7 +178,7 @@ export default {
     methods: {
         createChart() {
             if(this.hasLabels && this.hasDatasets) {
-                this.chart = new Chart(this.$refs.canvas, this.config);
+                this.chart = new Chart(this.canvas, this.config);
             }
         },
         updateOptions() {
