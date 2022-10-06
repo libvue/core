@@ -26,6 +26,7 @@ import LvTabs from './components/LvTabs/LvTabs.vue';
 import LvWidget from './components/LvWidget/LvWidget.vue';
 
 import spaceAfter from './directives/spaceAfter';
+import badge from './directives/badge';
 
 import { setAppInstance } from './plugin/instance';
 
@@ -36,6 +37,7 @@ export default {
 
         // Register the spaceAfter directive
         app.directive('space-after', spaceAfter);
+        app.directive('badge', badge);
 
         // Register all components
         app.component('lv-blockquote', LvBlockquote);
