@@ -100,8 +100,6 @@ export default {
                     dataset.backgroundColor = 'hsla(' + dataset.hue + ', 100%, 60%, 1)';
                 }
 
-                console.log(this.type, dataset);
-
                 dataset.borderColor = 'hsla(' + dataset.hue + ', 100%, 60%, 1)';
                 dataset.pointBackgroundColor = 'hsla(' + dataset.hue + ', 100%, 60%, 1)';
                 dataset.fill = true;
