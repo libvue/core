@@ -1,11 +1,17 @@
 <template>
     <div class="lv-notice" :class="classObject" v-bind="$attrs">
-        <lv-icon class="lv-notice__icon" :name="icon" v-if="icon" />
+        <lv-icon v-if="icon" class="lv-notice__icon" :name="icon" />
         <div class="lv-notice__content">
             <slot>{{ text }}</slot>
         </div>
-        <div class="lv-notice__button" v-if="showButton">
-            <lv-button :color="buttonColor" :label="buttonText" :color-type="buttonColorType" size="small" @click="onClickButton" />
+        <div v-if="showButton" class="lv-notice__button">
+            <lv-button
+                :color="buttonColor"
+                :label="buttonText"
+                :color-type="buttonColorType"
+                size="small"
+                @click="onClickButton"
+            />
         </div>
     </div>
 </template>

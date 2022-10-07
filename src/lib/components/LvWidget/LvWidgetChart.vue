@@ -3,15 +3,11 @@
         <div class="lv-widget-chart__head">
             <div class="lv-widget-chart__amount">
                 {{ amount }}
-                <span class="lv-widget-chart__prefix" v-if="prefix">{{ prefix }}</span>
+                <span v-if="prefix" class="lv-widget-chart__prefix">{{ prefix }}</span>
             </div>
             <div class="lv-widget-chart__title">
                 {{ title }}
-                <div
-                    class="lv-widget-chart__diff"
-                    v-if="diff"
-                    :class="{ 'lv-widget-chart__diff--negative': diff < 0 }"
-                >
+                <div v-if="diff" class="lv-widget-chart__diff" :class="{ 'lv-widget-chart__diff--negative': diff < 0 }">
                     <template v-if="diff > 0">+</template>{{ diff }}%
                 </div>
             </div>

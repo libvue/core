@@ -1,13 +1,13 @@
 <template>
     <div class="splash">
-        <div class="splash__logo" v-space-after="0.5">
-            <img class="splash__logo-brand" src="/logo-splash.svg" v-space-after="1" alt="">
+        <div v-space-after="0.5" class="splash__logo">
+            <img v-space-after="1" class="splash__logo-brand" src="/logo-splash.svg" alt="">
             <div class="splash__logo-text">Libvue</div>
         </div>
-        <lv-paragraph class="splash__about" v-space-after="2">A vue component library for quickly building interfaces.</lv-paragraph>
+        <lv-paragraph v-space-after="2" class="splash__about">A vue component library for quickly building interfaces.</lv-paragraph>
         <lv-group>
-            <lv-button color="primary" @click="$router.push('install')" icon="book-open">Documentation</lv-button>
-            <lv-button color-type="outline" @click="goToGithub" icon="github">Github</lv-button>
+            <lv-button color="primary" icon="book-open" @click="$router.push('install')">Documentation</lv-button>
+            <lv-button color-type="outline" icon="github" @click="goToGithub">Github</lv-button>
         </lv-group>
     </div>
 </template>

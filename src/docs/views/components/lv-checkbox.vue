@@ -1,6 +1,6 @@
 <template>
-    <lv-heading :level="3" v-space-after="0.5">Checkbox</lv-heading>
-    <lv-heading sub :level="6" v-space-after="1">A simple checkbox</lv-heading>
+    <lv-heading v-space-after="0.5" :level="3">Checkbox</lv-heading>
+    <lv-heading v-space-after="1" sub :level="6">A simple checkbox</lv-heading>
     <lv-card v-space-after="1">
         <lv-group direction="column">
             <lv-checkbox v-model="checkbox" label="im a checkbox" />

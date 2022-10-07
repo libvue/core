@@ -1,6 +1,6 @@
 <template>
-    <lv-heading :level="3" v-space-after="0.5">Input</lv-heading>
-    <lv-heading sub :level="6" v-space-after="1">An multi-typed input for your fancy forms</lv-heading>
+    <lv-heading v-space-after="0.5" :level="3">Input</lv-heading>
+    <lv-heading v-space-after="1" sub :level="6">An multi-typed input for your fancy forms</lv-heading>
     <lv-tabs :tabs="tabs" :active="activeTab" @change-tab="(v) => onChangeTab(v)">
         <template #types>
             <lv-card v-space-after="1">
@@ -12,7 +12,6 @@
                 </lv-group>
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeTypes" />
-
         </template>
         <template #states>
             <lv-card v-space-after="1">
@@ -25,7 +24,7 @@
                     <lv-input icon="user" success placeholder="Success" />
                 </lv-group>
             </lv-card>
-            
+
             <lv-code v-space-after="1" lang="html" :code="codeStates" />
         </template>
     </lv-tabs>

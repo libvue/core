@@ -5,7 +5,7 @@
             <div class="lv-menu-list__label-text">{{ label }}</div>
             <lv-icon class="lv-menu-list__label-icon" :name="iconName"></lv-icon>
         </div>
-        <div class="lv-menu-list__dropdown" v-show="isOpen">
+        <div v-show="isOpen" class="lv-menu-list__dropdown">
             <slot />
         </div>
     </div>

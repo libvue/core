@@ -1,8 +1,8 @@
 <template>
-    <lv-heading :level="3" v-space-after="0.5">Layout</lv-heading>
-    <lv-heading sub :level="6" v-space-after="1">A simple layout component</lv-heading>
+    <lv-heading v-space-after="0.5" :level="3">Layout</lv-heading>
+    <lv-heading v-space-after="1" sub :level="6">A simple layout component</lv-heading>
 
-    <lv-heading :level="6" v-space-after="1">Horizontal layout</lv-heading>
+    <lv-heading v-space-after="1" :level="6">Horizontal layout</lv-heading>
     <lv-card v-space-after="1">
         <lv-layout layout="horizontal" horizontal-menu-width="100px">
             <template #logo>Logo</template>
@@ -13,7 +13,7 @@
 
     <lv-code v-space-after="1" lang="html" :code="code" />
 
-    <lv-heading :level="6" v-space-after="1">Vertical layout</lv-heading>
+    <lv-heading v-space-after="1" :level="6">Vertical layout</lv-heading>
     <lv-card v-space-after="1">
         <lv-layout layout="vertical">
             <template #logo>Logo</template>

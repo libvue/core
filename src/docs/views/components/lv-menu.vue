@@ -1,8 +1,8 @@
 <template>
-    <lv-heading :level="3" v-space-after="0.5">Menu</lv-heading>
-    <lv-heading sub :level="6" v-space-after="1">Some components to help you construct a menu</lv-heading>
+    <lv-heading v-space-after="0.5" :level="3">Menu</lv-heading>
+    <lv-heading v-space-after="1" sub :level="6">Some components to help you construct a menu</lv-heading>
 
-    <lv-heading :level="6" v-space-after="1">Vertical Menu</lv-heading>
+    <lv-heading v-space-after="1" :level="6">Vertical Menu</lv-heading>
     <lv-card v-space-after="1">
         <lv-menu layout="vertical">
             <lv-menu-group label="Group">
@@ -11,8 +11,8 @@
             </lv-menu-group>
             <lv-menu-group label="Group">
                 <lv-menu-list icon="boxes" label="Menu List">
-                    <lv-menu-item label="Menu Item"/>
-                    <lv-menu-item label="Menu Item"/>
+                    <lv-menu-item label="Menu Item" />
+                    <lv-menu-item label="Menu Item" />
                     <lv-menu-item label="Menu Item" />
                     <lv-menu-item label="Menu Item" />
                 </lv-menu-list>
@@ -21,7 +21,7 @@
     </lv-card>
     <lv-code v-space-after="1" lang="html" :code="codeVertical" />
 
-    <lv-heading :level="6" v-space-after="1">Horizontal Menu</lv-heading>
+    <lv-heading v-space-after="1" :level="6">Horizontal Menu</lv-heading>
     <lv-card v-space-after="1">
         <lv-menu layout="horizontal">
             <lv-menu-group label="Group">
@@ -30,8 +30,8 @@
             </lv-menu-group>
             <lv-menu-group label="Group">
                 <lv-menu-list icon="boxes" label="Menu List">
-                    <lv-menu-item label="Menu Item"/>
-                    <lv-menu-item label="Menu Item"/>
+                    <lv-menu-item label="Menu Item" />
+                    <lv-menu-item label="Menu Item" />
                     <lv-menu-item label="Menu Item" />
                     <lv-menu-item label="Menu Item" />
                 </lv-menu-list>
@@ -40,7 +40,9 @@
     </lv-card>
     <lv-code v-space-after="1" lang="html" :code="code" />
 
-    <lv-notice v-space-after="1" icon="lightbulb">Setting the layout on the LvLayout will be automatically detected by the LvMenu</lv-notice>
+    <lv-notice v-space-after="1" icon="lightbulb"
+        >Setting the layout on the LvLayout will be automatically detected by the LvMenu</lv-notice
+    >
 </template>
 
 <script>

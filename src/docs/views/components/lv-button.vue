@@ -1,10 +1,10 @@
 <template>
-    <lv-heading :level="3" v-space-after="0.5">Button</lv-heading>
-    <lv-heading sub :level="6" v-space-after="1">A simple button component</lv-heading>
+    <lv-heading v-space-after="0.5" :level="3">Button</lv-heading>
+    <lv-heading v-space-after="1" sub :level="6">A simple button component</lv-heading>
 
     <lv-tabs :tabs="tabs" :active="activeTab" @change-tab="(v) => (activeTab = v)">
-        <template #colors="{ tab }">
-            <lv-heading :level="6" v-space-after="1">Solid</lv-heading>
+        <template #colors>
+            <lv-heading v-space-after="1" :level="6">Solid</lv-heading>
             <lv-card v-space-after="1">
                 <lv-group>
                     <lv-button label="Default" />
@@ -17,10 +17,10 @@
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeColorSolid" />
 
-            <lv-heading :level="6" v-space-after="1">Light</lv-heading>
+            <lv-heading v-space-after="1" :level="6">Light</lv-heading>
             <lv-card v-space-after="1">
                 <lv-group>
-                    <lv-button label="Light Default" color="light-default"/>
+                    <lv-button label="Light Default" color="light-default" />
                     <lv-button label="Light Primary" color="light-primary" />
                     <lv-button label="Light Warning" color="light-warning" />
                     <lv-button label="Light Danger" color="light-danger" />
@@ -30,10 +30,10 @@
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeColorSolidLight" />
 
-            <lv-heading :level="6" v-space-after="1">Outline</lv-heading>
+            <lv-heading v-space-after="1" :level="6">Outline</lv-heading>
             <lv-card v-space-after="1">
                 <lv-group>
-                    <lv-button label="Outline Default" color-type="outline"/>
+                    <lv-button label="Outline Default" color-type="outline" />
                     <lv-button label="Outline Primary" color="primary" color-type="outline" />
                     <lv-button label="Outline Warning" color="warning" color-type="outline" />
                     <lv-button label="Outline Danger" color="danger" color-type="outline" />
@@ -43,10 +43,10 @@
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeColorOutline" />
 
-            <lv-heading :level="6" v-space-after="1">Outline Light</lv-heading>
+            <lv-heading v-space-after="1" :level="6">Outline Light</lv-heading>
             <lv-card v-space-after="1">
                 <lv-group>
-                    <lv-button label="Outline Light Default" color="light-default" color-type="outline"/>
+                    <lv-button label="Outline Light Default" color="light-default" color-type="outline" />
                     <lv-button label="Outline Light Primary" color="light-primary" color-type="outline" />
                     <lv-button label="Outline Light Warning" color="light-warning" color-type="outline" />
                     <lv-button label="Outline Light Danger" color="light-danger" color-type="outline" />
@@ -55,9 +55,8 @@
                 </lv-group>
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeColorOutlineLight" />
-
         </template>
-        <template #states="{ tab }">
+        <template #states>
             <lv-card v-space-after="1">
                 <lv-group>
                     <lv-button label="loading" loading />
@@ -66,7 +65,7 @@
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="code.states" />
         </template>
-        <template #icons="{ tab }">
+        <template #icons>
             <lv-card v-space-after="1">
                 <lv-group>
                     <lv-button icon="rocket" label="Hello" />
@@ -87,9 +86,9 @@
         <template #sizes>
             <lv-card v-space-after="1">
                 <lv-group>
-                    <lv-button label="Large" size="large" icon="github"/>
-                    <lv-button label="Default" size="default" icon="github"/>
-                    <lv-button label="Small" size="small" icon="github"/>
+                    <lv-button label="Large" size="large" icon="github" />
+                    <lv-button label="Default" size="default" icon="github" />
+                    <lv-button label="Small" size="small" icon="github" />
                 </lv-group>
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="code.align" />

@@ -9,16 +9,16 @@ export default {
             type: String,
             default: 'horizontal',
             validator: (val) => ['horizontal', 'vertical'].includes(val),
-        }
+        },
     },
     computed: {
         classObject() {
             return {
-                [`lv-divider--direction-${this.direction}`]: true
-            }
-        }
-    }
-}
+                [`lv-divider--direction-${this.direction}`]: true,
+            };
+        },
+    },
+};
 </script>
 
 <style lang="scss">

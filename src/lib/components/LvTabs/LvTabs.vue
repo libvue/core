@@ -1,6 +1,6 @@
 <template>
     <div class="lv-tabs">
-        <lv-group class="lv-tabs__buttons" v-space-after="1" gap="20px">
+        <lv-group v-space-after="1" class="lv-tabs__buttons" gap="20px">
             <div
                 v-for="tab in tabs"
                 :key="tab.id"
@@ -93,5 +93,4 @@ export default {
         }
     }
 }
-
 </style>

@@ -1,8 +1,8 @@
 <template>
-    <lv-heading :level="3" v-space-after="0.5">Grids</lv-heading>
-    <lv-heading sub :level="6" v-space-after="1">Sorry, wrong address</lv-heading>
+    <lv-heading v-space-after="0.5" :level="3">Grids</lv-heading>
+    <lv-heading v-space-after="1" sub :level="6">Sorry, wrong address</lv-heading>
 
-    <lv-heading :level="6" v-space-after="1">Use plain old CSS for content</lv-heading>
+    <lv-heading v-space-after="1" :level="6">Use plain old CSS for content</lv-heading>
     <lv-paragraph v-space-after="1">
         We don't offer any grid system because we believe there are only two main use-cases: layout & content. Layout is
         most of the time a one-time-job and creating a grid system for content that satisfies all needs is impossible.

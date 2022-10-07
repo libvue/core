@@ -1,19 +1,23 @@
 <template>
     <div class="lv-menu-group" :class="classObject" @mouseenter="onHoverLabel" @mouseleave="onBlurLabel">
-        <h1 class="lv-menu-group__label" >
-            <lv-icon class="lv-menu-group__icon" v-if="icon" :name="icon" /> {{ label }}
+        <h1 class="lv-menu-group__label">
+            <lv-icon v-if="icon" class="lv-menu-group__icon" :name="icon" /> {{ label }}
         </h1>
         <transition name="fade">
-           <div class="lv-menu-group__content" v-show="showContent">
-               <slot />
-           </div>
+            <div v-show="showContent" class="lv-menu-group__content">
+                <slot />
+            </div>
         </transition>
     </div>
 </template>
 
 <script>
-import { providedLayout } from "../../utils/provideKeys";
+import { providedLayout } from '../../utils/provideKeys';
+
 export default {
+    inject: {
+        providedLayout: { from: providedLayout },
+    },
     props: {
         label: {
             type: String,
@@ -27,17 +31,27 @@ export default {
             type: String,
             default: 'horizontal',
             validator(val) {
-                return ['horizontal', 'vertical'].includes(val)
-            }
+                return ['horizontal', 'vertical'].includes(val);
+            },
         },
-    },
-    inject: {
-        providedLayout: { from: providedLayout },
     },
     data() {
         return {
             showContent: this.providedOrPropLayout !== 'vertical',
-        }
+        };
+    },
+    computed: {
+        providedOrPropLayout() {
+            if (this.providedLayout) {
+                return this.providedLayout;
+            }
+            return this.layout;
+        },
+        classObject() {
+            return {
+                [`lv-menu-group--layout-${this.providedOrPropLayout}`]: !!this.providedOrPropLayout,
+            };
+        },
     },
     watch: {
         providedOrPropLayout: {
@@ -47,31 +61,18 @@ export default {
             immediate: true,
         },
     },
-    computed: {
-        providedOrPropLayout() {
-            if(this.providedLayout) {
-                return this.providedLayout;
-            }
-            return this.layout;
-        },
-        classObject() {
-            return {
-                [`lv-menu-group--layout-${this.providedOrPropLayout}`]: !!this.providedOrPropLayout
-            };
-        }
-    },
     methods: {
         onHoverLabel() {
-            if(this.providedOrPropLayout === 'vertical') {
+            if (this.providedOrPropLayout === 'vertical') {
                 this.showContent = true;
             }
         },
         onBlurLabel() {
-            if(this.providedOrPropLayout === 'vertical') {
+            if (this.providedOrPropLayout === 'vertical') {
                 this.showContent = false;
             }
-        }
-    }
+        },
+    },
 };
 </script>
 
@@ -110,7 +111,7 @@ export default {
             transform: translateX(calc(-50% + 30px));
             background-color: #fff;
             z-index: 3;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             border-radius: $border-radius;
             overflow-y: auto;
         }

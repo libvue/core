@@ -28,43 +28,38 @@ import LvWidget from './components/LvWidget/LvWidget.vue';
 import spaceAfter from './directives/spaceAfter';
 import badge from './directives/badge';
 
-import { setAppInstance } from './plugin/instance';
-
 export default {
-    install: (app, opt = {}) => {
-        // Write away the app instance
-        setAppInstance(app);
-
+    install: (app) => {
         // Register the spaceAfter directive
         app.directive('space-after', spaceAfter);
         app.directive('badge', badge);
 
         // Register all components
-        app.component('lv-blockquote', LvBlockquote);
-        app.component('lv-breadcrumbs', LvBreadcrumbs);
-        app.component('lv-button', LvButton);
-        app.component('lv-card', LvCard);
-        app.component('lv-chart', LvChart);
-        app.component('lv-checkbox', LvCheckbox);
-        app.component('lv-code', LvCode);
-        app.component('lv-divider', LvDivider);
-        app.component('lv-group', LvGroup);
-        app.component('lv-heading', LvHeading);
-        app.component('lv-icon', LvIcon);
-        app.component('lv-input', LvInput);
-        app.component('lv-keyboard', LvKeyboard);
-        app.component('lv-layout', LvLayout);
-        app.component('lv-link', LvLink);
-        app.component('lv-menu', LvMenu);
-        app.component('lv-menu-group', LvMenuGroup);
-        app.component('lv-menu-item', LvMenuItem);
-        app.component('lv-menu-list', LvMenuList);
-        app.component('lv-notice', LvNotice);
-        app.component('lv-paragraph', LvParagraph);
-        app.component('lv-pill', LvPill);
-        app.component('lv-table', LvTable);
-        app.component('lv-tabs', LvTabs);
-        app.component('lv-widget', LvWidget);
+        app.component('LvBlockquote', LvBlockquote);
+        app.component('LvBreadcrumbs', LvBreadcrumbs);
+        app.component('LvButton', LvButton);
+        app.component('LvCard', LvCard);
+        app.component('LvChart', LvChart);
+        app.component('LvCheckbox', LvCheckbox);
+        app.component('LvCode', LvCode);
+        app.component('LvDivider', LvDivider);
+        app.component('LvGroup', LvGroup);
+        app.component('LvHeading', LvHeading);
+        app.component('LvIcon', LvIcon);
+        app.component('LvInput', LvInput);
+        app.component('LvKeyboard', LvKeyboard);
+        app.component('LvLayout', LvLayout);
+        app.component('LvLink', LvLink);
+        app.component('LvMenu', LvMenu);
+        app.component('LvMenuGroup', LvMenuGroup);
+        app.component('LvMenuItem', LvMenuItem);
+        app.component('LvMenuList', LvMenuList);
+        app.component('LvNotice', LvNotice);
+        app.component('LvParagraph', LvParagraph);
+        app.component('LvPill', LvPill);
+        app.component('LvTable', LvTable);
+        app.component('LvTabs', LvTabs);
+        app.component('LvWidget', LvWidget);
     },
 };
 

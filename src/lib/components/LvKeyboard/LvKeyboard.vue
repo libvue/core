@@ -19,7 +19,7 @@
     vertical-align: bottom;
     display: inline-block;
     cursor: pointer;
-    transition: .2s all;
+    transition: 0.2s all;
     &:hover {
         border-bottom: 0 solid darken($color-default-light, 6);
         box-shadow: none;

@@ -10,16 +10,16 @@ export default {
         align: {
             type: String,
             default: 'left',
-            validator: (val) => ['left', 'center', 'right', 'justify'].includes(val)
-        }
+            validator: (val) => ['left', 'center', 'right', 'justify'].includes(val),
+        },
     },
     computed: {
         classObject() {
             return {
                 [`lv-paragraph--align-${this.align}`]: !!this.align,
-            }
-        }
-    }
+            };
+        },
+    },
 };
 </script>
 

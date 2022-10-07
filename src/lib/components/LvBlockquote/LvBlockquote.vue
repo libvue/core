@@ -1,11 +1,7 @@
 <template>
     <figure class="lv-figure">
-        <blockquote class="lv-blockquote">
-            "<slot />"
-        </blockquote>
-        <figcaption v-if="caption" class="lv-caption">
-            ⎯ {{ caption }}
-        </figcaption>
+        <blockquote class="lv-blockquote">"<slot />"</blockquote>
+        <figcaption v-if="caption" class="lv-caption">⎯ {{ caption }}</figcaption>
     </figure>
 </template>
 
@@ -15,9 +11,9 @@ export default {
         caption: {
             type: String,
             default: null,
-        }
-    }
-}
+        },
+    },
+};
 </script>
 
 <style lang="scss">
