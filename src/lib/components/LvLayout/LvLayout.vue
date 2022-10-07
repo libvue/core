@@ -1,15 +1,15 @@
 <template>
     <div class="lv-layout" :class="classObject">
-        <div class="lv-layout__menu" v-if="!!$slots.menu">
-            <div class="lv-layout__menu-logo" v-if="!!$slots.logo">
+        <div v-if="!!$slots.menu" class="lv-layout__menu">
+            <div v-if="!!$slots.logo" class="lv-layout__menu-logo">
                 <slot name="logo"></slot>
             </div>
             <slot name="menu"></slot>
-            <div class="lv-layout__menu-footer" v-if="!!$slots['menu-footer']">
+            <div v-if="!!$slots['menu-footer']" class="lv-layout__menu-footer">
                 <slot name="menu-footer"></slot>
             </div>
         </div>
-        <div class="lv-layout__content" v-if="!!$slots.content">
+        <div v-if="!!$slots.content" class="lv-layout__content">
             <slot name="content" />
         </div>
     </div>
@@ -17,16 +17,21 @@
 
 <script>
 import { computed } from 'vue';
-import { providedLayout } from "../../utils/provideKeys";
+import { providedLayout } from '../../utils/provideKeys';
 
 export default {
+    provide() {
+        return {
+            [providedLayout]: computed(() => this.layout),
+        };
+    },
     props: {
         layout: {
             type: String,
             default: 'horizontal',
             validator(val) {
-                return ['horizontal', 'vertical'].includes(val)
-            }
+                return ['horizontal', 'vertical'].includes(val);
+            },
         },
         horizontalMenuWidth: {
             type: String,
@@ -35,20 +40,15 @@ export default {
         verticalMenuHeight: {
             type: String,
             default: '50px',
-        }
-    },
-    provide() {
-        return {
-            [providedLayout]: computed(() => this.layout)
-        }
+        },
     },
     computed: {
         classObject() {
             return {
-                [`lv-layout--layout-${this.layout}`]: !!this.layout
+                [`lv-layout--layout-${this.layout}`]: !!this.layout,
             };
-        }
-    }
+        },
+    },
 };
 </script>
 

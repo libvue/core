@@ -35,9 +35,8 @@ export default {
             type: String,
             default: 'shell',
             required: false,
-            validator: (value) => {
-                return ['js', 'vue', 'html', 'php', 'bash', 'shell', 'typescript', 'blade', 'scss'].includes(value);
-            },
+            validator: (value) =>
+                ['js', 'vue', 'html', 'php', 'bash', 'shell', 'typescript', 'blade', 'scss'].includes(value),
         },
     },
     data() {

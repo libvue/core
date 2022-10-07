@@ -7,11 +7,17 @@
         }"
     >
         <div class="lv-checkbox__checkbox">
-            <input class="lv-checkbox__input" type="checkbox" :checked="modelValue" v-bind="$attrs" @input="toggleCheckbox" />
-            <lv-icon class="lv-checkbox__icon" name="check" v-if="modelValue && !loading" />
-            <lv-icon class="lv-checkbox__loader" name="loader" v-if="loading" />
+            <input
+                class="lv-checkbox__input"
+                type="checkbox"
+                :checked="modelValue"
+                v-bind="$attrs"
+                @input="toggleCheckbox"
+            />
+            <lv-icon v-if="modelValue && !loading" class="lv-checkbox__icon" name="check" />
+            <lv-icon v-if="loading" class="lv-checkbox__loader" name="loader" />
         </div>
-        <div class="lv-checkbox__label" v-if="label" @click="toggleCheckbox">{{ label }}</div>
+        <div v-if="label" class="lv-checkbox__label" @click="toggleCheckbox">{{ label }}</div>
     </div>
 </template>
 

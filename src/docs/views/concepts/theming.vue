@@ -1,10 +1,10 @@
 <template>
-    <lv-heading :level="3" v-space-after="0.5">Theming</lv-heading>
-    <lv-heading sub :level="6" v-space-after="1">Customize this crap!</lv-heading>
+    <lv-heading v-space-after="0.5" :level="3">Theming</lv-heading>
+    <lv-heading v-space-after="1" sub :level="6">Customize this crap!</lv-heading>
     <lv-paragraph v-space-after="1">
         All these variables below can be overridden in your own .scss files.
     </lv-paragraph>
-    <lv-heading :level="6" v-space-after="1">Color Variables</lv-heading>
+    <lv-heading v-space-after="1" :level="6">Color Variables</lv-heading>
     <lv-code v-space-after="1" :code="codeVariables" lang="scss" />
 </template>
 

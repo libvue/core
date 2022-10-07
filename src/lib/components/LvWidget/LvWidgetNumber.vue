@@ -4,16 +4,12 @@
             <div class="lv-widget-number__title">
                 {{ title }}
             </div>
-            <div
-                class="lv-widget-number__diff"
-                v-if="diff"
-                :class="{ 'lv-widget-number__diff--negative': diff < 0 }"
-            >
+            <div v-if="diff" class="lv-widget-number__diff" :class="{ 'lv-widget-number__diff--negative': diff < 0 }">
                 <template v-if="diff > 0">+</template>{{ diff }}%
             </div>
         </div>
         <div class="lv-widget-number__amount">
-            <span class="lv-widget-number__prefix" v-if="prefix">{{ prefix }}</span>
+            <span v-if="prefix" class="lv-widget-number__prefix">{{ prefix }}</span>
             {{ amount }}
         </div>
     </lv-card>
@@ -42,7 +38,7 @@ export default {
         prefix: {
             type: String,
             default: null,
-        }
+        },
     },
 };
 </script>

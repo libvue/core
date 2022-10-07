@@ -1,21 +1,21 @@
 <template>
-    <lv-heading :level="3" v-space-after="0.5">navigationMixin</lv-heading>
-    <lv-heading sub :level="6" v-space-after="1">Some extra functionality for links</lv-heading>
-    <lv-notice icon="bell" v-space-after="1">It depends vue-router so you need to install it as a dependency.</lv-notice>
+    <lv-heading v-space-after="0.5" :level="3">navigationMixin</lv-heading>
+    <lv-heading v-space-after="1" sub :level="6">Some extra functionality for links</lv-heading>
+    <lv-notice v-space-after="1" icon="bell">It depends vue-router so you need to install it as a dependency.</lv-notice>
 
-    <lv-heading :level="6" v-space-after="1">Install the mixin</lv-heading>
+    <lv-heading v-space-after="1" :level="6">Install the mixin</lv-heading>
     <lv-paragraph v-space-after="1">
         The navigationMixin is especially made for navigational components. It exists out of three parts: props, computed properties and methods.
     </lv-paragraph>
     <lv-code v-space-after="1" lang="js" :code="install" />
 
-    <lv-heading :level="6" v-space-after="1">Added Props</lv-heading>
+    <lv-heading v-space-after="1" :level="6">Added Props</lv-heading>
     <lv-table v-space-after="1" :rows="propsRows" :columns="propsColumns" />
 
-    <lv-heading :level="6" v-space-after="1">Added Methods</lv-heading>
+    <lv-heading v-space-after="1" :level="6">Added Methods</lv-heading>
     <lv-table v-space-after="1" :rows="methodRows" :columns="methodColumns  " />
 
-    <lv-heading :level="6" v-space-after="1">Added Computed Properties</lv-heading>
+    <lv-heading v-space-after="1" :level="6">Added Computed Properties</lv-heading>
     <lv-table v-space-after="1" :rows="computedRows" :columns="computedColumns" />
 </template>
 

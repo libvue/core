@@ -1,19 +1,11 @@
 <template>
-    <lv-heading :level="3" v-space-after="0.5">Table</lv-heading>
-    <lv-heading sub :level="6" v-space-after="1">Organize your rows</lv-heading>
+    <lv-heading v-space-after="0.5" :level="3">Table</lv-heading>
+    <lv-heading v-space-after="1" sub :level="6">Organize your rows</lv-heading>
 
-    <lv-heading :level="6" v-space-after="1">Simple Table</lv-heading>
-    <lv-table
-        :rows="rows"
-        :columns="columns"
-        v-space-after="1"
-    >
-        <template #weight="{ value }">
-            {{ value }} kg
-        </template>
-        <template #age="{ value }">
-            {{ value }} years
-        </template>
+    <lv-heading v-space-after="1" :level="6">Simple Table</lv-heading>
+    <lv-table v-space-after="1" :rows="rows" :columns="columns">
+        <template #weight="{ value }"> {{ value }} kg </template>
+        <template #age="{ value }"> {{ value }} years </template>
     </lv-table>
     <lv-code v-space-after="1" lang="html" :code="codeTemplate" />
     <lv-code v-space-after="1" lang="js" :code="codeScript" />
@@ -37,15 +29,11 @@ export default {
                 },
                 age: {
                     title: 'Age',
-                    totals: (val) => {
-                        return `${Math.round(val)} years`
-                    },
+                    totals: (val) => `${Math.round(val)} years`,
                 },
                 weight: {
                     title: 'Weight',
-                    averages: (val) => {
-                        return `${Math.round(val)} kg`
-                    },
+                    averages: (val) => `${Math.round(val)} kg`,
                 },
             },
             codeTemplate: `<lv-table\n  :rows="rows"\n  :columns="columns"\n  v-space-after="1"\n>\n  <template #weight="{ value }">\n    {{ value }} kg\n  </template>\n  <template #age="{ value }">\n    {{ value }} years\n  </template>\n</lv-table>`,

@@ -1,17 +1,14 @@
 <template>
-    <div
-        class="lv-input"
-        :class="classObject"
-    >
+    <div class="lv-input" :class="classObject">
         <lv-icon v-if="icon" class="lv-input__icon" :size="16" :name="icon" />
         <input
+            v-bind="$attrs"
+            v-model="modelValue"
             class="lv-input__input"
             :type="type"
             :placeholder="placeholder"
             :disabled="disabled"
             :readonly="readonly"
-            v-bind="$attrs"
-            v-model="modelValue"
         />
         <lv-icon v-if="loading" class="lv-input__loading" :size="16" name="loader-2" />
     </div>
@@ -75,8 +72,8 @@ export default {
                 'lv-input--disabled': this.disabled || this.loading,
                 'lv-input--loading': this.loading,
             };
-        }
-    }
+        },
+    },
 };
 </script>
 
@@ -144,7 +141,6 @@ export default {
             color: $color-danger;
             border-color: $color-danger;
 
-
             &::placeholder {
                 color: $placeholder-color-danger;
             }
@@ -162,7 +158,6 @@ export default {
             background: lighten($color-success, 55);
             color: $color-success;
             border-color: $color-success;
-
 
             &::placeholder {
                 color: $placeholder-color-success;

@@ -1,10 +1,5 @@
 <template>
-    <div
-        class="lv-menu-item"
-        :href="href"
-        :class="classObject"
-        @click="onClick"
-    >
+    <div class="lv-menu-item" :href="href" :class="classObject" @click="onClick">
         <lv-icon v-if="icon" :name="icon" class="lv-menu-item__icon" />
         <div class="lv-menu-item__label">{{ label }}</div>
     </div>
@@ -12,10 +7,13 @@
 
 <script>
 import navigationMixin from '../../mixins/navigationMixin';
-import { providedLayout } from "../../utils/provideKeys";
+import { providedLayout } from '../../utils/provideKeys';
 
 export default {
     mixins: [navigationMixin],
+    inject: {
+        providedLayout: { from: providedLayout },
+    },
     inheritAttrs: false,
     props: {
         label: {
@@ -39,12 +37,9 @@ export default {
             default: false,
         },
     },
-    inject: {
-        providedLayout: { from: providedLayout },
-    },
     computed: {
         providedOrPropLayout() {
-            if(this.providedLayout) {
+            if (this.providedLayout) {
                 return this.providedLayout;
             }
             return this.layout;
@@ -54,10 +49,10 @@ export default {
                 'lv-menu-item--disabled': this.disabled || this.loading,
                 'lv-menu-item--loading': this.loading,
                 'lv-menu-item--active': this.toEqualsCurrentRoute,
-                [`lv-menu-item--layout-${this.providedOrPropLayout}`]: !!this.providedOrPropLayout
+                [`lv-menu-item--layout-${this.providedOrPropLayout}`]: !!this.providedOrPropLayout,
             };
-        }
-    }
+        },
+    },
 };
 </script>
 

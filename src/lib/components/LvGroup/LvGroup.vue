@@ -27,7 +27,7 @@ export default {
         fill: {
             type: Boolean,
             default: false,
-        }
+        },
     },
     computed: {
         classObject() {

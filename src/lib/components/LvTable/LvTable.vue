@@ -4,7 +4,12 @@
             <!-- Table Head -->
             <thead v-if="!hideHead" class="lv-table__table-head">
                 <tr class="lv-table__row">
-                    <th v-for="(column, columnKey) in columns" :key="columnKey" class="lv-table__cell" :class="getCellModifiers(column)">
+                    <th
+                        v-for="(column, columnKey) in columns"
+                        :key="columnKey"
+                        class="lv-table__cell"
+                        :class="getCellModifiers(column)"
+                    >
                         {{ column.title || columnKey }}
                     </th>
                 </tr>
@@ -12,9 +17,18 @@
 
             <!-- Grouped Rows (With separate tbody's) -->
             <template v-if="groupRowsBy">
-                <tbody v-for="(group, groupKey, groupIndex) in groupedParsedRows" :key="groupIndex" class="lv-table__table-body">
+                <tbody
+                    v-for="(group, groupKey, groupIndex) in groupedParsedRows"
+                    :key="groupIndex"
+                    class="lv-table__table-body"
+                >
                     <tr :key="groupIndex">
-                        <td :colspan="visibleColumnCount" class="lv-table__cell lv-table__cell--bold lv-table__cell--group-title">{{ groupKey }}</td>
+                        <td
+                            :colspan="visibleColumnCount"
+                            class="lv-table__cell lv-table__cell--bold lv-table__cell--group-title"
+                        >
+                            {{ groupKey }}
+                        </td>
                     </tr>
                     <!-- Normal Rows -->
                     <tr v-for="(row, rowIndex) in group" :key="`${groupIndex}${rowIndex}`" class="lv-table__row">
@@ -69,7 +83,12 @@
             <tfoot v-if="showFoot" class="lv-table__table-foot">
                 <!-- Totals -->
                 <tr v-if="showTotalsRow" class="lv-table__row lv-table__row--totals">
-                    <td v-for="(columnData, columnKey, index) in columns" :key="index" class="lv-table__cell" :class="getCellModifiers(columnData)">
+                    <td
+                        v-for="(columnData, columnKey, index) in columns"
+                        :key="index"
+                        class="lv-table__cell"
+                        :class="getCellModifiers(columnData)"
+                    >
                         <template v-if="index === 0">
                             <template v-if="columnData.totals">
                                 {{ getTotal(columnKey, columnData.totals) }}
@@ -83,7 +102,12 @@
                 </tr>
                 <!-- Averages -->
                 <tr v-if="showAverageRow" class="lv-table__row lv-table__row--average">
-                    <td v-for="(columnData, columnKey, index) in columns" :key="index" class="lv-table__cell" :class="getCellModifiers(columnData)">
+                    <td
+                        v-for="(columnData, columnKey, index) in columns"
+                        :key="index"
+                        class="lv-table__cell"
+                        :class="getCellModifiers(columnData)"
+                    >
                         <template v-if="index === 0">
                             <template v-if="columnData.averages">
                                 {{ getAverage(columnKey, columnData.averages) }}
@@ -118,7 +142,7 @@
 </template>
 
 <script>
-import useNumber from "../../composables/number";
+import useNumber from '../../composables/number';
 
 export default {
     props: {
@@ -285,7 +309,7 @@ export default {
             return useNumber(total);
         },
         getAverage(columnKey, callback) {
-            let total = this.getTotal(columnKey);
+            const total = this.getTotal(columnKey);
             const average = total / this.rows.length;
 
             // Check if type of totals is a function, use it as a formatter

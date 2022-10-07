@@ -1,47 +1,44 @@
 <template>
-    <div
-        class="lv-menu"
-        :class="classObject"
-    >
+    <div class="lv-menu" :class="classObject">
         <slot />
     </div>
 </template>
 
 <script>
-import { providedLayout } from "../../utils/provideKeys";
-import { computed } from "vue";
+import { computed } from 'vue';
+import { providedLayout } from '../../utils/provideKeys';
 
 export default {
-    props: {
-        layout: {
-            type: String,
-            default: null,
-            validator(val) {
-                return ['horizontal', 'vertical', null].includes(val)
-            }
-        },
-    },
     inject: {
         providedLayout: { from: providedLayout },
     },
     provide() {
         return {
-            [providedLayout]: computed(() => this.layout || this.providedLayout)
-        }
+            [providedLayout]: computed(() => this.layout || this.providedLayout),
+        };
+    },
+    props: {
+        layout: {
+            type: String,
+            default: null,
+            validator(val) {
+                return ['horizontal', 'vertical', null].includes(val);
+            },
+        },
     },
     computed: {
         providedOrPropLayout() {
-            if(this.layout) {
+            if (this.layout) {
                 return this.layout;
             }
             return this.providedLayout;
         },
         classObject() {
             return {
-                [`lv-menu--layout-${this.providedOrPropLayout}`]: !!this.providedOrPropLayout
+                [`lv-menu--layout-${this.providedOrPropLayout}`]: !!this.providedOrPropLayout,
             };
-        }
-    }
+        },
+    },
 };
 </script>
 

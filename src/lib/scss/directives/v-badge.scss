@@ -1,13 +1,13 @@
-@import '../variables/colors';
+@import "../variables/colors";
 
 .v-badge {
-  position: absolute;
-  background-color: $color-danger;
-  color: white;
-  top: -0.625rem;
-  right: 0;
-  transform: translateX(50%);
-  font-size: 0.625rem;
-  padding: 0.25rem 0.5rem;
-  border-radius: 0.625rem;
+    position: absolute;
+    background-color: $color-danger;
+    color: white;
+    top: -0.625rem;
+    right: 0;
+    transform: translateX(50%);
+    font-size: 0.625rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.625rem;
 }

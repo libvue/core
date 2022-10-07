@@ -1,9 +1,9 @@
 <template>
-    <lv-heading :level="3" v-space-after="0.5">Chart</lv-heading>
-    <lv-heading sub :level="6" v-space-after="1">Just a chart</lv-heading>
+    <lv-heading v-space-after="0.5" :level="3">Chart</lv-heading>
+    <lv-heading v-space-after="1" sub :level="6">Just a chart</lv-heading>
 
     <lv-tabs :tabs="tabs" :active="activeTab" @change-tab="(v) => (activeTab = v)">
-        <template #line="{ tab }">
+        <template #line>
             <lv-card v-space-after="1">
                 <lv-group>
                     <lv-chart :datasets="datasets" :labels="labels" height="300px" />
@@ -12,7 +12,7 @@
             <lv-code v-space-after="1" lang="html" :code="codeLineChartTemplate" />
             <lv-code v-space-after="1" lang="js" :code="codeChartScript" />
         </template>
-        <template #bar="{ tab }">
+        <template #bar>
             <lv-card v-space-after="1">
                 <lv-group>
                     <lv-chart :datasets="datasets" :labels="labels" type="bar" height="300px" />

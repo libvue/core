@@ -1,14 +1,14 @@
 <template>
     <div class="lv-breadcrumbs">
-        <lv-icon class="lv-breadcrumbs__home" name="home" v-if="showHome" @click="onClickHome" />
+        <lv-icon v-if="showHome" class="lv-breadcrumbs__home" name="home" @click="onClickHome" />
         <template v-for="(crumb, index) in crumbs">
             <a
                 class="lv-breadcrumbs__crumb"
-                @click="onClickCrumb(crumb.path)"
                 :class="{ 'lv-breadcrumbs__crumb--active': index === crumbs.length - 1 }"
+                @click="onClickCrumb(crumb.path)"
                 >{{ crumb.title }}</a
             >
-            <lv-icon name="chevron-right" class="lv-breadcrumbs__chevron-right" v-if="index < crumbs.length - 1" />
+            <lv-icon v-if="index < crumbs.length - 1" name="chevron-right" class="lv-breadcrumbs__chevron-right" />
         </template>
     </div>
 </template>

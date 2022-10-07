@@ -1,20 +1,20 @@
 <template>
     <div class="lv-pill" v-bind="$attrs" :class="classObject">
-        <div class="lv-pill__icon" v-if="icon">
-            <lv-icon :name="icon" :size="14"/>
+        <div v-if="icon" class="lv-pill__icon">
+            <lv-icon :name="icon" :size="14" />
         </div>
         <div class="lv-pill__text">
             {{ text }}
         </div>
-        <div class="lv-pill__close" v-if="closable" @click="onClickClose">
-            <lv-icon name="x" :size="14"/>
+        <div v-if="closable" class="lv-pill__close" @click="onClickClose">
+            <lv-icon name="x" :size="14" />
         </div>
     </div>
 </template>
 
 <script>
-import propColorMixin from "../../mixins/propColorMixin";
-import propSizeMixin from "../../mixins/propSizeMixin";
+import propColorMixin from '../../mixins/propColorMixin';
+import propSizeMixin from '../../mixins/propSizeMixin';
 
 export default {
     mixins: [propColorMixin('default', 'solid'), propSizeMixin],
@@ -30,21 +30,21 @@ export default {
         closable: {
             type: Boolean,
             default: false,
-        }
+        },
     },
     computed: {
         classObject() {
             return {
                 [`lv-pill--color-${this.colorType}-${this.color}`]: true,
-            }
-        }
+            };
+        },
     },
     methods: {
         onClickClose() {
-            this.$emit('close')
-        }
-    }
-}
+            this.$emit('close');
+        },
+    },
+};
 </script>
 
 <style lang="scss">

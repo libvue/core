@@ -1,8 +1,13 @@
 <template>
     <div class="lv-chart" :style="`height: ${height}; width: ${width}`">
-        <canvas v-if="hasDatasets && hasLabels" ref="canvas" :height="height" :style="`height: ${height}; width: ${width}`"></canvas>
-        <lv-paragraph class="lv-chart__message" v-else>
-            <lv-icon class="lv-chart__message-icon" name="alert-circle"/> No data found
+        <canvas
+            v-if="hasDatasets && hasLabels"
+            ref="canvas"
+            :height="height"
+            :style="`height: ${height}; width: ${width}`"
+        ></canvas>
+        <lv-paragraph v-else class="lv-chart__message">
+            <lv-icon class="lv-chart__message-icon" name="alert-circle" /> No data found
         </lv-paragraph>
     </div>
 </template>
@@ -66,7 +71,7 @@ export default {
             type: Number,
             default: 0,
             validator: (val) => val >= 0 && val <= 1,
-        }
+        },
     },
     data() {
         return {
@@ -75,7 +80,7 @@ export default {
     },
     computed: {
         canvas() {
-            return this.$el.querySelector('canvas')
+            return this.$el.querySelector('canvas');
         },
         hasDatasets() {
             return this.datasets.length > 0;
@@ -90,18 +95,18 @@ export default {
             clonedDatasets.forEach((dataset) => {
                 const ctx = this.canvas.getContext('2d');
                 const gradientBackground = ctx.createLinearGradient(0, 0, 0, parseInt(this.height, 10));
-                gradientBackground.addColorStop(0, 'hsla(' + dataset.hue + ', 100%, 60%, 0.2)');
-                gradientBackground.addColorStop(1, 'hsla(' + dataset.hue + ', 100%, 60%, 0)');
+                gradientBackground.addColorStop(0, `hsla(${dataset.hue}, 100%, 60%, 0.2)`);
+                gradientBackground.addColorStop(1, `hsla(${dataset.hue}, 100%, 60%, 0)`);
 
-                if(this.type === 'line') {
+                if (this.type === 'line') {
                     dataset.backgroundColor = gradientBackground;
                 }
-                if(this.type === 'bar') {
-                    dataset.backgroundColor = 'hsla(' + dataset.hue + ', 100%, 60%, 1)';
+                if (this.type === 'bar') {
+                    dataset.backgroundColor = `hsla(${dataset.hue}, 100%, 60%, 1)`;
                 }
 
-                dataset.borderColor = 'hsla(' + dataset.hue + ', 100%, 60%, 1)';
-                dataset.pointBackgroundColor = 'hsla(' + dataset.hue + ', 100%, 60%, 1)';
+                dataset.borderColor = `hsla(${dataset.hue}, 100%, 60%, 1)`;
+                dataset.pointBackgroundColor = `hsla(${dataset.hue}, 100%, 60%, 1)`;
                 dataset.fill = true;
                 dataset.tension = this.tension;
                 parsedDataSets.push(dataset);
@@ -123,12 +128,12 @@ export default {
                         },
                     },
                     elements: {
-                        point:{
+                        point: {
                             backgroundColor: Chart.borderColor,
                             radius: this.showDots ? 3 : 1,
                             hoverRadius: this.showDots ? 4 : 4,
                             hitRadius: this.showDots ? 8 : 5,
-                        }
+                        },
                     },
                     responsive: true,
                     maintainAspectRatio: false,
@@ -150,9 +155,6 @@ export default {
             };
         },
     },
-    mounted() {
-        this.createChart();
-    },
     watch: {
         datasets() {
             this.updateDatasets();
@@ -173,9 +175,12 @@ export default {
             this.updateOptions();
         },
     },
+    mounted() {
+        this.createChart();
+    },
     methods: {
         createChart() {
-            if(this.hasLabels && this.hasDatasets) {
+            if (this.hasLabels && this.hasDatasets) {
                 this.chart = new Chart(this.canvas, this.config);
             }
         },
@@ -190,7 +195,7 @@ export default {
         updateLabels() {
             this.chart.data.labels = this.labels;
             this.chart.update();
-        }
+        },
     },
 };
 </script>

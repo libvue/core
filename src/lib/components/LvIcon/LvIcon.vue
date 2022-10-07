@@ -26,9 +26,6 @@ export default {
             parentFontSize: null,
         };
     },
-    mounted() {
-        this.parentFontSize = this.getParentFontSize();
-    },
     computed: {
         computedSize() {
             // If prop:size is set, this must lead
@@ -45,6 +42,9 @@ export default {
         spritePath() {
             return './node_modules/lucide-static/sprite.svg';
         },
+    },
+    mounted() {
+        this.parentFontSize = this.getParentFontSize();
     },
     methods: {
         getParentFontSize() {

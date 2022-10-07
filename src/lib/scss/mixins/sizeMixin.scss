@@ -21,9 +21,9 @@ $sizes: (
 @mixin size-mixin {
     @each $size, $sizeMap in $sizes {
         &--size-#{$size} {
-            padding: map-get($sizeMap, 'paddingY') map-get($sizeMap, 'paddingX');
-            font-size: map-get($sizeMap, 'fontSize');
-            line-height: map-get($sizeMap, 'fontSize');
+            padding: map-get($sizeMap, "paddingY") map-get($sizeMap, "paddingX");
+            font-size: map-get($sizeMap, "fontSize");
+            line-height: map-get($sizeMap, "fontSize");
         }
     }
 }

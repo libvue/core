@@ -1,9 +1,9 @@
 <template>
-    <lv-heading :level="3" v-space-after="0.5">Notice</lv-heading>
-    <lv-heading sub :level="6" v-space-after="1">Just a notice</lv-heading>
+    <lv-heading v-space-after="0.5" :level="3">Notice</lv-heading>
+    <lv-heading v-space-after="1" sub :level="6">Just a notice</lv-heading>
     <lv-tabs :tabs="tabs" :active="activeTab" @change-tab="(v) => (activeTab = v)">
         <template #colors="{ tab }">
-            <lv-heading :level="6" v-space-after="1">Solid</lv-heading>
+            <lv-heading v-space-after="1" :level="6">Solid</lv-heading>
             <lv-card v-space-after="1">
                 <lv-group>
                     <lv-notice text="Default" />
@@ -16,10 +16,10 @@
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeColorSolid" />
 
-            <lv-heading :level="6" v-space-after="1">Light</lv-heading>
+            <lv-heading v-space-after="1" :level="6">Light</lv-heading>
             <lv-card v-space-after="1">
                 <lv-group>
-                    <lv-notice text="Light Default" color="light-default"/>
+                    <lv-notice text="Light Default" color="light-default" />
                     <lv-notice text="Light Primary" color="light-primary" />
                     <lv-notice text="Light Warning" color="light-warning" />
                     <lv-notice text="Light Danger" color="light-danger" />
@@ -29,10 +29,10 @@
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeColorSolidLight" />
 
-            <lv-heading :level="6" v-space-after="1">Outline</lv-heading>
+            <lv-heading v-space-after="1" :level="6">Outline</lv-heading>
             <lv-card v-space-after="1">
                 <lv-group>
-                    <lv-notice text="Outline Default" color-type="outline"/>
+                    <lv-notice text="Outline Default" color-type="outline" />
                     <lv-notice text="Outline Primary" color="primary" color-type="outline" />
                     <lv-notice text="Outline Warning" color="warning" color-type="outline" />
                     <lv-notice text="Outline Danger" color="danger" color-type="outline" />
@@ -42,10 +42,10 @@
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeColorOutline" />
 
-            <lv-heading :level="6" v-space-after="1">Outline Light</lv-heading>
+            <lv-heading v-space-after="1" :level="6">Outline Light</lv-heading>
             <lv-card v-space-after="1">
                 <lv-group>
-                    <lv-notice text="Outline Light Default" color="light-default" color-type="outline"/>
+                    <lv-notice text="Outline Light Default" color="light-default" color-type="outline" />
                     <lv-notice text="Outline Light Primary" color="light-primary" color-type="outline" />
                     <lv-notice text="Outline Light Warning" color="light-warning" color-type="outline" />
                     <lv-notice text="Outline Light Danger" color="light-danger" color-type="outline" />
@@ -58,7 +58,7 @@
         <template #icons>
             <lv-card v-space-after="1">
                 <lv-group>
-                    <lv-notice text="This notice has an icon" icon="github"/>
+                    <lv-notice text="This notice has an icon" icon="github" />
                 </lv-group>
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeIcons" />
@@ -66,13 +66,12 @@
         <template #buttons>
             <lv-card v-space-after="1">
                 <lv-group>
-                    <lv-notice text="This notice has a button" icon="github" show-button/>
+                    <lv-notice text="This notice has a button" icon="github" show-button />
                 </lv-group>
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeIcons" />
         </template>
     </lv-tabs>
-
 </template>
 
 <script>
