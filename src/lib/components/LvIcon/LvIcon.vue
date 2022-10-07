@@ -15,6 +15,10 @@ export default {
             type: Number,
             default: null,
         },
+        pushRight: {
+            type: Number,
+            default: null,
+        },
     },
     data() {
         return {

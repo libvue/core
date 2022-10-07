@@ -2,13 +2,15 @@
     <div
         class="lv-checkbox"
         :class="{
-            'lv-checkbox--checked': model,
+            'lv-checkbox--checked': modelValue,
             'lv-checkbox--disabled': disabled || loading,
         }"
     >
-        <input class="lv-checkbox__input" type="checkbox" :checked="model" v-bind="$attrs" @input="toggleCheckbox" />
-        <lv-icon class="lv-checkbox__icon" name="check" v-if="model && !loading" />
-        <lv-icon class="lv-checkbox__loader" name="loader-2" v-if="loading" />
+        <div class="lv-checkbox__checkbox">
+            <input class="lv-checkbox__input" type="checkbox" :checked="modelValue" v-bind="$attrs" @input="toggleCheckbox" />
+            <lv-icon class="lv-checkbox__icon" name="check" v-if="modelValue && !loading" />
+            <lv-icon class="lv-checkbox__loader" name="loader" v-if="loading" />
+        </div>
         <div class="lv-checkbox__label" v-if="label" @click="toggleCheckbox">{{ label }}</div>
     </div>
 </template>
@@ -36,11 +38,6 @@ export default {
             type: Boolean,
             default: false,
         },
-    },
-    data() {
-        return {
-            model: this.modelValue,
-        };
     },
     methods: {
         toggleCheckbox() {
@@ -74,7 +71,12 @@ export default {
             border: 2px solid $color-primary;
         }
     }
-
+    &__checkbox {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
     &--checked {
         #{$self}__input {
             background-color: $color-primary;
@@ -104,24 +106,34 @@ export default {
         }
     }
 
-    &__icon {
-        pointer-events: none;
-        position: absolute;
-        top: 3px;
-        left: 3px;
-        color: #fff;
-    }
     &__loader {
         pointer-events: none;
         position: absolute;
-        top: 3px;
-        left: 3px;
-        color: $text-color;
+        top: 50%;
+        left: 50%;
+        margin-left: -33%;
+        margin-top: -33%;
+        font-size: 12px;
         animation: rotate-cw 1s infinite linear;
     }
+
+    &--checked #{$self}__loader {
+        color: $text-color-inverted;
+    }
+
+    &__icon {
+        pointer-events: none;
+        position: absolute;
+        color: #fff;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
     &__label {
         margin-left: 10px;
         cursor: pointer;
+        font-size: $font-size;
     }
 }
 </style>

@@ -1,4 +1,4 @@
-import '../scss/components/lv-badge.scss';
+import '../scss/directives/v-badge.scss';
 
 const handler = (el, binding) => {
     // Check if lv-badge already exists inside el
@@ -16,7 +16,7 @@ const handler = (el, binding) => {
     // Add content
     badge.innerText = binding.value;
     // Add Class (just for understanding)
-    badge.classList.add('lv-badge');
+    badge.classList.add('v-badge');
     // Add it to the element
     el.appendChild(badge);
 };

@@ -75,7 +75,7 @@ export default {
     align-items: center;
     font-size: $font-size;
     color: $text-color;
-    font-weight: 500;
+    font-weight: 400;
     flex-shrink: 0;
 
     &:hover:not(#{$self}--active) {
