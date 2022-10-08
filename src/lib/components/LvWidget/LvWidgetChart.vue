@@ -67,15 +67,15 @@ export default {
     padding: 1rem;
 
     &__head {
+        display: flex;
+        flex-direction: column;
         margin-bottom: 10px;
         color: $text-color-dimmed;
         font-weight: 500;
-        display: flex;
-        flex-direction: column;
     }
     &__title {
-        margin-right: 10px;
         display: flex;
+        margin-right: 10px;
         margin-bottom: 5px;
     }
     &__diff {
@@ -88,17 +88,17 @@ export default {
     &__amount {
         display: flex;
         align-items: flex-start;
+        color: $text-color;
+        font-weight: 600;
         font-size: 1.7rem;
         line-height: 1.7rem;
-        font-weight: 600;
-        color: $text-color;
     }
     &__prefix {
-        font-size: 1.2rem;
-        line-height: 1.2rem;
         margin-right: 5px;
         color: $text-color-dimmed;
         font-weight: 500;
+        font-size: 1.2rem;
+        line-height: 1.2rem;
     }
 }
 </style>

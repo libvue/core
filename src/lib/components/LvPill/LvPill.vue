@@ -53,32 +53,32 @@ export default {
 
 .lv-pill {
     display: inline-flex;
+    border-radius: 1rem;
+    font-weight: 500;
     font-size: $font-size;
     line-height: $font-size;
-    font-weight: 500;
-    border-radius: 1rem;
 
     &__icon {
+        display: flex;
+        align-items: center;
         padding: 0.5rem 0 0.5rem 0.625rem;
         font-size: $font-size;
         line-height: $font-size;
-        display: flex;
-        align-items: center;
     }
 
     &__text {
-        padding: 0.5rem 0.625rem;
         display: flex;
         align-items: center;
+        padding: 0.5rem 0.625rem;
     }
 
     &__close {
-        padding: 0.5rem 0.5rem 0.5rem 0.25rem;
         display: flex;
-        background-color: rgba(0, 0, 0, 0.1);
         align-items: center;
-        border-radius: 0 1rem 1rem 0;
         cursor: pointer;
+        border-radius: 0 1rem 1rem 0;
+        background-color: rgba(0, 0, 0, 0.1);
+        padding: 0.5rem 0.5rem 0.5rem 0.25rem;
 
         &:hover {
             background-color: rgba(0, 0, 0, 0.15);

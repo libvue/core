@@ -61,10 +61,10 @@ $layout-menu-border-color: lighten($border-color, 8);
     $self: &;
 
     display: flex;
-    flex-direction: row;
-    min-height: 100%;
     flex-grow: 1;
+    flex-direction: row;
     width: 100%;
+    min-height: 100%;
 
     &--layout-vertical {
         flex-direction: column;
@@ -72,15 +72,15 @@ $layout-menu-border-color: lighten($border-color, 8);
         > #{$self}__menu {
             $menu: &;
             display: flex;
-            width: 100%;
-            padding: 0 30px;
+            flex-shrink: 0;
+            flex-direction: row;
+            align-items: center;
             box-sizing: border-box;
             border-bottom: 1px solid $layout-menu-border-color;
-            overflow-y: inherit;
-            flex-shrink: 0;
+            padding: 0 30px;
+            width: 100%;
             height: v-bind(verticalMenuHeight);
-            align-items: center;
-            flex-direction: row;
+            overflow-y: inherit;
 
             #{$self}__#{menu}-logo {
                 margin-right: 10px;
@@ -100,17 +100,17 @@ $layout-menu-border-color: lighten($border-color, 8);
     }
     &__content {
         flex-grow: 1;
-        overflow-y: auto;
         max-height: 100vh;
+        overflow-y: auto;
     }
     &__menu {
-        border-right: 1px solid $layout-menu-border-color;
-        overflow-y: auto;
-        max-height: 100vh;
-        width: v-bind(horizontalMenuWidth);
-        flex-shrink: 0;
         display: flex;
+        flex-shrink: 0;
         flex-direction: column;
+        border-right: 1px solid $layout-menu-border-color;
+        width: v-bind(horizontalMenuWidth);
+        max-height: 100vh;
+        overflow-y: auto;
 
         &-logo {
             display: flex;

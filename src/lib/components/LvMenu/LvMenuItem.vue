@@ -61,17 +61,17 @@ export default {
 
 .lv-menu-item {
     $self: &;
-    margin-bottom: 10px;
-    padding: 5px 0;
-    border-radius: 5px;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
     transition: all 0.1s;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    font-size: $font-size;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 5px 0;
     color: $text-color;
     font-weight: 400;
-    flex-shrink: 0;
+    font-size: $font-size;
 
     &:hover:not(#{$self}--active) {
         color: #000;
@@ -86,15 +86,15 @@ export default {
     }
 
     &__icon {
-        margin-right: 10px;
         flex-shrink: 0;
+        margin-right: 10px;
     }
     &__label {
         white-space: nowrap;
     }
     &--layout-vertical {
-        margin-bottom: 0;
         margin-right: 10px;
+        margin-bottom: 0;
     }
 }
 </style>

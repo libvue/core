@@ -50,8 +50,8 @@ export default {
         margin-right: 20px;
         color: $text-color-dimmed;
         &:hover:not(&--active) {
-            color: $text-color;
             cursor: pointer;
+            color: $text-color;
         }
     }
     &__chevron-right {
@@ -63,8 +63,8 @@ export default {
         font-weight: 500;
 
         &:hover:not(&--active) {
-            color: $text-color;
             cursor: pointer;
+            color: $text-color;
         }
         &--active {
             color: $color-primary;

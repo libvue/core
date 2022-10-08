@@ -25,13 +25,13 @@ export default {
 @import '../../scss/variables';
 
 .lv-divider {
-    border: 0;
     margin: 0;
+    border: 0;
     background-color: $border-color;
 
     &--direction-horizontal {
-        height: 1px;
         width: 100%;
+        height: 1px;
     }
     &--direction-vertical {
         width: 1px;

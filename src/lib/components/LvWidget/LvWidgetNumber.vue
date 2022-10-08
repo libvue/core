@@ -49,10 +49,10 @@ export default {
     padding: 1rem;
 
     &__head {
+        display: flex;
         margin-bottom: 10px;
         color: $text-color-dimmed;
         font-weight: 500;
-        display: flex;
     }
     &__title {
         margin-right: 10px;
@@ -67,17 +67,17 @@ export default {
     &__amount {
         display: flex;
         align-items: flex-start;
+        font-weight: 600;
         font-size: 1.7rem;
         line-height: 1.7rem;
-        font-weight: 600;
     }
 
     &__prefix {
-        font-size: 1.2rem;
-        line-height: 1.2rem;
         margin-right: 5px;
         color: $text-color-dimmed;
         font-weight: 500;
+        font-size: 1.2rem;
+        line-height: 1.2rem;
     }
 }
 </style>

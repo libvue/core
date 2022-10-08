@@ -7,22 +7,22 @@
 <style lang="scss">
 @import '../../scss/variables';
 .lv-keyboard {
-    background-color: $color-default-light;
-    border-radius: 3px;
-    padding: 0rem 0.5rem;
-    font-size: $font-size-small;
-    font-weight: 500;
-    font-family: $font-family;
-    border-bottom: 2px solid darken($color-default-light, 6);
-    text-shadow: 0 1px 0 #fff;
-    box-shadow: $shadow;
-    vertical-align: bottom;
     display: inline-block;
-    cursor: pointer;
+    vertical-align: bottom;
     transition: 0.2s all;
+    cursor: pointer;
+    box-shadow: $shadow;
+    border-bottom: 2px solid darken($color-default-light, 6);
+    border-radius: 3px;
+    background-color: $color-default-light;
+    padding: 0rem 0.5rem;
+    font-weight: 500;
+    font-size: $font-size-small;
+    font-family: $font-family;
+    text-shadow: 0 1px 0 #fff;
     &:hover {
-        border-bottom: 0 solid darken($color-default-light, 6);
         box-shadow: none;
+        border-bottom: 0 solid darken($color-default-light, 6);
     }
 }
 </style>

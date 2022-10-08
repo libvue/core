@@ -47,13 +47,13 @@ export default {
 @import '../../scss/variables';
 
 .lv-heading {
-    margin-top: 0;
-    font-family: $font-family;
     display: block;
+    margin-top: 0;
+    margin-bottom: 0;
     width: 100%;
     color: $text-color;
     font-weight: 600;
-    margin-bottom: 0;
+    font-family: $font-family;
 
     &--h1 {
         font-size: $font-size-h1;

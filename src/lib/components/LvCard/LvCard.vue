@@ -19,11 +19,11 @@ export default {
 @import '../../scss/variables';
 
 .lv-card {
-    padding: $padding * 1.5;
-    border-radius: $border-radius;
-    border: 1px solid $border-color;
-    background-color: $background-color;
     box-shadow: $shadow;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    background-color: $background-color;
+    padding: $padding * 1.5;
 
     &--inline {
         display: inline-block;

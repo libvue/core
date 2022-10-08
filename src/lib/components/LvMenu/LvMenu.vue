@@ -48,18 +48,18 @@ export default {
 .lv-menu {
     $self: &;
     display: flex;
-    flex-direction: column;
     flex-shrink: 0;
-    font-family: $font-family;
+    flex-direction: column;
     background-color: $background-color;
+    font-family: $font-family;
 
     &--layout-vertical {
+        display: flex;
+        flex-shrink: 1;
         flex-direction: row;
         align-items: center;
-        display: flex;
-        overflow-y: inherit;
         width: 100%;
-        flex-shrink: 1;
+        overflow-y: inherit;
     }
 }
 </style>

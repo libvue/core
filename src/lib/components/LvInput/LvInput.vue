@@ -85,31 +85,32 @@ export default {
     $self: &;
     display: flex;
     position: relative;
-    font-family: $font-family;
-    color: $text-color;
     flex-direction: column;
     justify-content: center;
     margin-bottom: 0;
+    color: $text-color;
+    font-family: $font-family;
 
     // Elements
     &__icon {
         position: absolute;
         top: 13px;
+        left: $padding - 2px;
+              left: $p
         color: $text-color;
-        left: $padding - 2px; // Optical Fix
     }
 
     &__input {
+        transition: $transition-time.2s all $transition-easing;
+        margin-bottom: 0;
         outline: none;
-        font-size: $font-size;
-        font-family: $font-family;
-        border-radius: $border-radius;
         border: 1px solid $border-color;
+        border-radius: $border-radius;
+        background-color: #fff;
         padding: $padding;
         color: $text-color;
-        background-color: #fff;
-        margin-bottom: 0;
-        transition: $transition-time.2s all $transition-easing;
+        font-size: $font-size;
+        font-family: $font-family;
 
         &::placeholder {
             color: $placeholder-color;
@@ -117,18 +118,19 @@ export default {
     }
 
     &__hint {
-        font-size: $font-size-small;
-        color: $text-color-dimmed;
         padding: 4px;
+        color: $text-color-dimmed;
+        font-size: $font-size-small;
     }
 
     &__loading {
         position: absolute;
         top: 13px;
-        color: $text-color-dimmed;
-        right: $padding - 2px; // Optical Fix
+        right: $padding - 2px; ed;
+        ri
         animation: rotate-cw 1s infinite linear;
         background-color: #fafafa;
+        color: $text-color-dimmed;
     }
 
     // Modifiers
@@ -137,9 +139,9 @@ export default {
         color: $color-danger;
 
         #{$self}__input {
+            border-color: $color-danger;
             background: lighten($color-danger, 40);
             color: $color-danger;
-            border-color: $color-danger;
 
             &::placeholder {
                 color: $placeholder-color-danger;
@@ -155,9 +157,9 @@ export default {
         color: $color-success;
 
         #{$self}__input {
+            border-color: $color-success;
             background: lighten($color-success, 55);
             color: $color-success;
-            border-color: $color-success;
 
             &::placeholder {
                 color: $placeholder-color-success;
@@ -171,15 +173,15 @@ export default {
 
     &--icon {
         #{$self}__input {
-            padding-left: $padding + 16px + 4px;
             box-sizing: border-box;
+            padding-left: $padding + 16px + 4px;
         }
     }
 
     &--disabled {
+        opacity: 1;
         pointer-events: none;
         user-select: none;
-        opacity: 1;
         #{$self}__icon {
             color: $placeholder-color;
         }
