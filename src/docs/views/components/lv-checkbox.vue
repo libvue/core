@@ -12,11 +12,16 @@
 </template>
 
 <script>
+const code = `
+<lv-checkbox v-model="checkbox" label="im a checkbox" />
+<lv-checkbox v-model="checkbox" disabled label="im a disabled checkbox" />
+<lv-checkbox v-model="checkbox" loading label="im a loading checkbox" />
+`.trim();
 export default {
     data() {
         return {
+            code,
             checkbox: true,
-            code: `<lv-checkbox :model-value="true" label="im a checkbox"/>\n<lv-checkbox :model-value="true" disabled label="im a checkbox"/>\n<lv-checkbox disabled label="im a checkbox"/>\n<lv-checkbox loading label="im a checkbox"/>`,
         };
     },
 };

@@ -45,10 +45,11 @@ export default {
             default: false,
         },
     },
+    emits: ['update:modelValue'],
     methods: {
         toggleCheckbox() {
             if (!this.loading && !this.disabled) {
-                this.$emit('update:modelValue', !this.model);
+                this.$emit('update:modelValue', !this.modelValue);
                 this.model = !this.model;
             }
         },
