@@ -96,7 +96,6 @@ export default {
         position: absolute;
         top: 13px;
         left: $padding - 2px;
-              left: $p
         color: $text-color;
     }
 
@@ -126,8 +125,7 @@ export default {
     &__loading {
         position: absolute;
         top: 13px;
-        right: $padding - 2px; ed;
-        ri
+        right: $padding - 2px;
         animation: rotate-cw 1s infinite linear;
         background-color: #fafafa;
         color: $text-color-dimmed;

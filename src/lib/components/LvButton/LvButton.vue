@@ -81,7 +81,7 @@ export default {
     transition: $transition-time all $transition-easing;
     cursor: pointer;
     outline: none;
-    border: 1px solid transparent; nsition-easing;
+    border: 1px solid transparent;
     border-radius: $border-radius;
     background: transparent;
     color: $text-color-inverted;
