@@ -17,18 +17,18 @@ export default {
 
 .lv-link {
     $self: &;
+    transition: all $transition-time;
+    border-bottom: 1px dashed $text-color;
     color: $text-color;
     text-decoration: none;
-    border-bottom: 1px dashed $text-color;
-    transition: all $transition-time;
 
     &[href]:hover {
-        color: $color-primary;
         border-bottom-color: $color-primary;
+        color: $color-primary;
     }
     &--active {
-        color: $color-primary;
         border-bottom-color: $color-primary;
+        color: $color-primary;
     }
 }
 </style>

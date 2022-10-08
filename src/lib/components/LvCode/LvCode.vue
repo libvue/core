@@ -73,19 +73,19 @@ $code-padding: 14px;
     &__title {
         display: flex;
         flex-direction: row;
-        background-color: darken($code-background-color, 2);
-        color: $text-color-dimmed;
-        font-family: $font-family;
-        font-size: $font-size-small;
-        font-weight: 500;
-        border-radius: $border-radius $border-radius 0 0;
-        margin-bottom: 0;
-        padding: 0.5rem ($padding * 1.5);
         align-items: center;
+        margin-bottom: 0;
+        border-radius: $border-radius $border-radius 0 0;
+        background-color: darken($code-background-color, 2);
+        padding: 0.5rem ($padding * 1.5);
+        color: $text-color-dimmed;
+        font-weight: 500;
+        font-size: $font-size-small;
+        font-family: $font-family;
 
         &-copy {
-            margin-left: auto;
             cursor: pointer;
+            margin-left: auto;
             color: $text-color;
             font-size: $font-size;
         }
@@ -93,20 +93,20 @@ $code-padding: 14px;
 
     &__content {
         position: relative;
-        background-color: $code-background-color;
-        color: $text-color;
-        padding: $padding ($padding * 1.5);
         border-radius: $border-radius;
-        font-family: $font-family-monospace;
-        font-size: $font-size;
+        background-color: $code-background-color;
+        padding: $padding ($padding * 1.5);
         padding-right: 35px;
+        color: $text-color;
+        font-size: $font-size;
         line-height: 24px;
+        font-family: $font-family-monospace;
 
         &-copy {
-            cursor: pointer;
             position: absolute;
             top: 14px;
             right: 14px;
+            cursor: pointer;
         }
     }
 

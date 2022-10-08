@@ -61,66 +61,66 @@ export default {
 
 .lv-checkbox {
     $self: &;
-    position: relative;
     display: inline-flex;
+    position: relative;
 
     &__input {
         appearance: none;
-        border: 2px solid #cacaca;
+        transition: $transition-time all $transition-easing;
         cursor: pointer;
+        margin: 0;
+        border: 2px solid #cacaca;
+        border-radius: 3px;
         width: 22px;
         height: 22px;
-        margin: 0;
-        border-radius: 3px;
-        transition: $transition-time all $transition-easing;
         &:hover {
             border: 2px solid $color-primary;
         }
     }
     &__checkbox {
         display: flex;
-        align-items: center;
-        justify-content: center;
         position: relative;
+        justify-content: center;
+        align-items: center;
     }
     &--checked {
         #{$self}__input {
-            background-color: $color-primary;
             border: 2px solid $color-primary;
+            background-color: $color-primary;
         }
     }
 
     &--disabled {
         #{$self}__input {
-            border: 2px solid #eaeaea;
             cursor: default;
+            border: 2px solid #eaeaea;
         }
         #{$self}__label {
-            color: $text-color-dimmed;
             cursor: default;
+            color: $text-color-dimmed;
         }
     }
 
     &--checked#{$self}--disabled {
         #{$self}__input {
-            background-color: lighten($color-primary, 20);
             border: 2px solid lighten($color-primary, 20);
+            background-color: lighten($color-primary, 20);
         }
         #{$self}__label {
-            color: $text-color-dimmed;
             cursor: default;
+            color: $text-color-dimmed;
         }
     }
 
     &__loader {
-        pointer-events: none;
         position: absolute;
         top: 50%;
         left: 50%;
-        margin-left: -33%;
-        margin-top: -33%;
-        font-size: 12px;
         animation: rotate-cw 1s infinite linear;
+        margin-top: -33%;
+        margin-left: -33%;
+        pointer-events: none;
+        font-size: 12px;
     }
 
     &--checked #{$self}__loader {
@@ -128,17 +128,17 @@ export default {
     }
 
     &__icon {
-        pointer-events: none;
         position: absolute;
-        color: #fff;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        pointer-events: none;
+        color: #fff;
     }
 
     &__label {
-        margin-left: 10px;
         cursor: pointer;
+        margin-left: 10px;
         font-size: $font-size;
     }
 }

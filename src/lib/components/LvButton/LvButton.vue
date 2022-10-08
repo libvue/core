@@ -76,20 +76,20 @@ export default {
     $self: &;
     display: inline-flex;
     position: relative;
-    font-family: $font-family;
-    outline: none;
-    font-size: $font-size;
-    border-radius: $border-radius;
-    color: $text-color-inverted;
+    justify-content: center;
+    align-items: center;
     transition: $transition-time all $transition-easing;
     cursor: pointer;
-    text-align: center;
+    outline: none;
+    border: 1px solid transparent; nsition-easing;
+    border-radius: $border-radius;
     background: transparent;
+    color: $text-color-inverted;
     font-weight: 500;
-    align-items: center;
-    justify-content: center;
+    font-size: $font-size;
+    font-family: $font-family;
+    text-align: center;
     text-decoration: none;
-    border: 1px solid transparent; // Compensate for the outline variant
 
     // Elements
     &__icon {
@@ -101,11 +101,11 @@ export default {
     }
 
     &__loading {
-        color: $text-color-inverted;
-        animation: rotate-cw 1s infinite linear;
         position: absolute;
-        left: calc(50% - 8px);
         top: calc(50% - 8px);
+        left: calc(50% - 8px);
+        animation: rotate-cw 1s infinite linear;
+        color: $text-color-inverted;
     }
 
     &__content {
@@ -116,9 +116,9 @@ export default {
 
     // Modifiers
     &--disabled {
+        opacity: 0.5;
         pointer-events: none;
         user-select: none;
-        opacity: 0.5;
     }
 
     &--align-left {

@@ -59,20 +59,20 @@ export default {
 
     &__button {
         display: flex;
-        align-items: center;
         justify-content: center;
-        padding: 5px 0px;
-        font-weight: bold;
-        color: $text-color;
-        white-space: nowrap;
-        text-align: center;
-        background-color: transparent;
-        border-bottom: 2px solid transparent;
-        outline: 0;
-        font-size: $font-size;
-        cursor: pointer;
+        align-items: center;
         transition: 0.2s all;
+        cursor: pointer;
+        outline: 0;
+        border-bottom: 2px solid transparent;
+        background-color: transparent;
+        padding: 5px 0px;
+        color: $text-color;
+        font-weight: bold;
+        font-size: $font-size;
         user-select: none;
+        text-align: center;
+        white-space: nowrap;
         &:focus:not(&--active) {
             border-color: lighten($color-primary, 30);
         }
@@ -88,8 +88,8 @@ export default {
             pointer-events: none;
         }
         &-icon {
-            margin-right: 10px;
             transition: 0.2s all;
+            margin-right: 10px;
         }
     }
 }

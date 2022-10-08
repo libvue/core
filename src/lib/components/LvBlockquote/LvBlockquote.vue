@@ -22,10 +22,10 @@ export default {
     margin: 0;
 }
 .lv-blockquote {
-    background-color: $blockquote-background-color;
     margin: 0;
-    padding: 1rem;
     border-radius: $border-radius;
+    background-color: $blockquote-background-color;
+    padding: 1rem;
     font-style: italic;
 }
 .lv-caption {

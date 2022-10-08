@@ -50,36 +50,36 @@ export default {
 
 .lv-menu-list {
     $self: &;
-    font-family: $font-family;
-    flex-grow: 1;
-    width: 100%;
     display: flex;
+    flex-grow: 1;
     flex-direction: column;
-    font-size: $font-size;
     margin-bottom: 10px;
+    width: 100%;
+    font-size: $font-size;
+    font-family: $font-family;
 
     &:last-of-type {
         margin-bottom: 0;
     }
 
     &__icon {
-        margin-right: 10px;
         flex-shrink: 0;
+        margin-right: 10px;
     }
 
     &__label {
         display: flex;
-        align-items: center;
         justify-content: flex-start;
+        align-items: center;
         margin-top: 0;
-        padding: 5px 0;
         border-radius: 5px;
-        white-space: nowrap;
+        padding: 5px 0;
         font-weight: 400;
+        white-space: nowrap;
 
         &-icon {
-            margin-left: auto;
             flex-shrink: 0;
+            margin-left: auto;
         }
         &-text {
             margin-right: 10px;
@@ -89,12 +89,12 @@ export default {
     &__dropdown {
         display: flex;
         flex-direction: column;
-        border-left: 1px solid #eaeaea;
-        padding-left: 13px;
-        margin-left: 18px;
-        margin-bottom: 10px;
         margin-top: 10px;
+        margin-bottom: 10px;
+        margin-left: 18px;
+        border-left: 1px solid #eaeaea;
         background-color: $background-color;
+        padding-left: 13px;
 
         > [class^='lv-menu-item'] {
             &:last-of-type {

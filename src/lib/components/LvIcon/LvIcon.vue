@@ -61,14 +61,14 @@ export default {
 @import '../../scss/variables';
 
 .lv-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
     fill: none;
-    font-size: inherit;
     stroke: currentColor;
     stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    font-size: inherit;
 }
 </style>

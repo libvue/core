@@ -352,9 +352,8 @@ export default {
         width: 100%;
         &-head {
             th {
-                font-weight: bold;
-
                 padding: 0.75rem 0.25rem;
+                font-weight: bold;
             }
         }
         &-body {
@@ -387,8 +386,8 @@ export default {
                     }
                 }
                 td {
-                    font-weight: 600;
                     padding: 0.75rem 0.25rem;
+                    font-weight: 600;
                 }
             }
         }
@@ -427,10 +426,10 @@ export default {
     }
     /* Modifiers */
     &--bordered {
+        box-shadow: $shadow;
         border: 1px solid $border-color;
         border-radius: $border-radius;
         padding: 0.5rem 1rem;
-        box-shadow: $shadow;
     }
     &--hide-row-lines {
         #{$self}__table-body tr {

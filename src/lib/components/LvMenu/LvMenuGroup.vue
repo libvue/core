@@ -82,37 +82,37 @@ export default {
 
 .lv-menu-group {
     $self: &;
-    font-family: $font-family;
-    flex-grow: 1;
-    width: 100%;
     display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
-    cursor: pointer;
-    font-size: $font-size;
     position: relative;
+    flex-grow: 1;
+    flex-direction: column;
+    cursor: pointer;
+    margin-bottom: 15px;
+    width: 100%;
+    font-size: $font-size;
+    font-family: $font-family;
 
     &--layout-vertical {
-        flex-grow: 0;
-        margin-bottom: 0;
-        margin-right: 20px;
-        height: 100%;
-        width: auto;
         display: flex;
+        flex-grow: 0;
         justify-content: center;
+        margin-right: 20px;
+        margin-bottom: 0;
+        width: auto;
+        height: 100%;
         #{$self}__label {
             margin-bottom: 0;
             padding: 0;
         }
         #{$self}__content {
-            padding: 15px;
             position: absolute;
             top: 30px;
             transform: translateX(calc(-50% + 30px));
-            background-color: #fff;
             z-index: 3;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
             border-radius: $border-radius;
+            background-color: #fff;
+            padding: 15px;
             overflow-y: auto;
         }
     }
@@ -123,12 +123,12 @@ export default {
 
     &__label {
         display: flex;
-        align-items: center;
         justify-content: flex-start;
-        font-size: $font-size-small;
-        color: $text-color;
+        align-items: center;
         margin-top: 0;
         padding: 5px 0;
+        color: $text-color;
+        font-size: $font-size-small;
         line-height: 0.75;
     }
 

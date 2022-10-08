@@ -74,17 +74,17 @@ export default {
 @import '../../scss/mixins/sizeMixin';
 
 .lv-notice {
-    width: 100%;
-    border-radius: $border-radius;
     display: flex;
+    position: relative;
     align-items: center;
     box-sizing: border-box;
-    position: relative;
     border: 1px solid transparent;
+    border-radius: $border-radius;
+    width: 100%;
 
     &__icon {
-        margin-right: 10px;
         flex-shrink: 0;
+        margin-right: 10px;
     }
 
     &__button {

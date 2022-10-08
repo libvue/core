@@ -203,8 +203,8 @@ export default {
 <style lang="scss">
 .lv-chart {
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 
     &__message {
         display: flex;
