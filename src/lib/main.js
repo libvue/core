@@ -21,6 +21,8 @@ import LvMenuList from './components/LvMenu/LvMenuList.vue';
 import LvNotice from './components/LvNotice/LvNotice.vue';
 import LvParagraph from './components/LvParagraph/LvParagraph.vue';
 import LvPill from './components/LvPill/LvPill.vue';
+import LvRadio from './components/LvRadio/LvRadio.vue';
+import LvSwitch from './components/LvSwitch/LvSwitch.vue';
 import LvTable from './components/LvTable/LvTable.vue';
 import LvTabs from './components/LvTabs/LvTabs.vue';
 import LvWidget from './components/LvWidget/LvWidget.vue';
@@ -60,6 +62,8 @@ export default {
         app.component('LvTable', LvTable);
         app.component('LvTabs', LvTabs);
         app.component('LvWidget', LvWidget);
+        app.component('LvRadio', LvRadio);
+        app.component('LvSwitch', LvSwitch);
     },
 };
 
@@ -85,7 +89,9 @@ export {
     LvMenuList,
     LvNotice,
     LvPill,
+    LvSwitch,
     LvTable,
     LvTabs,
+    LvRadio,
     LvWidget,
 };

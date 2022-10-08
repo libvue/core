@@ -35,9 +35,9 @@
                     <lv-menu-list icon="form-input" label="Form Elements">
                         <lv-menu-item to="lv-input" label="Input" />
                         <lv-menu-item to="lv-checkbox" label="Checkbox" />
-                        <lv-menu-item label="Select" to="lv-select" />
                         <lv-menu-item label="Radio" to="lv-radio" />
                         <lv-menu-item label="Switch" to="lv-switch" />
+                        <lv-menu-item label="Select" to="lv-select" />
                     </lv-menu-list>
                     <lv-menu-list icon="pencil" label="Writing">
                         <lv-menu-item to="lv-heading" label="Heading" />

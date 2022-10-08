@@ -50,7 +50,6 @@ export default {
         toggleCheckbox() {
             if (!this.loading && !this.disabled) {
                 this.$emit('update:modelValue', !this.modelValue);
-                this.model = !this.model;
             }
         },
     },
