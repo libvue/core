@@ -1,10 +1,7 @@
 <template>
     <div
         class="lv-checkbox"
-        :class="{
-            'lv-checkbox--checked': modelValue,
-            'lv-checkbox--disabled': disabled || loading,
-        }"
+        :class="classObject"
     >
         <div class="lv-checkbox__checkbox">
             <input
@@ -15,7 +12,7 @@
                 @input="toggleCheckbox"
             />
             <lv-icon v-if="modelValue && !loading" class="lv-checkbox__icon" name="check" />
-            <lv-icon v-if="loading" class="lv-checkbox__loader" name="loader" />
+            <lv-icon v-if="loading" class="lv-checkbox__loader" :size="12" name="loader" />
         </div>
         <div v-if="label" class="lv-checkbox__label" @click="toggleCheckbox">{{ label }}</div>
     </div>
@@ -46,6 +43,15 @@ export default {
         },
     },
     emits: ['update:modelValue'],
+    computed: {
+        classObject() {
+            return {
+                'lv-checkbox--checked': !!this.modelValue,
+                'lv-checkbox--disabled': this.disabled || this.loading,
+                'lv-checkbox--loading': this.loading,
+            }
+        }
+    },
     methods: {
         toggleCheckbox() {
             if (!this.loading && !this.disabled) {
@@ -71,8 +77,8 @@ export default {
         margin: 0;
         border: 2px solid #cacaca;
         border-radius: 3px;
-        width: 22px;
-        height: 22px;
+        width: 1rem;
+        height: 1rem;
         &:hover {
             border: 2px solid $color-primary;
         }
@@ -114,13 +120,10 @@ export default {
 
     &__loader {
         position: absolute;
-        top: 50%;
-        left: 50%;
+        top: 5px;
+        left: 2px;
         animation: rotate-cw 1s infinite linear;
-        margin-top: -33%;
-        margin-left: -33%;
         pointer-events: none;
-        font-size: 12px;
     }
 
     &--checked #{$self}__loader {
@@ -138,7 +141,7 @@ export default {
 
     &__label {
         cursor: pointer;
-        margin-left: 10px;
+        margin-left: 5px;
         font-size: $font-size;
     }
 }
