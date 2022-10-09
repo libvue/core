@@ -3,12 +3,13 @@
         <lv-icon v-if="icon" class="lv-input__icon" :size="16" :name="icon" />
         <input
             v-bind="$attrs"
-            v-model="modelValue"
+            :value="modelValue"
             class="lv-input__input"
             :type="type"
             :placeholder="placeholder"
             :disabled="disabled"
             :readonly="readonly"
+            @input="onInput"
         />
         <lv-icon v-if="loading" class="lv-input__loading" :size="16" name="loader-2" />
     </div>
@@ -74,6 +75,11 @@ export default {
             };
         },
     },
+    methods: {
+        onInput(e) {
+            this.$emit('update:modelValue', e.target.value)
+        }
+    }
 };
 </script>
 
