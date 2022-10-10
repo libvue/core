@@ -1,5 +1,5 @@
 <template>
-    <div class="lv-tabs">
+    <div class="lv-tabs" role="tablist">
         <lv-group v-space-after="1" class="lv-tabs__buttons" gap="20px">
             <div
                 v-for="tab in tabs"
@@ -7,6 +7,7 @@
                 class="lv-tabs__button"
                 :tabindex="tab.disabled ? '-1' : '0'"
                 :class="{ 'lv-tabs__button--active': tab.id === active, 'lv-tabs__button--disabled': !!tab.disabled }"
+                role="tab"
                 @click.stop="onClickButton(tab)"
                 @keydown.enter.space="onKeyDown(tab)"
             >
@@ -14,8 +15,8 @@
                 {{ tab.title }}
             </div>
         </lv-group>
-        <div class="lv-tabs__tabs">
-            <div v-for="tab in tabs" v-show="tab.id === active" :key="tab.id" class="lv-tabs__tab">
+        <div class="lv-tabs__panels">
+            <div v-for="tab in tabs" v-show="tab.id === active" :key="tab.id" class="lv-tabs__panel" role="tabpanel">
                 <slot :name="tab.id" :tab="tab" />
             </div>
         </div>

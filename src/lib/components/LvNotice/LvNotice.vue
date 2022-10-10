@@ -1,5 +1,5 @@
 <template>
-    <div class="lv-notice" :class="classObject" v-bind="$attrs">
+    <div class="lv-notice" :class="classObject" v-bind="$attrs" role="alert">
         <lv-icon v-if="icon" class="lv-notice__icon" :name="icon" />
         <div class="lv-notice__content">
             <slot>{{ text }}</slot>

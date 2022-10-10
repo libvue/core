@@ -2,6 +2,7 @@
     <div
         class="lv-checkbox"
         :class="classObject"
+        aria-label="checkbox"
     >
         <div class="lv-checkbox__checkbox">
             <input

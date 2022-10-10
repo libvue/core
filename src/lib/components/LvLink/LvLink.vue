@@ -1,5 +1,5 @@
 <template>
-    <a class="lv-link" :href="href" @click="onClick">
+    <a class="lv-link" :href="href" @click="onClick" role="link">
         <slot />
     </a>
 </template>

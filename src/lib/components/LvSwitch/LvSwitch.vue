@@ -2,6 +2,7 @@
     <div
         class="lv-switch"
         :class="classObject"
+        role="switch"
     >
         <div class="lv-switch__checkbox">
             <input

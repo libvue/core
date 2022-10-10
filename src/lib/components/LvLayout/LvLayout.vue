@@ -1,17 +1,17 @@
 <template>
     <div class="lv-layout" :class="classObject">
         <div v-if="!!$slots.menu" class="lv-layout__menu">
-            <div v-if="!!$slots.logo" class="lv-layout__menu-logo">
+            <header role="banner" v-if="!!$slots.logo" class="lv-layout__menu-logo">
                 <slot name="logo"></slot>
-            </div>
+            </header>
             <slot name="menu"></slot>
             <div v-if="!!$slots['menu-footer']" class="lv-layout__menu-footer">
                 <slot name="menu-footer"></slot>
             </div>
         </div>
-        <div v-if="!!$slots.content" class="lv-layout__content">
+        <footer role="contentinfo" v-if="!!$slots.content" class="lv-layout__content">
             <slot name="content" />
-        </div>
+        </footer>
     </div>
 </template>
 
