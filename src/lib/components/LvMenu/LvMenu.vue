@@ -1,7 +1,7 @@
 <template>
-    <div class="lv-menu" :class="classObject">
+    <nav class="lv-menu" :class="classObject">
         <slot />
-    </div>
+    </nav>
 </template>
 
 <script>

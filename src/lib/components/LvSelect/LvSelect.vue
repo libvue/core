@@ -1,5 +1,11 @@
 <template>
-    <div class="lv-select" :class="classObject">
+    <div
+        class="lv-select"
+        :class="classObject"
+        role="combobox"
+        :aria-expanded="dropdownVisible"
+        aria-haspopup="listbox"
+    >
         <div class="lv-select__input" @click="onClickSelection">
             <div v-if="selectedOption" class="lv-select__selection">
                 <div v-if="selectedOption.image" class="lv-select__selection-image">
@@ -12,7 +18,7 @@
             <div v-else class="lv-select__placeholder">{{ placeholder }}</div>
             <lv-icon class="lv-select__icon" name="chevron-down"></lv-icon>
         </div>
-        <transition name="dropdown">
+        <transition name="dropdown" role="listbox">
             <div v-show="dropdownVisible" class="lv-select__dropdown">
                 <div v-if="noOptions" class="lv-select__no-options">No options found</div>
                 <div
@@ -24,6 +30,8 @@
                         'lv-select__option--active': option.value === modelValue,
                         'lv-select__option--disabled': !!option.disabled,
                     }"
+                    role="option"
+                    :aria-selected="option.value === modelValue"
                     @click="onClickOption(option)"
                 >
                     <div v-if="option.image" class="lv-select__option-image">
@@ -93,7 +101,7 @@ export default {
         },
         onClickSelection() {
             this.dropdownVisible = !this.dropdownVisible;
-        }
+        },
     },
 };
 </script>
@@ -101,7 +109,6 @@ export default {
 <style lang="scss">
 @import '../../scss/variables';
 .lv-select {
-
     position: relative;
 
     &__input {
@@ -145,13 +152,13 @@ export default {
 
     &__dropdown {
         position: absolute;
-        width: calc(100% - 2px);
+        z-index: $z-index-dropdown;
+        margin-top: -1px;
         box-shadow: $shadow;
         border: 1px solid $border-color;
         border-radius: $border-radius;
         background-color: $background-color;
-        margin-top: -1px;
-        z-index: $z-index-dropdown;
+        width: calc(100% - 2px);
     }
     &__no-options {
         padding: $padding;
@@ -207,7 +214,7 @@ export default {
 
 .dropdown-enter-from,
 .dropdown-leave-to {
-    opacity: 0;
     transform: translateY(-5px);
+    opacity: 0;
 }
 </style>

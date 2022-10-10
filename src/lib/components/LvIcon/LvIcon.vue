@@ -1,5 +1,5 @@
 <template>
-    <svg ref="icon" class="lv-icon" viewBox="0 0 24 24" :width="computedSize" :height="computedSize">
+    <svg ref="icon" class="lv-icon" viewBox="0 0 24 24" :width="computedSize" :height="computedSize" aria-hidden="true">
         <use :href="`${spritePath}#${name}`" />
     </svg>
 </template>

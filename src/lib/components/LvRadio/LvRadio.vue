@@ -1,13 +1,15 @@
 <template>
-    <div class="lv-radio">
+    <div class="lv-radio" role="radio">
         <input
             :id="identifier"
             class="lv-radio__input"
             type="radio"
             :checked="isChecked"
+            :aria-checked="isChecked"
             :disabled="disabled"
             :name="name"
             :value="value"
+            tabindex="0"
             @input="onInput"
         />
         <label v-if="label" class="lv-radio__label" :for="identifier">{{ label }}</label>
@@ -87,11 +89,11 @@ export default {
                 position: absolute;
                 top: 2px;
                 left: 2px;
+                border-radius: 100%;
                 background-color: $color-primary;
                 width: calc(100% - 4px);
                 height: calc(100% - 4px);
                 content: '';
-                border-radius: 100%;
             }
         }
     }

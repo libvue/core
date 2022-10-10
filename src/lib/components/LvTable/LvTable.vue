@@ -1,5 +1,5 @@
 <template>
-    <div class="lv-table" :class="classObject">
+    <div class="lv-table" :class="classObject" role="table">
         <table class="lv-table__table">
             <!-- Table Head -->
             <thead v-if="!hideHead" class="lv-table__table-head">

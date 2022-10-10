@@ -2,6 +2,7 @@
     <component
         :is="tagName"
         class="lv-heading"
+        role="heading"
         :class="{
             [`lv-heading--${tagName}`]: tagName,
             'lv-heading--sub': sub,

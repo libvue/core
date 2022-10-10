@@ -1,5 +1,5 @@
 <template>
-    <hr class="lv-divider" :class="classObject" />
+    <hr class="lv-divider" :class="classObject" role="separator" />
 </template>
 
 <script>
