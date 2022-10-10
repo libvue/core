@@ -57,7 +57,6 @@
                         <lv-menu-item label="Modal" to="lv-modal" />
                         <lv-menu-item label="Drawer" to="lv-drawer" />
                         <lv-menu-item label="Confirm" to="lv-confirm" />
-                        <lv-menu-item label="Tooltip" to="lv-tooltip" />
                     </lv-menu-list>
                 </lv-menu-group>
                 <lv-menu-group label="Utilities">

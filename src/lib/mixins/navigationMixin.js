@@ -66,6 +66,7 @@ const navigationMixin = {
          * @param event
          */
         onClick(event) {
+            event.preventDefault();
             const cmdOrCtrl = event.metaKey || event.ctrlKey;
             const target = cmdOrCtrl ? '_blank' : this.target;
             // Check if there is no valid URL thus no HREF

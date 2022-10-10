@@ -1,5 +1,13 @@
 <template>
-    <svg ref="icon" class="lv-icon" viewBox="0 0 24 24" :width="computedSize" :height="computedSize" aria-hidden="true">
+    <svg
+        ref="icon"
+        class="lv-icon"
+        viewBox="0 0 24 24"
+        :width="computedSize"
+        :height="computedSize"
+        aria-hidden="true"
+        :style="push ? `margin-right: ${push}rem;` : false"
+    >
         <use :href="`${spritePath}#${name}`" />
     </svg>
 </template>
@@ -15,9 +23,9 @@ export default {
             type: Number,
             default: null,
         },
-        pushRight: {
+        push: {
             type: Number,
-            default: null,
+            default: 0,
         },
     },
     data() {
