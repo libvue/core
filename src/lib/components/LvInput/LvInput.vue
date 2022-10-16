@@ -1,5 +1,5 @@
 <template>
-    <div class="lv-input" :class="classObject">
+    <div class="lv-input" :class="classObject" tabindex="0">
         <lv-icon v-if="icon" class="lv-input__icon" :size="16" :name="icon" />
         <input
             v-bind="$attrs"

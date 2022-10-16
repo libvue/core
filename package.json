@@ -6,6 +6,8 @@
         "build": "vite build"
     },
     "dependencies": {
+        "@vueuse/core": "^9.3.0",
+        "@vueuse/integrations": "^9.3.0",
         "chart.js": "^3.9.1",
         "highlight.js": "^11.6.0",
         "lodash": "^4.17.21",
