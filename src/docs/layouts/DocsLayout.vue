@@ -36,6 +36,7 @@
                         <lv-menu-item to="lv-input" label="Input" />
                         <lv-menu-item to="lv-checkbox" label="Checkbox" />
                         <lv-menu-item label="Radio" to="lv-radio" />
+                        <lv-menu-item label="Range Slider" to="lv-range-slider" />
                         <lv-menu-item label="Switch" to="lv-switch" />
                         <lv-menu-item label="Select" to="lv-select" />
                     </lv-menu-list>

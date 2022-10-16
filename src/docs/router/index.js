@@ -11,6 +11,7 @@ import Theming from '../views/concepts/theming.vue';
 // Components
 import LvButton from '../views/components/lv-button.vue';
 import LvInput from '../views/components/lv-input.vue';
+import LvInputRange from '../views/components/lv-range-slider.vue';
 import LvCheckbox from '../views/components/lv-checkbox.vue';
 import LvMenu from '../views/components/lv-menu.vue';
 import LvHeading from '../views/components/lv-heading.vue';
@@ -77,6 +78,11 @@ const routes = [
         path: '/lv-avatar',
         name: 'lv-avatar',
         component: LvAvatar,
+    },
+    {
+        path: '/lv-range-slider',
+        name: 'lv-range-slider',
+        component: LvInputRange,
     },
     {
         path: '/lv-image',

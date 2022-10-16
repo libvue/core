@@ -27,6 +27,7 @@ import LvTable from './components/LvTable/LvTable.vue';
 import LvTabs from './components/LvTabs/LvTabs.vue';
 import LvWidget from './components/LvWidget/LvWidget.vue';
 import LvSelect from './components/LvSelect/LvSelect.vue';
+import LvRangeSlider from './components/LvRangeSlider/LvRangeSlider.vue';
 
 import spaceAfter from './directives/spaceAfter';
 import badge from './directives/badge';
@@ -66,6 +67,7 @@ export default {
         app.component('LvRadio', LvRadio);
         app.component('LvSwitch', LvSwitch);
         app.component('LvSelect', LvSelect);
+        app.component('LvRangeSlider', LvRangeSlider);
     },
 };
 
@@ -97,4 +99,5 @@ export {
     LvRadio,
     LvWidget,
     LvSelect,
+    LvRangeSlider,
 };
