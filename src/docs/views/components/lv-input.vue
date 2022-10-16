@@ -20,8 +20,6 @@
                     <lv-input icon="user" readonly placeholder="Readonly" />
                     <lv-input icon="user" disabled placeholder="Disabled" />
                     <lv-input icon="user" loading placeholder="Loading" />
-                    <lv-input icon="user" error placeholder="Error" />
-                    <lv-input icon="user" success placeholder="Success" />
                 </lv-group>
             </lv-card>
 
@@ -43,8 +41,6 @@ const codeStates = `
 <lv-input icon="user" readonly placeholder="Readonly" />
 <lv-input icon="user" disabled placeholder="Disabled" />
 <lv-input icon="user" loading placeholder="Loading" />
-<lv-input icon="user" error placeholder="Error" />
-<lv-input icon="user" success placeholder="Success" />
 `.trim();
 
 export default {

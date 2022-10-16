@@ -73,16 +73,14 @@ export default {
 
     &__input {
         appearance: none;
-        transition: $transition-time all $transition-easing;
+        transition: $transition-time background-color $transition-easing;
         cursor: pointer;
         margin: 0;
         border: 2px solid #cacaca;
         border-radius: 3px;
         width: 1rem;
         height: 1rem;
-        &:hover {
-            border: 2px solid $color-primary;
-        }
+
     }
     &__checkbox {
         display: flex;

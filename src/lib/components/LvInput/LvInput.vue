@@ -1,5 +1,5 @@
 <template>
-    <div class="lv-input" :class="classObject" tabindex="0">
+    <div class="lv-input" :class="classObject">
         <lv-icon v-if="icon" class="lv-input__icon" :size="16" :name="icon" />
         <input
             v-bind="$attrs"
@@ -10,6 +10,7 @@
             :disabled="disabled"
             :readonly="readonly"
             @input="onInput"
+            tabindex="0"
         />
         <lv-icon v-if="loading" class="lv-input__loading" :size="16" name="loader-2" />
     </div>
@@ -106,9 +107,7 @@ export default {
     }
 
     &__input {
-        transition: $transition-time.2s all $transition-easing;
         margin-bottom: 0;
-        outline: none;
         border: 1px solid $border-color;
         border-radius: $border-radius;
         background-color: #fff;
@@ -135,44 +134,6 @@ export default {
         animation: rotate-cw 1s infinite linear;
         background-color: #fafafa;
         color: $text-color-dimmed;
-    }
-
-    // Modifiers
-
-    &--error {
-        color: $color-danger;
-
-        #{$self}__input {
-            border-color: $color-danger;
-            background: lighten($color-danger, 40);
-            color: $color-danger;
-
-            &::placeholder {
-                color: $placeholder-color-danger;
-            }
-        }
-        #{$self}__icon,
-        #{$self}__loading {
-            color: $color-danger;
-        }
-    }
-
-    &--success {
-        color: $color-success;
-
-        #{$self}__input {
-            border-color: $color-success;
-            background: lighten($color-success, 55);
-            color: $color-success;
-
-            &::placeholder {
-                color: $placeholder-color-success;
-            }
-        }
-        #{$self}__icon,
-        #{$self}__loading {
-            color: $color-success;
-        }
     }
 
     &--icon {

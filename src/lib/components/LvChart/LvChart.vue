@@ -69,7 +69,7 @@ export default {
         },
         tension: {
             type: Number,
-            default: 0,
+            default: 0.3,
             validator: (val) => val >= 0 && val <= 1,
         },
     },

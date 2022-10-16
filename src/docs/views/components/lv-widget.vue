@@ -87,8 +87,8 @@ export default {
             ],
             activeTab: 'number',
             tabs: [
-                { id: 'number', title: 'Number Widget', icon: 'hash' },
-                { id: 'chart', title: 'Chart Widget', icon: 'line-chart' },
+                { id: 'number', title: 'Number Widget' },
+                { id: 'chart', title: 'Chart Widget'},
             ],
         };
     },

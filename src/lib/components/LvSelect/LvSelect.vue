@@ -8,7 +8,13 @@
         aria-haspopup="listbox"
     >
         <!-- Input -->
-        <div class="lv-select__input" tabindex="0" @click="onClickSelection" @keydown="onKeydownCombobox">
+        <div
+            ref="combobox"
+            class="lv-select__input"
+            tabindex="0"
+            @click="onClickSelection"
+            @keydown="onKeydownCombobox"
+        >
             <div v-if="selectedOption" class="lv-select__selection">
                 <div v-if="selectedOption.image && showImages" class="lv-select__selection-image">
                     <img :src="selectedOption.image" :alt="selectedOption.label" />
@@ -39,6 +45,7 @@
                         :aria-selected="option.value === modelValue"
                         @click="onClickOption(option)"
                         @focus="onFocusOption(index)"
+                        @blur="onBlurOption"
                         @keydown="onKeydownOption(option, $event)"
                     >
                         <div v-if="option.image && showImages" class="lv-select__option-image">
@@ -50,7 +57,7 @@
                 <template v-else>
                     <div v-if="noOptions" class="lv-select__no-options">No options found</div>
                     <div
-                        v-for="(groupOptions, groupTitle) in optionsByGroup"
+                        v-for="(groupOptions, groupTitle, groupIndex) in optionsByGroup"
                         v-else
                         :key="groupTitle"
                         class="lv-select__opt-group"
@@ -67,14 +74,17 @@
                             role="option"
                             tabindex="0"
                             :aria-selected="option.value === modelValue"
-                            @focus="onFocusOption(index)"
+                            @focus="onFocusGroupOption(option)"
                             @click="onClickOption(option)"
-                            @keydown="onKeydownOption"
+                            @blur="onBlurOption"
+                            @keydown="onKeydownOption(option, $event)"
                         >
                             <div v-if="option.image && showImages" class="lv-select__option-image">
                                 <img :src="option.image" :alt="option.label" />
                             </div>
-                            <div class="lv-select__option-label">{{ option.label }}</div>
+                            <div class="lv-select__option-label">
+                                {{ option.label }}
+                            </div>
                         </div>
                     </div>
                 </template>
@@ -126,7 +136,7 @@ export default {
     data() {
         return {
             dropdownVisible: false,
-            focusedOptionIndex: undefined,
+            focusedOptionIndex: null,
         };
     },
     computed: {
@@ -177,7 +187,12 @@ export default {
             } else if (event.keyCode === 40) {
                 this.onKeydownOptionDown(event);
             } else if (event.keyCode === 32 || event.keyCode === 13) {
-                this.onKeydownOptionSpaceEnter(option, event)
+                this.onKeydownOptionSpaceEnter(option, event);
+            } else if (event.keyCode === 9) {
+                event.preventDefault();
+            } else if (event.keyCode === 27) {
+                this.dropdownVisible = false;
+                this.$refs.combobox.focus();
             }
         },
         onKeydownOptionSpaceEnter(option, event) {
@@ -188,10 +203,11 @@ export default {
                 this.$emit('update:modelValue', option.value);
             }
             this.dropdownVisible = false;
+            this.$refs.combobox.focus();
         },
         onKeydownOptionUp(e) {
             e.preventDefault();
-            if (typeof this.focusedOptionIndex === 'undefined') {
+            if (this.focusedOptionIndex === null) {
                 this.$refs.options[0].focus();
             } else if (this.focusedOptionIndex > 0) {
                 this.$refs.options[this.focusedOptionIndex - 1].focus();
@@ -199,7 +215,7 @@ export default {
         },
         onKeydownOptionDown(e) {
             e.preventDefault();
-            if (typeof this.focusedOptionIndex === 'undefined') {
+            if (this.focusedOptionIndex === null) {
                 this.$refs.options[this.$refs.options.length - 1].focus();
             } else if (this.focusedOptionIndex < this.$refs.options.length - 1) {
                 this.$refs.options[this.focusedOptionIndex + 1].focus();
@@ -216,6 +232,8 @@ export default {
                 this.onKeydownComboboxEnd(e);
             } else if (e.keyCode === 36) {
                 this.onKeydownComboboxHome(e);
+            } else if (e.keyCode === 27) {
+                this.dropdownVisible = false;
             }
         },
         onKeydownComboboxSpaceEnter(e) {
@@ -245,7 +263,7 @@ export default {
                 //  and moves visual focus to the first option.
                 this.$nextTick(() => {
                     this.$refs.options[this.$refs.options.length - 1].focus();
-                })
+                });
             }
         },
         onKeydownComboboxHome(e) {
@@ -256,12 +274,20 @@ export default {
                 //  and moves visual focus to the first option.
                 this.$nextTick(() => {
                     this.$refs.options[0].focus();
-                })
+                });
             }
         },
         onFocusOption(index) {
             this.focusedOptionIndex = index;
-        }
+        },
+        onFocusGroupOption(option) {
+            this.focusedOptionIndex = Object.values(this.optionsByGroup)
+                .flatMap((i) => i)
+                .findIndex((i) => JSON.stringify(i) === JSON.stringify(option));
+        },
+        onBlurOption() {
+            this.focusedOptionIndex = null;
+        },
     },
 };
 </script>
