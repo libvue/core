@@ -36,10 +36,11 @@ import LvKeyboard from '../views/components/lv-keyboard.vue';
 import LvDivider from '../views/components/lv-divider.vue';
 import LvIcon from '../views/components/lv-icon.vue';
 import LvAvatar from '../views/components/lv-avatar.vue';
-import LvModal from '../views/components/lv-modal.vue';
+import LvDialog from '../views/components/lv-dialog.vue';
 import LvDrawer from '../views/components/lv-drawer.vue';
-import LvConfirm from '../views/components/lv-confirm.vue';
 import LvTooltip from '../views/components/lv-tooltip.vue';
+import LvToast from '../views/components/lv-toast.vue';
+import LvPopover from '../views/components/lv-popover.vue';
 
 // Utilities
 import NavigationMixin from '../views/utilities/navigation-mixin.vue';
@@ -59,9 +60,14 @@ const routes = [
         component: LvTooltip,
     },
     {
-        path: '/lv-confirm',
-        name: 'lv-confirm',
-        component: LvConfirm,
+        path: '/lv-popover',
+        name: 'lv-popover',
+        component: LvPopover,
+    },
+    {
+        path: '/lv-toast',
+        name: 'lv-toast',
+        component: LvToast,
     },
     {
         path: '/lv-drawer',
@@ -69,9 +75,9 @@ const routes = [
         component: LvDrawer,
     },
     {
-        path: '/lv-modal',
-        name: 'lv-modal',
-        component: LvModal,
+        path: '/lv-dialog',
+        name: 'lv-dialog',
+        component: LvDialog,
     },
     {
         path: '/lv-avatar',

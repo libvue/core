@@ -7,6 +7,7 @@ import LvCard from './components/LvCard/LvCard.vue';
 import LvChart from './components/LvChart/LvChart.vue';
 import LvCheckbox from './components/LvCheckbox/LvCheckbox.vue';
 import LvCode from './components/LvCode/LvCode.vue';
+import LvDialog from './components/LvDialog/LvDialog.vue';
 import LvDivider from './components/LvDivider/LvDivider.vue';
 import LvGroup from './components/LvGroup/LvGroup.vue';
 import LvHeading from './components/LvHeading/LvHeading.vue';
@@ -22,13 +23,15 @@ import LvMenuList from './components/LvMenu/LvMenuList.vue';
 import LvNotice from './components/LvNotice/LvNotice.vue';
 import LvParagraph from './components/LvParagraph/LvParagraph.vue';
 import LvPill from './components/LvPill/LvPill.vue';
+import LvPopover from './components/LvPopover/LvPopover.vue';
 import LvRadio from './components/LvRadio/LvRadio.vue';
+import LvRangeSlider from './components/LvRangeSlider/LvRangeSlider.vue';
+import LvSelect from './components/LvSelect/LvSelect.vue';
 import LvSwitch from './components/LvSwitch/LvSwitch.vue';
 import LvTable from './components/LvTable/LvTable.vue';
 import LvTabs from './components/LvTabs/LvTabs.vue';
+import LvToast from './components/LvToast/LvToast.vue';
 import LvWidget from './components/LvWidget/LvWidget.vue';
-import LvSelect from './components/LvSelect/LvSelect.vue';
-import LvRangeSlider from './components/LvRangeSlider/LvRangeSlider.vue';
 
 import spaceAfter from './directives/spaceAfter';
 import badge from './directives/badge';
@@ -48,6 +51,7 @@ export default {
         app.component('LvChart', LvChart);
         app.component('LvCheckbox', LvCheckbox);
         app.component('LvCode', LvCode);
+        app.component('LvDialog', LvDialog);
         app.component('LvDivider', LvDivider);
         app.component('LvGroup', LvGroup);
         app.component('LvHeading', LvHeading);
@@ -63,13 +67,15 @@ export default {
         app.component('LvNotice', LvNotice);
         app.component('LvParagraph', LvParagraph);
         app.component('LvPill', LvPill);
+        app.component('LvPopover', LvPopover);
+        app.component('LvRadio', LvRadio);
+        app.component('LvRangeSlider', LvRangeSlider);
+        app.component('LvSelect', LvSelect);
+        app.component('LvSwitch', LvSwitch);
         app.component('LvTable', LvTable);
         app.component('LvTabs', LvTabs);
+        app.component('LvToast', LvToast);
         app.component('LvWidget', LvWidget);
-        app.component('LvRadio', LvRadio);
-        app.component('LvSwitch', LvSwitch);
-        app.component('LvSelect', LvSelect);
-        app.component('LvRangeSlider', LvRangeSlider);
     },
 };
 
@@ -82,6 +88,7 @@ export {
     LvChart,
     LvCheckbox,
     LvCode,
+    LvDialog,
     LvDivider,
     LvGroup,
     LvHeading,
@@ -96,11 +103,13 @@ export {
     LvMenuList,
     LvNotice,
     LvPill,
+    LvPopover,
+    LvRadio,
+    LvRangeSlider,
+    LvSelect,
     LvSwitch,
     LvTable,
     LvTabs,
-    LvRadio,
+    LvToast,
     LvWidget,
-    LvSelect,
-    LvRangeSlider,
 };

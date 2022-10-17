@@ -54,9 +54,10 @@
                         <lv-menu-item label="Avatar" to="lv-avatar" />
                     </lv-menu-list>
                     <lv-menu-list icon="layers" label="Overlay">
-                        <lv-menu-item label="Modal" to="lv-modal" />
+                        <lv-menu-item label="Dialog" to="lv-dialog" />
                         <lv-menu-item label="Drawer" to="lv-drawer" />
-                        <lv-menu-item label="Confirm" to="lv-confirm" />
+                        <lv-menu-item label="Popover" to="lv-popover" />
+                        <lv-menu-item label="Toast" to="lv-toast" />
                     </lv-menu-list>
                 </lv-menu-group>
                 <lv-menu-group label="Utilities">
