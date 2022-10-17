@@ -9,6 +9,7 @@ import LvCheckbox from './components/LvCheckbox/LvCheckbox.vue';
 import LvCode from './components/LvCode/LvCode.vue';
 import LvDialog from './components/LvDialog/LvDialog.vue';
 import LvDivider from './components/LvDivider/LvDivider.vue';
+import LvDrawer from './components/LvDrawer/LvDrawer.vue';
 import LvGroup from './components/LvGroup/LvGroup.vue';
 import LvHeading from './components/LvHeading/LvHeading.vue';
 import LvIcon from './components/LvIcon/LvIcon.vue';
@@ -53,6 +54,7 @@ export default {
         app.component('LvCode', LvCode);
         app.component('LvDialog', LvDialog);
         app.component('LvDivider', LvDivider);
+        app.component('LvDrawer', LvDrawer);
         app.component('LvGroup', LvGroup);
         app.component('LvHeading', LvHeading);
         app.component('LvIcon', LvIcon);
@@ -90,6 +92,7 @@ export {
     LvCode,
     LvDialog,
     LvDivider,
+    LvDrawer,
     LvGroup,
     LvHeading,
     LvIcon,

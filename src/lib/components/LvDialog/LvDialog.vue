@@ -38,11 +38,6 @@ export default {
             default: 'body'
         }
     },
-    data() {
-        return {
-            focusTrap: null,
-        };
-    },
     methods: {
         onClickOverlay() {
             this.$emit('click-overlay');
