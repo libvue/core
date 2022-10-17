@@ -4,11 +4,13 @@
             <slot name="trigger"></slot>
         </div>
         <transition name="fade">
-            <div v-show="showPopover" ref="tooltip" class="lv-popover__content">
-                <svg class="lv-popover__arrow" width="10" height="5" viewBox="0 0 30 10" preserveAspectRatio="none">
+            <div v-show="showPopover" ref="tooltip" class="lv-popover__tooltip">
+                <svg class="lv-popover__arrow" width="15" height="8" viewBox="0 0 30 10" preserveAspectRatio="none">
                     <polygon points="0,0 30,0 15,10"></polygon>
                 </svg>
-                <slot name="content"></slot>
+                <div class="lv-popover__content">
+                    <slot name="content"></slot>
+                </div>
             </div>
         </transition>
     </div>
@@ -89,21 +91,30 @@ export default {
 
     &__arrow {
         fill: $background-color;
+        stroke: $border-color;
+        stroke-width: 1;
         position: absolute;
+        z-index: 2;
+        stroke-dasharray: 0 30 5;
     }
     &__content {
+        z-index: 1;
         position: relative;
-        z-index: $z-index-dropdown;
-        box-shadow: $shadow-popover;
         background-color: $background-color;
         padding: $padding;
         border-radius: $border-radius;
+        border: 1px solid $border-color;
+    }
+    &__tooltip {
+        position: relative;
+        z-index: $z-index-dropdown;
+        box-shadow: $shadow-popover;
         transition: .2s opacity ease;
     }
 
     &--placement-bottom {
         #{$self}__arrow {
-            top: 0;
+            top: 1px;
             left: 50%;
             transform: translate(-50%, -100%) rotate(180deg);
         }
@@ -111,7 +122,7 @@ export default {
 
     &--placement-top {
         #{$self}__arrow {
-            bottom: 0;
+            bottom: 1px;
             left: 50%;
             transform: translate(-50%, 100%) rotate(0deg);
         }
@@ -119,7 +130,7 @@ export default {
 
     &--placement-left {
         #{$self}__arrow {
-            bottom: 50%;
+            top: 50%;
             right: 3px;
             transform: translate(100%, -50%) rotate(-90deg);
         }
@@ -127,8 +138,8 @@ export default {
 
     &--placement-right{
         #{$self}__arrow {
-            bottom: 50%;
-            left: 3px;
+            top: 50%;
+            left: 5px;
             transform: translate(-100%, -50%) rotate(90deg);
         }
     }
