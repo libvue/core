@@ -1,12 +1,13 @@
 <template>
-    <div class="lv-radio" role="radio">
+    <div class="lv-radio" role="radio" :class="classObject">
+        <lv-icon v-if="loading" class="lv-radio__loading" :size="12" name="loader-2" />
         <input
             :id="identifier"
             class="lv-radio__input"
             type="radio"
             :checked="isChecked"
             :aria-checked="isChecked"
-            :disabled="disabled"
+            :disabled="disabled || loading"
             :name="name"
             :value="value"
             tabindex="0"
@@ -56,6 +57,12 @@ export default {
         isChecked() {
             return this.value === this.modelValue;
         },
+        classObject() {
+            return {
+                'lv-radio--disabled': !!this.disabled || !!this.loading,
+                'lv-radio--loading': !!this.loading,
+            }
+        }
     },
     methods: {
         onInput(e) {
@@ -75,6 +82,16 @@ export default {
     align-items: center;
     font-size: $font-size;
     line-height: $font-size;
+    position: relative;
+
+    &__loading {
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        animation: rotate-cw 1s infinite linear;
+        background-color: #fafafa;
+        color: $text-color-dimmed;
+    }
 
     &__input {
         position: relative;
@@ -96,6 +113,10 @@ export default {
                 content: '';
             }
         }
+    }
+
+    &--disabled {
+        color: $text-color-dimmed;
     }
 }
 </style>

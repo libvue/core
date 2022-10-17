@@ -1,4 +1,5 @@
 // Components
+import LvAvatar from './components/LvAvatar/LvAvatar.vue';
 import LvBlockquote from './components/LvBlockquote/LvBlockquote.vue';
 import LvBreadcrumbs from './components/LvBreadcrumbs/LvBreadcrumbs.vue';
 import LvButton from './components/LvButton/LvButton.vue';
@@ -39,6 +40,7 @@ export default {
         app.directive('badge', badge);
 
         // Register all components
+        app.component('LvAvatar', LvAvatar);
         app.component('LvBlockquote', LvBlockquote);
         app.component('LvBreadcrumbs', LvBreadcrumbs);
         app.component('LvButton', LvButton);
@@ -72,6 +74,7 @@ export default {
 };
 
 export {
+    LvAvatar,
     LvBlockquote,
     LvBreadcrumbs,
     LvButton,

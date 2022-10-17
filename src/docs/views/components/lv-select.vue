@@ -4,7 +4,11 @@
 
     <lv-heading v-space-after="1" :level="6">Default simple select</lv-heading>
     <lv-card v-space-after="1">
-        <lv-select v-model="model" :options="options" />
+        <lv-group direction="column">
+            <lv-select v-model="model" :options="options" />
+            <lv-select v-model="model" :options="options" disabled />
+            <lv-select v-model="model" :options="options" loading />
+        </lv-group>
     </lv-card>
     <lv-code v-space-after="1" :code="code" lang="html" />
 
@@ -28,6 +32,8 @@
 <script>
 const code = `
 <lv-select v-model="model" :options="options" />
+<lv-select v-model="model" :options="options" disabled />
+<lv-select v-model="model" :options="options" loading />
 `.trim();
 const codeWithImages = `
 <lv-select v-model="model" :options="options" show-images />

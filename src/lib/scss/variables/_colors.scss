@@ -6,6 +6,9 @@ $color-default: #0b0b0c !default;
 $color-default-light: lighten($color-default, 85) !default;
 $color-primary: #5937f3 !default;
 $color-primary-light: lighten($color-primary, 30) !default;
+$color-secondary: #9c6bfe !default;
+$color-secondary-light: lighten($color-secondary, 30) !default;
+
 $color-info: #3f8cff !default;
 $color-info-light: lighten($color-info, 25) !default;
 $color-success: #13c083 !default;

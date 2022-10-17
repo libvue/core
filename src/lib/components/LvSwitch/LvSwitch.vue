@@ -12,7 +12,7 @@
                 v-bind="$attrs"
                 @input="toggleCheckbox"
             />
-            <lv-icon v-if="loading" class="lv-switch__loader" :size="12" name="loader" />
+            <lv-icon v-if="loading" class="lv-switch__loader" :size="12" name="loader-2" />
         </div>
         <div v-if="label" class="lv-switch__label" @click="toggleCheckbox">{{ label }}</div>
     </div>

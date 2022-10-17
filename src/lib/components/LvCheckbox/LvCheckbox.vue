@@ -13,7 +13,7 @@
                 @input="toggleCheckbox"
             />
             <lv-icon v-if="modelValue && !loading" class="lv-checkbox__icon" name="check" />
-            <lv-icon v-if="loading" class="lv-checkbox__loader" :size="12" name="loader" />
+            <lv-icon v-if="loading" class="lv-checkbox__loader" :size="12" name="loader-2" />
         </div>
         <div v-if="label" class="lv-checkbox__label" @click="toggleCheckbox">{{ label }}</div>
     </div>

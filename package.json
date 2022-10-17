@@ -10,7 +10,6 @@
         "@vueuse/integrations": "^9.3.0",
         "chart.js": "^3.9.1",
         "highlight.js": "^11.6.0",
-        "lodash": "^4.17.21",
         "lucide-static": "^0.90.0",
         "vue": "^3.2.39"
     },

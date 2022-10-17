@@ -7,6 +7,8 @@
             <lv-radio v-model="model" value="a" name="option" label="Kermit" />
             <lv-radio v-model="model" value="b" name="option" label="Batman" />
             <lv-radio v-model="model" value="c" name="option" label="Trump" />
+            <lv-radio v-model="model" value="d" name="option" label="Disabled" disabled />
+            <lv-radio v-model="model" value="e" name="option" label="Loading" loading />
         </lv-group>
     </lv-card>
 
@@ -18,6 +20,8 @@ const code = `
 <lv-radio v-model="model" value="a" name="option" label="Kermit" />
 <lv-radio v-model="model" value="b" name="option" label="Batman" />
 <lv-radio v-model="model" value="c" name="option" label="Trump" />
+<lv-radio v-model="model" value="d" name="option" label="Disabled" disabled />
+<lv-radio v-model="model" value="e" name="option" label="Loading" loading />
 `.trim();
 export default {
     data() {

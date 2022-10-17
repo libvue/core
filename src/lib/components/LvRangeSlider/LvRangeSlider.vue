@@ -24,14 +24,14 @@
         </div>
         <div class="lv-range-slider__amounts">
             <div class="lv-range-slider__amount lv-range-slider__amount--primary">
-                <lv-icon class="lv-range-slider__loader" v-if="loading" :size="12" name="loader-2" />
+                <lv-icon v-if="loading" class="lv-range-slider__loader" :size="12" name="loader-2" />
                 <template v-else>
                     {{ primaryValue.toFixed(decimals) }}
                 </template>
             </div>
 
             <div class="lv-range-slider__amount lv-range-slider__amount--secondary">
-                <lv-icon class="lv-range-slider__loader" v-if="loading" :size="12" name="loader-2" />
+                <lv-icon v-if="loading" class="lv-range-slider__loader" :size="12" name="loader-2" />
                 <template v-else>
                     {{ secondaryValue.toFixed(decimals) }}
                 </template>
@@ -41,8 +41,7 @@
 </template>
 
 <script>
-/* eslint-disable no-mixed-operators */
-import throttle from 'lodash/throttle';
+import { useThrottleFn } from '@vueuse/core'
 
 export default {
     props: {
@@ -145,11 +144,11 @@ export default {
     },
     created() {
         // Throttle mousemove events
-        this.onPrimaryMouseMoveThrottled = throttle(this.onPrimaryMouseMove, 25, { trailing: false });
-        this.onSecondaryMouseMoveThrottled = throttle(this.onSecondaryMouseMove, 25, { trailing: false });
+        this.onPrimaryMouseMoveThrottled = useThrottleFn(this.onPrimaryMouseMove, 25, false);
+        this.onSecondaryMouseMoveThrottled = useThrottleFn(this.onSecondaryMouseMove, 25, false);
         // Throttle touchmove events
-        this.onPrimaryTouchMoveThrottled = throttle(this.onPrimaryTouchMove, 25, { trailing: false });
-        this.onSecondaryTouchMoveThrottled = throttle(this.onSecondaryTouchMove, 25, { trailing: false });
+        this.onPrimaryTouchMoveThrottled = useThrottleFn(this.onPrimaryTouchMove, 25, false);
+        this.onSecondaryTouchMoveThrottled = useThrottleFn(this.onSecondaryTouchMove, 25, false);
     },
     methods: {
         /**
@@ -283,8 +282,8 @@ export default {
     position: relative;
     align-items: center;
     box-sizing: border-box;
-    height: 40px;
     padding-top: 9px;
+    height: 40px;
 
     &--disabled {
         #{$self}__thumb {
@@ -333,26 +332,26 @@ export default {
     }
 
     &__thumb {
+        display: flex;
         position: absolute;
         top: -15px;
         left: -10px;
-        display: flex;
         flex-direction: row;
         justify-content: center;
-        padding: 10px;
         transform: translateX(-50%);
         cursor: pointer;
+        padding: 10px;
 
         &::after {
+            transition: background-color 0.2s;
+            margin-top: -1px;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid #cacaca;
+            border-radius: 100%;
+            background-color: $background-color;
             width: 14px;
             height: 14px;
-            background-color: $background-color;
-            border-radius: 100%;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-            transition: background-color .2s;
-            border: 1px solid #cacaca;
             content: '';
-            margin-top: -1px;
         }
     }
 
@@ -364,8 +363,8 @@ export default {
     &__amount {
         position: relative;
         color: $text-color;
-        font-size: 12px;
         font-weight: bold;
+        font-size: 12px;
 
         &--secondary {
             margin-left: auto;
@@ -376,18 +375,18 @@ export default {
         position: absolute;
         top: 0;
         bottom: 0;
-        height: 4px;
+        transition: background-color 0.2s;
         background-color: $color-primary;
-        transition: background-color .2s;
+        height: 4px;
     }
 
     &__track {
         position: relative;
-        height: 4px;
-        padding: 0 7px;
-        background-color: $border-color;
+        transition: background-color 0.2s;
         border-radius: 4px;
-        transition: background-color .2s;
+        background-color: $border-color;
+        padding: 0 7px;
+        height: 4px;
     }
 
     &__track-limits {
@@ -398,5 +397,4 @@ export default {
         animation: rotate-cw 1s infinite linear;
     }
 }
-
 </style>

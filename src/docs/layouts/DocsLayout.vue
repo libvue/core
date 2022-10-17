@@ -51,7 +51,6 @@
                     </lv-menu-list>
                     <lv-menu-list icon="image" label="Media">
                         <lv-menu-item label="Icon" to="lv-icon" />
-                        <lv-menu-item label="Image" to="lv-image" />
                         <lv-menu-item label="Avatar" to="lv-avatar" />
                     </lv-menu-list>
                     <lv-menu-list icon="layers" label="Overlay">

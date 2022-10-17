@@ -35,7 +35,6 @@ import LvPill from '../views/components/lv-pill.vue';
 import LvKeyboard from '../views/components/lv-keyboard.vue';
 import LvDivider from '../views/components/lv-divider.vue';
 import LvIcon from '../views/components/lv-icon.vue';
-import LvImage from '../views/components/lv-image.vue';
 import LvAvatar from '../views/components/lv-avatar.vue';
 import LvModal from '../views/components/lv-modal.vue';
 import LvDrawer from '../views/components/lv-drawer.vue';
@@ -83,11 +82,6 @@ const routes = [
         path: '/lv-range-slider',
         name: 'lv-range-slider',
         component: LvInputRange,
-    },
-    {
-        path: '/lv-image',
-        name: 'lv-image',
-        component: LvImage,
     },
     {
         path: '/lv-icon',

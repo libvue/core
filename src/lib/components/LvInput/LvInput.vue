@@ -7,7 +7,7 @@
             class="lv-input__input"
             :type="type"
             :placeholder="placeholder"
-            :disabled="disabled"
+            :disabled="disabled || loading"
             :readonly="readonly"
             @input="onInput"
             tabindex="0"

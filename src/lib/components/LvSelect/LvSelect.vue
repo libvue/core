@@ -24,7 +24,8 @@
                 </div>
             </div>
             <div v-else class="lv-select__placeholder">{{ placeholder }}</div>
-            <lv-icon class="lv-select__icon" name="chevron-down"></lv-icon>
+            <lv-icon v-if="loading" class="lv-select__loading" :size="16" name="loader-2" />
+            <lv-icon v-else class="lv-select__icon" name="chevron-down"></lv-icon>
         </div>
         <!-- Dropdown -->
         <transition name="dropdown">
@@ -131,6 +132,14 @@ export default {
             type: Boolean,
             default: true,
         },
+        loading: {
+            type: Boolean,
+            default: false,
+        },
+        disabled: {
+            type: Boolean,
+            default: false,
+        },
     },
     emits: ['update:modelValue'],
     data() {
@@ -144,7 +153,10 @@ export default {
             return this.options.length === 0;
         },
         classObject() {
-            return {};
+            return {
+                'lv-select--disabled': !!this.disabled || !!this.loading,
+                'lv-select--loading': !!this.loading,
+            };
         },
         optionsByGroup() {
             const optionsByGroup = {};
@@ -408,6 +420,23 @@ export default {
             background-color: $color-primary;
             color: $text-color-inverted;
         }
+    }
+
+    &--disabled {
+        pointer-events: none;
+
+        #{$self}__input {
+            color: $text-color-dimmed;
+        }
+    }
+
+    &__loading {
+        position: absolute;
+        top: 13px;
+        right: $padding - 2px;
+        animation: rotate-cw 1s infinite linear;
+        background-color: #fafafa;
+        color: $text-color-dimmed;
     }
 }
 
