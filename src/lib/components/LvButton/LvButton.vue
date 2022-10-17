@@ -2,14 +2,13 @@
     <component
         :is="href ? 'a' : 'button'"
         :href="href"
-        v-bind="$attrs"
         tabindex="0"
         class="lv-button"
         :class="classObject"
         :disabled="disabled"
+        role="button"
         @click="onClick"
         @keydown.enter.space="onClick"
-        role="button"
     >
         <lv-icon v-if="icon" class="lv-button__icon" :class="{ 'lv-button__icon--hidden': loading }" :name="icon" />
         <lv-icon v-if="loading" class="lv-button__loading" name="loader-2" />

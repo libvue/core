@@ -13,6 +13,7 @@
         "focus-trap": "^7.0.0",
         "highlight.js": "^11.6.0",
         "lucide-static": "^0.90.0",
+        "tiny-emitter": "^2.1.0",
         "vue": "^3.2.39"
     },
     "devDependencies": {

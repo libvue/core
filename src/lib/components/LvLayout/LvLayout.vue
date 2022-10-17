@@ -9,9 +9,9 @@
                 <slot name="menu-footer"></slot>
             </div>
         </div>
-        <footer role="contentinfo" v-if="!!$slots.content" class="lv-layout__content">
+        <main role="contentinfo" v-if="!!$slots.content" class="lv-layout__content">
             <slot name="content" />
-        </footer>
+        </main>
     </div>
 </template>
 

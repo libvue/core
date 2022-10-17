@@ -1,3 +1,5 @@
+import eventBus from './utils/eventBus';
+
 // Components
 import LvAvatar from './components/LvAvatar/LvAvatar.vue';
 import LvBlockquote from './components/LvBlockquote/LvBlockquote.vue';
@@ -32,6 +34,7 @@ import LvSwitch from './components/LvSwitch/LvSwitch.vue';
 import LvTable from './components/LvTable/LvTable.vue';
 import LvTabs from './components/LvTabs/LvTabs.vue';
 import LvToast from './components/LvToast/LvToast.vue';
+import LvToasts from './components/LvToasts/LvToasts.vue';
 import LvWidget from './components/LvWidget/LvWidget.vue';
 
 import spaceAfter from './directives/spaceAfter';
@@ -77,7 +80,14 @@ export default {
         app.component('LvTable', LvTable);
         app.component('LvTabs', LvTabs);
         app.component('LvToast', LvToast);
+        app.component('LvToasts', LvToasts);
         app.component('LvWidget', LvWidget);
+
+        // Register global properties namespaced for libvue
+        app.config.globalProperties.libvue = {
+            eventBus,
+            addToast: (properties) => eventBus.$emit('toast', properties),
+        };
     },
 };
 
@@ -114,5 +124,6 @@ export {
     LvTable,
     LvTabs,
     LvToast,
+    LvToasts,
     LvWidget,
 };
