@@ -2,6 +2,8 @@ import eventBus from './utils/eventBus';
 
 // Components
 import LvAvatar from './components/LvAvatar/LvAvatar.vue';
+import LvAccordion from './components/LvAccordion/LvAccordion.vue';
+import LvAccordionItem from './components/LvAccordion/LvAccordionItem.vue';
 import LvBlockquote from './components/LvBlockquote/LvBlockquote.vue';
 import LvBreadcrumbs from './components/LvBreadcrumbs/LvBreadcrumbs.vue';
 import LvButton from './components/LvButton/LvButton.vue';
@@ -47,6 +49,8 @@ export default {
         app.directive('badge', badge);
 
         // Register all components
+        app.component('LvAccordion', LvAccordion);
+        app.component('LvAccordionItem', LvAccordionItem);
         app.component('LvAvatar', LvAvatar);
         app.component('LvBlockquote', LvBlockquote);
         app.component('LvBreadcrumbs', LvBreadcrumbs);
@@ -93,6 +97,8 @@ export default {
 };
 
 export {
+    LvAccordion,
+    LvAccordionItem,
     LvAvatar,
     LvBlockquote,
     LvBreadcrumbs,

@@ -1,7 +1,7 @@
 <template>
     <lv-layout :layout="windowWidth > 1200 ? 'horizontal' : 'vertical'">
         <template #logo>
-            <img @click="$router.push('/')" class="logo" src="logo.svg" v-space-after="0.5" />
+            <img v-space-after="0.5" class="logo" src="logo.svg" alt="" @click="$router.push('/')" />
         </template>
         <template #menu>
             <lv-menu>
@@ -44,10 +44,11 @@
                         <lv-menu-item to="lv-heading" label="Heading" />
                         <lv-menu-item label="Paragraph" to="lv-paragraph" />
                         <lv-menu-item label="Blockquote" to="lv-blockquote" />
-                        <lv-menu-item label="Keyboard" to="lv-keyboard"/>
+                        <lv-menu-item label="Keyboard" to="lv-keyboard" />
                         <lv-menu-item label="Divider" to="lv-divider" />
                         <lv-menu-item to="lv-code" label="Code" />
                         <lv-menu-item to="lv-notice" label="Notice" />
+                        <lv-menu-item label="Accordion" to="lv-accordion" />
                     </lv-menu-list>
                     <lv-menu-list icon="image" label="Media">
                         <lv-menu-item label="Icon" to="lv-icon" />
@@ -74,7 +75,7 @@
         <template #content>
             <router-view v-slot="{ Component, route }">
                 <transition name="fade" mode="out-in">
-                    <div class="wrapper" :key="route.path">
+                    <div :key="route.path" class="wrapper">
                         <component :is="Component" />
                     </div>
                 </transition>

@@ -41,6 +41,7 @@ import LvDrawer from '../views/components/lv-drawer.vue';
 import LvTooltip from '../views/components/lv-tooltip.vue';
 import LvToast from '../views/components/lv-toast.vue';
 import LvPopover from '../views/components/lv-popover.vue';
+import LvAccordion from '../views/components/lv-accordion.vue';
 
 // Utilities
 import NavigationMixin from '../views/utilities/navigation-mixin.vue';
@@ -58,6 +59,11 @@ const routes = [
         path: '/lv-tooltip',
         name: 'lv-tooltip',
         component: LvTooltip,
+    },
+    {
+        path: '/lv-accordion',
+        name: 'lv-accordion',
+        component: LvAccordion,
     },
     {
         path: '/lv-popover',
