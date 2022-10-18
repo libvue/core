@@ -35,6 +35,7 @@ export default {
             default: null,
         },
     },
+    emits: ['change-tab'],
     methods: {
         onClickButton(tab) {
             if (!tab.disabled) {
@@ -67,7 +68,7 @@ export default {
         outline: 0;
         border-bottom: 2px solid transparent;
         background-color: transparent;
-        padding: 5px 0px;
+        padding: 5px 0;
         color: $text-color;
         font-weight: bold;
         font-size: $font-size;

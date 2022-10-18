@@ -84,6 +84,7 @@ export default {
         app.component('LvWidget', LvWidget);
 
         // Register global properties namespaced for libvue
+        // eslint-disable-next-line no-param-reassign
         app.config.globalProperties.libvue = {
             eventBus,
             addToast: (properties) => eventBus.$emit('toast', properties),

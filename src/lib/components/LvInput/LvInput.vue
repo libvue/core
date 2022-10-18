@@ -9,8 +9,8 @@
             :placeholder="placeholder"
             :disabled="disabled || loading"
             :readonly="readonly"
-            @input="onInput"
             tabindex="0"
+            @input="onInput"
         />
         <lv-icon v-if="loading" class="lv-input__loading" :size="16" name="loader-2" />
     </div>
@@ -64,6 +64,7 @@ export default {
             },
         },
     },
+    emits: ['update:modelValue'],
     computed: {
         classObject() {
             return {

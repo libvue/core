@@ -2,7 +2,7 @@
     <Teleport :to="teleportTarget">
         <transition name="fade">
             <UseFocusTrap v-if="show" :options="{ immediate: true }">
-                <div v-if="show" class="lv-dialog" role="dialog" :aria-modal="modal" ref="dialog">
+                <div v-if="show" ref="dialog" class="lv-dialog" role="dialog" :aria-modal="modal">
                     <div class="lv-dialog__overlay" @click="onClickOverlay"></div>
                     <div class="lv-dialog__content">
                         <slot name="default">
@@ -38,6 +38,7 @@ export default {
             default: 'body'
         }
     },
+    emits: ['click-overlay'],
     methods: {
         onClickOverlay() {
             this.$emit('click-overlay');

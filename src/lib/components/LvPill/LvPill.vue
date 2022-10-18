@@ -32,6 +32,7 @@ export default {
             default: false,
         },
     },
+    emits: ['close'],
     computed: {
         classObject() {
             return {

@@ -38,6 +38,7 @@ export default {
             default: 'body',
         },
     },
+    emits: ['click-overlay'],
     computed: {
         classObject() {
             return {

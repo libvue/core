@@ -52,6 +52,7 @@ export default {
             default: 'solid',
         },
     },
+    emits: ['click-button'],
     computed: {
         classObject() {
             return {
