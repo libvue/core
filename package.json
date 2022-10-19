@@ -21,6 +21,8 @@
     "devDependencies": {
         "@vitejs/plugin-vue": "^3.1.0",
         "@vue/compiler-sfc": "^3.2.39",
+        "commander": "^9.4.1",
+        "detect-case": "^1.0.0",
         "eslint": "^8.24.0",
         "eslint-config-airbnb-base": "^15.0.0",
         "eslint-config-prettier": "^8.5.0",
@@ -48,5 +50,8 @@
             "import": "./dist/libvue.es.js",
             "require": "./dist/libvue.umd.js"
         }
+    },
+    "bin": {
+        "libvue": "./bin/libvue.js"
     }
 }

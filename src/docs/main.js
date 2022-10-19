@@ -1,5 +1,5 @@
 // For testing using the source file
-import libvue from '../lib/main.js';
+import libvue from '../lib/main';
 
 // /**
 //  * Testing Live Mode
