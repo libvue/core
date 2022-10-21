@@ -1,7 +1,24 @@
 <template>
     <div class="lv-layout" :class="classObject">
+        <!-- Global navigation -->
+        <header v-if="!!$slots['global-navigation']" role="banner" class="lv-layout__global-navigation">
+            <slot name="global-navigation"></slot>
+        </header>
+        <!-- Local navigation -->
+        <aside v-if="!!$slots['local-navigation']" class="lv-layout__local-navigation">
+            <slot name="local-navigation"></slot>
+        </aside>
+        <!-- Content -->
+        <main v-if="!!$slots['content']" role="contentinfo" class="lv-layout__content">
+            <slot name="content"></slot>
+        </main>
+        <!-- Quick navigation -->
+        <div v-if="!!$slots['quick-navigation']" class="lv-layout__quick-navigation">
+            <slot name="quick-navigation"></slot>
+        </div>
+
         <div v-if="!!$slots.menu" class="lv-layout__menu">
-            <header role="banner" v-if="!!$slots.logo" class="lv-layout__menu-logo">
+            <header v-if="!!$slots.logo" role="banner" class="lv-layout__menu-logo">
                 <slot name="logo"></slot>
             </header>
             <slot name="menu"></slot>
@@ -9,9 +26,6 @@
                 <slot name="menu-footer"></slot>
             </div>
         </div>
-        <main role="contentinfo" v-if="!!$slots.content" class="lv-layout__content">
-            <slot name="content" />
-        </main>
     </div>
 </template>
 

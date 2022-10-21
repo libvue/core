@@ -10,7 +10,7 @@ const template = require('./utils/template');
 
 // Setup a new program
 const program = new Command();
-program.name('libvue-util').description('CLI to help contribute faster').version('0.0.1');
+program.name('libvue-util').description('Libvue CLI is here to help work faster!').version('0.0.1');
 
 // A little configuration
 const config = {

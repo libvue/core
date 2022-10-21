@@ -1,9 +1,6 @@
 <template>
     <lv-layout :layout="windowWidth > 1200 ? 'horizontal' : 'vertical'">
-        <template #logo>
-            <img v-space-after="0.5" class="logo" src="logo.svg" alt="" @click="$router.push('/')" />
-        </template>
-        <template #menu>
+        <template #global-navigation>
             <lv-menu>
                 <lv-menu-group label="Getting Started">
                     <lv-menu-item icon="rocket" to="install" label="Installation" />
