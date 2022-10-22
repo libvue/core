@@ -19,10 +19,9 @@ import LvInput from './LvInput/LvInput.vue';
 import LvKeyboard from './LvKeyboard/LvKeyboard.vue';
 import LvLayout from './LvLayout/LvLayout.vue';
 import LvLink from './LvLink/LvLink.vue';
-import LvMenu from './LvMenu/LvMenu.vue';
-import LvMenuGroup from './LvMenu/LvMenuGroup.vue';
-import LvMenuItem from './LvMenu/LvMenuItem.vue';
-import LvMenuList from './LvMenu/LvMenuList.vue';
+import LvVerticalNavGroup from './LvVerticalNav/LvVerticalNavGroup.vue';
+import LvVerticalNavItem from './LvVerticalNav/LvVerticalNavItem.vue';
+import LvVerticalNavList from './LvVerticalNav/LvVerticalNavList.vue';
 import LvNotice from './LvNotice/LvNotice.vue';
 import LvParagraph from './LvParagraph/LvParagraph.vue';
 import LvPill from './LvPill/LvPill.vue';
@@ -59,10 +58,9 @@ export default {
     LvKeyboard,
     LvLayout,
     LvLink,
-    LvMenu,
-    LvMenuGroup,
-    LvMenuItem,
-    LvMenuList,
+    LvVerticalNavGroup,
+    LvVerticalNavItem,
+    LvVerticalNavList,
     LvNotice,
     LvParagraph,
     LvPill,

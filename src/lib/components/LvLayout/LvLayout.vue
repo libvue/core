@@ -82,14 +82,14 @@ export default {
 
     &__header {
         width: 100%;
-        position: fixed;
+        position: sticky;
+        top: 0;
         z-index: 1;
     }
 
     &__container {
         display: flex;
         flex-grow: 1;
-        margin-top: v-bind(headerHeight);
     }
 
     &__sidebar {

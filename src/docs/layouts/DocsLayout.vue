@@ -9,79 +9,78 @@
                     <lv-input placeholder="Search docs" icon="search"/>
                 </template>
                 <template #extra>
-                    <lv-button icon="github" color-type="solid-light" />
+                    <lv-button icon="github" color="light-default" />
                 </template>
             </lv-header>
         </template>
 
         <template #sidebar>
-            <lv-menu>
-                <lv-menu-group label="Getting Started">
-                    <lv-menu-item icon="rocket" to="install" label="Installation" />
-                </lv-menu-group>
-                <lv-menu-group label="Concepts">
-                    <lv-menu-item icon="palette" to="theming" label="Theming" />
-                    <lv-menu-item icon="align-vertical-space-around" to="spacing" label="Spacing" />
-                    <lv-menu-item icon="grid" to="grids" label="Grids" />
-                </lv-menu-group>
-                <lv-menu-group label="Components">
-                    <lv-menu-list icon="layout" label="Layout">
-                        <lv-menu-item label="Layout" to="lv-layout" />
-                        <lv-menu-item label="Menu" to="lv-menu" />
-                        <lv-menu-item label="Card" to="lv-card" />
-                        <lv-menu-item label="Group" to="lv-group" />
-                    </lv-menu-list>
-                    <lv-menu-list icon="compass" label="Navigation">
-                        <lv-menu-item to="lv-button" label="Button" />
-                        <lv-menu-item to="lv-tabs" label="Tabs" />
-                        <lv-menu-item label="Link" to="lv-link" />
-                        <lv-menu-item label="Breadcrumbs" to="lv-breadcrumbs" />
-                    </lv-menu-list>
-                    <lv-menu-list icon="bar-chart-2" label="Data Visualization">
-                        <lv-menu-item to="lv-table" label="Table" />
-                        <lv-menu-item to="lv-chart" label="Chart" />
-                        <lv-menu-item label="Widget" to="lv-widget" />
-                        <lv-menu-item label="Pill" to="lv-pill" />
-                    </lv-menu-list>
-                    <lv-menu-list icon="form-input" label="Form Elements">
-                        <lv-menu-item to="lv-input" label="Input" />
-                        <lv-menu-item to="lv-checkbox" label="Checkbox" />
-                        <lv-menu-item label="Radio" to="lv-radio" />
-                        <lv-menu-item label="Range Slider" to="lv-range-slider" />
-                        <lv-menu-item label="Switch" to="lv-switch" />
-                        <lv-menu-item label="Select" to="lv-select" />
-                    </lv-menu-list>
-                    <lv-menu-list icon="pencil" label="Writing">
-                        <lv-menu-item to="lv-heading" label="Heading" />
-                        <lv-menu-item label="Paragraph" to="lv-paragraph" />
-                        <lv-menu-item label="Blockquote" to="lv-blockquote" />
-                        <lv-menu-item label="Keyboard" to="lv-keyboard" />
-                        <lv-menu-item label="Divider" to="lv-divider" />
-                        <lv-menu-item to="lv-code" label="Code" />
-                        <lv-menu-item to="lv-notice" label="Notice" />
-                        <lv-menu-item label="Accordion" to="lv-accordion" />
-                    </lv-menu-list>
-                    <lv-menu-list icon="image" label="Media">
-                        <lv-menu-item label="Icon" to="lv-icon" />
-                        <lv-menu-item label="Avatar" to="lv-avatar" />
-                    </lv-menu-list>
-                    <lv-menu-list icon="layers" label="Overlay">
-                        <lv-menu-item label="Dialog" to="lv-dialog" />
-                        <lv-menu-item label="Drawer" to="lv-drawer" />
-                        <lv-menu-item label="Popover" to="lv-popover" />
-                        <lv-menu-item label="Toast" to="lv-toast" />
-                    </lv-menu-list>
-                </lv-menu-group>
-                <lv-menu-group label="Utilities">
-                    <lv-menu-list icon="corner-down-right" label="Mixins">
-                        <lv-menu-item label="navigationMixin" to="navigation-mixin" />
-                    </lv-menu-list>
-                    <lv-menu-list icon="wand-2" label="Directives">
-                        <lv-menu-item label="v-space-after" to="v-space-after" />
-                        <lv-menu-item label="v-badge" to="v-badge" />
-                    </lv-menu-list>
-                </lv-menu-group>
-            </lv-menu>
+            <lv-vertical-nav-group label="Getting Started">
+                <lv-vertical-nav-item icon="rocket" to="install" label="Installation" />
+            </lv-vertical-nav-group>
+            <lv-vertical-nav-group label="Concepts">
+                <lv-vertical-nav-item icon="palette" to="theming" label="Theming" />
+                <lv-vertical-nav-item icon="align-vertical-space-around" to="spacing" label="Spacing" />
+                <lv-vertical-nav-item icon="grid" to="grids" label="Grids" />
+            </lv-vertical-nav-group>
+            <lv-vertical-nav-group label="Components">
+                <lv-vertical-nav-list icon="layout" label="Layout">
+                    <lv-vertical-nav-item label="Layout" to="lv-layout" />
+                    <lv-vertical-nav-item label="Header" to="lv-header" />
+                    <lv-vertical-nav-item label="Vertical Nav" to="lv-vertical-nav" />
+                    <lv-vertical-nav-item label="Card" to="lv-card" />
+                    <lv-vertical-nav-item label="Group" to="lv-group" />
+                </lv-vertical-nav-list>
+                <lv-vertical-nav-list icon="compass" label="Navigation">
+                    <lv-vertical-nav-item to="lv-button" label="Button" />
+                    <lv-vertical-nav-item to="lv-tabs" label="Tabs" />
+                    <lv-vertical-nav-item label="Link" to="lv-link" />
+                    <lv-vertical-nav-item label="Breadcrumbs" to="lv-breadcrumbs" />
+                </lv-vertical-nav-list>
+                <lv-vertical-nav-list icon="bar-chart-2" label="Data Visualization">
+                    <lv-vertical-nav-item to="lv-table" label="Table" />
+                    <lv-vertical-nav-item to="lv-chart" label="Chart" />
+                    <lv-vertical-nav-item label="Widget" to="lv-widget" />
+                    <lv-vertical-nav-item label="Pill" to="lv-pill" />
+                </lv-vertical-nav-list>
+                <lv-vertical-nav-list icon="form-input" label="Form Elements">
+                    <lv-vertical-nav-item to="lv-input" label="Input" />
+                    <lv-vertical-nav-item to="lv-checkbox" label="Checkbox" />
+                    <lv-vertical-nav-item label="Radio" to="lv-radio" />
+                    <lv-vertical-nav-item label="Range Slider" to="lv-range-slider" />
+                    <lv-vertical-nav-item label="Switch" to="lv-switch" />
+                    <lv-vertical-nav-item label="Select" to="lv-select" />
+                </lv-vertical-nav-list>
+                <lv-vertical-nav-list icon="pencil" label="Writing">
+                    <lv-vertical-nav-item to="lv-heading" label="Heading" />
+                    <lv-vertical-nav-item label="Paragraph" to="lv-paragraph" />
+                    <lv-vertical-nav-item label="Blockquote" to="lv-blockquote" />
+                    <lv-vertical-nav-item label="Keyboard" to="lv-keyboard" />
+                    <lv-vertical-nav-item label="Divider" to="lv-divider" />
+                    <lv-vertical-nav-item to="lv-code" label="Code" />
+                    <lv-vertical-nav-item to="lv-notice" label="Notice" />
+                    <lv-vertical-nav-item label="Accordion" to="lv-accordion" />
+                </lv-vertical-nav-list>
+                <lv-vertical-nav-list icon="image" label="Media">
+                    <lv-vertical-nav-item label="Icon" to="lv-icon" />
+                    <lv-vertical-nav-item label="Avatar" to="lv-avatar" />
+                </lv-vertical-nav-list>
+                <lv-vertical-nav-list icon="layers" label="Overlay">
+                    <lv-vertical-nav-item label="Dialog" to="lv-dialog" />
+                    <lv-vertical-nav-item label="Drawer" to="lv-drawer" />
+                    <lv-vertical-nav-item label="Popover" to="lv-popover" />
+                    <lv-vertical-nav-item label="Toast" to="lv-toast" />
+                </lv-vertical-nav-list>
+            </lv-vertical-nav-group>
+            <lv-vertical-nav-group label="Utilities">
+                <lv-vertical-nav-list icon="corner-down-right" label="Mixins">
+                    <lv-vertical-nav-item label="navigationMixin" to="navigation-mixin" />
+                </lv-vertical-nav-list>
+                <lv-vertical-nav-list icon="wand-2" label="Directives">
+                    <lv-vertical-nav-item label="v-space-after" to="v-space-after" />
+                    <lv-vertical-nav-item label="v-badge" to="v-badge" />
+                </lv-vertical-nav-list>
+            </lv-vertical-nav-group>
         </template>
 
         <template #main>

@@ -4,6 +4,10 @@
     </kbd>
 </template>
 
+<script>
+export default {};
+</script>
+
 <style lang="scss">
 @import '../../scss/variables';
 .lv-keyboard {

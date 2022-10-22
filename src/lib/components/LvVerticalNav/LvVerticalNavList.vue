@@ -1,18 +1,25 @@
 <template>
-    <div class="lv-menu-list">
-        <div class="lv-menu-list__label" @click="toggleState">
-            <lv-icon v-if="icon" :name="icon" class="lv-menu-list__icon" />
-            <div class="lv-menu-list__label-text">{{ label }}</div>
-            <lv-icon class="lv-menu-list__label-icon" :name="iconName"></lv-icon>
+    <div class="lv-vertical-nav-list">
+        <div class="lv-vertical-nav-list__label" @click="toggleState">
+            <lv-icon v-if="icon" :name="icon" class="lv-vertical-nav-list__icon" />
+            <div class="lv-vertical-nav-list__label-text">{{ label }}</div>
+            <lv-icon class="lv-vertical-nav-list__label-icon" :name="iconName"></lv-icon>
         </div>
-        <div v-show="isOpen" class="lv-menu-list__dropdown">
-            <slot />
-        </div>
+        <transition-expand :duration="100" no-opacity>
+            <div v-show="isOpen" class="lv-vertical-nav-list__dropdown">
+                <slot />
+            </div>
+        </transition-expand>
     </div>
 </template>
 
 <script>
+import { TransitionExpand } from '@morev/vue-transitions';
+
 export default {
+    components: {
+        TransitionExpand,
+    },
     props: {
         label: {
             type: String,
@@ -46,9 +53,9 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/variables';
+@import '../../scss/variables/index';
 
-.lv-menu-list {
+.lv-vertical-nav-list {
     $self: &;
     display: flex;
     flex-grow: 1;
@@ -95,6 +102,7 @@ export default {
         border-left: 1px solid #eaeaea;
         background-color: $background-color;
         padding-left: 13px;
+        overflow: hidden;
 
         > [class^='lv-menu-item'] {
             &:last-of-type {
