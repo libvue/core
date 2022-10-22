@@ -10,7 +10,10 @@
 </template>
 
 <script>
-const code = `Press <lv-keyboard>CTRL</lv-keyboard> and <lv-keyboard>V</lv-keyboard> to paste your selection.`;
+const code = `
+Press <lv-keyboard>CTRL</lv-keyboard> and
+<lv-keyboard>V</lv-keyboard> to paste your selection.
+`.trim();
 
 export default {
     data() {
