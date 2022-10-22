@@ -1,6 +1,6 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">navigationMixin</lv-heading>
-    <lv-heading v-space-after="1" sub :level="6">Some extra functionality for links</lv-heading>
+    <lv-heading v-space-after="2" sub :level="6">Some extra functionality for links</lv-heading>
     <lv-notice v-space-after="1" icon="bell">It depends vue-router so you need to install it as a dependency.</lv-notice>
 
     <lv-heading v-space-after="1" :level="6">Install the mixin</lv-heading>

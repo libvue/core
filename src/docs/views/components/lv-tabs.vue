@@ -1,6 +1,6 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">Tabs</lv-heading>
-    <lv-heading v-space-after="1" sub :level="6">Tab it like it's hot</lv-heading>
+    <lv-heading v-space-after="2" sub :level="6">Tab it like it's hot</lv-heading>
     <lv-card v-space-after="1">
         <lv-tabs :tabs="tabs" :active="activeTab" @change-tab="(v) => (activeTab = v)">
             <template #one="{ tab }">

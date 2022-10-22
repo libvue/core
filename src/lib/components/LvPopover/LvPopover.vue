@@ -1,6 +1,6 @@
 <template>
-    <div ref="popover" class="lv-popover" role="dialog" :class="classObject">
-        <div ref="trigger" class="lv-popover__trigger" @click="onClickTrigger">
+    <div ref="popover" class="lv-popover" role="dialog" :class="classObject" @mouseenter="onHoverTrigger" @mouseleave="onBlurTrigger">
+        <div ref="trigger" class="lv-popover__trigger" @click="onClickTrigger" >
             <slot name="trigger"></slot>
         </div>
         <transition name="fade">
@@ -25,7 +25,7 @@ export default {
         trigger: {
             type: String,
             default: 'click',
-            validator: (val) => ['click'].includes(val),
+            validator: (val) => ['click', 'hover'].includes(val),
         },
         placement: {
             type: String,
@@ -42,13 +42,13 @@ export default {
         classObject() {
             return {
                 [`lv-popover--placement-${this.placement}`]: true,
-            }
-        }
+            };
+        },
     },
     watch: {
         showPopover: {
             handler(val) {
-                if(val) {
+                if (val) {
                     this.createTooltip();
                 }
             },
@@ -73,11 +73,21 @@ export default {
                         },
                     },
                 ],
-            })
+            });
         },
         onClickTrigger() {
             if (this.trigger === 'click') {
                 this.showPopover = true;
+            }
+        },
+        onHoverTrigger() {
+            if (this.trigger === 'hover') {
+                this.showPopover = true;
+            }
+        },
+        onBlurTrigger() {
+            if (this.trigger === 'hover') {
+                this.showPopover = false;
             }
         },
     },
@@ -93,23 +103,24 @@ export default {
         fill: $background-color;
         stroke: $border-color;
         stroke-width: 1;
+        stroke-dasharray: 0 30 5;
         position: absolute;
         z-index: 2;
-        stroke-dasharray: 0 30 5;
     }
     &__content {
-        z-index: 1;
         position: relative;
+        z-index: 1;
+        border: 1px solid $border-color;
+        border-radius: $border-radius;
         background-color: $background-color;
         padding: $padding;
-        border-radius: $border-radius;
-        border: 1px solid $border-color;
     }
     &__tooltip {
         position: relative;
         z-index: $z-index-dropdown;
+        transition: 0.2s opacity ease;
         box-shadow: $shadow-popover;
-        transition: .2s opacity ease;
+        padding-bottom: 0;
     }
 
     &--placement-bottom {
@@ -136,7 +147,7 @@ export default {
         }
     }
 
-    &--placement-right{
+    &--placement-right {
         #{$self}__arrow {
             top: 50%;
             left: 5px;

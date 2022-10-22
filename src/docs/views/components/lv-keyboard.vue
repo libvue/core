@@ -1,6 +1,6 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">Keyboard</lv-heading>
-    <lv-heading v-space-after="1" sub :level="6">The Keyboard Input element</lv-heading>
+    <lv-heading v-space-after="2" sub :level="6">The Keyboard Input element</lv-heading>
 
     <lv-card v-space-after="1">
         Press <lv-keyboard>CTRL</lv-keyboard> and <lv-keyboard>V</lv-keyboard> to paste your selection.
@@ -10,7 +10,10 @@
 </template>
 
 <script>
-const code = `Press <lv-keyboard>CTRL</lv-keyboard> and <lv-keyboard>V</lv-keyboard> to paste your selection.`;
+const code = `
+Press <lv-keyboard>CTRL</lv-keyboard> and
+<lv-keyboard>V</lv-keyboard> to paste your selection.
+`.trim();
 
 export default {
     data() {

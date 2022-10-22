@@ -1,6 +1,6 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">Spacing</lv-heading>
-    <lv-heading v-space-after="1" sub :level="6">All of our components are margin-less.</lv-heading>
+    <lv-heading v-space-after="2" sub :level="6">All of our components are margin-less.</lv-heading>
 
     <lv-heading v-space-after="1" :level="6">Use v-space-after directive</lv-heading>
     <lv-paragraph v-space-after="1">

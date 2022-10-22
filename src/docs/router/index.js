@@ -1,6 +1,12 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
+
+// Home
+import Home from '../views/home.vue';
+
+// Extensions
+import Extensions from '../views/extensions.vue';
+
 // Getting Started
-import About from '../views/getting-started/about.vue';
 import Install from '../views/getting-started/install.vue';
 
 // Concepts
@@ -13,7 +19,8 @@ import LvButton from '../views/components/lv-button.vue';
 import LvInput from '../views/components/lv-input.vue';
 import LvInputRange from '../views/components/lv-range-slider.vue';
 import LvCheckbox from '../views/components/lv-checkbox.vue';
-import LvMenu from '../views/components/lv-menu.vue';
+import LvVerticalNav from '../views/components/lv-vertical-nav.vue';
+import LvHorizontalNav from '../views/components/lv-horizontal-nav.vue';
 import LvHeading from '../views/components/lv-heading.vue';
 import LvParagraph from '../views/components/lv-paragraph.vue';
 import LvBlockquote from '../views/components/lv-blockquote.vue';
@@ -42,6 +49,7 @@ import LvTooltip from '../views/components/lv-tooltip.vue';
 import LvToast from '../views/components/lv-toast.vue';
 import LvPopover from '../views/components/lv-popover.vue';
 import LvAccordion from '../views/components/lv-accordion.vue';
+import LvHeader from '../views/components/lv-header.vue';
 
 // Utilities
 import NavigationMixin from '../views/utilities/navigation-mixin.vue';
@@ -49,11 +57,30 @@ import VSpaceAfter from '../views/utilities/v-space-after.vue';
 import VBadge from '../views/utilities/v-badge.vue';
 
 const routes = [
-    { path: '/', redirect: '/about' },
+    {
+        path: '/',
+        name: 'home',
+        component: Home,
+    },
+    {
+        path: '/documentation',
+        name: 'documentation',
+        redirect: '/install',
+    },
+    {
+        path: '/extensions',
+        name: 'extensions',
+        component: Extensions,
+    },
     {
         path: '/navigation-mixin',
         name: 'navigation-mixin',
         component: NavigationMixin,
+    },
+    {
+        path: '/lv-header',
+        name: 'lv-header',
+        component: LvHeader,
     },
     {
         path: '/lv-tooltip',
@@ -156,14 +183,6 @@ const routes = [
         component: VBadge,
     },
     {
-        path: '/about',
-        name: 'about',
-        component: About,
-        meta: {
-            layout: 'splash',
-        },
-    },
-    {
         path: '/install',
         name: 'install',
         component: Install,
@@ -189,9 +208,14 @@ const routes = [
         component: LvButton,
     },
     {
-        path: '/lv-menu',
-        name: 'lv-menu',
-        component: LvMenu,
+        path: '/lv-vertical-nav',
+        name: 'lv-vertical-nav',
+        component: LvVerticalNav,
+    },
+    {
+        path: '/lv-horizontal-nav',
+        name: 'lv-horizontal-nav',
+        component: LvHorizontalNav,
     },
     {
         path: '/lv-input',

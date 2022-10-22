@@ -1,6 +1,6 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">Grids</lv-heading>
-    <lv-heading v-space-after="1" sub :level="6">Sorry, wrong address</lv-heading>
+    <lv-heading v-space-after="2" sub :level="6">Sorry, wrong address</lv-heading>
 
     <lv-heading v-space-after="1" :level="6">Use plain old CSS for content</lv-heading>
     <lv-paragraph v-space-after="1">

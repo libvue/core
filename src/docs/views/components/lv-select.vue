@@ -1,6 +1,6 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">Select</lv-heading>
-    <lv-heading v-space-after="1" sub :level="6">Select a single item</lv-heading>
+    <lv-heading v-space-after="2" sub :level="6">Select a single item</lv-heading>
 
     <lv-heading v-space-after="1" :level="6">Default simple select</lv-heading>
     <lv-card v-space-after="1">

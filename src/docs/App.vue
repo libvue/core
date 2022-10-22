@@ -3,16 +3,12 @@
 </template>
 
 <script>
-import SplashLayout from "./layouts/SplashLayout.vue";
-import DocsLayout from "./layouts/DocsLayout.vue";
+import DefaultLayout from "./layouts/DefaultLayout.vue";
 
 export default {
     computed: {
         layoutComponent() {
-            if(this.$route.meta.layout === 'splash') {
-                return SplashLayout
-            }
-            return DocsLayout;
+            return DefaultLayout;
         },
     },
 };

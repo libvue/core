@@ -1,6 +1,6 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">Widget</lv-heading>
-    <lv-heading v-space-after="1" sub :level="6">Stats for nerds</lv-heading>
+    <lv-heading v-space-after="2" sub :level="6">Stats for nerds</lv-heading>
 
     <lv-tabs :tabs="tabs" :active="activeTab" @change-tab="(v) => (activeTab = v)">
         <template #number="{ tab }">

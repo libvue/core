@@ -1,19 +1,15 @@
 <template>
-    <div class="lv-menu-item" :href="href" :class="classObject" @click="onClick">
-        <lv-icon v-if="icon" :name="icon" class="lv-menu-item__icon" />
-        <div class="lv-menu-item__label">{{ label }}</div>
-    </div>
+    <a class="lv-vertical-nav-item" :href="href" :class="classObject" @click="onClick">
+        <lv-icon v-if="icon" :name="icon" class="lv-vertical-nav-item__icon" />
+        <div class="lv-vertical-nav-item__label">{{ label }}</div>
+    </a>
 </template>
 
 <script>
 import navigationMixin from '../../mixins/navigationMixin';
-import { providedLayout } from '../../utils/provideKeys';
 
 export default {
     mixins: [navigationMixin],
-    inject: {
-        providedLayout: { from: providedLayout },
-    },
     inheritAttrs: false,
     props: {
         label: {
@@ -38,18 +34,11 @@ export default {
         },
     },
     computed: {
-        providedOrPropLayout() {
-            if (this.providedLayout) {
-                return this.providedLayout;
-            }
-            return this.layout;
-        },
         classObject() {
             return {
-                'lv-menu-item--disabled': this.disabled || this.loading,
-                'lv-menu-item--loading': this.loading,
-                'lv-menu-item--active': this.toEqualsCurrentRoute,
-                [`lv-menu-item--layout-${this.providedOrPropLayout}`]: !!this.providedOrPropLayout,
+                'lv-vertical-nav-item--disabled': this.disabled || this.loading,
+                'lv-vertical-nav-item--loading': this.loading,
+                'lv-vertical-nav-item--active': this.toEqualsCurrentRoute,
             };
         },
     },
@@ -59,7 +48,7 @@ export default {
 <style lang="scss">
 @import '../../scss/variables';
 
-.lv-menu-item {
+.lv-vertical-nav-item {
     $self: &;
     display: flex;
     flex-shrink: 0;
@@ -72,6 +61,7 @@ export default {
     color: $text-color;
     font-weight: 400;
     font-size: $font-size;
+    text-decoration: none;
 
     &:hover:not(#{$self}--active) {
         color: #000;
@@ -91,10 +81,6 @@ export default {
     }
     &__label {
         white-space: nowrap;
-    }
-    &--layout-vertical {
-        margin-right: 10px;
-        margin-bottom: 0;
     }
 }
 </style>

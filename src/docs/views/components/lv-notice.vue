@@ -1,6 +1,6 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">Notice</lv-heading>
-    <lv-heading v-space-after="1" sub :level="6">Just a notice</lv-heading>
+    <lv-heading v-space-after="2" sub :level="6">Just a notice</lv-heading>
     <lv-tabs :tabs="tabs" :active="activeTab" @change-tab="(v) => (activeTab = v)">
         <template #colors="{ tab }">
             <lv-heading v-space-after="1" :level="6">Solid</lv-heading>
