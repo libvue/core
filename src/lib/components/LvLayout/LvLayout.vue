@@ -1,140 +1,121 @@
 <template>
     <div class="lv-layout" :class="classObject">
-        <!-- Global navigation -->
-        <header v-if="!!$slots['global-navigation']" role="banner" class="lv-layout__global-navigation">
-            <slot name="global-navigation"></slot>
+        <!-- Header (f.e. global navigation) -->
+        <header v-if="!!$slots['header']" role="banner" class="lv-layout__header">
+            <slot name="header"></slot>
         </header>
-        <!-- Local navigation -->
-        <aside v-if="!!$slots['local-navigation']" class="lv-layout__local-navigation">
-            <slot name="local-navigation"></slot>
-        </aside>
-        <!-- Content -->
-        <main v-if="!!$slots['content']" role="contentinfo" class="lv-layout__content">
-            <slot name="content"></slot>
-        </main>
-        <!-- Quick navigation -->
-        <div v-if="!!$slots['quick-navigation']" class="lv-layout__quick-navigation">
-            <slot name="quick-navigation"></slot>
-        </div>
 
-        <div v-if="!!$slots.menu" class="lv-layout__menu">
-            <header v-if="!!$slots.logo" role="banner" class="lv-layout__menu-logo">
-                <slot name="logo"></slot>
-            </header>
-            <slot name="menu"></slot>
-            <div v-if="!!$slots['menu-footer']" class="lv-layout__menu-footer">
-                <slot name="menu-footer"></slot>
+        <div class="lv-layout__container">
+            <!-- Sidebar (f.e. local navigation) -->
+            <div v-if="!!$slots['sidebar']" class="lv-layout__sidebar">
+                <div class="lv-layout__sidebar-content">
+                    <slot name="sidebar"></slot>
+                </div>
             </div>
+            <!-- Main  -->
+            <main v-if="!!$slots['main']" role="main" class="lv-layout__main">
+                <div class="lv-layout__main-container">
+                    <slot name="main"></slot>
+                </div>
+            </main>
         </div>
     </div>
 </template>
 
 <script>
-import { computed } from 'vue';
-import { providedLayout } from '../../utils/provideKeys';
-
 export default {
-    provide() {
-        return {
-            [providedLayout]: computed(() => this.layout),
-        };
-    },
     props: {
-        layout: {
-            type: String,
-            default: 'horizontal',
-            validator(val) {
-                return ['horizontal', 'vertical'].includes(val);
-            },
+        debug: {
+            type: Boolean,
+            default: false,
         },
-        horizontalMenuWidth: {
+        mainMaxWidth: {
             type: String,
-            default: '200px',
-        },
-        verticalMenuHeight: {
-            type: String,
-            default: '50px',
-        },
+            default: '700px',
+        }
+    },
+    data() {
+        return {
+            headerHeight: null,
+        };
     },
     computed: {
         classObject() {
             return {
-                [`lv-layout--layout-${this.layout}`]: !!this.layout,
+                [`lv-layout--debug`]: !!this.debug,
             };
         },
     },
+    mounted() {
+        this.createHeaderResizeObserver();
+    },
+    updated() {
+        this.getHeaderHeight();
+    },
+    methods: {
+        createHeaderResizeObserver() {
+            new ResizeObserver(this.getHeaderHeight).observe(this.$el);
+        },
+        getHeaderHeight() {
+            const header = this.$el?.querySelector('.lv-layout__header');
+            if(header) {
+                this.headerHeight = window.getComputedStyle(header).height;
+            } else {
+                this.headerHeight = '0px';
+            }
+
+        }
+    }
 };
 </script>
 
 <style lang="scss">
 @import '../../scss/variables';
 
-$layout-menu-border-color: lighten($border-color, 8);
-
 .lv-layout {
     $self: &;
-
-    display: flex;
-    flex-grow: 1;
-    flex-direction: row;
     width: 100%;
-    min-height: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 
-    &--layout-vertical {
-        flex-direction: column;
 
-        > #{$self}__menu {
-            $menu: &;
-            display: flex;
-            flex-shrink: 0;
-            flex-direction: row;
-            align-items: center;
-            box-sizing: border-box;
-            border-bottom: 1px solid $layout-menu-border-color;
-            padding: 0 30px;
-            width: 100%;
-            height: v-bind(verticalMenuHeight);
-            overflow-y: inherit;
-
-            #{$self}__#{menu}-logo {
-                margin-right: 10px;
-                margin-bottom: 0;
-            }
-
-            #{$self}__#{menu}-footer {
-                margin-top: 0;
-                margin-left: auto;
-            }
-        }
+    &__header {
+        width: 100%;
+        position: fixed;
+        z-index: 1;
     }
 
-    &__menu,
-    &__content {
-        padding: 30px;
-    }
-    &__content {
-        flex-grow: 1;
-        max-height: 100vh;
-        overflow-y: auto;
-    }
-    &__menu {
+    &__container {
         display: flex;
-        flex-shrink: 0;
-        flex-direction: column;
-        border-right: 1px solid $layout-menu-border-color;
-        width: v-bind(horizontalMenuWidth);
-        max-height: 100vh;
-        overflow-y: auto;
+        flex-grow: 1;
+        margin-top: v-bind(headerHeight);
+    }
 
-        &-logo {
-            display: flex;
-            align-items: center;
-            margin-bottom: 30px;
-            font-weight: bold;
-        }
-        &-footer {
-            margin-top: auto;
+    &__sidebar {
+        box-sizing: border-box;
+        border-right: 1px solid $border-color;
+        height: 100%;
+
+        &-content {
+            padding: 1.5rem;
+            box-sizing: border-box;
+            position: sticky;
+            top: v-bind(headerHeight);
+            overflow-y: auto;
+            max-height: calc(100vh - v-bind(headerHeight));
         }
     }
+    &__main {
+        flex-grow: 1;
+        padding: 1.5rem;
+        box-sizing: border-box;
+
+        &-container {
+            max-width: v-bind(mainMaxWidth);
+            margin: 0 auto;
+        }
+    }
+
 }
 </style>

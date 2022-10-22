@@ -1,6 +1,20 @@
 <template>
-    <lv-layout :layout="windowWidth > 1200 ? 'horizontal' : 'vertical'">
-        <template #global-navigation>
+    <lv-layout debug>
+        <template #header>
+            <lv-header>
+                <template #branding>
+                    <img v-space-after="0.5" class="logo" src="logo.svg" alt="" @click="$router.push('/')" />
+                </template>
+                <template #search>
+                    <lv-input placeholder="Search docs" icon="search"/>
+                </template>
+                <template #extra>
+                    <lv-button icon="github" color-type="solid-light" />
+                </template>
+            </lv-header>
+        </template>
+
+        <template #sidebar>
             <lv-menu>
                 <lv-menu-group label="Getting Started">
                     <lv-menu-item icon="rocket" to="install" label="Installation" />
@@ -69,7 +83,8 @@
                 </lv-menu-group>
             </lv-menu>
         </template>
-        <template #content>
+
+        <template #main>
             <router-view v-slot="{ Component, route }">
                 <transition name="fade" mode="out-in">
                     <div :key="route.path" class="wrapper">
@@ -105,9 +120,4 @@ export default {
 <style lang="scss" scoped>
 @import 'src/lib/scss/variables';
 @import 'src/lib/scss/transitions/fade';
-
-.logo {
-    width: 80px;
-    color: $color-primary;
-}
 </style>
