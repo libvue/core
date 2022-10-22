@@ -102,7 +102,7 @@ export default {
     // Elements
     &__icon {
         position: absolute;
-        top: 13px;
+        top: $padding * 0.75 + 2px;
         left: $padding - 2px;
         color: $text-color;
     }
@@ -112,7 +112,7 @@ export default {
         border: 1px solid $border-color;
         border-radius: $border-radius;
         background-color: #fff;
-        padding: $padding;
+        padding: $padding * 0.75;
         color: $text-color;
         font-size: $font-size;
         font-family: $font-family;
