@@ -6,7 +6,7 @@
                     <img v-space-after="0.5" class="logo" src="logo.svg" alt="" @click="$router.push('/')" />
                 </template>
                 <template #search>
-                    <lv-input placeholder="Search docs" icon="search"/>
+                    <lv-input placeholder="Search docs" icon="search" />
                 </template>
                 <template #extra>
                     <lv-button icon="github" color="light-default" />
@@ -14,7 +14,7 @@
             </lv-header>
         </template>
 
-        <template #sidebar>
+        <template v-if="$route.name != 'home'" #sidebar>
             <lv-vertical-nav-group label="Getting Started">
                 <lv-vertical-nav-item icon="rocket" to="install" label="Installation" />
             </lv-vertical-nav-group>
@@ -85,11 +85,9 @@
 
         <template #main>
             <router-view v-slot="{ Component, route }">
-                <transition name="fade" mode="out-in">
-                    <div :key="route.path" class="wrapper">
-                        <component :is="Component" />
-                    </div>
-                </transition>
+                <div :key="route.path" class="wrapper">
+                    <component :is="Component" />
+                </div>
             </router-view>
         </template>
     </lv-layout>

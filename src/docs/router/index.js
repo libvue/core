@@ -1,6 +1,9 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
+
+// Home
+import Home from '../views/home.vue';
+
 // Getting Started
-import About from '../views/getting-started/about.vue';
 import Install from '../views/getting-started/install.vue';
 
 // Concepts
@@ -50,7 +53,11 @@ import VSpaceAfter from '../views/utilities/v-space-after.vue';
 import VBadge from '../views/utilities/v-badge.vue';
 
 const routes = [
-    { path: '/', redirect: '/about' },
+    {
+        path: '/',
+        name: 'home',
+        component: Home,
+    },
     {
         path: '/navigation-mixin',
         name: 'navigation-mixin',
@@ -160,14 +167,6 @@ const routes = [
         path: '/v-badge',
         name: 'v-badge',
         component: VBadge,
-    },
-    {
-        path: '/about',
-        name: 'about',
-        component: About,
-        meta: {
-            layout: 'splash',
-        },
     },
     {
         path: '/install',

@@ -23,7 +23,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import 'src/lib/scss/variables';
+@import '../../lib/scss/variables/index';
 
 .splash {
     display: flex;
@@ -33,6 +33,8 @@ export default {
     height: 100%;
     max-width: 350px;
     margin: auto;
+    padding-top: 150px;
+
     &__about {
         text-align: center;
     }
