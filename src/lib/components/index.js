@@ -1,3 +1,4 @@
+import LvHeader from './LvHeader/LvHeader.vue';
 import LvAvatar from './LvAvatar/LvAvatar.vue';
 import LvAccordion from './LvAccordion/LvAccordion.vue';
 import LvAccordionItem from './LvAccordion/LvAccordionItem.vue';
@@ -37,6 +38,7 @@ import LvToasts from './LvToasts/LvToasts.vue';
 import LvWidget from './LvWidget/LvWidget.vue';
 
 export default {
+    LvHeader,
     LvAccordion,
     LvAccordionItem,
     LvAvatar,
