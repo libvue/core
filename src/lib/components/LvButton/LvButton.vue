@@ -62,6 +62,7 @@ export default {
                 [`lv-button--align-${this.align}`]: !!this.align,
                 'lv-button--disabled': this.disabled || this.loading,
                 'lv-button--loading': this.loading,
+                'lv-button--has-label': this.label || !!this.$slots.default,
             };
         },
     },
@@ -95,7 +96,6 @@ export default {
     // Elements
     &__icon {
         display: inline-block;
-        margin-right: 5px; // Optical Fix
         &--hidden {
             opacity: 0;
         }
@@ -132,6 +132,12 @@ export default {
 
     &--align-center {
         justify-content: center;
+    }
+
+    &--has-label {
+        #{$self}__icon {
+            margin-right: 5px; // Optical Fix
+        }
     }
 
     @include color-mixin;
