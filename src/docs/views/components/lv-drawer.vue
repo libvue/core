@@ -1,6 +1,6 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">Drawer</lv-heading>
-    <lv-heading v-space-after="1" sub :level="6">Some kind of dialog drawn from a side</lv-heading>
+    <lv-heading v-space-after="2" sub :level="6">Some kind of dialog drawn from a side</lv-heading>
     <lv-card v-space-after="1">
         <lv-group>
             <lv-button label="Left" @click="onClickDrawerLeft"/>

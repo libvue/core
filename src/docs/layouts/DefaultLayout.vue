@@ -8,6 +8,14 @@
                 <template #search>
                     <lv-input placeholder="Search docs" icon="search" />
                 </template>
+                <template #navigation>
+                    <lv-horizontal-nav-item label="Documentation" v-space-after="1">
+                        <lv-horizontal-nav-item label="Install" to="install" v-space-after=".5"/>
+                        <lv-horizontal-nav-item label="Layout" to="lv-layout" />
+                    </lv-horizontal-nav-item>
+                    <lv-horizontal-nav-item label="Extensions" to="extensions" v-space-after="1"/>
+                    <lv-divider direction="vertical"/>
+                </template>
                 <template #extra>
                     <lv-button icon="github" color="light-default" />
                 </template>
@@ -27,6 +35,7 @@
                 <lv-vertical-nav-list icon="layout" label="Layout">
                     <lv-vertical-nav-item label="Layout" to="lv-layout" />
                     <lv-vertical-nav-item label="Header" to="lv-header" />
+                    <lv-vertical-nav-item label="Horizontal Nav" to="lv-horizontal-nav" />
                     <lv-vertical-nav-item label="Vertical Nav" to="lv-vertical-nav" />
                     <lv-vertical-nav-item label="Card" to="lv-card" />
                     <lv-vertical-nav-item label="Group" to="lv-group" />
@@ -95,6 +104,8 @@
 
 <script>
 export default {
+    components: {},
+
     data() {
         return {
             windowWidth: window.innerWidth,

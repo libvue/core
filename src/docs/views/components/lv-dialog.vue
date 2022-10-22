@@ -1,6 +1,6 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">Dialog</lv-heading>
-    <lv-heading v-space-after="1" sub :level="6">A non-modal or modal dialog</lv-heading>
+    <lv-heading v-space-after="2" sub :level="6">A non-modal or modal dialog</lv-heading>
     <lv-card v-space-after="1">
         <lv-button label="Open the dialog" @click="showDialog = true"/>
         <lv-dialog :show="showDialog" @click-overlay="showDialog = false" :modal="false">

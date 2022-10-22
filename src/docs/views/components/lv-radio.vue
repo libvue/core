@@ -1,6 +1,6 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">Radio</lv-heading>
-    <lv-heading v-space-after="1" sub :level="6">Radio buttons are typically rendered as small circles, which are filled or highlighted when selected.</lv-heading>
+    <lv-heading v-space-after="2" sub :level="6">Radio buttons are typically rendered as small circles, which are filled or highlighted when selected.</lv-heading>
 
     <lv-card v-space-after="1">
         <lv-group>

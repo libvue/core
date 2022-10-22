@@ -33,6 +33,7 @@ export default {};
         display: flex;
         align-items: center;
         cursor: pointer;
+        margin-right: 2rem;
         > img {
             width: 80px;
             color: $color-primary;
@@ -40,11 +41,14 @@ export default {};
         }
     }
     &__search {
-        margin: 0 auto;
+        margin-right: auto;
     }
     &__navigation {
+        display: flex;
+        margin-left: auto;
     }
     &__extra {
+        margin-left: 1rem;
     }
 }
 </style>

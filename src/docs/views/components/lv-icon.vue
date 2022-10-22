@@ -1,6 +1,6 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">Icon</lv-heading>
-    <lv-heading v-space-after="1" sub :level="6">Use lucide icons in your project</lv-heading>
+    <lv-heading v-space-after="2" sub :level="6">Use lucide icons in your project</lv-heading>
 
     <lv-heading v-space-after="1" :level="6">Example</lv-heading>
     <lv-card v-space-after="1">

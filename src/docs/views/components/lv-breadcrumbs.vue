@@ -1,6 +1,6 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">Breadcrumbs</lv-heading>
-    <lv-heading v-space-after="1" sub :level="6">Visualize the path</lv-heading>
+    <lv-heading v-space-after="2" sub :level="6">Visualize the path</lv-heading>
     <lv-card v-space-after="1">
         <lv-breadcrumbs :crumbs="crumbs" home-path="/" show-home />
     </lv-card>

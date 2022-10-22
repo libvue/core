@@ -1,6 +1,6 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">Input</lv-heading>
-    <lv-heading v-space-after="1" sub :level="6">An multi-typed input for your fancy forms</lv-heading>
+    <lv-heading v-space-after="2" sub :level="6">An multi-typed input for your fancy forms</lv-heading>
     <lv-tabs :tabs="tabs" :active="activeTab" @change-tab="(v) => onChangeTab(v)">
         <template #types>
             <lv-card v-space-after="1">

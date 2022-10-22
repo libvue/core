@@ -3,6 +3,9 @@ import { createRouter, createWebHashHistory } from 'vue-router';
 // Home
 import Home from '../views/home.vue';
 
+// Extensions
+import Extensions from '../views/extensions.vue';
+
 // Getting Started
 import Install from '../views/getting-started/install.vue';
 
@@ -17,6 +20,7 @@ import LvInput from '../views/components/lv-input.vue';
 import LvInputRange from '../views/components/lv-range-slider.vue';
 import LvCheckbox from '../views/components/lv-checkbox.vue';
 import LvVerticalNav from '../views/components/lv-vertical-nav.vue';
+import LvHorizontalNav from '../views/components/lv-horizontal-nav.vue';
 import LvHeading from '../views/components/lv-heading.vue';
 import LvParagraph from '../views/components/lv-paragraph.vue';
 import LvBlockquote from '../views/components/lv-blockquote.vue';
@@ -57,6 +61,16 @@ const routes = [
         path: '/',
         name: 'home',
         component: Home,
+    },
+    {
+        path: '/documentation',
+        name: 'documentation',
+        redirect: '/install',
+    },
+    {
+        path: '/extensions',
+        name: 'extensions',
+        component: Extensions,
     },
     {
         path: '/navigation-mixin',
@@ -197,6 +211,11 @@ const routes = [
         path: '/lv-vertical-nav',
         name: 'lv-vertical-nav',
         component: LvVerticalNav,
+    },
+    {
+        path: '/lv-horizontal-nav',
+        name: 'lv-horizontal-nav',
+        component: LvHorizontalNav,
     },
     {
         path: '/lv-input',

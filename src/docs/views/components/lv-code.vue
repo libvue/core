@@ -1,6 +1,6 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">Code</lv-heading>
-    <lv-heading v-space-after="1" sub :level="6">A code component with highlighting</lv-heading>
+    <lv-heading v-space-after="2" sub :level="6">A code component with highlighting</lv-heading>
 
     <lv-heading v-space-after="1" :level="6">Default</lv-heading>
     <lv-card v-space-after="1">

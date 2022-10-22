@@ -1,6 +1,6 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">Layout</lv-heading>
-    <lv-heading v-space-after="1" sub :level="6">A simple layout component</lv-heading>
+    <lv-heading v-space-after="2" sub :level="6">A simple layout component</lv-heading>
 
     <lv-card v-space-after="1">
         <lv-layout>

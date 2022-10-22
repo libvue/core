@@ -1,10 +1,10 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">Installation</lv-heading>
-    <lv-heading v-space-after="1" sub :level="6">How to get started with libvue</lv-heading>
+    <lv-heading v-space-after="2" sub :level="6">How to get started with libvue</lv-heading>
 
     <lv-heading v-space-after="1" :level="6">Install entire library</lv-heading>
     <lv-paragraph v-space-after="1"> If you want all the components & directives just follow the step below; </lv-paragraph>
-    <lv-code v-space-after="1" code="npm install --save libvue@latest" />
+    <lv-code v-space-after="1" code="npm install --save @libvue/core" />
     <lv-code v-space-after="1" :code="installFullCode" lang="js" />
 
 

@@ -1,6 +1,6 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">Paragraph</lv-heading>
-    <lv-heading v-space-after="1" sub :level="6"
+    <lv-heading v-space-after="2" sub :level="6"
         >A paragraph always starts on a new line, and is usually a block of text.</lv-heading
     >
 

@@ -1,6 +1,6 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">Divider</lv-heading>
-    <lv-heading v-space-after="1" sub :level="6">Cut the content!</lv-heading>
+    <lv-heading v-space-after="2" sub :level="6">Cut the content!</lv-heading>
 
     <lv-heading v-space-after="1" :level="6">Horizontal</lv-heading>
     <lv-card v-space-after="1">

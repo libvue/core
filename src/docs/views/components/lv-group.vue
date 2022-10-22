@@ -1,6 +1,6 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">Group</lv-heading>
-    <lv-heading v-space-after="1" sub :level="6">Group elements with the power of flexbox</lv-heading>
+    <lv-heading v-space-after="2" sub :level="6">Group elements with the power of flexbox</lv-heading>
 
     <lv-heading v-space-after="1" :level="6">Row Direction (Default)</lv-heading>
     <lv-card v-space-after="1">

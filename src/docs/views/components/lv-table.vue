@@ -1,6 +1,6 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">Table</lv-heading>
-    <lv-heading v-space-after="1" sub :level="6">Organize your rows</lv-heading>
+    <lv-heading v-space-after="2" sub :level="6">Organize your rows</lv-heading>
 
     <lv-heading v-space-after="1" :level="6">Simple Table</lv-heading>
     <lv-table v-space-after="1" :rows="rows" :columns="columns">

@@ -1,6 +1,6 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">Theming</lv-heading>
-    <lv-heading v-space-after="1" sub :level="6">Customize this crap!</lv-heading>
+    <lv-heading v-space-after="2" sub :level="6">Customize this crap!</lv-heading>
     <lv-paragraph v-space-after="1">
         All these variables below can be overridden in your own .scss files.
     </lv-paragraph>

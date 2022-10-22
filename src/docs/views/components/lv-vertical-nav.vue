@@ -1,6 +1,6 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">Vertical Navigation</lv-heading>
-    <lv-heading v-space-after="1" sub :level="6">Some components to help you construct a vertical Menu</lv-heading>
+    <lv-heading v-space-after="2" sub :level="6">Some components to help you construct a vertical Menu</lv-heading>
 
     <lv-card v-space-after="1">
         <lv-vertical-nav-group label="Getting Started">
