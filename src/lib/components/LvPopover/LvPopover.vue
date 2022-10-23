@@ -1,11 +1,25 @@
 <template>
-    <div ref="popover" class="lv-popover" role="dialog" :class="classObject" @mouseenter="onHoverTrigger" @mouseleave="onBlurTrigger">
-        <div ref="trigger" class="lv-popover__trigger" @click="onClickTrigger" >
+    <div
+        ref="popover"
+        class="lv-popover"
+        role="dialog"
+        :class="classObject"
+        @mouseenter="onHoverTrigger"
+        @mouseleave="onBlurTrigger"
+    >
+        <div ref="trigger" class="lv-popover__trigger" @click="onClickTrigger">
             <slot name="trigger"></slot>
         </div>
         <transition name="fade">
             <div v-show="showPopover" ref="tooltip" class="lv-popover__tooltip">
-                <svg class="lv-popover__arrow" width="15" height="8" viewBox="0 0 30 10" preserveAspectRatio="none">
+                <svg
+                    v-if="showArrow"
+                    class="lv-popover__arrow"
+                    width="15"
+                    height="8"
+                    viewBox="0 0 30 10"
+                    preserveAspectRatio="none"
+                >
                     <polygon points="0,0 30,0 15,10"></polygon>
                 </svg>
                 <div class="lv-popover__content">
@@ -31,6 +45,10 @@ export default {
             type: String,
             default: 'bottom',
             validator: (val) => ['bottom', 'left', 'right', 'top'].includes(val),
+        },
+        showArrow: {
+            type: Boolean,
+            default: true,
         },
     },
     data() {
@@ -69,7 +87,7 @@ export default {
                     {
                         name: 'offset',
                         options: {
-                            offset: [0, 10],
+                            offset: [0, this.showArrow ? 10 : 4],
                         },
                     },
                 ],

@@ -5,7 +5,7 @@
         <lv-group>
             <lv-popover placement="right" trigger="hover">
                 <template #trigger>
-                    <lv-button label="Right"/>
+                    <lv-button label="Hover me"/>
                 </template>
                 <template #content>
                     <lv-heading v-space-after="1" level="5">Do some stuff</lv-heading>
@@ -15,10 +15,9 @@
                     </lv-group>
                 </template>
             </lv-popover>
-
             <lv-popover placement="bottom">
                 <template #trigger>
-                    <lv-button label="Bottom"/>
+                    <lv-button label="Click me"/>
                 </template>
                 <template #content>
                     <lv-heading v-space-after="1" level="5">Do some stuff</lv-heading>
@@ -28,7 +27,6 @@
                     </lv-group>
                 </template>
             </lv-popover>
-
         </lv-group>
     </lv-card>
     <lv-code lang="html" :code="code"/>
@@ -36,31 +34,32 @@
 
 <script>
 const code = `
-<lv-popover placement="right" trigger="hover">
-    <template #trigger>
-        <lv-button label="Right"/>
-    </template>
-    <template #content>
-        <lv-heading v-space-after="1" level="5">Do some stuff</lv-heading>
-        <lv-group direction="column">
-            <lv-switch label="Enable something"/>
-            <lv-button label="Or don't" color="primary"/>
-        </lv-group>
-    </template>
-</lv-popover>
-
-<lv-popover placement="bottom">
-    <template #trigger>
-        <lv-button label="Bottom"/>
-    </template>
-    <template #content>
-        <lv-heading v-space-after="1" level="5">Do some stuff</lv-heading>
-        <lv-group direction="column">
-            <lv-switch label="Enable something"/>
-            <lv-button label="Or don't" color="primary"/>
-        </lv-group>
-    </template>
-</lv-popover>
+<lv-group>
+    <lv-popover placement="right" trigger="hover">
+        <template #trigger>
+            <lv-button label="Hover me"/>
+        </template>
+        <template #content>
+            <lv-heading v-space-after="1" level="5">Do some stuff</lv-heading>
+            <lv-group direction="column">
+                <lv-switch label="Enable something"/>
+                <lv-button label="Or don't" color="primary"/>
+            </lv-group>
+        </template>
+    </lv-popover>
+    <lv-popover placement="bottom">
+        <template #trigger>
+            <lv-button label="Click me"/>
+        </template>
+        <template #content>
+            <lv-heading v-space-after="1" level="5">Do some stuff</lv-heading>
+            <lv-group direction="column">
+                <lv-switch label="Enable something"/>
+                <lv-button label="Or don't" color="primary"/>
+            </lv-group>
+        </template>
+    </lv-popover>
+</lv-group>
 `.trim();
 export default {
     data() {

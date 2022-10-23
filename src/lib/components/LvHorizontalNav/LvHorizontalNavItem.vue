@@ -1,11 +1,11 @@
 <template>
     <template v-if="hasChildren">
-        <lv-popover trigger="hover" placement="bottom">
+        <lv-popover trigger="hover" placement="bottom" :show-arrow="false">
             <template #trigger>
                 <a class="lv-horizontal-nav-item" :href="href" :class="classObject" @click="onClick">
                     <lv-icon v-if="icon" :name="icon" class="lv-horizontal-nav-item__icon" />
                     <div class="lv-horizontal-nav-item__label">{{ label }}</div>
-                    <lv-icon name="chevron-down"/>
+                    <lv-icon name="chevron-down" />
                 </a>
             </template>
             <template #content>
