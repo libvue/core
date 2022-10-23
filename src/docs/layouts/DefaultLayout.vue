@@ -9,11 +9,8 @@
                     <lv-input placeholder="Search docs" icon="search" />
                 </template>
                 <template #navigation>
-                    <lv-horizontal-nav-item label="Documentation" v-space-after="1">
-                        <lv-horizontal-nav-item label="Install" to="install" v-space-after=".5"/>
-                        <lv-horizontal-nav-item label="Layout" to="lv-layout" />
-                    </lv-horizontal-nav-item>
-                    <lv-horizontal-nav-item label="Extensions" to="extensions" v-space-after="1"/>
+                    <lv-horizontal-nav-item label="Documentation" to="install" v-space-after="1" />
+                    <lv-horizontal-nav-item label="Extensions" to="extensions" v-space-after="1" />
                     <lv-divider direction="vertical"/>
                 </template>
                 <template #extra>
@@ -22,7 +19,7 @@
             </lv-header>
         </template>
 
-        <template v-if="$route.name != 'home'" #sidebar>
+        <template v-if="!$route.meta.hideSidebar" #sidebar>
             <lv-vertical-nav-group label="Getting Started">
                 <lv-vertical-nav-item icon="rocket" to="install" label="Installation" />
             </lv-vertical-nav-group>

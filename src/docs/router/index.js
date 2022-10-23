@@ -61,6 +61,9 @@ const routes = [
         path: '/',
         name: 'home',
         component: Home,
+        meta: {
+            hideSidebar: true,
+        },
     },
     {
         path: '/documentation',
@@ -71,6 +74,9 @@ const routes = [
         path: '/extensions',
         name: 'extensions',
         component: Extensions,
+        meta: {
+            hideSidebar: true,
+        },
     },
     {
         path: '/navigation-mixin',

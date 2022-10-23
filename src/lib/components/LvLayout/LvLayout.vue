@@ -2,13 +2,15 @@
     <div class="lv-layout" :class="classObject">
         <!-- Header (f.e. global navigation) -->
         <header v-if="!!$slots['header']" role="banner" class="lv-layout__header">
-            <slot name="header"></slot>
+            <div class="lv-layout__header-container">
+                <slot name="header"></slot>
+            </div>
         </header>
 
         <div class="lv-layout__container">
             <!-- Sidebar (f.e. local navigation) -->
             <div v-if="!!$slots['sidebar']" class="lv-layout__sidebar">
-                <div class="lv-layout__sidebar-content">
+                <div class="lv-layout__sidebar-container">
                     <slot name="sidebar"></slot>
                 </div>
             </div>
@@ -79,17 +81,25 @@ export default {
     display: flex;
     flex-direction: column;
 
-
     &__header {
         width: 100%;
         position: sticky;
         top: 0;
         z-index: 1;
+        border-bottom: 1px solid $border-color;
+
+        &-container {
+            max-width: $layout-container-max-width;
+            margin: 0 auto;
+        }
     }
 
     &__container {
         display: flex;
         flex-grow: 1;
+        max-width: $layout-container-max-width;
+        margin: 0 auto;
+        width: 100%;
     }
 
     &__sidebar {
@@ -97,7 +107,7 @@ export default {
         border-right: 1px solid $border-color;
         height: 100%;
 
-        &-content {
+        &-container {
             padding: 1.5rem;
             box-sizing: border-box;
             position: sticky;

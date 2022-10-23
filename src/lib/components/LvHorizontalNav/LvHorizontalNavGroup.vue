@@ -1,9 +1,9 @@
 <template>
-    <div class="lv-vertical-nav-group">
-        <h1 class="lv-vertical-nav-group__label">
-            <lv-icon v-if="icon" class="lv-vertical-nav-group__icon" :name="icon" /> {{ label }}
+    <div class="lv-horizontal-nav-group">
+        <h1 class="lv-horizontal-nav-group__label">
+            <lv-icon v-if="icon" class="lv-horizontal-nav-group__icon" :name="icon" /> {{ label }}
         </h1>
-        <div class="lv-vertical-nav-group__content">
+        <div class="lv-horizontal-nav-group__content">
             <slot />
         </div>
     </div>
@@ -27,22 +27,16 @@ export default {
 <style lang="scss">
 @import '../../scss/variables';
 
-.lv-vertical-nav-group {
+.lv-horizontal-nav-group {
     $self: &;
     display: flex;
     position: relative;
     flex-grow: 1;
     flex-direction: column;
     cursor: pointer;
-    margin-bottom: 15px;
     width: 100%;
     font-size: $font-size;
     font-family: $font-family;
-
-
-    &:last-of-type {
-        margin-bottom: 0;
-    }
 
     &__label {
         display: flex;

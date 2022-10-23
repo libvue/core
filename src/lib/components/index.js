@@ -1,4 +1,5 @@
 import LvHorizontalNavItem from './LvHorizontalNav/LvHorizontalNavItem.vue';
+import LvHorizontalNavGroup from './LvHorizontalNav/LvHorizontalNavGroup.vue';
 import LvHeader from './LvHeader/LvHeader.vue';
 import LvAvatar from './LvAvatar/LvAvatar.vue';
 import LvAccordion from './LvAccordion/LvAccordion.vue';
@@ -39,6 +40,7 @@ import LvWidget from './LvWidget/LvWidget.vue';
 
 export default {
     LvHorizontalNavItem,
+    LvHorizontalNavGroup,
     LvHeader,
     LvAccordion,
     LvAccordionItem,

@@ -114,6 +114,8 @@ export default {
 
 <style lang="scss">
 @import '../../scss/variables';
+@import '../../scss/transitions/fade';
+
 .lv-popover {
     $self: &;
 

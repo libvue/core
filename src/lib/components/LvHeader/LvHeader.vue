@@ -28,7 +28,7 @@ export default {};
     box-sizing: border-box;
     background-color: rgba(255,255,255,0.8);
     backdrop-filter: blur(2px);
-    border-bottom: 1px solid $border-color;
+
     &__branding {
         display: flex;
         align-items: center;

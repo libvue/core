@@ -5,7 +5,7 @@
                 <a class="lv-horizontal-nav-item" :href="href" :class="classObject" @click="onClick">
                     <lv-icon v-if="icon" :name="icon" class="lv-horizontal-nav-item__icon" />
                     <div class="lv-horizontal-nav-item__label">{{ label }}</div>
-                    <lv-icon name="chevron-down" />
+                    <lv-icon class="lv-horizontal-nav-item__arrow" name="chevron-down" />
                 </a>
             </template>
             <template #content>
@@ -94,6 +94,9 @@ export default {
     }
     &__label {
         white-space: nowrap;
+    }
+    &__arrow {
+        margin-left: 3px;
     }
 }
 </style>
