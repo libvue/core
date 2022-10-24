@@ -1,3 +1,4 @@
+import LvHero from './LvHero/LvHero.vue';
 import LvHorizontalNavItem from './LvHorizontalNav/LvHorizontalNavItem.vue';
 import LvHorizontalNavGroup from './LvHorizontalNav/LvHorizontalNavGroup.vue';
 import LvHeader from './LvHeader/LvHeader.vue';
@@ -39,6 +40,7 @@ import LvToasts from './LvToasts/LvToasts.vue';
 import LvWidget from './LvWidget/LvWidget.vue';
 
 export default {
+    LvHero,
     LvHorizontalNavItem,
     LvHorizontalNavGroup,
     LvHeader,
