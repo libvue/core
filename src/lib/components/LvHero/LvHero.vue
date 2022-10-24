@@ -54,7 +54,7 @@ export default {
     &__description {
         margin: 0;
         margin-bottom: 1rem;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
     &__buttons {
         flex-shrink: 0;

@@ -12,7 +12,7 @@
                 </div>
             </div>
         </div>
-        <lv-chart height="100px" :datasets="datasets" :labels="labels" :type="chartType" :show-axis="false" />
+        <lv-chart height="70px" :datasets="datasets" :labels="labels" :type="chartType" :show-axis="false" />
     </lv-card>
 </template>
 
@@ -77,6 +77,7 @@ export default {
         display: flex;
         margin-right: 10px;
         margin-bottom: 5px;
+        min-width: 150px;
     }
     &__diff {
         margin-left: auto;
@@ -90,6 +91,7 @@ export default {
         align-items: flex-start;
         color: $text-color;
         font-weight: 600;
+        margin-right: 10px;
         font-size: 1.7rem;
         line-height: 1.7rem;
     }

@@ -8,23 +8,6 @@
             </template>
         </lv-hero>
 
-        <lv-divider v-space-after="4"></lv-divider>
-
-        <lv-group direction="column" style="width: 100%;" gap="2rem">
-            <lv-card>
-                <lv-heading v-space-after="1" level="6">Core</lv-heading>
-                <lv-code code="> npm install --save @libvue/core" lang="shell" />
-            </lv-card>
-            <lv-card>
-                <lv-heading v-space-after="1" level="6">Extension: Dashboard</lv-heading>
-                <lv-code code="> npm install --save @libvue/extension-dashboard" lang="shell" />
-            </lv-card>
-            <lv-card>
-                <lv-heading v-space-after="1" level="6">Extension: Home Automation</lv-heading>
-                <lv-code code="> npm install --save @libvue/extension-home-automation" lang="shell" />
-            </lv-card>
-        </lv-group>
-
     </div>
 </template>
 
