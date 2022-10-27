@@ -1,17 +1,56 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">Grids</lv-heading>
-    <lv-heading v-space-after="2" sub :level="6">Sorry, wrong address</lv-heading>
+    <lv-heading v-space-after="2" sub :level="6">We use </lv-heading>
 
-    <lv-heading v-space-after="1" :level="6">Use plain old CSS for content</lv-heading>
-    <lv-paragraph v-space-after="1">
-        We don't offer any grid system because we believe there are only two main use-cases: layout & content. Layout is
-        most of the time a one-time-job and creating a grid system for content that satisfies all needs is impossible.
-        To help you out for the most simple use-cases we've made two simple components for layout and grouping content.
-        The rest is up to your CSS skills.
-    </lv-paragraph>
-    <lv-paragraph>
-        Read more about LvGroup and LvLayout.
-    </lv-paragraph>
+    <lv-heading v-space-after="1" :level="6">Grid Components</lv-heading>
+    <lv-card v-space-after="1">
+        <lv-grid gap="1rem">
+            <lv-grid-row gap="1rem">
+                <lv-grid-column :level="6">
+                    <lv-card>6</lv-card>
+                </lv-grid-column>
+                <lv-grid-column :level="3">
+                    <lv-card>3</lv-card>
+                </lv-grid-column>
+                <lv-grid-column :level="3">
+                    <lv-card>3</lv-card>
+                </lv-grid-column>
+            </lv-grid-row>
+            <lv-grid-row>
+                <lv-grid-column :level="3">
+                    <lv-card>3</lv-card>
+                </lv-grid-column>
+                <lv-grid-column :level="4">
+                    <lv-card>4</lv-card>
+                </lv-grid-column>
+                <lv-grid-column :level="5">
+                    <lv-card>5</lv-card>
+                </lv-grid-column>
+            </lv-grid-row>
+        </lv-grid>
+    </lv-card>
+    <lv-code :code="code" lang="html"/>
 </template>
 
-<script></script>
+<script>
+const code = `
+<lv-grid-row>
+    <lv-grid-column :level="6">
+        <lv-card>6</lv-card>
+    </lv-grid-column>
+    <lv-grid-column :level="3">
+        <lv-card>3</lv-card>
+    </lv-grid-column>
+    <lv-grid-column :level="3">
+        <lv-card>3</lv-card>
+    </lv-grid-column>
+</lv-grid-row>
+`.trim();
+export default {
+    data() {
+        return {
+            code,
+        }
+    }
+}
+</script>

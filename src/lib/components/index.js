@@ -1,3 +1,6 @@
+import LvGrid from './LvGrid/LvGrid.vue';
+import LvGridRow from './LvGrid/LvGridRow.vue';
+import LvGridColumn from './LvGrid/LvGridColumn.vue';
 import LvPagination from './LvPagination/LvPagination.vue';
 import LvHero from './LvHero/LvHero.vue';
 import LvHorizontalNavItem from './LvHorizontalNav/LvHorizontalNavItem.vue';
@@ -41,6 +44,9 @@ import LvToasts from './LvToasts/LvToasts.vue';
 import LvWidget from './LvWidget/LvWidget.vue';
 
 export default {
+    LvGrid,
+    LvGridRow,
+    LvGridColumn,
     LvPagination,
     LvHero,
     LvHorizontalNavItem,
