@@ -41,6 +41,7 @@
                     <lv-vertical-nav-item to="lv-button" label="Button" />
                     <lv-vertical-nav-item to="lv-tabs" label="Tabs" />
                     <lv-vertical-nav-item label="Link" to="lv-link" />
+                    <lv-vertical-nav-item label="Pagination" to="lv-pagination" />
                     <lv-vertical-nav-item label="Breadcrumbs" to="lv-breadcrumbs" />
                 </lv-vertical-nav-list>
                 <lv-vertical-nav-list icon="bar-chart-2" label="Data Visualization">

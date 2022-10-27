@@ -48,6 +48,7 @@ import LvDrawer from '../views/components/lv-drawer.vue';
 import LvTooltip from '../views/components/lv-tooltip.vue';
 import LvToast from '../views/components/lv-toast.vue';
 import LvPopover from '../views/components/lv-popover.vue';
+import LvPagination from '../views/components/lv-pagination.vue';
 import LvAccordion from '../views/components/lv-accordion.vue';
 import LvHeader from '../views/components/lv-header.vue';
 
@@ -87,6 +88,11 @@ const routes = [
         path: '/lv-header',
         name: 'lv-header',
         component: LvHeader,
+    },
+    {
+        path: '/lv-pagination',
+        name: 'lv-pagination',
+        component: LvPagination,
     },
     {
         path: '/lv-tooltip',
