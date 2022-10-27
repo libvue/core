@@ -1,19 +1,17 @@
 <template>
     <Teleport :to="teleportTarget">
-        <transition name="fade">
-            <UseFocusTrap v-if="show" :options="{ immediate: true }">
-                <div v-if="show" ref="dialog" class="lv-dialog" role="dialog" :aria-modal="modal">
-                    <div class="lv-dialog__overlay" @click="onClickOverlay"></div>
-                    <div class="lv-dialog__content">
-                        <slot name="default">
-                            <div v-if="!!$slots.title" class="lv-dialog__title"><slot name="title"></slot></div>
-                            <div v-if="!!$slots.description" class="lv-dialog__description"><slot name="description"></slot></div>
-                            <div v-if="!!$slots.close" class="lv-dialog__close"><slot name="close"></slot></div>
-                        </slot>
-                    </div>
+        <UseFocusTrap v-if="show" :options="{ immediate: true }">
+            <div v-if="show" ref="dialog" class="lv-dialog" role="dialog" :aria-modal="modal">
+                <div class="lv-dialog__overlay" @click="onClickOverlay"></div>
+                <div class="lv-dialog__content">
+                    <slot name="default">
+                        <div v-if="!!$slots.title" class="lv-dialog__title"><slot name="title"></slot></div>
+                        <div v-if="!!$slots.description" class="lv-dialog__description"><slot name="description"></slot></div>
+                        <div v-if="!!$slots.close" class="lv-dialog__close"><slot name="close"></slot></div>
+                    </slot>
                 </div>
-            </UseFocusTrap>
-        </transition>
+            </div>
+        </UseFocusTrap>
     </Teleport>
 </template>
 

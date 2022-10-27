@@ -4,32 +4,30 @@ $colors: (
     "default": (
         normal: $color-default,
         light: $color-default-light,
-        shadowFocus: $shadow-focus-default,
     ),
     "danger": (
         normal: $color-danger,
         light: $color-danger-light,
-        shadowFocus: $shadow-focus-danger,
     ),
     "warning": (
         normal: $color-warning,
         light: $color-warning-light,
-        shadowFocus: $shadow-focus-warning,
     ),
     "success": (
         normal: $color-success,
         light: $color-success-light,
-        shadowFocus: $shadow-focus-success,
-    ),
-    "primary": (
-        normal: $color-primary,
-        light: $color-primary-light,
-        shadowFocus: $shadow-focus-primary,
     ),
     "info": (
         normal: $color-info,
         light: $color-info-light,
-        shadowFocus: $shadow-focus-info,
+    ),
+    "primary": (
+        normal: $color-primary,
+        light: $color-primary-light,
+    ),
+    "secondary": (
+        normal: $color-secondary,
+        light: $color-secondary-light,
     ),
 );
 
@@ -40,32 +38,22 @@ $colors: (
         &--color-solid-#{$color} {
             background-color: map-get($classMap, "normal");
             color: $text-color-inverted;
-            &:focus {
-                box-shadow: map-get($classMap, "shadowFocus");
-            }
         }
         // Solid Light
         &--color-solid-light-#{$color} {
             background-color: map-get($classMap, "light");
-            color: $text-color;
-            &:focus {
-                box-shadow: map-get($classMap, "shadowFocus");
-            }
+            color: map-get($classMap, "normal");
         }
         // Outline
         &--color-outline-#{$color} {
             border: 1px solid map-get($classMap, "normal");
             color: map-get($classMap, "normal");
-            &:focus {
-                box-shadow: map-get($classMap, "shadowFocus");
-            }
         }
-        // Outline Light
-        &--color-outline-light-#{$color} {
-            border: 1px solid map-get($classMap, "light");
-            color: map-get($classMap, "light");
-            &:focus {
-                box-shadow: map-get($classMap, "shadowFocus");
+        // Ghost
+        &--color-ghost-#{$color} {
+            color: map-get($classMap, "normal");
+            &:hover {
+                background-color: map-get($classMap, "light");
             }
         }
     }

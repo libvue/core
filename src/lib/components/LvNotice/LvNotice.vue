@@ -8,7 +8,6 @@
             <lv-button
                 :color="buttonColor"
                 :label="buttonText"
-                :color-type="buttonColorType"
                 size="small"
                 @click="onClickButton"
             />
@@ -25,7 +24,7 @@ export default {
     components: {
         LvIcon,
     },
-    mixins: [propColorMixin('light-default', 'solid'), propSizeMixin()],
+    mixins: [propColorMixin('solid-light-default'), propSizeMixin()],
     props: {
         icon: {
             type: String,
@@ -45,18 +44,14 @@ export default {
         },
         buttonColor: {
             type: String,
-            default: 'default',
-        },
-        buttonColorType: {
-            type: String,
-            default: 'solid',
+            default: 'solid-default',
         },
     },
     emits: ['click-button'],
     computed: {
         classObject() {
             return {
-                [`lv-notice--color-${this.colorType}-${this.color}`]: true,
+                [`lv-notice--color-${this.color}`]: true,
                 [`lv-notice--size-${this.size}`]: true,
             };
         },

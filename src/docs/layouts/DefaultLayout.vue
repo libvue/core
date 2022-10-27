@@ -14,7 +14,7 @@
                     <lv-divider direction="vertical"/>
                 </template>
                 <template #extra>
-                    <lv-button icon="github" color="light-default" />
+                    <lv-button icon="github" color="ghost-default" />
                 </template>
             </lv-header>
         </template>

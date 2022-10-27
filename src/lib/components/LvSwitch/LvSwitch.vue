@@ -69,6 +69,7 @@ export default {
     $self: &;
     display: inline-flex;
     position: relative;
+    align-items: center;
 
     &__input {
         position: relative;
@@ -79,12 +80,12 @@ export default {
         border: 2px solid #cacaca;
         border-radius: 1rem;
         width: 2rem;
-        height: 1rem;
+        height: 1.2rem;
         &:before {
             content: '';
             position: absolute;
-            height: calc(1rem - 8px);
-            width: calc(1rem - 8px);
+            height: calc(1rem - 5px);
+            width: calc(1rem - 5px);
             transition: .2s all;
             top: 2px;
             left: 2px;
@@ -164,6 +165,7 @@ export default {
         cursor: pointer;
         margin-left: 5px;
         font-size: $font-size;
+        line-height: $font-size;
     }
 }
 </style>

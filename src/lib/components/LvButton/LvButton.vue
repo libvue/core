@@ -30,7 +30,7 @@ export default {
     components: {
         LvIcon,
     },
-    mixins: [propColorMixin('default', 'solid'), navigationMixin, propSizeMixin()],
+    mixins: [propColorMixin('solid-default'), navigationMixin, propSizeMixin()],
     props: {
         label: {
             type: String,
@@ -57,7 +57,7 @@ export default {
     computed: {
         classObject() {
             return {
-                [`lv-button--color-${this.colorType}-${this.color}`]: true,
+                [`lv-button--color-${this.color}`]: !!this.color,
                 [`lv-button--size-${this.size}`]: true,
                 [`lv-button--align-${this.align}`]: !!this.align,
                 'lv-button--disabled': this.disabled || this.loading,
@@ -80,9 +80,8 @@ export default {
     position: relative;
     justify-content: center;
     align-items: center;
-    transition: $transition-time all $transition-easing;
+    // transition: $transition-time all $transition-easing;
     cursor: pointer;
-    outline: none;
     border: 1px solid transparent;
     border-radius: $border-radius;
     background: transparent;

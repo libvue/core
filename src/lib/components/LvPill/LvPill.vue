@@ -17,7 +17,7 @@ import propColorMixin from '../../mixins/propColorMixin';
 import propSizeMixin from '../../mixins/propSizeMixin';
 
 export default {
-    mixins: [propColorMixin('default', 'solid'), propSizeMixin],
+    mixins: [propColorMixin('solid-default'), propSizeMixin],
     props: {
         text: {
             type: String,
@@ -36,7 +36,7 @@ export default {
     computed: {
         classObject() {
             return {
-                [`lv-pill--color-${this.colorType}-${this.color}`]: true,
+                [`lv-pill--color-${this.color}`]: true,
             };
         },
     },

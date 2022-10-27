@@ -7,25 +7,27 @@
             <lv-heading v-space-after="1" :level="6">Solid</lv-heading>
             <lv-card v-space-after="1">
                 <lv-group>
-                    <lv-button label="Default" />
-                    <lv-button label="Primary" color="primary" />
-                    <lv-button label="Warning" color="warning" />
-                    <lv-button label="Danger" color="danger" />
-                    <lv-button label="Info" color="info" />
-                    <lv-button label="Success" color="success" />
+                    <lv-button label="Default" color="solid-default" />
+                    <lv-button label="Warning" color="solid-warning" />
+                    <lv-button label="Danger" color="solid-danger" />
+                    <lv-button label="Info" color="solid-info" />
+                    <lv-button label="Success" color="solid-success" />
+                    <lv-button label="Primary" color="solid-primary" />
+                    <lv-button label="Secondary" color="solid-secondary" />
                 </lv-group>
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeColorSolid" />
 
-            <lv-heading v-space-after="1" :level="6">Light</lv-heading>
+            <lv-heading v-space-after="1" :level="6">Solid Light</lv-heading>
             <lv-card v-space-after="1">
                 <lv-group>
-                    <lv-button label="Light Default" color="light-default" />
-                    <lv-button label="Light Primary" color="light-primary" />
-                    <lv-button label="Light Warning" color="light-warning" />
-                    <lv-button label="Light Danger" color="light-danger" />
-                    <lv-button label="Light Info" color="light-info" />
-                    <lv-button label="Light Success" color="light-success" />
+                    <lv-button label="Light Default" color="solid-light-default" />
+                    <lv-button label="Light Warning" color="solid-light-warning" />
+                    <lv-button label="Light Danger" color="solid-light-danger" />
+                    <lv-button label="Light Info" color="solid-light-info" />
+                    <lv-button label="Light Success" color="solid-light-success" />
+                    <lv-button label="Light Primary" color="solid-light-primary" />
+                    <lv-button label="Light Secondary" color="solid-light-secondary" />
                 </lv-group>
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeColorSolidLight" />
@@ -33,25 +35,27 @@
             <lv-heading v-space-after="1" :level="6">Outline</lv-heading>
             <lv-card v-space-after="1">
                 <lv-group>
-                    <lv-button label="Outline Default" color-type="outline" />
-                    <lv-button label="Outline Primary" color="primary" color-type="outline" />
-                    <lv-button label="Outline Warning" color="warning" color-type="outline" />
-                    <lv-button label="Outline Danger" color="danger" color-type="outline" />
-                    <lv-button label="Outline Info" color="info" color-type="outline" />
-                    <lv-button label="Outline Success" color="success" color-type="outline" />
+                    <lv-button label="Outline Default" color="outline-default"/>
+                    <lv-button label="Outline Warning" color="outline-warning" />
+                    <lv-button label="Outline Danger" color="outline-danger" />
+                    <lv-button label="Outline Info" color="outline-info" />
+                    <lv-button label="Outline Success" color="outline-success" />
+                    <lv-button label="Outline Primary" color="outline-primary" />
+                    <lv-button label="Outline Secondary" color="outline-secondary" />
                 </lv-group>
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeColorOutline" />
 
-            <lv-heading v-space-after="1" :level="6">Outline Light</lv-heading>
+            <lv-heading v-space-after="1" :level="6">Ghost</lv-heading>
             <lv-card v-space-after="1">
                 <lv-group>
-                    <lv-button label="Outline Light Default" color="light-default" color-type="outline" />
-                    <lv-button label="Outline Light Primary" color="light-primary" color-type="outline" />
-                    <lv-button label="Outline Light Warning" color="light-warning" color-type="outline" />
-                    <lv-button label="Outline Light Danger" color="light-danger" color-type="outline" />
-                    <lv-button label="Outline Light Info" color="light-info" color-type="outline" />
-                    <lv-button label="Outline Light Success" color="light-success" color-type="outline" />
+                    <lv-button label="Ghost Default" color="ghost-default"/>
+                    <lv-button label="Ghost Warning" color="ghost-warning" />
+                    <lv-button label="Ghost Danger" color="ghost-danger" />
+                    <lv-button label="Ghost Info" color="ghost-info" />
+                    <lv-button label="Ghost Success" color="ghost-success" />
+                    <lv-button label="Ghost Primary" color="ghost-primary" />
+                    <lv-button label="Ghost Secondary" color="ghost-secondary" />
                 </lv-group>
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeColorOutlineLight" />
@@ -98,36 +102,40 @@
 
 <script>
 const codeColorSolid = `
-<lv-button label="Default" />
-<lv-button label="Primary" color="primary" />
-<lv-button label="Warning" color="warning" />
-<lv-button label="Danger" color="danger" />
-<lv-button label="Info" color="info" />
-<lv-button label="Success" color="success" />
+<lv-button label="Default" color="solid-default" />
+<lv-button label="Warning" color="solid-warning" />
+<lv-button label="Danger" color="solid-danger" />
+<lv-button label="Info" color="solid-info" />
+<lv-button label="Success" color="solid-success" />
+<lv-button label="Primary" color="solid-primary" />
+<lv-button label="Secondary" color="solid-secondary" />
 `.trim();
 const codeColorSolidLight = `
-<lv-button label="Light Default" color="light-default"/>
-<lv-button label="Light Primary" color="light-primary" />
-<lv-button label="Light Warning" color="light-warning" />
-<lv-button label="Light Danger" color="light-danger" />
-<lv-button label="Light Info" color="light-info" />
-<lv-button label="Light Success" color="light-success" />
+<lv-button label="Light Default" color="solid-light-default" />
+<lv-button label="Light Warning" color="solid-light-warning" />
+<lv-button label="Light Danger" color="solid-light-danger" />
+<lv-button label="Light Info" color="solid-light-info" />
+<lv-button label="Light Success" color="solid-light-success" />
+<lv-button label="Light Primary" color="solid-light-primary" />
+<lv-button label="Light Secondary" color="solid-light-secondary" />
 `.trim();
 const codeColorOutline = `
-<lv-button label="Outline Default" color-type="outline"/>
-<lv-button label="Outline Primary" color="primary" color-type="outline" />
-<lv-button label="Outline Warning" color="warning" color-type="outline" />
-<lv-button label="Outline Danger" color="danger" color-type="outline" />
-<lv-button label="Outline Info" color="info" color-type="outline" />
-<lv-button label="Outline Success" color="success" color-type="outline" />
+<lv-button label="Outline Default" color="outline-default"/>
+<lv-button label="Outline Warning" color="outline-warning" />
+<lv-button label="Outline Danger" color="outline-danger" />
+<lv-button label="Outline Info" color="outline-info" />
+<lv-button label="Outline Success" color="outline-success" />
+<lv-button label="Outline Primary" color="outline-primary" />
+<lv-button label="Outline Secondary" color="outline-secondary" />
 `.trim();
 const codeColorOutlineLight = `
-<lv-button label="Outline Light Default" color="light-default" color-type="outline"/>
-<lv-button label="Outline Light Primary" color="light-primary" color-type="outline" />
-<lv-button label="Outline Light Warning" color="light-warning" color-type="outline" />
-<lv-button label="Outline Light Danger" color="light-danger" color-type="outline" />
-<lv-button label="Outline Light Info" color="light-info" color-type="outline" />
-<lv-button label="Outline Light Success" color="light-success" color-type="outline" />
+<lv-button label="Ghost Default" color="ghost-default"/>
+<lv-button label="Ghost Warning" color="ghost-warning" />
+<lv-button label="Ghost Danger" color="ghost-danger" />
+<lv-button label="Ghost Info" color="ghost-info" />
+<lv-button label="Ghost Success" color="ghost-success" />
+<lv-button label="Ghost Primary" color="ghost-primary" />
+<lv-button label="Ghost Secondary" color="ghost-secondary" />
 `.trim();
 export default {
     data() {

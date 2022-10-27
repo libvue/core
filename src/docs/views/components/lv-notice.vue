@@ -6,25 +6,25 @@
             <lv-heading v-space-after="1" :level="6">Solid</lv-heading>
             <lv-card v-space-after="1">
                 <lv-group>
-                    <lv-notice text="Default" />
-                    <lv-notice text="Primary" color="primary" />
-                    <lv-notice text="Warning" color="warning" />
-                    <lv-notice text="Danger" color="danger" />
-                    <lv-notice text="Info" color="info" />
-                    <lv-notice text="Success" color="success" />
+                    <lv-notice text="Default" color="solid-default" />
+                    <lv-notice text="Primary" color="solid-primary" />
+                    <lv-notice text="Warning" color="solid-warning" />
+                    <lv-notice text="Danger" color="solid-danger" />
+                    <lv-notice text="Info" color="solid-info" />
+                    <lv-notice text="Success" color="solid-success" />
                 </lv-group>
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeColorSolid" />
 
-            <lv-heading v-space-after="1" :level="6">Light</lv-heading>
+            <lv-heading v-space-after="1" :level="6">Solid Light</lv-heading>
             <lv-card v-space-after="1">
                 <lv-group>
-                    <lv-notice text="Light Default" color="light-default" />
-                    <lv-notice text="Light Primary" color="light-primary" />
-                    <lv-notice text="Light Warning" color="light-warning" />
-                    <lv-notice text="Light Danger" color="light-danger" />
-                    <lv-notice text="Light Info" color="light-info" />
-                    <lv-notice text="Light Success" color="light-success" />
+                    <lv-notice text="Light Default" color="solid-light-default" />
+                    <lv-notice text="Light Primary" color="solid-light-primary" />
+                    <lv-notice text="Light Warning" color="solid-light-warning" />
+                    <lv-notice text="Light Danger" color="solid-light-danger" />
+                    <lv-notice text="Light Info" color="solid-light-info" />
+                    <lv-notice text="Light Success" color="solid-light-success" />
                 </lv-group>
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeColorSolidLight" />
@@ -32,28 +32,15 @@
             <lv-heading v-space-after="1" :level="6">Outline</lv-heading>
             <lv-card v-space-after="1">
                 <lv-group>
-                    <lv-notice text="Outline Default" color-type="outline" />
-                    <lv-notice text="Outline Primary" color="primary" color-type="outline" />
-                    <lv-notice text="Outline Warning" color="warning" color-type="outline" />
-                    <lv-notice text="Outline Danger" color="danger" color-type="outline" />
-                    <lv-notice text="Outline Info" color="info" color-type="outline" />
-                    <lv-notice text="Outline Success" color="success" color-type="outline" />
+                    <lv-notice text="Outline Default" color="outline-default" />
+                    <lv-notice text="Outline Primary" color="outline-primary" />
+                    <lv-notice text="Outline Warning" color="outline-warning" />
+                    <lv-notice text="Outline Danger" color="outline-danger" />
+                    <lv-notice text="Outline Info" color="outline-info" />
+                    <lv-notice text="Outline Success" color="outline-success" />
                 </lv-group>
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeColorOutline" />
-
-            <lv-heading v-space-after="1" :level="6">Outline Light</lv-heading>
-            <lv-card v-space-after="1">
-                <lv-group>
-                    <lv-notice text="Outline Light Default" color="light-default" color-type="outline" />
-                    <lv-notice text="Outline Light Primary" color="light-primary" color-type="outline" />
-                    <lv-notice text="Outline Light Warning" color="light-warning" color-type="outline" />
-                    <lv-notice text="Outline Light Danger" color="light-danger" color-type="outline" />
-                    <lv-notice text="Outline Light Info" color="light-info" color-type="outline" />
-                    <lv-notice text="Outline Light Success" color="light-success" color-type="outline" />
-                </lv-group>
-            </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeColorOutlineLight" />
         </template>
         <template #icons>
             <lv-card v-space-after="1">
@@ -76,36 +63,28 @@
 
 <script>
 const codeColorSolid = `
-<lv-notice text="Default" />
-<lv-notice text="Primary" color="primary" />
-<lv-notice text="Warning" color="warning" />
-<lv-notice text="Danger" color="danger" />
-<lv-notice text="Info" color="info" />
-<lv-notice text="Success" color="success" />
+<lv-notice text="Default" color="solid-default"/>
+<lv-notice text="Primary" color="solid-primary" />
+<lv-notice text="Warning" color="solid-warning" />
+<lv-notice text="Danger" color="solid-danger" />
+<lv-notice text="Info" color="solid-info" />
+<lv-notice text="Success" color="solid-success" />
 `.trim();
 const codeColorSolidLight = `
-<lv-notice text="Light Default" color="light-default"/>
-<lv-notice text="Light Primary" color="light-primary" />
-<lv-notice text="Light Warning" color="light-warning" />
-<lv-notice text="Light Danger" color="light-danger" />
-<lv-notice text="Light Info" color="light-info" />
-<lv-notice text="Light Success" color="light-success" />
+<lv-notice text="Light Default" color="solid-light-default" />
+<lv-notice text="Light Primary" color="solid-light-primary" />
+<lv-notice text="Light Warning" color="solid-light-warning" />
+<lv-notice text="Light Danger" color="solid-light-danger" />
+<lv-notice text="Light Info" color="solid-light-info" />
+<lv-notice text="Light Success" color="solid-light-success" />
 `.trim();
 const codeColorOutline = `
-<lv-notice text="Outline Default" color-type="outline"/>
-<lv-notice text="Outline Primary" color="primary" color-type="outline" />
-<lv-notice text="Outline Warning" color="warning" color-type="outline" />
-<lv-notice text="Outline Danger" color="danger" color-type="outline" />
-<lv-notice text="Outline Info" color="info" color-type="outline" />
-<lv-notice text="Outline Success" color="success" color-type="outline" />
-`.trim();
-const codeColorOutlineLight = `
-<lv-notice text="Outline Light Default" color="light-default" color-type="outline"/>
-<lv-notice text="Outline Light Primary" color="light-primary" color-type="outline" />
-<lv-notice text="Outline Light Warning" color="light-warning" color-type="outline" />
-<lv-notice text="Outline Light Danger" color="light-danger" color-type="outline" />
-<lv-notice text="Outline Light Info" color="light-info" color-type="outline" />
-<lv-notice text="Outline Light Success" color="light-success" color-type="outline" />
+<lv-notice text="Outline Default" color="outline-default" />
+<lv-notice text="Outline Primary" color="outline-primary" />
+<lv-notice text="Outline Warning" color="outline-warning" />
+<lv-notice text="Outline Danger" color="outline-danger" />
+<lv-notice text="Outline Info" color="outline-info" />
+<lv-notice text="Outline Success" color="outline-success" />
 `.trim();
 const codeIcons = `<lv-notice text="This notice has an icon" icon="github"/>`.trim();
 export default {
@@ -115,7 +94,6 @@ export default {
             codeColorSolid,
             codeColorSolidLight,
             codeColorOutline,
-            codeColorOutlineLight,
             codeIcons,
             tabs: [
                 { id: 'colors', title: 'Colors', icon: 'palette' },

@@ -1,4 +1,4 @@
-export default function propColorMixin(defaultColor = 'default', defaultColorType = 'solid') {
+export default function propColorMixin(defaultColor = 'default') {
     return {
         props: {
             color: {
@@ -6,24 +6,34 @@ export default function propColorMixin(defaultColor = 'default', defaultColorTyp
                 default: defaultColor,
                 validator: (value) =>
                     [
-                        'default',
-                        'primary',
-                        'warning',
-                        'info',
-                        'danger',
-                        'success',
-                        'light-default',
-                        'light-primary',
-                        'light-warning',
-                        'light-info',
-                        'light-danger',
-                        'light-success',
+                        'solid-default',
+                        'solid-primary',
+                        'solid-warning',
+                        'solid-info',
+                        'solid-danger',
+                        'solid-success',
+
+                        'solid-light-default',
+                        'solid-light-primary',
+                        'solid-light-warning',
+                        'solid-light-info',
+                        'solid-light-danger',
+                        'solid-light-success',
+
+                        'outline-default',
+                        'outline-primary',
+                        'outline-warning',
+                        'outline-info',
+                        'outline-danger',
+                        'outline-success',
+
+                        'ghost-default',
+                        'ghost-primary',
+                        'ghost-warning',
+                        'ghost-info',
+                        'ghost-danger',
+                        'ghost-success',
                     ].includes(value),
-            },
-            colorType: {
-                type: String,
-                default: defaultColorType,
-                validator: (value) => ['solid', 'outline'].includes(value),
             },
         },
     };

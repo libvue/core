@@ -10,12 +10,13 @@
             <template #description>
                 <lv-heading :level="6">Do you want to continue?</lv-heading>
                 <lv-paragraph v-space-after="0.5">Press continue to keep doing what you were doing.</lv-paragraph>
+                <lv-switch v-model="model" v-space-after="1" label="Enable something"/>
                 <lv-input v-space-after="1" placeholder="Type something" />
             </template>
             <template #close>
                 <lv-group>
-                    <lv-button label="Cancel" color-type="outline" @click="showDialog = false"/>
-                    <lv-button label="Continue" color="primary" @click="showDialog = false"/>
+                    <lv-button label="Continue" color="solid-primary" @click="showDialog = false"/>
+                    <lv-button label="Cancel" color="solid-light-primary" @click="showDialog = false"/>
                 </lv-group>
             </template>
         </lv-dialog>
@@ -37,8 +38,8 @@ const code = `
     </template>
     <template #close>
         <lv-group>
-            <lv-button label="Cancel" color-type="outline" @click="showDialog = false"/>
-            <lv-button label="Continue" color="primary" @click="showDialog = false"/>
+            <lv-button label="Continue" color="solid-primary" @click="showDialog = false"/>
+            <lv-button label="Cancel" color="solid-light-primary" @click="showDialog = false"/>
         </lv-group>
     </template>
 </lv-dialog>
@@ -48,6 +49,7 @@ export default {
         return {
             showDialog: false,
             code,
+            model: false,
         }
     },
 };
