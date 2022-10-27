@@ -13,7 +13,7 @@ import LvChart from './LvChart/LvChart.vue';
 import LvCheckbox from './LvCheckbox/LvCheckbox.vue';
 import LvCode from './LvCode/LvCode.vue';
 import LvDialog from './LvDialog/LvDialog.vue';
-import LvDivider from './LvDivider/LvDivider.vue';
+import LvSeparator from './LvSeparator/LvSeparator.vue';
 import LvDrawer from './LvDrawer/LvDrawer.vue';
 import LvGroup from './LvGroup/LvGroup.vue';
 import LvHeading from './LvHeading/LvHeading.vue';
@@ -55,7 +55,7 @@ export default {
     LvCheckbox,
     LvCode,
     LvDialog,
-    LvDivider,
+    LvSeparator,
     LvDrawer,
     LvGroup,
     LvHeading,

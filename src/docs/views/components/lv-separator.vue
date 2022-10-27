@@ -1,10 +1,10 @@
 <template>
-    <lv-heading v-space-after="0.5" :level="3">Divider</lv-heading>
+    <lv-heading v-space-after="0.5" :level="3">Separator</lv-heading>
     <lv-heading v-space-after="2" sub :level="6">Cut the content!</lv-heading>
 
     <lv-heading v-space-after="1" :level="6">Horizontal</lv-heading>
     <lv-card v-space-after="1">
-        <lv-divider></lv-divider>
+        <lv-separator></lv-separator>
     </lv-card>
     <lv-code v-space-after="1" lang="html" :code="code" />
 
@@ -12,7 +12,7 @@
     <lv-card v-space-after="1">
         <lv-group gap="10px">
             <lv-button v-space-after="1" label="Text" />
-            <lv-divider v-space-after="1" direction="vertical"></lv-divider>
+            <lv-separator v-space-after="1" direction="vertical"></lv-separator>
             <lv-button label="Text" />
         </lv-group>
     </lv-card>
@@ -20,11 +20,11 @@
 </template>
 
 <script>
-const code = `<hr class="lv-divider" />`;
+const code = `<lv-separator></lv-separator>`;
 const codeVertical = `
 <lv-group gap="10px">
     <lv-button v-space-after="1" label="Text"/>
-    <lv-divider v-space-after="1" direction="vertical"></lv-divider>
+    <lv-separator v-space-after="1" direction="vertical"></lv-separator>
     <lv-button label="Text"/>
 </lv-group>
 `.trim();

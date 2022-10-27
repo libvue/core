@@ -40,7 +40,7 @@ import LvSwitch from '../views/components/lv-switch.vue';
 import LvWidget from '../views/components/lv-widget.vue';
 import LvPill from '../views/components/lv-pill.vue';
 import LvKeyboard from '../views/components/lv-keyboard.vue';
-import LvDivider from '../views/components/lv-divider.vue';
+import LvSeparator from '../views/components/lv-separator.vue';
 import LvIcon from '../views/components/lv-icon.vue';
 import LvAvatar from '../views/components/lv-avatar.vue';
 import LvDialog from '../views/components/lv-dialog.vue';
@@ -134,9 +134,9 @@ const routes = [
         component: LvIcon,
     },
     {
-        path: '/lv-divider',
-        name: 'lv-divider',
-        component: LvDivider,
+        path: '/lv-separator',
+        name: 'lv-separator',
+        component: LvSeparator,
     },
     {
         path: '/lv-keyboard',

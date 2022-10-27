@@ -1,5 +1,5 @@
 <template>
-    <hr class="lv-divider" :class="classObject" role="separator" />
+    <hr class="lv-separator" :class="classObject" role="separator" />
 </template>
 
 <script>
@@ -14,7 +14,7 @@ export default {
     computed: {
         classObject() {
             return {
-                [`lv-divider--direction-${this.direction}`]: true,
+                [`lv-separator--direction-${this.direction}`]: true,
             };
         },
     },
@@ -24,7 +24,7 @@ export default {
 <style lang="scss">
 @import '../../scss/variables';
 
-.lv-divider {
+.lv-separator {
     margin: 0;
     border: 0;
     background-color: $border-color;

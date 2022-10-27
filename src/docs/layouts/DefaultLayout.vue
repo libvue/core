@@ -11,7 +11,7 @@
                 <template #navigation>
                     <lv-horizontal-nav-item label="Documentation" to="install" v-space-after="1" />
                     <lv-horizontal-nav-item label="Extensions" to="extensions" v-space-after="1" />
-                    <lv-divider direction="vertical"/>
+                    <lv-separator direction="vertical"/>
                 </template>
                 <template #extra>
                     <lv-button icon="github" color="ghost-default" />
@@ -62,7 +62,7 @@
                     <lv-vertical-nav-item label="Paragraph" to="lv-paragraph" />
                     <lv-vertical-nav-item label="Blockquote" to="lv-blockquote" />
                     <lv-vertical-nav-item label="Keyboard" to="lv-keyboard" />
-                    <lv-vertical-nav-item label="Divider" to="lv-divider" />
+                    <lv-vertical-nav-item label="Separator" to="lv-separator" />
                     <lv-vertical-nav-item to="lv-code" label="Code" />
                     <lv-vertical-nav-item to="lv-notice" label="Notice" />
                     <lv-vertical-nav-item label="Accordion" to="lv-accordion" />
