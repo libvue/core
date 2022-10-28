@@ -32,8 +32,6 @@
                 <lv-vertical-nav-list icon="layout" label="Layout">
                     <lv-vertical-nav-item label="Layout" to="lv-layout" />
                     <lv-vertical-nav-item label="Header" to="lv-header" />
-                    <lv-vertical-nav-item label="Horizontal Nav" to="lv-horizontal-nav" />
-                    <lv-vertical-nav-item label="Vertical Nav" to="lv-vertical-nav" />
                     <lv-vertical-nav-item label="Card" to="lv-card" />
                     <lv-vertical-nav-item label="Group" to="lv-group" />
                 </lv-vertical-nav-list>
@@ -41,6 +39,8 @@
                     <lv-vertical-nav-item to="lv-button" label="Button" />
                     <lv-vertical-nav-item to="lv-tabs" label="Tabs" />
                     <lv-vertical-nav-item label="Link" to="lv-link" />
+                    <lv-vertical-nav-item label="Horizontal Nav" to="lv-horizontal-nav" />
+                    <lv-vertical-nav-item label="Vertical Nav" to="lv-vertical-nav" />
                     <lv-vertical-nav-item label="Pagination" to="lv-pagination" />
                     <lv-vertical-nav-item label="Breadcrumbs" to="lv-breadcrumbs" />
                 </lv-vertical-nav-list>
