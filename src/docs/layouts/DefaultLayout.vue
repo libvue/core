@@ -54,6 +54,7 @@
                     <lv-vertical-nav-item to="lv-input" label="Input" />
                     <lv-vertical-nav-item to="lv-checkbox" label="Checkbox" />
                     <lv-vertical-nav-item label="Radio" to="lv-radio" />
+                    <lv-vertical-nav-item label="Slider" to="lv-slider" />
                     <lv-vertical-nav-item label="Range Slider" to="lv-range-slider" />
                     <lv-vertical-nav-item label="Switch" to="lv-switch" />
                     <lv-vertical-nav-item label="Select" to="lv-select" />
