@@ -16,16 +16,17 @@
 
 const handler = (el, binding) => {
     const parentStyling = window.getComputedStyle(el.parentNode);
-    const parentGap = parseInt(parentStyling.gap) ? parentStyling.gap.split(' ')[0] : false;
+    const parentGap = parseInt(parentStyling.gap, 10) ? parentStyling.gap.split(' ')[0] : false;
     const parentFlexDirection = parentStyling.flexDirection;
     const parentDisplay = parentStyling.display;
     let spacingValue = `${binding.value}rem`;
 
-    if (parentDisplay === 'flex') {
+    if (parentDisplay === 'flex' || parentDisplay === 'inline-flex') {
         if (parentGap) {
             spacingValue = `calc(${spacingValue} - ${parentGap})`;
         }
         if (parentFlexDirection === 'column') {
+            // eslint-disable-next-line no-param-reassign
             el.style.marginBottom = spacingValue;
         }
         if (parentFlexDirection === 'row') {
