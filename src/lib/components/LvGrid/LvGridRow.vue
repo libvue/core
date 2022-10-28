@@ -13,18 +13,19 @@ export default {
     },
     props: {
         gap: {
-            type: String,
-            default: 'none',
+            type: [String, Number],
+            default: 0,
         }
-    }
+    },
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .lv-grid-row {
     display: flex;
-    width: 100%;
-    max-width: 100%;
-    gap: v-bind(gap);
+    flex-wrap: wrap;
+    margin-right: calc(v-bind(gap) * -.5);
+    margin-left: calc(v-bind(gap) * -.5);
+
 }
 </style>

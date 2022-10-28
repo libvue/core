@@ -1,6 +1,6 @@
 <template>
     <div class="lv-grid-column" :class="classObject">
-        <slot></slot>{{ childrenInRow }}
+        <slot></slot>
     </div>
 </template>
 
@@ -35,9 +35,12 @@ export default {
 @import '../../scss/variables';
 .lv-grid-column {
 
-    flex-basis: 0;
-    flex-grow: 1;
+    width: 100%;
     max-width: 100%;
+    box-sizing: border-box;
+
+    padding-right: calc(v-bind(rowGap) * .5);
+    padding-left: calc(v-bind(rowGap) * .5);
 
     @each $factor, $percentage in $gridFactors {
         &--#{$factor} {
