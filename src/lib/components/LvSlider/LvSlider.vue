@@ -2,10 +2,7 @@
     <div class="lv-slider" :class="classNames">
         <div class="lv-slider__track">
             <div ref="track" class="lv-slider__track-limits">
-                <div
-                    class="lv-slider__indicator"
-                    :style="{ left: 0, right: 100 - indicatorRight + '%' }"
-                />
+                <div class="lv-slider__indicator" :style="{ left: 0, right: 100 - indicatorRight + '%' }" />
                 <div
                     class="lv-slider__thumb lv-slider__thumb"
                     :style="{ left: thumbPosition + '%' }"
@@ -320,18 +317,18 @@ export default {
         top: 0;
         bottom: 0;
         transition: background-color 0.2s;
+        margin: 0 -7px;
+        border-radius: 4px;
         background-color: $color-primary;
         height: 4px;
-        border-radius: 4px;
-        margin: 0 -7px;
     }
 
     &__track {
         position: relative;
         transition: background-color 0.2s;
         border-radius: 4px;
-        padding: 0 7px;
         background-color: $border-color;
+        padding: 0 7px;
         height: 4px;
     }
 
