@@ -1,3 +1,4 @@
+import LvSlider from './LvSlider/LvSlider.vue';
 import LvPagination from './LvPagination/LvPagination.vue';
 import LvHero from './LvHero/LvHero.vue';
 import LvHorizontalNavItem from './LvHorizontalNav/LvHorizontalNavItem.vue';
@@ -41,6 +42,7 @@ import LvToasts from './LvToasts/LvToasts.vue';
 import LvWidget from './LvWidget/LvWidget.vue';
 
 export default {
+    LvSlider,
     LvPagination,
     LvHero,
     LvHorizontalNavItem,
