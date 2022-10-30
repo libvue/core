@@ -64,7 +64,7 @@ export default {
     width: 100%;
     font-size: var(--font-size);
     font-family: var(--font-family);
-    color: var(--text-color);
+    color: var(--text-color-dimmed);
 
     &:last-of-type {
         margin-bottom: 0;
@@ -100,7 +100,7 @@ export default {
         margin-top: 10px;
         margin-bottom: 10px;
         margin-left: 18px;
-        border-left: 1px solid #eaeaea;
+        border-left: 1px solid var(--text-color-dimmed);
         background-color: var(--background-color);
         padding-left: 13px;
         overflow: hidden;
