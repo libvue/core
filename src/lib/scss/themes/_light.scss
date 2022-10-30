@@ -41,6 +41,9 @@ $theme-light-shadow-focus-info: 0px 0px 0px 3px rgba($theme-light-color-info, 0.
 $theme-light-shadow-focus-ghost: 0px 0px 0px 3px rgba(darken($theme-light-color-ghost, 56), 0.23) !default;
 $theme-light-code-background-color: #f9f9f9;
 $theme-light-blockquote-background-color: #f9f9f9;
+$theme-light-scrollbar-track-background-color: #eeeeee;
+$theme-light-scrollbar-thumb-background-color: #c5c5c5;
+$theme-light-scrollbar-thumb-border-radius: 0px;
 
 $theme-light: (
     background-color: $theme-light-background-color,
@@ -86,4 +89,7 @@ $theme-light: (
     shadow-focus-ghost: $theme-light-shadow-focus-ghost,
     code-background-color: $theme-light-code-background-color,
     blockquote-background-color: $theme-light-blockquote-background-color,
+    scrollbar-track-background-color: $theme-light-scrollbar-track-background-color,
+    scrollbar-thumb-background-color: $theme-light-scrollbar-thumb-background-color,
+    scrollbar-thumb-border-radius: $theme-light-scrollbar-thumb-border-radius,
 );

@@ -27,49 +27,52 @@
 const codeThemeVariables = `
 // Create a mixin so you can reuse it
 @mixin lightThemeOverrides {
-    --background-color: #ffffff;
-    --header-color: rgba(255, 255, 255, 0.8);
-    --color-default: #121315;
-    --color-default-dimmed: #ebecee;
+    --background-color: #0e0e0e;
+    --header-color: rgba(14, 14, 15, 0.75);
+    --color-default: #8f8f8f;
+    --color-default-dimmed: black;
     --color-info: #3f8cff;
-    --color-info-dimmed: #f2f7ff;
+    --color-info-dimmed: #00388c;
     --color-success: #13c083;
-    --color-success-dimmed: #e0fcf2;
+    --color-success-dimmed: #042b1e;
     --color-warning: #ff7a27;
-    --color-warning-dimmed: #fff1e9;
+    --color-warning-dimmed: #642700;
     --color-danger: #ff2740;
-    --color-danger-dimmed: #ffeef0;
-    --color-ghost: #ffffff;
-    --color-primary: #5937f3;
-    --color-primary-dimmed: #f1eefe;
+    --color-danger-dimmed: #74000d;
+    --color-ghost: #0e0e0e;
+    --color-primary: #7a5cff;
+    --color-primary-dimmed: #180085;
     --color-secondary: #9c6bfe;
-    --color-secondary-dimmed: #f7f4ff;
+    --color-secondary-dimmed: #310192;
     --color-white: #fff;
     --color-black: #000;
-    --text-color: #0b0b0c;
-    --text-color-dimmed: #3c3c41;
-    --text-color-inverted: #f4f4f3;
-    --border-color: #e0e0e0;
+    --text-color: #d3d3d3;
+    --text-color-dimmed: #868686;
+    --text-color-inverted: #2c2c2c;
+    --border-color: #383838;
     --border-color-light: #f4f4f4;
-    --border-color-focus: #868690;
-    --placeholder-color-primary: #d1c7fc;
+    --border-color-focus: white;
+    --placeholder-color-primary: #f7f5ff;
     --placeholder-color-success: #1de9a1;
     --placeholder-color-info: #d8e8ff;
     --placeholder-color-warning: #ffd8c0;
     --placeholder-color-danger: #ffc0c7;
-    --placeholder-color: #6d6d76;
-    --shadow: 0 12px 8px -8px rgba(0, 0, 0, 0.05);
+    --placeholder-color: white;
+    --shadow: 0 12px 8px -8px rgba(0, 0, 0, 0.4);
     --shadow-dialog: 0 5px 8px 2px rgba(0, 0, 0, 0.15);
     --shadow-popover: 0 0 8px 2px rgba(0, 0, 0, 0.05);
-    --shadow-focus-default: 0px 0px 0px 3px rgba(18, 19, 21, 0.06);
-    --shadow-focus-primary: 0px 0px 0px 3px rgba(89, 55, 243, 0.12);
+    --shadow-focus-default: 0px 0px 0px 3px rgba(143, 143, 143, 0.06);
+    --shadow-focus-primary: 0px 0px 0px 3px rgba(122, 92, 255, 0.12);
     --shadow-focus-success: 0px 0px 0px 3px rgba(19, 192, 131, 0.12);
     --shadow-focus-warning: 0px 0px 0px 3px rgba(255, 122, 39, 0.14);
     --shadow-focus-danger: 0px 0px 0px 3px rgba(255, 39, 64, 0.24);
     --shadow-focus-info: 0px 0px 0px 3px rgba(63, 140, 255, 0.23);
-    --shadow-focus-ghost: 0px 0px 0px 3px rgba(112, 112, 112, 0.23);
-    --code-background-color: #f9f9f9;
+    --shadow-focus-ghost: 0px 0px 0px 3px rgba(0, 0, 0, 0.23);
+    --code-background-color: #060606;
     --blockquote-background-color: #f9f9f9;
+    --scrollbar-track-background-color: #141414;
+    --scrollbar-thumb-background-color: #303030;
+    --scrollbar-thumb-border-radius: 0px;
 }
 
 // Add it to the media query first
