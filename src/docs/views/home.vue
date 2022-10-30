@@ -9,7 +9,7 @@
                 <lv-button color="solid-primary" icon="book-open" @click="$router.push('/docs/install')">
                     Documentation
                 </lv-button>
-                <lv-button color="outline-primary" icon="github" @click="goToGithub">Github</lv-button>
+                <lv-button color="solid-dimmed-primary" icon="github" @click="goToGithub">Github</lv-button>
             </template>
         </lv-hero>
     </div>

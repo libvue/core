@@ -40,7 +40,12 @@ $colors: (
         // Solid Light
         &--color-solid-dimmed-#{$color} {
             background-color: map-get($classMap, "dimmed");
-            color: map-get($classMap, "normal");
+            @if $color == 'default' {
+                color: var(--text-color);
+            } @else {
+                color: map-get($classMap, "normal");
+            }
+
         }
         // Outline
         &--color-outline-#{$color} {
