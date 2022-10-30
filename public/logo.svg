@@ -1,7 +1,12 @@
-<svg height="235" width="938" xmlns="http://www.w3.org/2000/svg">
+<svg width="200" viewBox="0 0 938 235" xmlns="http://www.w3.org/2000/svg">
     <style>
         .text {
-            fill: currentColor;
+            fill: black;
+        }
+        @media (prefers-color-scheme: dark) {
+            .text {
+                fill: white;
+            }
         }
     </style>
     <path d="M0 11C0 4.925 4.925 0 11 0h69c6.075 0 11 4.925 11 11v224H11c-6.075 0-11-4.925-11-11V11Z" fill="#4637F3"></path>
