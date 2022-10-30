@@ -47,11 +47,14 @@ const navigationMixin = {
          */
         href() {
             if (this.to) {
+                const resolve = this.$router.resolve(this.to);
+                if (resolve) {
+                    return resolve.href;
+                }
                 if (useURLValidator(this.to)) {
                     return this.to;
                 }
-                const resolve = this.$router.resolve(this.to);
-                return resolve.href;
+                return null;
             }
             return null; // Returning false to prevent a :href attr to be set
         },
@@ -75,6 +78,7 @@ const navigationMixin = {
             if (this.to && !this.isExternalLink) {
                 if (this.target === '_blank' || this.toEqualsCurrentRoute || cmdOrCtrl) {
                     const resolved = this.$router.resolve(this.to);
+                    console.log(resolved);
                     window.open(resolved.href, target);
                 } else {
                     this.$router.push(this.to);

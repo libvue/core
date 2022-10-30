@@ -1,3 +1,4 @@
+import LvTextarea from './LvTextarea/LvTextarea.vue';
 import LvThemeToggle from './LvThemeToggle/LvThemeToggle.vue';
 import LvGrid from './LvGrid/LvGrid.vue';
 import LvGridRow from './LvGrid/LvGridRow.vue';
@@ -46,6 +47,7 @@ import LvToasts from './LvToasts/LvToasts.vue';
 import LvWidget from './LvWidget/LvWidget.vue';
 
 export default {
+    LvTextarea,
     LvThemeToggle,
     LvGrid,
     LvGridRow,
