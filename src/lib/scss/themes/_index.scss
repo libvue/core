@@ -2,10 +2,21 @@
 @import 'dark';
 @import 'light';
 
-:root {
-    @each $key, $value in $theme-light {
-        --#{$key}: #{$value};
+@media (prefers-color-scheme: dark) {
+    :root {
+        @each $key, $value in $theme-dark {
+            --#{$key}: #{$value};
+        }
     }
+}
+@media (prefers-color-scheme: light) {
+    :root {
+        @each $key, $value in $theme-light {
+            --#{$key}: #{$value};
+        }
+    }
+}
+:root {
     @each $key, $value in $globals {
         --#{$key}: #{$value};
     }

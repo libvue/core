@@ -102,7 +102,7 @@ export default {
     &__icon {
         position: absolute;
         top: calc(var(--padding) * 0.75 + 2px);
-        left: var(--padding) - 2px;
+        left: calc(var(--padding) - 2px);
         color: var(--text-color);
     }
 
