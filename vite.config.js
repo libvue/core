@@ -12,12 +12,13 @@ export default defineConfig({
             fileName: (format) => `libvue.${format}.js`,
         },
         rollupOptions: {
-            external: ['vue', 'highlight.js'],
+            external: ['vue', 'highlight.js', 'chart.js/auto'],
             output: {
                 exports: 'named',
                 globals: {
                     vue: 'Vue',
                     'highlight.js': 'hljs',
+                    'chart.js/auto': 'Chart',
                 },
             },
         },
