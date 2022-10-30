@@ -1,3 +1,4 @@
+import LvTextarea from '../../../views/documentation/components/lv-textarea.vue';
 import LvButton from '../../../views/documentation/components/lv-button.vue';
 import LvInput from '../../../views/documentation/components/lv-input.vue';
 import LvRangeSlider from '../../../views/documentation/components/lv-range-slider.vue';
@@ -38,6 +39,11 @@ import LvAccordion from '../../../views/documentation/components/lv-accordion.vu
 import LvHeader from '../../../views/documentation/components/lv-header.vue';
 
 export default [
+    {
+        path: '/docs/lv-textarea',
+        name: 'lv-textarea',
+        component: LvTextarea,
+    },
     {
         path: '/docs/lv-header',
         name: 'lv-header',

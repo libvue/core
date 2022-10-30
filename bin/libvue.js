@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+/* eslint-disable */
 
 // Dependencies
 const { Command } = require('commander');
@@ -6,7 +7,7 @@ const fs = require('fs');
 const path = require('path');
 const detectCase = require('detect-case');
 const pascalToKebab = require('./utils/pascal-to-kebab');
-const template = require('./utils/template');
+const { vueTemplate, docTemplate, routeTemplate } = require('./utils/templates');
 
 // Setup a new program
 const program = new Command();
@@ -14,7 +15,8 @@ program.name('libvue-util').description('Libvue CLI is here to help work faster!
 
 // A little configuration
 const config = {
-    docsViewsDir: path.join(__dirname, `../src/docs/views/components`),
+    componentDocsViewDir: path.join(__dirname, `../src/docs/views/documentation/components`),
+    componentRouteFile: path.join(__dirname, `../src/docs/router/routes/documentation/components.js`),
     libComponentsDir: path.join(__dirname, `../src/lib/components`),
     libComponentsIndex: path.join(__dirname, `../src/lib/components/index.js`),
 };
@@ -38,6 +40,7 @@ program
         // Prepare some folders and files we need to check
         const componentFolder = path.join(`${config.libComponentsDir}/${componentName}`);
         const componentFile = path.join(`${config.libComponentsDir}/${componentName}/${componentName}.vue`);
+        const docViewFile = path.join(`${config.componentDocsViewDir}/${pascalToKebab(componentName)}.vue`);
         const componentFolderExists = fs.existsSync(componentFolder);
         const componentFileExists = fs.existsSync(componentFile);
 
@@ -51,8 +54,8 @@ program
                 console.log(`Created Directory: ${componentFolder}`);
             }
             // Create the <componentName>/<componentName>.vue file
-            fs.writeFileSync(componentFile, template.replace(/%name%/g, pascalToKebab(componentName)));
-            console.log(`Created File: ${componentFile}`);
+            fs.writeFileSync(componentFile, vueTemplate.replace(/%name%/g, pascalToKebab(componentName)));
+            console.log(`Created Component: ${componentFile}`);
 
             // Register the component in <componentFolder>/index.js
             let libComponentsIndexContent = fs.readFileSync(config.libComponentsIndex, 'utf8');
@@ -63,6 +66,32 @@ program
                 exportLine
             );
             fs.writeFileSync(config.libComponentsIndex, libComponentsIndexContent);
+
+            // Create documentation file
+            if (options.docs) {
+                // Create doc view file
+                fs.writeFileSync(
+                    docViewFile,
+                    docTemplate
+                        .replace(/%name%/g, componentName)
+                        .replace(/%component%/g, `<${pascalToKebab(componentName)}/>`)
+                );
+                console.log(`Created Doc View: ${componentFile}`);
+
+                // Register doc view component in routes/documentation/index.js
+                let componentRouteFileContent = fs.readFileSync(config.componentRouteFile, 'utf8');
+                const importLine = `import ${componentName} from '../../../views/documentation/components/${pascalToKebab(
+                    componentName
+                )}.vue';\n`;
+                const exportLine = `export default [\n    ${routeTemplate
+                    .replace(/%pascal-name%/g, componentName)
+                    .replace(/%kebab-name%/g, pascalToKebab(componentName))},`;
+                componentRouteFileContent = `${importLine}${componentRouteFileContent}`.replace(
+                    'export default [',
+                    exportLine
+                );
+                fs.writeFileSync(config.componentRouteFile, componentRouteFileContent);
+            }
 
             console.log(`Updated index at ${config.libComponentsIndex}`);
         }

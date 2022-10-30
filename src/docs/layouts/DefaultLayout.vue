@@ -65,6 +65,7 @@
                     <lv-vertical-nav-item label="Range Slider" to="/docs/lv-range-slider" />
                     <lv-vertical-nav-item label="Switch" to="/docs/lv-switch" />
                     <lv-vertical-nav-item label="Select" to="/docs/lv-select" />
+                    <lv-vertical-nav-item label="Textarea" to="/docs/lv-textarea" />
                 </lv-vertical-nav-list>
                 <lv-vertical-nav-list icon="pencil" label="Writing">
                     <lv-vertical-nav-item to="/docs/lv-heading" label="Heading" />
