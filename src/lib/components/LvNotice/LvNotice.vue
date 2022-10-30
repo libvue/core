@@ -1,6 +1,8 @@
 <template>
     <div class="lv-notice" :class="classObject" v-bind="$attrs" role="alert">
-        <lv-icon v-if="icon" class="lv-notice__icon" :name="icon" />
+        <div v-if="icon" class="lv-notice__icon">
+            <lv-icon class="lv-notice__svg" :name="icon" />
+        </div>
         <div class="lv-notice__content">
             <slot>{{ text }}</slot>
         </div>
@@ -17,14 +19,13 @@
 
 <script>
 import propColorMixin from '../../mixins/propColorMixin';
-import propSizeMixin from '../../mixins/propSizeMixin';
 import LvIcon from '../LvIcon/LvIcon.vue';
 
 export default {
     components: {
         LvIcon,
     },
-    mixins: [propColorMixin('solid-dimmed-default'), propSizeMixin()],
+    mixins: [propColorMixin('solid-dimmed-default')],
     props: {
         icon: {
             type: String,
@@ -52,7 +53,6 @@ export default {
         classObject() {
             return {
                 [`lv-notice--color-${this.color}`]: true,
-                [`lv-notice--size-${this.size}`]: true,
             };
         },
     },
@@ -71,24 +71,32 @@ export default {
 .lv-notice {
     display: flex;
     position: relative;
-    align-items: center;
     box-sizing: border-box;
     border: 1px solid transparent;
     border-radius: var(--border-radius);
     color: var(--text-color);
     width: 100%;
+    justify-content: flex-start;
 
     &__icon {
-        flex-shrink: 0;
-        margin-right: 10px;
+        display: flex;
+        font-size: var(--font-size);
+        padding: 1rem 0 1rem 1rem;
+        align-items: center;
+        justify-content: center;
     }
-
+    &__content {
+        padding: 1rem;
+        flex-grow: 1;
+    }
     &__button {
         margin-left: auto;
-        padding-left: 1rem;
+        padding-right: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     @include color-mixin;
-    @include size-mixin;
 }
 </style>

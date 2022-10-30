@@ -11,7 +11,7 @@
     <lv-heading v-space-after="1" :level="6">Cherry pick some components</lv-heading>
     <lv-code v-space-after="1" :code="installCherryCode" lang="js" />
 
-    <lv-notice icon="bell">Both use a global css file so that this library can also be used in a SSR environment.</lv-notice>
+    <lv-notice icon="bell" color="solid-dimmed-primary">Both use a global css file so that this library can also be used in a SSR environment.</lv-notice>
 </template>
 
 <script>
