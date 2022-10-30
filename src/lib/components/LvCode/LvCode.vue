@@ -1,9 +1,7 @@
 <template>
     <div
         class="lv-code"
-        :class="{
-            'lv-code--titled': title,
-        }"
+        :class="classObject"
     >
         <div v-if="title" class="lv-code__title">
             {{ title }}
@@ -38,6 +36,10 @@ export default {
             validator: (value) =>
                 ['js', 'vue', 'html', 'php', 'bash', 'shell', 'typescript', 'blade', 'scss'].includes(value),
         },
+        inline: {
+            type: Boolean,
+            default: false,
+        }
     },
     data() {
         return {
@@ -48,6 +50,12 @@ export default {
         html() {
             return hljs.highlightAuto(this.code, [this.lang]).value;
         },
+        classObject() {
+            return {
+                'lv-code--titled': !!this.title,
+                'lv-code--inline': !!this.inline,
+            }
+        }
     },
     methods: {
         copyCodeToClipboard() {
@@ -107,6 +115,12 @@ export default {
         }
     }
 
+    &__code {
+        margin: 0;
+        padding: 0;
+        overflow-x: auto;
+    }
+
     &--titled {
         #{$self}__content {
             border-radius: 0 0 var(--border-radius) var(--border-radius);
@@ -114,10 +128,20 @@ export default {
         }
     }
 
-    &__code {
-        margin: 0;
-        padding: 0;
-        overflow-x: auto;
+    &--inline {
+        width: auto;
+        display: inline-block;
+        vertical-align: middle;
+
+        #{$self}__content {
+            padding: calc(var(--padding) * .2) calc(var(--padding) * .8);
+            padding-right: 35px;
+
+            &-copy {
+                top: 10px;
+                right: 11px;
+            }
+        }
     }
 }
 </style>
