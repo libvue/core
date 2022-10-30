@@ -62,7 +62,7 @@ export default {
         align-items: center;
         justify-content: center;
         box-sizing: border-box;
-        transition: .2s all ease-in-out;
+        transition: .2s margin ease-in-out;
     }
     &--dark {
         #{$self}__thumb {

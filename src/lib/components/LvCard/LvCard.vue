@@ -23,6 +23,7 @@ export default {
     border-radius: var(--border-radius);
     background-color: var(--background-color);
     padding: calc(var(--padding) * 1.5);
+    color: var(--text-color);
 
     &--inline {
         display: inline-block;

@@ -5,9 +5,9 @@
     <lv-heading v-space-after="1" :level="6">Row Direction (Default)</lv-heading>
     <lv-card v-space-after="1">
         <lv-group>
-            <lv-button label="Hello" color="warning" />
-            <lv-button label="Hello" color="danger" />
-            <lv-button label="Hello" color="primary" />
+            <lv-button label="Hello" color="solid-warning" />
+            <lv-button label="Hello" color="solid-danger" />
+            <lv-button label="Hello" color="solid-primary" />
         </lv-group>
     </lv-card>
     <lv-code v-space-after="1" lang="html" :code="codeRow" />
@@ -15,9 +15,9 @@
     <lv-heading v-space-after="1" :level="6">Column Direction</lv-heading>
     <lv-card v-space-after="1">
         <lv-group direction="column">
-            <lv-button label="Hello" color="warning" />
-            <lv-button label="Hello" color="danger" />
-            <lv-button label="Hello" color="primary" />
+            <lv-button label="Hello" color="solid-warning" />
+            <lv-button label="Hello" color="solid-danger" />
+            <lv-button label="Hello" color="solid-primary" />
         </lv-group>
     </lv-card>
     <lv-code v-space-after="1" lang="html" :code="codeColumn" />
