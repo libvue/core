@@ -1,4 +1,4 @@
-import Install from '../../../views/getting-started/install.vue';
+import Install from '../../../views/documentation/getting-started/install.vue';
 
 export default [
     {

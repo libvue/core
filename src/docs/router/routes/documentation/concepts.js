@@ -1,6 +1,6 @@
-import Grids from '../../../views/concepts/grids.vue';
-import Spacing from '../../../views/concepts/spacing.vue';
-import Theming from '../../../views/concepts/theming.vue';
+import Grids from '../../../views/documentation/concepts/grids.vue';
+import Spacing from '../../../views/documentation/concepts/spacing.vue';
+import Theming from '../../../views/documentation/concepts/theming.vue';
 
 export default [
     {

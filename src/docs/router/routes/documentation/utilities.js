@@ -1,6 +1,6 @@
-import NavigationMixin from '../../../views/utilities/navigation-mixin.vue';
-import VSpaceAfter from '../../../views/utilities/v-space-after.vue';
-import VBadge from '../../../views/utilities/v-badge.vue';
+import NavigationMixin from '../../../views/documentation/utilities/navigation-mixin.vue';
+import VSpaceAfter from '../../../views/documentation/utilities/v-space-after.vue';
+import VBadge from '../../../views/documentation/utilities/v-badge.vue';
 
 export default [
     {

@@ -1,13 +1,17 @@
 <template>
     <div class="splash">
-
-        <lv-hero title="Libvue" description="An extendable collection of Vue components to quickly scaffold interfaces." v-space-after="4">
+        <lv-hero
+            v-space-after="4"
+            title="Libvue"
+            description="An extendable collection of Vue components to quickly scaffold interfaces."
+        >
             <template #buttons>
-                <lv-button color="solid-primary" icon="book-open" @click="$router.push('install')">Documentation</lv-button>
+                <lv-button color="solid-primary" icon="book-open" @click="$router.push('/docs/install')">
+                    Documentation
+                </lv-button>
                 <lv-button color="outline-primary" icon="github" @click="goToGithub">Github</lv-button>
             </template>
         </lv-hero>
-
     </div>
 </template>
 
@@ -16,7 +20,7 @@ export default {
     methods: {
         goToGithub() {
             window.open('https://github.com/harmendv/libvue', '_blank');
-        }
+        },
     },
 };
 </script>
@@ -24,10 +28,10 @@ export default {
 <style lang="scss">
 .splash {
     display: flex;
-    align-items: flex-start;
     flex-direction: column;
-    height: 100%;
+    align-items: flex-start;
     margin: auto;
     padding-top: 100px;
+    height: 100%;
 }
 </style>
