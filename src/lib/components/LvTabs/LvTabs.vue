@@ -75,7 +75,7 @@ export default {
         text-align: center;
         white-space: nowrap;
         &:focus:not(&--active) {
-            border-color: var(--color-primary-light);
+            border-color: var(--color-primary-dimmed);
         }
 
         &--active {

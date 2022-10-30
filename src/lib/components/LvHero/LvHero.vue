@@ -42,6 +42,8 @@ export default {
 .lv-hero {
     $self: &;
     display: flex;
+    color: var(--text-color);
+
     &__content {
         display: flex;
         flex-direction: column;

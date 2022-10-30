@@ -24,7 +24,7 @@ export default {
     components: {
         LvIcon,
     },
-    mixins: [propColorMixin('solid-light-default'), propSizeMixin()],
+    mixins: [propColorMixin('solid-dimmed-default'), propSizeMixin()],
     props: {
         icon: {
             type: String,
@@ -75,6 +75,7 @@ export default {
     box-sizing: border-box;
     border: 1px solid transparent;
     border-radius: var(--border-radius);
+    color: var(--text-color);
     width: 100%;
 
     &__icon {

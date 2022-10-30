@@ -1,31 +1,31 @@
 $colors: (
     "default": (
         normal: var(--color-default),
-        light: var(--color-default-light),
+        dimmed: var(--color-default-dimmed),
     ),
     "danger": (
         normal: var(--color-danger),
-        light: var(--color-danger-light),
+        dimmed: var(--color-danger-dimmed),
     ),
     "warning": (
         normal: var(--color-warning),
-        light: var(--color-warning-light),
+        dimmed: var(--color-warning-dimmed),
     ),
     "success": (
         normal: var(--color-success),
-        light: var(--color-success-light),
+        dimmed: var(--color-success-dimmed),
     ),
     "info": (
         normal: var(--color-info),
-        light: var(--color-info-light),
+        dimmed: var(--color-info-dimmed),
     ),
     "primary": (
         normal: var(--color-primary),
-        light: var(--color-primary-light),
+        dimmed: var(--color-primary-dimmed),
     ),
     "secondary": (
         normal: var(--color-secondary),
-        light: var(--color-secondary-light),
+        dimmed: var(--color-secondary-dimmed),
     ),
 );
 
@@ -35,11 +35,11 @@ $colors: (
         // Solid
         &--color-solid-#{$color} {
             background-color: map-get($classMap, "normal");
-            color: var(--text-color-inverted);
+            color: var(--color-white);
         }
         // Solid Light
-        &--color-solid-light-#{$color} {
-            background-color: map-get($classMap, "light");
+        &--color-solid-dimmed-#{$color} {
+            background-color: map-get($classMap, "dimmed");
             color: map-get($classMap, "normal");
         }
         // Outline
@@ -51,7 +51,7 @@ $colors: (
         &--color-ghost-#{$color} {
             color: map-get($classMap, "normal");
             &:hover {
-                background-color: map-get($classMap, "light");
+                background-color: map-get($classMap, "dimmed");
             }
         }
     }

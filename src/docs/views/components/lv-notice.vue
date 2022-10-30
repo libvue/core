@@ -16,18 +16,18 @@
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeColorSolid" />
 
-            <lv-heading v-space-after="1" :level="6">Solid Light</lv-heading>
+            <lv-heading v-space-after="1" :level="6">Solid Dimmed</lv-heading>
             <lv-card v-space-after="1">
                 <lv-group>
-                    <lv-notice text="Light Default" color="solid-light-default" />
-                    <lv-notice text="Light Primary" color="solid-light-primary" />
-                    <lv-notice text="Light Warning" color="solid-light-warning" />
-                    <lv-notice text="Light Danger" color="solid-light-danger" />
-                    <lv-notice text="Light Info" color="solid-light-info" />
-                    <lv-notice text="Light Success" color="solid-light-success" />
+                    <lv-notice text="Dimmed Default" color="solid-dimmed-default" />
+                    <lv-notice text="Dimmed Primary" color="solid-dimmed-primary" />
+                    <lv-notice text="Dimmed Warning" color="solid-dimmed-warning" />
+                    <lv-notice text="Dimmed Danger" color="solid-dimmed-danger" />
+                    <lv-notice text="Dimmed Info" color="solid-dimmed-info" />
+                    <lv-notice text="Dimmed Success" color="solid-dimmed-success" />
                 </lv-group>
             </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeColorSolidLight" />
+            <lv-code v-space-after="1" lang="html" :code="codeColorSolidDimmed" />
 
             <lv-heading v-space-after="1" :level="6">Outline</lv-heading>
             <lv-card v-space-after="1">
@@ -70,13 +70,13 @@ const codeColorSolid = `
 <lv-notice text="Info" color="solid-info" />
 <lv-notice text="Success" color="solid-success" />
 `.trim();
-const codeColorSolidLight = `
-<lv-notice text="Light Default" color="solid-light-default" />
-<lv-notice text="Light Primary" color="solid-light-primary" />
-<lv-notice text="Light Warning" color="solid-light-warning" />
-<lv-notice text="Light Danger" color="solid-light-danger" />
-<lv-notice text="Light Info" color="solid-light-info" />
-<lv-notice text="Light Success" color="solid-light-success" />
+const codeColorSolidDimmed = `
+<lv-notice text="Dimmed Default" color="solid-dimmed-default" />
+<lv-notice text="Dimmed Primary" color="solid-dimmed-primary" />
+<lv-notice text="Dimmed Warning" color="solid-dimmed-warning" />
+<lv-notice text="Dimmed Danger" color="solid-dimmed-danger" />
+<lv-notice text="Dimmed Info" color="solid-dimmed-info" />
+<lv-notice text="Dimmed Success" color="solid-dimmed-success" />
 `.trim();
 const codeColorOutline = `
 <lv-notice text="Outline Default" color="outline-default" />
@@ -92,7 +92,7 @@ export default {
         return {
             activeTab: 'colors',
             codeColorSolid,
-            codeColorSolidLight,
+            codeColorSolidDimmed,
             codeColorOutline,
             codeIcons,
             tabs: [

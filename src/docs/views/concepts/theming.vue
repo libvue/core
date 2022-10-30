@@ -15,17 +15,17 @@ $background-color: #ffffff !default;
 
 // Colors
 $color-default: #0b0b0c !default;
-$color-default-light: lighten($color-default, 85) !default;
+$color-default-dimmed: lighten($color-default, 85) !default;
 $color-primary: #5937f3 !default;
-$color-primary-light: lighten($color-primary, 30) !default;
+$color-primary-dimmed: lighten($color-primary, 30) !default;
 $color-info: #3f8cff !default;
-$color-info-light: lighten($color-info, 25) !default;
+$color-info-dimmed: lighten($color-info, 25) !default;
 $color-success: #13c083 !default;
-$color-success-light: lighten($color-success, 40) !default;
+$color-success-dimmed: lighten($color-success, 40) !default;
 $color-warning: #ff7a27 !default;
-$color-warning-light: lighten($color-warning, 30) !default;
+$color-warning-dimmed: lighten($color-warning, 30) !default;
 $color-danger: #ff2740 !default;
-$color-danger-light: lighten($color-danger, 35) !default;
+$color-danger-dimmed: lighten($color-danger, 35) !default;
 $color-ghost: $background-color !default;
 
 // Text

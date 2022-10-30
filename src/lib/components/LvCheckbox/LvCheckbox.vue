@@ -107,8 +107,8 @@ export default {
 
     &--checked#{$self}--disabled {
         #{$self}__input {
-            border: 2px solid var(--color-primary-light);
-            background-color: var(--color-primary-light);
+            border: 2px solid var(--color-primary-dimmed);
+            background-color: var(--color-primary-dimmed);
         }
         #{$self}__label {
             cursor: default;
