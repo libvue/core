@@ -44,14 +44,13 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/variables';
 .lv-widget-number {
     padding: 1rem;
 
     &__head {
         display: flex;
         margin-bottom: 10px;
-        color: $text-color-dimmed;
+        color: var(--text-color-dimmed);
         font-weight: 500;
     }
     &__title {
@@ -59,9 +58,9 @@ export default {
     }
     &__diff {
         margin-left: auto;
-        color: $color-success;
+        color: var(--color-success);
         &--negative {
-            color: $color-danger;
+            color: var(--color-danger);
         }
     }
     &__amount {
@@ -74,7 +73,7 @@ export default {
 
     &__prefix {
         margin-right: 5px;
-        color: $text-color-dimmed;
+        color: var(--text-color-dimmed);
         font-weight: 500;
         font-size: 1.2rem;
         line-height: 1.2rem;

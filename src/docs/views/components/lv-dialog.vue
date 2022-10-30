@@ -16,7 +16,7 @@
             <template #close>
                 <lv-group>
                     <lv-button label="Continue" color="solid-primary" @click="showDialog = false"/>
-                    <lv-button label="Cancel" color="solid-light-primary" @click="showDialog = false"/>
+                    <lv-button label="Cancel" color="solid-dimmed-primary" @click="showDialog = false"/>
                 </lv-group>
             </template>
         </lv-dialog>
@@ -39,7 +39,7 @@ const code = `
     <template #close>
         <lv-group>
             <lv-button label="Continue" color="solid-primary" @click="showDialog = false"/>
-            <lv-button label="Cancel" color="solid-light-primary" @click="showDialog = false"/>
+            <lv-button label="Cancel" color="solid-dimmed-primary" @click="showDialog = false"/>
         </lv-group>
     </template>
 </lv-dialog>

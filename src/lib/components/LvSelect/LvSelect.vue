@@ -305,62 +305,61 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/variables';
 .lv-select {
     $self: &;
     position: relative;
 
     &__input {
         display: flex;
-        border: 1px solid $border-color;
-        border-radius: $border-radius;
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
     }
 
     &__selection {
         display: flex;
         &-image {
             border: 4px solid #fff;
-            border-radius: $border-radius;
-            background-color: $background-color;
-            width: calc(calc($padding * 2) + $font-size - 8px);
-            height: calc(calc($padding * 2) + $font-size - 8px);
+            border-radius: var(--border-radius);
+            background-color: var(--background-color);
+            width: calc(calc(var(--padding) * 2) + var(--font-size) - 8px);
+            height: calc(calc(var(--padding) * 2) + var(--font-size) - 8px);
             img {
-                border-radius: $border-radius;
+                border-radius: var(--border-radius);
                 width: 100%;
                 height: 100%;
             }
         }
         &-label {
-            padding: $padding;
-            font-size: $font-size;
-            line-height: $font-size;
+            padding: var(--padding);
+            font-size: var(--font-size);
+            line-height: var(--font-size);
         }
     }
     &__placeholder {
-        padding: $padding;
-        color: $text-color-dimmed;
-        font-size: $font-size;
-        line-height: $font-size;
+        padding: var(--padding);
+        color: var(--text-color-dimmed);
+        font-size: var(--font-size);
+        line-height: var(--font-size);
     }
     &__icon {
         margin-left: auto;
-        padding: $padding;
-        font-size: $font-size;
-        line-height: $font-size;
+        padding: var(--padding);
+        font-size: var(--font-size);
+        line-height: var(--font-size);
     }
 
     &__dropdown {
         position: absolute;
-        z-index: $z-index-dropdown;
+        z-index: var(--z-index-dropdown);
         margin-top: -1px;
-        box-shadow: $shadow;
-        border: 1px solid $border-color;
-        border-radius: $border-radius;
-        background-color: $background-color;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        background-color: var(--background-color);
         width: calc(100% - 2px);
     }
     &__no-options {
-        padding: $padding;
+        padding: var(--padding);
     }
     &__opt-group {
         #{$self}__option {
@@ -374,14 +373,14 @@ export default {
         &:last-of-type {
             #{$self}__option {
                 &:last-of-type {
-                    border-radius: 0 0 $border-radius $border-radius;
+                    border-radius: 0 0 var(--border-radius) var(--border-radius);
                 }
             }
         }
         &-title {
             margin: 0;
-            padding: $padding;
-            font-size: $font-size;
+            padding: var(--padding);
+            font-size: var(--font-size);
         }
     }
     &__option {
@@ -389,36 +388,36 @@ export default {
         transition: 0.1s all;
         cursor: pointer;
         overflow: hidden;
-        font-size: $font-size;
-        line-height: $font-size;
+        font-size: var(--font-size);
+        line-height: var(--font-size);
 
         &-image {
             border: 4px solid #fff;
-            background-color: $background-color;
-            width: calc(calc($padding * 2) + $font-size - 8px);
-            height: calc(calc($padding * 2) + $font-size - 8px);
+            background-color: var(--background-color);
+            width: calc(calc(var(--padding) * 2) + var(--font-size) - 8px);
+            height: calc(calc(var(--padding) * 2) + var(--font-size) - 8px);
             img {
-                border-radius: $border-radius;
+                border-radius: var(--border-radius);
                 width: 100%;
                 height: 100%;
             }
         }
         &-label {
-            padding: $padding;
+            padding: var(--padding);
         }
 
         &:first-of-type {
-            border-radius: $border-radius $border-radius 0 0;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
         }
         &:last-of-type {
-            border-radius: 0 0 $border-radius $border-radius;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
         }
         &:hover:not(&--active) {
-            background-color: $border-color;
+            background-color: var(--border-color);
         }
         &--active {
-            background-color: $color-primary;
-            color: $text-color-inverted;
+            background-color: var(--color-primary);
+            color: var(--text-color-inverted);
         }
     }
 
@@ -426,17 +425,17 @@ export default {
         pointer-events: none;
 
         #{$self}__input {
-            color: $text-color-dimmed;
+            color: var(--text-color-dimmed);
         }
     }
 
     &__loading {
         position: absolute;
         top: 13px;
-        right: $padding - 2px;
+        right: var(--padding) - 2px;
         animation: rotate-cw 1s infinite linear;
         background-color: #fafafa;
-        color: $text-color-dimmed;
+        color: var(--text-color-dimmed);
     }
 }
 

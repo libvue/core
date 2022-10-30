@@ -24,10 +24,10 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/variables';
 .lv-paragraph {
     margin: 0;
-    font-size: $font-size;
+    font-size: var(--font-size);
+    color: var(--text-color);
 
     &--align-left {
         text-align: left;

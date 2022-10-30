@@ -72,24 +72,27 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/variables';
-
+body {
+    background-color: var(--background-color);
+}
 .lv-layout {
     $self: &;
     width: 100%;
     height: 100%;
     display: flex;
     flex-direction: column;
+    background-color: var(--background-color);
 
     &__header {
         width: 100%;
         position: sticky;
         top: 0;
         z-index: 1;
-        border-bottom: 1px solid $border-color;
+        border-bottom: 1px solid var(--border-color);
+        background-color: var(--header-color);
 
         &-container {
-            max-width: $layout-container-max-width;
+            max-width: var(--max-width);
             margin: 0 auto;
         }
     }
@@ -97,14 +100,14 @@ export default {
     &__container {
         display: flex;
         flex-grow: 1;
-        max-width: $layout-container-max-width;
+        max-width: var(--max-width);
         margin: 0 auto;
         width: 100%;
     }
 
     &__sidebar {
         box-sizing: border-box;
-        border-right: 1px solid $border-color;
+        border-right: 1px solid var(--border-color);
         height: 100%;
 
         &-container {

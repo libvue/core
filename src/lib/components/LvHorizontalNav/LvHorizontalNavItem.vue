@@ -65,27 +65,25 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/variables';
 
 .lv-horizontal-nav-item {
     $self: &;
     display: flex;
     flex-shrink: 0;
     align-items: center;
-    transition: all 0.1s;
     cursor: pointer;
     border-radius: 5px;
-    color: $text-color;
+    color: var(--text-color-dimmed);
     font-weight: 400;
-    font-size: $font-size;
+    font-size: var(--font-size);
     text-decoration: none;
 
     &:hover:not(#{$self}--active) {
-        color: #000;
+        color: var(--text-color);
     }
 
     &--active {
-        color: $color-primary;
+        color: var(--color-primary);
     }
 
     &__icon {

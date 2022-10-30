@@ -53,7 +53,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/variables/index';
+
 
 .lv-vertical-nav-list {
     $self: &;
@@ -62,8 +62,9 @@ export default {
     flex-direction: column;
     margin-bottom: 10px;
     width: 100%;
-    font-size: $font-size;
-    font-family: $font-family;
+    font-size: var(--font-size);
+    font-family: var(--font-family);
+    color: var(--text-color-dimmed);
 
     &:last-of-type {
         margin-bottom: 0;
@@ -99,8 +100,8 @@ export default {
         margin-top: 10px;
         margin-bottom: 10px;
         margin-left: 18px;
-        border-left: 1px solid #eaeaea;
-        background-color: $background-color;
+        border-left: 1px solid var(--border-color);
+        background-color: var(--background-color);
         padding-left: 13px;
         overflow: hidden;
 

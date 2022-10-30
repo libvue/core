@@ -20,13 +20,11 @@ export default {};
 </script>
 
 <style lang="scss">
-@import '../../scss/variables';
 .lv-header {
     display: flex;
     align-items: center;
     padding: 1rem 1.5rem;
     box-sizing: border-box;
-    background-color: rgba(255,255,255,0.8);
     backdrop-filter: blur(2px);
 
     &__branding {
@@ -36,7 +34,7 @@ export default {};
         margin-right: 2rem;
         > img {
             width: 80px;
-            color: $color-primary;
+            color: var(--color-primary);
             flex-shrink: 0;
         }
     }
@@ -48,6 +46,8 @@ export default {};
         margin-left: auto;
     }
     &__extra {
+        display: flex;
+        align-items: center;
         margin-left: 1rem;
     }
 }

@@ -86,7 +86,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/variables';
 
 // Block
 .lv-input {
@@ -96,51 +95,51 @@ export default {
     flex-direction: column;
     justify-content: center;
     margin-bottom: 0;
-    color: $text-color;
-    font-family: $font-family;
+    color: var(--text-color);
+    font-family: var(--font-family);
 
     // Elements
     &__icon {
         position: absolute;
-        top: $padding * 0.75 + 2px;
-        left: $padding - 2px;
-        color: $text-color;
+        top: calc(var(--padding) * 0.75 + 2px);
+        left: calc(var(--padding) - 2px);
+        color: var(--text-color);
     }
 
     &__input {
         margin-bottom: 0;
-        border: 1px solid $border-color;
-        border-radius: $border-radius;
-        background-color: #fff;
-        padding: $padding * 0.75;
-        color: $text-color;
-        font-size: $font-size;
-        font-family: $font-family;
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        background-color: var(--background-color);
+        padding: calc(var(--padding) * 0.75);
+        color: var(--text-color);
+        font-size: var(--font-size);
+        font-family: var(--font-family);
 
         &::placeholder {
-            color: $placeholder-color;
+            color: var(--placeholder-color);
         }
     }
 
     &__hint {
         padding: 4px;
-        color: $text-color-dimmed;
-        font-size: $font-size-small;
+        color: var(--text-color-dimmed);
+        font-size: var(--font-size-small);
     }
 
     &__loading {
         position: absolute;
         top: 13px;
-        right: $padding - 2px;
+        right: var(--padding) - 2px;
         animation: rotate-cw 1s infinite linear;
         background-color: #fafafa;
-        color: $text-color-dimmed;
+        color: var(--text-color-dimmed);
     }
 
     &--icon {
         #{$self}__input {
             box-sizing: border-box;
-            padding-left: $padding + 16px + 4px;
+            padding-left: calc(var(--padding) + 16px + 4px);
         }
     }
 
@@ -149,12 +148,12 @@ export default {
         pointer-events: none;
         user-select: none;
         #{$self}__icon {
-            color: $placeholder-color;
+            color: var(--placeholder-color);
         }
         #{$self}__input {
             background-color: #fdfdfd;
             &::placeholder {
-                color: lighten($placeholder-color, 40);
+                color: var(--placeholder-color);
             }
         }
     }

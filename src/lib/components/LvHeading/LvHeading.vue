@@ -45,43 +45,42 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/variables';
 
 .lv-heading {
     display: block;
     margin-top: 0;
     margin-bottom: 0;
     width: 100%;
-    color: $text-color;
+    color: var(--text-color);
     font-weight: 600;
-    font-family: $font-family;
+    font-family: var(--font-family);
 
     &--h1 {
-        font-size: $font-size-h1;
-        line-height: $font-size-h1;
+        font-size: var(--font-size-h1);
+        line-height: var(--font-size-h1);
     }
     &--h2 {
-        font-size: $font-size-h2;
-        line-height: $font-size-h2;
+        font-size: var(--font-size-h2);
+        line-height: var(--font-size-h2);
     }
     &--h3 {
-        font-size: $font-size-h3;
-        line-height: $font-size-h3;
+        font-size: var(--font-size-h3);
+        line-height: var(--font-size-h3);
     }
     &--h4 {
-        font-size: $font-size-h4;
-        line-height: $font-size-h4;
+        font-size: var(--font-size-h4);
+        line-height: var(--font-size-h4);
     }
     &--h5 {
-        font-size: $font-size-h5;
-        line-height: $font-size-h5;
+        font-size: var(--font-size-h5);
+        line-height: var(--font-size-h5);
     }
     &--h6 {
-        font-size: $font-size-h6;
-        line-height: $font-size-h6;
+        font-size: var(--font-size-h6);
+        line-height: var(--font-size-h6);
     }
     &--sub {
-        color: lighten($text-color, 60);
+        color: var(--text-color-dimmed);
     }
 }
 </style>

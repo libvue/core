@@ -32,17 +32,16 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/variables';
 .lv-keyboard {
     display: inline-flex;
     transition: 0.2s all;
-    border: 1px solid darken($color-default-light, 6);
+    border: 1px solid var(--border-color-light);
     border-radius: 3px;
     background-color: transparent;
     padding: 0.25rem 0.5rem;
     font-weight: 500;
-    font-size: $font-size-small;
-    font-family: $font-family;
+    font-size: var(--font-size-small);
+    font-family: var(--font-family);
     text-shadow: 0 1px 0 #fff;
     text-align: center;
     margin: 0 0.25rem;

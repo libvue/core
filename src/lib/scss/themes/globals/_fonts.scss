@@ -15,3 +15,17 @@ $font-size-h3: 1.4rem !default;
 $font-size-h4: 1.2rem !default;
 $font-size-h5: 1rem !default;
 $font-size-h6: 0.875rem !default;
+
+$fonts: (
+    font-family: $font-family,
+    font-family-monospace: $font-family-monospace,
+    font-size-small: $font-size-small,
+    font-size: $font-size,
+    font-size-large: $font-size-large,
+    font-size-h1: $font-size-h1,
+    font-size-h2: $font-size-h2,
+    font-size-h3: $font-size-h3,
+    font-size-h4: $font-size-h4,
+    font-size-h5: $font-size-h5,
+    font-size-h6: $font-size-h6,
+);

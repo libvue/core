@@ -6,7 +6,7 @@
         <template #icons="{ tab }">
             <lv-card v-space-after="1">
                 <lv-group>
-                    <lv-pill text="Github Icon" color="solid-light-default" icon="github" />
+                    <lv-pill text="Github Icon" color="solid-dimmed-default" icon="github" />
                 </lv-group>
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeIcons" />
@@ -34,19 +34,19 @@
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeColorSolid" />
 
-            <lv-heading v-space-after="1" :level="6">Solid Light</lv-heading>
+            <lv-heading v-space-after="1" :level="6">Solid Dimmed</lv-heading>
             <lv-card v-space-after="1">
                 <lv-group>
-                    <lv-pill text="Light Default" color="solid-light-default" />
-                    <lv-pill text="Light Danger" color="solid-light-danger" />
-                    <lv-pill text="Light Success" color="solid-light-success" />
-                    <lv-pill text="Light Warning" color="solid-light-warning" />
-                    <lv-pill text="Light Info" color="solid-light-info" />
-                    <lv-pill text="Light Primary" color="solid-light-primary" />
-                    <lv-pill text="Light Secondary" color="solid-light-secondary" />
+                    <lv-pill text="Dimmed Default" color="solid-dimmed-default" />
+                    <lv-pill text="Dimmed Danger" color="solid-dimmed-danger" />
+                    <lv-pill text="Dimmed Success" color="solid-dimmed-success" />
+                    <lv-pill text="Dimmed Warning" color="solid-dimmed-warning" />
+                    <lv-pill text="Dimmed Info" color="solid-dimmed-info" />
+                    <lv-pill text="Dimmed Primary" color="solid-dimmed-primary" />
+                    <lv-pill text="Dimmed Secondary" color="solid-dimmed-secondary" />
                 </lv-group>
             </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeColorSolidLight" />
+            <lv-code v-space-after="1" lang="html" :code="codeColorSolidDimmed" />
 
             <lv-heading v-space-after="1" :level="6">Outline</lv-heading>
             <lv-card v-space-after="1">
@@ -73,13 +73,13 @@ const codeColorSolid = `
 <lv-pill text="Danger" color="primary"/>
 <lv-pill text="Info" color="info"/>
 `.trim();
-const codeColorSolidLight = `
-<lv-pill text="Light Default" color="light-default"/>
-<lv-pill text="Light Danger" color="light-danger"/>
-<lv-pill text="Light Success" color="light-success"/>
-<lv-pill text="Light Warning" color="light-warning"/>
-<lv-pill text="Light Danger" color="light-primary"/>
-<lv-pill text="Light Info" color="light-info"/>
+const codeColorSolidDimmed = `
+<lv-pill text="Dimmed Default" color="light-default"/>
+<lv-pill text="Dimmed Danger" color="light-danger"/>
+<lv-pill text="Dimmed Success" color="light-success"/>
+<lv-pill text="Dimmed Warning" color="light-warning"/>
+<lv-pill text="Dimmed Danger" color="light-primary"/>
+<lv-pill text="Dimmed Info" color="light-info"/>
 `.trim();
 const codeColorOutline = `
 <lv-pill text="Default" />
@@ -102,7 +102,7 @@ export default {
                 { id: 'icons', title: 'Icons', icon: 'box-select' },
             ],
             codeColorSolid,
-            codeColorSolidLight,
+            codeColorSolidDimmed,
             codeColorOutline,
             codeStates,
             codeIcons,

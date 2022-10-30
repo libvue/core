@@ -275,7 +275,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/variables';
 
 .lv-range-slider {
     $self: &;
@@ -291,16 +290,16 @@ export default {
             cursor: default;
 
             &::after {
-                background-color: $border-color;
+                background-color: var(--border-color);
             }
         }
 
         #{$self}__amount {
-            color: $text-color-dimmed;
+            color: var(--text-color-dimmed);
         }
 
         #{$self}__indicator {
-            background-color: darken($border-color, 20);
+            background-color: var(--color-default);
         }
     }
 
@@ -309,26 +308,26 @@ export default {
             cursor: default;
 
             &::after {
-                background-color: $border-color;
+                background-color: var(--border-color);
             }
         }
 
         #{$self}__amount {
-            color: $text-color-dimmed;
+            color: var(--text-color-dimmed);
         }
 
         #{$self}__indicator {
-            background-color: darken($border-color, 20);
+            background-color: var(--color-default);
         }
     }
 
     &--invalid {
         #{$self}__amount {
-            color: $color-danger;
+            color: var(--color-danger);
         }
 
         #{$self}__indicator {
-            background-color: $color-danger;
+            background-color: var(--color-danger);
         }
     }
 
@@ -349,7 +348,7 @@ export default {
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
             border: 1px solid #cacaca;
             border-radius: 100%;
-            background-color: $background-color;
+            background-color: var(--background-color);
             width: 14px;
             height: 14px;
             content: '';
@@ -363,7 +362,7 @@ export default {
 
     &__amount {
         position: relative;
-        color: $text-color;
+        color: var(--text-color);
         font-weight: bold;
         font-size: 12px;
 
@@ -377,7 +376,7 @@ export default {
         top: 0;
         bottom: 0;
         transition: background-color 0.2s;
-        background-color: $color-primary;
+        background-color: var(--color-primary);
         height: 4px;
     }
 
@@ -385,7 +384,7 @@ export default {
         position: relative;
         transition: background-color 0.2s;
         border-radius: 4px;
-        background-color: $border-color;
+        background-color: var(--border-color);
         padding: 0 7px;
         height: 4px;
     }

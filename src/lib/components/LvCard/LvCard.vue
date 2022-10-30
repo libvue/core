@@ -16,14 +16,14 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/variables';
 
 .lv-card {
-    box-shadow: $shadow;
-    border: 1px solid $border-color;
-    border-radius: $border-radius;
-    background-color: $background-color;
-    padding: $padding * 1.5;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--background-color);
+    padding: calc(var(--padding) * 1.5);
+    color: var(--text-color);
 
     &--inline {
         display: inline-block;

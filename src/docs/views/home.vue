@@ -4,7 +4,7 @@
         <lv-hero title="Libvue" description="An extendable collection of Vue components to quickly scaffold interfaces." v-space-after="4">
             <template #buttons>
                 <lv-button color="solid-primary" icon="book-open" @click="$router.push('install')">Documentation</lv-button>
-                <lv-button color="solid-light-primary" icon="github" @click="goToGithub">Github</lv-button>
+                <lv-button color="outline-primary" icon="github" @click="goToGithub">Github</lv-button>
             </template>
         </lv-hero>
 
@@ -22,8 +22,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../lib/scss/variables/index';
-
 .splash {
     display: flex;
     align-items: flex-start;

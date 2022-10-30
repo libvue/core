@@ -1,33 +1,31 @@
-@import "../variables/colors";
-
 $colors: (
     "default": (
-        normal: $color-default,
-        light: $color-default-light,
+        normal: var(--color-default),
+        dimmed: var(--color-default-dimmed),
     ),
     "danger": (
-        normal: $color-danger,
-        light: $color-danger-light,
+        normal: var(--color-danger),
+        dimmed: var(--color-danger-dimmed),
     ),
     "warning": (
-        normal: $color-warning,
-        light: $color-warning-light,
+        normal: var(--color-warning),
+        dimmed: var(--color-warning-dimmed),
     ),
     "success": (
-        normal: $color-success,
-        light: $color-success-light,
+        normal: var(--color-success),
+        dimmed: var(--color-success-dimmed),
     ),
     "info": (
-        normal: $color-info,
-        light: $color-info-light,
+        normal: var(--color-info),
+        dimmed: var(--color-info-dimmed),
     ),
     "primary": (
-        normal: $color-primary,
-        light: $color-primary-light,
+        normal: var(--color-primary),
+        dimmed: var(--color-primary-dimmed),
     ),
     "secondary": (
-        normal: $color-secondary,
-        light: $color-secondary-light,
+        normal: var(--color-secondary),
+        dimmed: var(--color-secondary-dimmed),
     ),
 );
 
@@ -37,11 +35,11 @@ $colors: (
         // Solid
         &--color-solid-#{$color} {
             background-color: map-get($classMap, "normal");
-            color: $text-color-inverted;
+            color: var(--color-white);
         }
         // Solid Light
-        &--color-solid-light-#{$color} {
-            background-color: map-get($classMap, "light");
+        &--color-solid-dimmed-#{$color} {
+            background-color: map-get($classMap, "dimmed");
             color: map-get($classMap, "normal");
         }
         // Outline
@@ -53,7 +51,7 @@ $colors: (
         &--color-ghost-#{$color} {
             color: map-get($classMap, "normal");
             &:hover {
-                background-color: map-get($classMap, "light");
+                background-color: map-get($classMap, "dimmed");
             }
         }
     }

@@ -32,7 +32,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/variables';
+@import '../../scss/grid/grid';
 .lv-grid-column {
 
     width: 100%;

@@ -52,7 +52,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/variables';
 
 .lv-tabs {
     $self: &;
@@ -69,19 +68,19 @@ export default {
         border-bottom: 2px solid transparent;
         background-color: transparent;
         padding: 5px 0;
-        color: $text-color;
+        color: var(--text-color);
         font-weight: bold;
-        font-size: $font-size;
+        font-size: var(--font-size);
         user-select: none;
         text-align: center;
         white-space: nowrap;
         &:focus:not(&--active) {
-            border-color: lighten($color-primary, 30);
+            border-color: var(--color-primary-dimmed);
         }
 
         &--active {
-            border-color: $color-primary;
-            color: $color-primary;
+            border-color: var(--color-primary);
+            color: var(--color-primary);
         }
 
         &--disabled {

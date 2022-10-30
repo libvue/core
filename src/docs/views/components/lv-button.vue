@@ -18,19 +18,19 @@
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeColorSolid" />
 
-            <lv-heading v-space-after="1" :level="6">Solid Light</lv-heading>
+            <lv-heading v-space-after="1" :level="6">Solid Dimmed</lv-heading>
             <lv-card v-space-after="1">
                 <lv-group>
-                    <lv-button label="Light Default" color="solid-light-default" />
-                    <lv-button label="Light Warning" color="solid-light-warning" />
-                    <lv-button label="Light Danger" color="solid-light-danger" />
-                    <lv-button label="Light Info" color="solid-light-info" />
-                    <lv-button label="Light Success" color="solid-light-success" />
-                    <lv-button label="Light Primary" color="solid-light-primary" />
-                    <lv-button label="Light Secondary" color="solid-light-secondary" />
+                    <lv-button label="Dimmed Default" color="solid-dimmed-default" />
+                    <lv-button label="Dimmed Warning" color="solid-dimmed-warning" />
+                    <lv-button label="Dimmed Danger" color="solid-dimmed-danger" />
+                    <lv-button label="Dimmed Info" color="solid-dimmed-info" />
+                    <lv-button label="Dimmed Success" color="solid-dimmed-success" />
+                    <lv-button label="Dimmed Primary" color="solid-dimmed-primary" />
+                    <lv-button label="Dimmed Secondary" color="solid-dimmed-secondary" />
                 </lv-group>
             </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeColorSolidLight" />
+            <lv-code v-space-after="1" lang="html" :code="codeColorSolidDimmed" />
 
             <lv-heading v-space-after="1" :level="6">Outline</lv-heading>
             <lv-card v-space-after="1">
@@ -58,7 +58,7 @@
                     <lv-button label="Ghost Secondary" color="ghost-secondary" />
                 </lv-group>
             </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeColorOutlineLight" />
+            <lv-code v-space-after="1" lang="html" :code="codeColorGhost" />
         </template>
         <template #states>
             <lv-card v-space-after="1">
@@ -110,14 +110,14 @@ const codeColorSolid = `
 <lv-button label="Primary" color="solid-primary" />
 <lv-button label="Secondary" color="solid-secondary" />
 `.trim();
-const codeColorSolidLight = `
-<lv-button label="Light Default" color="solid-light-default" />
-<lv-button label="Light Warning" color="solid-light-warning" />
-<lv-button label="Light Danger" color="solid-light-danger" />
-<lv-button label="Light Info" color="solid-light-info" />
-<lv-button label="Light Success" color="solid-light-success" />
-<lv-button label="Light Primary" color="solid-light-primary" />
-<lv-button label="Light Secondary" color="solid-light-secondary" />
+const codeColorSolidDimmed = `
+<lv-button label="Dimmed Default" color="solid-dimmed-default" />
+<lv-button label="Dimmed Warning" color="solid-dimmed-warning" />
+<lv-button label="Dimmed Danger" color="solid-dimmed-danger" />
+<lv-button label="Dimmed Info" color="solid-dimmed-info" />
+<lv-button label="Dimmed Success" color="solid-dimmed-success" />
+<lv-button label="Dimmed Primary" color="solid-dimmed-primary" />
+<lv-button label="Dimmed Secondary" color="solid-dimmed-secondary" />
 `.trim();
 const codeColorOutline = `
 <lv-button label="Outline Default" color="outline-default"/>
@@ -128,7 +128,7 @@ const codeColorOutline = `
 <lv-button label="Outline Primary" color="outline-primary" />
 <lv-button label="Outline Secondary" color="outline-secondary" />
 `.trim();
-const codeColorOutlineLight = `
+const codeColorGhost = `
 <lv-button label="Ghost Default" color="ghost-default"/>
 <lv-button label="Ghost Warning" color="ghost-warning" />
 <lv-button label="Ghost Danger" color="ghost-danger" />
@@ -149,9 +149,9 @@ export default {
                 { id: 'sizes', title: 'Sizes', icon: 'scaling' },
             ],
             codeColorSolid,
-            codeColorSolidLight,
+            codeColorSolidDimmed,
             codeColorOutline,
-            codeColorOutlineLight,
+            codeColorGhost,
             code: {
                 states: `<lv-button label="loading" loading />\n<lv-button disabled label="Disabled" />`,
                 icons: `<lv-button icon="rocket" label="Hello" />`,

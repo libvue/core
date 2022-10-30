@@ -25,7 +25,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/variables';
 
 .lv-horizontal-nav-group {
     $self: &;
@@ -35,8 +34,8 @@ export default {
     flex-direction: column;
     cursor: pointer;
     width: 100%;
-    font-size: $font-size;
-    font-family: $font-family;
+    font-size: var(--font-size);
+    font-family: var(--font-family);
 
     &__label {
         display: flex;
@@ -44,8 +43,8 @@ export default {
         align-items: center;
         margin-top: 0;
         padding: 5px 0;
-        color: $text-color;
-        font-size: $font-size-small;
+        color: var(--text-color);
+        font-size: var(--font-size-small);
         line-height: 0.75;
     }
 

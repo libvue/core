@@ -1,0 +1,89 @@
+$theme-dark-background-color: #0e0e0e !default;
+$theme-dark-header-color: rgba(14, 14, 15, 0.75) !default;
+$theme-dark-color-default: #8f8f8f !default;
+$theme-dark-color-default-dimmed: darken($theme-dark-color-default, 85) !default;
+$theme-dark-color-info: #3f8cff !default;
+$theme-dark-color-info-dimmed: darken($theme-dark-color-info, 35) !default;
+$theme-dark-color-success: #13c083 !default;
+$theme-dark-color-success-dimmed: darken($theme-dark-color-success, 32) !default;
+$theme-dark-color-warning: #ff7a27 !default;
+$theme-dark-color-warning-dimmed: darken($theme-dark-color-warning, 38) !default;
+$theme-dark-color-danger: #ff2740 !default;
+$theme-dark-color-danger-dimmed: darken($theme-dark-color-danger, 35) !default;
+$theme-dark-color-ghost: $theme-dark-background-color !default;
+$theme-dark-color-primary: #7a5cff !default;
+$theme-dark-color-primary-dimmed: darken($theme-dark-color-primary, 42) !default;
+$theme-dark-color-secondary: #9c6bfe !default;
+$theme-dark-color-secondary-dimmed: darken($theme-dark-color-secondary, 42) !default;
+$theme-dark-color-black: #000 !default;
+$theme-dark-color-white: #fff !default;
+$theme-dark-text-color: #d3d3d3 !default;
+$theme-dark-text-color-dimmed: #868686 !default;
+$theme-dark-text-color-inverted: invert($theme-dark-text-color) !default;
+$theme-dark-border-color: #383838 !default;
+$theme-dark-border-color-light: lighten(#e0e0e0, 8) !default;
+$theme-dark-border-color-focus: lighten($theme-dark-text-color, 50) !default;
+$theme-dark-placeholder-color-primary: lighten($theme-dark-color-primary, 30) !default;
+$theme-dark-placeholder-color-success: lighten($theme-dark-color-success, 10) !default;
+$theme-dark-placeholder-color-info: lighten($theme-dark-color-info, 30) !default;
+$theme-dark-placeholder-color-warning: lighten($theme-dark-color-warning, 30) !default;
+$theme-dark-placeholder-color-danger: lighten($theme-dark-color-danger, 30) !default;
+$theme-dark-placeholder-color: lighten($theme-dark-text-color, 40) !default;
+$theme-dark-shadow: 0 12px 8px -8px rgba(0, 0, 0, 0.4);
+$theme-dark-shadow-dialog: 0 5px 8px 2px rgba(0, 0, 0, 0.15);
+$theme-dark-shadow-popover: 0 0 8px 2px rgba(0, 0, 0, 0.05);
+$theme-dark-shadow-focus-default: 0px 0px 0px 3px rgba($theme-dark-color-default, 0.06) !default;
+$theme-dark-shadow-focus-primary: 0px 0px 0px 3px rgba($theme-dark-color-primary, 0.12) !default;
+$theme-dark-shadow-focus-success: 0px 0px 0px 3px rgba($theme-dark-color-success, 0.12) !default;
+$theme-dark-shadow-focus-warning: 0px 0px 0px 3px rgba($theme-dark-color-warning, 0.14) !default;
+$theme-dark-shadow-focus-danger: 0px 0px 0px 3px rgba($theme-dark-color-danger, 0.24) !default;
+$theme-dark-shadow-focus-info: 0px 0px 0px 3px rgba($theme-dark-color-info, 0.23) !default;
+$theme-dark-shadow-focus-ghost: 0px 0px 0px 3px rgba(darken($theme-dark-color-ghost, 56), 0.23) !default;
+$theme-dark-code-background-color: #060606;
+$theme-dark-blockquote-background-color: #f9f9f9;
+
+$theme-dark: (
+    background-color: $theme-dark-background-color,
+    header-color: $theme-dark-header-color,
+    color-default: $theme-dark-color-default,
+    color-default-dimmed: $theme-dark-color-default-dimmed,
+    color-info: $theme-dark-color-info,
+    color-info-dimmed: $theme-dark-color-info-dimmed,
+    color-success: $theme-dark-color-success,
+    color-success-dimmed: $theme-dark-color-success-dimmed,
+    color-warning: $theme-dark-color-warning,
+    color-warning-dimmed: $theme-dark-color-warning-dimmed,
+    color-danger: $theme-dark-color-danger,
+    color-danger-dimmed: $theme-dark-color-danger-dimmed,
+    color-ghost: $theme-dark-color-ghost,
+    color-primary: $theme-dark-color-primary,
+    color-primary-dimmed: $theme-dark-color-primary-dimmed,
+    color-secondary: $theme-dark-color-secondary,
+    color-secondary-dimmed: $theme-dark-color-secondary-dimmed,
+    color-white: $theme-dark-color-white,
+    color-black: $theme-dark-color-black,
+    text-color: $theme-dark-text-color,
+    text-color-dimmed: $theme-dark-text-color-dimmed,
+    text-color-inverted: $theme-dark-text-color-inverted,
+    border-color: $theme-dark-border-color,
+    border-color-light: $theme-dark-border-color-light,
+    border-color-focus: $theme-dark-border-color-focus,
+    placeholder-color-primary: $theme-dark-placeholder-color-primary,
+    placeholder-color-success: $theme-dark-placeholder-color-success,
+    placeholder-color-info: $theme-dark-placeholder-color-info,
+    placeholder-color-warning: $theme-dark-placeholder-color-warning,
+    placeholder-color-danger: $theme-dark-placeholder-color-danger,
+    placeholder-color: $theme-dark-placeholder-color,
+    shadow: $theme-dark-shadow,
+    shadow-dialog: $theme-dark-shadow-dialog,
+    shadow-popover: $theme-dark-shadow-popover,
+    shadow-focus-default: $theme-dark-shadow-focus-default,
+    shadow-focus-primary: $theme-dark-shadow-focus-primary,
+    shadow-focus-success: $theme-dark-shadow-focus-success,
+    shadow-focus-warning: $theme-dark-shadow-focus-warning,
+    shadow-focus-danger: $theme-dark-shadow-focus-danger,
+    shadow-focus-info: $theme-dark-shadow-focus-info,
+    shadow-focus-ghost: $theme-dark-shadow-focus-ghost,
+    code-background-color: $theme-dark-code-background-color,
+    blockquote-background-color: $theme-dark-blockquote-background-color,
+);
