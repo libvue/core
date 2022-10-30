@@ -14,6 +14,7 @@
                     <lv-separator direction="vertical"/>
                 </template>
                 <template #extra>
+                    <lv-theme-toggle v-model="theme" v-space-after="1"/>
                     <lv-button icon="github" color="ghost-default" />
                 </template>
             </lv-header>
@@ -32,6 +33,7 @@
                 <lv-vertical-nav-list icon="layout" label="Layout">
                     <lv-vertical-nav-item label="Layout" to="lv-layout" />
                     <lv-vertical-nav-item label="Header" to="lv-header" />
+                    <lv-vertical-nav-item label="Theme Toggle" to="lv-theme-toggle" />
                     <lv-vertical-nav-item label="Card" to="lv-card" />
                     <lv-vertical-nav-item label="Group" to="lv-group" />
                 </lv-vertical-nav-list>
@@ -104,27 +106,15 @@
 <script>
 export default {
     components: {},
-
     data() {
         return {
-            windowWidth: window.innerWidth,
+            theme: 'light'
         };
     },
-    mounted() {
-        window.addEventListener('resize', this.getWindowWidth);
-    },
-    beforeUnmount() {
-        window.addEventListener('resize', this.getWindowWidth);
-    },
-    methods: {
-        getWindowWidth() {
-            this.windowWidth = window.innerWidth;
+    watch: {
+        theme(val) {
+            document.body.setAttribute('data-theme', val);
         },
-    },
+    }
 };
 </script>
-
-<style lang="scss" scoped>
-@import 'src/lib/scss/variables';
-@import 'src/lib/scss/transitions/fade';
-</style>

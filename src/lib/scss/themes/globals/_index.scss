@@ -1,0 +1,8 @@
+@use "sass:map";
+
+@import 'depth';
+@import 'fonts';
+@import 'geometry';
+@import 'timings';
+
+$globals: map.merge(map.merge(map.merge($depth, $fonts), $geometry), $timings);

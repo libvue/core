@@ -342,10 +342,9 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/variables';
 .lv-table {
     $self: &;
-    font-size: $font-size;
+    font-size: var(--font-size);
     /* Elements */
     &__table {
         border-collapse: collapse;
@@ -357,7 +356,7 @@ export default {
             }
         }
         &-body {
-            border-bottom: 8px solid $background-color;
+            border-bottom: 8px solid var(--background-color);
             &:last-of-type {
                 border-bottom: none;
             }
@@ -367,7 +366,7 @@ export default {
                 }
             }
             tr {
-                border-top: 1px solid lighten($border-color, 8);
+                border-top: 1px solid var(--border-color-light);
                 td {
                     padding: 0.75rem 0.25rem;
                 }
@@ -426,9 +425,9 @@ export default {
     }
     /* Modifiers */
     &--bordered {
-        box-shadow: $shadow;
-        border: 1px solid $border-color;
-        border-radius: $border-radius;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
         padding: 0.5rem 1rem;
     }
     &--hide-row-lines {

@@ -113,15 +113,14 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/variables';
 @import '../../scss/transitions/fade';
 
 .lv-popover {
     $self: &;
 
     &__arrow {
-        fill: $background-color;
-        stroke: $border-color;
+        fill: var(--background-color);
+        stroke: var(--border-color);
         stroke-width: 1;
         stroke-dasharray: 0 30 5;
         position: absolute;
@@ -130,16 +129,16 @@ export default {
     &__content {
         position: relative;
         z-index: 1;
-        border: 1px solid $border-color;
-        border-radius: $border-radius;
-        background-color: $background-color;
-        padding: $padding;
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        background-color: var(--background-color);
+        padding: var(--padding);
     }
     &__tooltip {
         position: relative;
-        z-index: $z-index-dropdown;
+        z-index: var(--z-index-dropdown);
         transition: 0.2s opacity ease;
-        box-shadow: $shadow-popover;
+        box-shadow: var(--shadow-popover);
         padding-bottom: 0;
     }
 

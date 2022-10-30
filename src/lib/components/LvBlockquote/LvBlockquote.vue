@@ -17,14 +17,13 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/variables';
 .lv-figure {
     margin: 0;
 }
 .lv-blockquote {
     margin: 0;
-    border-radius: $border-radius;
-    background-color: $blockquote-background-color;
+    border-radius: var(--border-radius);
+    background-color: var(--blockquote-background-color);
     padding: 1rem;
     font-style: italic;
 }

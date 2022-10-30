@@ -34,18 +34,17 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/variables';
 
 .lv-avatar {
     border-radius: 100%;
-    background-color: $color-primary;
-    background: linear-gradient(-45deg, $color-primary, $color-secondary);
+    background-color: var(--color-primary);
+    background: linear-gradient(-45deg, var(--color-primary), var(--color-secondary));
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: $font-size;
+    font-size: var(--font-size);
     font-weight: 500;
-    color: $text-color-inverted;
+    color: var(--text-color-inverted);
 
     &--has-image {
         background: transparent;

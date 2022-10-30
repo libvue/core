@@ -1,33 +1,31 @@
-@import "../variables/colors";
-
 $colors: (
     "default": (
-        normal: $color-default,
-        light: $color-default-light,
+        normal: var(--color-default),
+        light: var(--color-default-light),
     ),
     "danger": (
-        normal: $color-danger,
-        light: $color-danger-light,
+        normal: var(--color-danger),
+        light: var(--color-danger-light),
     ),
     "warning": (
-        normal: $color-warning,
-        light: $color-warning-light,
+        normal: var(--color-warning),
+        light: var(--color-warning-light),
     ),
     "success": (
-        normal: $color-success,
-        light: $color-success-light,
+        normal: var(--color-success),
+        light: var(--color-success-light),
     ),
     "info": (
-        normal: $color-info,
-        light: $color-info-light,
+        normal: var(--color-info),
+        light: var(--color-info-light),
     ),
     "primary": (
-        normal: $color-primary,
-        light: $color-primary-light,
+        normal: var(--color-primary),
+        light: var(--color-primary-light),
     ),
     "secondary": (
-        normal: $color-secondary,
-        light: $color-secondary-light,
+        normal: var(--color-secondary),
+        light: var(--color-secondary-light),
     ),
 );
 
@@ -37,7 +35,7 @@ $colors: (
         // Solid
         &--color-solid-#{$color} {
             background-color: map-get($classMap, "normal");
-            color: $text-color-inverted;
+            color: var(--text-color-inverted);
         }
         // Solid Light
         &--color-solid-light-#{$color} {

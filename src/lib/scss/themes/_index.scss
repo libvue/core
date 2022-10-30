@@ -1,0 +1,24 @@
+@import 'globals/index';
+@import 'dark';
+@import 'light';
+
+:root {
+    @each $key, $value in $theme-light {
+        --#{$key}: #{$value};
+    }
+    @each $key, $value in $globals {
+        --#{$key}: #{$value};
+    }
+}
+
+[data-theme="light"] {
+    @each $key, $value in $theme-light {
+        --#{$key}: #{$value};
+    }
+}
+
+[data-theme="dark"] {
+    @each $key, $value in $theme-dark {
+        --#{$key}: #{$value};
+    }
+}

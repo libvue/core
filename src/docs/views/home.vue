@@ -22,8 +22,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../lib/scss/variables/index';
-
 .splash {
     display: flex;
     align-items: flex-start;

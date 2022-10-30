@@ -22,12 +22,11 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/variables';
 
 .lv-separator {
     margin: 0;
     border: 0;
-    background-color: $border-color;
+    background-color: var(--border-color);
 
     &--direction-horizontal {
         width: 100%;

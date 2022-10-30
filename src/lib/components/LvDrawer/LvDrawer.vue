@@ -75,7 +75,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/variables';
 @import '../../scss/transitions/slide';
 
 .lv-drawer {
@@ -83,7 +82,7 @@ export default {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: $z-index-dialog;
+    z-index: var(--z-index-dialog);
     width: 100%;
     height: 100%;
 
@@ -97,9 +96,9 @@ export default {
     &__content {
         position: absolute;
         box-sizing: border-box;
-        box-shadow: $shadow-dialog;
+        box-shadow: var(--shadow-dialog);
         background-color: #fff;
-        padding: $padding * 2;
+        padding: calc(var(--padding) * 2);
     }
 
     &--placement-bottom {

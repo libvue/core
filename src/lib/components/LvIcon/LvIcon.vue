@@ -66,7 +66,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/variables';
 
 .lv-icon {
     fill: none;

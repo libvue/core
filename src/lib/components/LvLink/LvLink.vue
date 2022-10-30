@@ -13,22 +13,21 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/variables';
 
 .lv-link {
     $self: &;
-    transition: all $transition-time;
-    border-bottom: 1px dashed $text-color;
-    color: $text-color;
+    transition: all var(--transition-time);
+    border-bottom: 1px dashed var(--text-color);
+    color: var(--text-color);
     text-decoration: none;
 
     &[href]:hover {
-        border-bottom-color: $color-primary;
-        color: $color-primary;
+        border-bottom-color: var(--color-primary);
+        color: var(--color-primary);
     }
     &--active {
-        border-bottom-color: $color-primary;
-        color: $color-primary;
+        border-bottom-color: var(--color-primary);
+        color: var(--color-primary);
     }
 }
 </style>

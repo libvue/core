@@ -86,21 +86,19 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/variables';
-
 .lv-accordion-item {
     $self: &;
-    border: 1px solid $border-color;
+    border: 1px solid var(--border-color);
     &:first-of-type {
-        border-radius: $border-radius $border-radius 0 0;
+        border-radius: var(--border-radius) var(--border-radius) 0 0;
         #{$self}__button {
-            border-radius: $border-radius $border-radius 0 0;
+            border-radius: var(--border-radius) var(--border-radius) 0 0;
         }
     }
     &:last-of-type {
-        border-radius: 0 0 $border-radius $border-radius;
+        border-radius: 0 0 var(--border-radius) var(--border-radius);
         #{$self}__content {
-            border-radius: 0 0 $border-radius $border-radius;
+            border-radius: 0 0 var(--border-radius) var(--border-radius);
         }
     }
     &:not(&:last-of-type) {
@@ -109,7 +107,7 @@ export default {
     &:not(&--expanded) {
         &:last-of-type {
             #{$self}__button {
-                border-radius: 0 0 $border-radius $border-radius;
+                border-radius: 0 0 var(--border-radius) var(--border-radius);
             }
         }
     }
@@ -118,13 +116,13 @@ export default {
         align-items: center;
         cursor: pointer;
         margin: 0;
-        padding: $padding;
+        padding: var(--padding);
         font-weight: normal;
-        font-size: $font-size;
-        line-height: $font-size;
+        font-size: var(--font-size);
+        line-height: var(--font-size);
 
         &:hover {
-            background: lighten($border-color, 10);
+            background: var(--border-color-light);
         }
     }
 
@@ -132,9 +130,9 @@ export default {
         margin-left: auto;
     }
     &__content {
-        border-top: 1px solid $border-color;
-        background: lighten($border-color, 10);
-        padding: $padding;
+        border-top: 1px solid var(--border-color);
+        background: var(--border-color-light);
+        padding: var(--padding);
         overflow: hidden;
     }
 }

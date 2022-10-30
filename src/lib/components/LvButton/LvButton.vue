@@ -70,7 +70,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/variables';
 @import '../../scss/mixins/colorMixin';
 @import '../../scss/mixins/sizeMixin';
 
@@ -80,15 +79,15 @@ export default {
     position: relative;
     justify-content: center;
     align-items: center;
-    // transition: $transition-time all $transition-easing;
+    // transition: var(--transition-time) all var(--transition-easing);
     cursor: pointer;
     border: 1px solid transparent;
-    border-radius: $border-radius;
+    border-radius: var(--border-radius);
     background: transparent;
-    color: $text-color-inverted;
+    color: var(--text-color-inverted);
     font-weight: 500;
-    font-size: $font-size;
-    font-family: $font-family;
+    font-size: var(--font-size);
+    font-family: var(--font-family);
     text-align: center;
     text-decoration: none;
 
@@ -105,7 +104,7 @@ export default {
         top: calc(50% - 8px);
         left: calc(50% - 8px);
         animation: rotate-cw 1s infinite linear;
-        color: $text-color-inverted;
+        color: var(--text-color-inverted);
     }
 
     &__content {

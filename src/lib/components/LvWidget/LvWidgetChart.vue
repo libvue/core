@@ -62,7 +62,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/variables';
 .lv-widget-chart {
     padding: 1rem;
 
@@ -70,7 +69,7 @@ export default {
         display: flex;
         flex-direction: column;
         margin-bottom: 10px;
-        color: $text-color-dimmed;
+        color: var(--text-color-dimmed);
         font-weight: 500;
     }
     &__title {
@@ -81,15 +80,15 @@ export default {
     }
     &__diff {
         margin-left: auto;
-        color: $color-success;
+        color: var(--color-success);
         &--negative {
-            color: $color-danger;
+            color: var(--color-danger);
         }
     }
     &__amount {
         display: flex;
         align-items: flex-start;
-        color: $text-color;
+        color: var(--text-color);
         font-weight: 600;
         margin-right: 10px;
         font-size: 1.7rem;
@@ -97,7 +96,7 @@ export default {
     }
     &__prefix {
         margin-right: 5px;
-        color: $text-color-dimmed;
+        color: var(--text-color-dimmed);
         font-weight: 500;
         font-size: 1.2rem;
         line-height: 1.2rem;

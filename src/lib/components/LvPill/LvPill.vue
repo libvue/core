@@ -49,22 +49,21 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/variables';
 @import '../../scss/mixins/colorMixin';
 
 .lv-pill {
     display: inline-flex;
     border-radius: 1rem;
     font-weight: 500;
-    font-size: $font-size;
-    line-height: $font-size;
+    font-size: var(--font-size);
+    line-height: var(--font-size);
 
     &__icon {
         display: flex;
         align-items: center;
         padding: 0.5rem 0 0.5rem 0.625rem;
-        font-size: $font-size;
-        line-height: $font-size;
+        font-size: var(--font-size);
+        line-height: var(--font-size);
     }
 
     &__text {

@@ -1,0 +1,85 @@
+$theme-light-background-color: #ffffff !default;
+$theme-light-header-color: rgba(255, 255, 255, 0.8) !default;
+$theme-light-color-default: #121315 !default;
+$theme-light-color-default-light: lighten($theme-light-color-default, 85) !default;
+$theme-light-color-info: #3f8cff !default;
+$theme-light-color-info-light: lighten($theme-light-color-info, 35) !default;
+$theme-light-color-success: #13c083 !default;
+$theme-light-color-success-light: lighten($theme-light-color-success, 52) !default;
+$theme-light-color-warning: #ff7a27 !default;
+$theme-light-color-warning-light: lighten($theme-light-color-warning, 38) !default;
+$theme-light-color-danger: #ff2740 !default;
+$theme-light-color-danger-light: lighten($theme-light-color-danger, 39) !default;
+$theme-light-color-ghost: $theme-light-background-color !default;
+$theme-light-color-primary: #5937f3 !default;
+$theme-light-color-primary-light: lighten($theme-light-color-primary, 38) !default;
+$theme-light-color-secondary: #9c6bfe !default;
+$theme-light-color-secondary-light: lighten($theme-light-color-secondary, 27) !default;
+$theme-light-text-color: #0b0b0c !default;
+$theme-light-text-color-dimmed: lighten($theme-light-text-color, 40) !default;
+$theme-light-text-color-inverted: invert($theme-light-text-color) !default;
+$theme-light-border-color: #e0e0e0 !default;
+$theme-light-border-color-light: lighten(#e0e0e0, 8) !default;
+$theme-light-border-color-focus: lighten($theme-light-text-color, 50) !default;
+$theme-light-placeholder-color-primary: lighten($theme-light-color-primary, 30) !default;
+$theme-light-placeholder-color-success: lighten($theme-light-color-success, 10) !default;
+$theme-light-placeholder-color-info: lighten($theme-light-color-info, 30) !default;
+$theme-light-placeholder-color-warning: lighten($theme-light-color-warning, 30) !default;
+$theme-light-placeholder-color-danger: lighten($theme-light-color-danger, 30) !default;
+$theme-light-placeholder-color: lighten($theme-light-text-color, 40) !default;
+$theme-light-shadow: 0 12px 8px -8px rgba(0, 0, 0, 0.05);
+$theme-light-shadow-dialog: 0 5px 8px 2px rgba(0, 0, 0, 0.15);
+$theme-light-shadow-popover: 0 0 8px 2px rgba(0, 0, 0, 0.05);
+$theme-light-shadow-focus-default: 0px 0px 0px 3px rgba($theme-light-color-default, 0.06) !default;
+$theme-light-shadow-focus-primary: 0px 0px 0px 3px rgba($theme-light-color-primary, 0.12) !default;
+$theme-light-shadow-focus-success: 0px 0px 0px 3px rgba($theme-light-color-success, 0.12) !default;
+$theme-light-shadow-focus-warning: 0px 0px 0px 3px rgba($theme-light-color-warning, 0.14) !default;
+$theme-light-shadow-focus-danger: 0px 0px 0px 3px rgba($theme-light-color-danger, 0.24) !default;
+$theme-light-shadow-focus-info: 0px 0px 0px 3px rgba($theme-light-color-info, 0.23) !default;
+$theme-light-shadow-focus-ghost: 0px 0px 0px 3px rgba(darken($theme-light-color-ghost, 56), 0.23) !default;
+$theme-light-code-background-color: #f9f9f9;
+$theme-light-blockquote-background-color: #f9f9f9;
+
+$theme-light: (
+    background-color: $theme-light-background-color,
+    header-color: $theme-light-header-color,
+    color-default: $theme-light-color-default,
+    color-default-light: $theme-light-color-default-light,
+    color-info: $theme-light-color-info,
+    color-info-light: $theme-light-color-info-light,
+    color-success: $theme-light-color-success,
+    color-success-light: $theme-light-color-success-light,
+    color-warning: $theme-light-color-warning,
+    color-warning-light: $theme-light-color-warning-light,
+    color-danger: $theme-light-color-danger,
+    color-danger-light: $theme-light-color-danger-light,
+    color-ghost: $theme-light-color-ghost,
+    color-primary: $theme-light-color-primary,
+    color-primary-light: $theme-light-color-primary-light,
+    color-secondary: $theme-light-color-secondary,
+    color-secondary-light: $theme-light-color-secondary-light,
+    text-color: $theme-light-text-color,
+    text-color-dimmed: $theme-light-text-color-dimmed,
+    text-color-inverted: $theme-light-text-color-inverted,
+    border-color: $theme-light-border-color,
+    border-color-light: $theme-light-border-color-light,
+    border-color-focus: $theme-light-border-color-focus,
+    placeholder-color-primary: $theme-light-placeholder-color-primary,
+    placeholder-color-success: $theme-light-placeholder-color-success,
+    placeholder-color-info: $theme-light-placeholder-color-info,
+    placeholder-color-warning: $theme-light-placeholder-color-warning,
+    placeholder-color-danger: $theme-light-placeholder-color-danger,
+    placeholder-color: $theme-light-placeholder-color,
+    shadow: $theme-light-shadow,
+    shadow-dialog: $theme-light-shadow-dialog,
+    shadow-popover: $theme-light-shadow-popover,
+    shadow-focus-default: $theme-light-shadow-focus-default,
+    shadow-focus-primary: $theme-light-shadow-focus-primary,
+    shadow-focus-success: $theme-light-shadow-focus-success,
+    shadow-focus-warning: $theme-light-shadow-focus-warning,
+    shadow-focus-danger: $theme-light-shadow-focus-danger,
+    shadow-focus-info: $theme-light-shadow-focus-info,
+    shadow-focus-ghost: $theme-light-shadow-focus-ghost,
+    code-background-color: $theme-light-code-background-color,
+    blockquote-background-color: $theme-light-blockquote-background-color,
+);

@@ -34,23 +34,22 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/variables';
 
 .lv-toast {
-    border: 1px solid $border-color;
-    padding: $padding;
-    border-radius: $border-radius;
-    background: $background-color;
-    box-shadow: $shadow;
+    border: 1px solid var(--border-color);
+    padding: var(--padding);
+    border-radius: var(--border-radius);
+    background: var(--background-color);
+    box-shadow: var(--shadow);
     display: flex;
 
     &__title {
         font-weight: bold;
-        font-size: $font-size;
+        font-size: var(--font-size);
     }
     &__description {
-        font-size: $font-size-small;
-        color: $text-color-dimmed;
+        font-size: var(--font-size-small);
+        color: var(--text-color-dimmed);
     }
 
     &__right {

@@ -46,12 +46,11 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/variables';
 
 .lv-dialog {
     display: flex;
     position: fixed;
-    z-index: $z-index-dialog;
+    z-index: var(--z-index-dialog);
     top: 0;
     left: 0;
     justify-content: center;
@@ -68,10 +67,10 @@ export default {
 
     &__content {
         position: relative;
-        box-shadow: $shadow-dialog;
-        border-radius: $border-radius;
+        box-shadow: var(--shadow-dialog);
+        border-radius: var(--border-radius);
         background-color: #fff;
-        padding: $padding * 2;
+        padding: calc(var(--padding) * 2);
     }
 
 }

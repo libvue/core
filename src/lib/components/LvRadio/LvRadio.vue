@@ -75,13 +75,12 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/variables';
 
 .lv-radio {
     display: flex;
     align-items: center;
-    font-size: $font-size;
-    line-height: $font-size;
+    font-size: var(--font-size);
+    line-height: var(--font-size);
     position: relative;
 
     &__loading {
@@ -90,14 +89,14 @@ export default {
         left: 2px;
         animation: rotate-cw 1s infinite linear;
         background-color: #fafafa;
-        color: $text-color-dimmed;
+        color: var(--text-color-dimmed);
     }
 
     &__input {
         position: relative;
         appearance: none;
         margin: 0 0.375rem 0 0;
-        border: 1px solid $border-color;
+        border: 1px solid var(--border-color);
         border-radius: 100%;
         width: 1rem;
         height: 1rem;
@@ -107,7 +106,7 @@ export default {
                 top: 2px;
                 left: 2px;
                 border-radius: 100%;
-                background-color: $color-primary;
+                background-color: var(--color-primary);
                 width: calc(100% - 4px);
                 height: calc(100% - 4px);
                 content: '';
@@ -116,7 +115,7 @@ export default {
     }
 
     &--disabled {
-        color: $text-color-dimmed;
+        color: var(--text-color-dimmed);
     }
 }
 </style>

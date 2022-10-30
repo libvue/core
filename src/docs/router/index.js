@@ -26,6 +26,7 @@ import LvHeading from '../views/components/lv-heading.vue';
 import LvParagraph from '../views/components/lv-paragraph.vue';
 import LvBlockquote from '../views/components/lv-blockquote.vue';
 import LvCode from '../views/components/lv-code.vue';
+import LvThemeToggle from '../views/components/lv-theme-toggle.vue';
 import LvGroup from '../views/components/lv-group.vue';
 import LvLayout from '../views/components/lv-layout.vue';
 import LvCard from '../views/components/lv-card.vue';
@@ -89,6 +90,11 @@ const routes = [
         path: '/lv-header',
         name: 'lv-header',
         component: LvHeader,
+    },
+    {
+        path: '/lv-theme-toggle',
+        name: 'lv-theme-toggle',
+        component: LvThemeToggle,
     },
     {
         path: '/lv-pagination',

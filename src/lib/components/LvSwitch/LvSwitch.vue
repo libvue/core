@@ -63,7 +63,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/variables';
 
 .lv-switch {
     $self: &;
@@ -74,7 +73,7 @@ export default {
     &__input {
         position: relative;
         appearance: none;
-        transition: $transition-time background-color $transition-easing;
+        transition: var(--transition-time) background-color var(--transition-easing);
         cursor: pointer;
         margin: 0;
         border: 2px solid #cacaca;
@@ -89,7 +88,7 @@ export default {
             transition: .2s all;
             top: 2px;
             left: 2px;
-            border-radius: $border-radius;
+            border-radius: var(--border-radius);
             background-color: #cacaca;
         }
     }
@@ -101,12 +100,12 @@ export default {
     }
     &--checked {
         #{$self}__input {
-            border: 2px solid $color-primary;
-            background-color: $color-primary;
+            border: 2px solid var(--color-primary);
+            background-color: var(--color-primary);
             &:before {
                 left: inherit;
                 right: 2px;
-                background-color: $background-color;
+                background-color: var(--background-color);
             }
         }
     }
@@ -124,18 +123,18 @@ export default {
         }
         #{$self}__label {
             cursor: default;
-            color: $text-color-dimmed;
+            color: var(--text-color-dimmed);
         }
     }
 
     &--checked#{$self}--disabled {
         #{$self}__input {
-            border: 2px solid lighten($color-primary, 20);
-            background-color: lighten($color-primary, 20);
+            border: 2px solid var(--color-primary-light);
+            background-color: var(--color-primary-light);
         }
         #{$self}__label {
             cursor: default;
-            color: $text-color-dimmed;
+            color: var(--text-color-dimmed);
         }
     }
 
@@ -149,7 +148,7 @@ export default {
     }
 
     &--checked #{$self}__loader {
-        color: $text-color-inverted;
+        color: var(--text-color-inverted);
     }
 
     &__icon {
@@ -164,8 +163,8 @@ export default {
     &__label {
         cursor: pointer;
         margin-left: 5px;
-        font-size: $font-size;
-        line-height: $font-size;
+        font-size: var(--font-size);
+        line-height: var(--font-size);
     }
 }
 </style>

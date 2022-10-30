@@ -41,33 +41,32 @@ export default {
 </script>
 
 <style lang="scss">
-@import '../../scss/variables';
 
 .lv-breadcrumbs {
     display: flex;
     align-items: center;
     &__home {
         margin-right: 20px;
-        color: $text-color-dimmed;
+        color: var(--text-color-dimmed);
         &:hover:not(&--active) {
             cursor: pointer;
-            color: $text-color;
+            color: var(--text-color);
         }
     }
     &__chevron-right {
         margin: 0 10px;
-        color: lighten($text-color-dimmed, 20);
+        color: var(--text-color-dimmed);
     }
     &__crumb {
-        color: $text-color-dimmed;
+        color: var(--text-color-dimmed);
         font-weight: 500;
 
         &:hover:not(&--active) {
             cursor: pointer;
-            color: $text-color;
+            color: var(--text-color);
         }
         &--active {
-            color: $color-primary;
+            color: var(--color-primary);
         }
     }
 }
