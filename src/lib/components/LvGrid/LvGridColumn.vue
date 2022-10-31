@@ -39,12 +39,12 @@ export default {
     max-width: 100%;
     box-sizing: border-box;
 
-    padding-right: calc(v-bind(rowGap) * .5);
-    padding-left: calc(v-bind(rowGap) * .5);
+    //padding-right: calc(v-bind(rowGap) * .5);
+    //padding-left: calc(v-bind(rowGap) * .5);
 
     @each $factor, $percentage in $gridFactors {
         &--#{$factor} {
-            flex: 0 0 $percentage;
+            flex: 0 1 $percentage;
             max-width: $percentage;
         }
     }
