@@ -34,15 +34,13 @@ export default {
 <style lang="scss">
 .lv-keyboard {
     display: inline-flex;
-    transition: 0.2s all;
-    border: 1px solid var(--border-color-light);
-    border-radius: 3px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
     background-color: transparent;
     padding: 0.25rem 0.5rem;
     font-weight: 500;
     font-size: var(--font-size-small);
     font-family: var(--font-family);
-    text-shadow: 0 1px 0 #fff;
     text-align: center;
     margin: 0 0.25rem;
 }

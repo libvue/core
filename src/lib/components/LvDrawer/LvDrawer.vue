@@ -97,7 +97,7 @@ export default {
         position: absolute;
         box-sizing: border-box;
         box-shadow: var(--shadow-dialog);
-        background-color: #fff;
+        background-color: var(--background-color);
         padding: calc(var(--padding) * 2);
     }
 

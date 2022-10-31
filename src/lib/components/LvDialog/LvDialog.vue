@@ -69,7 +69,7 @@ export default {
         position: relative;
         box-shadow: var(--shadow-dialog);
         border-radius: var(--border-radius);
-        background-color: #fff;
+        background-color: var(--background-color);
         padding: calc(var(--padding) * 2);
     }
 

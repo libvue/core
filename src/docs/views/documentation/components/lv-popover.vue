@@ -11,7 +11,7 @@
                     <lv-heading v-space-after="1" level="5">Do some stuff</lv-heading>
                     <lv-group direction="column">
                         <lv-switch label="Enable something"/>
-                        <lv-button label="Or don't" color="primary"/>
+                        <lv-button label="Or don't" color="solid-dimmed-primary"/>
                     </lv-group>
                 </template>
             </lv-popover>
@@ -23,7 +23,7 @@
                     <lv-heading v-space-after="1" level="5">Do some stuff</lv-heading>
                     <lv-group direction="column">
                         <lv-switch label="Enable something"/>
-                        <lv-button label="Or don't" color="primary"/>
+                        <lv-button label="Or don't" color="solid-dimmed-primary"/>
                     </lv-group>
                 </template>
             </lv-popover>
@@ -43,7 +43,7 @@ const code = `
             <lv-heading v-space-after="1" level="5">Do some stuff</lv-heading>
             <lv-group direction="column">
                 <lv-switch label="Enable something"/>
-                <lv-button label="Or don't" color="primary"/>
+                <lv-button label="Or don't" color="solid-dimmed-primary"/>
             </lv-group>
         </template>
     </lv-popover>
@@ -55,7 +55,7 @@ const code = `
             <lv-heading v-space-after="1" level="5">Do some stuff</lv-heading>
             <lv-group direction="column">
                 <lv-switch label="Enable something"/>
-                <lv-button label="Or don't" color="primary"/>
+                <lv-button label="Or don't" color="solid-dimmed-primary"/>
             </lv-group>
         </template>
     </lv-popover>

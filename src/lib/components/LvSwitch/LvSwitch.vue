@@ -169,6 +169,7 @@ export default {
         margin-left: 5px;
         font-size: var(--font-size);
         line-height: var(--font-size);
+        color: var(--text-color);
     }
 }
 </style>

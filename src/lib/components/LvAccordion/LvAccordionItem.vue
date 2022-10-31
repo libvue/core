@@ -120,6 +120,7 @@ export default {
         font-weight: normal;
         font-size: var(--font-size);
         line-height: var(--font-size);
+        transition: .1s background;
 
         &:hover {
             background: var(--border-color-light);
