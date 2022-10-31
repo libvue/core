@@ -73,7 +73,7 @@ export default {
     align-items: center;
     cursor: pointer;
     border-radius: 5px;
-    color: var(--text-color-dimmed);
+    color: var(--text-color);
     font-weight: 400;
     font-size: var(--font-size);
     text-decoration: none;

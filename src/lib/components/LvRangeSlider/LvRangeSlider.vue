@@ -290,16 +290,18 @@ export default {
             cursor: default;
 
             &::after {
-                background-color: var(--border-color);
+                background-color: var(--border-color-light);
             }
         }
 
         #{$self}__amount {
             color: var(--text-color-dimmed);
         }
-
+        #{$self}__track {
+            background-color: var(--border-color-light);
+        }
         #{$self}__indicator {
-            background-color: var(--color-default);
+            background-color: var(--border-color);
         }
     }
 
@@ -308,16 +310,18 @@ export default {
             cursor: default;
 
             &::after {
-                background-color: var(--border-color);
+                background-color: var(--border-color-light);
             }
         }
 
         #{$self}__amount {
             color: var(--text-color-dimmed);
         }
-
+        #{$self}__track {
+            background-color: var(--border-color-light);
+        }
         #{$self}__indicator {
-            background-color: var(--color-default);
+            background-color: var(--border-color);
         }
     }
 
@@ -345,8 +349,8 @@ export default {
         &::after {
             transition: background-color 0.2s;
             margin-top: -1px;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-            border: 1px solid #cacaca;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-color);
             border-radius: 100%;
             background-color: var(--background-color);
             width: 14px;

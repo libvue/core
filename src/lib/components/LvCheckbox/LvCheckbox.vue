@@ -13,7 +13,7 @@
                 @input="toggleCheckbox"
             />
             <lv-icon v-if="modelValue && !loading" class="lv-checkbox__icon" name="check" />
-            <lv-icon v-if="loading" class="lv-checkbox__loader" :size="12" name="loader-2" />
+            <lv-icon v-if="loading" class="lv-checkbox__loader" :size="13" name="loader-2" />
         </div>
         <div v-if="label" class="lv-checkbox__label" @click="toggleCheckbox">{{ label }}</div>
     </div>
@@ -75,10 +75,10 @@ export default {
         transition: var(--transition-time) background-color var(--transition-easing);
         cursor: pointer;
         margin: 0;
-        border: 2px solid #cacaca;
+        border: 2px solid var(--border-color);
         border-radius: 3px;
-        width: 1rem;
-        height: 1rem;
+        width: 1.2rem;
+        height: 1.2rem;
 
     }
     &__checkbox {
@@ -97,7 +97,7 @@ export default {
     &--disabled {
         #{$self}__input {
             cursor: default;
-            border: 2px solid #eaeaea;
+            border: 2px solid var(--border-color-light);
         }
         #{$self}__label {
             cursor: default;
@@ -107,8 +107,9 @@ export default {
 
     &--checked#{$self}--disabled {
         #{$self}__input {
-            border: 2px solid var(--color-primary-dimmed);
-            background-color: var(--color-primary-dimmed);
+            border: 2px solid var(--color-primary);
+            background-color: var(--color-primary);
+            opacity: 0.45;
         }
         #{$self}__label {
             cursor: default;
@@ -119,13 +120,16 @@ export default {
     &__loader {
         position: absolute;
         top: 5px;
-        left: 2px;
+        left: 4px;
         animation: rotate-cw 1s infinite linear;
         pointer-events: none;
+        width: 11px;
+        height: 11px;
+        color: var(--color-default);
     }
 
     &--checked #{$self}__loader {
-        color: var(--text-color-inverted);
+        color: var(--background-color);
     }
 
     &__icon {
@@ -134,7 +138,7 @@ export default {
         left: 50%;
         transform: translate(-50%, -50%);
         pointer-events: none;
-        color: #fff;
+        color: var(--background-color);
     }
 
     &__label {

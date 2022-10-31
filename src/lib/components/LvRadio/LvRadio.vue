@@ -88,8 +88,9 @@ export default {
         top: 2px;
         left: 2px;
         animation: rotate-cw 1s infinite linear;
-        background-color: #fafafa;
+        background-color: var(--border-color-light);
         color: var(--text-color-dimmed);
+        border-radius: 100%;
     }
 
     &__input {

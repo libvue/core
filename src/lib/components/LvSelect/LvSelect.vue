@@ -436,7 +436,7 @@ export default {
         top: 13px;
         right: calc(var(--padding) - 2px);
         animation: rotate-cw 1s infinite linear;
-        background-color: #fafafa;
+        background-color: var(--background-color);
         color: var(--text-color-dimmed);
     }
 }

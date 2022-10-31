@@ -56,7 +56,7 @@ export default {
     margin-bottom: 10px;
     border-radius: 5px;
     padding: 5px 0;
-    color: var(--text-color-dimmed);
+    color: var(--text-color);
     font-weight: 400;
     font-size: var(--font-size);
     text-decoration: none;

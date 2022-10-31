@@ -64,7 +64,7 @@ export default {
     width: 100%;
     font-size: var(--font-size);
     font-family: var(--font-family);
-    color: var(--text-color-dimmed);
+    color: var(--text-color);
 
     &:last-of-type {
         margin-bottom: 0;
