@@ -305,6 +305,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../../scss/animations/animations';
+
 .lv-select {
     $self: &;
     position: relative;
@@ -318,11 +320,11 @@ export default {
     &__selection {
         display: flex;
         &-image {
-            border: 4px solid #fff;
+            border: 4px solid var(--background-color);
             border-radius: var(--border-radius);
             background-color: var(--background-color);
-            width: calc(calc(var(--padding) * 2) + var(--font-size) - 8px);
-            height: calc(calc(var(--padding) * 2) + var(--font-size) - 8px);
+            width: calc(calc(var(--padding) * 2) + var(--font-size));
+            height: calc(calc(var(--padding) * 2) + var(--font-size) );
             img {
                 border-radius: var(--border-radius);
                 width: 100%;
@@ -392,10 +394,10 @@ export default {
         line-height: var(--font-size);
 
         &-image {
-            border: 4px solid #fff;
+            border: 4px solid var(--background-color);
             background-color: var(--background-color);
-            width: calc(calc(var(--padding) * 2) + var(--font-size) - 8px);
-            height: calc(calc(var(--padding) * 2) + var(--font-size) - 8px);
+            width: calc(calc(var(--padding) * 2) + var(--font-size));
+            height: calc(calc(var(--padding) * 2) + var(--font-size));
             img {
                 border-radius: var(--border-radius);
                 width: 100%;
@@ -417,7 +419,7 @@ export default {
         }
         &--active {
             background-color: var(--color-primary);
-            color: var(--text-color-inverted);
+            color: var(--color-white);
         }
     }
 
@@ -432,7 +434,7 @@ export default {
     &__loading {
         position: absolute;
         top: 13px;
-        right: var(--padding) - 2px;
+        right: calc(var(--padding) - 2px);
         animation: rotate-cw 1s infinite linear;
         background-color: #fafafa;
         color: var(--text-color-dimmed);
