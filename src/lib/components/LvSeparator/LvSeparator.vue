@@ -25,7 +25,7 @@ export default {
 .lv-separator {
     margin: 0;
     border: 0;
-    background-color: var(--border-color);
+    background-color: var(--border-color-light);
 
     &--direction-horizontal {
         width: 100%;

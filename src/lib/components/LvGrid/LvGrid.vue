@@ -20,5 +20,6 @@ export default {
     display: flex;
     flex-direction: column;
     gap: v-bind(gap);
+    width: 100%;
 }
 </style>

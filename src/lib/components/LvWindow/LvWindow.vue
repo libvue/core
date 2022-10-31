@@ -6,10 +6,7 @@
                 <div class="lv-window__dot"></div>
                 <div class="lv-window__dot"></div>
             </div>
-            <div v-if="url" class="lv-window__url">
-                {{ url }}
-            </div>
-            <div v-else-if="title" class="lv-window__title">
+            <div v-if="title" class="lv-window__title">
                 {{ title }}
             </div>
         </div>
@@ -34,10 +31,6 @@ export default {
             type: String,
             default: null,
         },
-        url: {
-            type: String,
-            default: null,
-        }
     },
     computed: {
         styleObject() {
@@ -66,6 +59,7 @@ export default {
         font-size: var(--font-size);
         line-height: var(--font-size);
         height: 2rem;
+        flex-shrink: 0;
     }
     &__dots {
         display: flex;
@@ -90,8 +84,12 @@ export default {
             background-color: var(--color-success);
         }
     }
+    &__title {
+        color: var(--text-color);
+    }
     &__content {
         padding: var(--padding);
+        flex-grow: 1;
     }
 }
 </style>
