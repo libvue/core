@@ -41,19 +41,3 @@ export default {
     },
 };
 </script>
-
-<style>
-.filler {
-    background: linear-gradient(45deg, #eeecff, #f6f5ff);
-    display: flex;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
-    padding: 2rem;
-    box-sizing: border-box;
-    border-radius: 3px;
-    color: #4637f3;
-}
-</style>

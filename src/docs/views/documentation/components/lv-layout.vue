@@ -42,9 +42,9 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .filler {
-    background: linear-gradient(45deg, #eeecff, #f6f5ff);
+    background: var(--color-primary-dimmed);
     display: flex;
     width: 100%;
     height: 100%;
@@ -54,6 +54,6 @@ export default {
     padding: 2rem;
     box-sizing: border-box;
     border-radius: 3px;
-    color: #4637f3;
+    color: var(--color-primary);
 }
 </style>
