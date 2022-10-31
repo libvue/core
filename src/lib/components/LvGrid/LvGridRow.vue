@@ -23,9 +23,9 @@ export default {
 <style lang="scss" scoped>
 .lv-grid-row {
     display: flex;
-    flex-wrap: wrap;
-    margin-right: calc(v-bind(gap) * -.5);
-    margin-left: calc(v-bind(gap) * -.5);
+    gap: v-bind(gap);
+    //margin-right: calc(v-bind(gap) * -.5);
+    //margin-left: calc(v-bind(gap) * -.5);
 
 }
 </style>
