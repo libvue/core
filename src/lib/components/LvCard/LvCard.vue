@@ -23,6 +23,7 @@ export default {
     background-color: var(--background-color);
     padding: calc(var(--padding) * 1.5);
     color: var(--text-color);
+    line-height: 1;
 
     &--inline {
         display: inline-block;

@@ -1,3 +1,6 @@
+import LvWindow from './LvWindow/LvWindow.vue';
+import LvSpinner from './LvSpinner/LvSpinner.vue';
+import LvLoadingDots from './LvLoadingDots/LvLoadingDots.vue';
 import LvTextarea from './LvTextarea/LvTextarea.vue';
 import LvThemeToggle from './LvThemeToggle/LvThemeToggle.vue';
 import LvGrid from './LvGrid/LvGrid.vue';
@@ -47,6 +50,9 @@ import LvToasts from './LvToasts/LvToasts.vue';
 import LvWidget from './LvWidget/LvWidget.vue';
 
 export default {
+    LvWindow,
+    LvSpinner,
+    LvLoadingDots,
     LvTextarea,
     LvThemeToggle,
     LvGrid,

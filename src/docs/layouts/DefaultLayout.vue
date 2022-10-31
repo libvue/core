@@ -41,6 +41,8 @@
                     <lv-vertical-nav-item label="Theme Toggle" to="/docs/lv-theme-toggle" />
                     <lv-vertical-nav-item label="Card" to="/docs/lv-card" />
                     <lv-vertical-nav-item label="Group" to="/docs/lv-group" />
+                    <lv-vertical-nav-item label="Loading Dots" to="/docs/lv-loading-dots" />
+                    <lv-vertical-nav-item label="Spinner" to="/docs/lv-spinner" />
                 </lv-vertical-nav-list>
                 <lv-vertical-nav-list icon="compass" label="Navigation">
                     <lv-vertical-nav-item to="/docs/lv-button" label="Button" />
@@ -76,6 +78,7 @@
                     <lv-vertical-nav-item to="/docs/lv-code" label="Code" />
                     <lv-vertical-nav-item to="/docs/lv-notice" label="Notice" />
                     <lv-vertical-nav-item label="Accordion" to="/docs/lv-accordion" />
+                    <lv-vertical-nav-item label="Window" to="/docs/lv-window" />
                 </lv-vertical-nav-list>
                 <lv-vertical-nav-list icon="image" label="Media">
                     <lv-vertical-nav-item label="Icon" to="/docs/lv-icon" />

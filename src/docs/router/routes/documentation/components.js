@@ -1,3 +1,6 @@
+import LvWindow from '../../../views/documentation/components/lv-window.vue';
+import LvSpinner from '../../../views/documentation/components/lv-spinner.vue';
+import LvLoadingDots from '../../../views/documentation/components/lv-loading-dots.vue';
 import LvTextarea from '../../../views/documentation/components/lv-textarea.vue';
 import LvButton from '../../../views/documentation/components/lv-button.vue';
 import LvInput from '../../../views/documentation/components/lv-input.vue';
@@ -39,6 +42,21 @@ import LvAccordion from '../../../views/documentation/components/lv-accordion.vu
 import LvHeader from '../../../views/documentation/components/lv-header.vue';
 
 export default [
+    {
+        path: '/docs/lv-window',
+        name: 'lv-window',
+        component: LvWindow,
+    },
+    {
+        path: '/docs/lv-spinner',
+        name: 'lv-spinner',
+        component: LvSpinner,
+    },
+    {
+        path: '/docs/lv-loading-dots',
+        name: 'lv-loading-dots',
+        component: LvLoadingDots,
+    },
     {
         path: '/docs/lv-textarea',
         name: 'lv-textarea',
