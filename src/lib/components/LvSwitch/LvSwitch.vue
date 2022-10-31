@@ -1,9 +1,5 @@
 <template>
-    <div
-        class="lv-switch"
-        :class="classObject"
-        role="switch"
-    >
+    <div class="lv-switch" :class="classObject" role="switch">
         <div class="lv-switch__checkbox">
             <input
                 class="lv-switch__input"
@@ -49,8 +45,8 @@ export default {
                 'lv-switch--checked': !!this.modelValue,
                 'lv-switch--disabled': this.disabled || this.loading,
                 'lv-switch--loading': this.loading,
-            }
-        }
+            };
+        },
     },
     methods: {
         toggleCheckbox() {
@@ -63,7 +59,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 .lv-switch {
     $self: &;
     display: inline-flex;
@@ -81,15 +76,15 @@ export default {
         width: 2rem;
         height: 1.2rem;
         &:before {
-            content: '';
             position: absolute;
-            height: calc(1rem - 5px);
-            width: calc(1rem - 5px);
-            transition: .2s all;
             top: 2px;
             left: 2px;
+            transition: 0.2s all;
             border-radius: var(--border-radius);
             background-color: var(--border-color);
+            width: calc(1rem - 5px);
+            height: calc(1rem - 5px);
+            content: '';
         }
     }
     &__checkbox {
@@ -103,8 +98,8 @@ export default {
             border: 2px solid var(--color-primary);
             background-color: var(--color-primary);
             &:before {
-                left: inherit;
                 right: 2px;
+                left: inherit;
                 background-color: var(--background-color);
             }
         }
@@ -129,9 +124,9 @@ export default {
 
     &--checked#{$self}--disabled {
         #{$self}__input {
+            opacity: 0.45;
             border: 2px solid var(--color-primary);
             background-color: var(--color-primary);
-            opacity: 0.45;
         }
         #{$self}__label {
             cursor: default;
@@ -143,10 +138,10 @@ export default {
         position: absolute;
         top: 4px;
         left: 50%;
+        animation: rotate-cw 1s infinite linear;
+        margin-left: -0.325rem;
         width: 11px;
         height: 11px;
-        margin-left: -.325rem;
-        animation: rotate-cw 1s infinite linear;
         pointer-events: none;
         color: var(--color-default);
     }
@@ -167,9 +162,9 @@ export default {
     &__label {
         cursor: pointer;
         margin-left: 5px;
+        color: var(--text-color);
         font-size: var(--font-size);
         line-height: var(--font-size);
-        color: var(--text-color);
     }
 }
 </style>

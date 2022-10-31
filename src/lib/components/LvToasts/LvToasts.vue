@@ -45,7 +45,7 @@ export default {
                         Math,
                         Object.keys(val).map((i) => Number.parseInt(i, 10))
                     );
-                    delete this.toasts[oldestUid]
+                    delete this.toasts[oldestUid];
                 }
             },
             immediate: true,
@@ -91,15 +91,15 @@ export default {
     right: 0;
     bottom: 0;
     flex-direction: column;
-    gap: 10px;
     align-items: flex-end;
+    gap: 10px;
     z-index: 2101;
     padding: 2rem;
     pointer-events: none;
 }
 .toasts-enter-active,
 .toasts-leave-active {
-    transition: all .1s;
+    transition: all 0.1s;
 }
 .toasts-enter-from,
 .toasts-leave-to {

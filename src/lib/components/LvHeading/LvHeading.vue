@@ -45,7 +45,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 .lv-heading {
     display: block;
     margin-top: 0;

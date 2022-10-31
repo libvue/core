@@ -25,7 +25,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 .lv-vertical-nav-group {
     $self: &;
     display: flex;
@@ -37,7 +36,6 @@ export default {
     width: 100%;
     font-size: var(--font-size);
     font-family: var(--font-family);
-
 
     &:last-of-type {
         margin-bottom: 0;

@@ -79,14 +79,13 @@ export default {
     },
     methods: {
         onInput(e) {
-            this.$emit('update:modelValue', e.target.value)
-        }
-    }
+            this.$emit('update:modelValue', e.target.value);
+        },
+    },
 };
 </script>
 
 <style lang="scss">
-
 // Block
 .lv-input {
     $self: &;

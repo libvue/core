@@ -66,7 +66,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 .lv-icon {
     fill: none;
     stroke: currentColor;

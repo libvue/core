@@ -324,7 +324,7 @@ export default {
             border-radius: var(--border-radius);
             background-color: var(--background-color);
             width: calc(calc(var(--padding) * 2) + var(--font-size));
-            height: calc(calc(var(--padding) * 2) + var(--font-size) );
+            height: calc(calc(var(--padding) * 2) + var(--font-size));
             img {
                 border-radius: var(--border-radius);
                 width: 100%;

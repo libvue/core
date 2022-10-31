@@ -88,9 +88,9 @@ export default {
     &__amount {
         display: flex;
         align-items: flex-start;
+        margin-right: 10px;
         color: var(--text-color);
         font-weight: 600;
-        margin-right: 10px;
         font-size: 1.7rem;
         line-height: 1.7rem;
     }

@@ -9,13 +9,13 @@ export default {
     provide() {
         return {
             rowGap: this.gap,
-        }
+        };
     },
     props: {
         gap: {
             type: [String, Number],
             default: 0,
-        }
+        },
     },
 };
 </script>
@@ -26,6 +26,5 @@ export default {
     gap: v-bind(gap);
     //margin-right: calc(v-bind(gap) * -.5);
     //margin-left: calc(v-bind(gap) * -.5);
-
 }
 </style>

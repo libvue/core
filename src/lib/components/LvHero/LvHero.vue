@@ -23,7 +23,7 @@ export default {
         description: {
             type: String,
             default: '',
-        }
+        },
     },
     computed: {
         hasSide() {
@@ -32,9 +32,9 @@ export default {
         classObject() {
             return {
                 'lv-hero--no-side': !this.hasSide,
-            }
-        }
-    }
+            };
+        },
+    },
 };
 </script>
 
@@ -49,9 +49,9 @@ export default {
         flex-direction: column;
     }
     &__title {
-        font-size: 3rem;
         margin: 0;
         margin-bottom: 1rem;
+        font-size: 3rem;
     }
     &__description {
         margin: 0;
@@ -59,15 +59,15 @@ export default {
         font-size: 1.3rem;
     }
     &__buttons {
-        flex-shrink: 0;
-        margin-top: auto;
         display: flex;
+        flex-shrink: 0;
         gap: 10px;
+        margin-top: auto;
     }
     &__side {
         display: flex;
-        align-items: center;
         justify-content: center;
+        align-items: center;
     }
 
     &--no-side {

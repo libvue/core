@@ -52,7 +52,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 .lv-tabs {
     $self: &;
     display: block;

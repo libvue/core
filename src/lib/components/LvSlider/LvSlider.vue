@@ -212,7 +212,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 .lv-slider {
     $self: &;
 

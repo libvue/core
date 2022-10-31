@@ -344,8 +344,8 @@ export default {
 <style lang="scss">
 .lv-table {
     $self: &;
-    font-size: var(--font-size);
     color: var(--text-color);
+    font-size: var(--font-size);
     /* Elements */
     &__table {
         border-collapse: collapse;

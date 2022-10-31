@@ -53,8 +53,6 @@ export default {
 </script>
 
 <style lang="scss">
-
-
 .lv-vertical-nav-list {
     $self: &;
     display: flex;
@@ -62,9 +60,9 @@ export default {
     flex-direction: column;
     margin-bottom: 10px;
     width: 100%;
+    color: var(--text-color);
     font-size: var(--font-size);
     font-family: var(--font-family);
-    color: var(--text-color);
 
     &:last-of-type {
         margin-bottom: 0;

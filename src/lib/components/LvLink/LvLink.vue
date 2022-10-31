@@ -13,7 +13,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 .lv-link {
     $self: &;
     transition: all var(--transition-time);

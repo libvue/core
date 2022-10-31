@@ -26,8 +26,8 @@ export default {
 <style lang="scss">
 .lv-paragraph {
     margin: 0;
-    font-size: var(--font-size);
     color: var(--text-color);
+    font-size: var(--font-size);
 
     &--align-left {
         text-align: left;

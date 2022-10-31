@@ -10,8 +10,8 @@ export default {
         gap: {
             type: String,
             default: 'none',
-        }
-    }
+        },
+    },
 };
 </script>
 

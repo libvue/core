@@ -41,7 +41,7 @@
 </template>
 
 <script>
-import { useThrottleFn } from '@vueuse/core'
+import { useThrottleFn } from '@vueuse/core';
 
 export default {
     props: {
@@ -275,7 +275,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 .lv-range-slider {
     $self: &;
 

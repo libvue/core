@@ -7,12 +7,7 @@
             <slot>{{ text }}</slot>
         </div>
         <div v-if="showButton" class="lv-notice__button">
-            <lv-button
-                :color="buttonColor"
-                :label="buttonText"
-                size="small"
-                @click="onClickButton"
-            />
+            <lv-button :color="buttonColor" :label="buttonText" size="small" @click="onClickButton" />
         </div>
     </div>
 </template>
@@ -71,30 +66,30 @@ export default {
 .lv-notice {
     display: flex;
     position: relative;
+    justify-content: flex-start;
     box-sizing: border-box;
     border: 1px solid transparent;
     border-radius: var(--border-radius);
-    color: var(--text-color);
     width: 100%;
-    justify-content: flex-start;
+    color: var(--text-color);
 
     &__icon {
         display: flex;
-        font-size: var(--font-size);
-        padding: 1rem 0 1rem 1rem;
-        align-items: center;
         justify-content: center;
+        align-items: center;
+        padding: 1rem 0 1rem 1rem;
+        font-size: var(--font-size);
     }
     &__content {
-        padding: 1rem;
         flex-grow: 1;
+        padding: 1rem;
     }
     &__button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
         margin-left: auto;
         padding-right: 1rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
     }
 
     @include color-mixin;

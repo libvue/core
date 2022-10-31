@@ -41,7 +41,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 .lv-breadcrumbs {
     display: flex;
     align-items: center;

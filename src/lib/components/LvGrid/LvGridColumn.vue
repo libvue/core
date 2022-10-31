@@ -8,15 +8,15 @@
 export default {
     inject: {
         rowGap: {
-            default: 0
+            default: 0,
         },
     },
     props: {
         level: {
             type: Number,
             default: null,
-            validator: (v) => v > 0 && v < 13
-        }
+            validator: (v) => v > 0 && v < 13,
+        },
     },
     computed: {
         childrenInRow() {
@@ -25,19 +25,18 @@ export default {
         classObject() {
             return {
                 [`lv-grid-column--${this.level}`]: true,
-            }
-        }
-    }
+            };
+        },
+    },
 };
 </script>
 
 <style lang="scss">
 @import '../../scss/grid/grid';
 .lv-grid-column {
-
+    box-sizing: border-box;
     width: 100%;
     max-width: 100%;
-    box-sizing: border-box;
 
     //padding-right: calc(v-bind(rowGap) * .5);
     //padding-left: calc(v-bind(rowGap) * .5);

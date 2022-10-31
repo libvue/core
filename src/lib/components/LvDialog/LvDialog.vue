@@ -6,7 +6,9 @@
                 <div class="lv-dialog__content">
                     <slot name="default">
                         <div v-if="!!$slots.title" class="lv-dialog__title"><slot name="title"></slot></div>
-                        <div v-if="!!$slots.description" class="lv-dialog__description"><slot name="description"></slot></div>
+                        <div v-if="!!$slots.description" class="lv-dialog__description">
+                            <slot name="description"></slot>
+                        </div>
                         <div v-if="!!$slots.close" class="lv-dialog__close"><slot name="close"></slot></div>
                     </slot>
                 </div>
@@ -16,7 +18,7 @@
 </template>
 
 <script>
-import { UseFocusTrap } from '@vueuse/integrations/useFocusTrap/component'
+import { UseFocusTrap } from '@vueuse/integrations/useFocusTrap/component';
 
 export default {
     components: {
@@ -33,28 +35,27 @@ export default {
         },
         teleportTarget: {
             type: String,
-            default: 'body'
-        }
+            default: 'body',
+        },
     },
     emits: ['click-overlay'],
     methods: {
         onClickOverlay() {
             this.$emit('click-overlay');
-        }
-    }
+        },
+    },
 };
 </script>
 
 <style lang="scss">
-
 .lv-dialog {
     display: flex;
     position: fixed;
-    z-index: var(--z-index-dialog);
     top: 0;
     left: 0;
     justify-content: center;
     align-items: center;
+    z-index: var(--z-index-dialog);
     width: 100%;
     height: 100%;
 
@@ -72,6 +73,5 @@ export default {
         background-color: var(--background-color);
         padding: calc(var(--padding) * 2);
     }
-
 }
 </style>

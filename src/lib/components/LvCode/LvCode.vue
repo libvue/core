@@ -1,8 +1,5 @@
 <template>
-    <div
-        class="lv-code"
-        :class="classObject"
-    >
+    <div class="lv-code" :class="classObject">
         <div v-if="title" class="lv-code__title">
             {{ title }}
             <lv-icon class="lv-code__title-copy" :name="copyIcon" @click="copyCodeToClipboard" />
@@ -39,7 +36,7 @@ export default {
         inline: {
             type: Boolean,
             default: false,
-        }
+        },
     },
     data() {
         return {
@@ -54,8 +51,8 @@ export default {
             return {
                 'lv-code--titled': !!this.title,
                 'lv-code--inline': !!this.inline,
-            }
-        }
+            };
+        },
     },
     methods: {
         copyCodeToClipboard() {
@@ -81,7 +78,7 @@ export default {
         align-items: center;
         margin-bottom: 0;
         border-radius: var(--border-radius) var(--border-radius) 0 0;
-        background-color: rgba(0,0,0,0.1);
+        background-color: rgba(0, 0, 0, 0.1);
         padding: 0.5rem calc(var(--padding) * 1.5);
         color: var(--text-color-dimmed);
         font-weight: 500;
@@ -129,12 +126,12 @@ export default {
     }
 
     &--inline {
-        width: auto;
         display: inline-block;
         vertical-align: middle;
+        width: auto;
 
         #{$self}__content {
-            padding: calc(var(--padding) * .2) calc(var(--padding) * .8);
+            padding: calc(var(--padding) * 0.2) calc(var(--padding) * 0.8);
             padding-right: 35px;
 
             &-copy {

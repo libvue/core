@@ -15,16 +15,16 @@ export default {
         },
     },
     mounted() {
-        if(this.single) {
+        if (this.single) {
             this.startListener();
         }
     },
     methods: {
         startListener() {
             eventBus.$on('accordion-item:open', (uuid) => {
-                eventBus.$emit('accordion:close', uuid)
-            })
-        }
-    }
+                eventBus.$emit('accordion:close', uuid);
+            });
+        },
+    },
 };
 </script>

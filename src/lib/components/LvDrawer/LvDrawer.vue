@@ -46,25 +46,25 @@ export default {
             };
         },
         animation() {
-            if(this.placement === 'top') {
-                return 'slide-top-to-bottom'
+            if (this.placement === 'top') {
+                return 'slide-top-to-bottom';
             }
-            if(this.placement === 'bottom') {
-                return 'slide-bottom-to-top'
+            if (this.placement === 'bottom') {
+                return 'slide-bottom-to-top';
             }
-            if(this.placement === 'left') {
-                return 'slide-left-to-right'
+            if (this.placement === 'left') {
+                return 'slide-left-to-right';
             }
-            if(this.placement === 'right') {
-                return 'slide-right-to-left'
+            if (this.placement === 'right') {
+                return 'slide-right-to-left';
             }
-            return 'fade'
-        }
+            return 'fade';
+        },
     },
     mounted() {
         onClickOutside(this.$refs.content, () => {
             this.onClickOverlay();
-        })
+        });
     },
     methods: {
         onClickOverlay() {

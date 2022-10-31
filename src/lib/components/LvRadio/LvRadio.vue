@@ -61,8 +61,8 @@ export default {
             return {
                 'lv-radio--disabled': !!this.disabled || !!this.loading,
                 'lv-radio--loading': !!this.loading,
-            }
-        }
+            };
+        },
     },
     methods: {
         onInput(e) {
@@ -75,22 +75,21 @@ export default {
 </script>
 
 <style lang="scss">
-
 .lv-radio {
     display: flex;
+    position: relative;
     align-items: center;
     font-size: var(--font-size);
     line-height: var(--font-size);
-    position: relative;
 
     &__loading {
         position: absolute;
         top: 2px;
         left: 2px;
         animation: rotate-cw 1s infinite linear;
+        border-radius: 100%;
         background-color: var(--border-color-light);
         color: var(--text-color-dimmed);
-        border-radius: 100%;
     }
 
     &__input {

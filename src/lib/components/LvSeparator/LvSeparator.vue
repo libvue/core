@@ -22,7 +22,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 .lv-separator {
     margin: 0;
     border: 0;

@@ -23,9 +23,9 @@ export default {};
 .lv-header {
     display: flex;
     align-items: center;
-    padding: 1rem 1.5rem;
-    box-sizing: border-box;
     backdrop-filter: blur(2px);
+    box-sizing: border-box;
+    padding: 1rem 1.5rem;
 
     &__branding {
         display: flex;
@@ -33,9 +33,9 @@ export default {};
         cursor: pointer;
         margin-right: 2rem;
         > img {
+            flex-shrink: 0;
             width: 80px;
             color: var(--color-primary);
-            flex-shrink: 0;
         }
     }
     &__search {

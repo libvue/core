@@ -16,7 +16,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 .lv-card {
     box-shadow: var(--shadow);
     border: 1px solid var(--border-color);

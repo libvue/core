@@ -9,7 +9,7 @@
             </div>
         </div>
         <div v-if="action" class="lv-toast__right">
-            <lv-button label="Action" type="outline" color="primary" @click="action()"/>
+            <lv-button label="Action" type="outline" color="primary" @click="action()" />
         </div>
     </div>
 </template>
@@ -28,35 +28,34 @@ export default {
         action: {
             type: Function,
             default: null,
-        }
-    }
+        },
+    },
 };
 </script>
 
 <style lang="scss">
-
 .lv-toast {
+    display: flex;
+    box-shadow: var(--shadow);
     border: 1px solid var(--border-color);
-    padding: var(--padding);
     border-radius: var(--border-radius);
     background: var(--background-color);
-    box-shadow: var(--shadow);
-    display: flex;
+    padding: var(--padding);
 
     &__title {
         font-weight: bold;
         font-size: var(--font-size);
     }
     &__description {
-        font-size: var(--font-size-small);
         color: var(--text-color-dimmed);
+        font-size: var(--font-size-small);
     }
 
     &__right {
-        margin-left: auto;
         display: flex;
-        align-items: center;
         justify-content: center;
+        align-items: center;
+        margin-left: auto;
     }
 }
 </style>

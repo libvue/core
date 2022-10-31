@@ -42,7 +42,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 .lv-group {
     display: flex;
     flex-wrap: wrap;

@@ -65,7 +65,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 .lv-horizontal-nav-item {
     $self: &;
     display: flex;

@@ -25,7 +25,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 .lv-horizontal-nav-group {
     $self: &;
     display: flex;

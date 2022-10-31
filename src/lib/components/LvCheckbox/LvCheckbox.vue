@@ -1,9 +1,5 @@
 <template>
-    <div
-        class="lv-checkbox"
-        :class="classObject"
-        aria-label="checkbox"
-    >
+    <div class="lv-checkbox" :class="classObject" aria-label="checkbox">
         <div class="lv-checkbox__checkbox">
             <input
                 class="lv-checkbox__input"
@@ -50,8 +46,8 @@ export default {
                 'lv-checkbox--checked': !!this.modelValue,
                 'lv-checkbox--disabled': this.disabled || this.loading,
                 'lv-checkbox--loading': this.loading,
-            }
-        }
+            };
+        },
     },
     methods: {
         toggleCheckbox() {
@@ -64,7 +60,6 @@ export default {
 </script>
 
 <style lang="scss">
-
 .lv-checkbox {
     $self: &;
     display: inline-flex;
@@ -79,7 +74,6 @@ export default {
         border-radius: 3px;
         width: 1.2rem;
         height: 1.2rem;
-
     }
     &__checkbox {
         display: flex;
@@ -107,9 +101,9 @@ export default {
 
     &--checked#{$self}--disabled {
         #{$self}__input {
+            opacity: 0.45;
             border: 2px solid var(--color-primary);
             background-color: var(--color-primary);
-            opacity: 0.45;
         }
         #{$self}__label {
             cursor: default;
@@ -122,9 +116,9 @@ export default {
         top: 5px;
         left: 4px;
         animation: rotate-cw 1s infinite linear;
-        pointer-events: none;
         width: 11px;
         height: 11px;
+        pointer-events: none;
         color: var(--color-default);
     }
 

@@ -27,13 +27,14 @@ export default {
             type: Boolean,
             default: false,
         },
-    }
+    },
 };
 </script>
 
 <style lang="scss">
 .lv-keyboard {
     display: inline-flex;
+    margin: 0 0.25rem;
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
     background-color: transparent;
@@ -42,6 +43,5 @@ export default {
     font-size: var(--font-size-small);
     font-family: var(--font-family);
     text-align: center;
-    margin: 0 0.25rem;
 }
 </style>

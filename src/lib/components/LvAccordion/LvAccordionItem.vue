@@ -114,13 +114,13 @@ export default {
     &__button {
         display: flex;
         align-items: center;
+        transition: 0.1s background;
         cursor: pointer;
         margin: 0;
         padding: var(--padding);
         font-weight: normal;
         font-size: var(--font-size);
         line-height: var(--font-size);
-        transition: .1s background;
 
         &:hover {
             background: var(--border-color-light);

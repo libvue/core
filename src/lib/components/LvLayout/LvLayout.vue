@@ -34,7 +34,7 @@ export default {
         mainMaxWidth: {
             type: String,
             default: '700px',
-        }
+        },
     },
     data() {
         return {
@@ -60,14 +60,13 @@ export default {
         },
         getHeaderHeight() {
             const header = this.$el?.querySelector('.lv-layout__header');
-            if(header) {
+            if (header) {
                 this.headerHeight = window.getComputedStyle(header).height;
             } else {
                 this.headerHeight = '0px';
             }
-
-        }
-    }
+        },
+    },
 };
 </script>
 
@@ -77,32 +76,32 @@ body {
 }
 .lv-layout {
     $self: &;
-    width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
     background-color: var(--background-color);
+    width: 100%;
+    height: 100%;
 
     &__header {
-        width: 100%;
         position: sticky;
         top: 0;
         z-index: 1;
         border-bottom: 1px solid var(--border-color);
         background-color: var(--header-color);
+        width: 100%;
 
         &-container {
-            max-width: var(--max-width);
             margin: 0 auto;
+            max-width: var(--max-width);
         }
     }
 
     &__container {
         display: flex;
         flex-grow: 1;
-        max-width: var(--max-width);
         margin: 0 auto;
         width: 100%;
+        max-width: var(--max-width);
     }
 
     &__sidebar {
@@ -111,24 +110,23 @@ body {
         height: 100%;
 
         &-container {
-            padding: 1.5rem;
-            box-sizing: border-box;
             position: sticky;
             top: v-bind(headerHeight);
-            overflow-y: auto;
+            box-sizing: border-box;
+            padding: 1.5rem;
             max-height: calc(100vh - v-bind(headerHeight));
+            overflow-y: auto;
         }
     }
     &__main {
         flex-grow: 1;
-        padding: 1.5rem;
         box-sizing: border-box;
+        padding: 1.5rem;
 
         &-container {
-            max-width: v-bind(mainMaxWidth);
             margin: 0 auto;
+            max-width: v-bind(mainMaxWidth);
         }
     }
-
 }
 </style>
