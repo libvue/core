@@ -1,10 +1,20 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">Link</lv-heading>
-    <lv-heading v-space-after="2" sub :level="6">Easy link with vue-router support</lv-heading>
+    <lv-heading v-space-after="2" sub :level="6">Link anything to anywhere</lv-heading>
     <lv-card v-space-after="1">
-        <lv-link to="lv-link">Hello im a link</lv-link>
+        <lv-link to="lv-link">No Styling by default</lv-link>
     </lv-card>
-    <lv-code v-space-after="1" lang="html" :code="code" />
+    <lv-code v-space-after="1" lang="html" code='<lv-link to="lv-link">No Styling by default</lv-link>' />
+
+    <lv-card v-space-after="1">
+        <lv-link to="lv-link" highlight>Highlighted</lv-link>
+    </lv-card>
+    <lv-code v-space-after="1" lang="html" code='<lv-link to="lv-link" highlight>Highlighted</lv-link>' />
+
+    <lv-card v-space-after="1">
+        <lv-link to="lv-link"><lv-card>Any content</lv-card></lv-link>
+    </lv-card>
+    <lv-code v-space-after="1" lang="html" code='<lv-link to="lv-link"><lv-card>Any content</lv-card></lv-link>' />
 </template>
 
 <script>
