@@ -1,3 +1,6 @@
+import LvToggleGroup from '../../../views/documentation/components/lv-toggle-group.vue';
+import LvToggle from '../../../views/documentation/components/lv-toggle.vue';
+import LvCookieConsent from '../../../views/documentation/components/lv-cookie-consent.vue';
 import LvWindow from '../../../views/documentation/components/lv-window.vue';
 import LvSpinner from '../../../views/documentation/components/lv-spinner.vue';
 import LvLoadingDots from '../../../views/documentation/components/lv-loading-dots.vue';
@@ -42,6 +45,21 @@ import LvAccordion from '../../../views/documentation/components/lv-accordion.vu
 import LvHeader from '../../../views/documentation/components/lv-header.vue';
 
 export default [
+    {
+        path: '/docs/lv-toggle-group',
+        name: 'lv-toggle-group',
+        component: LvToggleGroup,
+    },
+    {
+        path: '/docs/lv-toggle',
+        name: 'lv-toggle',
+        component: LvToggle,
+    },
+    {
+        path: '/docs/lv-cookie-consent',
+        name: 'lv-cookie-consent',
+        component: LvCookieConsent,
+    },
     {
         path: '/docs/lv-window',
         name: 'lv-window',

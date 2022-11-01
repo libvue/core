@@ -6,10 +6,10 @@
             description="An extendable collection of Vue components to quickly scaffold interfaces."
         >
             <template #buttons>
-                <lv-button color="solid-primary" icon="book-open" @click="$router.push('/docs/install')">
+                <lv-button color="solid-primary" icon="book-open" to="/docs/install">
                     Documentation
                 </lv-button>
-                <lv-button color="solid-dimmed-primary" icon="github" @click="goToGithub">Github</lv-button>
+                <lv-button color="solid-dimmed-primary" icon="github" to="https://github.com/harmendv/libvue" target="_blank">Github</lv-button>
             </template>
         </lv-hero>
         <lv-separator v-space-after="4"></lv-separator>
@@ -18,38 +18,46 @@
                 <lv-grid-column :level="4">
                     <lv-link to="/docs/theming">
                         <lv-card class="feature-card">
-                            <lv-heading v-space-after="1" :level="5">Dark/Light Theme</lv-heading>
-                            <lv-paragraph v-space-after="1">
-                                This library is dark-mode friendly.
+                            <lv-heading v-space-after="1" :level="5">
+                                <lv-icon v-space-after=".5" name="palette"/>Themable
+                            </lv-heading>
+                            <lv-paragraph>
+                                Out of the box support for light and dark color schemes.
+                            </lv-paragraph>
+                        </lv-card>
+                    </lv-link>
+                </lv-grid-column>
+                <lv-grid-column :level="4">
+                    <lv-link to="/extensions">
+                        <lv-card class="feature-card">
+                            <lv-heading v-space-after="1" :level="5">
+                                <lv-icon v-space-after=".5" name="plug"/>Extensible
+                            </lv-heading>
+                            <lv-paragraph>
+                                You can extend libvue with our or your own extensions.
                             </lv-paragraph>
                         </lv-card>
                     </lv-link>
                 </lv-grid-column>
                 <lv-grid-column :level="4">
                     <lv-card class="feature-card">
-                        <lv-heading v-space-after="1" :level="5">Customizable</lv-heading>
-                        <lv-paragraph v-space-after="1">
-                            You can change a lot of styling!
+                        <lv-heading v-space-after="1" :level="5">
+                            <lv-icon v-space-after=".5" name="feather"/>Lightweight
+                        </lv-heading>
+                        <lv-paragraph>
+                            The entire library is g-zipped 35kb.
                         </lv-paragraph>
                     </lv-card>
-                </lv-grid-column>
-                <lv-grid-column :level="4">
-                    <lv-link to="/extensions">
-                        <lv-card class="feature-card">
-                            <lv-heading v-space-after="1" :level="5">Extensible</lv-heading>
-                            <lv-paragraph v-space-after="1">
-                                Our core has a lot, but our extensions provide even more.
-                            </lv-paragraph>
-                        </lv-card>
-                    </lv-link>
                 </lv-grid-column>
             </lv-grid-row>
             <lv-grid-row gap="1.5rem">
                 <lv-grid-column :level="4">
                     <lv-link to="/docs/grid">
                         <lv-card class="feature-card">
-                            <lv-heading v-space-after="1" :level="5">Grid</lv-heading>
-                            <lv-paragraph v-space-after="1">
+                            <lv-heading v-space-after="1" :level="5">
+                                <lv-icon v-space-after=".5" name="grid"/>Grid
+                            </lv-heading>
+                            <lv-paragraph>
                                 Grid components ready to make any layout possible.
                             </lv-paragraph>
                         </lv-card>
@@ -58,35 +66,31 @@
                 <lv-grid-column :level="4">
                     <lv-link to="/docs/spacing">
                         <lv-card class="feature-card">
-                            <lv-heading v-space-after="1" :level="5">Spacing</lv-heading>
-                            <lv-paragraph v-space-after="1">
+                            <lv-heading v-space-after="1" :level="5">
+                                <lv-icon v-space-after=".5" name="align-vertical-space-around"/>Spacing
+                            </lv-heading>
+                            <lv-paragraph>
                                 Our components don't have margins. Use our directive for adding it on the fly.
                             </lv-paragraph>
                         </lv-card>
                     </lv-link>
                 </lv-grid-column>
                 <lv-grid-column :level="4">
-                    <lv-card class="feature-card">
-                        <lv-heading v-space-after="1" :level="5">ARIA support</lv-heading>
-                        <lv-paragraph v-space-after="1">
-                            Our components all follow the aria guidelines.
-                        </lv-paragraph>
-                    </lv-card>
+                    <lv-link to="/docs/accessibility">
+                        <lv-card class="feature-card">
+                            <lv-heading v-space-after="1" :level="5">
+                                <lv-icon v-space-after=".5" name="accessibility"/>Accessibility
+                            </lv-heading>
+                            <lv-paragraph>
+                                We follow the ARIA guidelines and test with lighthouse for accessibility.
+                            </lv-paragraph>
+                        </lv-card>
+                    </lv-link>
                 </lv-grid-column>
             </lv-grid-row>
         </lv-grid>
     </div>
 </template>
-
-<script>
-export default {
-    methods: {
-        goToGithub() {
-            window.open('https://github.com/harmendv/libvue', '_blank');
-        },
-    },
-};
-</script>
 
 <style lang="scss">
 .splash {

@@ -7,6 +7,7 @@
         :height="computedSize"
         aria-hidden="true"
         :style="push ? `margin-right: ${push}rem;` : false"
+        :data-name="name"
     >
         <use :href="`${spritePath}#${name}`" />
     </svg>

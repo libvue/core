@@ -46,7 +46,7 @@ export default {
 
 <style lang="scss">
 .lv-heading {
-    display: block;
+    display: inline-flex;
     margin-top: 0;
     margin-bottom: 0;
     width: 100%;

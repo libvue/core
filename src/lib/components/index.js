@@ -1,3 +1,6 @@
+import LvToggleGroup from './LvToggleGroup/LvToggleGroup.vue';
+import LvToggle from './LvToggle/LvToggle.vue';
+import LvCookieConsent from './LvCookieConsent/LvCookieConsent.vue';
 import LvWindow from './LvWindow/LvWindow.vue';
 import LvSpinner from './LvSpinner/LvSpinner.vue';
 import LvLoadingDots from './LvLoadingDots/LvLoadingDots.vue';
@@ -50,6 +53,9 @@ import LvToasts from './LvToasts/LvToasts.vue';
 import LvWidget from './LvWidget/LvWidget.vue';
 
 export default {
+    LvToggleGroup,
+    LvToggle,
+    LvCookieConsent,
     LvWindow,
     LvSpinner,
     LvLoadingDots,

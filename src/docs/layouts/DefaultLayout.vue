@@ -16,6 +16,7 @@
                 <template #navigation>
                     <lv-horizontal-nav-item v-space-after="1" label="Documentation" to="/documentation" />
                     <lv-horizontal-nav-item v-space-after="1" label="Extensions" to="/extensions" />
+                    <lv-horizontal-nav-item v-space-after="1" label="Playground" to="/playground" />
                     <lv-separator direction="vertical"/>
                 </template>
                 <template #extra>
@@ -33,6 +34,7 @@
                 <lv-vertical-nav-item icon="palette" to="/docs/theming" label="Theming" />
                 <lv-vertical-nav-item icon="align-vertical-space-around" to="/docs/spacing" label="Spacing" />
                 <lv-vertical-nav-item icon="grid" to="/docs/grids" label="Grids" />
+                <lv-vertical-nav-item icon="accessibility" to="/docs/aria" label="Accessibility" />
             </lv-vertical-nav-group>
             <lv-vertical-nav-group label="Components">
                 <lv-vertical-nav-list icon="layout" label="Layout">
@@ -68,6 +70,8 @@
                     <lv-vertical-nav-item label="Switch" to="/docs/lv-switch" />
                     <lv-vertical-nav-item label="Select" to="/docs/lv-select" />
                     <lv-vertical-nav-item label="Textarea" to="/docs/lv-textarea" />
+                    <lv-vertical-nav-item label="Toggle" to="/docs/lv-toggle" />
+                    <lv-vertical-nav-item label="Toggle Group" to="/docs/lv-toggle-group" />
                 </lv-vertical-nav-list>
                 <lv-vertical-nav-list icon="pencil" label="Writing">
                     <lv-vertical-nav-item to="/docs/lv-heading" label="Heading" />
@@ -89,6 +93,7 @@
                     <lv-vertical-nav-item label="Drawer" to="/docs/lv-drawer" />
                     <lv-vertical-nav-item label="Popover" to="/docs/lv-popover" />
                     <lv-vertical-nav-item label="Toast" to="/docs/lv-toast" />
+                    <lv-vertical-nav-item label="Cookie Consent" to="/docs/lv-cookie-consent" />
                 </lv-vertical-nav-list>
             </lv-vertical-nav-group>
             <lv-vertical-nav-group label="Utilities">

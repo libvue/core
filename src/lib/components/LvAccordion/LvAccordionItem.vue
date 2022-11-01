@@ -132,7 +132,7 @@ export default {
     }
     &__content {
         border-top: 1px solid var(--border-color);
-        background: var(--border-color-light);
+
         padding: var(--padding);
         overflow: hidden;
     }
