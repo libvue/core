@@ -128,9 +128,10 @@ export default {
 
     &__icon {
         position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        top: 3px;
+        left: 3px;
+        width: 14px;
+        height: 14px;
         pointer-events: none;
         color: var(--background-color);
     }

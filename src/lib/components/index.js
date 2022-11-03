@@ -45,6 +45,7 @@ import LvPopover from './LvPopover/LvPopover.vue';
 import LvRadio from './LvRadio/LvRadio.vue';
 import LvRangeSlider from './LvRangeSlider/LvRangeSlider.vue';
 import LvSelect from './LvSelect/LvSelect.vue';
+import LvSelectOption from './LvSelect/LvSelectOption.vue';
 import LvSwitch from './LvSwitch/LvSwitch.vue';
 import LvTable from './LvTable/LvTable.vue';
 import LvTabs from './LvTabs/LvTabs.vue';
@@ -100,6 +101,7 @@ export default {
     LvRadio,
     LvRangeSlider,
     LvSelect,
+    LvSelectOption,
     LvSwitch,
     LvTable,
     LvTabs,

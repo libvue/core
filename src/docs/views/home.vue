@@ -3,7 +3,7 @@
         <lv-hero
             v-space-after="4"
             title="Libvue"
-            description="An extendable collection of Vue components to quickly scaffold interfaces."
+            description="An extensible collection of vue.js 3 components."
         >
             <template #buttons>
                 <lv-button color="solid-primary" icon="book-open" to="/docs/install">

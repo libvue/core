@@ -1,74 +1,129 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">Select</lv-heading>
-    <lv-heading v-space-after="2" sub :level="6">Select a single item</lv-heading>
+    <lv-heading v-space-after="2" sub :level="6">Select a single or multiple items</lv-heading>
 
-    <lv-heading v-space-after="1" :level="6">Default simple select</lv-heading>
+    <lv-heading v-space-after="1" :level="6">Single Select</lv-heading>
     <lv-card v-space-after="1">
-        <lv-group direction="column">
-            <lv-select v-model="model" :options="options" />
-            <lv-select v-model="model" :options="options" disabled />
-            <lv-select v-model="model" :options="options" loading />
-        </lv-group>
+        <lv-select :value="modelSingle">
+            <lv-select-option
+                v-for="(option, index) in options"
+                :key="index"
+                :option="option"
+                @click="(v) => { modelSingle = v }"
+            >
+                <lv-group>
+                    <lv-icon :name="option.icon"/> {{ option.label }}
+                </lv-group>
+            </lv-select-option>
+
+            <template #value="{ value }">
+                <lv-group>
+                    <lv-icon :name="value.icon"/> {{ value.label }}
+                </lv-group>
+            </template>
+        </lv-select>
     </lv-card>
-    <lv-code v-space-after="1" :code="code" lang="html" />
+    <lv-code :code="codeSingle" v-space-after="1" lang="html"/>
 
-
-    <lv-heading v-space-after="1" :level="6">With images</lv-heading>
+    <lv-heading v-space-after="1" :level="6">Multiple Select</lv-heading>
     <lv-card v-space-after="1">
-        <lv-select v-model="model" :options="options" show-images />
+        <lv-select :value="modelMultiple" multiple>
+            <lv-select-option
+                v-for="(option, index) in options"
+                :key="index"
+                :option="option"
+                @click="(v) => { modelMultiple = v }"
+            >
+                <lv-group>
+                    <lv-icon :name="option.icon"/> {{ option.label }}
+                </lv-group>
+            </lv-select-option>
+            <template #value="{ value }">
+                <lv-group>
+                    <lv-icon :name="value.icon"/> {{ value.label }}
+                </lv-group>
+            </template>
+        </lv-select>
     </lv-card>
-    <lv-code v-space-after="1" :code="codeWithImages" lang="html" />
+    <lv-code :code="codeMultiple" v-space-after="1" lang="html"/>
 
-    <lv-heading v-space-after="1" :level="6">With option groups</lv-heading>
+    <lv-heading v-space-after="1" :level="6">Searchable</lv-heading>
     <lv-card v-space-after="1">
-        <lv-select v-model="model" :options="options" show-groups />
+        <lv-select :value="modelSearch" searchable placeholder="Search for an option">
+            <lv-select-option
+                v-for="(option, index) in options"
+                :key="index"
+                :option="option"
+                @click="(v) => { modelSearch = v }"
+            >
+                {{ option.label }}
+            </lv-select-option>
+        </lv-select>
     </lv-card>
-    <lv-code v-space-after="1" :code="codeWithGroups" lang="html" />
-
-    <lv-heading v-space-after="1" :level="6">Example Options</lv-heading>
-    <lv-code v-space-after="1" :code="codeScript" lang="js" />
+    <lv-code :code="codeSingle" v-space-after="1" lang="html"/>
 </template>
 
 <script>
-const code = `
-<lv-select v-model="model" :options="options" />
-<lv-select v-model="model" :options="options" disabled />
-<lv-select v-model="model" :options="options" loading />
+const codeSingle = `
+<lv-select :value="modelSingle">
+    <!-- Options in slot:default -->
+    <lv-select-option
+        v-for="(option, index) in options"
+        :key="index"
+        :option="option"
+        @click="(v) => { modelSingle = v }"
+    >
+        <lv-group>
+            <lv-icon :name="option.icon"/> {{ option.label }}
+        </lv-group>
+    </lv-select-option>
+    <!-- Format the value in slot:value -->
+    <template #value="{ value }">
+        <lv-group>
+            <lv-icon :name="value.icon"/> {{ value.label }}
+        </lv-group>
+    </template>
+</lv-select>
 `.trim();
-const codeWithImages = `
-<lv-select v-model="model" :options="options" show-images />
+const codeMultiple = `
+<lv-select :value="modelMultiple" multiple>
+    <!-- Options in slot:default -->
+    <lv-select-option
+        v-for="(option, index) in options"
+        :key="index"
+        :option="option"
+        @click="(v) => { modelMultiple = v }"
+    >
+        <lv-group>
+            <lv-icon :name="option.icon"/> {{ option.label }}
+        </lv-group>
+    </lv-select-option>
+    <!-- Format the value in slot:value (values available for all values) -->
+    <template #value="{ value }">
+        <lv-group>
+            <lv-icon :name="value.icon"/> {{ value.label }}
+        </lv-group>
+    </template>
+</lv-select>
 `.trim();
-const codeWithGroups = `
-<lv-select v-model="model" :options="options" show-groups />
-`.trim();
-const codeScript = `
 export default {
+    components: {},
+
     data() {
         return {
-            model: 1,
+            codeSingle,
+            codeMultiple,
+            modelSingle: null,
+            modelMultiple: [],
+            modelSearch: null,
             options: [
-                { label: "Option 1", value: 1, group: 'Holiday', image: 'https://picsum.photos/50/50' },
-                { label: "Option 2", value: 2, group: 'Holiday', image: 'https://picsum.photos/50/50?1' },
-                { label: "Option 3", value: 3, group: 'Party', image: 'https://picsum.photos/50/50?2' },
-                { label: "Option 4", value: 4, group: 'Party', image: 'https://picsum.photos/50/50?3' }
-            ]
-        }
-    }
-}
-`.trim();
-export default {
-    data() {
-        return {
-            code,
-            codeScript,
-            codeWithImages,
-            codeWithGroups,
-            model: 1,
-            options: [
-                { label: "Option 1", value: 1, group: 'Holiday', image: 'https://picsum.photos/50/50' },
-                { label: "Option 2", value: 2, group: 'Holiday', image: 'https://picsum.photos/50/50?1' },
-                { label: "Option 3", value: 3, group: 'Party', image: 'https://picsum.photos/50/50?2' },
-                { label: "Option 4", value: 4, group: 'Party', image: 'https://picsum.photos/50/50?3' }
+                { label: 'Bomb', value: 1, icon: 'bomb' },
+                { label: 'Bookmark', value: 2, icon: 'bookmark' },
+                { label: 'Bot', value: 3, icon: 'bot' },
+                { label: 'Citrus', value: 4, icon: 'citrus' },
+                { label: 'Cookie', value: 5, icon: 'cookie' },
+                { label: 'Croissant', value: 6, icon: 'croissant' },
+                { label: 'Disc', value: 7, icon: 'disc' },
             ],
         };
     },

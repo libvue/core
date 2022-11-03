@@ -43,6 +43,7 @@ export default {
     $self: &;
     display: flex;
     color: var(--text-color);
+    margin: 0 auto;
 
     &__content {
         display: flex;
