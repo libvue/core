@@ -8,7 +8,13 @@
         aria-haspopup="listbox"
     >
         <!-- Input -->
-        <div ref="combobox" class="lv-select__input" tabindex="0" @click="onClickSelection">
+        <div
+            ref="combobox"
+            class="lv-select__input"
+            tabindex="0"
+            @click="onClickSelection"
+            @keydown.enter.space.prevent="onClickSelection"
+        >
             <!-- Single value -->
             <div v-if="hasValue && !multiple" class="lv-select__value">
                 <slot name="value" :value="value">
@@ -24,7 +30,13 @@
                 </span>
             </div>
             <!-- If searchable -->
-            <input v-else-if="searchable" v-model="search" class="lv-select__search" type="text" :placeholder="placeholder">
+            <input
+                v-else-if="searchable"
+                v-model="search"
+                class="lv-select__search"
+                type="text"
+                :placeholder="placeholder"
+            />
             <!-- No value -->
             <div v-else class="lv-select__placeholder">{{ placeholder }}</div>
             <lv-icon v-if="loading" class="lv-select__loading" :size="16" name="loader-2" />
@@ -34,7 +46,7 @@
         <transition name="dropdown">
             <div v-show="dropdownVisible" class="lv-select__dropdown" role="listbox">
                 <slot></slot>
-                <div class="lv-select__no-options">No options found</div>
+                <div v-if="!visibleOptions" class="lv-select__no-options">No options found</div>
             </div>
         </transition>
     </div>
@@ -85,28 +97,12 @@ export default {
             default: false,
         },
     },
-    watch: {
-        search() {
-            if(!this.dropdownVisible) {
-                this.dropdownVisible = true;
-            };
-        },
-        value() {
-            // If value changes, clear the search if there is any
-            if(this.search) {
-                this.search = null;
-            }
-            // If value changes (not in multiple mode) close the dropdown
-            if(!this.multiple && this.dropdownVisible) {
-                this.dropdownVisible = false;
-            }
-        }
-    },
     data() {
         return {
             dropdownVisible: false,
             focusedOptionIndex: null,
             search: null,
+            visibleOptions: null,
         };
     },
     computed: {
@@ -119,9 +115,6 @@ export default {
             }
             return false;
         },
-        hasChildren() {
-            return !!this.$slots.default.firstChild;
-        },
         classObject() {
             return {
                 'lv-select--disabled': !!this.disabled || !!this.loading,
@@ -129,12 +122,38 @@ export default {
             };
         },
     },
+    watch: {
+        search(val) {
+            if (!this.dropdownVisible && val) {
+                this.dropdownVisible = true;
+            }
+        },
+        value(val) {
+            // If value changes (not in multiple mode) close the dropdown
+            if (!this.multiple && this.dropdownVisible) {
+                this.dropdownVisible = false;
+            }
+            // If value changes, clear the search if there is any
+            if (val && this.search) {
+                this.search = null;
+            }
+        },
+    },
     mounted() {
+        this.visibleOptions = this.getVisibleOptions();
         onClickOutside(this.$refs.select, () => {
             this.dropdownVisible = false;
         });
     },
+    updated() {
+        this.$nextTick(() => {
+            this.visibleOptions = this.getVisibleOptions();
+        });
+    },
     methods: {
+        getVisibleOptions() {
+            return this.$el.querySelectorAll('.lv-select-option').length;
+        },
         onClickSelection() {
             this.dropdownVisible = !this.dropdownVisible;
         },
@@ -163,27 +182,27 @@ export default {
     }
     &__values {
         display: flex;
+        padding: calc(var(--padding) * 0.5);
         font-size: var(--font-size);
-        padding: calc(var(--padding) * .5);
         line-height: var(--font-size);
         &-item {
             margin-right: 5px;
-            background-color: var(--color-primary);
-            color: var(--color-white);
-            padding: calc(var(--padding) * .5);
             border-radius: var(--border-radius);
+            background-color: var(--color-primary);
+            padding: calc(var(--padding) * 0.5);
+            color: var(--color-white);
         }
     }
     &__search {
+        flex-grow: 1;
         box-sizing: border-box;
+        outline: 0;
+        border: 0;
+        background: transparent;
         padding: calc(var(--padding) - 1px) var(--padding);
         color: var(--text-color);
-        background: transparent;
         font-size: var(--font-size);
         line-height: var(--font-size);
-        border: 0;
-        outline: 0;
-        flex-grow: 1;
     }
     &__placeholder {
         padding: var(--padding);
@@ -210,13 +229,10 @@ export default {
         padding: calc(var(--padding) * 0.5);
         width: 100%;
     }
+
     &__no-options {
         $noOptions: &;
         padding: var(--padding);
-        display: none;
-        &:first-child#{$noOptions}:last-child {
-            display: block;
-        }
     }
 
     &--disabled {

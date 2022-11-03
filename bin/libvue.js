@@ -76,7 +76,7 @@ program
                         .replace(/%name%/g, componentName)
                         .replace(/%component%/g, `<${pascalToKebab(componentName)}/>`)
                 );
-                console.log(`Created Doc View: ${componentFile}`);
+                console.log(`Created Doc View: ${docViewFile}`);
 
                 // Register doc view component in routes/documentation/index.js
                 let componentRouteFileContent = fs.readFileSync(config.componentRouteFile, 'utf8');
