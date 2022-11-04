@@ -1,5 +1,5 @@
 <template>
-    <div class="lv-select-option-group">
+    <div class="lv-select-option-group" v-show="visibleOptions">
         <div class="lv-select-option-group__title">{{ title }}</div>
         <slot></slot>
     </div>
@@ -16,6 +16,7 @@ export default {
     data() {
         return {
             visibleOptions: null,
+            element: null,
         }
     },
     updated() {
@@ -24,11 +25,15 @@ export default {
         });
     },
     mounted() {
+        this.element = this.$el;
         this.visibleOptions = this.getVisibleOptions();
     },
     methods: {
         getVisibleOptions() {
-            return this.$el.querySelectorAll('.lv-select-option').length;
+            if(this.element) {
+                return this.element.querySelectorAll('.lv-select-option').length;
+            }
+            return 0;
         },
     }
 }

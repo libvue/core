@@ -57,14 +57,13 @@ import { onClickOutside } from '@vueuse/core';
 import { computed } from 'vue';
 
 export default {
-    components: {},
-
     provide() {
         return {
             value: computed(() => this.value),
             multiple: computed(() => this.multiple),
             searchable: computed(() => this.searchable),
             searchValue: computed(() => this.search),
+            visibleOptions: computed(() => this.visibleOptions),
         };
     },
     props: {
