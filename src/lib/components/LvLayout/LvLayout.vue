@@ -100,6 +100,7 @@ body {
         display: flex;
         flex-grow: 1;
         margin: 0 auto;
+        align-items: stretch;
         width: 100%;
         max-width: var(--max-width);
         // padding-top: v-bind(headerHeight);
@@ -108,7 +109,6 @@ body {
     &__sidebar {
         box-sizing: border-box;
         border-right: 1px solid var(--border-color);
-        height: 100%;
         position: sticky;
         top: v-bind(headerHeight);
 
