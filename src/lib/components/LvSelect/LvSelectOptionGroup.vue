@@ -42,11 +42,9 @@ export default {
 <style lang="scss">
 .lv-select-option-group {
     display: none;
+    margin-top: .5rem;
     &:has(div:not(.lv-select-option-group__title)) {
         display: block;
-    }
-    &:not(&:first-of-type) {
-        margin-top: .5rem;
     }
     &__title {
         padding: calc(var(--padding) * .5) calc(var(--padding) * .75);
