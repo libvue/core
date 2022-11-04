@@ -83,7 +83,7 @@ body {
     height: 100%;
 
     &__header {
-        position: fixed;
+        position: sticky;
         top: 0;
         z-index: 1;
         border-bottom: 1px solid var(--border-color);
@@ -102,13 +102,15 @@ body {
         margin: 0 auto;
         width: 100%;
         max-width: var(--max-width);
-        padding-top: v-bind(headerHeight);
+        // padding-top: v-bind(headerHeight);
     }
 
     &__sidebar {
         box-sizing: border-box;
         border-right: 1px solid var(--border-color);
         height: 100%;
+        position: sticky;
+        top: v-bind(headerHeight);
 
         &-container {
             position: sticky;
