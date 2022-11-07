@@ -1,8 +1,8 @@
 <template>
     <div class="lv-code" :class="classObject">
-        <div v-if="title" class="lv-code__title">
+        <div v-if="title" class="lv-code__header">
             {{ title }}
-            <lv-icon class="lv-code__title-copy" :name="copyIcon" @click="copyCodeToClipboard" />
+            <lv-icon class="lv-code__header-copy" :name="copyIcon" @click="copyCodeToClipboard" />
         </div>
         <div class="lv-code__content">
             <pre class="lv-code__code" v-html="html" />
@@ -72,15 +72,15 @@ export default {
     $self: &;
     width: 100%;
 
-    &__title {
+    &__header {
         display: flex;
         flex-direction: row;
         align-items: center;
         margin-bottom: 0;
         border-radius: var(--border-radius) var(--border-radius) 0 0;
-        background-color: rgba(0, 0, 0, 0.1);
+        background-color: var(--code-header-color);
         padding: 0.5rem calc(var(--padding) * 1.5);
-        color: var(--text-color-dimmed);
+        color: var(--text-color);
         font-weight: 500;
         font-size: var(--font-size-small);
         font-family: var(--font-family);

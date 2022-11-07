@@ -80,7 +80,6 @@ body {
     flex-direction: column;
     background-color: var(--background-color);
     width: 100%;
-    height: 100%;
 
     &__header {
         position: sticky;
