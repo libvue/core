@@ -1,3 +1,12 @@
+import LvBadge from './LvBadge/LvBadge.vue';
+import LvAdvertPwa from './LvAdvertPwa/LvAdvertPwa.vue';
+import LvAdvertApp from './LvAdvertApp/LvAdvertApp.vue';
+import LvFileTree from './LvFileTree/LvFileTree.vue';
+import LvProgress from './LvProgress/LvProgress.vue';
+import LvFragmentLink from './LvFragmentLink/LvFragmentLink.vue';
+import LvImageCarousel from './LvImageCarousel/LvImageCarousel.vue';
+import LvImage from './LvImage/LvImage.vue';
+import LvSkeleton from './LvSkeleton/LvSkeleton.vue';
 import LvToggleGroup from './LvToggleGroup/LvToggleGroup.vue';
 import LvToggle from './LvToggle/LvToggle.vue';
 import LvCookieConsent from './LvCookieConsent/LvCookieConsent.vue';
@@ -55,6 +64,15 @@ import LvToasts from './LvToasts/LvToasts.vue';
 import LvWidget from './LvWidget/LvWidget.vue';
 
 export default {
+    LvBadge,
+    LvAdvertPwa,
+    LvAdvertApp,
+    LvFileTree,
+    LvProgress,
+    LvFragmentLink,
+    LvImageCarousel,
+    LvImage,
+    LvSkeleton,
     LvToggleGroup,
     LvToggle,
     LvCookieConsent,

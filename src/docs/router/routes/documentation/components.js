@@ -1,3 +1,12 @@
+import LvBadge from '../../../views/documentation/components/lv-badge.vue';
+import LvAdvertPwa from '../../../views/documentation/components/lv-advert-pwa.vue';
+import LvAdvertApp from '../../../views/documentation/components/lv-advert-app.vue';
+import LvFileTree from '../../../views/documentation/components/lv-file-tree.vue';
+import LvProgress from '../../../views/documentation/components/lv-progress.vue';
+import LvFragmentLink from '../../../views/documentation/components/lv-fragment-link.vue';
+import LvImageCarousel from '../../../views/documentation/components/lv-image-carousel.vue';
+import LvImage from '../../../views/documentation/components/lv-image.vue';
+import LvSkeleton from '../../../views/documentation/components/lv-skeleton.vue';
 import LvToggleGroup from '../../../views/documentation/components/lv-toggle-group.vue';
 import LvToggle from '../../../views/documentation/components/lv-toggle.vue';
 import LvCookieConsent from '../../../views/documentation/components/lv-cookie-consent.vue';
@@ -43,8 +52,59 @@ import LvPopover from '../../../views/documentation/components/lv-popover.vue';
 import LvPagination from '../../../views/documentation/components/lv-pagination.vue';
 import LvAccordion from '../../../views/documentation/components/lv-accordion.vue';
 import LvHeader from '../../../views/documentation/components/lv-header.vue';
+import LvGrid from '../../../views/documentation/components/lv-grid.vue';
 
 export default [
+    {
+        path: '/docs/lv-grid',
+        name: 'lv-grid',
+        component: LvGrid,
+    },
+    {
+        path: '/docs/lv-badge',
+        name: 'lv-badge',
+        component: LvBadge,
+    },
+    {
+        path: '/docs/lv-advert-pwa',
+        name: 'lv-advert-pwa',
+        component: LvAdvertPwa,
+    },
+    {
+        path: '/docs/lv-advert-app',
+        name: 'lv-advert-app',
+        component: LvAdvertApp,
+    },
+    {
+        path: '/docs/lv-file-tree',
+        name: 'lv-file-tree',
+        component: LvFileTree,
+    },
+    {
+        path: '/docs/lv-progress',
+        name: 'lv-progress',
+        component: LvProgress,
+    },
+    {
+        path: '/docs/lv-fragment-link',
+        name: 'lv-fragment-link',
+        component: LvFragmentLink,
+    },
+    {
+        path: '/docs/lv-image-carousel',
+        name: 'lv-image-carousel',
+        component: LvImageCarousel,
+    },
+    {
+        path: '/docs/lv-image',
+        name: 'lv-image',
+        component: LvImage,
+    },
+    {
+        path: '/docs/lv-skeleton',
+        name: 'lv-skeleton',
+        component: LvSkeleton,
+    },
     {
         path: '/docs/lv-toggle-group',
         name: 'lv-toggle-group',

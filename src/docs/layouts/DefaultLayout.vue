@@ -33,16 +33,18 @@
             <lv-vertical-nav-group label="Concepts">
                 <lv-vertical-nav-item icon="palette" to="/docs/theming" label="Theming" />
                 <lv-vertical-nav-item icon="align-vertical-space-around" to="/docs/spacing" label="Spacing" />
-                <lv-vertical-nav-item icon="grid" to="/docs/grids" label="Grids" />
                 <lv-vertical-nav-item icon="accessibility" to="/docs/aria" label="Accessibility" />
             </lv-vertical-nav-group>
             <lv-vertical-nav-group label="Components">
                 <lv-vertical-nav-list icon="layout" label="Layout">
                     <lv-vertical-nav-item label="Layout" to="/docs/lv-layout" />
                     <lv-vertical-nav-item label="Header" to="/docs/lv-header" />
+                    <lv-vertical-nav-item label="Grid" to="/docs/lv-grid" />
+                    <lv-vertical-nav-item label="Group" to="/docs/lv-group" />
                     <lv-vertical-nav-item label="Theme Toggle" to="/docs/lv-theme-toggle" />
                     <lv-vertical-nav-item label="Card" to="/docs/lv-card" />
-                    <lv-vertical-nav-item label="Group" to="/docs/lv-group" />
+                    <lv-vertical-nav-item label="!Advert App" to="/docs/lv-advert-app" />
+                    <lv-vertical-nav-item label="!Advert PWA" to="/docs/lv-advert-pwa" />
                     <lv-vertical-nav-item label="Loading Dots" to="/docs/lv-loading-dots" />
                     <lv-vertical-nav-item label="Spinner" to="/docs/lv-spinner" />
                 </lv-vertical-nav-list>
@@ -50,6 +52,7 @@
                     <lv-vertical-nav-item to="/docs/lv-button" label="Button" />
                     <lv-vertical-nav-item to="/docs/lv-tabs" label="Tabs" />
                     <lv-vertical-nav-item label="Link" to="/docs/lv-link" />
+                    <lv-vertical-nav-item label="!Fragment Link" to="/docs/lv-fragment-link" />
                     <lv-vertical-nav-item label="Horizontal Nav" to="/docs/lv-horizontal-nav" />
                     <lv-vertical-nav-item label="Vertical Nav" to="/docs/lv-vertical-nav" />
                     <lv-vertical-nav-item label="Pagination" to="/docs/lv-pagination" />
@@ -59,7 +62,10 @@
                     <lv-vertical-nav-item to="/docs/lv-table" label="Table" />
                     <lv-vertical-nav-item to="/docs/lv-chart" label="Chart" />
                     <lv-vertical-nav-item label="Widget" to="/docs/lv-widget" />
+                    <lv-vertical-nav-item label="!File Tree" to="/docs/lv-file-tree" />
+                    <lv-vertical-nav-item label="!Progress" to="/docs/lv-progress" />
                     <lv-vertical-nav-item label="Pill" to="/docs/lv-pill" />
+                    <lv-vertical-nav-item label="Badge" to="/docs/lv-badge" />
                 </lv-vertical-nav-list>
                 <lv-vertical-nav-list icon="form-input" label="Form Elements">
                     <lv-vertical-nav-item to="/docs/lv-input" label="Input" />
@@ -83,10 +89,13 @@
                     <lv-vertical-nav-item to="/docs/lv-notice" label="Notice" />
                     <lv-vertical-nav-item label="Accordion" to="/docs/lv-accordion" />
                     <lv-vertical-nav-item label="Window" to="/docs/lv-window" />
+                    <lv-vertical-nav-item label="Skeleton" to="/docs/lv-skeleton" />
                 </lv-vertical-nav-list>
                 <lv-vertical-nav-list icon="image" label="Media">
                     <lv-vertical-nav-item label="Icon" to="/docs/lv-icon" />
                     <lv-vertical-nav-item label="Avatar" to="/docs/lv-avatar" />
+                    <lv-vertical-nav-item label="!Image" to="/docs/lv-image" />
+                    <lv-vertical-nav-item label="!Image Carousel" to="/docs/lv-image-carousel" />
                 </lv-vertical-nav-list>
                 <lv-vertical-nav-list icon="layers" label="Overlay">
                     <lv-vertical-nav-item label="Dialog" to="/docs/lv-dialog" />
@@ -102,7 +111,6 @@
                 </lv-vertical-nav-list>
                 <lv-vertical-nav-list icon="wand-2" label="Directives">
                     <lv-vertical-nav-item label="v-space-after" to="/docs/v-space-after" />
-                    <lv-vertical-nav-item label="v-badge" to="/docs/v-badge" />
                 </lv-vertical-nav-list>
             </lv-vertical-nav-group>
         </template>

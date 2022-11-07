@@ -1,5 +1,5 @@
 <template>
-    <lv-heading v-space-after="0.5" :level="3">Grids</lv-heading>
+    <lv-heading v-space-after="0.5" :level="3">Grid</lv-heading>
     <lv-heading v-space-after="2" sub :level="6">Organise your content!</lv-heading>
 
     <lv-heading v-space-after="1" :level="6">Simple Grid Layout</lv-heading>
