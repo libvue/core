@@ -45,6 +45,8 @@ $theme-light-blockquote-background-color: #f9f9f9;
 $theme-light-scrollbar-track-background-color: #eeeeee;
 $theme-light-scrollbar-thumb-background-color: #c5c5c5;
 $theme-light-scrollbar-thumb-border-radius: 0px;
+$theme-light-skeleton-tint1: #eeeeee;
+$theme-light-skeleton-tint2: #d9d9d9;
 
 $theme-light: (
     background-color: $theme-light-background-color,
@@ -94,4 +96,6 @@ $theme-light: (
     scrollbar-track-background-color: $theme-light-scrollbar-track-background-color,
     scrollbar-thumb-background-color: $theme-light-scrollbar-thumb-background-color,
     scrollbar-thumb-border-radius: $theme-light-scrollbar-thumb-border-radius,
+    skeleton-tint1: $theme-light-skeleton-tint1,
+    skeleton-tint2: $theme-light-skeleton-tint2,
 );
