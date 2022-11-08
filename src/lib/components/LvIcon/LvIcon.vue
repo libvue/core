@@ -14,6 +14,9 @@
 </template>
 
 <script>
+// eslint-disable-next-line import/no-unresolved
+import spriteUrl from 'lucide-static/sprite.svg?url';
+
 export default {
     props: {
         name: {
@@ -49,7 +52,7 @@ export default {
             return this.fallbackSize;
         },
         spritePath() {
-            return './node_modules/lucide-static/sprite.svg';
+            return spriteUrl;
         },
     },
     mounted() {
