@@ -31,7 +31,6 @@ export default {
     position: relative;
     flex-grow: 1;
     flex-direction: column;
-    cursor: pointer;
     margin-bottom: 15px;
     width: 100%;
     font-size: var(--font-size);

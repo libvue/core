@@ -63,6 +63,7 @@ export default {
     color: var(--text-color);
     font-size: var(--font-size);
     font-family: var(--font-family);
+    cursor: pointer;
 
     &:last-of-type {
         margin-bottom: 0;
