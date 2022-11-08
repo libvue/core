@@ -117,7 +117,9 @@ export default {
 
 .lv-popover {
     $self: &;
-
+    &__trigger {
+        display: inline;
+    }
     &__arrow {
         fill: var(--background-color);
         stroke: var(--border-color);
