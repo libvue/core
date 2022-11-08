@@ -12,8 +12,10 @@
                 <lv-button color="solid-dimmed-primary" icon="github" to="https://github.com/harmendv/libvue" target="_blank">Github</lv-button>
             </template>
         </lv-hero>
+
         <lv-separator v-space-after="4"></lv-separator>
-        <lv-grid gap="1.5rem">
+
+        <lv-grid v-space-after="4" gap="1.5rem">
             <lv-grid-row gap="1.5rem">
                 <lv-grid-column :level="4">
                     <lv-link to="/docs/theming">
@@ -89,6 +91,13 @@
                 </lv-grid-column>
             </lv-grid-row>
         </lv-grid>
+
+        <lv-separator v-space-after="4"/>
+
+        <lv-paragraph align="center" v-space-after="2">
+            Released under the MIT License.
+            Copyright © Harmen de Vries
+        </lv-paragraph>
     </div>
 </template>
 

@@ -29,6 +29,7 @@ export default {
     color: var(--text-color);
     font-size: var(--font-size);
     line-height: calc(var(--font-size) * 1.5);
+    width: 100%;
 
     &--align-left {
         text-align: left;
