@@ -1,57 +1,18 @@
 ![](public/logo.svg)
 
-#### Another opinionated component library made for quicky scaffolding vue3 interfaces.
+#### An opensource collection of vue.js 3 components.
 
-### Features
-- Dark/light theme support
-- Spacing directive `v-space-after`
-- Grid System `LvGrid`, `LvGridRow` and `LvGridColumn`
+### Install
 
-### Components
+```bash
+> npm install --save @harmendv/libvue
+```
 
-####   🗺️ Layout
- - Layout
- - Header
- - Theme Toggle
- - Card
- - Group
-####   ✒️ Writing
-- Heading
-- Paragraph
-- Blockquote
-- Keyboard
-- Separator
-- Code
-- Notice
-- Accordion
-####   🔗 Navigation
-- Button
-- Tabs
-- Link
-- Horizontal Nav
-- Vertical Nav
-- Pagination
-- BreadCrumbs
-####   📋 Forms
-- Input
-- Checkbox
-- Radio
-- Slider
-- Range Slider
-- Switch
-- Select
-####   📈 Data Visualization
-- Table
-- Chart
-- Widget
-- Pill
-####   🖼️ Media
-- Icon
-- Avatar
-####   🪁 Overlays
-- Dialog
-- Drawer
-- Popover
-- Toast
+### Register
 
+```js
+import '@harmendv/libvue/dist/style.css';
+import libvue from '@harmendv/libvue';
 
+app.use(libvue);
+```
