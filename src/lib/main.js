@@ -3,6 +3,7 @@ import components from './components';
 import spaceAfter from './directives/spaceAfter';
 
 // Import styling here, otherwise it won't be included in the style.css
+// @todo; make stuff optional via the install options
 import './scss/core.scss';
 
 export default {

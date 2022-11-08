@@ -43,8 +43,8 @@
                     <lv-vertical-nav-item label="Group" to="/docs/lv-group" />
                     <lv-vertical-nav-item label="Theme Toggle" to="/docs/lv-theme-toggle" />
                     <lv-vertical-nav-item label="Card" to="/docs/lv-card" />
-                    <lv-vertical-nav-item label="!Advert App" to="/docs/lv-advert-app" />
-                    <lv-vertical-nav-item label="!Advert PWA" to="/docs/lv-advert-pwa" />
+<!--                    <lv-vertical-nav-item label="!Advert App" to="/docs/lv-advert-app" />-->
+<!--                    <lv-vertical-nav-item label="!Advert PWA" to="/docs/lv-advert-pwa" />-->
                     <lv-vertical-nav-item label="Loading Dots" to="/docs/lv-loading-dots" />
                     <lv-vertical-nav-item label="Spinner" to="/docs/lv-spinner" />
                 </lv-vertical-nav-list>
@@ -52,7 +52,7 @@
                     <lv-vertical-nav-item to="/docs/lv-button" label="Button" />
                     <lv-vertical-nav-item to="/docs/lv-tabs" label="Tabs" />
                     <lv-vertical-nav-item label="Link" to="/docs/lv-link" />
-                    <lv-vertical-nav-item label="!Fragment Link" to="/docs/lv-fragment-link" />
+                    <lv-vertical-nav-item label="Fragment Link" to="/docs/lv-fragment-link" />
                     <lv-vertical-nav-item label="Horizontal Nav" to="/docs/lv-horizontal-nav" />
                     <lv-vertical-nav-item label="Vertical Nav" to="/docs/lv-vertical-nav" />
                     <lv-vertical-nav-item label="Pagination" to="/docs/lv-pagination" />
@@ -62,8 +62,8 @@
                     <lv-vertical-nav-item to="/docs/lv-table" label="Table" />
                     <lv-vertical-nav-item to="/docs/lv-chart" label="Chart" />
                     <lv-vertical-nav-item label="Widget" to="/docs/lv-widget" />
-                    <lv-vertical-nav-item label="!File Tree" to="/docs/lv-file-tree" />
-                    <lv-vertical-nav-item label="!Progress" to="/docs/lv-progress" />
+<!--                    <lv-vertical-nav-item label="!File Tree" to="/docs/lv-file-tree" />-->
+<!--                    <lv-vertical-nav-item label="!Progress" to="/docs/lv-progress" />-->
                     <lv-vertical-nav-item label="Pill" to="/docs/lv-pill" />
                     <lv-vertical-nav-item label="Badge" to="/docs/lv-badge" />
                 </lv-vertical-nav-list>
@@ -94,8 +94,8 @@
                 <lv-vertical-nav-list icon="image" label="Media">
                     <lv-vertical-nav-item label="Icon" to="/docs/lv-icon" />
                     <lv-vertical-nav-item label="Avatar" to="/docs/lv-avatar" />
-                    <lv-vertical-nav-item label="!Image" to="/docs/lv-image" />
-                    <lv-vertical-nav-item label="!Image Carousel" to="/docs/lv-image-carousel" />
+<!--                    <lv-vertical-nav-item label="!Image" to="/docs/lv-image" />-->
+<!--                    <lv-vertical-nav-item label="!Image Carousel" to="/docs/lv-image-carousel" />-->
                 </lv-vertical-nav-list>
                 <lv-vertical-nav-list icon="layers" label="Overlay">
                     <lv-vertical-nav-item label="Dialog" to="/docs/lv-dialog" />
