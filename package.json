@@ -1,6 +1,6 @@
 {
     "name": "@harmendv/libvue",
-    "version": "0.0.0",
+    "version": "0.0.2",
     "private": false,
     "scripts": {
         "dev": "vite",
@@ -50,6 +50,10 @@
         ".": {
             "import": "./dist/libvue.es.js",
             "require": "./dist/libvue.umd.js"
+        },
+        "./dist/style.css": {
+            "import": "./dist/style.css",
+            "require": "./dist/style.css"
         }
     },
     "bin": {
