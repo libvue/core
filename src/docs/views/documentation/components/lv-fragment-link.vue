@@ -1,11 +1,43 @@
 <template>
-    <lv-heading v-space-after="0.5" :level="3">LvFragmentLink</lv-heading>
-    <lv-heading v-space-after="2" sub :level="6">Component Description</lv-heading>
+    <lv-heading v-space-after="0.5" :level="3">Fragment Link</lv-heading>
+    <lv-heading v-space-after="2" sub :level="6">Add a fragment link to anything</lv-heading>
     <lv-card v-space-after="1">
-        <lv-fragment-link/>
+        <lv-fragment-link id="heading-1" v-space-after=".5">
+            <lv-heading :level="6">Heading 1</lv-heading>
+        </lv-fragment-link>
+        <lv-paragraph v-space-after="1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam assumenda autem beatae dicta dignissimos fugiat, iusto minima quae quibusdam sequi, tempore totam. Aperiam eaque ipsum numquam quia ullam. Impedit, praesentium.</lv-paragraph>
+        <lv-fragment-link id="heading-2" v-space-after=".5">
+            <lv-heading :level="6">Heading 2</lv-heading>
+        </lv-fragment-link>
+        <lv-paragraph v-space-after="1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam assumenda autem beatae dicta dignissimos fugiat, iusto minima quae quibusdam sequi, tempore totam. Aperiam eaque ipsum numquam quia ullam. Impedit, praesentium.</lv-paragraph>
+        <lv-fragment-link id="heading-3" v-space-after=".5">
+            <lv-heading :level="6">Heading 3</lv-heading>
+        </lv-fragment-link>
+        <lv-paragraph>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam assumenda autem beatae dicta dignissimos fugiat, iusto minima quae quibusdam sequi, tempore totam. Aperiam eaque ipsum numquam quia ullam. Impedit, praesentium.</lv-paragraph>
     </lv-card>
+    <lv-code lang="html" :code="code"/>
 </template>
 
 <script>
-export default {}
+const code = `
+<lv-fragment-link id="heading-1" v-space-after=".5">
+    <lv-heading :level="6">Heading 1</lv-heading>
+</lv-fragment-link>
+<lv-paragraph v-space-after="1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam assumenda autem beatae dicta dignissimos fugiat, iusto minima quae quibusdam sequi, tempore totam. Aperiam eaque ipsum numquam quia ullam. Impedit, praesentium.</lv-paragraph>
+<lv-fragment-link id="heading-2" v-space-after=".5">
+    <lv-heading :level="6">Heading 2</lv-heading>
+</lv-fragment-link>
+<lv-paragraph v-space-after="1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam assumenda autem beatae dicta dignissimos fugiat, iusto minima quae quibusdam sequi, tempore totam. Aperiam eaque ipsum numquam quia ullam. Impedit, praesentium.</lv-paragraph>
+<lv-fragment-link id="heading-3" v-space-after=".5">
+    <lv-heading :level="6">Heading 3</lv-heading>
+</lv-fragment-link>
+<lv-paragraph>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam assumenda autem beatae dicta dignissimos fugiat, iusto minima quae quibusdam sequi, tempore totam. Aperiam eaque ipsum numquam quia ullam. Impedit, praesentium.</lv-paragraph>
+`.trim();
+export default {
+    data() {
+        return {
+            code,
+        }
+    }
+}
 </script>
