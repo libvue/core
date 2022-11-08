@@ -10,7 +10,7 @@
                         class="lv-table__cell"
                         :class="getCellModifiers(column)"
                     >
-                        {{ column.title || columnKey }}
+                        {{ typeof column.title !== 'undefined' ? column.title : columnKey }}
                     </th>
                 </tr>
             </thead>
@@ -186,7 +186,7 @@ export default {
         },
         bordered: {
             type: Boolean,
-            default: true,
+            default: false,
         },
         loading: {
             type: Boolean,
@@ -228,6 +228,9 @@ export default {
                 Object.keys(this.columns).forEach((column) => {
                     if (typeof row[column] !== 'undefined') {
                         newRow[column] = row[column];
+                    } else {
+                        // Just add it for cases like options/actions etc.
+                        newRow[column] = null;
                     }
                 });
                 // Add the groupRowsBy column
