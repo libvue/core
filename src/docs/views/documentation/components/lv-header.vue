@@ -5,7 +5,7 @@
     <lv-card v-space-after="1">
         <lv-header>
             <template #branding>
-                <img v-space-after="0.5" class="logo" src="logo.svg" />
+                My Logo
             </template>
             <template #search>
                 <lv-input placeholder="Search docs" icon="search"/>
@@ -23,7 +23,7 @@
 const code = `
 <lv-header>
     <template #branding>
-        <img v-space-after="0.5" class="logo" src="logo.svg" />
+        My Logo
     </template>
     <template #search>
         <lv-input placeholder="Search docs" icon="search"/>
