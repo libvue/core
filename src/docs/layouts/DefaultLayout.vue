@@ -11,12 +11,12 @@
                     </svg>
                 </template>
                 <template #search>
-                    <lv-input placeholder="Search docs" icon="search" />
+
                 </template>
                 <template #navigation>
                     <lv-horizontal-nav-item v-space-after="1" label="Documentation" to="/documentation" />
-                    <lv-horizontal-nav-item v-space-after="1" label="Extensions" to="/extensions" />
-                    <lv-horizontal-nav-item v-space-after="1" label="Playground" to="/playground" />
+<!--                    <lv-horizontal-nav-item v-space-after="1" label="Extensions" to="/extensions" />-->
+<!--                    <lv-horizontal-nav-item v-space-after="1" label="Playground" to="/playground" />-->
                     <lv-separator direction="vertical"/>
                 </template>
                 <template #extra>
@@ -33,7 +33,7 @@
             <lv-vertical-nav-group label="Concepts">
                 <lv-vertical-nav-item icon="palette" to="/docs/theming" label="Theming" />
                 <lv-vertical-nav-item icon="align-vertical-space-around" to="/docs/spacing" label="Spacing" />
-                <lv-vertical-nav-item icon="accessibility" to="/docs/aria" label="Accessibility" />
+<!--                <lv-vertical-nav-item icon="accessibility" to="/docs/aria" label="Accessibility" />-->
             </lv-vertical-nav-group>
             <lv-vertical-nav-group label="Components">
                 <lv-vertical-nav-list icon="layout" label="Layout">
@@ -109,9 +109,9 @@
                 <lv-vertical-nav-list icon="corner-down-right" label="Mixins">
                     <lv-vertical-nav-item label="navigationMixin" to="/docs/navigation-mixin" />
                 </lv-vertical-nav-list>
-                <lv-vertical-nav-list icon="wand-2" label="Directives">
-                    <lv-vertical-nav-item label="v-space-after" to="/docs/v-space-after" />
-                </lv-vertical-nav-list>
+<!--                <lv-vertical-nav-list icon="wand-2" label="Directives">-->
+<!--                    <lv-vertical-nav-item label="v-space-after" to="/docs/v-space-after" />-->
+<!--                </lv-vertical-nav-list>-->
             </lv-vertical-nav-group>
         </template>
 

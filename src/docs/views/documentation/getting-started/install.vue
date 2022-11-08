@@ -4,22 +4,26 @@
 
     <lv-heading v-space-after="1" :level="6">Install entire library</lv-heading>
     <lv-paragraph v-space-after="1"> If you want all the components & directives just follow the step below; </lv-paragraph>
-    <lv-code v-space-after="1" code="npm install --save @libvue/core" />
-    <lv-code v-space-after="1" :code="installFullCode" lang="js" />
-
-
-    <lv-heading v-space-after="1" :level="6">Cherry pick some components</lv-heading>
-    <lv-code v-space-after="1" :code="installCherryCode" lang="js" />
-
-    <lv-notice icon="bell" color="solid-dimmed-primary">Both use a global css file so that this library can also be used in a SSR environment.</lv-notice>
+    <lv-code v-space-after="1" :code="install" lang="shell" />
+    <lv-heading v-space-after="1" :level="6">Register as a vue plugin</lv-heading>
+    <lv-code v-space-after="1" :code="register" lang="js" />
 </template>
 
 <script>
+const install = `
+> npm install --save @harmendv/libvue
+`.trim();
+const register = `
+import '@harmendv/libvue/dist/style.css';
+import libvue from '@harmendv/libvue';
+
+app.use(libvue);
+`.trim();
 export default {
     data() {
         return {
-            installFullCode: `import 'libvue/dist/style.css'; \nimport libvue from 'libvue';\n\napp.use(libvue);`,
-            installCherryCode: `import 'libvue/dist/style.css'; \nimport { LvButton } from 'libvue';\n\napp.component(LvButton);`,
+            install,
+            register
         };
     },
 };
