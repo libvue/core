@@ -2,6 +2,9 @@ import eventBus from './utils/eventBus';
 import components from './components';
 import spaceAfter from './directives/spaceAfter';
 
+// Import styling here, otherwise it won't be included in the style.css
+import './scss/core.scss';
+
 export default {
     install: (app) => {
         // Register the spaceAfter directive

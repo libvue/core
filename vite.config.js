@@ -6,6 +6,7 @@ const path = require('path');
 export default defineConfig({
     plugins: [vue()],
     build: {
+        copyPublicDir: false,
         lib: {
             entry: path.resolve(__dirname, 'src/lib/main.js'),
             name: 'libvue',
