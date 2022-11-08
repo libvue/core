@@ -35,6 +35,10 @@ export default {
             type: String,
             default: '700px',
         },
+        sidebarWidth: {
+            type: String,
+            default: 'auto',
+        }
     },
     data() {
         return {
@@ -118,6 +122,7 @@ body {
             padding: 1.5rem;
             max-height: calc(100vh - v-bind(headerHeight));
             overflow-y: auto;
+            width: v-bind(sidebarWidth);
         }
     }
     &__main {

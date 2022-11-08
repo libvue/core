@@ -64,7 +64,7 @@ export default {
         color: var(--text-color);
     }
 
-    &:last-of-type {
+    &:last-child {
         margin-bottom: 0;
     }
 
