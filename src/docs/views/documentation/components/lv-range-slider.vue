@@ -2,9 +2,9 @@
     <lv-heading v-space-after="0.5" :level="3">Range Slider</lv-heading>
     <lv-heading v-space-after="2" sub :level="6">An double slider input</lv-heading>
     <lv-card v-space-after="1">
-        <lv-range-slider :min="100" :max="200" :step="5" :value="{ from: 120, to: 150 }"></lv-range-slider>
-        <lv-range-slider disabled :min="100" :max="200" :step="5" :value="{ from: 120, to: 150 }"></lv-range-slider>
-        <lv-range-slider loading :min="100" :max="200" :step="5" :value="{ from: 120, to: 150 }"></lv-range-slider>
+        <lv-range-slider :min="100" :max="200" :step="5" v-model="model"></lv-range-slider>
+        <lv-range-slider disabled :min="100" :max="200" :step="5" v-model="model"></lv-range-slider>
+        <lv-range-slider loading :min="100" :max="200" :step="5" v-model="model"></lv-range-slider>
     </lv-card>
     <lv-code :code="code" lang="html" />
 </template>
@@ -18,7 +18,8 @@ const code = `
 export default {
     data() {
         return {
-            code
+            code,
+            model: { from: 120, to: 150 },
         };
     },
 };
