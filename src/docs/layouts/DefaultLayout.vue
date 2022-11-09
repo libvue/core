@@ -68,6 +68,7 @@
                     <lv-vertical-nav-item label="Badge" to="/docs/lv-badge" />
                 </lv-vertical-nav-list>
                 <lv-vertical-nav-list icon="form-input" label="Form Elements">
+                    <lv-vertical-nav-item to="/docs/lv-fieldset" label="Fieldset" />
                     <lv-vertical-nav-item to="/docs/lv-input" label="Input" />
                     <lv-vertical-nav-item to="/docs/lv-checkbox" label="Checkbox" />
                     <lv-vertical-nav-item label="Radio" to="/docs/lv-radio" />
