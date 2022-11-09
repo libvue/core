@@ -1,14 +1,24 @@
 <template>
     <div class="lv-breadcrumbs">
         <lv-icon v-if="showHome" class="lv-breadcrumbs__home" name="home" @click="onClickHome" />
+        <lv-icon
+            v-if="hasCrumbs"
+            name="chevron-right"
+            class="lv-breadcrumbs__chevron-right"
+        />
         <template v-for="(crumb, index) in crumbs">
             <a
                 class="lv-breadcrumbs__crumb"
                 :class="{ 'lv-breadcrumbs__crumb--active': index === crumbs.length - 1 }"
                 @click="onClickCrumb(crumb.path)"
-                >{{ crumb.title }}</a
             >
-            <lv-icon v-if="index < crumbs.length - 1" name="chevron-right" class="lv-breadcrumbs__chevron-right" />
+                {{ crumb.title }}
+            </a>
+            <lv-icon
+                v-if="index < crumbs.length - 1"
+                name="chevron-right"
+                class="lv-breadcrumbs__chevron-right"
+            />
         </template>
     </div>
 </template>
@@ -29,6 +39,11 @@ export default {
             default: '/',
         },
     },
+    computed: {
+        hasCrumbs() {
+            return this.crumbs.length > 0;
+        },
+    },
     methods: {
         onClickHome() {
             this.$router.push({ path: this.homePath });
@@ -45,7 +60,7 @@ export default {
     display: flex;
     align-items: center;
     &__home {
-        margin-right: 20px;
+        margin-right: .5rem;
         color: var(--text-color-dimmed);
         &:hover:not(&--active) {
             cursor: pointer;
@@ -53,7 +68,7 @@ export default {
         }
     }
     &__chevron-right {
-        margin: 0 10px;
+        margin: 0 .5rem;
         color: var(--text-color-dimmed);
     }
     &__crumb {
@@ -65,7 +80,7 @@ export default {
             color: var(--text-color);
         }
         &--active {
-            color: var(--color-primary);
+            color: var(--text-color);
         }
     }
 }
