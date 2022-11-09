@@ -21,7 +21,7 @@
                 </template>
                 <template #extra>
                     <lv-theme-toggle v-model="theme" v-space-after="1"/>
-                    <lv-button icon="github" color="ghost-default" />
+                    <lv-button icon="github" target="_blank" to="https://github.com/harmendv/libvue" color="ghost-default" />
                 </template>
             </lv-header>
         </template>
