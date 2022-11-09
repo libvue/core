@@ -1,3 +1,4 @@
+import LvFieldset from './LvFieldset/LvFieldset.vue';
 import LvBadge from './LvBadge/LvBadge.vue';
 import LvAdvertPwa from './LvAdvertPwa/LvAdvertPwa.vue';
 import LvAdvertApp from './LvAdvertApp/LvAdvertApp.vue';
@@ -64,6 +65,7 @@ import LvToasts from './LvToasts/LvToasts.vue';
 import LvWidget from './LvWidget/LvWidget.vue';
 
 export default {
+    LvFieldset,
     LvBadge,
     LvAdvertPwa,
     LvAdvertApp,

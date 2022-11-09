@@ -21,10 +21,18 @@ const docTemplate = `
     <lv-card v-space-after="1">
         %component%
     </lv-card>
+    <lv-code lang="html" :code="code"/>
 </template>
 
 <script>
-export default {}
+const code = \`\`.trim();
+export default {
+    data() {
+        return {
+            code,
+        }
+    }
+}
 </script>
 `.trim();
 
