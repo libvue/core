@@ -4,32 +4,44 @@
 
     <lv-tabs :tabs="tabs" :active="activeTab" @change-tab="(v) => (activeTab = v)">
         <template #number="{ tab }">
-            <lv-group v-space-after="1">
-                <lv-widget title="Avg. Revenue" amount="1.239,21" prefix="$" :diff="-10" type="number" />
-                <lv-widget title="Total Payout" amount="632,37" prefix="€" :diff="75" type="number" />
-            </lv-group>
+            <lv-grid v-space-after="1">
+                <lv-grid-row gap="1rem">
+                    <lv-grid-column :level="6">
+                        <lv-widget title="Avg. Revenue" amount="1.239,21" prefix="$" :diff="-10" type="number" />
+                    </lv-grid-column>
+                    <lv-grid-column :level="6">
+                        <lv-widget title="Total Payout" amount="632,37" prefix="€" :diff="75" type="number" />
+                    </lv-grid-column>
+                </lv-grid-row>
+            </lv-grid>
             <lv-code v-space-after="1" lang="html" :code="codeNumberWidget" />
         </template>
-        <template #chart="{ tab }">
-            <lv-group v-space-after="1">
-                <lv-widget
-                    title="Followers"
-                    amount="2,530"
-                    :diff="10"
-                    type="chart"
-                    :labels="labels"
-                    :datasets="followersDatasets"
-                />
-                <lv-widget
-                    title="Subscribers"
-                    chart-type="bar"
-                    amount="3,122"
-                    :diff="-2"
-                    type="chart"
-                    :labels="labels"
-                    :datasets="subscribersDatasets"
-                />
-            </lv-group>
+        <template #chart>
+            <lv-grid v-space-after="1">
+                <lv-grid-row gap="1rem">
+                    <lv-grid-column :level="6">
+                        <lv-widget
+                            title="Followers"
+                            amount="2,530"
+                            :diff="10"
+                            type="chart"
+                            :labels="labels"
+                            :datasets="followersDatasets"
+                        />
+                    </lv-grid-column>
+                    <lv-grid-column :level="6">
+                        <lv-widget
+                            title="Subscribers"
+                            chart-type="bar"
+                            amount="3,122"
+                            :diff="-2"
+                            type="chart"
+                            :labels="labels"
+                            :datasets="subscribersDatasets"
+                        />
+                    </lv-grid-column>
+                </lv-grid-row>
+            </lv-grid>
             <lv-code v-space-after="1" lang="html" :code="codeChartWidget" />
             <lv-code v-space-after="1" lang="js" :code="codeChartWidgetScript" />
         </template>

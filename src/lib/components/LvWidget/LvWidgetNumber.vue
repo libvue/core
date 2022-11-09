@@ -1,16 +1,16 @@
 <template>
     <lv-card class="lv-widget-number" inline>
         <div class="lv-widget-number__head">
-            <div class="lv-widget-number__title">
-                {{ title }}
+            <div class="lv-widget-number__info">
+                <div class="lv-widget-number__title">{{ title }}</div>
+                <div v-if="diff" class="lv-widget-number__diff" :class="{ 'lv-widget-number__diff--negative': diff < 0 }">
+                    <template v-if="diff > 0">+</template>{{ diff }}%
+                </div>
             </div>
-            <div v-if="diff" class="lv-widget-number__diff" :class="{ 'lv-widget-number__diff--negative': diff < 0 }">
-                <template v-if="diff > 0">+</template>{{ diff }}%
+            <div class="lv-widget-number__amount">
+                <span v-if="prefix" class="lv-widget-number__prefix">{{ prefix }}</span>
+                {{ amount }}
             </div>
-        </div>
-        <div class="lv-widget-number__amount">
-            <span v-if="prefix" class="lv-widget-number__prefix">{{ prefix }}</span>
-            {{ amount }}
         </div>
     </lv-card>
 </template>
@@ -46,15 +46,21 @@ export default {
 <style lang="scss">
 .lv-widget-number {
     padding: 1rem;
+    width: 100%;
 
     &__head {
         display: flex;
-        margin-bottom: 10px;
+        flex-direction: column;
         color: var(--text-color-dimmed);
         font-weight: 500;
     }
+    &__info {
+        display: flex;
+        margin-bottom: 1rem;
+        min-width: 150px;
+    }
     &__title {
-        margin-right: 10px;
+        margin-right: 1rem;
     }
     &__diff {
         margin-left: auto;
@@ -66,6 +72,8 @@ export default {
     &__amount {
         display: flex;
         align-items: flex-start;
+        margin-right: 10px;
+        color: var(--text-color);
         font-weight: 600;
         font-size: 1.7rem;
         line-height: 1.7rem;
