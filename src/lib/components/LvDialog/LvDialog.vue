@@ -21,6 +21,7 @@
 import { UseFocusTrap } from '@vueuse/integrations/useFocusTrap/component';
 
 export default {
+    inheritAttrs: false,
     components: {
         UseFocusTrap,
     },

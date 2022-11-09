@@ -1,3 +1,4 @@
+import LvFieldset from '../../../views/documentation/components/lv-fieldset.vue';
 import LvBadge from '../../../views/documentation/components/lv-badge.vue';
 import LvAdvertPwa from '../../../views/documentation/components/lv-advert-pwa.vue';
 import LvAdvertApp from '../../../views/documentation/components/lv-advert-app.vue';
@@ -55,6 +56,11 @@ import LvHeader from '../../../views/documentation/components/lv-header.vue';
 import LvGrid from '../../../views/documentation/components/lv-grid.vue';
 
 export default [
+    {
+        path: '/docs/lv-fieldset',
+        name: 'lv-fieldset',
+        component: LvFieldset,
+    },
     {
         path: '/docs/lv-grid',
         name: 'lv-grid',

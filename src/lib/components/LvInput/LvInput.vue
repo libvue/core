@@ -20,6 +20,7 @@
 import LvIcon from '../LvIcon/LvIcon.vue';
 
 export default {
+    inheritAttrs: false,
     components: {
         LvIcon,
     },
