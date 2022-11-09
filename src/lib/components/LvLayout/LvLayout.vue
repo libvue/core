@@ -128,7 +128,7 @@ body {
     &__main {
         flex-grow: 1;
         box-sizing: border-box;
-        padding: 3rem 1.5rem 1.5rem;
+        padding: 3rem 3rem 1.5rem 3rem;
 
         &-container {
             margin: 0 auto;
