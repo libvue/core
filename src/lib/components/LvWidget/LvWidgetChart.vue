@@ -1,15 +1,15 @@
 <template>
     <lv-card class="lv-widget-chart" inline>
         <div class="lv-widget-chart__head">
-            <div class="lv-widget-chart__amount">
-                {{ amount }}
-                <span v-if="prefix" class="lv-widget-chart__prefix">{{ prefix }}</span>
-            </div>
-            <div class="lv-widget-chart__title">
-                {{ title }}
+            <div class="lv-widget-chart__info">
+                <div class="lv-widget-chart__title">{{ title }}</div>
                 <div v-if="diff" class="lv-widget-chart__diff" :class="{ 'lv-widget-chart__diff--negative': diff < 0 }">
                     <template v-if="diff > 0">+</template>{{ diff }}%
                 </div>
+            </div>
+            <div class="lv-widget-chart__amount">
+                <span v-if="prefix" class="lv-widget-chart__prefix">{{ prefix }}</span>
+                {{ amount }}
             </div>
         </div>
         <lv-chart height="70px" :datasets="datasets" :labels="labels" :type="chartType" :show-axis="false" />
@@ -64,6 +64,7 @@ export default {
 <style lang="scss">
 .lv-widget-chart {
     padding: 1rem;
+    width: 100%;
 
     &__head {
         display: flex;
@@ -72,11 +73,13 @@ export default {
         color: var(--text-color-dimmed);
         font-weight: 500;
     }
-    &__title {
+    &__info {
         display: flex;
-        margin-right: 10px;
-        margin-bottom: 5px;
+        margin-bottom: 1rem;
         min-width: 150px;
+    }
+    &__title {
+        margin-right: 1rem;
     }
     &__diff {
         margin-left: auto;
@@ -93,6 +96,7 @@ export default {
         font-weight: 600;
         font-size: 1.7rem;
         line-height: 1.7rem;
+        margin-bottom: .5rem;
     }
     &__prefix {
         margin-right: 5px;
