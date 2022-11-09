@@ -31,7 +31,7 @@
                         </td>
                     </tr>
                     <!-- Normal Rows -->
-                    <tr v-for="(row, rowIndex) in group" :key="`${groupIndex}${rowIndex}`" class="lv-table__row">
+                    <tr v-for="(row, rowIndex) in group" :key="`${groupIndex}${rowIndex}`" class="lv-table__row" @click.stop="onClickRow(row, rowIndex)">
                         <!-- Create a cell for each key in a row if the key exists in columns -->
                         <template v-for="(value, rowKey) in row">
                             <td
@@ -61,7 +61,7 @@
                 </tr>
 
                 <!-- Normal Rows -->
-                <tr v-for="(row, rowIndex) in parsedRows" :key="rowIndex" class="lv-table__row">
+                <tr v-for="(row, rowIndex) in parsedRows" :key="rowIndex" class="lv-table__row" @click.stop="onClickRow(row, rowIndex)">
                     <!-- Create a cell for each key in a row if the key exists in columns -->
                     <template v-for="(value, rowKey) in row">
                         <td
@@ -184,13 +184,13 @@ export default {
             type: Object,
             default: () => ({}),
         },
-        bordered: {
-            type: Boolean,
-            default: false,
-        },
         loading: {
             type: Boolean,
             default: false,
+        },
+        rowHoverEffect: {
+            type: Boolean,
+            default: true,
         },
         hideHead: {
             type: Boolean,
@@ -216,6 +216,10 @@ export default {
             type: Boolean,
             default: true,
         },
+        rowAction: {
+            type: Function,
+            default: null,
+        }
     },
     computed: {
         parsedRows() {
@@ -291,11 +295,12 @@ export default {
         },
         classObject() {
             return {
-                'lv-table--bordered': !!this.bordered,
                 'lv-table--condensed': !!this.condensed,
                 'lv-table--hide-row-lines': !!this.hideRowLines,
                 'lv-table--loading': !!this.loading,
                 'lv-table--horizontal-scroll': !!this.horizontalScroll,
+                'lv-table--row-hover-effect': !!this.rowHoverEffect,
+                'lv-table--has-row-action': typeof this.rowAction === 'function',
             };
         },
     },
@@ -340,6 +345,11 @@ export default {
             }
             return classes;
         },
+        onClickRow(row, rowIndex) {
+            if(typeof this.rowAction === "function") {
+                this.rowAction({ row, index: rowIndex });
+            }
+        }
     },
 };
 </script>
@@ -355,7 +365,7 @@ export default {
         width: 100%;
         &-head {
             th {
-                padding: 0.75rem 0.25rem;
+                padding: 0.75rem ;
                 font-weight: bold;
             }
         }
@@ -372,7 +382,7 @@ export default {
             tr {
                 border-top: 1px solid var(--border-color-light);
                 td {
-                    padding: 0.75rem 0.25rem;
+                    padding: 0.75rem ;
                 }
             }
         }
@@ -389,7 +399,7 @@ export default {
                     }
                 }
                 td {
-                    padding: 0.75rem 0.25rem;
+                    padding: 0.75rem;
                     font-weight: 600;
                 }
             }
@@ -428,11 +438,10 @@ export default {
         }
     }
     /* Modifiers */
-    &--bordered {
-        box-shadow: var(--shadow);
-        border: 1px solid var(--border-color);
-        border-radius: var(--border-radius);
-        padding: 0.5rem 1rem;
+    &--row-hover-effect {
+        #{$self}__table-body tr:hover {
+            background-color: var(--table-row-hover-background-color);
+        }
     }
     &--hide-row-lines {
         #{$self}__table-body tr {
@@ -452,6 +461,11 @@ export default {
         #{$self}__table-body tr td,
         #{$self}__table-head th {
             white-space: nowrap;
+        }
+    }
+    &--has-row-action {
+        #{$self}__table-body tr {
+            cursor: pointer;
         }
     }
 }

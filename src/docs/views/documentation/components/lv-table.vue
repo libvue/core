@@ -14,7 +14,7 @@
 
     <lv-heading v-space-after="1" :level="6">With Options</lv-heading>
     <lv-card v-space-after="1" >
-        <lv-table :rows="rowsOptions" :columns="columnsOptions">
+        <lv-table :rows="rowsOptions" :columns="columnsOptions" :row-action="rowAction">
             <template #weight="{ value }"> {{ value }} kg </template>
             <template #age="{ value }"> {{ value }} years </template>
             <template #options>
@@ -168,5 +168,10 @@ export default {
             },
         };
     },
+    methods: {
+        rowAction({ row }) {
+            console.log(row);
+        }
+    }
 };
 </script>
