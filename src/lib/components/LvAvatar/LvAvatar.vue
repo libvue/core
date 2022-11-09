@@ -42,8 +42,8 @@ export default {
     background-color: var(--color-primary);
     background: linear-gradient(-45deg, var(--color-primary), var(--color-secondary));
     color: var(--text-color-inverted);
-    font-weight: 500;
-    font-size: var(--font-size);
+    font-weight: 600;
+    font-size: calc(v-bind(size) / 3);
 
     &--has-image {
         background: transparent;
