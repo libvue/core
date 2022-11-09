@@ -1,9 +1,9 @@
 <template>
     <Teleport :to="teleportTarget">
-        <UseFocusTrap v-if="show" :options="{ immediate: true }">
-            <div v-if="show" ref="dialog" class="lv-dialog" role="dialog" :aria-modal="modal">
+        <UseFocusTrap v-if="show" :options="focusTrapOptions">
+            <div v-if="show" ref="dialog" class="lv-dialog" role="dialog" :aria-modal="modal" v-bind="$attrs">
                 <div class="lv-dialog__overlay" @click="onClickOverlay"></div>
-                <div class="lv-dialog__content">
+                <div ref="content" class="lv-dialog__content">
                     <slot name="default">
                         <div v-if="!!$slots.title" class="lv-dialog__title"><slot name="title"></slot></div>
                         <div v-if="!!$slots.description" class="lv-dialog__description">
@@ -39,6 +39,15 @@ export default {
         },
     },
     emits: ['click-overlay'],
+    computed: {
+        focusTrapOptions() {
+            return {
+                immediate: true,
+                escapeDeactivates: false,
+                fallbackFocus: this.$refs.content,
+            }
+        },
+    },
     methods: {
         onClickOverlay() {
             this.$emit('click-overlay');

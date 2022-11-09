@@ -6,7 +6,7 @@
             </transition>
             <transition :name="animation">
                 <div v-show="show" ref="content" class="lv-drawer__content">
-                    <UseFocusTrap v-if="show" :options="{ immediate: true }">
+                    <UseFocusTrap v-if="show" class="lv-drawer__trap" :options="focusTrapOptions">
                         <slot></slot>
                     </UseFocusTrap>
                 </div>
@@ -37,9 +37,24 @@ export default {
             type: String,
             default: 'body',
         },
+        leftRightWidth: {
+            type: String,
+            default: 'auto',
+        },
+        topBottomHeight: {
+            type: String,
+            default: 'auto',
+        }
     },
     emits: ['click-overlay'],
     computed: {
+        focusTrapOptions() {
+            return {
+                immediate: true,
+                escapeDeactivates: false,
+                fallbackFocus: this.$refs.content,
+            }
+        },
         classObject() {
             return {
                 [`lv-drawer--placement-${this.placement}`]: true,
@@ -101,11 +116,17 @@ export default {
         padding: calc(var(--padding) * 2);
     }
 
+    &__trap {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
     &--placement-bottom {
         #{$self}__content {
             bottom: 0;
             width: 100%;
-            height: 50%;
+            height: v-bind(topBottomHeight);
         }
     }
 
@@ -113,23 +134,23 @@ export default {
         #{$self}__content {
             top: 0;
             width: 100%;
-            height: 50%;
+            height: v-bind(topBottomHeight);
         }
     }
 
     &--placement-left {
         #{$self}__content {
             left: 0;
-            min-width: 15%;
             height: 100%;
+            width: v-bind(leftRightWidth);
         }
     }
 
     &--placement-right {
         #{$self}__content {
             right: 0;
-            min-width: 15%;
             height: 100%;
+            width: v-bind(leftRightWidth);
         }
     }
 }

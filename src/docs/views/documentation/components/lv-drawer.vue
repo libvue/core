@@ -9,11 +9,10 @@
             <lv-button label="Bottom" @click="onClickDrawerBottom"/>
 
             <lv-drawer :placement="placement" :show="showDrawer" @click-overlay="showDrawer = false">
-                <lv-group direction="column">
-                    <lv-button label="Action one"/>
-                    <lv-button label="Action Two"/>
-                    <lv-button label="Action Three"/>
-                    <lv-button label="Action Four"/>
+                <lv-input placeholder="Enter something" v-space-after="1"/>
+                <lv-group fill style="margin-top: auto;">
+                    <lv-button label="Save" color="solid-primary"/>
+                    <lv-button label="Cancel" color="solid-dimmed-primary"/>
                 </lv-group>
             </lv-drawer>
         </lv-group>
@@ -30,12 +29,11 @@ const code = `
 <lv-button label="Bottom" @click="onClickDrawerBottom"/>
 
 <lv-drawer :placement="placement" :show="showDrawer" @click-overlay="showDrawer = false">
-<lv-group direction="column">
-    <lv-button label="Action one"/>
-    <lv-button label="Action Two"/>
-    <lv-button label="Action Three"/>
-    <lv-button label="Action Four"/>
-</lv-group>
+    <lv-input placeholder="Enter something" v-space-after="1"/>
+    <lv-group fill style="margin-top: auto;">
+        <lv-button label="Save" color="solid-primary"/>
+        <lv-button label="Cancel" color="solid-dimmed-primary"/>
+    </lv-group>
 </lv-drawer>
 `.trim();
 export default {
