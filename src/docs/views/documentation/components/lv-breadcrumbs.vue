@@ -15,9 +15,9 @@ export default {
     data() {
         return {
             crumbs: [
-                { title: 'Dashboard', path: 'lv-breadcrumbs' },
-                { title: 'Products', path: 'lv-breadcrumbs' },
-                { title: 'Orders', path: 'lv-breadcrumbs' },
+                { title: 'Dashboard', path: '/lv-breadcrumbs' },
+                { title: 'Products', path: '/lv-breadcrumbs' },
+                { title: 'Orders', path: '/lv-breadcrumbs' },
             ]
         };
     },
@@ -30,9 +30,9 @@ export default {
             code,
             codeScript,
             crumbs: [
-                { title: 'Dashboard', path: 'lv-breadcrumbs' },
-                { title: 'Products', path: 'lv-breadcrumbs' },
-                { title: 'Orders', path: 'lv-breadcrumbs' },
+                { title: 'Dashboard', path: '/lv-breadcrumbs' },
+                { title: 'Products', path: '/lv-breadcrumbs' },
+                { title: 'Orders', path: '/lv-breadcrumbs' },
             ],
         };
     },
