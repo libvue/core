@@ -140,9 +140,9 @@ export default {
                 },
             },
             rowsOptions: [
-                { age: 33, gender: 'male', name: 'Bob', weight: 80 },
-                { age: 43, gender: 'female', name: 'Jane', weight: 69 },
-                { age: 56, gender: 'male', name: 'George', weight: 131 },
+                { id: 1, age: 33, gender: 'male', name: 'Bob', weight: 80 },
+                { id: 2, age: 43, gender: 'female', name: 'Jane', weight: 69 },
+                { id: 3, age: 56, gender: 'male', name: 'George', weight: 131 },
             ],
             columnsOptions: {
                 name: {

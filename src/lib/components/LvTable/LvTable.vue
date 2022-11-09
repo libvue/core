@@ -31,7 +31,7 @@
                         </td>
                     </tr>
                     <!-- Normal Rows -->
-                    <tr v-for="(row, rowIndex) in group" :key="`${groupIndex}${rowIndex}`" class="lv-table__row" @click.stop="onClickRow(row, rowIndex)">
+                    <tr v-for="(row, rowIndex) in group" :key="`${groupIndex}${rowIndex}`" class="lv-table__row" @click.stop="onClickRow(rowIndex)">
                         <!-- Create a cell for each key in a row if the key exists in columns -->
                         <template v-for="(value, rowKey) in row">
                             <td
@@ -61,7 +61,7 @@
                 </tr>
 
                 <!-- Normal Rows -->
-                <tr v-for="(row, rowIndex) in parsedRows" :key="rowIndex" class="lv-table__row" @click.stop="onClickRow(row, rowIndex)">
+                <tr v-for="(row, rowIndex) in parsedRows" :key="rowIndex" class="lv-table__row" @click.stop="onClickRow(rowIndex)">
                     <!-- Create a cell for each key in a row if the key exists in columns -->
                     <template v-for="(value, rowKey) in row">
                         <td
@@ -345,9 +345,10 @@ export default {
             }
             return classes;
         },
-        onClickRow(row, rowIndex) {
+        onClickRow(rowIndex) {
             if(typeof this.rowAction === "function") {
-                this.rowAction({ row, index: rowIndex });
+                const clonedRow = JSON.parse(JSON.stringify(this.rows[rowIndex]));
+                this.rowAction({ row: clonedRow, index: rowIndex });
             }
         }
     },
