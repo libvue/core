@@ -13,7 +13,30 @@
 </template>
 
 <script>
-import Chart from 'chart.js/auto';
+import {
+    Chart,
+    LineElement,
+    PointElement,
+    BarElement,
+    BarController,
+    LineController,
+    CategoryScale,
+    LinearScale,
+    Filler, // Used for the gradients
+    Tooltip,
+} from 'chart.js';
+
+Chart.register(
+    LineElement,
+    BarElement,
+    PointElement,
+    BarController,
+    LineController,
+    CategoryScale,
+    LinearScale,
+    Filler,
+    Tooltip,
+);
 
 export default {
     props: {
