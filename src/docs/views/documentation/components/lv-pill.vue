@@ -14,7 +14,8 @@
         <template #states="{ tab }">
             <lv-card v-space-after="1">
                 <lv-group>
-                    <lv-pill text="Closable" color="solid-danger" closable />
+                    <lv-pill prefix="State:" text="Closable" color="solid-danger" closable />
+                    <lv-pill prefix="State:" text="Closable" color="solid-dimmed-primary" closable />
                 </lv-group>
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeStates" />
@@ -89,7 +90,10 @@ const codeColorOutline = `
 <lv-pill text="Danger" color="primary" />
 <lv-pill text="Info" color="info" />
 `.trim();
-const codeStates = `<lv-pill text="Closable" color="danger" closable/>`;
+const codeStates = `
+<lv-pill prefix="State:" text="Closable" color="solid-danger" closable />
+<lv-pill prefix="State:" text="Closable" color="solid-dimmed-primary" closable />
+`.trim();
 const codeIcons = `<lv-pill text="Github Icon" color="light-default" icon="github" />`;
 
 export default {

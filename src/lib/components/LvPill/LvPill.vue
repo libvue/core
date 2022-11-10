@@ -4,6 +4,7 @@
             <lv-icon :name="icon" :size="14" />
         </div>
         <div class="lv-pill__text">
+            <div class="lv-pill__prefix" v-if="prefix">{{ prefix }}</div>
             {{ text }}
         </div>
         <div v-if="closable" class="lv-pill__close" @click="onClickClose">
@@ -19,6 +20,10 @@ import propSizeMixin from '../../mixins/propSizeMixin';
 export default {
     mixins: [propColorMixin('solid-default'), propSizeMixin],
     props: {
+        prefix: {
+            type: String,
+            default: null,
+        },
         text: {
             type: String,
             default: null,
@@ -65,7 +70,10 @@ export default {
         font-size: var(--font-size);
         line-height: var(--font-size);
     }
-
+    &__prefix {
+        font-weight: 600;
+        margin-right: .5rem;
+    }
     &__text {
         display: flex;
         align-items: center;
@@ -77,11 +85,12 @@ export default {
         align-items: center;
         cursor: pointer;
         border-radius: 0 1rem 1rem 0;
-        background-color: rgba(0, 0, 0, 0.1);
+        background-color: rgba(255, 255, 255, 0.05);
         padding: 0.5rem 0.5rem 0.5rem 0.25rem;
+        margin-left: -.25rem;
 
         &:hover {
-            background-color: rgba(0, 0, 0, 0.15);
+            background-color: rgba(0, 0, 0, 0.05);
         }
     }
 

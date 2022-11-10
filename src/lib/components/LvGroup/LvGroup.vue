@@ -12,12 +12,20 @@ export default {
             default: 'row',
             validator: (value) => ['row', 'column'].includes(value),
         },
-        align: {
+        justifyContent: {
             type: String,
-            default: 'left',
+            default: 'start',
             validator(value) {
                 // The value must match one of these strings
-                return ['left', 'center', 'right', 'justify'].includes(value);
+                return ['start', 'center', 'end'].includes(value);
+            },
+        },
+        alignItems: {
+            type: String,
+            default: null,
+            validator(value) {
+                // The value must match one of these strings
+                return ['start', 'center', 'end'].includes(value);
             },
         },
         gap: {
@@ -32,7 +40,8 @@ export default {
     computed: {
         classObject() {
             return {
-                [`lv-group--align-${this.align}`]: !!this.align,
+                [`lv-group--justify-content-${this.justifyContent}`]: !!this.justifyContent,
+                [`lv-group--align-items-${this.alignItems}`]: !!this.alignItems,
                 [`lv-group--direction-${this.direction}`]: !!this.direction,
                 'lv-group--fill': this.fill,
             };
@@ -43,20 +52,33 @@ export default {
 
 <style lang="scss">
 .lv-group {
+    $self: &;
     display: flex;
     flex-wrap: wrap;
     gap: v-bind(gap);
 
-    &--align-left {
+    &--justify-content-start {
         justify-content: flex-start;
     }
 
-    &--align-right {
+    &--justify-content-end {
         justify-content: flex-end;
     }
 
-    &--align-center {
+    &--justify-content-center {
         justify-content: center;
+    }
+
+    &--align-items-start {
+        align-items: flex-start;
+    }
+
+    &--align-items-end {
+        align-items: flex-end;
+    }
+
+    &--align-items-center {
+        align-items: center;
     }
 
     &--direction-column {
@@ -67,6 +89,9 @@ export default {
         > * {
             flex-grow: 1;
         }
+    }
+    &--fill#{$self}--direction-column {
+        align-items: stretch !important;
     }
 }
 </style>
