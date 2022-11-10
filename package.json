@@ -13,8 +13,8 @@
         "@vueuse/integrations": "^9.3.1",
         "chart.js": "^3.9.1",
         "focus-trap": "^7.0.0",
-        "highlight.js": "^11.6.0",
         "lucide-static": "^0.90.0",
+        "prismjs": "^1.29.0",
         "tiny-emitter": "^2.1.0",
         "uuid": "^9.0.0",
         "vue": "^3.2.39"

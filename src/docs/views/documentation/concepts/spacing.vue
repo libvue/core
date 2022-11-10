@@ -13,7 +13,7 @@
     <lv-heading v-space-after="1" :level="6">Example</lv-heading>
     <lv-code v-space-after="1" :code="directiveCode" lang="html" />
     <lv-heading v-space-after="1" :level="6">Install directive only</lv-heading>
-    <lv-code v-space-after="1" :code="installDirective" lang="js" />
+    <lv-code v-space-after="1" :code="installDirective" lang="javascript" />
 </template>
 
 <script>

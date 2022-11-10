@@ -4,20 +4,20 @@
 
     <lv-heading v-space-after="1" :level="6">Default</lv-heading>
     <lv-card v-space-after="1">
-        <lv-code code="console.log('Sup!')" lang="js" />
+        <lv-code code="console.log('Sup!')" lang="javascript" />
     </lv-card>
     <lv-code v-space-after="1" :code="code" lang="html" />
 
     <lv-heading v-space-after="1" :level="6">With title</lv-heading>
     <lv-card v-space-after="1">
-        <lv-code code="console.log('Sup!')" lang="js" title="app.js" />
+        <lv-code code="console.log('Sup!')" lang="javascript" title="app.js" />
     </lv-card>
     <lv-code v-space-after="1" :code="codeWithTitle" lang="html" />
 </template>
 
 <script>
-const code = `<lv-code code="console.log('Sup!')" lang="js" />`.trim();
-const codeWithTitle = `<lv-code code="console.log('Sup!')" lang="js" />`.trim();
+const code = `<lv-code code="console.log('Sup!')" lang="javascript" />`.trim();
+const codeWithTitle = `<lv-code code="console.log('Sup!')" lang="javascript" />`.trim();
 
 export default {
     data() {

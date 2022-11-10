@@ -10,7 +10,7 @@
                 </lv-group>
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeLineChartTemplate" />
-            <lv-code v-space-after="1" lang="js" :code="codeChartScript" />
+            <lv-code v-space-after="1" lang="javascript" :code="codeChartScript" />
         </template>
         <template #bar>
             <lv-card v-space-after="1">
@@ -19,7 +19,7 @@
                 </lv-group>
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeBarChartTemplate" />
-            <lv-code v-space-after="1" lang="js" :code="codeChartScript" />
+            <lv-code v-space-after="1" lang="javascript" :code="codeChartScript" />
         </template>
     </lv-tabs>
 </template>

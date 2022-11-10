@@ -43,7 +43,7 @@
                 </lv-grid-row>
             </lv-grid>
             <lv-code v-space-after="1" lang="html" :code="codeChartWidget" />
-            <lv-code v-space-after="1" lang="js" :code="codeChartWidgetScript" />
+            <lv-code v-space-after="1" lang="javascript" :code="codeChartWidgetScript" />
         </template>
     </lv-tabs>
 </template>

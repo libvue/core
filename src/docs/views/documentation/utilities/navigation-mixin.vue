@@ -7,7 +7,7 @@
     <lv-paragraph v-space-after="1">
         The navigationMixin is especially made for navigational components. It exists out of three parts: props, computed properties and methods.
     </lv-paragraph>
-    <lv-code v-space-after="1" lang="js" :code="install" />
+    <lv-code v-space-after="1" lang="javascript" :code="install" />
 
     <lv-heading v-space-after="1" :level="6">Added Props</lv-heading>
     <lv-table v-space-after="1" :rows="propsRows" :columns="propsColumns" />

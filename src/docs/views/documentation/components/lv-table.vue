@@ -10,7 +10,7 @@
         </lv-table>
     </lv-card>
     <lv-code v-space-after="1" lang="html" :code="templateSimple" />
-    <lv-code v-space-after="1" lang="js" :code="scriptSimple" />
+    <lv-code v-space-after="1" lang="javascript" :code="scriptSimple" />
 
     <lv-heading v-space-after="1" :level="6">With Options</lv-heading>
     <lv-card v-space-after="1" >
@@ -33,7 +33,7 @@
         </lv-table>
     </lv-card>
     <lv-code v-space-after="1" lang="html" :code="templateOptions" />
-    <lv-code v-space-after="1" lang="js" :code="scriptOptions" />
+    <lv-code v-space-after="1" lang="javascript" :code="scriptOptions" />
 </template>
 
 <script>

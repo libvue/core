@@ -14,7 +14,7 @@
         <lv-toasts :max="3" :decay="3000" />
     </lv-card>
     <lv-code v-space-after="1" lang="html" :code="codeProgram" />
-    <lv-code v-space-after="1" lang="js" :code="codeAddToast" />
+    <lv-code v-space-after="1" lang="javascript" :code="codeAddToast" />
 </template>
 
 <script>

@@ -6,7 +6,7 @@
     <lv-paragraph v-space-after="1"> If you want all the components & directives just follow the step below; </lv-paragraph>
     <lv-code v-space-after="1" :code="install" lang="shell" />
     <lv-heading v-space-after="1" :level="6">Register as a vue plugin</lv-heading>
-    <lv-code v-space-after="1" :code="register" lang="js" />
+    <lv-code v-space-after="1" :code="register" lang="javascript" />
 </template>
 
 <script>
