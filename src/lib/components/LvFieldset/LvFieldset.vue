@@ -1,7 +1,7 @@
 <template>
     <fieldset class="lv-fieldset">
         <label class="lv-fieldset__label" :for="labelFor">
-            {{ label }}
+            {{ label }} <lv-icon v-if="required" class="lv-fieldset__required-symbol" name="asterisk"/>
             <button v-if="resetButton" class="lv-fieldset__reset-button" type="button" @click="onClickResetButton">
                 <lv-icon class="lv-fieldset__reset-button-icon" name="rotate-ccw" /> Reset
             </button>
@@ -35,6 +35,10 @@ export default {
             type: Boolean,
             default: false,
         },
+        required: {
+            type: Boolean,
+            default: false,
+        }
     },
     emits: ['reset'],
     methods: {
@@ -77,7 +81,10 @@ export default {
             text-decoration: underline;
         }
     }
-
+    &__required-symbol {
+        color: var(--color-danger);
+        margin-top: -.5rem;
+    }
     &__hint {
         color: var(--text-color-dimmed);
         font-size: var(--font-size-small);
