@@ -142,6 +142,7 @@ body {
         box-sizing: border-box;
         padding: 3rem 3rem 1.5rem 3rem;
         background-color: var(--main-background-color);
+        overflow: hidden; // needed for chart.js
 
         &-container {
             margin: 0 auto;
