@@ -16,6 +16,11 @@ $sizes: (
         paddingY: 0.33rem,
         fontSize: $font-size-small,
     ),
+    "tiny": (
+        paddingX: 0.25rem,
+        paddingY: 0.25rem,
+        fontSize: $font-size-tiny,
+    ),
 );
 
 @mixin size-mixin {

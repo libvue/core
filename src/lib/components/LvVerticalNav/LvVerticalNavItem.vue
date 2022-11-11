@@ -1,7 +1,9 @@
 <template>
     <a class="lv-vertical-nav-item" :href="href" :class="classObject" @click="onClick">
         <lv-icon v-if="icon" :name="icon" class="lv-vertical-nav-item__icon" />
-        <div class="lv-vertical-nav-item__label">{{ label }}</div>
+        <div class="lv-vertical-nav-item__label">
+            <slot>{{ label }}</slot>
+        </div>
     </a>
 </template>
 
@@ -71,13 +73,18 @@ export default {
     &--active {
         color: var(--color-primary);
     }
-
+    &--disabled {
+        pointer-events: none;
+        opacity: 0.6;
+    }
     &__icon {
         flex-shrink: 0;
         margin-right: 10px;
     }
     &__label {
         white-space: nowrap;
+        display: flex;
+        align-items: center;
     }
 }
 </style>

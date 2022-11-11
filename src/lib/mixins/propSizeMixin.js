@@ -4,7 +4,7 @@ export default function propSizeMixin(defaultSize = 'default') {
             size: {
                 type: String,
                 default: defaultSize,
-                validator: (value) => ['default', 'small', 'large'].includes(value),
+                validator: (value) => ['tiny', 'small', 'default', 'large'].includes(value),
             },
         },
     };

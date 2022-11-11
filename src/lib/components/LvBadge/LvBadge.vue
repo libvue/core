@@ -41,15 +41,15 @@ export default {
 
 .lv-badge {
     $self: &;
-    display: inline;
+    display: inline-flex;
     position: relative;
+    align-items: center;
 
     &__badge {
         display: inline-flex;
         border-radius: 1rem;
         padding: 0.25rem 0.5rem;
         color: white;
-        font-size: var(--font-size);
         @include color-mixin;
         @include size-mixin;
     }

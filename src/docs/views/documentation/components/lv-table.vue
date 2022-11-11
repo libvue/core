@@ -20,12 +20,12 @@
             <template #options>
                 <lv-popover placement="bottom" trigger="hover">
                     <template #trigger>
-                        <lv-button size="small" label="Options" color="solid-dimmed-primary"/>
+                        <lv-button size="small" label="Options" color="solid-dimmed-primary" stop-propagation/>
                     </template>
                     <template #content>
                         <lv-group direction="column">
-                            <lv-button size="small" label="Add" color="ghost-default"/>
-                            <lv-button size="small" label="Delete" color="ghost-default"/>
+                            <lv-button size="small" label="Add" color="ghost-default" stop-propagation/>
+                            <lv-button size="small" label="Delete" color="ghost-default" stop-propagation/>
                         </lv-group>
                     </template>
                 </lv-popover>
@@ -44,12 +44,12 @@ const templateOptions = `
     <template #options>
         <lv-popover placement="bottom" trigger="hover">
             <template #trigger>
-                <lv-button size="small" label="Options" color="solid-dimmed-primary"/>
+                <lv-button size="small" label="Options" color="solid-dimmed-primary" stop-propagation/>
             </template>
             <template #content>
                 <lv-group direction="column">
-                    <lv-button size="small" label="Add" color="ghost-default"/>
-                    <lv-button size="small" label="Delete" color="ghost-default"/>
+                    <lv-button size="small" label="Add" color="ghost-default" stop-propagation/>
+                    <lv-button size="small" label="Delete" color="ghost-default" stop-propagation/>
                 </lv-group>
             </template>
         </lv-popover>

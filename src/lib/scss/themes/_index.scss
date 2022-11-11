@@ -2,6 +2,14 @@
 @import "dark";
 @import "light";
 
+// Load Globals
+:root {
+    @each $key, $value in $globals {
+        --#{$key}: #{$value};
+    }
+}
+
+// If no [data-theme] is set, and the user prefers dark, we load dark mode
 @media (prefers-color-scheme: dark) {
     :root {
         @each $key, $value in $theme-dark {
@@ -9,6 +17,8 @@
         }
     }
 }
+
+// If no [data-theme] is set, and the user prefers light, we load light mode
 @media (prefers-color-scheme: light) {
     :root {
         @each $key, $value in $theme-light {
@@ -16,18 +26,13 @@
         }
     }
 }
-:root {
-    @each $key, $value in $globals {
-        --#{$key}: #{$value};
-    }
-}
 
+// If there is an data-theme set, well override the prefers-color-scheme
 [data-theme="light"] {
     @each $key, $value in $theme-light {
         --#{$key}: #{$value};
     }
 }
-
 [data-theme="dark"] {
     @each $key, $value in $theme-dark {
         --#{$key}: #{$value};

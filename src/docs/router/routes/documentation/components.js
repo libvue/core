@@ -1,3 +1,4 @@
+import LvFileInput from '../../../views/documentation/components/lv-file-input.vue';
 import LvTextEditor from '../../../views/documentation/components/lv-text-editor.vue';
 import LvFieldset from '../../../views/documentation/components/lv-fieldset.vue';
 import LvBadge from '../../../views/documentation/components/lv-badge.vue';
@@ -57,6 +58,11 @@ import LvHeader from '../../../views/documentation/components/lv-header.vue';
 import LvGrid from '../../../views/documentation/components/lv-grid.vue';
 
 export default [
+    {
+        path: '/docs/lv-file-input',
+        name: 'lv-file-input',
+        component: LvFileInput,
+    },
     {
         path: '/docs/lv-text-editor',
         name: 'lv-text-editor',
