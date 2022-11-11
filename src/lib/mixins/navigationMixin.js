@@ -16,6 +16,10 @@ const navigationMixin = {
                 return ['_blank', '_self'].includes(val);
             },
         },
+        stopPropagation: {
+            type: Boolean,
+            default: false,
+        },
     },
     computed: {
         /**
@@ -70,6 +74,9 @@ const navigationMixin = {
          * @param event
          */
         onClick(event) {
+            if (this.stopPropagation) {
+                event.stopPropagation();
+            }
             event.preventDefault();
             const cmdOrCtrl = event.metaKey || event.ctrlKey;
             const target = cmdOrCtrl ? '_blank' : this.target;

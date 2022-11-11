@@ -7,7 +7,7 @@
         :class="classObject"
         :disabled="disabled"
         role="button"
-        @click.stop="onClick"
+        @click="onClick"
         @keydown.enter.space="onClick"
     >
         <lv-icon v-if="icon" class="lv-button__icon" :class="{ 'lv-button__icon--hidden': loading }" :name="icon" />
