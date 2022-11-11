@@ -205,7 +205,7 @@ export default {
     }
     &__placeholder {
         padding: var(--padding);
-        color: var(--text-color-dimmed);
+        color: var(--placeholder-color);
         font-size: var(--font-size);
         line-height: var(--font-size);
     }
