@@ -116,15 +116,15 @@ body {
         top: v-bind(headerHeight);
         background-color: var(--sidebar-background-color);
 
-        &::after {
-            content: '';
-            position: absolute;
-            left: -100vw;
-            top: 0;
-            height: 100%;
-            width: 100vw;
-            background-color: var(--sidebar-background-color);
-        }
+        //&::after {
+        //    content: '';
+        //    position: absolute;
+        //    left: -100vw;
+        //    top: 0;
+        //    height: 100%;
+        //    width: 100vw;
+        //    background-color: var(--sidebar-background-color);
+        //}
 
         &-container {
             position: sticky;
