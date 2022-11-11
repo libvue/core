@@ -33,7 +33,7 @@ export default {
     data() {
         return {
             codeExample,
-            installDirective: `import { spaceAfter } from 'libvue';\napp.directive(spaceAfter)`,
+            installDirective: `import { spaceAfter } from '@libvue/core';\napp.directive(spaceAfter)`,
         };
     },
 };

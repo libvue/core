@@ -11,11 +11,11 @@
 
 <script>
 const install = `
-> npm install --save @harmendv/libvue
+> npm install --save @libvue/core
 `.trim();
 const register = `
-import '@harmendv/libvue/dist/style.css';
-import libvue from '@harmendv/libvue';
+import '@libvue/core/dist/style.css';
+import libvue from '@libvue/core';
 
 app.use(libvue);
 `.trim();
