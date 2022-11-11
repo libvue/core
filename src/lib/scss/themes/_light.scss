@@ -29,6 +29,7 @@ $theme-light-placeholder-color-info: lighten($theme-light-color-info, 30) !defau
 $theme-light-placeholder-color-warning: lighten($theme-light-color-warning, 30) !default;
 $theme-light-placeholder-color-danger: lighten($theme-light-color-danger, 30) !default;
 $theme-light-placeholder-color: lighten($theme-light-text-color, 70) !default;
+$theme-light-backdrop-color: rgba(0,0,0,0.1);
 $theme-light-shadow: 0 12px 8px -8px rgba(0, 0, 0, 0.05);
 $theme-light-shadow-dialog: 0 5px 8px 2px rgba(0, 0, 0, 0.15);
 $theme-light-shadow-popover: 0 0 8px 2px rgba(0, 0, 0, 0.05);
@@ -81,6 +82,7 @@ $theme-light: (
     placeholder-color-warning: $theme-light-placeholder-color-warning,
     placeholder-color-danger: $theme-light-placeholder-color-danger,
     placeholder-color: $theme-light-placeholder-color,
+    backdrop-color: $theme-light-backdrop-color,
     shadow: $theme-light-shadow,
     shadow-dialog: $theme-light-shadow-dialog,
     shadow-popover: $theme-light-shadow-popover,

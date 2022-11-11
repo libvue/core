@@ -79,7 +79,7 @@ export default {
 
     &__overlay {
         position: absolute;
-        background-color: rgba(11, 11, 12, 0.27);
+        background-color: var(--backdrop-color);
         width: 100%;
         height: 100%;
     }
