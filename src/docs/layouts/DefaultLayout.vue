@@ -34,8 +34,6 @@
                 <template #search> </template>
                 <template #navigation>
                     <lv-horizontal-nav-item v-space-after="1" label="Documentation" to="/documentation" />
-                    <!--                    <lv-horizontal-nav-item v-space-after="1" label="Extensions" to="/extensions" />-->
-                    <!--                    <lv-horizontal-nav-item v-space-after="1" label="Playground" to="/playground" />-->
                     <lv-separator direction="vertical" />
                 </template>
                 <template #extra>
@@ -57,7 +55,11 @@
             <lv-vertical-nav-group label="Concepts">
                 <lv-vertical-nav-item icon="palette" to="/docs/theming" label="Theming" />
                 <lv-vertical-nav-item icon="align-vertical-space-around" to="/docs/spacing" label="Spacing" />
-                <!--                <lv-vertical-nav-item icon="accessibility" to="/docs/aria" label="Accessibility" />-->
+                <lv-vertical-nav-item icon="accessibility" to="/docs/aria" disabled>
+                    <lv-group gap=".25rem">
+                        Accessibility <lv-badge text="Planned" size="tiny" color="solid-dimmed-primary" />
+                    </lv-group>
+                </lv-vertical-nav-item>
             </lv-vertical-nav-group>
             <lv-vertical-nav-group label="Components">
                 <lv-vertical-nav-list icon="layout" label="Layout">
@@ -67,8 +69,16 @@
                     <lv-vertical-nav-item label="Group" to="/docs/lv-group" />
                     <lv-vertical-nav-item label="Theme Toggle" to="/docs/lv-theme-toggle" />
                     <lv-vertical-nav-item label="Card" to="/docs/lv-card" />
-                    <!--                    <lv-vertical-nav-item label="!Advert App" to="/docs/lv-advert-app" />-->
-                    <!--                    <lv-vertical-nav-item label="!Advert PWA" to="/docs/lv-advert-pwa" />-->
+                    <lv-vertical-nav-item to="/docs/lv-advert-app" disabled>
+                        <lv-group gap=".25rem">
+                            Advert App <lv-badge text="Planned" size="tiny" color="solid-dimmed-primary" />
+                        </lv-group>
+                    </lv-vertical-nav-item>
+                    <lv-vertical-nav-item to="/docs/lv-advert-pwa" disabled>
+                        <lv-group gap=".25rem">
+                            Advert PWA <lv-badge text="Planned" size="tiny" color="solid-dimmed-primary" />
+                        </lv-group>
+                    </lv-vertical-nav-item>
                     <lv-vertical-nav-item label="Loading Dots" to="/docs/lv-loading-dots" />
                     <lv-vertical-nav-item label="Spinner" to="/docs/lv-spinner" />
                 </lv-vertical-nav-list>
@@ -86,8 +96,16 @@
                     <lv-vertical-nav-item to="/docs/lv-table" label="Table" />
                     <lv-vertical-nav-item to="/docs/lv-chart" label="Chart" />
                     <lv-vertical-nav-item label="Widget" to="/docs/lv-widget" />
-                    <!--                    <lv-vertical-nav-item label="!File Tree" to="/docs/lv-file-tree" />-->
-                    <!--                    <lv-vertical-nav-item label="!Progress" to="/docs/lv-progress" />-->
+                    <lv-vertical-nav-item to="/docs/lv-file-tree" disabled>
+                        <lv-group gap=".25rem">
+                            File Tree <lv-badge text="Planned" size="tiny" color="solid-dimmed-primary" />
+                        </lv-group>
+                    </lv-vertical-nav-item>
+                    <lv-vertical-nav-item to="/docs/lv-progress" disabled>
+                        <lv-group gap=".25rem">
+                            Progress <lv-badge text="Planned" size="tiny" color="solid-dimmed-primary" />
+                        </lv-group>
+                    </lv-vertical-nav-item>
                     <lv-vertical-nav-item label="Pill" to="/docs/lv-pill" />
                     <lv-vertical-nav-item label="Badge" to="/docs/lv-badge" />
                 </lv-vertical-nav-list>
@@ -120,8 +138,16 @@
                 <lv-vertical-nav-list icon="image" label="Media">
                     <lv-vertical-nav-item label="Icon" to="/docs/lv-icon" />
                     <lv-vertical-nav-item label="Avatar" to="/docs/lv-avatar" />
-                    <!--                    <lv-vertical-nav-item label="!Image" to="/docs/lv-image" />-->
-                    <!--                    <lv-vertical-nav-item label="!Image Carousel" to="/docs/lv-image-carousel" />-->
+                    <lv-vertical-nav-item to="/docs/lv-image" disabled>
+                        <lv-group gap=".25rem">
+                            Image <lv-badge text="Planned" size="tiny" color="solid-dimmed-primary" />
+                        </lv-group>
+                    </lv-vertical-nav-item>
+                    <lv-vertical-nav-item to="/docs/lv-image-carousel" disabled>
+                        <lv-group gap=".25rem">
+                            Image Carousel <lv-badge text="Planned" size="tiny" color="solid-dimmed-primary" />
+                        </lv-group>
+                    </lv-vertical-nav-item>
                 </lv-vertical-nav-list>
                 <lv-vertical-nav-list icon="layers" label="Overlay">
                     <lv-vertical-nav-item label="Dialog" to="/docs/lv-dialog" />
@@ -135,9 +161,6 @@
                 <lv-vertical-nav-list icon="corner-down-right" label="Mixins">
                     <lv-vertical-nav-item label="navigationMixin" to="/docs/navigation-mixin" />
                 </lv-vertical-nav-list>
-                <!--                <lv-vertical-nav-list icon="wand-2" label="Directives">-->
-                <!--                    <lv-vertical-nav-item label="v-space-after" to="/docs/v-space-after" />-->
-                <!--                </lv-vertical-nav-list>-->
             </lv-vertical-nav-group>
         </template>
 
@@ -168,7 +191,7 @@ export default {
         },
     },
     mounted() {
-        if(LocalStorage.getItem('theme')) {
+        if (LocalStorage.getItem('theme')) {
             this.theme = LocalStorage.getItem('theme');
             document.body.setAttribute('data-theme', this.theme);
         }

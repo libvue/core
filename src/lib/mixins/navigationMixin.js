@@ -85,7 +85,6 @@ const navigationMixin = {
             if (this.to && !this.isExternalLink) {
                 if (this.target === '_blank' || this.toEqualsCurrentRoute || cmdOrCtrl) {
                     const resolved = this.$router.resolve(this.to);
-                    console.log(resolved);
                     window.open(resolved.href, target);
                 } else {
                     this.$router.push(this.to);
