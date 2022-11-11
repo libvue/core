@@ -41,7 +41,8 @@
         "vue-router": "^4.1.5"
     },
     "files": [
-        "dist"
+        "dist",
+        "src/lib"
     ],
     "main": "./dist/libvue.umd.js",
     "module": "./dist/libvue.es.js",
