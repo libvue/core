@@ -1,6 +1,6 @@
 <template>
     <div class="lv-tabs" role="tablist">
-        <lv-group v-space-after="1" class="lv-tabs__buttons" gap="20px">
+        <lv-group class="lv-tabs__buttons" gap="20px">
             <div
                 v-for="tab in tabs"
                 :key="tab.id"
@@ -56,6 +56,10 @@ export default {
     $self: &;
     display: block;
     width: 100%;
+
+    &__buttons {
+        margin-bottom: 1.5rem;
+    }
 
     &__button {
         display: flex;
