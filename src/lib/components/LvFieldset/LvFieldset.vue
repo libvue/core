@@ -57,6 +57,7 @@ export default {
         margin-bottom: 1rem;
         font-size: var(--font-size);
         line-height: var(--font-size);
+        font-weight: 500;
     }
 
     &__reset-button {
