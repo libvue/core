@@ -10,23 +10,17 @@
             {{ title }}
             <lv-icon class="lv-accordion-item__icon" :name="expanded ? 'chevron-up' : 'chevron-down'" />
         </h3>
-        <transition-expand :duration="100">
-            <div v-show="expanded" class="lv-accordion-item__content" role="region">
-                <slot></slot>
-            </div>
-        </transition-expand>
+        <div v-show="expanded" class="lv-accordion-item__content" role="region">
+            <slot></slot>
+        </div>
     </div>
 </template>
 
 <script>
 import { v4 as uuidv4 } from 'uuid';
-import { TransitionExpand } from '@morev/vue-transitions';
 import eventBus from '../../utils/eventBus';
 
 export default {
-    components: {
-        TransitionExpand,
-    },
     props: {
         title: {
             type: String,

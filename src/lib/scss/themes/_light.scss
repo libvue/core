@@ -1,5 +1,7 @@
 $theme-light-background-color: #ffffff !default;
-$theme-light-header-color: rgba(255, 255, 255, 0.8) !default;
+$theme-light-sidebar-background-color: #fff !default;
+$theme-light-main-background-color: #fff !default;
+$theme-light-header-background-color: rgba(255, 255, 255, 0.8) !default;
 $theme-light-color-default: #121315 !default;
 $theme-light-color-default-dimmed: lighten($theme-light-color-default, 85) !default;
 $theme-light-color-info: #3f8cff !default;
@@ -28,7 +30,8 @@ $theme-light-placeholder-color-success: lighten($theme-light-color-success, 10) 
 $theme-light-placeholder-color-info: lighten($theme-light-color-info, 30) !default;
 $theme-light-placeholder-color-warning: lighten($theme-light-color-warning, 30) !default;
 $theme-light-placeholder-color-danger: lighten($theme-light-color-danger, 30) !default;
-$theme-light-placeholder-color: lighten($theme-light-text-color, 40) !default;
+$theme-light-placeholder-color: lighten($theme-light-text-color, 70) !default;
+$theme-light-backdrop-color: rgba(0,0,0,0.1);
 $theme-light-shadow: 0 12px 8px -8px rgba(0, 0, 0, 0.05);
 $theme-light-shadow-dialog: 0 5px 8px 2px rgba(0, 0, 0, 0.15);
 $theme-light-shadow-popover: 0 0 8px 2px rgba(0, 0, 0, 0.05);
@@ -51,7 +54,9 @@ $theme-light-table-row-hover-background-color: #fdfdfd;
 
 $theme-light: (
     background-color: $theme-light-background-color,
-    header-color: $theme-light-header-color,
+    main-background-color: $theme-light-main-background-color,
+    sidebar-background-color: $theme-light-sidebar-background-color,
+    header-background-color: $theme-light-header-background-color,
     color-default: $theme-light-color-default,
     color-default-dimmed: $theme-light-color-default-dimmed,
     color-info: $theme-light-color-info,
@@ -81,6 +86,7 @@ $theme-light: (
     placeholder-color-warning: $theme-light-placeholder-color-warning,
     placeholder-color-danger: $theme-light-placeholder-color-danger,
     placeholder-color: $theme-light-placeholder-color,
+    backdrop-color: $theme-light-backdrop-color,
     shadow: $theme-light-shadow,
     shadow-dialog: $theme-light-shadow-dialog,
     shadow-popover: $theme-light-shadow-popover,

@@ -24,5 +24,9 @@ export default {
     resize: vertical;
     color: var(--text-color);
     font-family: var(--font-family);
+
+    &::placeholder {
+        color: var(--placeholder-color);
+    }
 }
 </style>

@@ -22,6 +22,7 @@ import {
     LineController,
     CategoryScale,
     LinearScale,
+    LogarithmicScale,
     Filler, // Used for the gradients
     Tooltip,
 } from 'chart.js';
@@ -33,6 +34,7 @@ Chart.register(
     BarController,
     LineController,
     CategoryScale,
+    LogarithmicScale,
     LinearScale,
     Filler,
     Tooltip,
@@ -89,6 +91,10 @@ export default {
         width: {
             type: String,
             default: '100%',
+        },
+        logarithmic: {
+            type: Boolean,
+            default: false,
         },
         tension: {
             type: Number,
@@ -168,6 +174,7 @@ export default {
                             },
                         },
                         y: {
+                            type: this.logarithmic ? 'logarithmic' : 'linear',
                             display: this.showAxis,
                             grid: {
                                 display: this.showGrid,

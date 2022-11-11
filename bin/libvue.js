@@ -59,9 +59,13 @@ program
 
             // Register the component in <componentFolder>/index.js
             let libComponentsIndexContent = fs.readFileSync(config.libComponentsIndex, 'utf8');
-            const importLine = `import ${componentName} from './${componentName}/${componentName}.vue';\n`;
+            const importLine = `import { defineAsyncComponent } from 'vue';\n\nconst ${componentName} = defineAsyncComponent(() => import('./${componentName}/${componentName}.vue'));`;
             const exportLine = `export default {\n    ${componentName},`;
-            libComponentsIndexContent = `${importLine}${libComponentsIndexContent}`.replace(
+            libComponentsIndexContent = libComponentsIndexContent.replace(
+                "import { defineAsyncComponent } from 'vue';\n",
+                importLine
+            );
+            libComponentsIndexContent = libComponentsIndexContent.replace(
                 'export default {',
                 exportLine
             );

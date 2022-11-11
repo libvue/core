@@ -1,5 +1,6 @@
 import { defineAsyncComponent } from 'vue';
 
+const LvTextEditor = defineAsyncComponent(() => import('./LvTextEditor/LvTextEditor.vue'));
 const LvFieldset = defineAsyncComponent(() => import('./LvFieldset/LvFieldset.vue'));
 const LvBadge = defineAsyncComponent(() => import('./LvBadge/LvBadge.vue'));
 const LvAdvertPwa = defineAsyncComponent(() => import('./LvAdvertPwa/LvAdvertPwa.vue'));
@@ -67,6 +68,7 @@ const LvToasts = defineAsyncComponent(() => import('./LvToasts/LvToasts.vue'));
 const LvWidget = defineAsyncComponent(() => import('./LvWidget/LvWidget.vue'));
 
 export default {
+    LvTextEditor,
     LvFieldset,
     LvBadge,
     LvAdvertPwa,

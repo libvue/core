@@ -1,3 +1,4 @@
+import LvTextEditor from '../../../views/documentation/components/lv-text-editor.vue';
 import LvFieldset from '../../../views/documentation/components/lv-fieldset.vue';
 import LvBadge from '../../../views/documentation/components/lv-badge.vue';
 import LvAdvertPwa from '../../../views/documentation/components/lv-advert-pwa.vue';
@@ -56,6 +57,11 @@ import LvHeader from '../../../views/documentation/components/lv-header.vue';
 import LvGrid from '../../../views/documentation/components/lv-grid.vue';
 
 export default [
+    {
+        path: '/docs/lv-text-editor',
+        name: 'lv-text-editor',
+        component: LvTextEditor,
+    },
     {
         path: '/docs/lv-fieldset',
         name: 'lv-fieldset',
