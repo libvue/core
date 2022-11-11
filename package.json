@@ -46,20 +46,6 @@
     ],
     "main": "./dist/libvue.umd.js",
     "module": "./dist/libvue.es.js",
-    "exports": {
-        ".": {
-            "import": "./dist/libvue.es.js",
-            "require": "./dist/libvue.umd.js"
-        },
-        "./src/lib/main.js": {
-            "import": "./src/lib/main.js",
-            "require": "./src/lib/main.js"
-        },
-        "./dist/style.css": {
-            "import": "./dist/style.css",
-            "require": "./dist/style.css"
-        }
-    },
     "bin": {
         "libvue": "./bin/libvue.js"
     }
