@@ -5,21 +5,14 @@
             <div class="lv-vertical-nav-list__label-text">{{ label }}</div>
             <lv-icon class="lv-vertical-nav-list__label-icon" :name="iconName"></lv-icon>
         </div>
-        <transition-expand :duration="100" no-opacity>
-            <div v-show="isOpen" class="lv-vertical-nav-list__dropdown">
-                <slot />
-            </div>
-        </transition-expand>
+        <div v-show="isOpen" class="lv-vertical-nav-list__dropdown">
+            <slot />
+        </div>
     </div>
 </template>
 
 <script>
-import { TransitionExpand } from '@morev/vue-transitions';
-
 export default {
-    components: {
-        TransitionExpand,
-    },
     props: {
         label: {
             type: String,
