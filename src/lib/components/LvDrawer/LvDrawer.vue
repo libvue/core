@@ -52,7 +52,7 @@ export default {
             return {
                 immediate: true,
                 escapeDeactivates: false,
-                fallbackFocus: this.$refs.content,
+                fallbackFocus: document.body,
             }
         },
         classObject() {

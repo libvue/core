@@ -1,6 +1,6 @@
 <template>
     <Teleport :to="teleportTarget">
-        <UseFocusTrap v-if="show" :options="focusTrapOptions">
+        <UseFocusTrap v-if="show && mounted" :options="focusTrapOptions">
             <div v-if="show" ref="dialog" class="lv-dialog" role="dialog" :aria-modal="modal" v-bind="$attrs">
                 <div class="lv-dialog__overlay" @click="onClickOverlay"></div>
                 <div ref="content" class="lv-dialog__content">
@@ -21,10 +21,10 @@
 import { UseFocusTrap } from '@vueuse/integrations/useFocusTrap/component';
 
 export default {
-    inheritAttrs: false,
     components: {
         UseFocusTrap,
     },
+    inheritAttrs: false,
     props: {
         show: {
             type: Boolean,
@@ -40,14 +40,22 @@ export default {
         },
     },
     emits: ['click-overlay'],
+    data() {
+        return {
+            mounted: false,
+        }
+    },
     computed: {
         focusTrapOptions() {
             return {
                 immediate: true,
                 escapeDeactivates: false,
-                fallbackFocus: this.$refs.content,
+                fallbackFocus: document.body,
             }
         },
+    },
+    mounted() {
+        this.mounted = true;
     },
     methods: {
         onClickOverlay() {
