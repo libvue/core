@@ -89,6 +89,7 @@
                     <lv-vertical-nav-item to="/docs/lv-code" label="Code" />
                     <lv-vertical-nav-item to="/docs/lv-notice" label="Notice" />
                     <lv-vertical-nav-item label="Accordion" to="/docs/lv-accordion" />
+                    <lv-vertical-nav-item label="Text Editor" to="/docs/lv-text-editor" />
                     <lv-vertical-nav-item label="Window" to="/docs/lv-window" />
                     <lv-vertical-nav-item label="Skeleton" to="/docs/lv-skeleton" />
                 </lv-vertical-nav-list>
