@@ -82,7 +82,7 @@ body {
     $self: &;
     display: flex;
     flex-direction: column;
-    background-color: var(--background-color);
+    background-color: var(--main-background-color);
     width: 100%;
 
     &__header {
@@ -90,7 +90,7 @@ body {
         top: 0;
         z-index: 1;
         border-bottom: 1px solid var(--border-color);
-        background-color: var(--header-color);
+        background-color: var(--header-background-color);
         width: 100%;
 
         &-container {
@@ -114,6 +114,17 @@ body {
         border-right: 1px solid var(--border-color);
         position: sticky;
         top: v-bind(headerHeight);
+        background-color: var(--sidebar-background-color);
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: -100vw;
+            top: 0;
+            height: 100%;
+            width: 100vw;
+            background-color: var(--sidebar-background-color);
+        }
 
         &-container {
             position: sticky;
@@ -126,9 +137,11 @@ body {
         }
     }
     &__main {
+        position: relative;
         flex-grow: 1;
         box-sizing: border-box;
         padding: 3rem 3rem 1.5rem 3rem;
+        background-color: var(--main-background-color);
 
         &-container {
             margin: 0 auto;

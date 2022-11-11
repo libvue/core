@@ -1,5 +1,7 @@
 $theme-light-background-color: #ffffff !default;
-$theme-light-header-color: rgba(255, 255, 255, 0.8) !default;
+$theme-light-sidebar-background-color: #fff !default;
+$theme-light-main-background-color: #fff !default;
+$theme-light-header-background-color: rgba(255, 255, 255, 0.8) !default;
 $theme-light-color-default: #121315 !default;
 $theme-light-color-default-dimmed: lighten($theme-light-color-default, 85) !default;
 $theme-light-color-info: #3f8cff !default;
@@ -52,7 +54,9 @@ $theme-light-table-row-hover-background-color: #fdfdfd;
 
 $theme-light: (
     background-color: $theme-light-background-color,
-    header-color: $theme-light-header-color,
+    main-background-color: $theme-light-main-background-color,
+    sidebar-background-color: $theme-light-sidebar-background-color,
+    header-background-color: $theme-light-header-background-color,
     color-default: $theme-light-color-default,
     color-default-dimmed: $theme-light-color-default-dimmed,
     color-info: $theme-light-color-info,

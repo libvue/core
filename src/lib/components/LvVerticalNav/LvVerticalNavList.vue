@@ -93,7 +93,6 @@ export default {
         margin-bottom: 10px;
         margin-left: 18px;
         border-left: 1px solid var(--border-color);
-        background-color: var(--background-color);
         padding-left: 13px;
         overflow: hidden;
 
