@@ -11,16 +11,28 @@
         spacing to the components. This directive automatically checks for the flex direction if you are using (inline) flex.
     </lv-paragraph>
     <lv-heading v-space-after="1" :level="6">Example</lv-heading>
-    <lv-code v-space-after="1" :code="directiveCode" lang="html" />
+    <lv-card v-space-after="1">
+        <lv-heading v-space-after="1" :level="5">Heading</lv-heading>
+        <lv-paragraph>
+            Hello
+        </lv-paragraph>
+    </lv-card>
+    <lv-code v-space-after="1" :code="codeExample" lang="html" />
     <lv-heading v-space-after="1" :level="6">Install directive only</lv-heading>
     <lv-code v-space-after="1" :code="installDirective" lang="javascript" />
 </template>
 
 <script>
+const codeExample = `
+<lv-heading :level="5" v-space-after="1">Heading</lv-heading>
+<lv-paragraph>
+    Hello
+</lv-paragraph>
+`.trim();
 export default {
     data() {
         return {
-            directiveCode: `<lv-heading label="Heading" v-space-after="1" />\n<lv-paragraph>\n   Hello\n<lv-paragraph/>`,
+            codeExample,
             installDirective: `import { spaceAfter } from 'libvue';\napp.directive(spaceAfter)`,
         };
     },
