@@ -1,1 +1,0 @@
-import{_ as n,o as s,c as t,y as l,z as o}from"./index.9cebe41f.js";const r={props:{inline:{type:Boolean,default:!1}}};function c(e,_,a,d,i,p){return s(),t("div",{class:o(["lv-card",{"lv-card--inline":!!a.inline}])},[l(e.$slots,"default")],2)}const u=n(r,[["render",c]]);export{u as default};
