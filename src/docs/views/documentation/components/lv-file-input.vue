@@ -8,7 +8,7 @@
 </template>
 
 <script>
-const code = ``.trim();
+const code = `<lv-file-input/>`.trim();
 export default {
     data() {
         return {

@@ -114,11 +114,7 @@
                     <lv-vertical-nav-item to="/docs/lv-input" label="Input" />
                     <lv-vertical-nav-item to="/docs/lv-checkbox" label="Checkbox" />
                     <lv-vertical-nav-item label="Radio" to="/docs/lv-radio" />
-                    <lv-vertical-nav-item to="/docs/lv-file-input" disabled>
-                        <lv-group gap=".25rem">
-                            File Input <lv-badge text="Planned" size="tiny" color="solid-dimmed-primary" />
-                        </lv-group>
-                    </lv-vertical-nav-item>
+                    <lv-vertical-nav-item label="File Input" to="/docs/lv-file-input" />
                     <lv-vertical-nav-item label="Slider" to="/docs/lv-slider" />
                     <lv-vertical-nav-item label="Range Slider" to="/docs/lv-range-slider" />
                     <lv-vertical-nav-item label="Switch" to="/docs/lv-switch" />
