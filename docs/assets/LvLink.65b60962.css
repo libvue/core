@@ -1,1 +1,0 @@
-.lv-link{color:var(--text-color);text-decoration:none}.lv-link--highlight{transition:all var(--transition-time);border-bottom:1px dashed var(--text-color);color:var(--text-color);text-decoration:none}.lv-link--highlight[href]:hover,.lv-link--highlight--active{border-bottom-color:var(--color-primary);color:var(--color-primary)}
