@@ -1,1 +1,0 @@
-.lv-toggle{display:inline-flex;padding:calc(var(--padding) * .75);border:1px solid var(--border-color);border-radius:var(--border-radius);background-color:var(--background-color);cursor:pointer;color:var(--text-color)}.lv-toggle--pressed{background-color:var(--border-color-light)}
