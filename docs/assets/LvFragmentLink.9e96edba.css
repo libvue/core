@@ -1,0 +1,1 @@
+.lv-fragment-link{display:inline-block;position:relative;cursor:pointer;color:var(--text-color);text-decoration:none}.lv-fragment-link__anchor{display:none!important;position:absolute;transform:translate(calc(-50% - 1rem));outline:none}.lv-fragment-link:hover .lv-fragment-link__anchor{display:block!important}
