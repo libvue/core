@@ -34,6 +34,7 @@
                 <template #search> </template>
                 <template #navigation>
                     <lv-horizontal-nav-item v-space-after="1" label="Documentation" to="/documentation" />
+                    <lv-horizontal-nav-item v-space-after="1" label="Playground" to="/playground" />
                     <lv-separator direction="vertical" />
                 </template>
                 <template #extra>
