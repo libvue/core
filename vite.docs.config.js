@@ -5,6 +5,7 @@ const path = require('path');
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [vue()],
+    base: '/libvue/',
     build: {
         outDir: 'docs',
         assetsDir: '',
