@@ -1,0 +1,1 @@
+import{_ as e,o as t,c as o}from"./index.9cebe41f.js";const s={},_={class:"lv-advert-pwa"};function a(c,r,n,d,l,p){return t(),o("div",_," Hello World ")}const i=e(s,[["render",a]]);export{i as default};
