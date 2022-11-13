@@ -1,0 +1,1 @@
+.lv-select-option-group{display:none;margin-top:.5rem}.lv-select-option-group:has(div:not(.lv-select-option-group__title)){display:block}.lv-select-option-group__title{padding:calc(var(--padding) * .5) calc(var(--padding) * .75);margin-bottom:.5rem;font-size:var(--font-size-small);font-weight:700}
