@@ -32,6 +32,7 @@ $theme-dark-placeholder-color-warning: lighten($theme-dark-color-warning, 30) !d
 $theme-dark-placeholder-color-danger: lighten($theme-dark-color-danger, 30) !default;
 $theme-dark-placeholder-color: darken($theme-dark-text-color, 40) !default;
 $theme-dark-backdrop-color: rgba(255,255,255,0.1);
+$theme-dark-backdrop-color-inverted: rgba(#0e0e0e,0.5);
 $theme-dark-shadow: 0 12px 8px -8px rgba(0, 0, 0, 0.4);
 $theme-dark-shadow-dialog: 0 5px 8px 2px rgba(0, 0, 0, 0.15);
 $theme-dark-shadow-popover: 0 0 8px 2px rgba(0, 0, 0, 0.05);
@@ -50,7 +51,7 @@ $theme-dark-scrollbar-thumb-background-color: #303030;
 $theme-dark-scrollbar-thumb-border-radius: 0px;
 $theme-dark-skeleton-tint1: #3b3b3b;
 $theme-dark-skeleton-tint2: #565656;
-$theme-dark-table-row-hover-background-color: #000000;
+$theme-dark-table-row-hover-background-color: #0a0a0a;
 
 $theme-dark: (
     background-color: $theme-dark-background-color,
@@ -87,6 +88,7 @@ $theme-dark: (
     placeholder-color-danger: $theme-dark-placeholder-color-danger,
     placeholder-color: $theme-dark-placeholder-color,
     backdrop-color: $theme-dark-backdrop-color,
+    backdrop-color-inverted: $theme-dark-backdrop-color-inverted,
     shadow: $theme-dark-shadow,
     shadow-dialog: $theme-dark-shadow-dialog,
     shadow-popover: $theme-dark-shadow-popover,

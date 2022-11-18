@@ -43,6 +43,9 @@ export default {
 .lv-select-option-group {
     display: none;
     margin-top: .5rem;
+    &:first-of-type {
+        margin-top: 0.25rem;
+    }
     &:has(div:not(.lv-select-option-group__title)) {
         display: block;
     }

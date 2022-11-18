@@ -111,10 +111,12 @@ export default {
         border: 1px solid var(--border-color);
         border-radius: var(--border-radius);
         background-color: var(--background-color);
-        padding: calc(var(--padding) * 0.75);
         color: var(--text-color);
         font-size: var(--font-size);
+        padding: calc(var(--padding) * 0.75);
+        line-height: var(--font-size);
         font-family: var(--font-family);
+        width: 100%;
 
         &::placeholder {
             color: var(--placeholder-color);

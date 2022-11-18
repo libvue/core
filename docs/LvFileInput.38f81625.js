@@ -1,1 +1,0 @@
-import{_ as e,o as t,c as o}from"./index.7fb37226.js";const n={},s={class:"lv-file-input"};function _(c,l,r,a,p,i){return t(),o("div",s," Hello World ")}const d=e(n,[["render",_]]);export{d as default};

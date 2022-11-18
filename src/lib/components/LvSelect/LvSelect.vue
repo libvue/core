@@ -202,16 +202,19 @@ export default {
         color: var(--text-color);
         font-size: var(--font-size);
         line-height: var(--font-size);
+        &::placeholder {
+            color: var(--placeholder-color);
+        }
     }
     &__placeholder {
-        padding: var(--padding);
+        padding: calc(var(--padding) * 0.75 + 2px) calc(var(--padding) * 0.75) calc(var(--padding) * 0.75 + 1px);
         color: var(--placeholder-color);
         font-size: var(--font-size);
         line-height: var(--font-size);
     }
     &__icon {
         position: absolute;
-        top: 13px;
+        top: .75rem;
         right: calc(var(--padding) - 2px);
         background-color: var(--background-color);
         color: var(--text-color-dimmed);
@@ -231,7 +234,7 @@ export default {
 
     &__no-options {
         $noOptions: &;
-        padding: var(--padding);
+        padding: calc(var(--padding) * .75);
     }
 
     &--disabled {
