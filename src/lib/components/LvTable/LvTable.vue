@@ -1,5 +1,8 @@
 <template>
     <div class="lv-table" :class="classObject" role="table">
+        <div class="lv-table__loading" v-if="loading">
+            <lv-spinner />
+        </div>
         <table class="lv-table__table">
             <!-- Table Head -->
             <thead v-if="!hideHead" class="lv-table__table-head">
@@ -360,7 +363,21 @@ export default {
     $self: &;
     color: var(--text-color);
     font-size: var(--font-size);
+    position: relative;
+
     /* Elements */
+    &__loading {
+        z-index: 1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--backdrop-color-inverted);
+    }
     &__table {
         border-collapse: collapse;
         width: 100%;
