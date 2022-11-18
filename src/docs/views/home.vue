@@ -21,7 +21,7 @@
                     <lv-link to="/docs/theming">
                         <lv-card class="feature-card">
                             <lv-heading v-space-after="1" :level="5">
-                                <lv-icon v-space-after=".5" name="palette"/>Themable
+                                <lv-icon v-space-after=".5" name="palette"/>Theming
                             </lv-heading>
                             <lv-paragraph>
                                 Out of the box support for light and dark color schemes.
@@ -30,7 +30,7 @@
                     </lv-link>
                 </lv-grid-column>
                 <lv-grid-column :level="4">
-                    <lv-link to="/docs/grid">
+                    <lv-link to="/docs/lv-grid">
                         <lv-card class="feature-card">
                             <lv-heading v-space-after="1" :level="5">
                                 <lv-icon v-space-after=".5" name="grid"/>Grid

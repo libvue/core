@@ -84,7 +84,7 @@ export default {
     line-height: var(--font-size);
 
     &__checkbox {
-        margin-right: 0.3rem;
+        margin-right: 0.5rem !important;
     }
 
     &--multiple {

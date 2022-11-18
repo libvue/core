@@ -4,7 +4,7 @@
 
     <lv-heading v-space-after="1" :level="6">Option Groups</lv-heading>
     <lv-card v-space-after="1">
-        <lv-select :value="modelOptGroup" searchable>
+        <lv-select :value="modelOptGroup">
             <lv-select-option-group title="Option Group">
                 <lv-select-option
                     v-for="(option, index) in options.slice(0,4)"
