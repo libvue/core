@@ -1,6 +1,6 @@
 {
     "name": "@libvue/core",
-    "version": "0.0.21",
+    "version": "0.0.22",
     "private": false,
     "scripts": {
         "dev": "vite",
