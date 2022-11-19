@@ -1,0 +1,1 @@
+import{_ as s,o,c as t,b as c,e as _}from"./index.6cba6d7e.js";const i={props:{size:{type:Number,default:24}},computed:{sizeInPixels(){return`${this.size}px`}}},r={class:"lv-spinner"};function a(l,p,e,d,u,v){const n=_("lv-icon");return o(),t("div",r,[c(n,{size:e.size,class:"lv-spinner__icon",name:"loader-2"},null,8,["size"])])}const f=s(i,[["render",a]]);export{f as default};

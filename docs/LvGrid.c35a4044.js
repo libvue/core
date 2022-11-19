@@ -1,0 +1,1 @@
+import{_ as o,o as a,c as r,z as c,B as p}from"./index.6cba6d7e.js";const s={props:{gap:{type:String,default:"none"}}},_=()=>{p(e=>({"2e639daa":e.gap}))},n=s.setup;s.setup=n?(e,t)=>(_(),n(e,t)):_;const d=s,u={class:"lv-grid"};function l(e,t,i,f,v,g){return a(),r("div",u,[c(e.$slots,"default")])}const m=o(d,[["render",l]]);export{m as default};
