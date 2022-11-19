@@ -80,8 +80,8 @@ export default {
     border-radius: var(--border-radius);
     padding: calc(var(--padding) * 1) calc(var(--padding) * 0.75);
     overflow: hidden;
-    font-size: var(--font-size);
-    line-height: var(--font-size);
+    font-size: inherit;
+    line-height: inherit;
 
     &__checkbox {
         margin-right: 0.5rem !important;
