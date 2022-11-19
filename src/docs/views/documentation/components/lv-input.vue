@@ -5,10 +5,10 @@
         <template #types>
             <lv-card v-space-after="1">
                 <lv-group direction="column">
-                    <lv-input type="text" placeholder="Enter your username" />
-                    <lv-input type="password" placeholder="Enter your password" />
-                    <lv-input type="email" placeholder="Enter your e-mail" />
-                    <lv-input type="tel" placeholder="Enter your phonenumber" />
+                    <lv-input type="text" icon="user" placeholder="Enter your username" />
+                    <lv-input type="password" icon="key" placeholder="Enter your password" />
+                    <lv-input type="email" icon="mail" placeholder="Enter your e-mail" />
+                    <lv-input type="tel" icon="phone" placeholder="Enter your phonenumber" />
                 </lv-group>
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeTypes" />
@@ -16,13 +16,23 @@
         <template #states>
             <lv-card v-space-after="1">
                 <lv-group direction="column">
-                    <lv-input icon="user" placeholder="Default" />
-                    <lv-input icon="user" readonly placeholder="Readonly" />
-                    <lv-input icon="user" disabled placeholder="Disabled" />
-                    <lv-input icon="user" loading placeholder="Loading" />
+                    <lv-input placeholder="Default" />
+                    <lv-input readonly placeholder="Readonly" />
+                    <lv-input disabled placeholder="Disabled" />
+                    <lv-input loading placeholder="Loading" />
                 </lv-group>
             </lv-card>
-
+            <lv-code v-space-after="1" lang="html" :code="codeStates" />
+        </template>
+        <template #sizes>
+            <lv-card v-space-after="1">
+                <lv-group direction="column">
+                    <lv-input icon="github" placeholder="Large size" size="large" loading />
+                    <lv-input icon="github" placeholder="Default size" size="default" loading />
+                    <lv-input icon="github" placeholder="Small size" size="small" loading />
+                    <lv-input icon="github" placeholder="Tiny size" size="tiny" loading />
+                </lv-group>
+            </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeStates" />
         </template>
     </lv-tabs>
@@ -30,17 +40,24 @@
 
 <script>
 const codeTypes = `
-<lv-input type="text" placeholder="Enter your username" />
-<lv-input type="password" placeholder="Enter your password" />
-<lv-input type="email" placeholder="Enter your e-mail" />
-<lv-input type="tel" placeholder="Enter your phonenumber" />
+<lv-input type="text" icon="user" placeholder="Enter your username" />
+<lv-input type="password" icon="key" placeholder="Enter your password" />
+<lv-input type="email" icon="mail" placeholder="Enter your e-mail" />
+<lv-input type="tel" icon="phone" placeholder="Enter your phonenumber" />
 `.trim();
 
 const codeStates = `
-<lv-input icon="user" placeholder="Default" />
-<lv-input icon="user" readonly placeholder="Readonly" />
-<lv-input icon="user" disabled placeholder="Disabled" />
-<lv-input icon="user" loading placeholder="Loading" />
+<lv-input placeholder="Default" />
+<lv-input readonly placeholder="Readonly" />
+<lv-input disabled placeholder="Disabled" />
+<lv-input loading placeholder="Loading" />
+`.trim();
+
+const codeSizes = `
+<lv-input icon="github" placeholder="Large size" size="large" />
+<lv-input icon="github" placeholder="Default size" size="default" />
+<lv-input icon="github" placeholder="Small size" size="small" />
+<lv-input icon="github" placeholder="Tiny size" size="tiny" />
 `.trim();
 
 export default {
@@ -48,10 +65,12 @@ export default {
         return {
             codeTypes,
             codeStates,
+            codeSizes,
             activeTab: 'types',
             tabs: [
                 { id: 'types', title: 'Types', icon: 'form-input' },
                 { id: 'states', title: 'States', icon: 'loader-2' },
+                { id: 'sizes', title: 'Sizes', icon: 'scaling' },
             ],
         };
     },

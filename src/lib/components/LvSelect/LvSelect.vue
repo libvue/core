@@ -16,30 +16,42 @@
             @keydown.enter.space.prevent="onClickSelection"
         >
             <!-- Single value -->
-            <div v-if="hasValue && !multiple" class="lv-select__value">
-                <slot name="value" :value="value">
+            <div v-if="!multiple" class="lv-select__value">
+                <slot v-if="hasValue" name="value" :value="value">
                     {{ value.label }}
                 </slot>
+                <input
+                    v-else-if="searchable"
+                    v-model="search"
+                    class="lv-select__search"
+                    type="text"
+                    :placeholder="placeholder"
+                />
+                <div v-else class="lv-select__placeholder">
+                    {{ placeholder }}
+                </div>
             </div>
             <!-- Multi value -->
-            <div v-else-if="hasValue && multiple" class="lv-select__values">
-                <span v-for="(entry, index) in value" :key="index" class="lv-select__values-item">
+            <div v-else-if="multiple" class="lv-select__value">
+                <span v-if="hasValue" v-for="(entry, index) in value" :key="index" class="lv-select__value-item">
                     <slot name="value" :values="value" :value="entry">
                         {{ entry.label }}
                     </slot>
                 </span>
+                <input
+                    v-else-if="searchable"
+                    v-model="search"
+                    class="lv-select__search"
+                    type="text"
+                    :placeholder="placeholder"
+                />
+                <div v-else class="lv-select__placeholder">
+                    {{ placeholder }}
+                </div>
             </div>
-            <!-- If searchable -->
-            <input
-                v-else-if="searchable"
-                v-model="search"
-                class="lv-select__search"
-                type="text"
-                :placeholder="placeholder"
-            />
-            <!-- No value -->
-            <div v-else class="lv-select__placeholder">{{ placeholder }}</div>
-            <lv-icon v-if="loading" class="lv-select__loading" :size="16" name="loader-2" />
+
+            <!-- Icons -->
+            <lv-icon v-if="loading" class="lv-select__loading" name="loader-2" />
             <lv-icon v-else class="lv-select__icon" name="chevron-down"></lv-icon>
         </div>
         <!-- Dropdown -->
@@ -55,6 +67,7 @@
 <script>
 import { onClickOutside } from '@vueuse/core';
 import { computed } from 'vue';
+import propSizeMixin from '../../mixins/propSizeMixin';
 
 export default {
     provide() {
@@ -66,6 +79,7 @@ export default {
             visibleOptions: computed(() => this.visibleOptions),
         };
     },
+    mixins: [propSizeMixin()],
     props: {
         value: {
             type: [Object, Array],
@@ -116,6 +130,7 @@ export default {
         },
         classObject() {
             return {
+                [`lv-select--size-${this.size}`]: true,
                 'lv-select--disabled': !!this.disabled || !!this.loading,
                 'lv-select--loading': !!this.loading,
             };
@@ -162,6 +177,7 @@ export default {
 
 <style lang="scss">
 @import '../../scss/animations/animations';
+@import '../../scss/mixins/sizeMixin';
 
 .lv-select {
     $self: &;
@@ -175,46 +191,40 @@ export default {
 
     &__value {
         display: flex;
-        padding: var(--padding);
-        font-size: var(--font-size);
-        line-height: var(--font-size);
-    }
-    &__values {
-        display: flex;
-        padding: calc(var(--padding) * 0.5);
-        font-size: var(--font-size);
-        line-height: var(--font-size);
+        width: 100%;
+
         &-item {
-            margin-right: 5px;
+            margin: calc(calc(var(--padding) * 0.5) * -1) 10px calc(calc(var(--padding) * 0.5) * -1)
+                calc(calc(var(--padding) * 0.5) * -1);
             border-radius: var(--border-radius);
             background-color: var(--color-primary);
             padding: calc(var(--padding) * 0.5);
             color: var(--color-white);
         }
     }
+
     &__search {
         flex-grow: 1;
         box-sizing: border-box;
         outline: 0;
         border: 0;
         background: transparent;
-        padding: calc(var(--padding) - 1px) var(--padding);
         color: var(--text-color);
-        font-size: var(--font-size);
-        line-height: var(--font-size);
+        font-size: inherit;
+        line-height: inherit;
+        padding: 0;
+        margin: -1px 0;
         &::placeholder {
             color: var(--placeholder-color);
         }
     }
     &__placeholder {
-        padding: calc(var(--padding) * 0.75 + 2px) calc(var(--padding) * 0.75) calc(var(--padding) * 0.75 + 1px);
         color: var(--placeholder-color);
-        font-size: var(--font-size);
-        line-height: var(--font-size);
     }
     &__icon {
         position: absolute;
-        top: .75rem;
+        top: 50%;
+        transform: translateY(-50%);
         right: calc(var(--padding) - 2px);
         background-color: var(--background-color);
         color: var(--text-color-dimmed);
@@ -230,29 +240,37 @@ export default {
         background-color: var(--background-color);
         padding: calc(var(--padding) * 0.5);
         width: 100%;
+        max-height: 200px;
+        overflow-y: auto;
+        font-size: inherit;
     }
 
     &__no-options {
         $noOptions: &;
-        padding: calc(var(--padding) * .75);
+        padding: calc(var(--padding) * 0.75);
     }
 
     &--disabled {
         pointer-events: none;
 
         #{$self}__input {
-            color: var(--text-color-dimmed);
+            background-color: var(--border-color-light);
+            &::placeholder {
+                color: var(--placeholder-color);
+            }
         }
     }
 
     &__loading {
         position: absolute;
-        top: 13px;
+        top: 50%;
+        margin-top: -.5em;
         right: calc(var(--padding) - 2px);
         animation: rotate-cw 1s infinite linear;
-        background-color: var(--background-color);
         color: var(--text-color-dimmed);
     }
+
+    @include size-mixin('.lv-select__value');
 }
 
 .dropdown-enter-active,
