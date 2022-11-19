@@ -1,0 +1,1 @@
+import{_ as e,o,c as s}from"./index.6cba6d7e.js";const t={},a={class:"lv-image-carousel"};function _(c,r,n,l,p,u){return o(),s("div",a," Hello World ")}const i=e(t,[["render",_]]);export{i as default};

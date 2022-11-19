@@ -2,156 +2,171 @@
     <lv-heading v-space-after="0.5" :level="3">Select</lv-heading>
     <lv-heading v-space-after="2" sub :level="6">Select a single or multiple items</lv-heading>
 
-
     <lv-tabs :tabs="tabs" :active="activeTab" @change-tab="(v) => (activeTab = v)">
         <template #single>
             <lv-card v-space-after="1">
                 <lv-select :value="modelSingle">
                     <lv-select-option
-                            v-for="(option, index) in options"
-                            :key="index"
-                            :option="option"
-                            @click="(v) => { modelSingle = v }"
+                        v-for="(option, index) in options"
+                        :key="index"
+                        :option="option"
+                        @click="
+                            (v) => {
+                                modelSingle = v;
+                            }
+                        "
                     >
-                        <lv-group>
-                            <lv-icon :name="option.icon"/> {{ option.label }}
-                        </lv-group>
+                        <lv-group> <lv-icon :name="option.icon" /> {{ option.label }} </lv-group>
                     </lv-select-option>
 
                     <template #value="{ value }">
-                        <lv-group>
-                            <lv-icon :name="value.icon"/> {{ value.label }}
-                        </lv-group>
+                        <lv-group> <lv-icon :name="value.icon" /> {{ value.label }} </lv-group>
                     </template>
                 </lv-select>
             </lv-card>
-            <lv-code :code="codeSingle" v-space-after="1" lang="html"/>
+            <lv-code v-space-after="1" :code="codeSingle" lang="html" />
         </template>
         <template #multiple>
             <lv-card v-space-after="1">
                 <lv-select :value="modelMultiple" multiple>
                     <lv-select-option
-                            v-for="(option, index) in options"
-                            :key="index"
-                            :option="option"
-                            @click="(v) => { modelMultiple = v }"
+                        v-for="(option, index) in options"
+                        :key="index"
+                        :option="option"
+                        @click="
+                            (v) => {
+                                modelMultiple = v;
+                            }
+                        "
                     >
-                        <lv-group>
-                            <lv-icon :name="option.icon"/> {{ option.label }}
-                        </lv-group>
+                        <lv-group> <lv-icon :name="option.icon" /> {{ option.label }} </lv-group>
                     </lv-select-option>
                     <template #value="{ value }">
-                        <lv-group>
-                            <lv-icon :name="value.icon"/> {{ value.label }}
-                        </lv-group>
+                        <lv-group> <lv-icon :name="value.icon" /> {{ value.label }} </lv-group>
                     </template>
                 </lv-select>
             </lv-card>
-            <lv-code :code="codeMultiple" v-space-after="1" lang="html"/>
+            <lv-code v-space-after="1" :code="codeMultiple" lang="html" />
         </template>
         <template #groups>
             <lv-card v-space-after="1">
                 <lv-select :value="modelOptGroup">
                     <lv-select-option-group title="Option Group">
                         <lv-select-option
-                                v-for="(option, index) in options.slice(0,4)"
-                                :key="index"
-                                :option="option"
-                                @click="(v) => { modelOptGroup = v }"
+                            v-for="(option, index) in options.slice(0, 4)"
+                            :key="index"
+                            :option="option"
+                            @click="
+                                (v) => {
+                                    modelOptGroup = v;
+                                }
+                            "
                         >
                             {{ option.label }}
                         </lv-select-option>
                     </lv-select-option-group>
                     <lv-select-option-group title="Option Group">
                         <lv-select-option
-                                v-for="(option, index) in options.slice(4)"
-                                :key="index"
-                                :option="option"
-                                @click="(v) => { modelOptGroup = v }"
+                            v-for="(option, index) in options.slice(4)"
+                            :key="index"
+                            :option="option"
+                            @click="
+                                (v) => {
+                                    modelOptGroup = v;
+                                }
+                            "
                         >
                             {{ option.label }}
                         </lv-select-option>
                     </lv-select-option-group>
                 </lv-select>
             </lv-card>
-            <lv-code :code="codeOptGroup" v-space-after="1" lang="html"/>
+            <lv-code v-space-after="1" :code="codeOptGroup" lang="html" />
         </template>
         <template #search>
             <lv-card v-space-after="1">
                 <lv-select :value="modelSearch" searchable placeholder="Search for an option">
                     <lv-select-option
-                            v-for="(option, index) in options"
-                            :key="index"
-                            :option="option"
-                            @click="(v) => { modelSearch = v }"
+                        v-for="(option, index) in options"
+                        :key="index"
+                        :option="option"
+                        @click="
+                            (v) => {
+                                modelSearch = v;
+                            }
+                        "
                     >
-                        <lv-group>
-                            <lv-icon :name="option.icon"/> {{ option.label }}
-                        </lv-group>
+                        <lv-group> <lv-icon :name="option.icon" /> {{ option.label }} </lv-group>
                     </lv-select-option>
                     <template #value="{ value }">
-                        <lv-group>
-                            <lv-icon :name="value.icon"/> {{ value.label }}
-                        </lv-group>
+                        <lv-group> <lv-icon :name="value.icon" /> {{ value.label }} </lv-group>
                     </template>
                 </lv-select>
             </lv-card>
-            <lv-code :code="codeSearchable" v-space-after="1" lang="html"/>
+            <lv-code v-space-after="1" :code="codeSearchable" lang="html" />
         </template>
         <template #sizes>
             <lv-card v-space-after="1">
                 <lv-group direction="column">
                     <lv-select placeholder="Large size" size="large">
                         <lv-select-option
-                                v-for="(option, index) in options"
-                                :key="index"
-                                :option="option"
-                                @click="(v) => { modelSearch = v }"
+                            v-for="(option, index) in options"
+                            :key="index"
+                            :option="option"
+                            @click="
+                                (v) => {
+                                    modelSearch = v;
+                                }
+                            "
                         >
-                            <lv-group>
-                                <lv-icon :name="option.icon"/> {{ option.label }}
-                            </lv-group>
+                            <lv-group> <lv-icon :name="option.icon" /> {{ option.label }} </lv-group>
                         </lv-select-option>
                     </lv-select>
                     <lv-select placeholder="Default size">
                         <lv-select-option
-                                v-for="(option, index) in options"
-                                :key="index"
-                                :option="option"
-                                @click="(v) => { modelSearch = v }"
+                            v-for="(option, index) in options"
+                            :key="index"
+                            :option="option"
+                            @click="
+                                (v) => {
+                                    modelSearch = v;
+                                }
+                            "
                         >
-                            <lv-group>
-                                <lv-icon :name="option.icon"/> {{ option.label }}
-                            </lv-group>
+                            <lv-group> <lv-icon :name="option.icon" /> {{ option.label }} </lv-group>
                         </lv-select-option>
                     </lv-select>
                     <lv-select placeholder="Small size" size="small">
                         <lv-select-option
-                                v-for="(option, index) in options"
-                                :key="index"
-                                :option="option"
-                                @click="(v) => { modelSearch = v }"
+                            v-for="(option, index) in options"
+                            :key="index"
+                            :option="option"
+                            @click="
+                                (v) => {
+                                    modelSearch = v;
+                                }
+                            "
                         >
-                            <lv-group>
-                                <lv-icon :name="option.icon"/> {{ option.label }}
-                            </lv-group>
+                            <lv-group> <lv-icon :name="option.icon" /> {{ option.label }} </lv-group>
                         </lv-select-option>
                     </lv-select>
                     <lv-select placeholder="Tiny size" size="tiny">
                         <lv-select-option
-                                v-for="(option, index) in options"
-                                :key="index"
-                                :option="option"
-                                @click="(v) => { modelSearch = v }"
+                            v-for="(option, index) in options"
+                            :key="index"
+                            :option="option"
+                            @click="
+                                (v) => {
+                                    modelSearch = v;
+                                }
+                            "
                         >
-                            <lv-group>
-                                <lv-icon :name="option.icon"/> {{ option.label }}
-                            </lv-group>
+                            <lv-group> <lv-icon :name="option.icon" /> {{ option.label }} </lv-group>
                         </lv-select-option>
                     </lv-select>
                 </lv-group>
             </lv-card>
-            <lv-code :code="codeSizes" v-space-after="1" lang="html"/>
+            <lv-code v-space-after="1" :code="codeSizes" lang="html" />
         </template>
     </lv-tabs>
 </template>
