@@ -67,7 +67,7 @@
                     <lv-button disabled label="Disabled" />
                 </lv-group>
             </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="code.states" />
+            <lv-code v-space-after="1" lang="html" :code="codeStates" />
         </template>
         <template #icons>
             <lv-card v-space-after="1">
@@ -75,27 +75,27 @@
                     <lv-button icon="rocket" label="Hello" />
                 </lv-group>
             </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="code.icons" />
+            <lv-code v-space-after="1" lang="html" :code="codeIcons" />
         </template>
         <template #align>
             <lv-card v-space-after="1">
-                <lv-group>
+                <lv-group fill>
                     <lv-button icon="rocket" label="Default (center)" />
                     <lv-button icon="rocket" label="Left" align="left" />
                     <lv-button icon="rocket" label="Right" align="right" />
                 </lv-group>
             </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="code.align" />
+            <lv-code v-space-after="1" lang="html" :code="codeAlign" />
         </template>
         <template #sizes>
             <lv-card v-space-after="1">
-                <lv-group>
+                <lv-group align-items="center">
                     <lv-button label="Large" size="large" icon="github" />
                     <lv-button label="Default" size="default" icon="github" />
                     <lv-button label="Small" size="small" icon="github" />
                 </lv-group>
             </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="code.align" />
+            <lv-code v-space-after="1" lang="html" :code="codeSizes" />
         </template>
     </lv-tabs>
 </template>
@@ -137,6 +137,27 @@ const codeColorGhost = `
 <lv-button label="Ghost Primary" color="ghost-primary" />
 <lv-button label="Ghost Secondary" color="ghost-secondary" />
 `.trim();
+const codeSizes = `
+<lv-group align-items="center">
+    <lv-button label="Large" size="large" icon="github" />
+    <lv-button label="Default" size="default" icon="github" />
+    <lv-button label="Small" size="small" icon="github" />
+</lv-group>
+`.trim();
+const codeStates = `
+<lv-button label="loading" loading />
+<lv-button disabled label="Disabled" />
+`.trim();
+const codeIcons = `
+<lv-button icon="rocket" label="Hello" />
+`.trim();
+const codeAlign = `
+<lv-group>
+    <lv-button icon="rocket" label="Default (center)" />
+    <lv-button icon="rocket" label="Left" align="left" />
+    <lv-button icon="rocket" label="Right" align="right" />
+</lv-group>
+`.trim();
 export default {
     data() {
         return {
@@ -152,11 +173,10 @@ export default {
             codeColorSolidDimmed,
             codeColorOutline,
             codeColorGhost,
-            code: {
-                states: `<lv-button label="loading" loading />\n<lv-button disabled label="Disabled" />`,
-                icons: `<lv-button icon="rocket" label="Hello" />`,
-                align: `<lv-button icon="rocket" label="Default (center)" />\n<lv-button icon="rocket" label="Left" align="left" />\n<lv-button icon="rocket" label="Right" align="right" />`,
-            },
+            codeSizes,
+            codeStates,
+            codeIcons,
+            codeAlign,
         };
     },
 };

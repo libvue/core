@@ -1,10 +1,12 @@
 {
     "name": "@libvue/core",
-    "version": "0.0.20",
+    "version": "0.0.23",
     "private": false,
     "scripts": {
         "dev": "vite",
-        "build": "vite build"
+        "build": "vite build",
+        "build:docs": "vite build --config vite.docs.config.js",
+        "preview:docs": "vite preview --config vite.docs.config.js"
     },
     "dependencies": {
         "@popperjs/core": "^2.11.6",

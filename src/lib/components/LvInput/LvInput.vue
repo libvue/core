@@ -1,6 +1,6 @@
 <template>
     <div class="lv-input" :class="classObject">
-        <lv-icon v-if="icon" class="lv-input__icon" :size="16" :name="icon" />
+        <lv-icon v-if="icon" class="lv-input__icon" :name="icon" />
         <input
             v-bind="$attrs"
             :value="modelValue"
@@ -12,15 +12,17 @@
             tabindex="0"
             @input="onInput"
         />
-        <lv-icon v-if="loading" class="lv-input__loading" :size="16" name="loader-2" />
+        <lv-icon v-if="loading" class="lv-input__loading" name="loader-2" />
     </div>
 </template>
 
 <script>
+import propSizeMixin from '../../mixins/propSizeMixin';
 import LvIcon from '../LvIcon/LvIcon.vue';
 
 export default {
     inheritAttrs: false,
+    mixins: [propSizeMixin()],
     components: {
         LvIcon,
     },
@@ -61,7 +63,7 @@ export default {
             type: String,
             default: 'text',
             validator(value) {
-                return ['text', 'email', 'password', 'tel', 'file'].includes(value);
+                return ['text', 'email', 'password', 'tel'].includes(value);
             },
         },
     },
@@ -69,6 +71,7 @@ export default {
     computed: {
         classObject() {
             return {
+                [`lv-input--size-${this.size}`]: true,
                 'lv-input--error': this.error,
                 'lv-input--success': this.success,
                 'lv-input--icon': this.icon,
@@ -87,6 +90,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../../scss/mixins/sizeMixin';
+
 // Block
 .lv-input {
     $self: &;
@@ -101,7 +106,8 @@ export default {
     // Elements
     &__icon {
         position: absolute;
-        top: calc(var(--padding) * 0.75 + 2px);
+        top: 50%;
+        transform: translateY(-50%);
         left: calc(var(--padding) - 2px);
         color: var(--text-color);
     }
@@ -111,10 +117,12 @@ export default {
         border: 1px solid var(--border-color);
         border-radius: var(--border-radius);
         background-color: var(--background-color);
-        padding: calc(var(--padding) * 0.75);
         color: var(--text-color);
         font-size: var(--font-size);
+        padding: calc(var(--padding) * 0.75);
+        line-height: var(--font-size);
         font-family: var(--font-family);
+        width: 100%;
 
         &::placeholder {
             color: var(--placeholder-color);
@@ -129,7 +137,8 @@ export default {
 
     &__loading {
         position: absolute;
-        top: 10px;
+        top: 50%;
+        margin-top: -.5em;
         right: calc(var(--padding) - 2px);
         animation: rotate-cw 1s infinite linear;
         background-color: var(--border-color-light);
@@ -139,7 +148,7 @@ export default {
     &--icon {
         #{$self}__input {
             box-sizing: border-box;
-            padding-left: calc(var(--padding) + 16px + 4px);
+            padding-left: calc(var(--padding) + 16px + 4px) !important;
         }
     }
 
@@ -157,5 +166,7 @@ export default {
             }
         }
     }
+
+    @include size-mixin('.lv-input__input');
 }
 </style>

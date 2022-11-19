@@ -23,12 +23,33 @@ $sizes: (
     ),
 );
 
-@mixin size-mixin {
+// $selector should not contain &__ otherwise the input check will not work
+@mixin size-mixin($selector: '') {
+    $self: &;
     @each $size, $sizeMap in $sizes {
-        &--size-#{$size} {
-            padding: map-get($sizeMap, "paddingY") map-get($sizeMap, "paddingX");
-            font-size: map-get($sizeMap, "fontSize");
-            line-height: map-get($sizeMap, "fontSize");
+        @if($selector) {
+            &--size-#{$size} #{$selector} {
+                padding: map-get($sizeMap, "paddingY") map-get($sizeMap, "paddingX");
+                font-size: map-get($sizeMap, "fontSize");
+                line-height: map-get($sizeMap, "fontSize");
+            }
+            // Fix weird 2 pixel bug for inputs
+            &--size-#{$size} input#{$selector} {
+                padding: calc(map-get($sizeMap, "paddingY") - 2px) map-get($sizeMap, "paddingX") calc(map-get($sizeMap, "paddingY") - 1px);
+            }
+            &--size-#{$size} {
+                font-size: map-get($sizeMap, "fontSize");
+                line-height: map-get($sizeMap, "fontSize");
+            }
+        } @else {
+            &--size-#{$size} {
+                padding: map-get($sizeMap, "paddingY") map-get($sizeMap, "paddingX");
+                font-size: map-get($sizeMap, "fontSize");
+                line-height: map-get($sizeMap, "fontSize");
+            }
+            input--size-#{$size} {
+                padding: calc(map-get($sizeMap, "paddingY") - 2px) map-get($sizeMap, "paddingX");
+            }
         }
     }
 }

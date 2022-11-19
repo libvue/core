@@ -65,6 +65,7 @@ export default {
     $self: &;
     display: inline-flex;
     position: relative;
+    align-items: center;
 
     &__input {
         appearance: none;
