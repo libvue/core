@@ -5,6 +5,7 @@
         <lv-spinner/>
     </lv-card>
     <lv-code lang="html" code="<lv-spinner/>"/>
+    <component-details v-space-after="1" component="LvSpinner"></component-details>
 </template>
 
 <script>

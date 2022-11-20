@@ -1,5 +1,5 @@
 <template>
-    <div class="lv-layout" :class="classObject">
+    <div class="lv-layout">
         <!-- Header (f.e. global navigation) -->
         <header v-if="!!$slots['header']" role="banner" class="lv-layout__header">
             <div class="lv-layout__header-container">
@@ -27,10 +27,6 @@
 <script>
 export default {
     props: {
-        debug: {
-            type: Boolean,
-            default: false,
-        },
         mainMaxWidth: {
             type: String,
             default: '700px',
@@ -44,13 +40,6 @@ export default {
         return {
             headerHeight: null,
         };
-    },
-    computed: {
-        classObject() {
-            return {
-                [`lv-layout--debug`]: !!this.debug,
-            };
-        },
     },
     mounted() {
         this.createHeaderResizeObserver();
@@ -106,7 +95,6 @@ body {
         align-items: stretch;
         width: 100%;
         max-width: var(--max-width);
-        // padding-top: v-bind(headerHeight);
     }
 
     &__sidebar {
@@ -115,16 +103,6 @@ body {
         position: sticky;
         top: v-bind(headerHeight);
         background-color: var(--sidebar-background-color);
-
-        //&::after {
-        //    content: '';
-        //    position: absolute;
-        //    left: -100vw;
-        //    top: 0;
-        //    height: 100%;
-        //    width: 100vw;
-        //    background-color: var(--sidebar-background-color);
-        //}
 
         &-container {
             position: sticky;

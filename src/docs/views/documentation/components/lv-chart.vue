@@ -2,7 +2,7 @@
     <lv-heading v-space-after="0.5" :level="3">Chart</lv-heading>
     <lv-heading v-space-after="2" sub :level="6">Just a chart</lv-heading>
 
-    <lv-tabs :tabs="tabs" :active="activeTab" @change-tab="(v) => (activeTab = v)">
+    <lv-tabs v-space-after="1" :tabs="tabs" :active="activeTab" @change-tab="(v) => (activeTab = v)">
         <template #line>
             <lv-card v-space-after="1">
                 <lv-group>
@@ -22,6 +22,7 @@
             <lv-code v-space-after="1" lang="javascript" :code="codeChartScript" />
         </template>
     </lv-tabs>
+    <component-details component="LvChart"></component-details>
 </template>
 
 <script>

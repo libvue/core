@@ -11,12 +11,13 @@
                 <lv-input placeholder="Search docs" icon="search"/>
             </template>
             <template #extra>
-                <lv-button icon="github" color="light-default" />
+                <lv-button icon="github" color="ghost-default" />
             </template>
         </lv-header>
     </lv-card>
 
     <lv-code v-space-after="1" lang="html" :code="code" />
+    <component-details component="LvHeader"></component-details>
 </template>
 
 <script>

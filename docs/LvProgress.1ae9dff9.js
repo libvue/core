@@ -1,1 +1,0 @@
-import{_ as e,o as s,c as o}from"./index.6cba6d7e.js";const r={},t={class:"lv-progress"};function _(c,n,a,l,p,d){return s(),o("div",t," Hello World ")}const f=e(r,[["render",_]]);export{f as default};

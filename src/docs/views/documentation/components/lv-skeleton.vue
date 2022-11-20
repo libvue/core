@@ -16,6 +16,7 @@
         </lv-group>
     </lv-card>
     <lv-code v-space-after="1" lang="html" :code="codeShapes"/>
+    <component-details component="LvSkeleton"></component-details>
 </template>
 
 <script>

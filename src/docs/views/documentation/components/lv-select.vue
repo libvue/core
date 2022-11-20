@@ -2,7 +2,7 @@
     <lv-heading v-space-after="0.5" :level="3">Select</lv-heading>
     <lv-heading v-space-after="2" sub :level="6">Select a single or multiple items</lv-heading>
 
-    <lv-tabs :tabs="tabs" :active="activeTab" @change-tab="(v) => (activeTab = v)">
+    <lv-tabs v-space-after="1" :tabs="tabs" :active="activeTab" @change-tab="(v) => (activeTab = v)">
         <template #single>
             <lv-card v-space-after="1">
                 <lv-select :value="modelSingle">
@@ -169,6 +169,8 @@
             <lv-code v-space-after="1" :code="codeSizes" lang="html" />
         </template>
     </lv-tabs>
+
+    <component-details component="LvSelect"></component-details>
 </template>
 
 <script>

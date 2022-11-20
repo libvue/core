@@ -3,6 +3,7 @@
     <lv-heading v-space-after="2" sub :level="6">A nice little wrapper around your content</lv-heading>
     <lv-card v-space-after="1"> Hi, im a card </lv-card>
     <lv-code v-space-after="1" lang="html" :code="code" />
+    <component-details component="LvCard"></component-details>
 </template>
 
 <script>

@@ -56,6 +56,7 @@
         </lv-group>
     </lv-card>
     <lv-code v-space-after="1" lang="html" :code="codeFill" />
+    <component-details component="LvGroup"></component-details>
 </template>
 
 <script>

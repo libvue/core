@@ -1,22 +1,21 @@
 // For testing using the source file
-import libvue from '../lib/main';
-
-// /**
-//  * Testing Live Mode
-//  */
-// import '../../dist/style.css';
-// import libvue from '../../dist/libvue.es.js';
-
 import { createApp } from 'vue';
+
+import libvue from '../lib/main';
 import App from './App.vue';
 import router from './router';
 import './assets/sass/app.scss';
 
+import ComponentDetails from './components/ComponentDetails.vue';
+
 // Create app
 const app = createApp(App);
 
-//
+// opt-in to the new behavior now
 app.config.unwrapInjectedRef = true;
+
+// Register custom components
+app.component('ComponentDetails', ComponentDetails);
 
 // Use plugins
 app.use(router);

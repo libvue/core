@@ -15,6 +15,7 @@
         <lv-link to="lv-link"><lv-card>Any content</lv-card></lv-link>
     </lv-card>
     <lv-code v-space-after="1" lang="html" code='<lv-link to="lv-link"><lv-card>Any content</lv-card></lv-link>' />
+    <component-details component="LvLink"></component-details>
 </template>
 
 <script>

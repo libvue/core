@@ -19,6 +19,7 @@
         <lv-heading sub :level="6">Subheading</lv-heading>
     </lv-card>
     <lv-code v-space-after="1" lang="html" :code="codeSub" />
+    <component-details component="LvHeading"></component-details>
 </template>
 
 <script>

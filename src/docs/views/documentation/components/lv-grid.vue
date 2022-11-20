@@ -44,7 +44,9 @@
             </lv-grid-row>
         </lv-grid>
     </lv-card>
-    <lv-code :code="code" lang="html"/>
+    <lv-code v-space-after="1" :code="code" lang="html"/>
+
+    <component-details component="LvGrid"></component-details>
 </template>
 
 <script>

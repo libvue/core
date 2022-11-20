@@ -15,6 +15,7 @@
     </lv-card>
     <lv-code v-space-after="1" lang="html" :code="codeProgram" />
     <lv-code v-space-after="1" lang="javascript" :code="codeAddToast" />
+    <component-details component="LvToast"></component-details>
 </template>
 
 <script>

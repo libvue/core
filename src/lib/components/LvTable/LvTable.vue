@@ -209,7 +209,7 @@ export default {
         },
         noDataText: {
             type: String,
-            default: 'Geen data beschikbaar',
+            default: 'No data available',
         },
         groupRowsBy: {
             type: String,

@@ -49,7 +49,6 @@ import LvIcon from '../../../views/documentation/components/lv-icon.vue';
 import LvAvatar from '../../../views/documentation/components/lv-avatar.vue';
 import LvDialog from '../../../views/documentation/components/lv-dialog.vue';
 import LvDrawer from '../../../views/documentation/components/lv-drawer.vue';
-import LvTooltip from '../../../views/documentation/components/lv-tooltip.vue';
 import LvToast from '../../../views/documentation/components/lv-toast.vue';
 import LvPopover from '../../../views/documentation/components/lv-popover.vue';
 import LvPagination from '../../../views/documentation/components/lv-pagination.vue';
@@ -172,11 +171,6 @@ export default [
         path: '/docs/lv-pagination',
         name: 'lv-pagination',
         component: LvPagination,
-    },
-    {
-        path: '/docs/lv-tooltip',
-        name: 'lv-tooltip',
-        component: LvTooltip,
     },
     {
         path: '/docs/lv-accordion',

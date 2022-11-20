@@ -13,6 +13,7 @@
     </lv-card>
     <lv-code v-space-after="1" lang="html" :code="codeTemplate" />
     <lv-code v-space-after="1" lang="javascript" :code="codeScript" />
+    <component-details component="LvTabs"></component-details>
 </template>
 
 <script>

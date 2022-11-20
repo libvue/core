@@ -7,6 +7,7 @@
         <lv-slider v-model="model" loading :min="100" :max="200" :step="5"></lv-slider>
     </lv-card>
     <lv-code :code="code" lang="html" />
+    <component-details v-space-after="1" component="LvSlider"></component-details>
 </template>
 
 <script>

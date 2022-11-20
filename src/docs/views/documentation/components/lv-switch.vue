@@ -9,6 +9,7 @@
         </lv-group>
     </lv-card>
     <lv-code v-space-after="1" lang="html" :code="code" />
+    <component-details component="LvSwitch"></component-details>
 </template>
 
 <script>

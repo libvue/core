@@ -4,7 +4,8 @@
     <lv-card v-space-after="1">
         <lv-loading-dots/>
     </lv-card>
-    <lv-code lang="html" code="<lv-loading-dots/>"/>
+    <lv-code v-space-after="1" lang="html" code="<lv-loading-dots/>"/>
+    <component-details component="LvLoadingDots"></component-details>
 </template>
 
 <script>

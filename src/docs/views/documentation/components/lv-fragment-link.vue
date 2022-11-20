@@ -15,7 +15,8 @@
         </lv-fragment-link>
         <lv-paragraph>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam assumenda autem beatae dicta dignissimos fugiat, iusto minima quae quibusdam sequi, tempore totam. Aperiam eaque ipsum numquam quia ullam. Impedit, praesentium.</lv-paragraph>
     </lv-card>
-    <lv-code lang="html" :code="code"/>
+    <lv-code  v-space-after="1" lang="html" :code="code"/>
+    <component-details component="LvFragmentLink"></component-details>
 </template>
 
 <script>

@@ -7,7 +7,8 @@
         Press <lv-keyboard ctrl alt shift>DEL</lv-keyboard> to open the task manager.
     </lv-card>
 
-    <lv-code lang="html" :code="code" />
+    <lv-code v-space-after="1" lang="html" :code="code" />
+    <component-details component="LvKeyboard"></component-details>
 </template>
 
 <script>

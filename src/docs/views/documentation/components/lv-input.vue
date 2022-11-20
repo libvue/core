@@ -36,6 +36,7 @@
             <lv-code v-space-after="1" lang="html" :code="codeStates" />
         </template>
     </lv-tabs>
+    <component-details component="LvInput"></component-details>
 </template>
 
 <script>
