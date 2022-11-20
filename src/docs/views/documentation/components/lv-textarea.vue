@@ -4,7 +4,8 @@
     <lv-card v-space-after="1">
         <lv-textarea/>
     </lv-card>
-    <lv-code :code="code" lang="html"/>
+    <lv-code v-space-after="1" :code="code" lang="html"/>
+    <component-details component="LvTextarea"></component-details>
 </template>
 
 <script>

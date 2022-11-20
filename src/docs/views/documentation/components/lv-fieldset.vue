@@ -29,7 +29,8 @@
             </lv-grid-row>
         </lv-grid>
     </lv-card>
-    <lv-code lang="html" :code="code"/>
+    <lv-code v-space-after="1" lang="html" :code="code"/>
+    <component-details component="LvFieldset"></component-details>
 </template>
 
 <script>

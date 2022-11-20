@@ -34,6 +34,8 @@
     </lv-card>
     <lv-code v-space-after="1" lang="html" :code="templateOptions" />
     <lv-code v-space-after="1" lang="javascript" :code="scriptOptions" />
+
+    <component-details component="LvTable"></component-details>
 </template>
 
 <script>

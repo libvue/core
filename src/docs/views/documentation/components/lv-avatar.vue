@@ -9,7 +9,8 @@
             <lv-avatar image="https://picsum.photos/id/64/512/512" size="2rem" />
         </lv-group>
     </lv-card>
-    <lv-code :code="code" lang="html" />
+    <lv-code v-space-after="1" :code="code" lang="html" />
+    <component-details component="LvAvatar"></component-details>
 </template>
 
 <script>

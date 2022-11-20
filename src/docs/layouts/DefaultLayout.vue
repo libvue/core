@@ -56,7 +56,7 @@
             <lv-vertical-nav-group label="Concepts">
                 <lv-vertical-nav-item icon="palette" to="/docs/theming" label="Theming" />
                 <lv-vertical-nav-item icon="align-vertical-space-around" to="/docs/spacing" label="Spacing" />
-                <lv-vertical-nav-item icon="accessibility" to="/docs/aria" disabled>
+                <lv-vertical-nav-item icon="accessibility" disabled>
                     <lv-group gap=".25rem">
                         Accessibility <lv-badge text="Planned" size="tiny" color="solid-dimmed-primary" />
                     </lv-group>

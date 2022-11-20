@@ -16,7 +16,8 @@
             <lv-button label="Text" />
         </lv-group>
     </lv-card>
-    <lv-code lang="html" :code="codeVertical" />
+    <lv-code v-space-after="1" lang="html" :code="codeVertical" />
+    <component-details component="LvSeparator"></component-details>
 </template>
 
 <script>

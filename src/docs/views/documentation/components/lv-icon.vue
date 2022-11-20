@@ -13,6 +13,8 @@
         You can check all possible icons at <lv-link to="http://www.lucide.dev" target="_blank">lucide.dev</lv-link>!
     </lv-paragraph>
 
+    <component-details component="LvIcon"></component-details>
+
     <lv-heading v-space-after="1" :level="6">Accessibility</lv-heading>
     <lv-paragraph v-space-after="1">
         Applies the

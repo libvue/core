@@ -11,7 +11,8 @@
             </lv-toggle>
         </lv-group>
     </lv-card>
-    <lv-code :code="code" lang="html"></lv-code>
+    <lv-code v-space-after="1" :code="code" lang="html"></lv-code>
+    <component-details component="LvToggle"></component-details>
 </template>
 
 <script>

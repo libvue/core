@@ -1,8 +1,8 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">Notice</lv-heading>
     <lv-heading v-space-after="2" sub :level="6">Just a notice</lv-heading>
-    <lv-tabs :tabs="tabs" :active="activeTab" @change-tab="(v) => (activeTab = v)">
-        <template #colors="{ tab }">
+    <lv-tabs v-space-after="1" :tabs="tabs" :active="activeTab" @change-tab="(v) => (activeTab = v)">
+        <template #colors>
             <lv-heading v-space-after="1" :level="6">Solid</lv-heading>
             <lv-card v-space-after="1">
                 <lv-group>
@@ -59,6 +59,7 @@
             <lv-code v-space-after="1" lang="html" :code="codeIcons" />
         </template>
     </lv-tabs>
+    <component-details component="LvNotice"></component-details>
 </template>
 
 <script>

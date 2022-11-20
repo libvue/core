@@ -5,6 +5,7 @@
         <lv-pagination :total-pages="100" v-model="model"/>
     </lv-card>
     <lv-code v-space-after="1" lang="html" :code="code" />
+    <component-details component="LvPagination"></component-details>
 </template>
 
 <script>

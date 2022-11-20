@@ -6,7 +6,8 @@
             And this is its content
         </lv-window>
     </lv-card>
-    <lv-code :code="code" lang="html"></lv-code>
+    <lv-code v-space-after="1" :code="code" lang="html"></lv-code>
+    <component-details component="LvWindow"></component-details>
 </template>
 
 <script>

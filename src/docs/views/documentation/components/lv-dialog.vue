@@ -21,7 +21,8 @@
             </template>
         </lv-dialog>
     </lv-card>
-    <lv-code :code="code" lang="html"/>
+    <lv-code v-space-after="1" :code="code" lang="html"/>
+    <component-details component="LvDialog"></component-details>
 </template>
 
 <script>

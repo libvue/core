@@ -13,6 +13,7 @@
         <lv-code code="console.log('Sup!')" lang="javascript" title="app.js" />
     </lv-card>
     <lv-code v-space-after="1" :code="codeWithTitle" lang="html" />
+    <component-details component="LvCode"></component-details>
 </template>
 
 <script>

@@ -5,6 +5,7 @@
         <lv-theme-toggle v-model="theme"/>
     </lv-card>
     <lv-code v-space-after="1" lang="html" :code="code" />
+    <component-details component="LvThemeToggle"></component-details>
 </template>
 
 <script>

@@ -2,7 +2,7 @@
     <lv-heading v-space-after="0.5" :level="3">File Input</lv-heading>
     <lv-heading v-space-after="2" sub :level="6">A simple file input component</lv-heading>
 
-    <lv-tabs :tabs="tabs" :active="activeTab" @change-tab="(v) => (activeTab = v)">
+    <lv-tabs v-space-after="1" :tabs="tabs" :active="activeTab" @change-tab="(v) => (activeTab = v)">
         <template #single>
             <lv-card v-space-after="1">
                 <lv-group direction="column">
@@ -20,7 +20,7 @@
             <lv-code lang="html" :code="codeMultiple"/>
         </template>
     </lv-tabs>
-
+    <component-details component="LvFileInput"></component-details>
 </template>
 
 <script>

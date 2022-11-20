@@ -18,6 +18,7 @@
         </lv-badge>
     </lv-card>
     <lv-code v-space-after="1" lang="html" :code="codeSlotted" />
+    <component-details component="LvBadge"></component-details>
 </template>
 
 <script>

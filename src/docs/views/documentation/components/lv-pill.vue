@@ -2,8 +2,8 @@
     <lv-heading v-space-after="0.5" :level="3">Pill</lv-heading>
     <lv-heading v-space-after="2" sub :level="6">A rectangle that visualizes a tag (a.k.a chip)</lv-heading>
 
-    <lv-tabs :tabs="tabs" :active="activeTab" @change-tab="(v) => (activeTab = v)">
-        <template #icons="{ tab }">
+    <lv-tabs v-space-after="1" :tabs="tabs" :active="activeTab" @change-tab="(v) => (activeTab = v)">
+        <template #icons>
             <lv-card v-space-after="1">
                 <lv-group>
                     <lv-pill text="Github Icon" color="solid-dimmed-default" icon="github" />
@@ -11,7 +11,7 @@
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeIcons" />
         </template>
-        <template #states="{ tab }">
+        <template #states>
             <lv-card v-space-after="1">
                 <lv-group>
                     <lv-pill prefix="State:" text="Closable" color="solid-danger" closable />
@@ -20,7 +20,7 @@
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeStates" />
         </template>
-        <template #colors="{ tab }">
+        <template #colors>
             <lv-heading v-space-after="1" :level="6">Solid</lv-heading>
             <lv-card v-space-after="1">
                 <lv-group>
@@ -63,6 +63,7 @@
             <lv-code v-space-after="1" lang="html" :code="codeColorOutline" />
         </template>
     </lv-tabs>
+    <component-details component="LvTabs"></component-details>
 </template>
 
 <script>

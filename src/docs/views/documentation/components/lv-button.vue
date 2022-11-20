@@ -98,6 +98,9 @@
             <lv-code v-space-after="1" lang="html" :code="codeSizes" />
         </template>
     </lv-tabs>
+
+    <component-details v-space-after="1" component="LvButton"></component-details>
+
 </template>
 
 <script>
@@ -161,13 +164,13 @@ const codeAlign = `
 export default {
     data() {
         return {
-            activeTab: 'colors',
+            activeTab: 'sizes',
             tabs: [
+                { id: 'sizes', title: 'Sizes', icon: 'scaling' },
                 { id: 'colors', title: 'Colors', icon: 'palette' },
                 { id: 'states', title: 'States', icon: 'loader-2' },
                 { id: 'icons', title: 'Icons', icon: 'box-select' },
                 { id: 'align', title: 'Text Alignment', icon: 'align-center' },
-                { id: 'sizes', title: 'Sizes', icon: 'scaling' },
             ],
             codeColorSolid,
             codeColorSolidDimmed,

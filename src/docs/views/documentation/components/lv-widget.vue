@@ -2,8 +2,8 @@
     <lv-heading v-space-after="0.5" :level="3">Widget</lv-heading>
     <lv-heading v-space-after="2" sub :level="6">Stats for nerds</lv-heading>
 
-    <lv-tabs :tabs="tabs" :active="activeTab" @change-tab="(v) => (activeTab = v)">
-        <template #number="{ tab }">
+    <lv-tabs v-space-after="1" :tabs="tabs" :active="activeTab" @change-tab="(v) => (activeTab = v)">
+        <template #number>
             <lv-grid v-space-after="1">
                 <lv-grid-row gap="1rem">
                     <lv-grid-column :level="6">
@@ -46,6 +46,8 @@
             <lv-code v-space-after="1" lang="javascript" :code="codeChartWidgetScript" />
         </template>
     </lv-tabs>
+
+    <component-details component="LvWidget"></component-details>
 </template>
 
 <script>
