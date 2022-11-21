@@ -1,27 +1,10 @@
 <template>
-    <div
-        ref="popover"
-        class="lv-popover"
-        role="dialog"
-        :class="classObject"
-        @mouseenter="onHoverTrigger"
-        @mouseleave="onBlurTrigger"
-    >
-        <div ref="trigger" class="lv-popover__trigger" @click="onClickTrigger">
-            <slot name="trigger"></slot>
+    <div ref="popover" class="lv-popover" role="dialog" :class="classObject">
+        <div ref="reference" class="lv-popover__reference">
+            <slot name="reference"></slot>
         </div>
         <transition name="fade">
-            <div v-show="showPopover" ref="tooltip" class="lv-popover__tooltip">
-                <svg
-                    v-if="showArrow"
-                    class="lv-popover__arrow"
-                    width="15"
-                    height="8"
-                    viewBox="0 0 30 10"
-                    preserveAspectRatio="none"
-                >
-                    <polygon points="0,0 30,0 15,10"></polygon>
-                </svg>
+            <div ref="tooltip" style="display: none" class="lv-popover__tooltip">
                 <div class="lv-popover__content">
                     <slot name="content"></slot>
                 </div>
@@ -31,30 +14,56 @@
 </template>
 
 <script>
-import { onClickOutside } from '@vueuse/core';
-import { createPopper } from '@popperjs/core';
+import tippy, { followCursor } from 'tippy.js';
+import 'tippy.js/dist/svg-arrow.css';
+import 'tippy.js/animations/shift-toward-subtle.css';
+
+const svgArrow = `
+<svg width="16" height="6">
+    <path class="lv-popover__arrow-border" d="M0 6s1.796-.013 4.67-3.615C5.851.9 6.93.006 8 0c1.07-.006 2.148.887 3.343 2.385C14.233 6.005 16 6 16 6H0z"/>
+    <path class="lv-popover__arrow-fill" d="m0 7s2 0 5-4c1-1 2-2 3-2 1 0 2 1 3 2 3 4 5 4 5 4h-16z"/>
+</svg>
+`.trim();
 
 export default {
     props: {
         trigger: {
             type: String,
-            default: 'click',
-            validator: (val) => ['click', 'hover'].includes(val),
+            default: 'mouseenter',
+        },
+        triggerTarget: {
+            type: Object,
+            default: null,
         },
         placement: {
             type: String,
-            default: 'bottom',
-            validator: (val) => ['bottom', 'left', 'right', 'top'].includes(val),
+            default: 'auto',
+            validator: (val) => ['bottom', 'left', 'right', 'top', 'auto'].includes(val),
         },
         showArrow: {
             type: Boolean,
             default: true,
         },
-    },
-    data() {
-        return {
-            showPopover: false,
-        };
+        visible: {
+            type: Boolean,
+            default: true,
+        },
+        padding: {
+            type: String,
+            default: '.5rem'
+        },
+        show: {
+            type: Boolean,
+            default: false,
+        },
+        interactive: {
+            type: Boolean,
+            default: false,
+        },
+        followCursor: {
+            type: Boolean,
+            default: false,
+        }
     },
     computed: {
         classObject() {
@@ -63,50 +72,59 @@ export default {
             };
         },
     },
+    data() {
+        return {
+            instance: null,
+            contentChangeObserver: null,
+        }
+    },
     watch: {
-        showPopover: {
+        show: {
             handler(val) {
-                if (val) {
-                    this.createTooltip();
+                if(this.trigger === 'manual' && this.instance) {
+                    if(val) {
+                        this.instance.show();
+                    } else {
+                        this.instance.hide();
+                    }
                 }
             },
-            flush: 'post',
-        },
+            immediate: true,
+        }
     },
     mounted() {
-        onClickOutside(this.$refs.popover, () => {
-            this.showPopover = false;
+        this.createTooltip();
+
+        // Create the observer (and what to do on changes...)
+        this.contentChangeObserver = new MutationObserver(() => {
+            this.instance.setContent(this.$refs.tooltip.innerHTML)
         });
+
+        // Set up the observer
+        this.contentChangeObserver.observe(
+            this.$refs.tooltip,
+            { attributes: true, childList: true, characterData: true, subtree: true }
+        );
+    },
+    beforeUnmount() {
+        this.contentChangeObserver.disconnect();
     },
     methods: {
         createTooltip() {
-            createPopper(this.$refs.trigger, this.$refs.tooltip, {
+            this.instance = tippy(this.$refs.reference, {
+                triggerTarget: this.triggerTarget,
+                trigger: this.trigger,
+                interactive: this.interactive,
+                theme: 'libvue',
+                arrow: this.showArrow ? svgArrow : false,
+                allowHTML: true,
+                plugins: [followCursor],
+                content: this.$refs.tooltip.innerHTML,
                 placement: this.placement,
-                strategy: 'absolute',
-                modifiers: [
-                    {
-                        name: 'offset',
-                        options: {
-                            offset: [0, this.showArrow ? 10 : 4],
-                        },
-                    },
-                ],
+                followCursor: this.followCursor,
+                animation: 'shift-toward-subtle',
+                duration: 100,
             });
-        },
-        onClickTrigger() {
-            if (this.trigger === 'click') {
-                this.showPopover = true;
-            }
-        },
-        onHoverTrigger() {
-            if (this.trigger === 'hover') {
-                this.showPopover = true;
-            }
-        },
-        onBlurTrigger() {
-            if (this.trigger === 'hover') {
-                this.showPopover = false;
-            }
         },
     },
 };
@@ -114,27 +132,17 @@ export default {
 
 <style lang="scss">
 @import '../../scss/transitions/fade';
+@import 'tippy.js/dist/tippy.css';
 
 .lv-popover {
     $self: &;
-    &__trigger {
+    display: flex;
+    height: 100%;
+
+    &__reference {
         display: inline;
-    }
-    &__arrow {
-        fill: var(--background-color);
-        stroke: var(--border-color);
-        stroke-width: 1;
-        stroke-dasharray: 0 30 5;
-        position: absolute;
-        z-index: 2;
-    }
-    &__content {
-        position: relative;
-        z-index: 1;
-        border: 1px solid var(--border-color);
-        border-radius: var(--border-radius);
-        background-color: var(--background-color);
-        padding: var(--padding);
+        width: 100%;
+        height: 100%;
     }
     &__tooltip {
         position: relative;
@@ -143,37 +151,21 @@ export default {
         box-shadow: var(--shadow-popover);
         padding-bottom: 0;
     }
-
-    &--placement-bottom {
-        #{$self}__arrow {
-            top: 1px;
-            left: 50%;
-            transform: translate(-50%, -100%) rotate(180deg);
-        }
+    &__arrow-border {
+        fill: var(--border-color);
     }
-
-    &--placement-top {
-        #{$self}__arrow {
-            bottom: 1px;
-            left: 50%;
-            transform: translate(-50%, 100%) rotate(0deg);
-        }
+    &__arrow-fill {
+        fill: var(--background-color);
     }
+}
+</style>
 
-    &--placement-left {
-        #{$self}__arrow {
-            top: 50%;
-            right: 3px;
-            transform: translate(100%, -50%) rotate(-90deg);
-        }
-    }
-
-    &--placement-right {
-        #{$self}__arrow {
-            top: 50%;
-            left: 5px;
-            transform: translate(-100%, -50%) rotate(90deg);
-        }
-    }
+<style lang="scss">
+.tippy-box[data-theme~='libvue'] {
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--background-color) !important;
+    padding: v-bind(padding);
+    color: var(--text-color);
 }
 </style>
