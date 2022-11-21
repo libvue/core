@@ -5,7 +5,7 @@
 
 #### An opensource collection of vue.js 3 components.
 
-[docs](https://harmendv.github.io/libvue/) - [sandbox](https://harmendv.github.io/libvue/#/playground)
+[documentation](https://harmendv.github.io/libvue/) - [playground](https://harmendv.github.io/libvue/#/playground) - [npm](https://www.npmjs.com/package/@libvue/core)
 
 ### Install
 
@@ -21,3 +21,5 @@ import libvue from '@libvue/core';
 
 app.use(libvue);
 ```
+
+### Contribute
