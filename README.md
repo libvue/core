@@ -21,5 +21,3 @@ import libvue from '@libvue/core';
 
 app.use(libvue);
 ```
-
-### Contribute
