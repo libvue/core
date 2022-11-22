@@ -1,7 +1,7 @@
 <template>
     <template v-if="hasChildren">
-        <lv-popover trigger="hover" placement="bottom" :show-arrow="false">
-            <template #trigger>
+        <lv-popover trigger="mouseenter" placement="bottom" interactive>
+            <template #reference>
                 <a class="lv-horizontal-nav-item" :href="href" :class="classObject" @click="onClick">
                     <lv-icon v-if="icon" :name="icon" class="lv-horizontal-nav-item__icon" />
                     <div class="lv-horizontal-nav-item__label">{{ label }}</div>
@@ -71,14 +71,13 @@ export default {
     flex-shrink: 0;
     align-items: center;
     cursor: pointer;
-    border-radius: 5px;
     color: var(--text-color);
     font-weight: 400;
     font-size: var(--font-size);
     text-decoration: none;
 
     &:hover:not(#{$self}--active) {
-        color: var(--text-color);
+        color: var(--color-primary);
     }
 
     &--active {

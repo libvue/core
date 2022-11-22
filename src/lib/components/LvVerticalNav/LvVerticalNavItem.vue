@@ -63,7 +63,7 @@ export default {
     text-decoration: none;
 
     &:hover:not(#{$self}--active) {
-        color: var(--text-color);
+        color: var(--color-primary);
     }
 
     &:last-child {
