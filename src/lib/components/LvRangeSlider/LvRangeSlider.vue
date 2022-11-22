@@ -162,10 +162,10 @@ export default {
         this.cacheDimensions();
     },
     created() {
-        this.onPrimaryMouseMoveThrottled = useThrottleFn(this.onPrimaryMouseMove, 23, false);
-        this.onSecondaryMouseMoveThrottled = useThrottleFn(this.onSecondaryMouseMove, 23, false);
-        this.onPrimaryTouchMoveThrottled = useThrottleFn(this.onPrimaryTouchMove, 23, false);
-        this.onSecondaryTouchMoveThrottled = useThrottleFn(this.onSecondaryTouchMove, 23, false);
+        this.onPrimaryMouseMoveThrottled = useThrottleFn(this.onPrimaryMouseMove, 24);
+        this.onSecondaryMouseMoveThrottled = useThrottleFn(this.onSecondaryMouseMove, 24);
+        this.onPrimaryTouchMoveThrottled = useThrottleFn(this.onPrimaryTouchMove, 24);
+        this.onSecondaryTouchMoveThrottled = useThrottleFn(this.onSecondaryTouchMove, 24);
     },
     methods: {
         onPrimaryMouseDown(event) {
@@ -263,6 +263,7 @@ export default {
     align-items: center;
     box-sizing: border-box;
     height: 1rem;
+    width: 100%;
 
     &--disabled {
         #{$self}__thumb {
@@ -301,16 +302,6 @@ export default {
         }
         #{$self}__indicator {
             background-color: var(--border-color);
-        }
-    }
-
-    &--invalid {
-        #{$self}__range-value {
-            color: var(--color-danger);
-        }
-
-        #{$self}__indicator {
-            background-color: var(--color-danger);
         }
     }
 

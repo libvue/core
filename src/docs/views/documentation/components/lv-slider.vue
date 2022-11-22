@@ -4,8 +4,6 @@
     <lv-card v-space-after="1">
         <lv-group direction="column">
             <lv-slider v-model="model" :min="100" :max="200" :step="5"></lv-slider>
-            <lv-slider v-model="model" disabled :min="100" :max="200" :step="5"></lv-slider>
-            <lv-slider v-model="model" loading :min="100" :max="200" :step="5"></lv-slider>
         </lv-group>
     </lv-card>
     <lv-code :code="code" lang="html" />
@@ -15,8 +13,6 @@
 <script>
 const code = `
 <lv-slider v-model="model" :min="100" :max="200" :step="5"></lv-slider>
-<lv-slider v-model="model" disabled :min="100" :max="200" :step="5"></lv-slider>
-<lv-slider v-model="model" loading :min="100" :max="200" :step="5"></lv-slider>
 `.trim();
 export default {
     data() {
