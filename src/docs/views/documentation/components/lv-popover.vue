@@ -16,7 +16,7 @@
                 </template>
             </lv-popover>
 
-            <lv-popover placement="bottom" trigger="click">
+            <lv-popover placement="bottom" trigger="click" interactive>
                 <template #reference>
                     <lv-button label="Click me"/>
                 </template>

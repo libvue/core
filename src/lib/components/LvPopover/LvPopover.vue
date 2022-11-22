@@ -5,7 +5,7 @@
         </div>
         <transition name="fade">
             <div ref="tooltip" style="display: none" class="lv-popover__tooltip">
-                <div class="lv-popover__content">
+                <div class="lv-popover__content" :style="`padding: ${padding}`">
                     <slot name="content"></slot>
                 </div>
             </div>
@@ -50,7 +50,7 @@ export default {
         },
         padding: {
             type: String,
-            default: '.5rem'
+            default: '1rem'
         },
         show: {
             type: Boolean,
@@ -165,7 +165,10 @@ export default {
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
     background-color: var(--background-color) !important;
-    padding: v-bind(padding);
     color: var(--text-color);
+    padding: 0;
+    .tippy-content {
+        padding: 0;
+    }
 }
 </style>
