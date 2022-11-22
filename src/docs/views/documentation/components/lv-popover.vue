@@ -3,8 +3,8 @@
     <lv-heading v-space-after="2" sub :level="6">A popup shown when a button is pressed</lv-heading>
     <lv-card v-space-after="1">
         <lv-group>
-            <lv-popover placement="right" trigger="hover">
-                <template #trigger>
+            <lv-popover placement="right" trigger="mouseenter">
+                <template #reference>
                     <lv-button label="Hover me"/>
                 </template>
                 <template #content>
@@ -15,8 +15,9 @@
                     </lv-group>
                 </template>
             </lv-popover>
-            <lv-popover placement="bottom">
-                <template #trigger>
+
+            <lv-popover placement="bottom" trigger="click" interactive>
+                <template #reference>
                     <lv-button label="Click me"/>
                 </template>
                 <template #content>
@@ -36,8 +37,8 @@
 <script>
 const code = `
 <lv-group>
-    <lv-popover placement="right" trigger="hover">
-        <template #trigger>
+    <lv-popover placement="right" trigger="mouseenter">
+        <template #reference>
             <lv-button label="Hover me"/>
         </template>
         <template #content>
@@ -48,8 +49,9 @@ const code = `
             </lv-group>
         </template>
     </lv-popover>
-    <lv-popover placement="bottom">
-        <template #trigger>
+
+    <lv-popover placement="bottom" trigger="click">
+        <template #reference>
             <lv-button label="Click me"/>
         </template>
         <template #content>

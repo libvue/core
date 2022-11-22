@@ -1,35 +1,46 @@
 <template>
     <div class="lv-range-slider" :class="classNames">
         <div class="lv-range-slider__track">
-            <div ref="track" class="lv-range-slider__track-limits">
-                <div
-                    class="lv-range-slider__indicator"
-                    :style="{ left: indicatorLeft + '%', right: 100 - indicatorRight + '%' }"
-                />
+            <div ref="track" class="lv-range-slider__track-boundaries">
+                <div class="lv-range-slider__indicator" :style="styleObjectIndicator" />
                 <div
                     ref="primary"
                     class="lv-range-slider__thumb lv-range-slider__thumb--primary"
-                    :style="{ left: primaryPosition + '%' }"
-                    @mousedown.prevent="onPrimaryMouseDown"
+                    :style="styleObjectThumbPrimary"
+                    @mousedown="onPrimaryMouseDown"
                     @touchstart="onPrimaryTouchStart"
-                />
+                >
+                    <lv-popover v-if="showPopover" :show="draggingPrimary" placement="top" trigger="manual" padding=".25rem">
+                        <template #reference>
+                            <div class="lv-range-slider__thumb-hit-area"></div>
+                        </template>
+                        <template #content>{{ primaryValue }}</template>
+                    </lv-popover>
+                </div>
                 <div
                     ref="secondary"
                     class="lv-range-slider__thumb lv-range-slider__thumb--secondary"
-                    :style="{ left: secondaryPosition + '%' }"
-                    @mousedown.prevent="onSecondaryMouseDown"
+                    :style="styleObjectThumbSecondary"
+                    @mousedown="onSecondaryMouseDown"
                     @touchstart="onSecondaryTouchStart"
-                />
+                >
+                    <lv-popover v-if="showPopover" :show="draggingSecondary" placement="top" trigger="manual" padding=".25rem">
+                        <template #reference>
+                            <div class="lv-range-slider__thumb-hit-area"></div>
+                        </template>
+                        <template #content>{{ secondaryValue }}</template>
+                    </lv-popover>
+                </div>
             </div>
         </div>
-        <div class="lv-range-slider__amounts">
-            <div class="lv-range-slider__amount lv-range-slider__amount--primary">
+        <div v-if="showRange" class="lv-range-slider__range">
+            <div class="lv-range-slider__range-value lv-range-slider__range-value--primary">
                 <lv-icon v-if="loading" class="lv-range-slider__loader" :size="12" name="loader-2" />
                 <template v-else>
                     {{ primaryValue.toFixed(decimals) }}
                 </template>
             </div>
-            <div class="lv-range-slider__amount lv-range-slider__amount--secondary">
+            <div class="lv-range-slider__range-value lv-range-slider__range-value--secondary">
                 <lv-icon v-if="loading" class="lv-range-slider__loader" :size="12" name="loader-2" />
                 <template v-else>
                     {{ secondaryValue.toFixed(decimals) }}
@@ -82,6 +93,14 @@ export default {
             type: Boolean,
             default: false,
         },
+        showRange: {
+            type: Boolean,
+            default: false,
+        },
+        showPopover: {
+            type: Boolean,
+            default: true,
+        },
     },
     emits: ['update:modelValue'],
     data() {
@@ -90,6 +109,8 @@ export default {
             trackWidth: 0,
             primaryPosition: 0,
             secondaryPosition: 0,
+            draggingPrimary: false,
+            draggingSecondary: false,
         };
     },
     computed: {
@@ -117,6 +138,15 @@ export default {
         stepPercentage() {
             return (100 / (this.max - this.min)) * this.step;
         },
+        styleObjectIndicator() {
+            return { left: `${this.indicatorLeft}%`, right: `${100 - this.indicatorRight}%` };
+        },
+        styleObjectThumbPrimary() {
+            return { left: `${this.primaryPosition}%` };
+        },
+        styleObjectThumbSecondary() {
+            return { left: `${this.secondaryPosition}%` };
+        },
     },
     watch: {
         modelValue: {
@@ -132,13 +162,15 @@ export default {
         this.cacheDimensions();
     },
     created() {
-        this.onPrimaryMouseMoveThrottled = useThrottleFn(this.onPrimaryMouseMove, 25, false);
-        this.onSecondaryMouseMoveThrottled = useThrottleFn(this.onSecondaryMouseMove, 25, false);
-        this.onPrimaryTouchMoveThrottled = useThrottleFn(this.onPrimaryTouchMove, 25, false);
-        this.onSecondaryTouchMoveThrottled = useThrottleFn(this.onSecondaryTouchMove, 25, false);
+        this.onPrimaryMouseMoveThrottled = useThrottleFn(this.onPrimaryMouseMove, 24);
+        this.onSecondaryMouseMoveThrottled = useThrottleFn(this.onSecondaryMouseMove, 24);
+        this.onPrimaryTouchMoveThrottled = useThrottleFn(this.onPrimaryTouchMove, 24);
+        this.onSecondaryTouchMoveThrottled = useThrottleFn(this.onSecondaryTouchMove, 24);
     },
     methods: {
-        onPrimaryMouseDown() {
+        onPrimaryMouseDown(event) {
+            this.draggingPrimary = true;
+            event.preventDefault();
             if (this.disabled || this.loading) return;
             this.cacheDimensions();
             document.addEventListener('mousemove', this.onPrimaryMouseMoveThrottled, false);
@@ -147,7 +179,9 @@ export default {
         onPrimaryMouseMove(event) {
             this.primaryPosition = this.getRelativePosition(event.pageX);
         },
-        onSecondaryMouseDown() {
+        onSecondaryMouseDown(event) {
+            this.draggingSecondary = true;
+            event.preventDefault();
             if (this.disabled || this.loading) return;
             this.cacheDimensions();
             document.addEventListener('mousemove', this.onSecondaryMouseMoveThrottled, false);
@@ -157,14 +191,13 @@ export default {
             this.secondaryPosition = this.getRelativePosition(event.pageX);
         },
         onMouseUp() {
+            this.draggingPrimary = false;
+            this.draggingSecondary = false;
             document.removeEventListener('mousemove', this.onPrimaryMouseMoveThrottled, false);
             document.removeEventListener('mousemove', this.onSecondaryMouseMoveThrottled, false);
             document.removeEventListener('mouseup', this.onMouseUp, false);
             this.emitInputEvent();
         },
-        /**
-         * Touch Events handlers
-         */
         onPrimaryTouchStart() {
             if (this.disabled) return;
             this.cacheDimensions();
@@ -223,11 +256,14 @@ export default {
 .lv-range-slider {
     $self: &;
 
+    display: flex;
     position: relative;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    padding-top: 9px;
-    height: 40px;
+    height: 1rem;
+    width: 100%;
 
     &--disabled {
         #{$self}__thumb {
@@ -238,7 +274,7 @@ export default {
             }
         }
 
-        #{$self}__amount {
+        #{$self}__range-value {
             color: var(--text-color-dimmed);
         }
         #{$self}__track {
@@ -258,7 +294,7 @@ export default {
             }
         }
 
-        #{$self}__amount {
+        #{$self}__range-value {
             color: var(--text-color-dimmed);
         }
         #{$self}__track {
@@ -269,50 +305,46 @@ export default {
         }
     }
 
-    &--invalid {
-        #{$self}__amount {
-            color: var(--color-danger);
-        }
-
-        #{$self}__indicator {
-            background-color: var(--color-danger);
-        }
-    }
-
     &__thumb {
-        display: flex;
         position: absolute;
-        top: -15px;
-        left: -10px;
-        flex-direction: row;
+        top: 50%;
+        left: 0;
         justify-content: center;
-        transform: translateX(-50%);
-        cursor: pointer;
-        padding: 10px;
+        transform: translate(-50%, 0);
+        cursor: grab;
+        margin-top: calc(-0.5rem + 2px);
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border-color);
+        border-radius: 100%;
+        background-color: var(--background-color);
+        width: 1rem;
+        height: 1rem;
 
-        &::after {
-            transition: background-color 0.2s;
-            margin-top: -1px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
-            border-radius: 100%;
-            background-color: var(--background-color);
-            width: 14px;
-            height: 14px;
-            content: '';
+        &:active {
+            cursor: grabbing;
         }
     }
 
-    &__amounts {
-        display: flex;
-        margin-top: 8px;
+    &__thumb-hit-area {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 300%;
+        height: 300%;
     }
 
-    &__amount {
+    &__range {
+        display: flex;
+        margin-top: 0.5rem;
+        width: 100%;
+    }
+
+    &__range-value {
         position: relative;
         color: var(--text-color);
         font-weight: bold;
-        font-size: 12px;
+        font-size: var(--font-size-small);
 
         &--secondary {
             margin-left: auto;
@@ -323,21 +355,26 @@ export default {
         position: absolute;
         top: 0;
         bottom: 0;
+        flex-grow: 0;
+        flex-shrink: 0;
         transition: background-color 0.2s;
         background-color: var(--color-primary);
-        height: 4px;
+        height: 0.25rem;
     }
 
     &__track {
         position: relative;
+        flex-grow: 0;
+        flex-shrink: 0;
         transition: background-color 0.2s;
-        border-radius: 4px;
-        background-color: var(--border-color);
-        padding: 0 7px;
-        height: 4px;
+        border-radius: var(--border-radius);
+        background-color: var(--border-color-light);
+        padding: 0 0.5rem;
+        width: 100%;
+        height: 0.25rem;
     }
 
-    &__track-limits {
+    &__track-boundaries {
         position: relative;
     }
 

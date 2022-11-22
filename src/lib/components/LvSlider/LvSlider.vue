@@ -1,24 +1,31 @@
 <template>
     <div class="lv-slider" :class="classNames">
         <div class="lv-slider__track">
-            <div ref="track" class="lv-slider__track-limits">
-                <div class="lv-slider__indicator" :style="{ left: 0, right: 100 - indicatorRight + '%' }" />
+            <div ref="track" class="lv-slider__track-boundaries">
+                <div class="lv-slider__indicator" :style="styleObjectIndicator" />
                 <div
                     class="lv-slider__thumb lv-slider__thumb"
-                    :style="{ left: thumbPosition + '%' }"
+                    :style="styleObjectThumb"
                     @mousedown.prevent="onThumbMouseDown"
                     @touchstart="onThumbTouchStart"
-                />
+                >
+                    <lv-popover v-if="showPopover" :show="dragging" placement="top" trigger="manual" padding=".25rem">
+                        <template #reference>
+                            <div class="lv-range-slider__thumb-hit-area"></div>
+                        </template>
+                        <template #content>{{ parsedValue }}</template>
+                    </lv-popover>
+                </div>
             </div>
         </div>
-        <div class="lv-slider__amounts">
-            <div class="lv-slider__amount lv-slider__amount--primary">
+        <div v-if="showRange" class="lv-slider__range">
+            <div class="lv-slider__range-value lv-slider__range-value--primary">
                 <lv-icon v-if="loading" class="lv-slider__loader" :size="12" name="loader-2" />
                 <template v-else>
                     {{ min.toFixed(decimals) }}
                 </template>
             </div>
-            <div class="lv-slider__amount lv-slider__amount--secondary">
+            <div class="lv-slider__range-value lv-slider__range-value--secondary">
                 <lv-icon v-if="loading" class="lv-slider__loader" :size="12" name="loader-2" />
                 <template v-else>
                     {{ max.toFixed(decimals) }}
@@ -59,10 +66,6 @@ export default {
                 return value > 0;
             },
         },
-        invalid: {
-            type: Boolean,
-            default: false,
-        },
         disabled: {
             type: Boolean,
             default: false,
@@ -71,10 +74,19 @@ export default {
             type: Boolean,
             default: false,
         },
+        showRange: {
+            type: Boolean,
+            default: false,
+        },
+        showPopover: {
+            type: Boolean,
+            default: true,
+        },
     },
     emits: ['update:modelValue'],
     data() {
         return {
+            dragging: false,
             trackX: 0,
             trackWidth: 0,
             thumbPosition: 0,
@@ -89,18 +101,20 @@ export default {
             };
         },
         parsedValue() {
-            // Calculate the secondary value based on the position of the slider
             const value = ((this.max - this.min) / 100) * this.thumbPosition + this.min;
-            // Return the valuem, rounded to set number of decimals
             return parseFloat(value.toFixed(this.decimals));
         },
         indicatorRight() {
-            // Get the indicator left position from the thumb that is currently on the right side
             return this.thumbPosition;
         },
         stepPercentage() {
-            // Convert the step value to a percentage based value
             return (100 / (this.max - this.min)) * this.step;
+        },
+        styleObjectIndicator() {
+            return { left: 0, right: `${100 - this.indicatorRight}%` };
+        },
+        styleObjectThumb() {
+            return { left: `${this.thumbPosition}%` };
         },
     },
     watch: {
@@ -113,98 +127,61 @@ export default {
         },
     },
     mounted() {
-        // Cache dimensions and positions
         this.cacheDimensions();
     },
     created() {
-        // Throttle mousemove events
         this.onThumbMouseMoveThrottled = useThrottleFn(this.onThumbMouseMove, 25, false);
-        // Throttle touchmove events
         this.onThumbTouchMoveThrottled = useThrottleFn(this.onThumbTouchMove, 25, false);
     },
     methods: {
-        /**
-         * Mouse Events handlers
-         */
         onThumbMouseDown() {
             if (this.disabled || this.loading) return;
-
-            // Cache dimensions and positions values needed for the calculation of the thumb positions
+            this.dragging = true;
             this.cacheDimensions();
-            // Attach secondary mousemove and general mouseup listener
             document.addEventListener('mousemove', this.onThumbMouseMoveThrottled, false);
             document.addEventListener('mouseup', this.onMouseUp, false);
         },
         onThumbMouseMove(event) {
-            // Calculate position of secondary thumb based on the mouse X coordinate
             this.thumbPosition = this.getRelativePosition(event.pageX);
         },
         onMouseUp() {
-            // Remove all event listeners
+            this.dragging = false;
             document.removeEventListener('mousemove', this.onThumbMouseMoveThrottled, false);
             document.removeEventListener('mouseup', this.onMouseUp, false);
-            // Emit input event
             this.emitInputEvent();
         },
-        /**
-         * Touch Events handlers
-         */
         onThumbTouchStart() {
             if (this.disabled) return;
-            // Cache dimensions and positions values needed for the calculation of the thumb positions
             this.cacheDimensions();
-            // Attach secondary touchmove and general touchend listener
             document.addEventListener('touchmove', this.onThumbTouchMoveThrottled);
             document.addEventListener('touchend', this.onTouchEnd);
         },
         onThumbTouchMove(event) {
             event.preventDefault();
-            // Calculate position of secondary thumb based on the fingers X coordinate
             this.thumbPosition = this.getRelativePosition(event.touches[0].clientX);
         },
         onTouchEnd() {
-            // Remove all event listeners
             document.removeEventListener('touchmove', this.onThumbTouchMoveThrottled);
             document.removeEventListener('touchend', this.onTouchEnd);
-            // Emit input event
             this.emitInputEvent();
         },
-        /**
-         * Emit input event
-         */
         emitInputEvent() {
-            // Emit input event with the from and to value
             this.$emit('update:modelValue', this.parsedValue);
         },
-        /**
-         * Caches values needed for the calculation of the thumb positions
-         */
         cacheDimensions() {
             this.trackWidth = this.$refs.track.offsetWidth;
             this.trackX = this.$refs.track.getBoundingClientRect().left;
         },
-        /**
-         * Converts a value to a percentage based position
-         */
         getPositionFromValue(value) {
             return (100 / (this.max - this.min)) * value - (this.min / (this.max - this.min)) * 100;
         },
-        /**
-         * Converts an absolute x coordinate to a percentage based x coordinate relative to the track
-         */
         getRelativePosition(x) {
-            // Calculate the pixel position of the cursor relative to the track
             const relativeX = x - this.trackX;
-            // Calculate the percentage based position of the cursor based on the width of the track
             let position = (relativeX / this.trackWidth) * 100;
-            // Check if the value should be snapped to specific step size
             if (this.step) {
-                // Snap to to specific step size (using a percentage based step value)
                 position = Math.round(position / this.stepPercentage) * this.stepPercentage;
             }
-            // Limit the percentage value between 0% and 100%
             position = Math.min(Math.max(position, 0), 100);
-            // Return the percentage value
             return position;
         },
     },
@@ -215,11 +192,14 @@ export default {
 .lv-slider {
     $self: &;
 
+    display: flex;
     position: relative;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    padding-top: 9px;
-    height: 40px;
+    height: 1rem;
+    width: 100%;
 
     &--disabled {
         #{$self}__thumb {
@@ -230,7 +210,7 @@ export default {
             }
         }
 
-        #{$self}__amount {
+        #{$self}__range-value {
             color: var(--text-color-dimmed);
         }
         #{$self}__track {
@@ -250,7 +230,7 @@ export default {
             }
         }
 
-        #{$self}__amount {
+        #{$self}__range-value {
             color: var(--text-color-dimmed);
         }
         #{$self}__track {
@@ -262,7 +242,7 @@ export default {
     }
 
     &--invalid {
-        #{$self}__amount {
+        #{$self}__range-value {
             color: var(--color-danger);
         }
 
@@ -272,66 +252,63 @@ export default {
     }
 
     &__thumb {
-        display: flex;
         position: absolute;
-        top: -15px;
-        left: -10px;
-        flex-direction: row;
+        top: 50%;
+        left: 0;
         justify-content: center;
-        transform: translateX(-50%);
-        cursor: pointer;
-        padding: 10px;
+        transform: translate(-25%, 0);
+        cursor: grab;
+        margin-top: calc(-0.5rem + 2px);
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border-color);
+        border-radius: 100%;
+        background-color: var(--background-color);
+        width: 1rem;
+        height: 1rem;
 
-        &::after {
-            transition: background-color 0.2s;
-            margin-top: -1px;
-            box-shadow: var(--shadow);
-            border: 1px solid var(--border-color);
-            border-radius: 100%;
-            background-color: var(--background-color);
-            width: 14px;
-            height: 14px;
-            content: '';
+        &:active {
+            cursor: grabbing;
         }
+
     }
 
-    &__amounts {
+    &__range {
         display: flex;
-        margin-top: 8px;
+        margin-top: 0.5rem;
+        width: 100%;
     }
 
-    &__amount {
+    &__range-value {
         position: relative;
         color: var(--text-color);
         font-weight: bold;
-        font-size: 12px;
-
-        &--secondary {
-            margin-left: auto;
-        }
+        font-size: var(--font-size-small);
     }
 
     &__indicator {
         position: absolute;
         top: 0;
         bottom: 0;
+        flex-grow: 0;
+        flex-shrink: 0;
         transition: background-color 0.2s;
-        margin: 0 -7px;
-        border-radius: 4px;
         background-color: var(--color-primary);
-        height: 4px;
+        height: 0.25rem;
     }
 
     &__track {
         position: relative;
+        flex-grow: 0;
+        flex-shrink: 0;
         transition: background-color 0.2s;
-        border-radius: 4px;
-        background-color: var(--border-color);
-        padding: 0 7px;
-        height: 4px;
+        border-radius: var(--border-radius);
+        background-color: var(--border-color-light);
+        padding: 0 0.5rem 0 0;
+        width: 100%;
+        height: 0.25rem;
     }
 
-    &__track-limits {
+    &__track-boundaries {
         position: relative;
     }
 
