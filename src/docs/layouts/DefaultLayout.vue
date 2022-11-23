@@ -140,11 +140,7 @@
                 <lv-vertical-nav-list icon="image" label="Media">
                     <lv-vertical-nav-item label="Icon" to="/docs/lv-icon" />
                     <lv-vertical-nav-item label="Avatar" to="/docs/lv-avatar" />
-                    <lv-vertical-nav-item to="/docs/lv-image" disabled>
-                        <lv-flex gap=".25rem">
-                            Image <lv-badge text="Planned" size="tiny" color="solid-dimmed-primary" />
-                        </lv-flex>
-                    </lv-vertical-nav-item>
+                    <lv-vertical-nav-item label="Image" to="/docs/lv-image" />
                     <lv-vertical-nav-item to="/docs/lv-image-carousel" disabled>
                         <lv-flex gap=".25rem">
                             Image Carousel <lv-badge text="Planned" size="tiny" color="solid-dimmed-primary" />
