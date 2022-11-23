@@ -16,11 +16,11 @@
                             }
                         "
                     >
-                        <lv-group> <lv-icon :name="option.icon" /> {{ option.label }} </lv-group>
+                        <lv-flex> <lv-icon :name="option.icon" /> {{ option.label }} </lv-flex>
                     </lv-select-option>
 
                     <template #value="{ value }">
-                        <lv-group> <lv-icon :name="value.icon" /> {{ value.label }} </lv-group>
+                        <lv-flex> <lv-icon :name="value.icon" /> {{ value.label }} </lv-flex>
                     </template>
                 </lv-select>
             </lv-card>
@@ -39,10 +39,10 @@
                             }
                         "
                     >
-                        <lv-group> <lv-icon :name="option.icon" /> {{ option.label }} </lv-group>
+                        <lv-flex> <lv-icon :name="option.icon" /> {{ option.label }} </lv-flex>
                     </lv-select-option>
                     <template #value="{ value }">
-                        <lv-group> <lv-icon :name="value.icon" /> {{ value.label }} </lv-group>
+                        <lv-flex> <lv-icon :name="value.icon" /> {{ value.label }} </lv-flex>
                     </template>
                 </lv-select>
             </lv-card>
@@ -96,10 +96,10 @@
                             }
                         "
                     >
-                        <lv-group> <lv-icon :name="option.icon" /> {{ option.label }} </lv-group>
+                        <lv-flex> <lv-icon :name="option.icon" /> {{ option.label }} </lv-flex>
                     </lv-select-option>
                     <template #value="{ value }">
-                        <lv-group> <lv-icon :name="value.icon" /> {{ value.label }} </lv-group>
+                        <lv-flex> <lv-icon :name="value.icon" /> {{ value.label }} </lv-flex>
                     </template>
                 </lv-select>
             </lv-card>
@@ -107,7 +107,7 @@
         </template>
         <template #sizes>
             <lv-card v-space-after="1">
-                <lv-group direction="column">
+                <lv-flex direction="column">
                     <lv-select placeholder="Large size" size="large">
                         <lv-select-option
                             v-for="(option, index) in options"
@@ -119,7 +119,7 @@
                                 }
                             "
                         >
-                            <lv-group> <lv-icon :name="option.icon" /> {{ option.label }} </lv-group>
+                            <lv-flex> <lv-icon :name="option.icon" /> {{ option.label }} </lv-flex>
                         </lv-select-option>
                     </lv-select>
                     <lv-select placeholder="Default size">
@@ -133,7 +133,7 @@
                                 }
                             "
                         >
-                            <lv-group> <lv-icon :name="option.icon" /> {{ option.label }} </lv-group>
+                            <lv-flex> <lv-icon :name="option.icon" /> {{ option.label }} </lv-flex>
                         </lv-select-option>
                     </lv-select>
                     <lv-select placeholder="Small size" size="small">
@@ -147,7 +147,7 @@
                                 }
                             "
                         >
-                            <lv-group> <lv-icon :name="option.icon" /> {{ option.label }} </lv-group>
+                            <lv-flex> <lv-icon :name="option.icon" /> {{ option.label }} </lv-flex>
                         </lv-select-option>
                     </lv-select>
                     <lv-select placeholder="Tiny size" size="tiny">
@@ -161,10 +161,10 @@
                                 }
                             "
                         >
-                            <lv-group> <lv-icon :name="option.icon" /> {{ option.label }} </lv-group>
+                            <lv-flex> <lv-icon :name="option.icon" /> {{ option.label }} </lv-flex>
                         </lv-select-option>
                     </lv-select>
-                </lv-group>
+                </lv-flex>
             </lv-card>
             <lv-code v-space-after="1" :code="codeSizes" lang="html" />
         </template>
@@ -208,15 +208,15 @@ const codeSingle = `
         :option="option"
         @click="(v) => { modelSingle = v }"
     >
-        <lv-group>
+        <lv-flex>
             <lv-icon :name="option.icon"/> {{ option.label }}
-        </lv-group>
+        </lv-flex>
     </lv-select-option>
     <!-- Format the value in slot:value -->
     <template #value="{ value }">
-        <lv-group>
+        <lv-flex>
             <lv-icon :name="value.icon"/> {{ value.label }}
-        </lv-group>
+        </lv-flex>
     </template>
 </lv-select>
 `.trim();
@@ -230,15 +230,15 @@ const codeMultiple = `
         :option="option"
         @click="(v) => { modelMultiple = v }"
     >
-        <lv-group>
+        <lv-flex>
             <lv-icon :name="option.icon"/> {{ option.label }}
-        </lv-group>
+        </lv-flex>
     </lv-select-option>
     <!-- Format the value in slot:value (values available for all values) -->
     <template #value="{ value }">
-        <lv-group>
+        <lv-flex>
             <lv-icon :name="value.icon"/> {{ value.label }}
-        </lv-group>
+        </lv-flex>
     </template>
 </lv-select>
 `.trim();
@@ -251,20 +251,20 @@ const codeSearchable = `
         :option="option"
         @click="(v) => { modelSearch = v }"
     >
-        <lv-group>
+        <lv-flex>
             <lv-icon :name="option.icon"/> {{ option.label }}
-        </lv-group>
+        </lv-flex>
     </lv-select-option>
     <template #value="{ value }">
-        <lv-group>
+        <lv-flex>
             <lv-icon :name="value.icon"/> {{ value.label }}
-        </lv-group>
+        </lv-flex>
     </template>
 </lv-select>
 `.trim();
 
 const codeSizes = `
-<lv-group direction="column">
+<lv-flex direction="column">
     <lv-select placeholder="Large size" size="large">
         <lv-select-option
                 v-for="(option, index) in options"
@@ -272,9 +272,9 @@ const codeSizes = `
                 :option="option"
                 @click="(v) => { modelSearch = v }"
         >
-            <lv-group>
+            <lv-flex>
                 <lv-icon :name="option.icon"/> {{ option.label }}
-            </lv-group>
+            </lv-flex>
         </lv-select-option>
     </lv-select>
     <lv-select placeholder="Default size">
@@ -284,9 +284,9 @@ const codeSizes = `
                 :option="option"
                 @click="(v) => { modelSearch = v }"
         >
-            <lv-group>
+            <lv-flex>
                 <lv-icon :name="option.icon"/> {{ option.label }}
-            </lv-group>
+            </lv-flex>
         </lv-select-option>
     </lv-select>
     <lv-select placeholder="Small size" size="small">
@@ -296,9 +296,9 @@ const codeSizes = `
                 :option="option"
                 @click="(v) => { modelSearch = v }"
         >
-            <lv-group>
+            <lv-flex>
                 <lv-icon :name="option.icon"/> {{ option.label }}
-            </lv-group>
+            </lv-flex>
         </lv-select-option>
     </lv-select>
     <lv-select placeholder="Tiny size" size="tiny">
@@ -308,12 +308,12 @@ const codeSizes = `
                 :option="option"
                 @click="(v) => { modelSearch = v }"
         >
-            <lv-group>
+            <lv-flex>
                 <lv-icon :name="option.icon"/> {{ option.label }}
-            </lv-group>
+            </lv-flex>
         </lv-select-option>
     </lv-select>
-</lv-group>
+</lv-flex>
 `.trim();
 
 export default {

@@ -5,56 +5,56 @@
         <template #colors>
             <lv-heading v-space-after="1" :level="6">Solid</lv-heading>
             <lv-card v-space-after="1">
-                <lv-group>
+                <lv-flex>
                     <lv-notice text="Default" color="solid-default" />
                     <lv-notice text="Primary" color="solid-primary" />
                     <lv-notice text="Warning" color="solid-warning" />
                     <lv-notice text="Danger" color="solid-danger" />
                     <lv-notice text="Info" color="solid-info" />
                     <lv-notice text="Success" color="solid-success" />
-                </lv-group>
+                </lv-flex>
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeColorSolid" />
 
             <lv-heading v-space-after="1" :level="6">Solid Dimmed</lv-heading>
             <lv-card v-space-after="1">
-                <lv-group>
+                <lv-flex>
                     <lv-notice text="Dimmed Default" color="solid-dimmed-default" />
                     <lv-notice text="Dimmed Primary" color="solid-dimmed-primary" />
                     <lv-notice text="Dimmed Warning" color="solid-dimmed-warning" />
                     <lv-notice text="Dimmed Danger" color="solid-dimmed-danger" />
                     <lv-notice text="Dimmed Info" color="solid-dimmed-info" />
                     <lv-notice text="Dimmed Success" color="solid-dimmed-success" />
-                </lv-group>
+                </lv-flex>
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeColorSolidDimmed" />
 
             <lv-heading v-space-after="1" :level="6">Outline</lv-heading>
             <lv-card v-space-after="1">
-                <lv-group>
+                <lv-flex>
                     <lv-notice text="Outline Default" color="outline-default" />
                     <lv-notice text="Outline Primary" color="outline-primary" />
                     <lv-notice text="Outline Warning" color="outline-warning" />
                     <lv-notice text="Outline Danger" color="outline-danger" />
                     <lv-notice text="Outline Info" color="outline-info" />
                     <lv-notice text="Outline Success" color="outline-success" />
-                </lv-group>
+                </lv-flex>
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeColorOutline" />
         </template>
         <template #icons>
             <lv-card v-space-after="1">
-                <lv-group>
+                <lv-flex>
                     <lv-notice text="This notice has an icon" icon="github" />
-                </lv-group>
+                </lv-flex>
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeIcons" />
         </template>
         <template #buttons>
             <lv-card v-space-after="1">
-                <lv-group>
+                <lv-flex>
                     <lv-notice text="This notice has a button" icon="github" show-button />
-                </lv-group>
+                </lv-flex>
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeIcons" />
         </template>

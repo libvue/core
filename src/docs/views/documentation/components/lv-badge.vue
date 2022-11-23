@@ -3,12 +3,12 @@
     <lv-heading v-space-after="2" sub :level="6">A simple badge component</lv-heading>
     <lv-heading v-space-after="1" :level="6">Standalone</lv-heading>
     <lv-card v-space-after="1">
-        <lv-group>
+        <lv-flex>
             <lv-badge text="hello" />
             <lv-badge text="hello" color="solid-warning" />
             <lv-badge text="hello" color="solid-dimmed-success" />
             <lv-badge text="hello" color="outline-info" />
-        </lv-group>
+        </lv-flex>
     </lv-card>
     <lv-code v-space-after="1" lang="html" :code="codeDefault" />
     <lv-heading v-space-after="1" :level="6">Slotted</lv-heading>

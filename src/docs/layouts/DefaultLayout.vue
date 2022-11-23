@@ -57,9 +57,9 @@
                 <lv-vertical-nav-item icon="palette" to="/docs/theming" label="Theming" />
                 <lv-vertical-nav-item icon="align-vertical-space-around" to="/docs/spacing" label="Spacing" />
                 <lv-vertical-nav-item icon="accessibility" disabled>
-                    <lv-group gap=".25rem">
+                    <lv-flex gap=".25rem">
                         Accessibility <lv-badge text="Planned" size="tiny" color="solid-dimmed-primary" />
-                    </lv-group>
+                    </lv-flex>
                 </lv-vertical-nav-item>
             </lv-vertical-nav-group>
             <lv-vertical-nav-group label="Components">
@@ -67,18 +67,18 @@
                     <lv-vertical-nav-item label="Layout" to="/docs/lv-layout" />
                     <lv-vertical-nav-item label="Header" to="/docs/lv-header" />
                     <lv-vertical-nav-item label="Grid" to="/docs/lv-grid" />
-                    <lv-vertical-nav-item label="Group" to="/docs/lv-group" />
+                    <lv-vertical-nav-item label="Flex" to="/docs/lv-flex" />
                     <lv-vertical-nav-item label="Theme Toggle" to="/docs/lv-theme-toggle" />
                     <lv-vertical-nav-item label="Card" to="/docs/lv-card" />
                     <lv-vertical-nav-item to="/docs/lv-advert-app" disabled>
-                        <lv-group gap=".25rem">
+                        <lv-flex gap=".25rem">
                             Advert App <lv-badge text="Planned" size="tiny" color="solid-dimmed-primary" />
-                        </lv-group>
+                        </lv-flex>
                     </lv-vertical-nav-item>
                     <lv-vertical-nav-item to="/docs/lv-advert-pwa" disabled>
-                        <lv-group gap=".25rem">
+                        <lv-flex gap=".25rem">
                             Advert PWA <lv-badge text="Planned" size="tiny" color="solid-dimmed-primary" />
-                        </lv-group>
+                        </lv-flex>
                     </lv-vertical-nav-item>
                     <lv-vertical-nav-item label="Loading Dots" to="/docs/lv-loading-dots" />
                     <lv-vertical-nav-item label="Spinner" to="/docs/lv-spinner" />
@@ -98,14 +98,14 @@
                     <lv-vertical-nav-item to="/docs/lv-chart" label="Chart" />
                     <lv-vertical-nav-item label="Widget" to="/docs/lv-widget" />
                     <lv-vertical-nav-item to="/docs/lv-file-tree" disabled>
-                        <lv-group gap=".25rem">
+                        <lv-flex gap=".25rem">
                             File Tree <lv-badge text="Planned" size="tiny" color="solid-dimmed-primary" />
-                        </lv-group>
+                        </lv-flex>
                     </lv-vertical-nav-item>
                     <lv-vertical-nav-item to="/docs/lv-progress" disabled>
-                        <lv-group gap=".25rem">
+                        <lv-flex gap=".25rem">
                             Progress <lv-badge text="Planned" size="tiny" color="solid-dimmed-primary" />
-                        </lv-group>
+                        </lv-flex>
                     </lv-vertical-nav-item>
                     <lv-vertical-nav-item label="Pill" to="/docs/lv-pill" />
                     <lv-vertical-nav-item label="Badge" to="/docs/lv-badge" />
@@ -141,14 +141,14 @@
                     <lv-vertical-nav-item label="Icon" to="/docs/lv-icon" />
                     <lv-vertical-nav-item label="Avatar" to="/docs/lv-avatar" />
                     <lv-vertical-nav-item to="/docs/lv-image" disabled>
-                        <lv-group gap=".25rem">
+                        <lv-flex gap=".25rem">
                             Image <lv-badge text="Planned" size="tiny" color="solid-dimmed-primary" />
-                        </lv-group>
+                        </lv-flex>
                     </lv-vertical-nav-item>
                     <lv-vertical-nav-item to="/docs/lv-image-carousel" disabled>
-                        <lv-group gap=".25rem">
+                        <lv-flex gap=".25rem">
                             Image Carousel <lv-badge text="Planned" size="tiny" color="solid-dimmed-primary" />
-                        </lv-group>
+                        </lv-flex>
                     </lv-vertical-nav-item>
                 </lv-vertical-nav-list>
                 <lv-vertical-nav-list icon="layers" label="Overlay">

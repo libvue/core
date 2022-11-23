@@ -1,5 +1,5 @@
 <template>
-    <div class="lv-group" :class="classObject">
+    <div class="lv-flex" :class="classObject">
         <slot />
     </div>
 </template>
@@ -40,10 +40,10 @@ export default {
     computed: {
         classObject() {
             return {
-                [`lv-group--justify-content-${this.justifyContent}`]: !!this.justifyContent,
-                [`lv-group--align-items-${this.alignItems}`]: !!this.alignItems,
-                [`lv-group--direction-${this.direction}`]: !!this.direction,
-                'lv-group--fill': this.fill,
+                [`lv-flex--justify-content-${this.justifyContent}`]: !!this.justifyContent,
+                [`lv-flex--align-items-${this.alignItems}`]: !!this.alignItems,
+                [`lv-flex--direction-${this.direction}`]: !!this.direction,
+                'lv-flex--fill': this.fill,
             };
         },
     },
@@ -51,7 +51,7 @@ export default {
 </script>
 
 <style lang="scss">
-.lv-group {
+.lv-flex {
     $self: &;
     display: flex;
     flex-wrap: wrap;

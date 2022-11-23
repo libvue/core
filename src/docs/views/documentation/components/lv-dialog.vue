@@ -14,10 +14,10 @@
                 <lv-input v-space-after="1" placeholder="Type something" />
             </template>
             <template #close>
-                <lv-group>
+                <lv-flex>
                     <lv-button label="Continue" color="solid-primary" @click="showDialog = false"/>
                     <lv-button label="Cancel" color="solid-dimmed-primary" @click="showDialog = false"/>
-                </lv-group>
+                </lv-flex>
             </template>
         </lv-dialog>
     </lv-card>
@@ -38,10 +38,10 @@ const code = `
         <lv-input v-space-after="1" placeholder="Type something" />
     </template>
     <template #close>
-        <lv-group>
+        <lv-flex>
             <lv-button label="Continue" color="solid-primary" @click="showDialog = false"/>
             <lv-button label="Cancel" color="solid-dimmed-primary" @click="showDialog = false"/>
-        </lv-group>
+        </lv-flex>
     </template>
 </lv-dialog>
 `.trim();

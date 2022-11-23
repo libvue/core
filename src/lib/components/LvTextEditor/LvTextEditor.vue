@@ -1,7 +1,7 @@
 <template>
     <div class="lv-text-editor">
         <div class="lv-text-editor__buttons">
-            <lv-group direction="row">
+            <lv-flex direction="row">
                 <lv-toggle-group>
                     <lv-toggle
                         :model-value="editor && editor.isActive('bold')"
@@ -61,7 +61,7 @@
                 <lv-toggle :model-value="editor && editor.isActive('link')" @click="onClickToggleLink">
                     <lv-icon name="link" />
                 </lv-toggle>
-            </lv-group>
+            </lv-flex>
         </div>
         <div class="lv-text-editor__content">
             <editor-content :editor="editor" />
@@ -70,10 +70,10 @@
             <lv-heading v-space-after="1" :level="5">Add link</lv-heading>
             <lv-input v-model="linkHrefModel" v-space-after="1" placeholder="Enter link" />
             <lv-switch v-model="linkTargetModel" v-space-after="1" label="New window" />
-            <lv-group fill>
+            <lv-flex fill>
                 <lv-button :disabled="!linkHrefModel" label="Add" color="solid-primary" @click="onClickAddLink" />
                 <lv-button label="Cancel" color="solid-dimmed-primary" @click="onClickCancelAddLink" />
-            </lv-group>
+            </lv-flex>
         </lv-dialog>
     </div>
 </template>

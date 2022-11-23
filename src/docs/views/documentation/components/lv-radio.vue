@@ -3,13 +3,13 @@
     <lv-heading v-space-after="2" sub :level="6">Radio buttons are typically rendered as small circles, which are filled or highlighted when selected.</lv-heading>
 
     <lv-card v-space-after="1">
-        <lv-group>
+        <lv-flex>
             <lv-radio v-model="model" value="a" name="option" label="Kermit" />
             <lv-radio v-model="model" value="b" name="option" label="Batman" />
             <lv-radio v-model="model" value="c" name="option" label="Trump" />
             <lv-radio v-model="model" value="d" name="option" label="Disabled" disabled />
             <lv-radio v-model="model" value="e" name="option" label="Loading" loading />
-        </lv-group>
+        </lv-flex>
     </lv-card>
 
     <lv-code v-space-after="1" lang="html" :code="code"/>

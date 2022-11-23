@@ -7,11 +7,11 @@
                 <lv-paragraph v-space-after="1">
                     {{ description }}
                 </lv-paragraph>
-                <lv-group>
+                <lv-flex>
                     <lv-button :label="acceptButtonText" color="solid-primary" @click="onClickAccept"/>
                     <lv-button :label="declineButtonText" color="solid-dimmed-primary" @click="onClickDecline"/>
                     <lv-button :label="moreButtonText" color="ghost-default" @click="onClickMore"/>
-                </lv-group>
+                </lv-flex>
             </slot>
         </div>
     </Teleport>

@@ -2,17 +2,17 @@
     <lv-heading v-space-after="0.5" :level="3">Popover</lv-heading>
     <lv-heading v-space-after="2" sub :level="6">A popup shown when a button is pressed</lv-heading>
     <lv-card v-space-after="1">
-        <lv-group>
+        <lv-flex>
             <lv-popover placement="right" trigger="mouseenter">
                 <template #reference>
                     <lv-button label="Hover me"/>
                 </template>
                 <template #content>
                     <lv-heading v-space-after="1" level="5">Do some stuff</lv-heading>
-                    <lv-group direction="column">
+                    <lv-flex direction="column">
                         <lv-switch label="Enable something"/>
                         <lv-button label="Or don't" color="solid-dimmed-primary"/>
-                    </lv-group>
+                    </lv-flex>
                 </template>
             </lv-popover>
 
@@ -22,13 +22,13 @@
                 </template>
                 <template #content>
                     <lv-heading v-space-after="1" level="5">Do some stuff</lv-heading>
-                    <lv-group direction="column">
+                    <lv-flex direction="column">
                         <lv-switch label="Enable something"/>
                         <lv-button label="Or don't" color="solid-dimmed-primary"/>
-                    </lv-group>
+                    </lv-flex>
                 </template>
             </lv-popover>
-        </lv-group>
+        </lv-flex>
     </lv-card>
     <lv-code v-space-after="1" lang="html" :code="code"/>
     <component-details component="LvPopover"></component-details>
@@ -36,17 +36,17 @@
 
 <script>
 const code = `
-<lv-group>
+<lv-flex>
     <lv-popover placement="right" trigger="mouseenter">
         <template #reference>
             <lv-button label="Hover me"/>
         </template>
         <template #content>
             <lv-heading v-space-after="1" level="5">Do some stuff</lv-heading>
-            <lv-group direction="column">
+            <lv-flex direction="column">
                 <lv-switch label="Enable something"/>
                 <lv-button label="Or don't" color="solid-dimmed-primary"/>
-            </lv-group>
+            </lv-flex>
         </template>
     </lv-popover>
 
@@ -56,13 +56,13 @@ const code = `
         </template>
         <template #content>
             <lv-heading v-space-after="1" level="5">Do some stuff</lv-heading>
-            <lv-group direction="column">
+            <lv-flex direction="column">
                 <lv-switch label="Enable something"/>
                 <lv-button label="Or don't" color="solid-dimmed-primary"/>
-            </lv-group>
+            </lv-flex>
         </template>
     </lv-popover>
-</lv-group>
+</lv-flex>
 `.trim();
 export default {
     data() {

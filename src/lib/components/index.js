@@ -42,7 +42,7 @@ const LvCode = defineAsyncComponent(() => import('./LvCode/LvCode.vue'));
 const LvDialog = defineAsyncComponent(() => import('./LvDialog/LvDialog.vue'));
 const LvSeparator = defineAsyncComponent(() => import('./LvSeparator/LvSeparator.vue'));
 const LvDrawer = defineAsyncComponent(() => import('./LvDrawer/LvDrawer.vue'));
-const LvGroup = defineAsyncComponent(() => import('./LvGroup/LvGroup.vue'));
+const LvFlex = defineAsyncComponent(() => import('./LvFlex/LvFlex.vue'));
 const LvHeading = defineAsyncComponent(() => import('./LvHeading/LvHeading.vue'));
 const LvIcon = defineAsyncComponent(() => import('./LvIcon/LvIcon.vue'));
 const LvInput = defineAsyncComponent(() => import('./LvInput/LvInput.vue'));
@@ -111,7 +111,7 @@ export default {
     LvDialog,
     LvSeparator,
     LvDrawer,
-    LvGroup,
+    LvFlex,
     LvHeading,
     LvIcon,
     LvInput,
