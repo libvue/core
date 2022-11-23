@@ -18,17 +18,12 @@ export default {
         align: {
             type: String,
             default: 'left',
-            validator(value) {
-                return ['left', 'center', 'right'].includes(value);
-            },
+            validator: (value) => ['left', 'center', 'right'].includes(value),
         },
         level: {
             type: [Number, String],
             default: 1,
-            validator(value) {
-                const number = Number.parseInt(value, 10);
-                return number > 0 && number <= 6;
-            },
+            validator: (value) => Number.parseInt(value, 10) > 0 && Number.parseInt(value, 10) <= 6,
         },
         sub: {
             type: Boolean,

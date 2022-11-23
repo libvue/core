@@ -15,16 +15,12 @@ export default {
         justifyContent: {
             type: String,
             default: 'start',
-            validator(value) {
-                return ['start', 'center', 'end'].includes(value);
-            },
+            validator: (value) => ['start', 'center', 'end'].includes(value),
         },
         alignItems: {
             type: String,
             default: null,
-            validator(value) {
-                return ['start', 'center', 'end'].includes(value);
-            },
+            validator: (value) => ['start', 'center', 'end'].includes(value),
         },
         gap: {
             type: [String, Number],
