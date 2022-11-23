@@ -5,8 +5,8 @@
         <lv-flex>
             <lv-avatar initials="LV" />
             <lv-avatar initials="LV" size="2rem"/>
-            <lv-avatar image="https://picsum.photos/id/64/512/512" />
-            <lv-avatar image="https://picsum.photos/id/64/512/512" size="2rem" />
+            <lv-avatar image="https://i.pravatar.cc/512?img=19" />
+            <lv-avatar image="https://i.pravatar.cc/512?img=19" size="2rem" />
         </lv-flex>
     </lv-card>
     <lv-code v-space-after="1" :code="code" lang="html" />
@@ -17,8 +17,8 @@
 const code = `
 <lv-avatar initials="LV" />
 <lv-avatar initials="LV" size="2rem"/>
-<lv-avatar image="https://picsum.photos/id/64/512/512" />
-<lv-avatar image="https://picsum.photos/id/64/512/512" size="2rem" />
+<lv-avatar image="https://i.pravatar.cc/512?img=19" />
+<lv-avatar image="https://i.pravatar.cc/512?img=19" size="2rem" />
 `.trim();
 export default {
     data() {
