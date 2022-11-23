@@ -16,7 +16,6 @@ export default {
             type: String,
             default: 'start',
             validator(value) {
-                // The value must match one of these strings
                 return ['start', 'center', 'end'].includes(value);
             },
         },
@@ -24,7 +23,6 @@ export default {
             type: String,
             default: null,
             validator(value) {
-                // The value must match one of these strings
                 return ['start', 'center', 'end'].includes(value);
             },
         },
