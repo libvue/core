@@ -10,6 +10,7 @@ const LvFileTree = defineAsyncComponent(() => import('./LvFileTree/LvFileTree.vu
 const LvProgress = defineAsyncComponent(() => import('./LvProgress/LvProgress.vue'));
 const LvFragmentLink = defineAsyncComponent(() => import('./LvFragmentLink/LvFragmentLink.vue'));
 const LvImageCarousel = defineAsyncComponent(() => import('./LvImageCarousel/LvImageCarousel.vue'));
+const LvImageCarouselItem = defineAsyncComponent(() => import('./LvImageCarousel/LvImageCarouselItem.vue'));
 const LvImage = defineAsyncComponent(() => import('./LvImage/LvImage.vue'));
 const LvSkeleton = defineAsyncComponent(() => import('./LvSkeleton/LvSkeleton.vue'));
 const LvToggleGroup = defineAsyncComponent(() => import('./LvToggleGroup/LvToggleGroup.vue'));
@@ -79,6 +80,7 @@ export default {
     LvProgress,
     LvFragmentLink,
     LvImageCarousel,
+    LvImageCarouselItem,
     LvImage,
     LvSkeleton,
     LvToggleGroup,
