@@ -4,34 +4,34 @@
     <lv-tabs :tabs="tabs" :active="activeTab" @change-tab="(v) => onChangeTab(v)">
         <template #types>
             <lv-card v-space-after="1">
-                <lv-group direction="column">
+                <lv-flex direction="column">
                     <lv-input type="text" icon="user" placeholder="Enter your username" />
                     <lv-input type="password" icon="key" placeholder="Enter your password" />
                     <lv-input type="email" icon="mail" placeholder="Enter your e-mail" />
                     <lv-input type="tel" icon="phone" placeholder="Enter your phonenumber" />
-                </lv-group>
+                </lv-flex>
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeTypes" />
         </template>
         <template #states>
             <lv-card v-space-after="1">
-                <lv-group direction="column">
+                <lv-flex direction="column">
                     <lv-input placeholder="Default" />
                     <lv-input readonly placeholder="Readonly" />
                     <lv-input disabled placeholder="Disabled" />
                     <lv-input loading placeholder="Loading" />
-                </lv-group>
+                </lv-flex>
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeStates" />
         </template>
         <template #sizes>
             <lv-card v-space-after="1">
-                <lv-group direction="column">
+                <lv-flex direction="column">
                     <lv-input icon="github" placeholder="Large size" size="large" loading />
                     <lv-input icon="github" placeholder="Default size" size="default" loading />
                     <lv-input icon="github" placeholder="Small size" size="small" loading />
                     <lv-input icon="github" placeholder="Tiny size" size="tiny" loading />
-                </lv-group>
+                </lv-flex>
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeStates" />
         </template>

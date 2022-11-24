@@ -2,7 +2,7 @@
     <lv-heading v-space-after="0.5" :level="3">Drawer</lv-heading>
     <lv-heading v-space-after="2" sub :level="6">Some kind of dialog drawn from a side</lv-heading>
     <lv-card v-space-after="1">
-        <lv-group>
+        <lv-flex>
             <lv-button label="Left" @click="onClickDrawerLeft"/>
             <lv-button label="Right" @click="onClickDrawerRight"/>
             <lv-button label="Top" @click="onClickDrawerTop"/>
@@ -10,12 +10,12 @@
 
             <lv-drawer :placement="placement" :show="showDrawer" @click-overlay="showDrawer = false">
                 <lv-input placeholder="Enter something" v-space-after="1"/>
-                <lv-group fill style="margin-top: auto;">
+                <lv-flex fill style="margin-top: auto;">
                     <lv-button label="Save" color="solid-primary"/>
                     <lv-button label="Cancel" color="solid-dimmed-primary"/>
-                </lv-group>
+                </lv-flex>
             </lv-drawer>
-        </lv-group>
+        </lv-flex>
     </lv-card>
     <lv-code v-space-after="1" lang="html" :code="code"/>
     <component-details component="LvDrawer"></component-details>
@@ -30,10 +30,10 @@ const code = `
 
 <lv-drawer :placement="placement" :show="showDrawer" @click-overlay="showDrawer = false">
     <lv-input placeholder="Enter something" v-space-after="1"/>
-    <lv-group fill style="margin-top: auto;">
+    <lv-flex fill style="margin-top: auto;">
         <lv-button label="Save" color="solid-primary"/>
         <lv-button label="Cancel" color="solid-dimmed-primary"/>
-    </lv-group>
+    </lv-flex>
 </lv-drawer>
 `.trim();
 export default {

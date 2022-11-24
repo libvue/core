@@ -1,12 +1,23 @@
 <template>
     <div class="lv-code" :class="classObject">
-        <div v-if="title" class="lv-code__header">
-            {{ title }}
-            <lv-icon class="lv-code__header-copy" :name="copyIcon" @click="copyCodeToClipboard" />
+        <div v-if="hasFiles" class="lv-code__header">
+            <div v-for="(file, index) in files" :key="index" class="lv-code__file-button" :class="{ 'lv-code__file-button--active': active === file.id}" @click="onClickFile(file.id)">
+                {{ file.filename }}
+            </div>
         </div>
         <div class="lv-code__content">
-            <pre class="lv-code__code" v-html="html" />
-            <lv-icon v-if="!title" class="lv-code__content-copy" :name="copyIcon" @click="copyCodeToClipboard" />
+            <template v-if="hasFiles">
+                <template v-for="(file, index) in files" :key="index">
+                    <div v-show="active === file.id" class="lv-code__file-code">
+                        <pre class="lv-code__code" v-html="getHtml(file.lang || 'js', file.code)" />
+                        <lv-icon v-if="!inline" class="lv-code__content-copy" :name="copyIcon" @click="copyCodeToClipboard(file.code)" />
+                    </div>
+                </template>
+            </template>
+            <template v-else>
+                <pre class="lv-code__code" v-html="getHtml(lang, code)" />
+                <lv-icon v-if="!inline" class="lv-code__content-copy" :name="copyIcon" @click="copyCodeToClipboard(code)" />
+            </template>
         </div>
     </div>
 </template>
@@ -17,9 +28,13 @@ import useCopyToClipboard from '../../composables/clipboard';
 
 export default {
     props: {
-        title: {
+        files: {
+            type: Array,
+            default: () => [],
+        },
+        active: {
             type: String,
-            default: '',
+            default: null,
         },
         code: {
             type: String,
@@ -42,38 +57,45 @@ export default {
         };
     },
     computed: {
-        grammarByLang() {
-            if (this.lang === 'javascript') {
-                return Prism.languages.javascript;
-            }
-            if (this.lang === 'html') {
-                return Prism.languages.html;
-            }
-            if (this.lang === 'css') {
-                return Prism.languages.css;
-            }
-            if (this.lang === 'scss') {
-                return Prism.languages.css;
-            }
-            return Prism.languages.javascript;
-        },
-        html() {
-            return Prism.highlight(this.code, this.grammarByLang, this.lang);
+        hasFiles() {
+            return this.files.length > 0;
         },
         classObject() {
             return {
-                'lv-code--titled': !!this.title,
+                'lv-code--header': !!this.hasFiles,
                 'lv-code--inline': !!this.inline,
             };
         },
     },
+    emits: ['change-file'],
     methods: {
-        copyCodeToClipboard() {
+        getHtml(lang, code) {
+            return Prism.highlight(code, this.getGrammarByLang(lang), lang);
+        },
+        getGrammarByLang(lang) {
+            if (lang === 'javascript') {
+                return Prism.languages.javascript;
+            }
+            if (lang === 'html') {
+                return Prism.languages.html;
+            }
+            if (lang === 'css') {
+                return Prism.languages.css;
+            }
+            if (lang === 'scss') {
+                return Prism.languages.css;
+            }
+            return Prism.languages.javascript;
+        },
+        copyCodeToClipboard(code) {
             this.copyIcon = 'check';
             setTimeout(() => {
                 this.copyIcon = 'copy';
             }, 1000);
-            useCopyToClipboard(this.code);
+            useCopyToClipboard(code);
+        },
+        onClickFile(id) {
+            this.$emit('change-file', id);
         },
     },
 };
@@ -92,17 +114,20 @@ export default {
         margin-bottom: 0;
         border-radius: var(--border-radius) var(--border-radius) 0 0;
         background-color: var(--code-header-color);
-        padding: 0.5rem calc(var(--padding) * 1.5);
+        padding: 0.5rem;
         color: var(--text-color);
         font-weight: 500;
         font-size: var(--font-size-small);
         font-family: var(--font-family);
+        border: 1px solid var(--border-color);
+    }
 
-        &-copy {
-            cursor: pointer;
-            margin-left: auto;
-            color: var(--text-color);
-            font-size: var(--font-size);
+    &__file-button {
+        padding: .25rem .5rem;
+        cursor: pointer;
+        border-radius: var(--border-radius);
+        &--active {
+            background-color: var(--code-button-color);
         }
     }
 
@@ -116,11 +141,12 @@ export default {
         font-size: var(--font-size);
         line-height: 24px;
         font-family: var(--font-family-monospace);
+        border: 1px solid var(--border-color);
 
         &-copy {
             position: absolute;
-            top: 14px;
             right: 14px;
+            top: 14px;
             cursor: pointer;
         }
     }
@@ -131,10 +157,11 @@ export default {
         overflow-x: auto;
     }
 
-    &--titled {
+    &--header {
         #{$self}__content {
             border-radius: 0 0 var(--border-radius) var(--border-radius);
             padding-right: var(--code-padding);
+            border-top: 1px solid transparent;
         }
     }
 
@@ -145,7 +172,6 @@ export default {
 
         #{$self}__content {
             padding: calc(var(--padding) * 0.2) calc(var(--padding) * 0.8);
-            padding-right: 35px;
 
             &-copy {
                 top: 10px;

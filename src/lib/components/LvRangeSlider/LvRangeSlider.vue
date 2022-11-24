@@ -70,16 +70,12 @@ export default {
         decimals: {
             type: Number,
             default: 0,
-            validator(value) {
-                return value >= 0;
-            },
+            validator: (value) => value >= 0,
         },
         step: {
             type: Number,
             default: 1,
-            validator(value) {
-                return value > 0;
-            },
+            validator: (value) => value > 0,
         },
         invalid: {
             type: Boolean,

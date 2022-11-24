@@ -5,18 +5,18 @@
     <lv-tabs v-space-after="1" :tabs="tabs" :active="activeTab" @change-tab="(v) => (activeTab = v)">
         <template #line>
             <lv-card v-space-after="1">
-                <lv-group>
+                <lv-flex>
                     <lv-chart :datasets="datasets" :labels="labels" height="300px" />
-                </lv-group>
+                </lv-flex>
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeLineChartTemplate" />
             <lv-code v-space-after="1" lang="javascript" :code="codeChartScript" />
         </template>
         <template #bar>
             <lv-card v-space-after="1">
-                <lv-group>
+                <lv-flex>
                     <lv-chart :datasets="datasets" :labels="labels" type="bar" height="300px" />
-                </lv-group>
+                </lv-flex>
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeBarChartTemplate" />
             <lv-code v-space-after="1" lang="javascript" :code="codeChartScript" />

@@ -1,6 +1,6 @@
 <template>
     <div class="lv-tabs" role="tablist">
-        <lv-group class="lv-tabs__buttons" gap="20px">
+        <lv-flex class="lv-tabs__buttons" gap="20px">
             <div
                 v-for="tab in tabs"
                 :key="tab.id"
@@ -14,7 +14,7 @@
                 <lv-icon v-if="tab.icon" class="lv-tabs__button-icon" :name="tab.icon" />
                 {{ tab.title }}
             </div>
-        </lv-group>
+        </lv-flex>
         <div class="lv-tabs__panels">
             <div v-for="tab in tabs" v-show="tab.id === active" :key="tab.id" class="lv-tabs__panel" role="tabpanel">
                 <slot :name="tab.id" :tab="tab" />

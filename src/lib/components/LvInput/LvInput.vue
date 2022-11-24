@@ -62,9 +62,7 @@ export default {
         type: {
             type: String,
             default: 'text',
-            validator(value) {
-                return ['text', 'email', 'password', 'tel'].includes(value);
-            },
+            validator: (value) => ['text', 'email', 'password', 'tel'].includes(value),
         },
     },
     emits: ['update:modelValue'],

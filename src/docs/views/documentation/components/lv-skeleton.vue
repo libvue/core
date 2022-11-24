@@ -10,10 +10,10 @@
     </lv-card>
     <lv-code v-space-after="1" lang="html" :code="codeDimensions"/>
     <lv-card v-space-after="1">
-        <lv-group>
+        <lv-flex>
             <lv-skeleton width="50px" height="50px" rounded/>
             <lv-skeleton width="50px" height="50px" squared/>
-        </lv-group>
+        </lv-flex>
     </lv-card>
     <lv-code v-space-after="1" lang="html" :code="codeShapes"/>
     <component-details component="LvSkeleton"></component-details>

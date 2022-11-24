@@ -10,11 +10,11 @@
 
     <lv-heading v-space-after="1" :level="6">Vertical</lv-heading>
     <lv-card v-space-after="1">
-        <lv-group gap="10px">
+        <lv-flex gap="10px">
             <lv-button v-space-after="1" label="Text" />
             <lv-separator v-space-after="1" direction="vertical"></lv-separator>
             <lv-button label="Text" />
-        </lv-group>
+        </lv-flex>
     </lv-card>
     <lv-code v-space-after="1" lang="html" :code="codeVertical" />
     <component-details component="LvSeparator"></component-details>
@@ -23,11 +23,11 @@
 <script>
 const code = `<lv-separator></lv-separator>`;
 const codeVertical = `
-<lv-group gap="10px">
+<lv-flex gap="10px">
     <lv-button v-space-after="1" label="Text"/>
     <lv-separator v-space-after="1" direction="vertical"></lv-separator>
     <lv-button label="Text"/>
-</lv-group>
+</lv-flex>
 `.trim();
 
 export default {

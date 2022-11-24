@@ -2,7 +2,7 @@
     <lv-heading v-space-after="0.5" :level="3">Toggle Group</lv-heading>
     <lv-heading v-space-after="2" sub :level="6">A group of toggle buttons</lv-heading>
     <lv-card v-space-after="1">
-        <lv-group>
+        <lv-flex>
             <lv-toggle-group>
                 <lv-toggle v-model="pressedAlignLeft">
                     <lv-icon name="align-left"/>
@@ -25,7 +25,7 @@
                     <lv-icon name="link"/>
                 </lv-toggle>
             </lv-toggle-group>
-        </lv-group>
+        </lv-flex>
     </lv-card>
     <lv-code v-space-after="1" :code="code" lang="html"></lv-code>
     <component-details component="LvToggleGroup"></component-details>
@@ -33,7 +33,7 @@
 
 <script>
 const code = `
-<lv-group>
+<lv-flex>
     <lv-toggle-group>
         <lv-toggle v-model="pressedAlignLeft">
             <lv-icon name="align-left"/>
@@ -56,7 +56,7 @@ const code = `
             <lv-icon name="link"/>
         </lv-toggle>
     </lv-toggle-group>
-</lv-group>
+</lv-flex>
 `.trim();
 export default {
     data() {

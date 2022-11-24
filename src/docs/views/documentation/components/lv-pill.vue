@@ -5,25 +5,25 @@
     <lv-tabs v-space-after="1" :tabs="tabs" :active="activeTab" @change-tab="(v) => (activeTab = v)">
         <template #icons>
             <lv-card v-space-after="1">
-                <lv-group>
+                <lv-flex>
                     <lv-pill text="Github Icon" color="solid-dimmed-default" icon="github" />
-                </lv-group>
+                </lv-flex>
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeIcons" />
         </template>
         <template #states>
             <lv-card v-space-after="1">
-                <lv-group>
+                <lv-flex>
                     <lv-pill prefix="State:" text="Closable" color="solid-danger" closable />
                     <lv-pill prefix="State:" text="Closable" color="solid-dimmed-primary" closable />
-                </lv-group>
+                </lv-flex>
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeStates" />
         </template>
         <template #colors>
             <lv-heading v-space-after="1" :level="6">Solid</lv-heading>
             <lv-card v-space-after="1">
-                <lv-group>
+                <lv-flex>
                     <lv-pill text="Default" color="solid-default" />
                     <lv-pill text="Danger" color="solid-danger" />
                     <lv-pill text="Success" color="solid-success" />
@@ -31,13 +31,13 @@
                     <lv-pill text="Info" color="solid-info" />
                     <lv-pill text="Primary" color="solid-primary" />
                     <lv-pill text="Secondary" color="solid-secondary" />
-                </lv-group>
+                </lv-flex>
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeColorSolid" />
 
             <lv-heading v-space-after="1" :level="6">Solid Dimmed</lv-heading>
             <lv-card v-space-after="1">
-                <lv-group>
+                <lv-flex>
                     <lv-pill text="Dimmed Default" color="solid-dimmed-default" />
                     <lv-pill text="Dimmed Danger" color="solid-dimmed-danger" />
                     <lv-pill text="Dimmed Success" color="solid-dimmed-success" />
@@ -45,20 +45,20 @@
                     <lv-pill text="Dimmed Info" color="solid-dimmed-info" />
                     <lv-pill text="Dimmed Primary" color="solid-dimmed-primary" />
                     <lv-pill text="Dimmed Secondary" color="solid-dimmed-secondary" />
-                </lv-group>
+                </lv-flex>
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeColorSolidDimmed" />
 
             <lv-heading v-space-after="1" :level="6">Outline</lv-heading>
             <lv-card v-space-after="1">
-                <lv-group>
+                <lv-flex>
                     <lv-pill text="Default" color="outline-default"/>
                     <lv-pill text="Danger" color="outline-danger" />
                     <lv-pill text="Success" color="outline-success" />
                     <lv-pill text="Warning" color="outline-warning" />
                     <lv-pill text="Danger" color="outline-primary" />
                     <lv-pill text="Info" color="outline-info" />
-                </lv-group>
+                </lv-flex>
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeColorOutline" />
         </template>

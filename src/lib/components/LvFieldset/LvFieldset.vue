@@ -6,7 +6,7 @@
                 <lv-icon class="lv-fieldset__reset-button-icon" name="rotate-ccw" /> Reset
             </button>
         </label>
-        <lv-group direction="column">
+        <lv-flex direction="column">
             <div class="lv-fieldset__content">
                 <slot></slot>
             </div>
@@ -16,7 +16,7 @@
             <div v-if="!!$slots.invalid" class="lv-fieldset__invalid">
                 <slot name="invalid">Invalid</slot>
             </div>
-        </lv-group>
+        </lv-flex>
     </fieldset>
 </template>
 

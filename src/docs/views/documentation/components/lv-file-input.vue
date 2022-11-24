@@ -5,17 +5,17 @@
     <lv-tabs v-space-after="1" :tabs="tabs" :active="activeTab" @change-tab="(v) => (activeTab = v)">
         <template #single>
             <lv-card v-space-after="1">
-                <lv-group direction="column">
+                <lv-flex direction="column">
                     <lv-file-input v-model="fileListSingle"/>
-                </lv-group>
+                </lv-flex>
             </lv-card>
             <lv-code lang="html" :code="codeSingle"/>
         </template>
         <template #multiple>
             <lv-card v-space-after="1">
-                <lv-group direction="column">
+                <lv-flex direction="column">
                     <lv-file-input v-model="fileListMultiple" multiple/>
-                </lv-group>
+                </lv-flex>
             </lv-card>
             <lv-code lang="html" :code="codeMultiple"/>
         </template>

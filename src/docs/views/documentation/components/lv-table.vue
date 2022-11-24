@@ -23,10 +23,10 @@
                         <lv-button size="small" label="Options" color="solid-dimmed-primary" stop-propagation/>
                     </template>
                     <template #content>
-                        <lv-group direction="column">
+                        <lv-flex direction="column">
                             <lv-button size="small" label="Add" color="ghost-default" stop-propagation/>
                             <lv-button size="small" label="Delete" color="ghost-default" stop-propagation/>
-                        </lv-group>
+                        </lv-flex>
                     </template>
                 </lv-popover>
             </template>
@@ -49,10 +49,10 @@ const templateOptions = `
                 <lv-button size="small" label="Options" color="solid-dimmed-primary" stop-propagation/>
             </template>
             <template #content>
-                <lv-group direction="column">
+                <lv-flex direction="column">
                     <lv-button size="small" label="Add" color="ghost-default" stop-propagation/>
                     <lv-button size="small" label="Delete" color="ghost-default" stop-propagation/>
-                </lv-group>
+                </lv-flex>
             </template>
         </lv-popover>
     </template>

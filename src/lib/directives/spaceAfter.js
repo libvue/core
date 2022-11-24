@@ -7,11 +7,11 @@
  *      <lv-heading v-space-after="2">                  // Adds a margin-bottom of 2rem
  *
  *      # Advanced
- *      <lv-group spacing="1.5" direction="column">     // Gap is set to 1.5
+ *      <lv-flex spacing="1.5" direction="column">     // Gap is set to 1.5
  *          <child1>                                    // Gap set by parent
  *          <child2 v-space-after="2">                  // Adds a margin-bottom of 2rem minus the gap of the parent
  *          <child3>                                    // Gap set by parent
- *      </lv-group>
+ *      </lv-flex>
  */
 
 const handler = (el, binding) => {

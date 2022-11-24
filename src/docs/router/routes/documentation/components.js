@@ -29,7 +29,7 @@ import LvParagraph from '../../../views/documentation/components/lv-paragraph.vu
 import LvBlockquote from '../../../views/documentation/components/lv-blockquote.vue';
 import LvCode from '../../../views/documentation/components/lv-code.vue';
 import LvThemeToggle from '../../../views/documentation/components/lv-theme-toggle.vue';
-import LvGroup from '../../../views/documentation/components/lv-group.vue';
+import LvFlex from '../../../views/documentation/components/lv-flex.vue';
 import LvLayout from '../../../views/documentation/components/lv-layout.vue';
 import LvCard from '../../../views/documentation/components/lv-card.vue';
 import LvTable from '../../../views/documentation/components/lv-table.vue';
@@ -314,9 +314,9 @@ export default [
     },
 
     {
-        path: '/docs/lv-group',
-        name: 'lv-group',
-        component: LvGroup,
+        path: '/docs/lv-flex',
+        name: 'lv-flex',
+        component: LvFlex,
     },
     {
         path: '/docs/lv-card',
