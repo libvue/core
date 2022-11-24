@@ -74,7 +74,8 @@ export default {
     overflow: hidden;
 
     .lv-image-carousel-item {
-        margin-right: 20px;
+        margin-left: v-bind(gap);
+        margin-right: v-bind(gap);
     }
 
     &__container {
