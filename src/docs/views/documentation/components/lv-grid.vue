@@ -7,38 +7,38 @@
     <lv-card v-space-after="1">
         <lv-grid gap="1rem">
             <lv-grid-row gap="1rem">
-                <lv-grid-column :level="6">
+                <lv-grid-column :width="6">
                     <lv-card>6</lv-card>
                 </lv-grid-column>
-                <lv-grid-column :level="3">
+                <lv-grid-column :width="3">
                     <lv-card>3</lv-card>
                 </lv-grid-column>
-                <lv-grid-column :level="3">
+                <lv-grid-column :width="3">
                     <lv-card>3</lv-card>
                 </lv-grid-column>
             </lv-grid-row>
             <lv-grid-row gap="1rem">
-                <lv-grid-column :level="3">
+                <lv-grid-column :width="3">
                     <lv-card>3</lv-card>
                 </lv-grid-column>
-                <lv-grid-column :level="4">
+                <lv-grid-column :width="4">
                     <lv-card>4</lv-card>
                 </lv-grid-column>
-                <lv-grid-column :level="5">
+                <lv-grid-column :width="5">
                     <lv-card>5</lv-card>
                 </lv-grid-column>
             </lv-grid-row>
             <lv-grid-row gap="1rem">
-                <lv-grid-column :level="2">
+                <lv-grid-column :width="2">
                     <lv-card>2</lv-card>
                 </lv-grid-column>
-                <lv-grid-column :level="2">
+                <lv-grid-column :width="2">
                     <lv-card>2</lv-card>
                 </lv-grid-column>
-                <lv-grid-column :level="2">
+                <lv-grid-column :width="2">
                     <lv-card>2</lv-card>
                 </lv-grid-column>
-                <lv-grid-column :level="6">
+                <lv-grid-column :width="6">
                     <lv-card>6</lv-card>
                 </lv-grid-column>
             </lv-grid-row>
@@ -53,38 +53,38 @@
 const code = `
 <lv-grid gap="1rem">
     <lv-grid-row gap="1rem">
-        <lv-grid-column :level="6">
+        <lv-grid-column :width="6">
             <lv-card>6</lv-card>
         </lv-grid-column>
-        <lv-grid-column :level="3">
+        <lv-grid-column :width="3">
             <lv-card>3</lv-card>
         </lv-grid-column>
-        <lv-grid-column :level="3">
+        <lv-grid-column :width="3">
             <lv-card>3</lv-card>
         </lv-grid-column>
     </lv-grid-row>
     <lv-grid-row gap="1rem">
-        <lv-grid-column :level="3">
+        <lv-grid-column :width="3">
             <lv-card>3</lv-card>
         </lv-grid-column>
-        <lv-grid-column :level="4">
+        <lv-grid-column :width="4">
             <lv-card>4</lv-card>
         </lv-grid-column>
-        <lv-grid-column :level="5">
+        <lv-grid-column :width="5">
             <lv-card>5</lv-card>
         </lv-grid-column>
     </lv-grid-row>
     <lv-grid-row gap="1rem">
-        <lv-grid-column :level="2">
+        <lv-grid-column :width="2">
             <lv-card>2</lv-card>
         </lv-grid-column>
-        <lv-grid-column :level="2">
+        <lv-grid-column :width="2">
             <lv-card>2</lv-card>
         </lv-grid-column>
-        <lv-grid-column :level="2">
+        <lv-grid-column :width="2">
             <lv-card>2</lv-card>
         </lv-grid-column>
-        <lv-grid-column :level="6">
+        <lv-grid-column :width="6">
             <lv-card>6</lv-card>
         </lv-grid-column>
     </lv-grid-row>

@@ -12,9 +12,9 @@ export default {
         },
     },
     props: {
-        level: {
+        width: {
             type: Number,
-            default: null,
+            required: true,
             validator: (v) => v > 0 && v < 13,
         },
     },
@@ -24,7 +24,7 @@ export default {
         },
         classObject() {
             return {
-                [`lv-grid-column--${this.level}`]: true,
+                [`lv-grid-column--${this.width}`]: true,
             };
         },
     },

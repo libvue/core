@@ -6,10 +6,10 @@
         <template #number>
             <lv-grid v-space-after="1">
                 <lv-grid-row gap="1rem">
-                    <lv-grid-column :level="6">
+                    <lv-grid-column :width="6">
                         <lv-widget title="Avg. Revenue" amount="1.239,21" prefix="$" :diff="-10" type="number" />
                     </lv-grid-column>
-                    <lv-grid-column :level="6">
+                    <lv-grid-column :width="6">
                         <lv-widget title="Total Payout" amount="632,37" prefix="€" :diff="75" type="number" />
                     </lv-grid-column>
                 </lv-grid-row>
@@ -19,7 +19,7 @@
         <template #chart>
             <lv-grid v-space-after="1">
                 <lv-grid-row gap="1rem">
-                    <lv-grid-column :level="6">
+                    <lv-grid-column :width="6">
                         <lv-widget
                             title="Followers"
                             amount="2,530"
@@ -29,7 +29,7 @@
                             :datasets="followersDatasets"
                         />
                     </lv-grid-column>
-                    <lv-grid-column :level="6">
+                    <lv-grid-column :width="6">
                         <lv-widget
                             title="Subscribers"
                             chart-type="bar"
