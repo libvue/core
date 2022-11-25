@@ -1,3 +1,4 @@
+import LvButtonGroup from '../../../views/documentation/components/lv-button-group.vue';
 import LvFileInput from '../../../views/documentation/components/lv-file-input.vue';
 import LvTextEditor from '../../../views/documentation/components/lv-text-editor.vue';
 import LvFieldset from '../../../views/documentation/components/lv-fieldset.vue';
@@ -57,6 +58,11 @@ import LvHeader from '../../../views/documentation/components/lv-header.vue';
 import LvGrid from '../../../views/documentation/components/lv-grid.vue';
 
 export default [
+    {
+        path: '/docs/lv-button-group',
+        name: 'lv-button-group',
+        component: LvButtonGroup,
+    },
     {
         path: '/docs/lv-file-input',
         name: 'lv-file-input',

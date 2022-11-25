@@ -85,6 +85,7 @@
                 </lv-vertical-nav-list>
                 <lv-vertical-nav-list icon="compass" label="Navigation">
                     <lv-vertical-nav-item to="/docs/lv-button" label="Button" />
+                    <lv-vertical-nav-item to="/docs/lv-button-group" label="Button Group" />
                     <lv-vertical-nav-item to="/docs/lv-tabs" label="Tabs" />
                     <lv-vertical-nav-item label="Link" to="/docs/lv-link" />
                     <lv-vertical-nav-item label="Fragment Link" to="/docs/lv-fragment-link" />
