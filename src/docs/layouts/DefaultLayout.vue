@@ -153,7 +153,8 @@
             </lv-vertical-nav-group>
             <lv-vertical-nav-group label="Utilities">
                 <lv-vertical-nav-list icon="corner-down-right" label="Mixins">
-                    <lv-vertical-nav-item label="navigationMixin" to="/docs/navigation-mixin" />
+                    <lv-vertical-nav-item label="Navigation Mixin" to="/docs/navigation-mixin" />
+                    <lv-vertical-nav-item label="Breakpoint Mixin" to="/docs/breakpoint-mixin" />
                 </lv-vertical-nav-list>
             </lv-vertical-nav-group>
         </template>
