@@ -119,6 +119,12 @@ const codeGlobalVariables = `
     --max-width: 1200px;
     --transition-time: 0.1337s;
     --transition-easing: ease-in-out;
+    --breakpoint-xs: 0;
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --breakpoint-xxl: 1400px;
 }
 `.trim();
 export default {
