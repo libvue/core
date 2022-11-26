@@ -6,7 +6,6 @@ const cssBreakpoints = {
     xl: parseInt(getComputedStyle(document.documentElement).getPropertyValue('--breakpoint-xl'), 10),
     xxl: parseInt(getComputedStyle(document.documentElement).getPropertyValue('--breakpoint-xxl'), 10),
 };
-let width = window.innerWidth;
 
 const breakpointMixin = {
     data() {
@@ -23,9 +22,10 @@ const breakpointMixin = {
     },
     methods: {
         getBreakpointData() {
+            const width = window.innerWidth;
             const breakPointData = {
                 current: null,
-                screenGreaterThen: {
+                greaterOrEqual: {
                     xs: width >= cssBreakpoints.xs,
                     sm: width >= cssBreakpoints.sm,
                     md: width >= cssBreakpoints.md,
@@ -33,7 +33,7 @@ const breakpointMixin = {
                     xl: width >= cssBreakpoints.xl,
                     xxl: width >= cssBreakpoints.xxl,
                 },
-                screenLowerThen: {
+                smallerOrEqual: {
                     xs: width < cssBreakpoints.sm,
                     sm: width < cssBreakpoints.md,
                     md: width < cssBreakpoints.lg,
@@ -42,7 +42,7 @@ const breakpointMixin = {
                     xxl: width < Infinity,
                 },
             };
-            
+
             if (width >= cssBreakpoints.xs && width < cssBreakpoints.sm) {
                 breakPointData.current = 'xs';
             } else if (width >= cssBreakpoints.sm && width < cssBreakpoints.md) {
@@ -59,7 +59,6 @@ const breakpointMixin = {
             return breakPointData;
         },
         updateScreen() {
-            width = window.innerWidth;
             this.breakpoints = this.getBreakpointData();
         },
     },

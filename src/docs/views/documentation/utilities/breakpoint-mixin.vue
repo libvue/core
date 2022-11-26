@@ -5,6 +5,12 @@
     <lv-heading v-space-after="1" :level="6">Install the mixin</lv-heading>
     <lv-code v-space-after="1" lang="javascript" :code="codeInstall" />
 
+    <lv-heading v-space-after="1" :level="6">Example</lv-heading>
+    <lv-paragraph v-space-after="1">
+        Resize the page to see updates.
+    </lv-paragraph>
+    <lv-code v-space-after="1" :code="JSON.stringify(breakpoints, null, 2)"></lv-code>
+
     <lv-heading v-space-after="1" :level="6">Change the breakpoints</lv-heading>
     <lv-paragraph v-space-after="1">
         The breakpoints in this mixin are extracted from the CSS variables.
@@ -18,6 +24,8 @@
 </template>
 
 <script>
+import breakpointMixin from '../../../../lib/mixins/breakpointMixin';
+
 const codeInstall = `
 import { breakpointMixin } from 'libvue';
 
@@ -38,6 +46,7 @@ const codeChange = `
 `.trim();
 
 export default {
+    mixins: [breakpointMixin],
     data() {
         return {
             codeInstall,
