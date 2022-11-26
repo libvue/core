@@ -4,5 +4,6 @@
 @import "fonts";
 @import "geometry";
 @import "timings";
+@import "breakpoints";
 
-$globals: map.merge(map.merge(map.merge($depth, $fonts), $geometry), $timings);
+$globals: map.merge(map.merge(map.merge(map.merge($depth, $fonts), $geometry), $timings), $breakpoints);

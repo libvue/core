@@ -4,7 +4,7 @@
     <lv-card v-space-after="1">
         <lv-grid>
             <lv-grid-row gap="1rem">
-                <lv-grid-column :level="6">
+                <lv-grid-column :width="6">
                     <lv-fieldset label="Username" label-for="input-username" reset-button>
                         <lv-input placeholder="Enter username" id="input-username"/>
                         <template #hint>
@@ -15,7 +15,7 @@
                         </template>
                     </lv-fieldset>
                 </lv-grid-column>
-                <lv-grid-column :level="6">
+                <lv-grid-column :width="6">
                     <lv-fieldset label="Country" label-for="select-country" reset-button>
                         <lv-select id="select-country" />
                         <template #hint>
@@ -37,7 +37,7 @@
 const code = `
 <lv-grid>
     <lv-grid-row gap="1rem">
-        <lv-grid-column :level="6">
+        <lv-grid-column :width="6">
             <lv-fieldset label="Username" label-for="input-username" reset-button>
                 <lv-input placeholder="Enter username" id="input-username"/>
                 <template #hint>
@@ -48,7 +48,7 @@ const code = `
                 </template>
             </lv-fieldset>
         </lv-grid-column>
-        <lv-grid-column :level="6">
+        <lv-grid-column :width="6">
             <lv-fieldset label="Country" label-for="select-country" reset-button>
                 <lv-select id="select-country" />
                 <template #hint>

@@ -17,7 +17,7 @@
 
         <lv-grid v-space-after="4" gap="1.5rem">
             <lv-grid-row gap="1.5rem">
-                <lv-grid-column :level="4">
+                <lv-grid-column :width="4">
                     <lv-link to="/docs/theming">
                         <lv-card class="feature-card">
                             <lv-heading v-space-after="1" :level="5">
@@ -29,7 +29,7 @@
                         </lv-card>
                     </lv-link>
                 </lv-grid-column>
-                <lv-grid-column :level="4">
+                <lv-grid-column :width="4">
                     <lv-link to="/docs/lv-grid">
                         <lv-card class="feature-card">
                             <lv-heading v-space-after="1" :level="5">
@@ -41,7 +41,7 @@
                         </lv-card>
                     </lv-link>
                 </lv-grid-column>
-                <lv-grid-column :level="4">
+                <lv-grid-column :width="4">
                     <lv-link to="/docs/spacing">
                         <lv-card class="feature-card">
                             <lv-heading v-space-after="1" :level="5">

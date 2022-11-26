@@ -4,13 +4,13 @@
     <lv-card v-space-after="1">
         <lv-grid>
             <lv-grid-row gap="1rem">
-                <lv-grid-column :level="4">
+                <lv-grid-column :width="4">
                     <lv-image src="https://picsum.photos/id/56/2880/1920" caption="Picsum Photos #56"/>
                 </lv-grid-column>
-                <lv-grid-column :level="4">
+                <lv-grid-column :width="4">
                     <lv-image src="https://picsum.photos/id/57/2880/1920" rounded caption="Picsum Photos #57" caption-align="left"/>
                 </lv-grid-column>
-                <lv-grid-column :level="4">
+                <lv-grid-column :width="4">
                     <lv-image src="https://picsum.photos/id/58/2880/1920" caption="Picsum Photos #58" caption-align="right"/>
                 </lv-grid-column>
             </lv-grid-row>
@@ -25,13 +25,13 @@
 const code = `
 <lv-grid>
     <lv-grid-row gap="1rem">
-        <lv-grid-column :level="4">
+        <lv-grid-column :width="4">
             <lv-image src="https://picsum.photos/id/56/2880/1920" caption="Picsum Photos #56"/>
         </lv-grid-column>
-        <lv-grid-column :level="4">
+        <lv-grid-column :width="4">
             <lv-image src="https://picsum.photos/id/57/2880/1920" rounded caption="Picsum Photos #57" caption-align="left"/>
         </lv-grid-column>
-        <lv-grid-column :level="4">
+        <lv-grid-column :width="4">
             <lv-image src="https://picsum.photos/id/58/2880/1920" caption="Picsum Photos #58" caption-align="right"/>
         </lv-grid-column>
     </lv-grid-row>

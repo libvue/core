@@ -1,5 +1,5 @@
 <template>
-    <lv-heading v-space-after="0.5" :level="3">navigationMixin</lv-heading>
+    <lv-heading v-space-after="0.5" :level="3">Navigation Mixin</lv-heading>
     <lv-heading v-space-after="2" sub :level="6">Some extra functionality for links</lv-heading>
     <lv-notice v-space-after="1" icon="bell">It depends vue-router so you need to install it as a dependency.</lv-notice>
 
@@ -9,14 +9,20 @@
     </lv-paragraph>
     <lv-code v-space-after="1" lang="javascript" :code="install" />
 
-    <lv-heading v-space-after="1" :level="6">Added Props</lv-heading>
-    <lv-table v-space-after="1" :rows="propsRows" :columns="propsColumns" />
+    <lv-heading v-space-after="1" :level="6">Props</lv-heading>
+    <lv-card v-space-after="1">
+        <lv-table :rows="propsRows" :columns="propsColumns" />
+    </lv-card>
 
-    <lv-heading v-space-after="1" :level="6">Added Methods</lv-heading>
-    <lv-table v-space-after="1" :rows="methodRows" :columns="methodColumns  " />
+    <lv-heading v-space-after="1" :level="6">Methods</lv-heading>
+    <lv-card v-space-after="1">
+        <lv-table :rows="methodRows" :columns="methodColumns" />
+    </lv-card>
 
-    <lv-heading v-space-after="1" :level="6">Added Computed Properties</lv-heading>
-    <lv-table v-space-after="1" :rows="computedRows" :columns="computedColumns" />
+    <lv-heading v-space-after="1" :level="6">Computed Properties</lv-heading>
+    <lv-card v-space-after="1">
+        <lv-table :rows="computedRows" :columns="computedColumns" />
+    </lv-card>
 </template>
 
 <script>
