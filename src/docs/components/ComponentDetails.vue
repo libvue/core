@@ -1,13 +1,13 @@
 <template>
     <div class="component-details">
         <div class="props-table" v-space-after="1" v-if="props">
-            <lv-heading v-space-after="1" :level="5">Props</lv-heading>
+            <lv-heading v-space-after="1" :level="6">{{ title }} Props</lv-heading>
             <lv-card>
                 <lv-table :rows="rowsProps" :columns="columnsProps"></lv-table>
             </lv-card>
         </div>
         <div class="emits-table" v-if="emits">
-            <lv-heading v-space-after="1" :level="5">Emits</lv-heading>
+            <lv-heading v-space-after="1" :level="6">{{ title }} Emits</lv-heading>
             <lv-card>
                 <lv-table :rows="rowsEmits" :columns="columnsEmits" />
             </lv-card>
@@ -20,11 +20,15 @@ export default {
     props: {
         title: {
             type: String,
-            default: 'Props',
+            default: '',
         },
         component: {
             type: String,
-            required: true,
+            default: '',
+        },
+        componentPath: {
+            type: String,
+            default: '',
         },
     },
     data() {
@@ -113,9 +117,16 @@ export default {
     },
     methods: {
         async getComponent() {
-            await import(`../../lib/components/${this.component}/${this.component}.vue`).then((data) => {
-                this.componentData = data.default;
-            });
+            if(this.component) {
+                await import(`../../lib/components/${this.component}/${this.component}.vue`).then((data) => {
+                    this.componentData = data.default;
+                });
+            } else if(this.componentPath) {
+                await import(this.componentPath).then((data) => {
+                    this.componentData = data.default;
+                });
+            }
+
         }
     }
 };

@@ -23,8 +23,10 @@ export default {
 <style lang="scss" scoped>
 .lv-grid-row {
     display: flex;
-    gap: v-bind(gap);
-    //margin-right: calc(v-bind(gap) * -.5);
-    //margin-left: calc(v-bind(gap) * -.5);
+    flex-wrap: wrap;
+    margin-right: calc(v-bind(gap) * -.5);
+    margin-left: calc(v-bind(gap) * -.5);
+    margin-top: calc(v-bind(gap) * -.5);
+    margin-bottom: calc(v-bind(gap) * -.5);
 }
 </style>
