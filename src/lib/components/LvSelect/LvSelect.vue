@@ -6,6 +6,7 @@
         role="combobox"
         :aria-expanded="dropdownVisible"
         aria-haspopup="listbox"
+        @keydown.esc="onEscape"
     >
         <!-- Input -->
         <div
@@ -33,11 +34,13 @@
             </div>
             <!-- Multi value -->
             <div v-else-if="multiple" class="lv-select__value">
-                <span v-if="hasValue" v-for="(entry, index) in value" :key="index" class="lv-select__value-item">
-                    <slot name="value" :values="value" :value="entry">
-                        {{ entry.label }}
-                    </slot>
-                </span>
+                <template v-if="hasValue" >
+                    <span v-for="(entry, index) in value" :key="index" class="lv-select__value-item">
+                        <slot name="value" :values="value" :value="entry">
+                            {{ entry.label }}
+                        </slot>
+                    </span>
+                </template>
                 <input
                     v-else-if="searchable"
                     v-model="search"
@@ -57,7 +60,9 @@
         <!-- Dropdown -->
         <transition name="dropdown">
             <div v-show="dropdownVisible" class="lv-select__dropdown" role="listbox">
-                <slot></slot>
+                <UseFocusTrap v-if="dropdownVisible && mounted" :options="focusTrapOptions">
+                    <slot></slot>
+                </UseFocusTrap>
                 <div v-if="!visibleOptions" class="lv-select__no-options">No options found</div>
             </div>
         </transition>
@@ -65,11 +70,15 @@
 </template>
 
 <script>
+import { UseFocusTrap } from '@vueuse/integrations/useFocusTrap/component';
 import { onClickOutside } from '@vueuse/core';
 import { computed } from 'vue';
 import propSizeMixin from '../../mixins/propSizeMixin';
 
 export default {
+    components: {
+        UseFocusTrap,
+    },
     provide() {
         return {
             value: computed(() => this.value),
@@ -109,6 +118,10 @@ export default {
             type: Boolean,
             default: false,
         },
+        teleportTarget: {
+            type: String,
+            default: 'body',
+        },
     },
     data() {
         return {
@@ -116,9 +129,17 @@ export default {
             focusedOptionIndex: null,
             search: null,
             visibleOptions: null,
+            mounted: false,
         };
     },
     computed: {
+        focusTrapOptions() {
+            return {
+                immediate: true,
+                escapeDeactivates: false,
+                fallbackFocus: document.body,
+            }
+        },
         hasValue() {
             if (this.multiple && this.value.length > 0) {
                 return true;
@@ -154,6 +175,7 @@ export default {
         },
     },
     mounted() {
+        this.mounted = true;
         this.visibleOptions = this.getVisibleOptions();
         onClickOutside(this.$refs.select, () => {
             this.dropdownVisible = false;
@@ -171,6 +193,9 @@ export default {
         onClickSelection() {
             this.dropdownVisible = !this.dropdownVisible;
         },
+        onEscape() {
+            this.dropdownVisible = false;
+        }
     },
 };
 </script>
@@ -206,14 +231,14 @@ export default {
     &__search {
         flex-grow: 1;
         box-sizing: border-box;
+        margin: -1px 0;
         outline: 0;
         border: 0;
         background: transparent;
+        padding: 0;
         color: var(--text-color);
         font-size: inherit;
         line-height: inherit;
-        padding: 0;
-        margin: -1px 0;
         &::placeholder {
             color: var(--placeholder-color);
         }
@@ -224,8 +249,8 @@ export default {
     &__icon {
         position: absolute;
         top: 50%;
-        transform: translateY(-50%);
         right: calc(var(--padding) - 2px);
+        transform: translateY(-50%);
         background-color: var(--background-color);
         color: var(--text-color-dimmed);
     }
@@ -264,9 +289,9 @@ export default {
     &__loading {
         position: absolute;
         top: 50%;
-        margin-top: -.5em;
         right: calc(var(--padding) - 2px);
         animation: rotate-cw 1s infinite linear;
+        margin-top: -0.5em;
         color: var(--text-color-dimmed);
     }
 
