@@ -3,8 +3,6 @@ import LvFileInput from '../../../views/documentation/components/lv-file-input.v
 import LvTextEditor from '../../../views/documentation/components/lv-text-editor.vue';
 import LvFieldset from '../../../views/documentation/components/lv-fieldset.vue';
 import LvBadge from '../../../views/documentation/components/lv-badge.vue';
-import LvAdvertPwa from '../../../views/documentation/components/lv-advert-pwa.vue';
-import LvAdvertApp from '../../../views/documentation/components/lv-advert-app.vue';
 import LvFileTree from '../../../views/documentation/components/lv-file-tree.vue';
 import LvProgress from '../../../views/documentation/components/lv-progress.vue';
 import LvFragmentLink from '../../../views/documentation/components/lv-fragment-link.vue';
@@ -87,16 +85,6 @@ export default [
         path: '/docs/lv-badge',
         name: 'lv-badge',
         component: LvBadge,
-    },
-    {
-        path: '/docs/lv-advert-pwa',
-        name: 'lv-advert-pwa',
-        component: LvAdvertPwa,
-    },
-    {
-        path: '/docs/lv-advert-app',
-        name: 'lv-advert-app',
-        component: LvAdvertApp,
     },
     {
         path: '/docs/lv-file-tree',
