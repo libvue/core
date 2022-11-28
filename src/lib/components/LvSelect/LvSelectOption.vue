@@ -7,7 +7,7 @@
         @click="onClickOption"
         @keydown.space.enter.prevent="onClickOption"
     >
-        <lv-checkbox v-if="multiple" :model-value="isSelected" class="lv-select-option__checkbox" />
+        <lv-checkbox tabindex="-1" v-if="multiple" :model-value="isSelected" class="lv-select-option__checkbox" />
         <slot></slot>
     </div>
 </template>
