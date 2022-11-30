@@ -60,9 +60,7 @@
         <!-- Dropdown -->
         <transition name="dropdown">
             <div v-show="dropdownVisible" class="lv-select__dropdown" role="listbox">
-                <UseFocusTrap v-if="dropdownVisible && mounted" :options="focusTrapOptions">
-                    <slot></slot>
-                </UseFocusTrap>
+                <slot></slot>
                 <div v-if="!visibleOptions" class="lv-select__no-options">No options found</div>
             </div>
         </transition>
@@ -70,20 +68,17 @@
 </template>
 
 <script>
-import { UseFocusTrap } from '@vueuse/integrations/useFocusTrap/component';
 import { onClickOutside } from '@vueuse/core';
 import { computed } from 'vue';
 import propSizeMixin from '../../mixins/propSizeMixin';
 
 export default {
-    components: {
-        UseFocusTrap,
-    },
     provide() {
         return {
             value: computed(() => this.value),
             multiple: computed(() => this.multiple),
             searchable: computed(() => this.searchable),
+            clearable: computed(() => this.clearable),
             searchValue: computed(() => this.search),
             visibleOptions: computed(() => this.visibleOptions),
         };

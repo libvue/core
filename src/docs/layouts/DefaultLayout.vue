@@ -106,6 +106,7 @@
                     <lv-vertical-nav-item to="/docs/lv-input" label="Input" />
                     <lv-vertical-nav-item to="/docs/lv-checkbox" label="Checkbox" />
                     <lv-vertical-nav-item label="Radio" to="/docs/lv-radio" />
+                    <lv-vertical-nav-item label="Date Picker" to="/docs/lv-date-picker" />
                     <lv-vertical-nav-item label="File Input" to="/docs/lv-file-input" />
                     <lv-vertical-nav-item label="Slider" to="/docs/lv-slider" />
                     <lv-vertical-nav-item label="Range Slider" to="/docs/lv-range-slider" />

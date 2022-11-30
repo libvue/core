@@ -1,3 +1,4 @@
+import LvDatePicker from '../../../views/documentation/components/lv-date-picker.vue';
 import LvButtonGroup from '../../../views/documentation/components/lv-button-group.vue';
 import LvFileInput from '../../../views/documentation/components/lv-file-input.vue';
 import LvTextEditor from '../../../views/documentation/components/lv-text-editor.vue';
@@ -56,6 +57,11 @@ import LvHeader from '../../../views/documentation/components/lv-header.vue';
 import LvGrid from '../../../views/documentation/components/lv-grid.vue';
 
 export default [
+    {
+        path: '/docs/lv-date-picker',
+        name: 'lv-date-picker',
+        component: LvDatePicker,
+    },
     {
         path: '/docs/lv-button-group',
         name: 'lv-button-group',

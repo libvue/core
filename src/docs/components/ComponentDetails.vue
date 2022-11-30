@@ -49,11 +49,21 @@ export default {
             }
             const rowsProps = [];
             Object.entries(this.props).forEach(([key, value]) => {
+
+                let def = '';
+
+                if(typeof value.default === 'function') {
+                    def = value.default;
+                } else if(typeof value.default !== 'undefined') {
+                    def = JSON.stringify(value.default)
+                } else {
+                    def = '-'
+                }
+
                 rowsProps.push({
                     name: key,
                     type: value.type ? value.type.name : '-',
-                    default: typeof value.default !== 'undefined' ? JSON.stringify(value.default) : '-',
-                    // make default factories work
+                    default: def,
                     validator: value.validator ? value.validator : '-',
                     required: value.required ? value.required : '-',
                 })

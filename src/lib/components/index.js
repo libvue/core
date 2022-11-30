@@ -1,5 +1,6 @@
 import { defineAsyncComponent } from 'vue';
 
+const LvDatePicker = defineAsyncComponent(() => import('./LvDatePicker/LvDatePicker.vue'));
 const LvButtonGroup = defineAsyncComponent(() => import('./LvButtonGroup/LvButtonGroup.vue'));
 const LvFileInput = defineAsyncComponent(() => import('./LvFileInput/LvFileInput.vue'));
 const LvTextEditor = defineAsyncComponent(() => import('./LvTextEditor/LvTextEditor.vue'));
@@ -69,6 +70,7 @@ const LvToasts = defineAsyncComponent(() => import('./LvToasts/LvToasts.vue'));
 const LvWidget = defineAsyncComponent(() => import('./LvWidget/LvWidget.vue'));
 
 export default {
+    LvDatePicker,
     LvButtonGroup,
     LvFileInput,
     LvTextEditor,
