@@ -1,66 +1,86 @@
 <template>
-    <div class="lv-date-picker">
-        <lv-card class="lv-date-picker__dropdown" inline>
-            <!-- Top Navigation -->
-            <div class="lv-date-picker__navigation">
-                <lv-button class="lv-date-picker__prev-month" icon="arrow-left" color="ghost-default" />
-                <lv-select class="lv-date-picker__month-select" :value="monthSelectModel" :clearable="false">
-                    <lv-select-option
-                        v-for="(month, index) in monthSelectOptions"
-                        :key="index"
-                        :option="month"
-                        @click="onChangeMonth"
-                    >
-                        {{ month.label }}
-                    </lv-select-option>
-                </lv-select>
-                <lv-select class="lv-date-picker__month-select" :value="yearSelectModel" :clearable="false">
-                    <lv-select-option
-                        v-for="(year, index) in yearSelectOptions"
-                        :key="index"
-                        :option="year"
-                        @click="onChangeYear"
-                    >
-                        {{ year.label }}
-                    </lv-select-option>
-                </lv-select>
-                <lv-button class="lv-date-picker__next-month" icon="arrow-right" color="ghost-default" />
-            </div>
-            <div class="lv-date-picker__content">
-                <!-- Day of Week days -->
-                <div class="lv-date-picker__dow-days">
-                    <div class="lv-date-picker__dow-day">Su</div>
-                    <div class="lv-date-picker__dow-day">Sa</div>
-                    <div class="lv-date-picker__dow-day">Mo</div>
-                    <div class="lv-date-picker__dow-day">Tu</div>
-                    <div class="lv-date-picker__dow-day">We</div>
-                    <div class="lv-date-picker__dow-day">Th</div>
-                    <div class="lv-date-picker__dow-day">Fr</div>
+    <div ref="datepicker" class="lv-date-picker" :class="classObject">
+        <lv-input
+            class="lv-date-picker__input"
+            :icon="range ? 'calendar-range' : 'calendar-days'"
+            :model-value="inputModelValue"
+            :placeholder="range ? 'Pick a date range' : 'Pick a date'"
+            @focus="onFocusInput"
+        ></lv-input>
+        <transition name="dropdown">
+            <lv-card v-if="dropdownVisible || inline" class="lv-date-picker__dropdown">
+                <!-- Top Navigation -->
+                <div class="lv-date-picker__navigation">
+                    <lv-button
+                        class="lv-date-picker__prev-month"
+                        icon="arrow-left"
+                        color="ghost-default"
+                        @click="onClickPrevMonth"
+                    />
+                    <lv-select class="lv-date-picker__month-select" :value="monthSelectModel" :clearable="false">
+                        <lv-select-option
+                            v-for="(month, index) in monthSelectOptions"
+                            :key="index"
+                            :option="month"
+                            @click="onChangeMonth"
+                        >
+                            {{ month.label }}
+                        </lv-select-option>
+                    </lv-select>
+                    <lv-select class="lv-date-picker__month-select" :value="yearSelectModel" :clearable="false">
+                        <lv-select-option
+                            v-for="(year, index) in yearSelectOptions"
+                            :key="index"
+                            :option="year"
+                            @click="onChangeYear"
+                        >
+                            {{ year.label }}
+                        </lv-select-option>
+                    </lv-select>
+                    <lv-button
+                        class="lv-date-picker__next-month"
+                        icon="arrow-right"
+                        color="ghost-default"
+                        @click="onClickNextMonth"
+                    />
                 </div>
-                <!-- Day of Month days -->
-                <div class="lv-date-picker__dom-days">
-                    <div
-                        v-for="(day, index) in selectedMonthDays"
-                        :key="index"
-                        class="lv-date-picker__dom-day"
-                        :class="{
-                            'lv-date-picker__dom-day--dimmed': day.isDimmed,
-                            'lv-date-picker__dom-day--today': day.isToday,
-                            'lv-date-picker__dom-day--start-date': day.isStartDate,
-                            'lv-date-picker__dom-day--end-date': day.isEndDate,
-                            'lv-date-picker__dom-day--in-range': day.isInRange,
-                        }"
-                        @click="onClickDomDay(day)"
-                    >
-                        {{ day.day }}
+                <div class="lv-date-picker__content">
+                    <!-- Day of Week days -->
+                    <div class="lv-date-picker__dow-days">
+                        <div class="lv-date-picker__dow-day">Su</div>
+                        <div class="lv-date-picker__dow-day">Sa</div>
+                        <div class="lv-date-picker__dow-day">Mo</div>
+                        <div class="lv-date-picker__dow-day">Tu</div>
+                        <div class="lv-date-picker__dow-day">We</div>
+                        <div class="lv-date-picker__dow-day">Th</div>
+                        <div class="lv-date-picker__dow-day">Fr</div>
+                    </div>
+                    <!-- Day of Month days -->
+                    <div class="lv-date-picker__dom-days">
+                        <div
+                            v-for="(day, index) in selectedMonthDays"
+                            :key="index"
+                            class="lv-date-picker__dom-day"
+                            :class="{
+                                'lv-date-picker__dom-day--dimmed': day.isDimmed,
+                                'lv-date-picker__dom-day--today': day.isToday,
+                                'lv-date-picker__dom-day--start-date': day.isStartDate,
+                                'lv-date-picker__dom-day--end-date': day.isEndDate,
+                                'lv-date-picker__dom-day--in-range': day.isInRange,
+                            }"
+                            @click="onClickDomDay(day)"
+                        >
+                            {{ day.day }}
+                        </div>
                     </div>
                 </div>
-            </div>
-        </lv-card>
+            </lv-card>
+        </transition>
     </div>
 </template>
 
 <script>
+import { onClickOutside } from '@vueuse/core';
 import {
     format,
     addDays,
@@ -102,10 +122,19 @@ export default {
             type: Object,
             default: () => ({ from: 2000, to: 2030 }),
         },
+        clearable: {
+            type: Boolean,
+            default: false,
+        },
+        inline: {
+            type: Boolean,
+            default: false,
+        },
     },
     emits: ['update:start', 'update:end'],
     data() {
         return {
+            dropdownVisible: false,
             monthSelectModel: {},
             yearSelectModel: {},
             monthSelectOptions: [
@@ -125,6 +154,17 @@ export default {
         };
     },
     computed: {
+        classObject() {
+            return {
+                'lv-date-picker--inline': this.inline,
+            };
+        },
+        inputModelValue() {
+            if (this.range) {
+                return `${this.start || '...'} → ${this.end || '...'}`;
+            }
+            return `${this.start || '...'}`;
+        },
         startDate() {
             return this.start ? parse(this.start, this.ioFormat, new Date()) : null;
         },
@@ -209,7 +249,12 @@ export default {
                         date,
                         isStartDate: isEqual(date, this.startDate),
                         isEndDate: this.range && isEqual(date, this.endDate),
-                        isInRange: this.range && this.startDate && this.endDate && isAfter(date, this.startDate) && isBefore(date, this.endDate),
+                        isInRange:
+                            this.range &&
+                            this.startDate &&
+                            this.endDate &&
+                            isAfter(date, this.startDate) &&
+                            isBefore(date, this.endDate),
                         isDimmed: true,
                         isToday: isToday(date),
                     });
@@ -224,7 +269,12 @@ export default {
                     date,
                     isStartDate: isEqual(date, this.startDate),
                     isEndDate: this.range && isEqual(date, this.endDate),
-                    isInRange: this.range && !!this.startDate && !!this.endDate && isAfter(date, this.startDate) && isBefore(date, this.endDate),
+                    isInRange:
+                        this.range &&
+                        !!this.startDate &&
+                        !!this.endDate &&
+                        isAfter(date, this.startDate) &&
+                        isBefore(date, this.endDate),
                     isDimmed: this.range && this.startDate && isBefore(date, this.startDate),
                     isToday: isToday(date),
                 });
@@ -240,7 +290,12 @@ export default {
                         date,
                         isStartDate: isEqual(date, this.startDate),
                         isEndDate: this.range && isEqual(date, this.endDate),
-                        isInRange: this.range && this.startDate && this.endDate && isAfter(date, this.startDate) && isBefore(date, this.endDate),
+                        isInRange:
+                            this.range &&
+                            this.startDate &&
+                            this.endDate &&
+                            isAfter(date, this.startDate) &&
+                            isBefore(date, this.endDate),
                         isDimmed: true,
                         isToday: isToday(date),
                     });
@@ -265,6 +320,10 @@ export default {
     mounted() {
         this.setMonthSelectToStartDate();
         this.setYearSelectToStartDate();
+
+        onClickOutside(this.$refs.datepicker, () => {
+            this.dropdownVisible = false;
+        });
     },
     methods: {
         onChangeMonth(value) {
@@ -297,28 +356,59 @@ export default {
             // If not in range mode, simply emit the update:start
             if (!this.range) {
                 this.$emit('update:start', format(day.date, this.ioFormat));
+            } else if (this.startDate && isEqual(this.startDate, day.date)) {
+                this.$emit('update:start', null);
+                this.$emit('update:end', null);
+            } else if (!this.startDate || (this.startDate && isBefore(day.date, this.startDate))) {
+                this.$emit('update:start', format(day.date, this.ioFormat));
             } else {
-                if (this.startDate && isEqual(this.startDate, day.date)) {
-                    console.log('A');
-                    this.$emit('update:start', null);
-                    this.$emit('update:end', null);
-                } else if (!this.startDate || (this.startDate && isBefore(day.date, this.startDate))) {
-                    console.log('B');
-                    this.$emit('update:start', format(day.date, this.ioFormat));
-                } else {
-                    console.log('C');
-                    this.$emit('update:end', format(day.date, this.ioFormat));
-                }
+                this.$emit('update:end', format(day.date, this.ioFormat));
             }
+        },
+        onClickPrevMonth() {
+            // Get current value of monthSelect, add one
+            const currentMonth = this.monthSelectModel.value;
+            const currentYear = this.yearSelectModel.value;
+            // Check if december, then go to january and add a year
+            if (currentMonth === 0) {
+                this.yearSelectModel = this.yearSelectOptions.find((i) => i.value === currentYear - 1);
+                this.monthSelectModel = this.monthSelectOptions.find((i) => i.value === 11);
+            } else {
+                this.monthSelectModel = this.monthSelectOptions.find((i) => i.value === currentMonth - 1);
+            }
+        },
+        onClickNextMonth() {
+            // Get current value of monthSelect, add one
+            const currentMonth = this.monthSelectModel.value;
+            const currentYear = this.yearSelectModel.value;
+            // Check if december, then go to january and add a year
+            if (currentMonth === 11) {
+                this.yearSelectModel = this.yearSelectOptions.find((i) => i.value === currentYear + 1);
+                this.monthSelectModel = this.monthSelectOptions.find((i) => i.value === 0);
+            } else {
+                this.monthSelectModel = this.monthSelectOptions.find((i) => i.value === currentMonth + 1);
+            }
+        },
+        onFocusInput() {
+            this.dropdownVisible = true;
         },
     },
 };
 </script>
 
 <style lang="scss">
+@import '../../scss/animations/animations';
+
 .lv-date-picker {
+    $self: &;
+    position: relative;
+
     &__dropdown {
-        min-width: 350px;
+        position: absolute;
+        z-index: var(--z-index-dropdown);
+        margin-top: calc(var(--padding) * 0.5);
+        width: 100%;
+        max-width: 350px;
     }
     &__navigation {
         display: flex;
@@ -337,6 +427,7 @@ export default {
         width: 100%;
     }
     &__dow-day {
+        box-sizing: border-box;
         border-radius: 3px;
         padding: 0.5rem;
         text-align: center;
@@ -350,15 +441,16 @@ export default {
     }
     &__dom-day {
         position: relative;
+        transition: var(--transition-time) all;
         cursor: pointer;
+        box-sizing: border-box;
         border-radius: 3px;
         padding: 0.5rem;
         text-align: center;
-        transition: var(--transition-time) all;
 
         &:hover:not(&--start-date):not(&--end-date) {
-            background-color: var(--border-color-light);
             transform: scale(1.2);
+            background-color: var(--border-color-light);
         }
 
         &--dimmed {
@@ -395,6 +487,20 @@ export default {
 
         &--in-range {
             background-color: var(--color-primary-dimmed);
+        }
+    }
+
+    &--inline {
+        #{$self}__input {
+            display: none;
+        }
+        #{$self}__dropdown {
+            position: relative;
+            margin-top: 0;
+            padding: 0;
+            border: 0;
+            box-shadow: none;
+            max-width: inherit;
         }
     }
 }

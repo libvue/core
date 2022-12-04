@@ -21,11 +21,11 @@ import propSizeMixin from '../../mixins/propSizeMixin';
 import LvIcon from '../LvIcon/LvIcon.vue';
 
 export default {
-    inheritAttrs: false,
-    mixins: [propSizeMixin()],
     components: {
         LvIcon,
     },
+    mixins: [propSizeMixin()],
+    inheritAttrs: false,
     props: {
         modelValue: {
             type: [String, Number],
@@ -76,6 +76,7 @@ export default {
                 'lv-input--readonly': this.readonly,
                 'lv-input--disabled': this.disabled || this.loading,
                 'lv-input--loading': this.loading,
+                [this.$attrs.class]: !!this.$attrs.class,
             };
         },
     },
@@ -105,8 +106,8 @@ export default {
     &__icon {
         position: absolute;
         top: 50%;
-        transform: translateY(-50%);
         left: calc(var(--padding) - 2px);
+        transform: translateY(-50%);
         color: var(--text-color);
     }
 
@@ -115,12 +116,12 @@ export default {
         border: 1px solid var(--border-color);
         border-radius: var(--border-radius);
         background-color: var(--background-color);
+        padding: calc(var(--padding) * 0.75);
+        width: 100%;
         color: var(--text-color);
         font-size: var(--font-size);
-        padding: calc(var(--padding) * 0.75);
         line-height: var(--font-size);
         font-family: var(--font-family);
-        width: 100%;
 
         &::placeholder {
             color: var(--placeholder-color);
@@ -136,9 +137,9 @@ export default {
     &__loading {
         position: absolute;
         top: 50%;
-        margin-top: -.5em;
         right: calc(var(--padding) - 2px);
         animation: rotate-cw 1s infinite linear;
+        margin-top: -0.5em;
         background-color: var(--border-color-light);
         color: var(--text-color-dimmed);
     }
