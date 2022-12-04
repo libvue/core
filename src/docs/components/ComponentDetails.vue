@@ -132,7 +132,7 @@ export default {
                     this.componentData = data.default;
                 });
             } else if(this.componentPath) {
-                await import(this.componentPath).then((data) => {
+                await import(`./../lib/${this.componentPath}.vue`).then((data) => {
                     this.componentData = data.default;
                 });
             }
