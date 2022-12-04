@@ -1,6 +1,6 @@
 {
     "name": "@libvue/core",
-    "version": "0.0.28",
+    "version": "0.0.29",
     "private": false,
     "scripts": {
         "dev": "vite",
@@ -16,6 +16,7 @@
         "@vueuse/core": "^9.3.0",
         "@vueuse/integrations": "^9.3.1",
         "chart.js": "^3.9.1",
+        "date-fns": "^2.29.3",
         "embla-carousel": "^7.0.5",
         "focus-trap": "^7.0.0",
         "lucide-static": "^0.90.0",

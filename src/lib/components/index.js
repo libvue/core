@@ -1,12 +1,11 @@
 import { defineAsyncComponent } from 'vue';
 
+const LvDatePicker = defineAsyncComponent(() => import('./LvDatePicker/LvDatePicker.vue'));
 const LvButtonGroup = defineAsyncComponent(() => import('./LvButtonGroup/LvButtonGroup.vue'));
 const LvFileInput = defineAsyncComponent(() => import('./LvFileInput/LvFileInput.vue'));
 const LvTextEditor = defineAsyncComponent(() => import('./LvTextEditor/LvTextEditor.vue'));
 const LvFieldset = defineAsyncComponent(() => import('./LvFieldset/LvFieldset.vue'));
 const LvBadge = defineAsyncComponent(() => import('./LvBadge/LvBadge.vue'));
-const LvAdvertPwa = defineAsyncComponent(() => import('./LvAdvertPwa/LvAdvertPwa.vue'));
-const LvAdvertApp = defineAsyncComponent(() => import('./LvAdvertApp/LvAdvertApp.vue'));
 const LvFileTree = defineAsyncComponent(() => import('./LvFileTree/LvFileTree.vue'));
 const LvProgress = defineAsyncComponent(() => import('./LvProgress/LvProgress.vue'));
 const LvFragmentLink = defineAsyncComponent(() => import('./LvFragmentLink/LvFragmentLink.vue'));
@@ -71,13 +70,12 @@ const LvToasts = defineAsyncComponent(() => import('./LvToasts/LvToasts.vue'));
 const LvWidget = defineAsyncComponent(() => import('./LvWidget/LvWidget.vue'));
 
 export default {
+    LvDatePicker,
     LvButtonGroup,
     LvFileInput,
     LvTextEditor,
     LvFieldset,
     LvBadge,
-    LvAdvertPwa,
-    LvAdvertApp,
     LvFileTree,
     LvProgress,
     LvFragmentLink,

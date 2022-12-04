@@ -7,14 +7,14 @@
         @click="onClickOption"
         @keydown.space.enter.prevent="onClickOption"
     >
-        <lv-checkbox v-if="multiple" :model-value="isSelected" class="lv-select-option__checkbox" />
+        <lv-checkbox tabindex="-1" v-if="multiple" :model-value="isSelected" class="lv-select-option__checkbox" />
         <slot></slot>
     </div>
 </template>
 
 <script>
 export default {
-    inject: ['value', 'multiple', 'searchable', 'searchValue'],
+    inject: ['value', 'multiple', 'searchable', 'searchValue', 'clearable'],
     props: {
         option: {
             type: Object,
@@ -60,7 +60,7 @@ export default {
                 } else {
                     this.$emit('click', [...this.value, this.option]);
                 }
-            } else if (this.isSelected) {
+            } else if (this.isSelected && this.clearable) {
                 this.$emit('click', null);
             } else {
                 this.$emit('click', this.option);

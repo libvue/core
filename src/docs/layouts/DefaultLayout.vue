@@ -70,16 +70,6 @@
                     <lv-vertical-nav-item label="Flex" to="/docs/lv-flex" />
                     <lv-vertical-nav-item label="Theme Toggle" to="/docs/lv-theme-toggle" />
                     <lv-vertical-nav-item label="Card" to="/docs/lv-card" />
-                    <lv-vertical-nav-item to="/docs/lv-advert-app" disabled>
-                        <lv-flex gap=".25rem">
-                            Advert App <lv-badge text="Planned" size="tiny" color="solid-dimmed-primary" />
-                        </lv-flex>
-                    </lv-vertical-nav-item>
-                    <lv-vertical-nav-item to="/docs/lv-advert-pwa" disabled>
-                        <lv-flex gap=".25rem">
-                            Advert PWA <lv-badge text="Planned" size="tiny" color="solid-dimmed-primary" />
-                        </lv-flex>
-                    </lv-vertical-nav-item>
                     <lv-vertical-nav-item label="Loading Dots" to="/docs/lv-loading-dots" />
                     <lv-vertical-nav-item label="Spinner" to="/docs/lv-spinner" />
                 </lv-vertical-nav-list>
@@ -116,6 +106,7 @@
                     <lv-vertical-nav-item to="/docs/lv-input" label="Input" />
                     <lv-vertical-nav-item to="/docs/lv-checkbox" label="Checkbox" />
                     <lv-vertical-nav-item label="Radio" to="/docs/lv-radio" />
+                    <lv-vertical-nav-item label="Date Picker" to="/docs/lv-date-picker" />
                     <lv-vertical-nav-item label="File Input" to="/docs/lv-file-input" />
                     <lv-vertical-nav-item label="Slider" to="/docs/lv-slider" />
                     <lv-vertical-nav-item label="Range Slider" to="/docs/lv-range-slider" />

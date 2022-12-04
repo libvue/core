@@ -35,13 +35,13 @@
     <component-details
         v-space-after="1"
         title="Grid Row"
-        component-path="../../lib/components/LvGrid/LvGridRow.vue"
+        component-path="LvGrid/LvGridRow"
     ></component-details>
 
     <component-details
         v-space-after="1"
         title="Grid Column"
-        component-path="../../lib/components/LvGrid/LvGridColumn.vue"
+        component-path="LvGrid/LvGridColumn"
     ></component-details>
 </template>
 

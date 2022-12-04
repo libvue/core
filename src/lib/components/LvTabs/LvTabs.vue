@@ -9,7 +9,7 @@
                 :class="{ 'lv-tabs__button--active': tab.id === active, 'lv-tabs__button--disabled': !!tab.disabled }"
                 role="tab"
                 @click.stop="onClickButton(tab)"
-                @keydown.enter.space="onKeyDown(tab)"
+                @keydown.enter.space="onKeyDown(tab, $event)"
             >
                 <lv-icon v-if="tab.icon" class="lv-tabs__button-icon" :name="tab.icon" />
                 {{ tab.title }}
@@ -42,7 +42,8 @@ export default {
                 this.$emit('change-tab', tab.id);
             }
         },
-        onKeyDown(tab) {
+        onKeyDown(tab, event) {
+            event.preventDefault();
             if (!tab.disabled) {
                 this.$emit('change-tab', tab.id);
             }
@@ -65,7 +66,6 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        transition: 0.2s all;
         cursor: pointer;
         outline: 0;
         border-bottom: 2px solid transparent;
@@ -77,8 +77,10 @@ export default {
         user-select: none;
         text-align: center;
         white-space: nowrap;
+
+        &:hover:not(&--active),
         &:focus:not(&--active) {
-            border-color: var(--color-primary-dimmed);
+            border-color: var(--text-color);
         }
 
         &--active {
