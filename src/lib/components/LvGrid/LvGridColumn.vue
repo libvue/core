@@ -61,6 +61,8 @@ export default {
                 [`lv-grid-column--xs-${this.xs}`]: this.xs && this.breakpoints.smallerOrEqual.xs,
                 [`lv-grid-column--sm-${this.sm}`]: this.sm && this.breakpoints.smallerOrEqual.sm,
                 [`lv-grid-column--md-${this.md}`]: this.md && this.breakpoints.smallerOrEqual.md,
+                [`lv-grid-column--lg-${this.lg}`]: this.lg && this.breakpoints.smallerOrEqual.lg,
+                [`lv-grid-column--xl-${this.xl}`]: this.xl && this.breakpoints.smallerOrEqual.xl,
             };
         },
     },

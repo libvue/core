@@ -399,6 +399,9 @@ export default {
             }
             tr {
                 border-top: 1px solid var(--border-color-light);
+                &:first-of-type {
+                  border-top:none;
+                }
                 td {
                     padding: 0.75rem ;
                 }
