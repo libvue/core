@@ -1,6 +1,6 @@
 {
     "name": "@libvue/core",
-    "version": "0.0.31",
+    "version": "0.0.32",
     "private": false,
     "scripts": {
         "dev": "vite",
@@ -23,6 +23,7 @@
         "prismjs": "^1.29.0",
         "tiny-emitter": "^2.1.0",
         "tippy.js": "^6.3.7",
+        "tippy.vue": "^3.2.1",
         "uuid": "^9.0.0",
         "vue": "^3.2.39"
     },
