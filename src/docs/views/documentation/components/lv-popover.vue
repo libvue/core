@@ -24,7 +24,7 @@
                     <lv-heading v-space-after="1" level="5">Do some stuff</lv-heading>
                     <lv-flex direction="column">
                         <lv-switch label="Enable something"/>
-                        <lv-button label="Or don't" color="solid-dimmed-primary"/>
+                        <lv-button label="Create console.log" color="solid-dimmed-primary" @click="onClick"/>
                     </lv-flex>
                 </template>
             </lv-popover>
@@ -68,6 +68,11 @@ export default {
     data() {
         return {
             code,
+        }
+    },
+    methods: {
+        onClick() {
+            console.log('YAYYY');
         }
     }
 }

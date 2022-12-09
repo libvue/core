@@ -1,20 +1,18 @@
 <template>
-    <div ref="popover" class="lv-popover" role="dialog" :class="classObject">
-        <div ref="reference" class="lv-popover__reference">
-            <slot name="reference"></slot>
-        </div>
-        <transition name="fade">
-            <div ref="tooltip" style="display: none" class="lv-popover__tooltip">
-                <div class="lv-popover__content" :style="`padding: ${padding}`">
-                    <slot name="content"></slot>
-                </div>
+    <div class="lv-popover">
+        <slot name="reference"></slot>
+        <tippy target="_parent" :interactive="interactive" :placement="placement" :trigger="trigger" :visible="visible">
+            <div class="lv-popover__content" :style="`padding: ${padding}`">
+                <slot name="content"></slot>
             </div>
-        </transition>
+        </tippy>
     </div>
 </template>
 
 <script>
-import tippy, { followCursor } from 'tippy.js';
+import { Tippy } from "tippy.vue";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import tippy from 'tippy.js';
 import 'tippy.js/dist/svg-arrow.css';
 import 'tippy.js/animations/shift-toward-subtle.css';
 
@@ -26,14 +24,13 @@ const svgArrow = `
 `.trim();
 
 export default {
+    components: {
+        Tippy,
+    },
     props: {
         trigger: {
             type: String,
             default: 'mouseenter',
-        },
-        triggerTarget: {
-            type: Object,
-            default: null,
         },
         placement: {
             type: String,
@@ -50,7 +47,7 @@ export default {
         },
         padding: {
             type: String,
-            default: '1rem'
+            default: '1rem',
         },
         show: {
             type: Boolean,
@@ -60,75 +57,23 @@ export default {
             type: Boolean,
             default: false,
         },
-        followCursor: {
-            type: Boolean,
-            default: false,
-        }
-    },
-    computed: {
-        classObject() {
-            return {
-                [`lv-popover--placement-${this.placement}`]: true,
-            };
-        },
-    },
-    data() {
-        return {
-            instance: null,
-            contentChangeObserver: null,
-        }
-    },
-    watch: {
-        show: {
-            handler(val) {
-                if(this.trigger === 'manual' && this.instance) {
-                    if(val) {
-                        this.instance.show();
-                    } else {
-                        this.instance.hide();
-                    }
-                }
-            },
-            immediate: true,
-        }
     },
     mounted() {
-        this.createTooltip();
-
-        // Create the observer (and what to do on changes...)
-        this.contentChangeObserver = new MutationObserver(() => {
-            this.instance.setContent(this.$refs.tooltip.innerHTML)
-        });
-
-        // Set up the observer
-        this.contentChangeObserver.observe(
-            this.$refs.tooltip,
-            { attributes: true, childList: true, characterData: true, subtree: true }
-        );
-    },
-    beforeUnmount() {
-        this.contentChangeObserver.disconnect();
+        this.setDefaultProps();
     },
     methods: {
-        createTooltip() {
-            this.instance = tippy(this.$refs.reference, {
-                triggerTarget: this.triggerTarget,
-                trigger: this.trigger,
-                interactive: this.interactive,
-                theme: 'libvue',
+        setDefaultProps() {
+            tippy.setDefaultProps({
                 arrow: this.showArrow ? svgArrow : false,
-                allowHTML: true,
-                plugins: [followCursor],
-                content: this.$refs.tooltip.innerHTML,
-                placement: this.placement,
-                followCursor: this.followCursor,
+                theme: 'libvue',
                 animation: 'shift-toward-subtle',
                 duration: 100,
             });
-        },
-    },
+        }
+    }
 };
 </script>
+
 
 <style lang="scss">
 @import '../../scss/transitions/fade';
@@ -139,12 +84,7 @@ export default {
     display: flex;
     height: 100%;
 
-    &__reference {
-        display: inline;
-        width: 100%;
-        height: 100%;
-    }
-    &__tooltip {
+    &__content {
         position: relative;
         z-index: var(--z-index-dropdown);
         transition: 0.2s opacity ease;
