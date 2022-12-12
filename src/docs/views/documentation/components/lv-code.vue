@@ -12,23 +12,32 @@
     <lv-card v-space-after="1">
         <lv-code :files="files" :active="activeFile" @change-file="(v) => activeFile = v"/>
     </lv-card>
-    <lv-code v-space-after="1" :code="codeWithTitle" lang="html" />
+
     <component-details component="LvCode"></component-details>
 </template>
 
 <script>
 const code = `<lv-code code="Hello World" lang="html" />`.trim();
-const codeWithTitle = `<lv-code code="console.log('Sup!')" lang="javascript" />`.trim();
+const codeFilesScript = `
+activeFile: 'template',
+files: [
+    { id: 'template', filename: 'template', lang: 'html', code: codeFilesTemplate },
+    { id: 'script', filename: 'script', lang: 'js', code: codeFilesScript },
+]
+`.trim();
+
+const codeFilesTemplate = `
+<lv-code :files="files" :active="activeFile" @change-file="(v) => activeFile = v"/>
+`.trim();
 
 export default {
     data() {
         return {
             code,
-            codeWithTitle,
-            activeFile: 'app',
+            activeFile: 'template',
             files: [
-                { id: 'app', filename: 'app.js', lang: 'js', code: 'app.start()' },
-                { id: 'css', filename: 'app.css', lang: 'css', code: '* { color: red }' },
+                { id: 'template', filename: 'template', lang: 'html', code: codeFilesTemplate },
+                { id: 'script', filename: 'script', lang: 'js', code: codeFilesScript },
             ]
         };
     },
