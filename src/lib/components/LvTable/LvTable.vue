@@ -13,7 +13,10 @@
                         class="lv-table__cell"
                         :class="getCellModifiers(column)"
                     >
-                        {{ typeof column.title !== 'undefined' ? column.title : columnKey }}
+                        <div class="lv-table__cell-container">
+                            {{ typeof column.title !== 'undefined' ? column.title : columnKey }}
+                            <lv-icon class="lv-table__sort-icon" name="chevron-down"/>
+                        </div>
                     </th>
                 </tr>
             </thead>
@@ -222,6 +225,10 @@ export default {
         rowAction: {
             type: Function,
             default: null,
+        },
+        sortModel: {
+            type: String,
+            default: null,
         }
     },
     computed: {
@@ -346,6 +353,9 @@ export default {
             if (column.italic) {
                 classes.push('lv-table__cell--italic');
             }
+            if (column.sortable) {
+                classes.push('lv-table__cell--sortable')
+            }
             return classes;
         },
         onClickRow(rowIndex) {
@@ -377,6 +387,10 @@ export default {
         align-items: center;
         justify-content: center;
         background-color: var(--backdrop-color-inverted);
+    }
+    &__sort-icon {
+        display: none !important;
+        margin-left: .25rem;
     }
     &__table {
         border-collapse: collapse;
@@ -438,6 +452,8 @@ export default {
         }
     }
     &__cell {
+        $cell: &;
+
         text-align: left;
         &--align-right {
             text-align: right;
@@ -447,6 +463,7 @@ export default {
         }
         &--fit-content {
             width: 0;
+            padding: 0 !important;
         }
         &--no-data {
             opacity: 0.5;
@@ -456,6 +473,17 @@ export default {
         }
         &--italic {
             font-style: italic;
+        }
+
+        &--sortable {
+            #{$self}__sort-icon {
+                display: block !important;
+            }
+        }
+
+        &-container {
+            display: inline-flex;
+            align-content: center;
         }
     }
     /* Modifiers */
