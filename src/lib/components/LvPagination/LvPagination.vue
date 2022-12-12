@@ -4,7 +4,7 @@
             v-if="showArrows"
             icon="chevron-left"
             color="ghost-default"
-            :disabled="modelValue === 1"
+            :disabled="parsedModelValue === 1"
             @click="onClickPrev"
             class="lv-pagination__button"
         ></lv-button>
@@ -13,7 +13,7 @@
             v-for="page in visiblePages"
             :key="page"
             :label="page.toString()"
-            :color="page === modelValue ? 'solid-primary' : 'ghost-default'"
+            :color="page === parsedModelValue ? 'solid-primary' : 'ghost-default'"
             @click="onClick(page)"
             class="lv-pagination__button"
         />
@@ -21,10 +21,13 @@
             v-if="showArrows"
             icon="chevron-right"
             color="ghost-default"
-            :disabled="modelValue === totalPages"
+            :disabled="parsedModelValue === totalPages"
             @click="onClickNext"
             class="lv-pagination__button"
         ></lv-button>
+        <div class="lv-pagination__info" v-if="showInfo">
+            {{ parsedModelValue }}/{{ totalPages }}
+        </div>
     </div>
 </template>
 
@@ -36,8 +39,13 @@
  */
 export default {
     props: {
+        /**
+         * Expected a number, but can be string as well. Since the state
+         * of a page can be stored in the querystring, which is often
+         * parsed as a String instead of integer.
+         */
         modelValue: {
-            type: Number,
+            type: [Number, String],
             default: 1,
         },
         /**
@@ -72,8 +80,18 @@ export default {
             type: Boolean,
             default: true,
         },
+        /**
+         * Show/hide additional info
+         */
+        showInfo: {
+            type: Boolean,
+            default: true,
+        }
     },
     computed: {
+        parsedModelValue() {
+            return parseInt(this.modelValue, 10);
+        },
         visiblePages() {
             const minMax = (this.maxVisiblePages - 1) / 2;
             const visiblePages = [];
@@ -82,19 +100,19 @@ export default {
                 Array.from(Array(this.totalPages)).forEach((val, index) => {
                     visiblePages.push(index + 1);
                 });
-            } else if (this.modelValue <= minMax) {
+            } else if (this.parsedModelValue <= minMax) {
                 // Check if it is before the minMax
                 Array.from(Array(this.maxVisiblePages)).forEach((val, index) => {
                     visiblePages.push(index + 1);
                 });
-            } else if (this.modelValue > minMax && this.modelValue < this.totalPages - minMax) {
+            } else if (this.parsedModelValue > minMax && this.parsedModelValue < this.totalPages - minMax) {
                 // Check if its in between
                 Array.from(Array(minMax)).forEach((val, index) => {
-                    visiblePages.push(this.modelValue - (index + 1));
+                    visiblePages.push(this.parsedModelValue - (index + 1));
                 });
-                visiblePages.push(this.modelValue);
+                visiblePages.push(this.parsedModelValue);
                 Array.from(Array(minMax)).forEach((val, index) => {
-                    visiblePages.push(this.modelValue + (index + 1));
+                    visiblePages.push(this.parsedModelValue + (index + 1));
                 });
             } else {
                 // Check if its after the minMax
@@ -115,10 +133,10 @@ export default {
             this.$emit('update:modelValue', v);
         },
         onClickPrev() {
-            this.$emit('update:modelValue', this.modelValue - 1);
+            this.$emit('update:modelValue', this.parsedModelValue - 1);
         },
         onClickNext() {
-            this.$emit('update:modelValue', this.modelValue + 1);
+            this.$emit('update:modelValue', this.parsedModelValue + 1);
         },
     },
 };
@@ -127,9 +145,16 @@ export default {
 <style lang="scss">
 .lv-pagination {
     user-select: none;
+    display: flex;
+    align-items: center;
 
     &__button {
         min-width: 40px;
+    }
+
+    &__info {
+        margin-left: auto;
+        color: var(--text-color-dimmed);
     }
 }
 </style>
