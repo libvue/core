@@ -1,6 +1,6 @@
 <template>
     <div class="lv-table" :class="classObject" role="table">
-        <div class="lv-table__loading" v-if="loading">
+        <div v-if="loading" class="lv-table__loading">
             <lv-spinner />
         </div>
         <table class="lv-table__table">
@@ -12,10 +12,15 @@
                         :key="columnKey"
                         class="lv-table__cell"
                         :class="getCellModifiers(column)"
+                        @click="column.sortable ? onClickHeadCell(columnKey) : false"
                     >
                         <div class="lv-table__cell-container">
                             {{ typeof column.title !== 'undefined' ? column.title : columnKey }}
-                            <lv-icon class="lv-table__sort-icon" name="chevron-down"/>
+                            <lv-icon
+                                class="lv-table__sort-icon"
+                                :name="sort && columnKey === sort.replace('-', '') && sort.startsWith('-') ? 'chevron-up' : 'chevron-down'"
+                                :class="{ 'lv-table__sort-icon--active': sort && columnKey === sort.replace('-', '') }"
+                            />
                         </div>
                     </th>
                 </tr>
@@ -37,7 +42,12 @@
                         </td>
                     </tr>
                     <!-- Normal Rows -->
-                    <tr v-for="(row, rowIndex) in group" :key="`${groupIndex}${rowIndex}`" class="lv-table__row" @click.stop="onClickRow(rowIndex)">
+                    <tr
+                        v-for="(row, rowIndex) in group"
+                        :key="`${groupIndex}${rowIndex}`"
+                        class="lv-table__row"
+                        @click.stop="onClickRow(rowIndex)"
+                    >
                         <!-- Create a cell for each key in a row if the key exists in columns -->
                         <template v-for="(value, rowKey) in row">
                             <td
@@ -60,14 +70,18 @@
             <tbody v-else class="lv-table__table-body">
                 <!-- No Rows -->
                 <tr v-if="!hasRows" class="lv-table__row">
-                    <td class="lv-table__cell lv-table__cell--no-data">
-                        <lv-icon name="ban" />
+                    <td class="lv-table__cell lv-table__cell--no-data" :colspan="Object.entries(columns).length">
                         {{ noDataText }}
                     </td>
                 </tr>
 
                 <!-- Normal Rows -->
-                <tr v-for="(row, rowIndex) in parsedRows" :key="rowIndex" class="lv-table__row" @click.stop="onClickRow(rowIndex)">
+                <tr
+                    v-for="(row, rowIndex) in parsedRows"
+                    :key="rowIndex"
+                    class="lv-table__row"
+                    @click.stop="onClickRow(rowIndex)"
+                >
                     <!-- Create a cell for each key in a row if the key exists in columns -->
                     <template v-for="(value, rowKey) in row">
                         <td
@@ -226,10 +240,10 @@ export default {
             type: Function,
             default: null,
         },
-        sortModel: {
+        sort: {
             type: String,
             default: null,
-        }
+        },
     },
     computed: {
         parsedRows() {
@@ -314,6 +328,7 @@ export default {
             };
         },
     },
+    emits: ['update:sort'],
     methods: {
         getTotal(columnKey, callback) {
             let total = 0;
@@ -354,14 +369,23 @@ export default {
                 classes.push('lv-table__cell--italic');
             }
             if (column.sortable) {
-                classes.push('lv-table__cell--sortable')
+                classes.push('lv-table__cell--sortable');
             }
             return classes;
         },
         onClickRow(rowIndex) {
-            if(typeof this.rowAction === "function") {
+            if (typeof this.rowAction === 'function') {
                 const clonedRow = JSON.parse(JSON.stringify(this.rows[rowIndex]));
                 this.rowAction({ row: clonedRow, index: rowIndex });
+            }
+        },
+        onClickHeadCell(columnKey) {
+            if(columnKey === this.sort) {
+                this.$emit('update:sort', `-${columnKey}`);
+            } else if (columnKey === this.sort.replace('-', '')) {
+                this.$emit('update:sort', `${columnKey}`);
+            } else {
+                this.$emit('update:sort', columnKey)
             }
         }
     },
@@ -371,33 +395,37 @@ export default {
 <style lang="scss">
 .lv-table {
     $self: &;
+    position: relative;
     color: var(--text-color);
     font-size: var(--font-size);
-    position: relative;
 
     /* Elements */
     &__loading {
-        z-index: 1;
+        display: flex;
         position: absolute;
         top: 0;
         left: 0;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+        background-color: var(--backdrop-color-inverted);
         width: 100%;
         height: 100%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: var(--backdrop-color-inverted);
     }
     &__sort-icon {
         display: none !important;
-        margin-left: .25rem;
+        margin-left: 0.25rem;
+        opacity: 0.2;
+        &--active {
+            opacity: 1;
+        }
     }
     &__table {
         border-collapse: collapse;
         width: 100%;
         &-head {
             th {
-                padding: 0.75rem ;
+                padding: 0.75rem;
                 font-weight: bold;
             }
         }
@@ -414,10 +442,10 @@ export default {
             tr {
                 border-top: 1px solid var(--border-color-light);
                 &:first-of-type {
-                  border-top:none;
+                    border-top: none;
                 }
                 td {
-                    padding: 0.75rem ;
+                    padding: 0.75rem;
                 }
             }
         }
@@ -462,8 +490,8 @@ export default {
             text-align: center;
         }
         &--fit-content {
-            width: 0;
             padding: 0 !important;
+            width: 0;
         }
         &--no-data {
             opacity: 0.5;
@@ -476,6 +504,7 @@ export default {
         }
 
         &--sortable {
+            cursor: pointer;
             #{$self}__sort-icon {
                 display: block !important;
             }
