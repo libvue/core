@@ -13,7 +13,7 @@ export default {
     data() {
         return {
             code: `<lv-pagination :total-pages="100" v-model="model"/>`,
-            model: 1,
+            model: '1',
         };
     },
 };
