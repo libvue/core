@@ -7,7 +7,9 @@
                 :description="toast.description"
                 :title="toast.title"
                 :button="toast.button"
+                :button-color="toast.buttonColor"
                 :icon="toast.icon"
+                :icon-color="toast.iconColor"
                 @click="onClickToast(toast)"
                 @click-button="onClickButton(toast)"
             >

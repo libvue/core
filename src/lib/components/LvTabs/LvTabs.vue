@@ -94,7 +94,6 @@ export default {
             pointer-events: none;
         }
         &-icon {
-            transition: 0.2s all;
             margin-right: 10px;
         }
     }

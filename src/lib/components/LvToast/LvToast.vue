@@ -1,7 +1,7 @@
 <template>
     <div class="lv-toast" :class="classObject">
         <div class="lv-toast__icon" v-if="icon">
-            <lv-icon :name="icon"/>
+            <lv-button :icon="icon" :size="hasDescription ? 'default' : 'small'" :color="iconColor" />
         </div>
         <div class="lv-toast__message" @click="onClick">
             <div class="lv-toast__title">
@@ -12,7 +12,7 @@
             </div>
         </div>
         <div v-if="button" class="lv-toast__button">
-            <lv-button :label="button" type="outline" :size="hasDescription ? 'default' : 'small'" color="solid-dimmed-primary" @click="onClickButton" />
+            <lv-button :label="button" :size="hasDescription ? 'default' : 'small'" :color="buttonColor" @click="onClickButton" />
         </div>
     </div>
 </template>
@@ -23,6 +23,10 @@ export default {
         icon: {
             type: String,
             default: null,
+        },
+        iconColor: {
+            type: String,
+            default: 'solid-dimmed-primary',
         },
         title: {
             type: String,
@@ -36,6 +40,10 @@ export default {
             type: String,
             default: null,
         },
+        buttonColor: {
+            type: String,
+            default: 'solid-dimmed-primary',
+        }
     },
     emits: ['click', 'click-button'],
     computed: {
@@ -78,14 +86,13 @@ export default {
     &__icon {
         width: 3rem;
         padding: .15rem;
-        background-color: var(--color-primary-dimmed);
-        color: var(--color-primary);
         align-items: center;
         justify-content: center;
         display: flex;
         margin-right: .5rem;
         font-size: 1rem;
-        border-radius: var(--border-radius);
+        cursor: default;
+        pointer-events: none;
     }
 
     &__title {
@@ -93,6 +100,7 @@ export default {
         font-weight: bold;
         font-size: var(--font-size);
         line-height: var(--font-size);
+        color: var(--text-color);
     }
     &__description {
         color: var(--text-color-dimmed);
