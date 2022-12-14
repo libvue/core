@@ -1,0 +1,1 @@
+import{_ as s,c as e,d as n,g as i,o as r}from"./index.7cfd2803.js";const o={class:"lv-spinner"};const t=s({props:{size:{type:Number,default:24}},computed:{sizeInPixels(){return`${this.size}px`}}},[["render",function(s,t,a,c,l,d){const p=i("lv-icon");return r(),e("div",o,[n(p,{size:a.size,class:"lv-spinner__icon",name:"loader-2"},null,8,["size"])])}]]);export{t as default};

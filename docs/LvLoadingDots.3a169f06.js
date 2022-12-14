@@ -1,0 +1,1 @@
+import{_ as s,c as d,o as l,a as o}from"./index.7cfd2803.js";const a={},n={class:"lv-loading-dots"},t=[o("div",{class:"lv-loading-dots__dot"},null,-1),o("div",{class:"lv-loading-dots__dot"},null,-1),o("div",{class:"lv-loading-dots__dot"},null,-1)];const i=s(a,[["render",function(s,o,a,i,c,v){return l(),d("div",n,t)}]]);export{i as default};

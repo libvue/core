@@ -1,0 +1,1 @@
+import{_ as e,c as r,o as t}from"./index.7cfd2803.js";const a=["placeholder"];const l=e({props:{placeholder:{type:String,default:"Enter your text here"}}},[["render",function(e,l,o,c,n,s){return t(),r("textarea",{class:"lv-textarea",placeholder:o.placeholder},null,8,a)}]]);export{l as default};

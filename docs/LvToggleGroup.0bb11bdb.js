@@ -1,0 +1,1 @@
+import{_ as s,c as o,r as t,o as r}from"./index.7cfd2803.js";const a={class:"lv-toggle-group"};const e=s({},[["render",function(s,e,n,c,d,l){return r(),o("div",a,[t(s.$slots,"default")])}]]);export{e as default};

@@ -1,0 +1,1 @@
+.lv-toasts{display:flex;position:fixed;right:0;bottom:0;flex-direction:column;align-items:flex-end;gap:10px;z-index:2101;padding:2rem}.toasts-enter-active,.toasts-leave-active{transition:all .2s}.toasts-enter-from,.toasts-leave-to{transform:translate(100%);opacity:0}
