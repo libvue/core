@@ -17,26 +17,20 @@
                         color="ghost-default"
                         @click="onClickPrevMonth"
                     />
-                    <lv-select class="lv-date-picker__month-select" :value="monthSelectModel" :clearable="false">
-                        <lv-select-option
-                            v-for="(month, index) in monthSelectOptions"
-                            :key="index"
-                            :option="month"
-                            @click="onChangeMonth"
-                        >
-                            {{ month.label }}
-                        </lv-select-option>
-                    </lv-select>
-                    <lv-select class="lv-date-picker__month-select" :value="yearSelectModel" :clearable="false">
-                        <lv-select-option
-                            v-for="(year, index) in yearSelectOptions"
-                            :key="index"
-                            :option="year"
-                            @click="onChangeYear"
-                        >
-                            {{ year.label }}
-                        </lv-select-option>
-                    </lv-select>
+                    <lv-select
+                        class="lv-date-picker__month-select"
+                        :options="monthSelectOptions"
+                        :model-value="monthSelectModel"
+                        @update:modelValue="onChangeMonth"
+                        :clearable="false"
+                    />
+                    <lv-select
+                        class="lv-date-picker__month-select"
+                        :options="yearSelectOptions"
+                        :model-value="yearSelectModel"
+                        @update:modelValue="onChangeYear"
+                        :clearable="false"
+                    />
                     <lv-button
                         class="lv-date-picker__next-month"
                         icon="arrow-right"
@@ -135,8 +129,8 @@ export default {
     data() {
         return {
             dropdownVisible: false,
-            monthSelectModel: {},
-            yearSelectModel: {},
+            monthSelectModel: null,
+            yearSelectModel: null,
             monthSelectOptions: [
                 { value: 0, label: 'January' },
                 { value: 1, label: 'February' },
@@ -181,51 +175,51 @@ export default {
             const selectedMonth = {};
 
             // Set the month
-            selectedMonth.month = this.monthSelectModel.value;
+            selectedMonth.month = this.monthSelectModel;
 
             // Set the year
-            selectedMonth.year = this.yearSelectModel.value;
+            selectedMonth.year = this.yearSelectModel;
 
             // Set days in month
-            if (this.yearSelectModel.value && this.monthSelectModel.value) {
+            if (this.yearSelectModel && this.monthSelectModel) {
                 selectedMonth.daysInMonth = getDaysInMonth(
-                    new Date(this.yearSelectModel?.value, this.monthSelectModel?.value)
+                    new Date(this.yearSelectModel, this.monthSelectModel)
                 );
             } else {
                 selectedMonth.daysInMonth = 30;
             }
 
             // Set days in previous month
-            if (this.yearSelectModel.value && this.monthSelectModel.value) {
+            if (this.yearSelectModel && this.monthSelectModel) {
                 selectedMonth.daysInPrevMonth = getDaysInMonth(
-                    sub(new Date(this.yearSelectModel?.value, this.monthSelectModel?.value), { months: 1 })
+                    sub(new Date(this.yearSelectModel, this.monthSelectModel), { months: 1 })
                 );
             } else {
                 selectedMonth.daysInPrevMonth = 30;
             }
 
             // Set days in next month
-            if (this.yearSelectModel.value && this.monthSelectModel.value) {
+            if (this.yearSelectModel && this.monthSelectModel) {
                 selectedMonth.daysInNextMonth = getDaysInMonth(
-                    add(new Date(this.yearSelectModel?.value, this.monthSelectModel?.value), { months: 1 })
+                    add(new Date(this.yearSelectModel, this.monthSelectModel), { months: 1 })
                 );
             } else {
                 selectedMonth.daysInNextMonth = 30;
             }
 
             // Set start of month
-            if (this.yearSelectModel.value && this.monthSelectModel.value) {
+            if (this.yearSelectModel && this.monthSelectModel) {
                 selectedMonth.startOfMonth = getDay(
-                    startOfMonth(new Date(this.yearSelectModel?.value, this.monthSelectModel?.value))
+                    startOfMonth(new Date(this.yearSelectModel, this.monthSelectModel))
                 );
             } else {
                 selectedMonth.startOfMonth = 1;
             }
 
             // Set end of month
-            if (this.yearSelectModel.value && this.monthSelectModel.value) {
+            if (this.yearSelectModel && this.monthSelectModel) {
                 selectedMonth.endOfMonth = getDay(
-                    endOfMonth(new Date(this.yearSelectModel?.value, this.monthSelectModel?.value))
+                    endOfMonth(new Date(this.yearSelectModel, this.monthSelectModel))
                 );
             } else {
                 selectedMonth.endOfMonth = 31;
@@ -238,6 +232,7 @@ export default {
 
             // Add previous month days
             if (this.selectedMonth.startOfMonth > 0) {
+                console.log(this.selectedMonth.startOfMonth)
                 Array.from(new Array(this.selectedMonth.startOfMonth).keys()).forEach((offset) => {
                     const day = this.selectedMonth.daysInPrevMonth - this.selectedMonth.startOfMonth + offset + 1;
                     const date = set(sub(new Date(this.selectedMonth.year, this.selectedMonth.month), { months: 1 }), {
@@ -336,20 +331,20 @@ export default {
             // First try to select the month if startDate is set
             const optionByStartDate = this.monthSelectOptions.find((i) => i.value === this.startDateMonth);
             if (optionByStartDate) {
-                this.monthSelectModel = optionByStartDate;
+                this.monthSelectModel = optionByStartDate.value;
             } else {
                 // Otherwise fallback to the month of today
-                this.monthSelectModel = this.monthSelectOptions.find((i) => i.value === getMonth(new Date()));
+                this.monthSelectModel = this.monthSelectOptions.find((i) => i.value === getMonth(new Date())).value;
             }
         },
         setYearSelectToStartDate() {
             // First try to select the year if startDate is set
             const optionByStartDate = this.yearSelectOptions.find((i) => i.value === this.startDateYear);
             if (optionByStartDate) {
-                this.yearSelectModel = optionByStartDate;
+                this.yearSelectModel = optionByStartDate.value;
             } else {
                 // Otherwise fallback to this year
-                this.yearSelectModel = this.yearSelectOptions.find((i) => i.value === getYear(new Date()));
+                this.yearSelectModel = this.yearSelectOptions.find((i) => i.value === getYear(new Date())).value;
             }
         },
         onClickDomDay(day) {
@@ -367,26 +362,26 @@ export default {
         },
         onClickPrevMonth() {
             // Get current value of monthSelect, add one
-            const currentMonth = this.monthSelectModel.value;
-            const currentYear = this.yearSelectModel.value;
+            const currentMonth = this.monthSelectModel;
+            const currentYear = this.yearSelectModel;
             // Check if december, then go to january and add a year
             if (currentMonth === 0) {
-                this.yearSelectModel = this.yearSelectOptions.find((i) => i.value === currentYear - 1);
-                this.monthSelectModel = this.monthSelectOptions.find((i) => i.value === 11);
+                this.yearSelectModel = this.yearSelectOptions.find((i) => i.value === currentYear - 1).value;
+                this.monthSelectModel = this.monthSelectOptions.find((i) => i.value === 11).value;
             } else {
-                this.monthSelectModel = this.monthSelectOptions.find((i) => i.value === currentMonth - 1);
+                this.monthSelectModel = this.monthSelectOptions.find((i) => i.value === currentMonth - 1).value;
             }
         },
         onClickNextMonth() {
             // Get current value of monthSelect, add one
-            const currentMonth = this.monthSelectModel.value;
-            const currentYear = this.yearSelectModel.value;
+            const currentMonth = this.monthSelectModel;
+            const currentYear = this.yearSelectModel;
             // Check if december, then go to january and add a year
             if (currentMonth === 11) {
-                this.yearSelectModel = this.yearSelectOptions.find((i) => i.value === currentYear + 1);
-                this.monthSelectModel = this.monthSelectOptions.find((i) => i.value === 0);
+                this.yearSelectModel = this.yearSelectOptions.find((i) => i.value === currentYear + 1).value;
+                this.monthSelectModel = this.monthSelectOptions.find((i) => i.value === 0).value;
             } else {
-                this.monthSelectModel = this.monthSelectOptions.find((i) => i.value === currentMonth + 1);
+                this.monthSelectModel = this.monthSelectOptions.find((i) => i.value === currentMonth + 1).value;
             }
         },
         onFocusInput() {
@@ -497,9 +492,9 @@ export default {
         #{$self}__dropdown {
             position: relative;
             margin-top: 0;
-            padding: 0;
-            border: 0;
             box-shadow: none;
+            border: 0;
+            padding: 0;
             max-width: inherit;
         }
     }

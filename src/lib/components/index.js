@@ -60,8 +60,6 @@ const LvPopover = defineAsyncComponent(() => import('./LvPopover/LvPopover.vue')
 const LvRadio = defineAsyncComponent(() => import('./LvRadio/LvRadio.vue'));
 const LvRangeSlider = defineAsyncComponent(() => import('./LvRangeSlider/LvRangeSlider.vue'));
 const LvSelect = defineAsyncComponent(() => import('./LvSelect/LvSelect.vue'));
-const LvSelectOption = defineAsyncComponent(() => import('./LvSelect/LvSelectOption.vue'));
-const LvSelectOptionGroup = defineAsyncComponent(() => import('./LvSelect/LvSelectOptionGroup.vue'));
 const LvSwitch = defineAsyncComponent(() => import('./LvSwitch/LvSwitch.vue'));
 const LvTable = defineAsyncComponent(() => import('./LvTable/LvTable.vue'));
 const LvTabs = defineAsyncComponent(() => import('./LvTabs/LvTabs.vue'));
@@ -130,8 +128,6 @@ export default {
     LvRadio,
     LvRangeSlider,
     LvSelect,
-    LvSelectOption,
-    LvSelectOptionGroup,
     LvSwitch,
     LvTable,
     LvTabs,
