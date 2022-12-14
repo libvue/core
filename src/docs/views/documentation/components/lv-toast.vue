@@ -13,7 +13,14 @@
                     button="Close"
                     @click-button="onClickButton"
                 />
-                <lv-toast icon="save" title="Your work is saved" button="Close" @click-button="onClickButton" />
+                <lv-toast
+                    icon="alert-triangle"
+                    icon-color="solid-dimmed-danger"
+                    title="Something went wrong"
+                    button="Close"
+                    button-color="outline-danger"
+                    @click-button="onClickButton"
+                />
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="code" />
             <component-details component="LvToast"></component-details>
@@ -21,7 +28,7 @@
         <template #toasts>
             <lv-card v-space-after="1">
                 <lv-toasts :max="3" :decay="1000" />
-                <lv-button color="solid-dimmed-primary" label="Add toast" @click="addToast" />
+                <lv-button color="solid-dimmed-primary" label="Add toast" icon="plus" @click="addToast" />
             </lv-card>
             <lv-code
                 v-space-after="1"
@@ -45,9 +52,11 @@ const code = `
     @click-button="onClickButton"
 />
 <lv-toast
-    icon="save"
-    title="Your work is saved"
+    icon="alert-triangle"
+    icon-color="solid-dimmed-danger"
+    title="Something went wrong"
     button="Close"
+    button-color="outline-danger"
     @click-button="onClickButton"
 />
 `.trim();
@@ -82,7 +91,7 @@ export default {
                 { id: 'template', filename: 'template', code: codeTemplate, lang: 'html' },
                 { id: 'script', filename: 'script', code: codeScript, lang: 'js' },
             ],
-            activeTab: 'toasts',
+            activeTab: 'toast',
             tabs: [
                 { id: 'toast', title: 'Toast', icon: 'scaling' },
                 { id: 'toasts', title: 'Toasts', icon: 'palette' },
@@ -94,8 +103,10 @@ export default {
             this.libvue.addToast({
                 title: 'Ut enim ad minima veniam, quis nostrum exercitationem',
                 description: 'Quis autem vel eum iure reprehenderit',
-                button: 'Do Something',
+                button: 'Cancel',
                 icon: 'save',
+                iconColor: 'solid-dimmed-warning',
+                buttonColor: 'solid-success',
                 onClick: () => {
                     console.log('Clicking toast');
                 },
