@@ -1,15 +1,19 @@
 <template>
-    <transition-group name="toasts" tag="div" class="lv-toasts">
-        <lv-toast
-            v-for="toast in toasts"
-            :key="toast.uid"
-            :description="toast.description"
-            :title="toast.title"
-            :action="toast.action"
-            @click="onClickToast(toast)"
-        >
-        </lv-toast>
-    </transition-group>
+    <Teleport to="body">
+        <transition-group name="toasts" tag="div" class="lv-toasts">
+            <lv-toast
+                v-for="toast in toasts"
+                :key="toast.uid"
+                :description="toast.description"
+                :title="toast.title"
+                :button="toast.button"
+                :icon="toast.icon"
+                @click="onClickToast(toast)"
+                @click-button="onClickButton(toast)"
+            >
+            </lv-toast>
+        </transition-group>
+    </Teleport>
 </template>
 
 <script>
@@ -77,6 +81,12 @@ export default {
                 toast.onClick({ close: () => this.deleteToast(toast), toast });
             }
         },
+        onClickButton(toast) {
+            if (toast.onClickButton && typeof toast.onClickButton === 'function') {
+                // Run the callback with additional parameters
+                toast.onClickButton({ close: () => this.deleteToast(toast), toast });
+            }
+        },
         deleteToast(toast) {
             delete this.toasts[toast.uid];
         },
@@ -95,11 +105,10 @@ export default {
     gap: 10px;
     z-index: 2101;
     padding: 2rem;
-    pointer-events: none;
 }
 .toasts-enter-active,
 .toasts-leave-active {
-    transition: all 0.1s;
+    transition: all 0.2s;
 }
 .toasts-enter-from,
 .toasts-leave-to {
