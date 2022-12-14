@@ -4,7 +4,7 @@
             v-if="showArrows"
             icon="chevron-left"
             color="ghost-default"
-            :disabled="parsedModelValue === 1"
+            :disabled="parsedModelValue === 1 || loading"
             @click="onClickPrev"
             class="lv-pagination__button"
         ></lv-button>
@@ -16,12 +16,14 @@
             :color="page === parsedModelValue ? 'solid-primary' : 'ghost-default'"
             @click="onClick(page)"
             class="lv-pagination__button"
+            :loading="page === parsedModelValue && loading"
+            :disabled="page !== parsedModelValue && loading"
         />
         <lv-button
             v-if="showArrows"
             icon="chevron-right"
             color="ghost-default"
-            :disabled="parsedModelValue === totalPages"
+            :disabled="parsedModelValue === totalPages || loading"
             @click="onClickNext"
             class="lv-pagination__button"
         ></lv-button>
@@ -86,7 +88,14 @@ export default {
         showInfo: {
             type: Boolean,
             default: true,
-        }
+        },
+        /**
+         * Loading
+         */
+        loading: {
+            type: Boolean,
+            default: false,
+        },
     },
     computed: {
         parsedModelValue() {

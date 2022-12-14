@@ -51,18 +51,35 @@ export default {
             Object.entries(this.props).forEach(([key, value]) => {
 
                 let def = '';
+                let type = '';
 
+                // Customize the default values
                 if(typeof value.default === 'function') {
                     def = value.default;
+                } else if (typeof value.default === 'object' && value.default !== null) {
+                    def = value.default.constructor.name;
                 } else if(typeof value.default !== 'undefined') {
                     def = JSON.stringify(value.default)
                 } else {
                     def = '-'
                 }
 
+                if (typeof value.type === 'function') {
+                    type = value.type.name;
+                } else if (Array.isArray(value.type)) {
+                    value.type.forEach((t, i) => {
+                        type += t.name;
+                        if (i !== value.type.length -1) {
+                            type += ', '
+                        }
+                    })
+                } else {
+                    type = '-';
+                }
+
                 rowsProps.push({
                     name: key,
-                    type: value.type ? value.type.name : '-',
+                    type,
                     default: def,
                     validator: value.validator ? value.validator : '-',
                     required: value.required ? value.required : '-',

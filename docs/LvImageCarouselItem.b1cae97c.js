@@ -1,1 +1,0 @@
-import{_ as s,c as t,r as o,o as a}from"./index.46f5ce64.js";const r={},_={class:"lv-image-carousel-item"};function c(e,n,l,m,u,d){return a(),t("div",_,[o(e.$slots,"default")])}const p=s(r,[["render",c]]);export{p as default};
