@@ -46,6 +46,20 @@
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeColorOutline" />
 
+            <lv-heading v-space-after="1" :level="6">Outline Dimmed</lv-heading>
+            <lv-card v-space-after="1">
+                <lv-flex>
+                    <lv-button label="Outline Dimmed Default" color="outline-dimmed-default"/>
+                    <lv-button label="Outline Dimmed Warning" color="outline-dimmed-warning" />
+                    <lv-button label="Outline Dimmed Danger" color="outline-dimmed-danger" />
+                    <lv-button label="Outline Dimmed Info" color="outline-dimmed-info" />
+                    <lv-button label="Outline Dimmed Success" color="outline-dimmed-success" />
+                    <lv-button label="Outline Dimmed Primary" color="outline-dimmed-primary" />
+                    <lv-button label="Outline Dimmed Secondary" color="outline-dimmed-secondary" />
+                </lv-flex>
+            </lv-card>
+            <lv-code v-space-after="1" lang="html" :code="codeColorOutline" />
+
             <lv-heading v-space-after="1" :level="6">Ghost</lv-heading>
             <lv-card v-space-after="1">
                 <lv-flex>
@@ -164,7 +178,7 @@ const codeAlign = `
 export default {
     data() {
         return {
-            activeTab: 'sizes',
+            activeTab: 'colors',
             tabs: [
                 { id: 'sizes', title: 'Sizes', icon: 'scaling' },
                 { id: 'colors', title: 'Colors', icon: 'palette' },

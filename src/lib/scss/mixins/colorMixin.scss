@@ -31,6 +31,7 @@ $colors: (
 
 @mixin color-mixin {
     // Walk through each color and create classes for every combination of colorType + color
+
     @each $color, $classMap in $colors {
         // Solid
         &--color-solid-#{$color} {
@@ -49,6 +50,11 @@ $colors: (
         // Outline
         &--color-outline-#{$color} {
             border: 1px solid map-get($classMap, "normal");
+            color: map-get($classMap, "normal");
+        }
+        // Outline Dimmed
+        &--color-outline-dimmed-#{$color} {
+            border: 1px solid map-get($classMap, "dimmed");
             color: map-get($classMap, "normal");
         }
         // Ghost
