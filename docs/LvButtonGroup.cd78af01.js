@@ -1,1 +1,1 @@
-import{_ as s,c as t,r as o,o as r}from"./index.7cfd2803.js";const a={class:"lv-button-group"};const n=s({},[["render",function(s,n,e,c,d,u){return r(),t("div",a,[o(s.$slots,"default")])}]]);export{n as default};
+import{_ as o,c as e,r as s,o as n}from"./index.7cfd2803.js";const r={},_={class:"lv-button-group"};function c(t,a,u,p,l,d){return n(),e("div",_,[s(t.$slots,"default")])}const i=o(r,[["render",c]]);export{i as default};
