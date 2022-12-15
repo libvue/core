@@ -61,6 +61,7 @@ export default {
     overflow: hidden;
     font-size: inherit;
     line-height: inherit;
+    color: var(--text-color);
 
     &__checkbox {
         margin-right: 0.5rem !important;
