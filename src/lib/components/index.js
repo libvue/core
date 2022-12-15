@@ -22,8 +22,8 @@ const LvLoadingDots = defineAsyncComponent(() => import('./LvLoadingDots/LvLoadi
 const LvTextarea = defineAsyncComponent(() => import('./LvTextarea/LvTextarea.vue'));
 const LvThemeToggle = defineAsyncComponent(() => import('./LvThemeToggle/LvThemeToggle.vue'));
 const LvGrid = defineAsyncComponent(() => import('./LvGrid/LvGrid.vue'));
-const LvGridRow = defineAsyncComponent(() => import('./LvGrid/LvGridRow.vue'));
-const LvGridColumn = defineAsyncComponent(() => import('./LvGrid/LvGridColumn.vue'));
+const LvGridRow = defineAsyncComponent(() => import('./LvGridRow/LvGridRow.vue'));
+const LvGridColumn = defineAsyncComponent(() => import('./LvGridColumn/LvGridColumn.vue'));
 const LvSlider = defineAsyncComponent(() => import('./LvSlider/LvSlider.vue'));
 const LvPagination = defineAsyncComponent(() => import('./LvPagination/LvPagination.vue'));
 const LvHero = defineAsyncComponent(() => import('./LvHero/LvHero.vue'));
