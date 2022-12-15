@@ -1,23 +1,35 @@
+/* eslint-disable no-param-reassign */
 import eventBus from './utils/eventBus';
 import components from './components';
 import spaceAfter from './directives/spaceAfter';
 
 // Import styling here, otherwise it won't be included in the style.css
-// @todo; make stuff optional via the install options
 import './scss/core.scss';
 
+// Default plugin options
+const DEFAULT_OPTIONS = {
+    directives: true,
+    components: true,
+};
+
 export default {
-    install: (app) => {
+    install: (app, options = DEFAULT_OPTIONS) => {
+        // Merge potential missing options
+        const mergedOptions = { ...DEFAULT_OPTIONS, ...options };
+
         // Register the spaceAfter directive
-        app.directive('space-after', spaceAfter);
+        if (mergedOptions.directives) {
+            app.directive('space-after', spaceAfter);
+        }
 
         // Register all components
-        Object.entries(components).forEach(([key, value]) => {
-            app.component(key, value);
-        });
+        if (mergedOptions.components) {
+            Object.entries(components).forEach(([key, value]) => {
+                app.component(key, value);
+            });
+        }
 
-        // Register global properties namespaced for libvue
-        // eslint-disable-next-line no-param-reassign
+        // Register global Properties
         app.config.globalProperties.libvue = {
             eventBus,
             addToast: (properties) => eventBus.$emit('toast', properties),
