@@ -42,7 +42,7 @@
                     <lv-button
                         icon="github"
                         target="_blank"
-                        to="https://github.com/harmendv/libvue"
+                        @click="onClickGithub"
                         color="ghost-default"
                     />
                 </template>
@@ -190,6 +190,9 @@ export default {
             }
             return 'light';
         },
+        onClickGithub() {
+            window.open('https://github.com/harmendv/libvue', '_blank');
+        }
     },
 };
 </script>

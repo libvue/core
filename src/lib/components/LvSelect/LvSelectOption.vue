@@ -1,70 +1,49 @@
 <template>
     <div
-        v-if="isVisible"
+        v-if="visible"
         class="lv-select-option"
         :class="classObject"
         tabindex="0"
         @click="onClickOption"
         @keydown.space.enter.prevent="onClickOption"
     >
-        <lv-checkbox tabindex="-1" v-if="multiple" :model-value="isSelected" class="lv-select-option__checkbox" />
+        <lv-checkbox v-if="checkbox" tabindex="-1" :model-value="selected" class="lv-select-option__checkbox" />
         <slot></slot>
     </div>
 </template>
 
 <script>
 export default {
-    inject: ['value', 'multiple', 'searchable', 'searchValue', 'clearable'],
     props: {
         option: {
             type: Object,
             required: true,
         },
+        checkbox: {
+            type: Boolean,
+            default: false,
+        },
+        selected: {
+            type: Boolean,
+            default: false,
+        },
+        visible: {
+            type: Boolean,
+            default: true,
+        }
     },
     emits: ['click'],
     computed: {
-        isSelected() {
-            if (!this.value) return false;
-            if (this.multiple) {
-                const clonedModelValue = JSON.parse(JSON.stringify(this.value));
-                clonedModelValue.forEach((i, index) => {
-                    clonedModelValue[index] = JSON.stringify(i);
-                });
-                return clonedModelValue.includes(JSON.stringify(this.option));
-            }
-            return JSON.stringify(this.value) === JSON.stringify(this.option);
-        },
         classObject() {
             return {
-                'lv-select-option--multiple': this.multiple,
-                'lv-select-option--selected': this.isSelected,
+                'lv-select-option--selected': this.selected,
+                'lv-select-option--has-checkbox': this.checkbox,
             };
-        },
-        isVisible() {
-            if (!this.searchValue) {
-                return true;
-            }
-            return this.searchable && this.option.label.includes(this.searchValue);
         },
     },
     methods: {
         onClickOption() {
-            if (this.multiple) {
-                if (this.isSelected) {
-                    const clonedModelValue = JSON.parse(JSON.stringify(this.value));
-                    const indexOfOption = clonedModelValue.findIndex(
-                        (i) => JSON.stringify(i) === JSON.stringify(this.option)
-                    );
-                    clonedModelValue.splice(indexOfOption, 1);
-                    this.$emit('click', clonedModelValue);
-                } else {
-                    this.$emit('click', [...this.value, this.option]);
-                }
-            } else if (this.isSelected && this.clearable) {
-                this.$emit('click', null);
-            } else {
-                this.$emit('click', this.option);
-            }
+            this.$emit('click', this.option);
         },
     },
 };
@@ -87,14 +66,13 @@ export default {
         margin-right: 0.5rem !important;
     }
 
-    &--multiple {
-        padding: calc(var(--padding) - 0.2rem) calc(var(--padding) - 0.2rem);
-    }
-
     &:hover {
         background-color: var(--border-color-light);
     }
-    &--selected:not(&--multiple) {
+    &--has-checkbox {
+        padding: calc(var(--padding) - 0.2rem) calc(var(--padding) - 0.2rem);
+    }
+    &--selected:not(&--has-checkbox) {
         background-color: var(--color-primary);
         color: var(--color-white);
     }

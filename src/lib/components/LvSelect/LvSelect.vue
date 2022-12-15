@@ -18,8 +18,8 @@
         >
             <!-- Single value -->
             <div v-if="!multiple" class="lv-select__value">
-                <slot v-if="hasValue" name="value" :value="value">
-                    {{ value.label }}
+                <slot v-if="hasValue" name="value" :option="selectedOption">
+                    {{ selectedOption[optionLabelKey] }}
                 </slot>
                 <input
                     v-else-if="searchable"
@@ -34,10 +34,10 @@
             </div>
             <!-- Multi value -->
             <div v-else-if="multiple" class="lv-select__value">
-                <template v-if="hasValue" >
-                    <span v-for="(entry, index) in value" :key="index" class="lv-select__value-item">
-                        <slot name="value" :values="value" :value="entry">
-                            {{ entry.label }}
+                <template v-if="hasValue">
+                    <span v-for="(option, index) in selectedOptions" :key="index" class="lv-select__value-item">
+                        <slot name="value" :option="option">
+                            {{ option[optionLabelKey] }}
                         </slot>
                     </span>
                 </template>
@@ -60,8 +60,23 @@
         <!-- Dropdown -->
         <transition name="dropdown">
             <div v-show="dropdownVisible" class="lv-select__dropdown" role="listbox">
-                <slot></slot>
-                <div v-if="!visibleOptions" class="lv-select__no-options">No options found</div>
+                <template v-if="searchedOptions.length > 0">
+                    <lv-select-option
+                        v-for="(option, index) in searchedOptions"
+                        :key="index"
+                        :option="option"
+                        :selected="isSelected(option)"
+                        :checkbox="!!multiple"
+                        @click="onClickOption"
+                    >
+                        <slot name="option" :option="option">{{ option.label }}</slot>
+                    </lv-select-option>
+                </template>
+                <template v-else>
+                    <div class="lv-select__no-options">
+                        <slot name="no-options"> No options found </slot>
+                    </div>
+                </template>
             </div>
         </transition>
     </div>
@@ -69,37 +84,30 @@
 
 <script>
 import { onClickOutside } from '@vueuse/core';
-import { computed } from 'vue';
 import propSizeMixin from '../../mixins/propSizeMixin';
+import LvSelectOption from './LvSelectOption.vue';
 
 export default {
-    provide() {
-        return {
-            value: computed(() => this.value),
-            multiple: computed(() => this.multiple),
-            searchable: computed(() => this.searchable),
-            clearable: computed(() => this.clearable),
-            searchValue: computed(() => this.search),
-            visibleOptions: computed(() => this.visibleOptions),
-        };
+    components: {
+        LvSelectOption,
     },
     mixins: [propSizeMixin()],
     props: {
-        value: {
-            type: [Object, Array],
+        modelValue: {
+            type: [String, Number, Array],
             default: null,
         },
         multiple: {
             type: Boolean,
             default: false,
         },
-        placeholder: {
-            type: String,
-            default: 'Choose an option',
-        },
         searchable: {
             type: Boolean,
             default: false,
+        },
+        placeholder: {
+            type: String,
+            default: (props) => (props.searchable ? 'Search an option' : 'Choose an option'),
         },
         clearable: {
             type: Boolean,
@@ -117,29 +125,61 @@ export default {
             type: String,
             default: 'body',
         },
+        options: {
+            type: Array,
+            default: () => [],
+        },
+        optionValueKey: {
+            type: String,
+            default: 'value',
+        },
+        optionLabelKey: {
+            type: String,
+            default: 'label',
+        },
     },
+    emits: ['update:modelValue'],
     data() {
         return {
             dropdownVisible: false,
             focusedOptionIndex: null,
             search: null,
-            visibleOptions: null,
-            mounted: false,
         };
     },
     computed: {
+        searchedOptions() {
+            if (this.search) {
+                return this.options.filter((option) =>
+                    option[this.optionLabelKey].toLowerCase().includes(this.search.toLowerCase())
+                );
+            }
+            return this.options;
+        },
+        selectedOption() {
+            if (this.multiple) {
+                return false;
+            }
+            const foundOption = this.options.find((option) => option[this.optionValueKey] === this.modelValue);
+            return foundOption || false;
+        },
+        selectedOptions() {
+            if (!this.multiple) {
+                return false;
+            }
+            return this.options.filter((option) => this.modelValue.includes(option[this.optionValueKey]));
+        },
         focusTrapOptions() {
             return {
                 immediate: true,
                 escapeDeactivates: false,
                 fallbackFocus: document.body,
-            }
+            };
         },
         hasValue() {
-            if (this.multiple && this.value.length > 0) {
+            if (this.multiple && this.modelValue.length > 0) {
                 return true;
             }
-            if (!this.multiple && this.value) {
+            if (!this.multiple && this.modelValue) {
                 return true;
             }
             return false;
@@ -170,27 +210,57 @@ export default {
         },
     },
     mounted() {
-        this.mounted = true;
-        this.visibleOptions = this.getVisibleOptions();
         onClickOutside(this.$refs.select, () => {
             this.dropdownVisible = false;
         });
     },
-    updated() {
-        this.$nextTick(() => {
-            this.visibleOptions = this.getVisibleOptions();
-        });
-    },
     methods: {
-        getVisibleOptions() {
-            return this.$el.querySelectorAll('.lv-select-option').length;
-        },
         onClickSelection() {
             this.dropdownVisible = !this.dropdownVisible;
         },
         onEscape() {
             this.dropdownVisible = false;
-        }
+        },
+        onClickOption(option) {
+            // Single Mode
+            if (!this.multiple) {
+                // If already and clearable, clear it!
+                if (this.modelValue === option[this.optionValueKey] && this.clearable) {
+                    this.$emit('update:modelValue', null);
+                }
+                // New value, emit it, and close the dropDown
+                else {
+                    this.$emit('update:modelValue', option[this.optionValueKey]);
+                    this.dropdownVisible = false;
+                }
+            }
+            // Multiple mode
+            else if (this.multiple) {
+                const clonedModelValue = [...this.modelValue];
+                // Check of modelValue already contains it, then remove it
+                if (this.modelValue.includes(option[this.optionValueKey])) {
+                    const indexOfExistingValue = this.modelValue.findIndex(
+                        (entry) => entry === option[this.optionValueKey]
+                    );
+                    clonedModelValue.splice(indexOfExistingValue, 1);
+                    this.$emit('update:modelValue', clonedModelValue);
+                }
+                // It's a new value, just add it
+                else {
+                    clonedModelValue.push(option[this.optionValueKey]);
+                    this.$emit('update:modelValue', clonedModelValue);
+                }
+            }
+        },
+        isSelected(option) {
+            if (this.multiple && this.modelValue.includes(option[this.optionValueKey])) {
+                return true;
+            }
+            if (!this.multiple && this.modelValue === option[this.optionValueKey]) {
+                return true;
+            }
+            return false;
+        },
     },
 };
 </script>
@@ -214,6 +284,7 @@ export default {
         width: 100%;
 
         &-item {
+            display: flex;
             margin: calc(calc(var(--padding) * 0.5) * -1) 10px calc(calc(var(--padding) * 0.5) * -1)
                 calc(calc(var(--padding) * 0.5) * -1);
             border-radius: var(--border-radius);

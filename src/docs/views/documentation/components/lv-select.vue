@@ -5,168 +5,31 @@
     <lv-tabs v-space-after="1" :tabs="tabs" :active="activeTab" @change-tab="(v) => (activeTab = v)">
         <template #single>
             <lv-card v-space-after="1">
-                <lv-select :value="modelSingle">
-                    <lv-select-option
-                        v-for="(option, index) in options"
-                        :key="index"
-                        :option="option"
-                        @click="
-                            (v) => {
-                                modelSingle = v;
-                            }
-                        "
-                    >
-                        <lv-flex> <lv-icon :name="option.icon" /> {{ option.label }} </lv-flex>
-                    </lv-select-option>
-
-                    <template #value="{ value }">
-                        <lv-flex> <lv-icon :name="value.icon" /> {{ value.label }} </lv-flex>
+                <lv-select v-model="modelSingle" v-space-after="1" :options="options">
+                    <template #value="{ option }">
+                        <lv-icon :name="option.icon" :push=".5" /> {{ option.label }}
+                    </template>
+                    <template #option="{ option }">
+                        <lv-icon :name="option.icon" :push=".5" /> {{ option.label }}
                     </template>
                 </lv-select>
+                v-model: {{ modelSingle }}
             </lv-card>
             <lv-code v-space-after="1" :code="codeSingle" lang="html" />
         </template>
         <template #multiple>
             <lv-card v-space-after="1">
-                <lv-select :value="modelMultiple" multiple>
-                    <lv-select-option
-                        v-for="(option, index) in options"
-                        :key="index"
-                        :option="option"
-                        @click="
-                            (v) => {
-                                modelMultiple = v;
-                            }
-                        "
-                    >
-                        <lv-flex> <lv-icon :name="option.icon" /> {{ option.label }} </lv-flex>
-                    </lv-select-option>
-                    <template #value="{ value }">
-                        <lv-flex> <lv-icon :name="value.icon" /> {{ value.label }} </lv-flex>
+                <lv-select v-model="modelMultiple" v-space-after="1" :options="options" multiple>
+                    <template #value="{ option }">
+                        <lv-icon :name="option.icon" :push=".5" /> {{ option.label }}
+                    </template>
+                    <template #option="{ option }">
+                        <lv-icon :name="option.icon" :push=".5" /> {{ option.label }}
                     </template>
                 </lv-select>
+                v-model: {{ modelMultiple }}
             </lv-card>
             <lv-code v-space-after="1" :code="codeMultiple" lang="html" />
-        </template>
-        <template #groups>
-            <lv-card v-space-after="1">
-                <lv-select :value="modelOptGroup">
-                    <lv-select-option-group title="Option Group">
-                        <lv-select-option
-                            v-for="(option, index) in options.slice(0, 4)"
-                            :key="index"
-                            :option="option"
-                            @click="
-                                (v) => {
-                                    modelOptGroup = v;
-                                }
-                            "
-                        >
-                            {{ option.label }}
-                        </lv-select-option>
-                    </lv-select-option-group>
-                    <lv-select-option-group title="Option Group">
-                        <lv-select-option
-                            v-for="(option, index) in options.slice(4)"
-                            :key="index"
-                            :option="option"
-                            @click="
-                                (v) => {
-                                    modelOptGroup = v;
-                                }
-                            "
-                        >
-                            {{ option.label }}
-                        </lv-select-option>
-                    </lv-select-option-group>
-                </lv-select>
-            </lv-card>
-            <lv-code v-space-after="1" :code="codeOptGroup" lang="html" />
-        </template>
-        <template #search>
-            <lv-card v-space-after="1">
-                <lv-select :value="modelSearch" searchable placeholder="Search for an option">
-                    <lv-select-option
-                        v-for="(option, index) in options"
-                        :key="index"
-                        :option="option"
-                        @click="
-                            (v) => {
-                                modelSearch = v;
-                            }
-                        "
-                    >
-                        <lv-flex> <lv-icon :name="option.icon" /> {{ option.label }} </lv-flex>
-                    </lv-select-option>
-                    <template #value="{ value }">
-                        <lv-flex> <lv-icon :name="value.icon" /> {{ value.label }} </lv-flex>
-                    </template>
-                </lv-select>
-            </lv-card>
-            <lv-code v-space-after="1" :code="codeSearchable" lang="html" />
-        </template>
-        <template #sizes>
-            <lv-card v-space-after="1">
-                <lv-flex direction="column">
-                    <lv-select placeholder="Large size" size="large">
-                        <lv-select-option
-                            v-for="(option, index) in options"
-                            :key="index"
-                            :option="option"
-                            @click="
-                                (v) => {
-                                    modelSearch = v;
-                                }
-                            "
-                        >
-                            <lv-flex> <lv-icon :name="option.icon" /> {{ option.label }} </lv-flex>
-                        </lv-select-option>
-                    </lv-select>
-                    <lv-select placeholder="Default size">
-                        <lv-select-option
-                            v-for="(option, index) in options"
-                            :key="index"
-                            :option="option"
-                            @click="
-                                (v) => {
-                                    modelSearch = v;
-                                }
-                            "
-                        >
-                            <lv-flex> <lv-icon :name="option.icon" /> {{ option.label }} </lv-flex>
-                        </lv-select-option>
-                    </lv-select>
-                    <lv-select placeholder="Small size" size="small">
-                        <lv-select-option
-                            v-for="(option, index) in options"
-                            :key="index"
-                            :option="option"
-                            @click="
-                                (v) => {
-                                    modelSearch = v;
-                                }
-                            "
-                        >
-                            <lv-flex> <lv-icon :name="option.icon" /> {{ option.label }} </lv-flex>
-                        </lv-select-option>
-                    </lv-select>
-                    <lv-select placeholder="Tiny size" size="tiny">
-                        <lv-select-option
-                            v-for="(option, index) in options"
-                            :key="index"
-                            :option="option"
-                            @click="
-                                (v) => {
-                                    modelSearch = v;
-                                }
-                            "
-                        >
-                            <lv-flex> <lv-icon :name="option.icon" /> {{ option.label }} </lv-flex>
-                        </lv-select-option>
-                    </lv-select>
-                </lv-flex>
-            </lv-card>
-            <lv-code v-space-after="1" :code="codeSizes" lang="html" />
         </template>
     </lv-tabs>
 
@@ -174,146 +37,26 @@
 </template>
 
 <script>
-const codeOptGroup = `
-<lv-select :value="modelOptGroup">
-    <lv-select-option-group title="Option Group">
-        <lv-select-option
-            v-for="(option, index) in options.slice(0,4)"
-            :key="index"
-            :option="option"
-            @click="(v) => { modelOptGroup = v }"
-        >
-            {{ option.label }}
-        </lv-select-option>
-    </lv-select-option-group>
-    <lv-select-option-group title="Option Group">
-        <lv-select-option
-            v-for="(option, index) in options.slice(4)"
-            :key="index"
-            :option="option"
-            @click="(v) => { modelOptGroup = v }"
-        >
-            {{ option.label }}
-        </lv-select-option>
-    </lv-select-option-group>
-</lv-select>
-`.trim();
-
 const codeSingle = `
-<lv-select :value="modelSingle">
-    <!-- Options in slot:default -->
-    <lv-select-option
-        v-for="(option, index) in options"
-        :key="index"
-        :option="option"
-        @click="(v) => { modelSingle = v }"
-    >
-        <lv-flex>
-            <lv-icon :name="option.icon"/> {{ option.label }}
-        </lv-flex>
-    </lv-select-option>
-    <!-- Format the value in slot:value -->
-    <template #value="{ value }">
-        <lv-flex>
-            <lv-icon :name="value.icon"/> {{ value.label }}
-        </lv-flex>
+<lv-select v-model="modelSingle" :options="options">
+    <template #value="{ option }">
+        <lv-icon :name="option.icon" :push=".5" /> {{ option.label }}
+    </template>
+    <template #option="{ option }">
+        <lv-icon :name="option.icon" :push=".5" /> {{ option.label }}
     </template>
 </lv-select>
 `.trim();
 
 const codeMultiple = `
-<lv-select :value="modelMultiple" multiple>
-    <!-- Options in slot:default -->
-    <lv-select-option
-        v-for="(option, index) in options"
-        :key="index"
-        :option="option"
-        @click="(v) => { modelMultiple = v }"
-    >
-        <lv-flex>
-            <lv-icon :name="option.icon"/> {{ option.label }}
-        </lv-flex>
-    </lv-select-option>
-    <!-- Format the value in slot:value (values available for all values) -->
-    <template #value="{ value }">
-        <lv-flex>
-            <lv-icon :name="value.icon"/> {{ value.label }}
-        </lv-flex>
+<lv-select v-model="modelMultiple" :options="options" multiple>
+    <template #value="{ option }">
+        <lv-icon :name="option.icon" :push=".5" /> {{ option.label }}
+    </template>
+    <template #option="{ option }">
+        <lv-icon :name="option.icon" :push=".5" /> {{ option.label }}
     </template>
 </lv-select>
-`.trim();
-
-const codeSearchable = `
-<lv-select :value="modelSearch" searchable placeholder="Search for an option">
-    <lv-select-option
-        v-for="(option, index) in options"
-        :key="index"
-        :option="option"
-        @click="(v) => { modelSearch = v }"
-    >
-        <lv-flex>
-            <lv-icon :name="option.icon"/> {{ option.label }}
-        </lv-flex>
-    </lv-select-option>
-    <template #value="{ value }">
-        <lv-flex>
-            <lv-icon :name="value.icon"/> {{ value.label }}
-        </lv-flex>
-    </template>
-</lv-select>
-`.trim();
-
-const codeSizes = `
-<lv-flex direction="column">
-    <lv-select placeholder="Large size" size="large">
-        <lv-select-option
-                v-for="(option, index) in options"
-                :key="index"
-                :option="option"
-                @click="(v) => { modelSearch = v }"
-        >
-            <lv-flex>
-                <lv-icon :name="option.icon"/> {{ option.label }}
-            </lv-flex>
-        </lv-select-option>
-    </lv-select>
-    <lv-select placeholder="Default size">
-        <lv-select-option
-                v-for="(option, index) in options"
-                :key="index"
-                :option="option"
-                @click="(v) => { modelSearch = v }"
-        >
-            <lv-flex>
-                <lv-icon :name="option.icon"/> {{ option.label }}
-            </lv-flex>
-        </lv-select-option>
-    </lv-select>
-    <lv-select placeholder="Small size" size="small">
-        <lv-select-option
-                v-for="(option, index) in options"
-                :key="index"
-                :option="option"
-                @click="(v) => { modelSearch = v }"
-        >
-            <lv-flex>
-                <lv-icon :name="option.icon"/> {{ option.label }}
-            </lv-flex>
-        </lv-select-option>
-    </lv-select>
-    <lv-select placeholder="Tiny size" size="tiny">
-        <lv-select-option
-                v-for="(option, index) in options"
-                :key="index"
-                :option="option"
-                @click="(v) => { modelSearch = v }"
-        >
-            <lv-flex>
-                <lv-icon :name="option.icon"/> {{ option.label }}
-            </lv-flex>
-        </lv-select-option>
-    </lv-select>
-</lv-flex>
 `.trim();
 
 export default {
@@ -322,20 +65,15 @@ export default {
         return {
             codeSingle,
             codeMultiple,
-            codeSearchable,
-            codeOptGroup,
-            codeSizes,
             modelSingle: null,
             modelMultiple: [],
-            modelSearch: null,
-            modelOptGroup: null,
-            activeTab: 'single',
+            activeTab: 'multiple',
             tabs: [
                 { id: 'single', title: 'Single', icon: 'box' },
                 { id: 'multiple', title: 'Multiple', icon: 'tags' },
-                { id: 'groups', title: 'Groups', icon: 'boxes' },
-                { id: 'search', title: 'Search', icon: 'search' },
-                { id: 'sizes', title: 'Sizes', icon: 'scaling' },
+                // { id: 'groups', title: 'Groups', icon: 'boxes' },
+                // { id: 'search', title: 'Search', icon: 'search' },
+                // { id: 'sizes', title: 'Sizes', icon: 'scaling' },
             ],
             options: [
                 { label: 'Bomb', value: 1, icon: 'bomb' },
