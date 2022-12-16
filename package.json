@@ -8,6 +8,19 @@
         "build:docs": "vite build --config vite.docs.config.js",
         "preview:docs": "vite preview --config vite.docs.config.js"
     },
+    "files": [
+        "src/lib"
+    ],
+    "main": "./src/lib/main.js",
+    "bin": {
+        "libvue": "./bin/libvue.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/harmendv/libvue.git",
+        "directory": "src/lib"
+    },
+    "author": "Harmen de Vries <harmendv@gmail.com> (https://harmen.dev/)",
     "dependencies": {
         "@tiptap/extension-link": "^2.0.0-beta.202",
         "@tiptap/extension-underline": "^2.0.0-beta.202",
@@ -48,14 +61,5 @@
     },
     "peerDependencies": {
         "vue-router": "^4.1.5"
-    },
-    "files": [
-        "dist",
-        "src/lib"
-    ],
-    "main": "./dist/libvue.umd.js",
-    "module": "./dist/libvue.es.js",
-    "bin": {
-        "libvue": "./bin/libvue.js"
     }
 }
