@@ -3,7 +3,7 @@
 [![license](https://img.shields.io/badge/license-MIT-blue)](https://img.shields.io/badge/license-MIT-blue)
 [![npm (tag)](https://img.shields.io/npm/v/@libvue/core/latest?label=npm%20package)](https://badge.fury.io/js/@libvue%2Fcore)
 
-#### An opensource collection of vue.js 3 components.
+#### An opensource collection of vue 3 components made for vite.js projects.
 
 [documentation](https://harmendv.github.io/libvue/) - [playground](https://harmendv.github.io/libvue/#/playground) - [npm](https://www.npmjs.com/package/@libvue/core)
 
@@ -13,11 +13,13 @@
 > npm install --save @libvue/core
 ```
 
-### Register
-
 ```js
-import '@libvue/core/dist/style.css';
+// app.js
 import libvue from '@libvue/core';
-
 app.use(libvue);
+```
+
+```scss
+// app.scss
+@import '@libvue/core';
 ```
