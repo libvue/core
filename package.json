@@ -12,6 +12,7 @@
         "src/lib"
     ],
     "main": "./src/lib/main.js",
+    "style": "./src/lib/scss/core.scss",
     "bin": {
         "libvue": "./bin/libvue.js"
     },
