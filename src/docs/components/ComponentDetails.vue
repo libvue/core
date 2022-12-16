@@ -26,10 +26,6 @@ export default {
             type: String,
             default: '',
         },
-        componentPath: {
-            type: String,
-            default: '',
-        },
     },
     data() {
         return {
@@ -144,16 +140,14 @@ export default {
     },
     methods: {
         async getComponent() {
+            // https://vitejs.dev/guide/features.html#dynamic-import
+            // Note that variables only represent file names one level deep.
+            // If file is 'foo/bar', the import would fail.
             if(this.component) {
                 await import(`../../lib/components/${this.component}/${this.component}.vue`).then((data) => {
                     this.componentData = data.default;
                 });
-            } else if(this.componentPath) {
-                await import(`./../lib/${this.componentPath}.vue`).then((data) => {
-                    this.componentData = data.default;
-                });
             }
-
         }
     }
 };

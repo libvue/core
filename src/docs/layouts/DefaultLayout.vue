@@ -1,5 +1,5 @@
 <template>
-    <lv-layout debug>
+    <lv-layout>
         <template #header>
             <lv-header>
                 <template #branding>
