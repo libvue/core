@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg viewBox="0 0 916 331" width="180" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 916 331" xmlns="http://www.w3.org/2000/svg">
     <style>
         .libvue-logo-fill {
-            fill: #000;
-        }
-        @media (prefers-color-scheme: dark) {
-            .libvue-logo-fill {
-                fill: #fff;
-            }
+            fill: var(--text-color);
         }
     </style>
     <path fill-rule="evenodd" clip-rule="evenodd" d="M0 0H331V331H0V0ZM98 80H159V252H98V80ZM234 218.5C234 201.655 220.345 188 203.5 188C186.655 188 173 201.655 173 218.5V221.5C173 238.345 186.655 252 203.5 252C220.345 252 234 238.345 234 221.5V218.5Z" class="libvue-logo-fill"/>

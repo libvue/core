@@ -1,22 +1,36 @@
 <template>
     <div class="lv-code" :class="classObject">
         <div v-if="hasFiles" class="lv-code__header">
-            <div v-for="(file, index) in files" :key="index" class="lv-code__file-button" :class="{ 'lv-code__file-button--active': active === file.id}" @click="onClickFile(file.id)">
+            <div
+                v-for="(file, index) in files"
+                :key="index"
+                class="lv-code__file-button"
+                :class="{ 'lv-code__file-button--active': active === file.id }"
+                @click="onClickFile(file.id)"
+            >
                 {{ file.filename }}
             </div>
         </div>
         <div class="lv-code__content">
             <template v-if="hasFiles">
-                <template v-for="(file, index) in files" :key="index">
-                    <div v-show="active === file.id" class="lv-code__file-code">
-                        <pre class="lv-code__code" v-html="getHtml(file.lang || 'js', file.code)" />
-                        <lv-icon v-if="!inline" class="lv-code__content-copy" :name="copyIcon" @click="copyCodeToClipboard(file.code)" />
-                    </div>
-                </template>
+                <div  v-for="(file, index) in files" v-show="active === file.id" :key="index" class="lv-code__file-code">
+                    <pre class="lv-code__code">{{ file.code }}</pre>
+                    <lv-icon
+                        v-if="!inline"
+                        class="lv-code__content-copy"
+                        :name="copyIcon"
+                        @click="copyCodeToClipboard(file.code)"
+                    />
+                </div>
             </template>
             <template v-else>
-                <pre class="lv-code__code" v-html="getHtml(lang, code)" />
-                <lv-icon v-if="!inline" class="lv-code__content-copy" :name="copyIcon" @click="copyCodeToClipboard(code)" />
+                <pre class="lv-code__code">{{ code }}</pre>
+                <lv-icon
+                    v-if="!inline"
+                    class="lv-code__content-copy"
+                    :name="copyIcon"
+                    @click="copyCodeToClipboard(code)"
+                />
             </template>
         </div>
     </div>
@@ -24,7 +38,7 @@
 
 <script>
 import useCopyToClipboard from '../../composables/clipboard';
-import LvIcon from "../LvIcon/LvIcon.vue";
+import LvIcon from '../LvIcon/LvIcon.vue';
 
 export default {
     components: { LvIcon },
@@ -52,6 +66,7 @@ export default {
             default: false,
         },
     },
+    emits: ['change-file'],
     data() {
         return {
             copyIcon: 'copy',
@@ -68,10 +83,9 @@ export default {
             };
         },
     },
-    emits: ['change-file'],
     methods: {
         getHtml(lang, code) {
-            return code;
+            return JSON.stringify(code);
         },
         copyCodeToClipboard(code) {
             this.copyIcon = 'check';
@@ -98,6 +112,7 @@ export default {
         flex-direction: row;
         align-items: center;
         margin-bottom: 0;
+        border: 1px solid var(--border-color);
         border-radius: var(--border-radius) var(--border-radius) 0 0;
         background-color: var(--code-header-color);
         padding: 0.5rem;
@@ -105,13 +120,12 @@ export default {
         font-weight: 500;
         font-size: var(--font-size-small);
         font-family: var(--font-family);
-        border: 1px solid var(--border-color);
     }
 
     &__file-button {
-        padding: .25rem .5rem;
         cursor: pointer;
         border-radius: var(--border-radius);
+        padding: 0.25rem 0.5rem;
         &--active {
             background-color: var(--code-button-color);
         }
@@ -119,6 +133,7 @@ export default {
 
     &__content {
         position: relative;
+        border: 1px solid var(--border-color);
         border-radius: var(--border-radius);
         background-color: var(--code-background-color);
         padding: var(--padding) calc(var(--padding) * 1.5);
@@ -127,12 +142,11 @@ export default {
         font-size: var(--font-size);
         line-height: 24px;
         font-family: var(--font-family-monospace);
-        border: 1px solid var(--border-color);
 
         &-copy {
             position: absolute;
-            right: 14px;
             top: 14px;
+            right: 14px;
             cursor: pointer;
         }
     }
@@ -145,9 +159,9 @@ export default {
 
     &--header {
         #{$self}__content {
+            border-top: 1px solid transparent;
             border-radius: 0 0 var(--border-radius) var(--border-radius);
             padding-right: var(--code-padding);
-            border-top: 1px solid transparent;
         }
     }
 

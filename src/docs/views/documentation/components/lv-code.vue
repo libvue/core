@@ -1,6 +1,8 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">Code</lv-heading>
-    <lv-heading v-space-after="2" sub :level="6">A code component with highlighting</lv-heading>
+    <lv-heading v-space-after="2" sub :level="6">A code component without highlighting</lv-heading>
+
+    <lv-notice icon="life-buoy" color="solid-dimmed-info" v-space-after="1">I'm still looking for a proper, esm & lightweight highlighting package. Any tips? Reach out!</lv-notice>
 
     <lv-heading v-space-after="1" :level="6">Default</lv-heading>
     <lv-card v-space-after="1">

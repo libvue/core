@@ -3,13 +3,13 @@
         <lv-hero
             v-space-after="4"
             title="Libvue"
-            description="An opensource collection of vue.js 3 components."
+            description="An opensource collection of vue 3 components."
         >
             <template #buttons>
-                <lv-button color="solid-primary" icon="book-open" to="/docs/install">
+                <lv-button color="solid-default" icon="book-open" to="/docs/install">
                     Documentation
                 </lv-button>
-                <lv-button color="solid-dimmed-primary" icon="github" to="https://github.com/harmendv/libvue" target="_blank">Github</lv-button>
+                <lv-button color="solid-dimmed-default" icon="github" to="https://github.com/harmendv/libvue" target="_blank">Github</lv-button>
             </template>
         </lv-hero>
 
@@ -17,7 +17,7 @@
 
         <lv-grid v-space-after="4" gap="1.5rem">
             <lv-grid-row gap="1.5rem">
-                <lv-grid-column :width="4">
+                <lv-grid-column :width="4" :md="12">
                     <lv-link to="/docs/theming">
                         <lv-card class="feature-card">
                             <lv-heading v-space-after="1" :level="5">
@@ -29,7 +29,7 @@
                         </lv-card>
                     </lv-link>
                 </lv-grid-column>
-                <lv-grid-column :width="4">
+                <lv-grid-column :width="4" :md="12">
                     <lv-link to="/docs/lv-grid">
                         <lv-card class="feature-card">
                             <lv-heading v-space-after="1" :level="5">
@@ -41,7 +41,7 @@
                         </lv-card>
                     </lv-link>
                 </lv-grid-column>
-                <lv-grid-column :width="4">
+                <lv-grid-column :width="4" :md="12">
                     <lv-link to="/docs/spacing">
                         <lv-card class="feature-card">
                             <lv-heading v-space-after="1" :level="5">
@@ -56,7 +56,7 @@
             </lv-grid-row>
         </lv-grid>
 
-        <lv-separator v-space-after="4"/>
+        <lv-separator v-space-after="4"></lv-separator>
 
         <lv-paragraph align="center" v-space-after="2">
             Released under the MIT License.
@@ -64,6 +64,51 @@
         </lv-paragraph>
     </div>
 </template>
+
+<script>
+const install = `
+> npm install --save @libvue/core
+`.trim();
+
+const registerScript = `
+import libvue from '@libvue/core';
+app.use(libvue);
+`.trim();
+
+const registerScss = `
+@import '@libvue/core';
+
+html {
+    min-height: 100%;
+    height: 100%;
+    font-size: 100%;
+}
+body {
+    margin: 0;
+    font-family: "Inter", sans-serif;
+    height: 100%;
+    font-size: .875rem;
+    line-height: 1.5;
+}
+#app {
+    display: flex;
+    min-height: 100%;
+}
+`.trim();
+
+export default {
+    data() {
+        return {
+            install,
+            activeRegisterFile: 'main',
+            registerFiles: [
+                { id: 'main', filename: 'main.js', lang: 'js', code: registerScript },
+                { id: 'scss', filename: 'app.scss', lang: 'css', code: registerScss }
+            ],
+        }
+    }
+}
+</script>
 
 <style lang="scss">
 .splash {

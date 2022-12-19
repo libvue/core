@@ -9,7 +9,7 @@
     <lv-heading v-space-after="1" :level="6">Install</lv-heading>
     <lv-code v-space-after="1" :code="install" lang="javascript" />
 
-    <lv-heading v-space-after="1" :level="6">Register</lv-heading>
+    <lv-heading v-space-after="1" :level="6">Basic Configuration</lv-heading>
     <lv-code v-space-after="2" :files="registerFiles" :active="activeRegisterFile" @change-file="(v) => activeRegisterFile = v" />
 
     <lv-notice icon="info" color="solid-dimmed-info" v-space-after="1">You are responsible for importing the components where they are needed.</lv-notice>

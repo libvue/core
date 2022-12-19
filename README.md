@@ -1,4 +1,4 @@
-[![logo](https://github.com/harmendv/libvue/raw/main/public/logo.svg)](https://github.com/harmendv/libvue/raw/main/public/logo.svg)
+[![logo](public/logo.svg)](public/logo.svg)
 
 [![license](https://img.shields.io/badge/license-MIT-blue)](https://img.shields.io/badge/license-MIT-blue)
 [![npm (tag)](https://img.shields.io/npm/v/@libvue/core/latest?label=npm%20package)](https://badge.fury.io/js/@libvue%2Fcore)
