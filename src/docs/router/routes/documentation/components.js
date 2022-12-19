@@ -1,60 +1,70 @@
-import LvDatePicker from '../../../views/documentation/components/lv-date-picker.vue';
-import LvButtonGroup from '../../../views/documentation/components/lv-button-group.vue';
-import LvFileInput from '../../../views/documentation/components/lv-file-input.vue';
-import LvTextEditor from '../../../views/documentation/components/lv-text-editor.vue';
-import LvFieldset from '../../../views/documentation/components/lv-fieldset.vue';
-import LvBadge from '../../../views/documentation/components/lv-badge.vue';
-import LvFileTree from '../../../views/documentation/components/lv-file-tree.vue';
-import LvProgress from '../../../views/documentation/components/lv-progress.vue';
-import LvFragmentLink from '../../../views/documentation/components/lv-fragment-link.vue';
-import LvImageCarousel from '../../../views/documentation/components/lv-image-carousel.vue';
-import LvImage from '../../../views/documentation/components/lv-image.vue';
-import LvSkeleton from '../../../views/documentation/components/lv-skeleton.vue';
-import LvToggleGroup from '../../../views/documentation/components/lv-toggle-group.vue';
-import LvToggle from '../../../views/documentation/components/lv-toggle.vue';
-import LvCookieConsent from '../../../views/documentation/components/lv-cookie-consent.vue';
-import LvWindow from '../../../views/documentation/components/lv-window.vue';
-import LvSpinner from '../../../views/documentation/components/lv-spinner.vue';
-import LvLoadingDots from '../../../views/documentation/components/lv-loading-dots.vue';
-import LvTextarea from '../../../views/documentation/components/lv-textarea.vue';
-import LvButton from '../../../views/documentation/components/lv-button.vue';
-import LvInput from '../../../views/documentation/components/lv-input.vue';
-import LvRangeSlider from '../../../views/documentation/components/lv-range-slider.vue';
-import LvSlider from '../../../views/documentation/components/lv-slider.vue';
-import LvCheckbox from '../../../views/documentation/components/lv-checkbox.vue';
-import LvVerticalNav from '../../../views/documentation/components/lv-vertical-nav.vue';
-import LvHorizontalNav from '../../../views/documentation/components/lv-horizontal-nav.vue';
-import LvHeading from '../../../views/documentation/components/lv-heading.vue';
-import LvParagraph from '../../../views/documentation/components/lv-paragraph.vue';
-import LvBlockquote from '../../../views/documentation/components/lv-blockquote.vue';
-import LvCode from '../../../views/documentation/components/lv-code.vue';
-import LvThemeToggle from '../../../views/documentation/components/lv-theme-toggle.vue';
-import LvFlex from '../../../views/documentation/components/lv-flex.vue';
-import LvLayout from '../../../views/documentation/components/lv-layout.vue';
-import LvCard from '../../../views/documentation/components/lv-card.vue';
-import LvTable from '../../../views/documentation/components/lv-table.vue';
-import LvTabs from '../../../views/documentation/components/lv-tabs.vue';
-import LvChart from '../../../views/documentation/components/lv-chart.vue';
-import LvNotice from '../../../views/documentation/components/lv-notice.vue';
-import LvLink from '../../../views/documentation/components/lv-link.vue';
-import LvBreadcrumbs from '../../../views/documentation/components/lv-breadcrumbs.vue';
-import LvSelect from '../../../views/documentation/components/lv-select.vue';
-import LvRadio from '../../../views/documentation/components/lv-radio.vue';
-import LvSwitch from '../../../views/documentation/components/lv-switch.vue';
-import LvWidget from '../../../views/documentation/components/lv-widget.vue';
-import LvPill from '../../../views/documentation/components/lv-pill.vue';
-import LvKeyboard from '../../../views/documentation/components/lv-keyboard.vue';
-import LvSeparator from '../../../views/documentation/components/lv-separator.vue';
-import LvIcon from '../../../views/documentation/components/lv-icon.vue';
-import LvAvatar from '../../../views/documentation/components/lv-avatar.vue';
-import LvDialog from '../../../views/documentation/components/lv-dialog.vue';
-import LvDrawer from '../../../views/documentation/components/lv-drawer.vue';
-import LvToast from '../../../views/documentation/components/lv-toast.vue';
-import LvPopover from '../../../views/documentation/components/lv-popover.vue';
-import LvPagination from '../../../views/documentation/components/lv-pagination.vue';
-import LvAccordion from '../../../views/documentation/components/lv-accordion.vue';
-import LvHeader from '../../../views/documentation/components/lv-header.vue';
-import LvGrid from '../../../views/documentation/components/lv-grid.vue';
+import { defineAsyncComponent } from 'vue';
+
+const LvDatePicker = defineAsyncComponent(() => import('../../../views/documentation/components/lv-date-picker.vue'));
+const LvButtonGroup = defineAsyncComponent(() => import('../../../views/documentation/components/lv-button-group.vue'));
+const LvFileInput = defineAsyncComponent(() => import('../../../views/documentation/components/lv-file-input.vue'));
+const LvTextEditor = defineAsyncComponent(() => import('../../../views/documentation/components/lv-text-editor.vue'));
+const LvFieldset = defineAsyncComponent(() => import('../../../views/documentation/components/lv-fieldset.vue'));
+const LvBadge = defineAsyncComponent(() => import('../../../views/documentation/components/lv-badge.vue'));
+const LvFileTree = defineAsyncComponent(() => import('../../../views/documentation/components/lv-file-tree.vue'));
+const LvProgress = defineAsyncComponent(() => import('../../../views/documentation/components/lv-progress.vue'));
+const LvFragmentLink = defineAsyncComponent(() =>
+    import('../../../views/documentation/components/lv-fragment-link.vue')
+);
+const LvImageCarousel = defineAsyncComponent(() =>
+    import('../../../views/documentation/components/lv-image-carousel.vue')
+);
+const LvImage = defineAsyncComponent(() => import('../../../views/documentation/components/lv-image.vue'));
+const LvSkeleton = defineAsyncComponent(() => import('../../../views/documentation/components/lv-skeleton.vue'));
+const LvToggleGroup = defineAsyncComponent(() => import('../../../views/documentation/components/lv-toggle-group.vue'));
+const LvToggle = defineAsyncComponent(() => import('../../../views/documentation/components/lv-toggle.vue'));
+const LvCookieConsent = defineAsyncComponent(() =>
+    import('../../../views/documentation/components/lv-cookie-consent.vue')
+);
+const LvWindow = defineAsyncComponent(() => import('../../../views/documentation/components/lv-window.vue'));
+const LvSpinner = defineAsyncComponent(() => import('../../../views/documentation/components/lv-spinner.vue'));
+const LvLoadingDots = defineAsyncComponent(() => import('../../../views/documentation/components/lv-loading-dots.vue'));
+const LvTextarea = defineAsyncComponent(() => import('../../../views/documentation/components/lv-textarea.vue'));
+const LvButton = defineAsyncComponent(() => import('../../../views/documentation/components/lv-button.vue'));
+const LvInput = defineAsyncComponent(() => import('../../../views/documentation/components/lv-input.vue'));
+const LvRangeSlider = defineAsyncComponent(() => import('../../../views/documentation/components/lv-range-slider.vue'));
+const LvSlider = defineAsyncComponent(() => import('../../../views/documentation/components/lv-slider.vue'));
+const LvCheckbox = defineAsyncComponent(() => import('../../../views/documentation/components/lv-checkbox.vue'));
+const LvVerticalNav = defineAsyncComponent(() => import('../../../views/documentation/components/lv-vertical-nav.vue'));
+const LvHorizontalNav = defineAsyncComponent(() =>
+    import('../../../views/documentation/components/lv-horizontal-nav.vue')
+);
+const LvHeading = defineAsyncComponent(() => import('../../../views/documentation/components/lv-heading.vue'));
+const LvParagraph = defineAsyncComponent(() => import('../../../views/documentation/components/lv-paragraph.vue'));
+const LvBlockquote = defineAsyncComponent(() => import('../../../views/documentation/components/lv-blockquote.vue'));
+const LvCode = defineAsyncComponent(() => import('../../../views/documentation/components/lv-code.vue'));
+const LvThemeToggle = defineAsyncComponent(() => import('../../../views/documentation/components/lv-theme-toggle.vue'));
+const LvFlex = defineAsyncComponent(() => import('../../../views/documentation/components/lv-flex.vue'));
+const LvLayout = defineAsyncComponent(() => import('../../../views/documentation/components/lv-layout.vue'));
+const LvCard = defineAsyncComponent(() => import('../../../views/documentation/components/lv-card.vue'));
+const LvTable = defineAsyncComponent(() => import('../../../views/documentation/components/lv-table.vue'));
+const LvTabs = defineAsyncComponent(() => import('../../../views/documentation/components/lv-tabs.vue'));
+const LvChart = defineAsyncComponent(() => import('../../../views/documentation/components/lv-chart.vue'));
+const LvNotice = defineAsyncComponent(() => import('../../../views/documentation/components/lv-notice.vue'));
+const LvLink = defineAsyncComponent(() => import('../../../views/documentation/components/lv-link.vue'));
+const LvBreadcrumbs = defineAsyncComponent(() => import('../../../views/documentation/components/lv-breadcrumbs.vue'));
+const LvSelect = defineAsyncComponent(() => import('../../../views/documentation/components/lv-select.vue'));
+const LvRadio = defineAsyncComponent(() => import('../../../views/documentation/components/lv-radio.vue'));
+const LvSwitch = defineAsyncComponent(() => import('../../../views/documentation/components/lv-switch.vue'));
+const LvWidget = defineAsyncComponent(() => import('../../../views/documentation/components/lv-widget.vue'));
+const LvPill = defineAsyncComponent(() => import('../../../views/documentation/components/lv-pill.vue'));
+const LvKeyboard = defineAsyncComponent(() => import('../../../views/documentation/components/lv-keyboard.vue'));
+const LvSeparator = defineAsyncComponent(() => import('../../../views/documentation/components/lv-separator.vue'));
+const LvIcon = defineAsyncComponent(() => import('../../../views/documentation/components/lv-icon.vue'));
+const LvAvatar = defineAsyncComponent(() => import('../../../views/documentation/components/lv-avatar.vue'));
+const LvDialog = defineAsyncComponent(() => import('../../../views/documentation/components/lv-dialog.vue'));
+const LvDrawer = defineAsyncComponent(() => import('../../../views/documentation/components/lv-drawer.vue'));
+const LvToast = defineAsyncComponent(() => import('../../../views/documentation/components/lv-toast.vue'));
+const LvPopover = defineAsyncComponent(() => import('../../../views/documentation/components/lv-popover.vue'));
+const LvPagination = defineAsyncComponent(() => import('../../../views/documentation/components/lv-pagination.vue'));
+const LvAccordion = defineAsyncComponent(() => import('../../../views/documentation/components/lv-accordion.vue'));
+const LvHeader = defineAsyncComponent(() => import('../../../views/documentation/components/lv-header.vue'));
+const LvGrid = defineAsyncComponent(() => import('../../../views/documentation/components/lv-grid.vue'));
 
 export default [
     {

@@ -15,9 +15,11 @@
 <script>
 import propColorMixin from '../../mixins/propColorMixin';
 import LvIcon from '../LvIcon/LvIcon.vue';
+import LvButton from "../LvButton/LvButton.vue";
 
 export default {
     components: {
+        LvButton,
         LvIcon,
     },
     mixins: [propColorMixin('solid-dimmed-default')],

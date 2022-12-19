@@ -198,7 +198,7 @@ export default {
                 { id: 'template', filename: 'template', code: templateOptions, lang: 'html' },
                 { id: 'script', filename: 'script', code: scriptOptions, lang: 'js' },
             ],
-            activeTab: 'sorting',
+            activeTab: 'default',
             tabs: [
                 { id: 'default', title: 'Default', icon: 'table' },
                 { id: 'options', title: 'With Options', icon: 'more-vertical' },
@@ -206,9 +206,9 @@ export default {
                 { id: 'empty', title: 'Empty', icon: 'eraser' },
             ],
             rowsDefault: [
-                { age: 33, gender: 'male', name: 'Bob', weight: 80 },
-                { age: 43, gender: 'female', name: 'Jane', weight: 69 },
-                { age: 56, gender: 'male', name: 'George', weight: 131 },
+                { age: 33, gender: 'male', name: 'Bob', weight: 80, hello: 'world' },
+                { age: 43, gender: 'female', name: 'Jane', weight: 69, hello: 'world' },
+                { age: 56, gender: 'male', name: 'George', weight: 131, hello: 'world' },
             ],
             columnsDefault: {
                 name: {

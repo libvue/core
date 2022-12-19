@@ -34,12 +34,15 @@
 </template>
 
 <script>
+import LvButton from "../LvButton/LvButton.vue";
+
 /**
  * Inspired by API's of Laravel orion and their pagination approach
  * More here: https://www.youtube.com/watch?v=6_Akr_ldKCQ&t=21s
  *            https://tailflow.github.io/laravel-orion-docs/
  */
 export default {
+    components: { LvButton },
     props: {
         /**
          * Expected a number, but can be string as well. Since the state

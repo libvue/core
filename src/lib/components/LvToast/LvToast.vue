@@ -18,7 +18,10 @@
 </template>
 
 <script>
+import LvButton from "../LvButton/LvButton.vue";
+
 export default {
+    components: { LvButton },
     props: {
         icon: {
             type: String,

@@ -18,9 +18,10 @@
 
 <script>
 import { v4 as uuidv4 } from 'uuid';
-import eventBus from '../../utils/eventBus';
+import LvIcon from "../LvIcon/LvIcon.vue";
 
 export default {
+    components: { LvIcon },
     props: {
         title: {
             type: String,
@@ -30,6 +31,10 @@ export default {
             type: Boolean,
             default: false,
         },
+        eventBus: {
+            type: Object,
+            required: true,
+        }
     },
     emits: ['accordion-item:open', 'accordion-item:close'],
     data() {
@@ -47,9 +52,9 @@ export default {
     },
     mounted() {
         if (this.initialOpen) {
-            eventBus.$emit('accordion-item:open', this.uuid);
+            this.eventBus.$emit('accordion-item:open', this.uuid);
         }
-        eventBus.$on('accordion:close', (uuid) => {
+        this.eventBus.$on('accordion:close', (uuid) => {
             if (this.uuid !== uuid) {
                 this.expanded = false;
             }
@@ -60,19 +65,19 @@ export default {
             e.preventDefault();
             if (this.expanded) {
                 this.expanded = false;
-                eventBus.$emit('accordion-item:close', this.uuid);
+                this.eventBus.$emit('accordion-item:close', this.uuid);
             } else {
                 this.expanded = true;
-                eventBus.$emit('accordion-item:open', this.uuid);
+                this.eventBus.$emit('accordion-item:open', this.uuid);
             }
         },
         onClickButton() {
             if (this.expanded) {
                 this.expanded = false;
-                eventBus.$emit('accordion-item:close', this.uuid);
+                this.eventBus.$emit('accordion-item:close', this.uuid);
             } else {
                 this.expanded = true;
-                eventBus.$emit('accordion-item:open', this.uuid);
+                this.eventBus.$emit('accordion-item:open', this.uuid);
             }
         },
     },

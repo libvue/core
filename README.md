@@ -15,8 +15,15 @@
 
 ```js
 // app.js
-import libvue from '@libvue/core';
-app.use(libvue);
+import { spaceAfter, LvButton, LvTable } from '@libvue/core';
+
+// Register spaceAfter directive
+app.directive('space-after', spaceAfter);
+
+// Register Common Components
+app.component('LvButton', LvButton);
+app.component('LvTable', LvTable);
+
 ```
 
 ```scss

@@ -93,8 +93,13 @@ import {
     isBefore,
     isAfter,
 } from 'date-fns';
+import LvInput from "../LvInput/LvInput.vue";
+import LvCard from "../LvCard/LvCard.vue";
+import LvButton from "../LvButton/LvButton.vue";
+import LvSelect from "../LvSelect/LvSelect.vue";
 
 export default {
+    components: { LvSelect, LvButton, LvCard, LvInput },
     props: {
         ioFormat: {
             type: String,

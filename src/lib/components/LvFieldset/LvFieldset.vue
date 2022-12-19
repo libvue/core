@@ -21,7 +21,11 @@
 </template>
 
 <script>
+import LvIcon from "../LvIcon/LvIcon.vue";
+import LvFlex from "../LvFlex/LvFlex.vue";
+
 export default {
+    components: { LvFlex, LvIcon },
     props: {
         label: {
             type: String,

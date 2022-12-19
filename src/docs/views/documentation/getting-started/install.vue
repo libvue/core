@@ -12,7 +12,7 @@
     <lv-heading v-space-after="1" :level="6">Register</lv-heading>
     <lv-code v-space-after="2" :files="registerFiles" :active="activeRegisterFile" @change-file="(v) => activeRegisterFile = v" />
 
-    <lv-notice icon="info" color="solid-dimmed-info" v-space-after="1">All components are registered asynchronous. This means that the components will only be loaded if needed.</lv-notice>
+    <lv-notice icon="info" color="solid-dimmed-info" v-space-after="1">You are responsible for importing the components where they are needed.</lv-notice>
 </template>
 
 <script>
@@ -21,8 +21,14 @@ const install = `
 `.trim();
 
 const registerScript = `
-import libvue from '@libvue/core';
-app.use(libvue);
+import { spaceAfter, LvButton, LvTable } from '@libvue/core';
+
+// Register spaceAfter directive
+app.directive('space-after', spaceAfter);
+
+// Register Common Components
+app.component('LvButton', LvButton);
+app.component('LvTable', LvTable);
 `.trim();
 
 const registerScss = `

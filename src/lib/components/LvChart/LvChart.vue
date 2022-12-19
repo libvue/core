@@ -26,6 +26,8 @@ import {
     Filler, // Used for the gradients
     Tooltip,
 } from 'chart.js';
+import LvParagraph from "../LvParagraph/LvParagraph.vue";
+import LvIcon from "../LvIcon/LvIcon.vue";
 
 Chart.register(
     LineElement,
@@ -41,6 +43,7 @@ Chart.register(
 );
 
 export default {
+    components: { LvIcon, LvParagraph },
     props: {
         labels: {
             type: Array,

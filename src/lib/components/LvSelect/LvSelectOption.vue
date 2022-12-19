@@ -13,7 +13,10 @@
 </template>
 
 <script>
+import LvCheckbox from "../LvCheckbox/LvCheckbox.vue";
+
 export default {
+    components: { LvCheckbox },
     props: {
         option: {
             type: Object,

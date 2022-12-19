@@ -25,8 +25,10 @@
 <script>
 import Prism from 'prismjs';
 import useCopyToClipboard from '../../composables/clipboard';
+import LvIcon from "../LvIcon/LvIcon.vue";
 
 export default {
+    components: { LvIcon },
     props: {
         files: {
             type: Array,

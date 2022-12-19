@@ -25,7 +25,11 @@
 </template>
 
 <script>
+import LvButton from "../LvButton/LvButton.vue";
+import LvBadge from "../LvBadge/LvBadge.vue";
+
 export default {
+    components: { LvBadge, LvButton },
     props: {
         modelValue: {
             type: FileList,

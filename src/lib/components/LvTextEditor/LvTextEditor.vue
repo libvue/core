@@ -83,6 +83,15 @@ import { Editor, EditorContent } from '@tiptap/vue-3';
 import { Underline } from '@tiptap/extension-underline';
 import { Link } from '@tiptap/extension-link';
 import StarterKit from '@tiptap/starter-kit';
+import LvFlex from "../LvFlex/LvFlex.vue";
+import LvToggleGroup from "../../../docs/views/documentation/components/lv-toggle-group.vue";
+import LvToggle from "../LvToggle/LvToggle.vue";
+import LvIcon from "../LvIcon/LvIcon.vue";
+import LvDialog from "../LvDialog/LvDialog.vue";
+import LvHeading from "../LvHeading/LvHeading.vue";
+import LvInput from "../LvInput/LvInput.vue";
+import LvSwitch from "../LvSwitch/LvSwitch.vue";
+import LvButton from "../LvButton/LvButton.vue";
 
 Link.configure({
     openOnClick: false,
@@ -90,6 +99,15 @@ Link.configure({
 
 export default {
     components: {
+        LvButton,
+        LvSwitch,
+        LvInput,
+        LvHeading,
+        LvDialog,
+        LvIcon,
+        LvToggle,
+        LvToggleGroup,
+        LvFlex,
         EditorContent,
     },
     props: {
