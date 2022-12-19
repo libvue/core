@@ -23,7 +23,6 @@
 </template>
 
 <script>
-import Prism from 'prismjs';
 import useCopyToClipboard from '../../composables/clipboard';
 import LvIcon from "../LvIcon/LvIcon.vue";
 
@@ -72,22 +71,7 @@ export default {
     emits: ['change-file'],
     methods: {
         getHtml(lang, code) {
-            return Prism.highlight(code, this.getGrammarByLang(lang), lang);
-        },
-        getGrammarByLang(lang) {
-            if (lang === 'javascript') {
-                return Prism.languages.javascript;
-            }
-            if (lang === 'html') {
-                return Prism.languages.html;
-            }
-            if (lang === 'css') {
-                return Prism.languages.css;
-            }
-            if (lang === 'scss') {
-                return Prism.languages.css;
-            }
-            return Prism.languages.javascript;
+            return code;
         },
         copyCodeToClipboard(code) {
             this.copyIcon = 'check';
