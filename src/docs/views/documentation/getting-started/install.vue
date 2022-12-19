@@ -21,16 +21,14 @@ const install = `
 `.trim();
 
 const registerScript = `
-import { spaceAfter, LvButton, components } from '@libvue/core';
+import { spaceAfter, LvButton, LvTable } from '@libvue/core';
 
+// Register spaceAfter directive
 app.directive('space-after', spaceAfter);
-app.component('LvButton', LvButton);
 
-// Register all components (optional and not recommended)
-// We recommend importing the components where needed and making the routes async.
-Object.entries(components).forEach(([key, value]) => {
-    app.component(key, value);
-});
+// Register Common Components
+app.component('LvButton', LvButton);
+app.component('LvTable', LvTable);
 `.trim();
 
 const registerScss = `
