@@ -84,7 +84,7 @@ import { Underline } from '@tiptap/extension-underline';
 import { Link } from '@tiptap/extension-link';
 import StarterKit from '@tiptap/starter-kit';
 import LvFlex from "../LvFlex/LvFlex.vue";
-import LvToggleGroup from "../../../docs/views/documentation/components/lv-toggle-group.vue";
+import LvToggleGroup from "../LvToggleGroup/LvToggleGroup.vue";
 import LvToggle from "../LvToggle/LvToggle.vue";
 import LvIcon from "../LvIcon/LvIcon.vue";
 import LvDialog from "../LvDialog/LvDialog.vue";
