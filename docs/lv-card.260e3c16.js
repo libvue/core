@@ -1,3 +1,0 @@
-import{_ as v,o as t,c as m,w as o,b as n,d as a,e as l,F as u,f as r,g as c,h as f}from"./index.2963ab29.js";const h={data(){return{code:`<lv-card>
-  Hi, im a card
-</lv-card>`}}},g=r("Card"),x=r("A nice little wrapper around your content"),C=r(" Hi, im a card ");function w(k,B,$,b,d,D){const s=c("lv-heading"),_=c("lv-card",!0),i=c("lv-code"),p=c("component-details"),e=f("space-after");return t(),m(u,null,[o((t(),n(s,{level:3},{default:a(()=>[g]),_:1})),[[e,.5]]),o((t(),n(s,{sub:"",level:6},{default:a(()=>[x]),_:1})),[[e,2]]),o((t(),n(_,null,{default:a(()=>[C]),_:1})),[[e,1]]),o(l(i,{lang:"html",code:d.code},null,8,["code"]),[[e,1]]),l(p,{component:"LvCard"})],64)}const H=v(h,[["render",w]]);export{H as default};
