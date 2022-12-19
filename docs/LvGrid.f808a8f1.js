@@ -1,1 +1,0 @@
-import{_ as o,c as r,r as a,o as c,u as p}from"./index.8f2973c2.js";const s={props:{gap:{type:String,default:"none"}}},_=()=>{p(e=>({"2e639daa":e.gap}))},n=s.setup;s.setup=n?(e,t)=>(_(),n(e,t)):_;const d=s,u={class:"lv-grid"};function l(e,t,i,f,v,g){return c(),r("div",u,[a(e.$slots,"default")])}const m=o(d,[["render",l]]);export{m as default};
