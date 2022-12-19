@@ -91,7 +91,7 @@
                             :class="getCellModifiers(columns[rowKey])"
                         >
                             <!-- Make it slotable with props so you can mutate the data where you use it! -->
-                            <slot :name="rowKey" :value="value" :row="row">
+                            <slot :name="rowKey" :value="value" :row="rows[rowIndex]">
                                 {{ value }}
                             </slot>
                         </td>
