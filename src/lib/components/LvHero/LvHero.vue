@@ -1,8 +1,10 @@
 <template>
     <div class="lv-hero" :class="classObject">
         <div class="lv-hero__content">
-            <h1 class="lv-hero__title">{{ title }}</h1>
-            <p class="lv-hero__description">{{ description }}</p>
+            <h1 class="lv-hero__title"><slot name="title">{{ title }}</slot></h1>
+            <p class="lv-hero__description">
+                <slot name="description">{{ description }}</slot>
+            </p>
             <div class="lv-hero__buttons" v-if="!!$slots.buttons">
                 <slot name="buttons"></slot>
             </div>
