@@ -1,40 +1,20 @@
-/* eslint-disable no-param-reassign */
-import eventBus from './utils/eventBus';
 import components from './components';
-import spaceAfter from './directives/spaceAfter';
+import eventBus from './utils/eventBus';
 
-// Import styling here, otherwise it won't be included in the style.css
-import './scss/core.scss';
+/**
+ * expose components directly
+ * @usage: import { LvTable } from '@libvue/core'
+ */
+export * from './components';
 
-// Default plugin options
-const DEFAULT_OPTIONS = {
-    directives: true,
-    components: true,
-};
+/**
+ * expose directives directly
+ * @usage: import { spaceAfter } from '@libvue/core'
+ */
+export * from './directives';
 
-export default {
-    install: (app, options = DEFAULT_OPTIONS) => {
-        // Merge potential missing options
-        const mergedOptions = { ...DEFAULT_OPTIONS, ...options };
-
-        // Register the spaceAfter directive
-        if (mergedOptions.directives) {
-            app.directive('space-after', spaceAfter);
-        }
-
-        // Register all components
-        if (mergedOptions.components) {
-            Object.entries(components).forEach(([key, value]) => {
-                app.component(key, value);
-            });
-        }
-
-        // Register global Properties
-        app.config.globalProperties.libvue = {
-            eventBus,
-            addToast: (properties) => eventBus.$emit('toast', properties),
-        };
-    },
-};
-
-export { components };
+/**
+ * expose components object
+ * @usage import { components } from '@libvue/core'
+ */
+export { components, eventBus };

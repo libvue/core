@@ -7,7 +7,7 @@
     ></iframe>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .lv-layout__main {
     padding: 0;
 }

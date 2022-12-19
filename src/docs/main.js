@@ -1,7 +1,7 @@
 // For testing using the source file
 import { createApp } from 'vue';
+import { spaceAfter, components } from '../lib/main';
 
-import libvue from '../lib/main';
 import App from './App.vue';
 import router from './router';
 import './assets/sass/app.scss';
@@ -19,7 +19,14 @@ app.component('ComponentDetails', ComponentDetails);
 
 // Use plugins
 app.use(router);
-app.use(libvue);
+
+// Register v-space-after directive
+app.directive('space-after', spaceAfter);
+
+// Quick and dirty register all components
+Object.entries(components).forEach(([key, value]) => {
+    app.component(key, value);
+});
 
 // Mount the app
 app.mount('#app');
