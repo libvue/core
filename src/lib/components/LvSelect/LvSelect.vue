@@ -86,9 +86,11 @@
 import { onClickOutside } from '@vueuse/core';
 import propSizeMixin from '../../mixins/propSizeMixin';
 import LvSelectOption from './LvSelectOption.vue';
+import LvIcon from "../LvIcon/LvIcon.vue";
 
 export default {
     components: {
+        LvIcon,
         LvSelectOption,
     },
     mixins: [propSizeMixin()],

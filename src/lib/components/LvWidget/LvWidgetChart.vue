@@ -17,7 +17,14 @@
 </template>
 
 <script>
+import LvChart from "../LvChart/LvChart.vue";
+import LvCard from "../LvCard/LvCard.vue";
+
 export default {
+    components: {
+        LvCard,
+        LvChart,
+    },
     props: {
         title: {
             type: String,

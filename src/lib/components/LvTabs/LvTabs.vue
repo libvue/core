@@ -24,7 +24,10 @@
 </template>
 
 <script>
+import LvFlex from "../LvFlex/LvFlex.vue";
+
 export default {
+    components: { LvFlex },
     props: {
         tabs: {
             type: Array,

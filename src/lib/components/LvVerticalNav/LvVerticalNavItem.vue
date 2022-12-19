@@ -9,8 +9,10 @@
 
 <script>
 import navigationMixin from '../../mixins/navigationMixin';
+import LvIcon from "../LvIcon/LvIcon.vue";
 
 export default {
+    components: { LvIcon },
     mixins: [navigationMixin],
     inheritAttrs: false,
     props: {

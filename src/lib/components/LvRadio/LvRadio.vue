@@ -19,8 +19,10 @@
 
 <script>
 import useRandom from '../../composables/random';
+import LvIcon from "../LvIcon/LvIcon.vue";
 
 export default {
+    components: { LvIcon },
     props: {
         modelValue: {
             type: String,

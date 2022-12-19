@@ -5,14 +5,16 @@
 </template>
 
 <script>
-import eventBus from '../../utils/eventBus';
-
 export default {
     props: {
         single: {
             type: Boolean,
             default: false,
         },
+        eventBus: {
+            type: Object,
+            required: true,
+        }
     },
     mounted() {
         if (this.single) {
@@ -21,8 +23,8 @@ export default {
     },
     methods: {
         startListener() {
-            eventBus.$on('accordion-item:open', (uuid) => {
-                eventBus.$emit('accordion:close', uuid);
+            this.eventBus.$on('accordion-item:open', (uuid) => {
+                this.eventBus.$emit('accordion:close', uuid);
             });
         },
     },

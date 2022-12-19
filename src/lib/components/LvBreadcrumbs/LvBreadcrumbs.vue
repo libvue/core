@@ -24,7 +24,10 @@
 </template>
 
 <script>
+import LvIcon from "../LvIcon/LvIcon.vue";
+
 export default {
+    components: { LvIcon },
     props: {
         crumbs: {
             type: Array,

@@ -16,7 +16,10 @@
 </template>
 
 <script>
+import LvCard from "../LvCard/LvCard.vue";
+
 export default {
+    components: { LvCard },
     props: {
         type: {
             type: String,

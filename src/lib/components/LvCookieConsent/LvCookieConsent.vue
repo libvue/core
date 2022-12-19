@@ -18,7 +18,13 @@
 </template>
 
 <script>
+import LvHeading from "../LvHeading/LvHeading.vue";
+import LvParagraph from "../LvParagraph/LvParagraph.vue";
+import LvFlex from "../LvFlex/LvFlex.vue";
+import LvButton from "../LvButton/LvButton.vue";
+
 export default {
+    components: { LvButton, LvFlex, LvParagraph, LvHeading },
     props: {
         modal: {
             type: Boolean,

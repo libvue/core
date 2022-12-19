@@ -15,7 +15,10 @@
 </template>
 
 <script>
+import LvIcon from "../LvIcon/LvIcon.vue";
+
 export default {
+    components: { LvIcon },
     inheritAttrs: false,
     props: {
         modelValue: {

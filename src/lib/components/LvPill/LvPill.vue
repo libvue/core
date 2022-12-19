@@ -16,8 +16,10 @@
 <script>
 import propColorMixin from '../../mixins/propColorMixin';
 import propSizeMixin from '../../mixins/propSizeMixin';
+import LvIcon from "../LvIcon/LvIcon.vue";
 
 export default {
+    components: { LvIcon },
     mixins: [propColorMixin('solid-default'), propSizeMixin],
     props: {
         prefix: {

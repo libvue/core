@@ -23,8 +23,11 @@
 
 <script>
 import navigationMixin from '../../mixins/navigationMixin';
+import LvPopover from "../LvPopover/LvPopover.vue";
+import LvIcon from "../LvIcon/LvIcon.vue";
 
 export default {
+    components: { LvIcon, LvPopover },
     mixins: [navigationMixin],
     inheritAttrs: false,
     props: {
