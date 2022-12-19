@@ -27,7 +27,7 @@
         </template>
         <template #toasts>
             <lv-card v-space-after="1">
-                <lv-toasts :max="3" :decay="1000" />
+                <lv-toasts :max="3" :decay="1000" :event-bus="eventBus" />
                 <lv-button color="solid-dimmed-primary" label="Add toast" icon="plus" @click="addToast" />
             </lv-card>
             <lv-code
@@ -42,6 +42,8 @@
 </template>
 
 <script>
+import { eventBus } from "../../../../lib/main";
+
 const code = `
 <lv-toast
     v-space-after="1"
@@ -61,24 +63,35 @@ const code = `
 />
 `.trim();
 const codeTemplate = `
-<lv-toasts :max="3" :decay="1000" />
+<lv-toasts :max="3" :decay="1000" :event-bus="eventBus" />
 <lv-button color="solid-dimmed-primary" label="Add toast" @click="addToast" />
 `.trim();
 const codeScript = `
-addToast() {
-    this.libvue.addToast({
-        title: 'Ut enim ad minima veniam, quis nostrum exercitationem',
-        description: 'Quis autem vel eum iure reprehenderit',
-        button: 'Do Something',
-        icon: 'save',
-        onClick: () => {
-            console.log('Clicking toast');
+import { eventBus } from "@libvue/core";
+
+export default {
+    data() {
+        {
+            return { eventBus }
+        }
+    },
+    methods: {
+        addToast() {
+            this.eventBus.$on.('toast', {
+                title: 'Ut enim ad minima veniam, quis nostrum exercitationem',
+                description: 'Quis autem vel eum iure reprehenderit',
+                button: 'Do Something',
+                icon: 'save',
+                onClick: () => {
+                    console.log('Clicking toast');
+                },
+                onClickButton: () => {
+                    console.log('Clicking button');
+                },
+            });
         },
-        onClickButton: () => {
-            console.log('Clicking button');
-        },
-    });
-},
+    }
+}
 `.trim();
 export default {
     data() {
@@ -86,6 +99,7 @@ export default {
             code,
             codeTemplate,
             codeScript,
+            eventBus,
             activeToastFile: 'template',
             toastFiles: [
                 { id: 'template', filename: 'template', code: codeTemplate, lang: 'html' },
@@ -100,7 +114,7 @@ export default {
     },
     methods: {
         addToast() {
-            this.libvue.addToast({
+            eventBus.$emit('toast', {
                 title: 'Ut enim ad minima veniam, quis nostrum exercitationem',
                 description: 'Quis autem vel eum iure reprehenderit',
                 button: 'Cancel',

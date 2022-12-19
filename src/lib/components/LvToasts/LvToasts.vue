@@ -34,6 +34,10 @@ export default {
             type: Number,
             default: 5,
         },
+        eventBus: {
+            type: Object,
+            required: true,
+        }
     },
     data() {
         return {
@@ -59,10 +63,10 @@ export default {
         },
     },
     mounted() {
-        this.libvue.eventBus.$on('toast', this.addToastHandler);
+        this.eventBus.$on('toast', this.addToastHandler);
     },
     unmounted() {
-        this.libvue.eventBus.$off('toast', this.addToastHandler);
+        this.eventBus.$off('toast', this.addToastHandler);
     },
     methods: {
         addToastHandler(properties) {
