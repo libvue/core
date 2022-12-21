@@ -3,10 +3,7 @@
         :is="tagName"
         class="lv-heading"
         role="heading"
-        :class="{
-            [`lv-heading--${tagName}`]: tagName,
-            'lv-heading--sub': sub,
-        }"
+        :class="classObject"
     >
         <slot />
     </component>
@@ -25,6 +22,10 @@ export default {
             default: 1,
             validator: (value) => Number.parseInt(value, 10) > 0 && Number.parseInt(value, 10) <= 6,
         },
+        inline: {
+            type: Boolean,
+            default: false,
+        },
         sub: {
             type: Boolean,
             default: false,
@@ -34,6 +35,13 @@ export default {
         tagName() {
             return `h${this.level}`;
         },
+        classObject() {
+            return {
+                [`lv-heading--${this.tagName}`]: true,
+                'lv-heading--sub': this.sub,
+                'lv-heading--inline': this.inline,
+            }
+        }
     },
 };
 </script>
@@ -74,6 +82,9 @@ export default {
     }
     &--sub {
         color: var(--text-color-dimmed);
+    }
+    &--inline {
+        display: inline-block;
     }
 }
 </style>
