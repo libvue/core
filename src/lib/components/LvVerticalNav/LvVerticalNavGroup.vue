@@ -34,7 +34,7 @@ export default {
     position: relative;
     flex-grow: 1;
     flex-direction: column;
-    margin-bottom: 15px;
+    margin-bottom: 1.25rem;
     width: 100%;
     font-size: var(--font-size);
     font-family: var(--font-family);
