@@ -3,124 +3,246 @@
         <template #header>
             <lv-header>
                 <template #branding>
-                    <lv-link class="logo" to="/" v-html="Logo"></lv-link>
+                    <lv-link class="logo" @click="$router.push({ path: '/' })" v-html="Logo"></lv-link>
                 </template>
                 <template #search> </template>
                 <template #navigation>
-                    <lv-horizontal-nav-item v-space-after="1" label="Documentation" to="/documentation" />
-                    <lv-horizontal-nav-item v-space-after="1" label="Playground" to="/playground" />
+                    <lv-flex v-space-after="1">
+                        <router-link v-slot="{ isActive, navigate }" :to="{ path: '/documentation' }" custom>
+                            <lv-horizontal-nav-item label="Documentation" :active="isActive" @click="navigate" />
+                        </router-link>
+                        <router-link v-slot="{ isActive, navigate }" :to="{ path: '/playground' }" custom>
+                            <lv-horizontal-nav-item label="Playground" :active="isActive" @click="navigate" />
+                        </router-link>
+                    </lv-flex>
                     <lv-separator direction="vertical" />
                 </template>
                 <template #extra>
                     <lv-theme-toggle v-model="theme" v-space-after="1" />
-                    <lv-button
-                        icon="github"
-                        target="_blank"
-                        @click="onClickGithub"
-                        color="ghost-default"
-                    />
+                    <lv-button icon="github" target="_blank" @click="onClickGithub" color="ghost-default" />
                 </template>
             </lv-header>
         </template>
 
         <template v-if="!$route.meta.hideSidebar" #sidebar>
             <lv-vertical-nav-group label="Getting Started">
-                <lv-vertical-nav-item icon="rocket" to="/docs/install" label="Installation" />
+                <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/install' }" custom>
+                    <lv-vertical-nav-item icon="rocket" label="Installation" :active="isActive" @click="navigate" />
+                </router-link>
             </lv-vertical-nav-group>
             <lv-vertical-nav-group label="Concepts">
-                <lv-vertical-nav-item icon="palette" to="/docs/theming" label="Theming" />
-                <lv-vertical-nav-item icon="align-vertical-space-around" to="/docs/spacing" label="Spacing" />
+                <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/theming' }" custom>
+                    <lv-vertical-nav-item icon="palette" label="Theming" :active="isActive" @click="navigate" />
+                </router-link>
+                <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/spacing' }" custom>
+                    <lv-vertical-nav-item icon="align-vertical-space-around" label="Spacing" :active="isActive" @click="navigate" />
+                </router-link>
                 <lv-vertical-nav-item icon="accessibility" disabled>
                     <lv-flex gap=".25rem">
-                        Accessibility <lv-badge text="Planned" size="tiny" color="solid-dimmed-primary" />
+                        Accessibility
+                        <lv-badge text="Planned" size="tiny" color="solid-dimmed-primary" />
                     </lv-flex>
                 </lv-vertical-nav-item>
             </lv-vertical-nav-group>
             <lv-vertical-nav-group label="Components">
                 <lv-vertical-nav-list icon="layout" label="Layout">
-                    <lv-vertical-nav-item label="Layout" to="/docs/lv-layout" />
-                    <lv-vertical-nav-item label="Header" to="/docs/lv-header" />
-                    <lv-vertical-nav-item label="Grid" to="/docs/lv-grid" />
-                    <lv-vertical-nav-item label="Flex" to="/docs/lv-flex" />
-                    <lv-vertical-nav-item label="Theme Toggle" to="/docs/lv-theme-toggle" />
-                    <lv-vertical-nav-item label="Card" to="/docs/lv-card" />
-                    <lv-vertical-nav-item label="Loading Dots" to="/docs/lv-loading-dots" />
-                    <lv-vertical-nav-item label="Spinner" to="/docs/lv-spinner" />
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-layout' }" custom>
+                        <lv-vertical-nav-item label="Layout" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-header' }" custom>
+                        <lv-vertical-nav-item label="Header" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-grid' }" custom>
+                        <lv-vertical-nav-item label="Grid" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-flex' }" custom>
+                        <lv-vertical-nav-item label="Flex" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-theme-toggle' }" custom>
+                        <lv-vertical-nav-item label="Theme Toggle" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-card' }" custom>
+                        <lv-vertical-nav-item label="Card" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-loading-dots' }" custom>
+                        <lv-vertical-nav-item label="Loading Dots" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-spinner' }" custom>
+                        <lv-vertical-nav-item label="Spinner" :active="isActive" @click="navigate" />
+                    </router-link>
                 </lv-vertical-nav-list>
                 <lv-vertical-nav-list icon="compass" label="Navigation">
-                    <lv-vertical-nav-item to="/docs/lv-button" label="Button" />
-                    <lv-vertical-nav-item to="/docs/lv-button-group" label="Button Group" />
-                    <lv-vertical-nav-item to="/docs/lv-tabs" label="Tabs" />
-                    <lv-vertical-nav-item label="Link" to="/docs/lv-link" />
-                    <lv-vertical-nav-item label="Fragment Link" to="/docs/lv-fragment-link" />
-                    <lv-vertical-nav-item label="Horizontal Nav" to="/docs/lv-horizontal-nav" />
-                    <lv-vertical-nav-item label="Vertical Nav" to="/docs/lv-vertical-nav" />
-                    <lv-vertical-nav-item label="Pagination" to="/docs/lv-pagination" />
-                    <lv-vertical-nav-item label="Breadcrumbs" to="/docs/lv-breadcrumbs" />
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-button' }" custom>
+                        <lv-vertical-nav-item label="Button" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-button-group' }" custom>
+                        <lv-vertical-nav-item label="Button Group" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-tabs' }" custom>
+                        <lv-vertical-nav-item label="Tabs" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-link' }" custom>
+                        <lv-vertical-nav-item label="Link" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-fragment-link' }" custom>
+                        <lv-vertical-nav-item label="Fragment Link" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-horizontal-nav' }" custom>
+                        <lv-vertical-nav-item label="Horizontal Nav" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-vertical-nav' }" custom>
+                        <lv-vertical-nav-item label="Vertical Nav" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-pagination' }" custom>
+                        <lv-vertical-nav-item label="Pagination" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-breadcrumbs' }" custom>
+                        <lv-vertical-nav-item label="Breadcrumbs" :active="isActive" @click="navigate" />
+                    </router-link>
                 </lv-vertical-nav-list>
                 <lv-vertical-nav-list icon="bar-chart-2" label="Data Visualization">
-                    <lv-vertical-nav-item to="/docs/lv-table" label="Table" />
-                    <lv-vertical-nav-item to="/docs/lv-chart" label="Chart" />
-                    <lv-vertical-nav-item label="Widget" to="/docs/lv-widget" />
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-table' }" custom>
+                        <lv-vertical-nav-item label="Table" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-chart' }" custom>
+                        <lv-vertical-nav-item label="Chart" :active="isActive" @click="navigate" />
+                    </router-link>
+
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-widget' }" custom>
+                        <lv-vertical-nav-item label="Widget" :active="isActive" @click="navigate" />
+                    </router-link>
                     <lv-vertical-nav-item to="/docs/lv-file-tree" disabled>
                         <lv-flex gap=".25rem">
-                            File Tree <lv-badge text="Planned" size="tiny" color="solid-dimmed-primary" />
+                            File Tree
+                            <lv-badge text="Planned" size="tiny" color="solid-dimmed-primary" />
                         </lv-flex>
                     </lv-vertical-nav-item>
                     <lv-vertical-nav-item to="/docs/lv-progress" disabled>
                         <lv-flex gap=".25rem">
-                            Progress <lv-badge text="Planned" size="tiny" color="solid-dimmed-primary" />
+                            Progress
+                            <lv-badge text="Planned" size="tiny" color="solid-dimmed-primary" />
                         </lv-flex>
                     </lv-vertical-nav-item>
-                    <lv-vertical-nav-item label="Pill" to="/docs/lv-pill" />
-                    <lv-vertical-nav-item label="Badge" to="/docs/lv-badge" />
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-pill' }" custom>
+                        <lv-vertical-nav-item label="Pill" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-badge' }" custom>
+                        <lv-vertical-nav-item label="Badge" :active="isActive" @click="navigate" />
+                    </router-link>
                 </lv-vertical-nav-list>
                 <lv-vertical-nav-list icon="form-input" label="Form Elements">
-                    <lv-vertical-nav-item to="/docs/lv-fieldset" label="Fieldset" />
-                    <lv-vertical-nav-item to="/docs/lv-input" label="Input" />
-                    <lv-vertical-nav-item to="/docs/lv-checkbox" label="Checkbox" />
-                    <lv-vertical-nav-item label="Radio" to="/docs/lv-radio" />
-                    <lv-vertical-nav-item label="Date Picker" to="/docs/lv-date-picker" />
-                    <lv-vertical-nav-item label="File Input" to="/docs/lv-file-input" />
-                    <lv-vertical-nav-item label="Slider" to="/docs/lv-slider" />
-                    <lv-vertical-nav-item label="Range Slider" to="/docs/lv-range-slider" />
-                    <lv-vertical-nav-item label="Switch" to="/docs/lv-switch" />
-                    <lv-vertical-nav-item label="Select" to="/docs/lv-select" />
-                    <lv-vertical-nav-item label="Textarea" to="/docs/lv-textarea" />
-                    <lv-vertical-nav-item label="Toggle" to="/docs/lv-toggle" />
-                    <lv-vertical-nav-item label="Toggle Group" to="/docs/lv-toggle-group" />
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-fieldset' }" custom>
+                        <lv-vertical-nav-item label="Fieldset" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-input' }" custom>
+                        <lv-vertical-nav-item label="Input" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-checkbox' }" custom>
+                        <lv-vertical-nav-item label="Checkbox" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-radio' }" custom>
+                        <lv-vertical-nav-item label="Radio" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-date-picker' }" custom>
+                        <lv-vertical-nav-item label="Date Picker" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-file-input' }" custom>
+                        <lv-vertical-nav-item label="File Input" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-slider' }" custom>
+                        <lv-vertical-nav-item label="Slider" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-range-slider' }" custom>
+                        <lv-vertical-nav-item label="Range Slider" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-switch' }" custom>
+                        <lv-vertical-nav-item label="Switch" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-select' }" custom>
+                        <lv-vertical-nav-item label="Select" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-textarea' }" custom>
+                        <lv-vertical-nav-item label="Textarea" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-toggle' }" custom>
+                        <lv-vertical-nav-item label="Toggle" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-toggle-group' }" custom>
+                        <lv-vertical-nav-item label="Toggle Group" :active="isActive" @click="navigate" />
+                    </router-link>
                 </lv-vertical-nav-list>
                 <lv-vertical-nav-list icon="pencil" label="Writing">
-                    <lv-vertical-nav-item to="/docs/lv-heading" label="Heading" />
-                    <lv-vertical-nav-item label="Paragraph" to="/docs/lv-paragraph" />
-                    <lv-vertical-nav-item label="Blockquote" to="/docs/lv-blockquote" />
-                    <lv-vertical-nav-item label="Keyboard" to="/docs/lv-keyboard" />
-                    <lv-vertical-nav-item label="Separator" to="/docs/lv-separator" />
-                    <lv-vertical-nav-item to="/docs/lv-code" label="Code" />
-                    <lv-vertical-nav-item to="/docs/lv-notice" label="Notice" />
-                    <lv-vertical-nav-item label="Accordion" to="/docs/lv-accordion" />
-                    <lv-vertical-nav-item label="Text Editor" to="/docs/lv-text-editor" />
-                    <lv-vertical-nav-item label="Window" to="/docs/lv-window" />
-                    <lv-vertical-nav-item label="Skeleton" to="/docs/lv-skeleton" />
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-heading' }" custom>
+                        <lv-vertical-nav-item label="Heading" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-paragraph' }" custom>
+                        <lv-vertical-nav-item label="Paragraph" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-blockquote' }" custom>
+                        <lv-vertical-nav-item label="Blockquote" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-keyboard' }" custom>
+                        <lv-vertical-nav-item label="Keyboard" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-separator' }" custom>
+                        <lv-vertical-nav-item label="Separator" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-code' }" custom>
+                        <lv-vertical-nav-item label="Code" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-notice' }" custom>
+                        <lv-vertical-nav-item label="Notice" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-accordion' }" custom>
+                        <lv-vertical-nav-item label="Accordion" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-text-editor' }" custom>
+                        <lv-vertical-nav-item label="Text Editor" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-window' }" custom>
+                        <lv-vertical-nav-item label="Window" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-skeleton' }" custom>
+                        <lv-vertical-nav-item label="Skeleton" :active="isActive" @click="navigate" />
+                    </router-link>
                 </lv-vertical-nav-list>
                 <lv-vertical-nav-list icon="image" label="Media">
-                    <lv-vertical-nav-item label="Icon" to="/docs/lv-icon" />
-                    <lv-vertical-nav-item label="Avatar" to="/docs/lv-avatar" />
-                    <lv-vertical-nav-item label="Image" to="/docs/lv-image" />
-                    <lv-vertical-nav-item label="Image Carousel" to="/docs/lv-image-carousel" />
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-icon' }" custom>
+                        <lv-vertical-nav-item label="Icon" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-avatar' }" custom>
+                        <lv-vertical-nav-item label="Avatar" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-image' }" custom>
+                        <lv-vertical-nav-item label="Image" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-image-carousel' }" custom>
+                        <lv-vertical-nav-item label="Image Carousel" :active="isActive" @click="navigate" />
+                    </router-link>
                 </lv-vertical-nav-list>
                 <lv-vertical-nav-list icon="layers" label="Overlay">
-                    <lv-vertical-nav-item label="Dialog" to="/docs/lv-dialog" />
-                    <lv-vertical-nav-item label="Drawer" to="/docs/lv-drawer" />
-                    <lv-vertical-nav-item label="Popover" to="/docs/lv-popover" />
-                    <lv-vertical-nav-item label="Toast" to="/docs/lv-toast" />
-                    <lv-vertical-nav-item label="Cookie Consent" to="/docs/lv-cookie-consent" />
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-dialog' }" custom>
+                        <lv-vertical-nav-item label="Dialog" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-drawer' }" custom>
+                        <lv-vertical-nav-item label="Drawer" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-popover' }" custom>
+                        <lv-vertical-nav-item label="Popover" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-toast' }" custom>
+                        <lv-vertical-nav-item label="Toast" :active="isActive" @click="navigate" />
+                    </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-cookie-consent' }" custom>
+                        <lv-vertical-nav-item label="Cookie Consent" :active="isActive" @click="navigate" />
+                    </router-link>
                 </lv-vertical-nav-list>
             </lv-vertical-nav-group>
             <lv-vertical-nav-group label="Utilities">
                 <lv-vertical-nav-list icon="corner-down-right" label="Mixins">
-                    <lv-vertical-nav-item label="Navigation Mixin" to="/docs/navigation-mixin" />
-                    <lv-vertical-nav-item label="Breakpoint Mixin" to="/docs/breakpoint-mixin" />
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/breakpoint-mixin' }" custom>
+                        <lv-vertical-nav-item label="Breakpoint Mixin" :active="isActive" @click="navigate" />
+                    </router-link>
                 </lv-vertical-nav-list>
             </lv-vertical-nav-group>
         </template>
@@ -139,7 +261,6 @@
 import LocalStorage from '../utils/localStorage';
 // eslint-disable-next-line import/no-unresolved
 import Logo from '../assets/images/logo-header.svg?raw';
-
 export default {
     components: {},
     data() {
@@ -168,7 +289,7 @@ export default {
             return 'light';
         },
         onClickGithub() {
-            window.open('https://github.com/harmendv/libvue', '_blank');
+            window.open('https://github.com/libvue/core', '_blank');
         }
     },
 };
@@ -178,5 +299,4 @@ export default {
 .logo svg {
     width: 100px;
 }
-
 </style>

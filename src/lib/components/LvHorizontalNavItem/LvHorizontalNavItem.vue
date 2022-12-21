@@ -2,7 +2,7 @@
     <template v-if="hasChildren">
         <lv-popover trigger="mouseenter" placement="bottom" interactive>
             <template #reference>
-                <a class="lv-horizontal-nav-item" :href="href" :class="classObject" @click="onClick">
+                <a class="lv-horizontal-nav-item" :class="classObject" @click="onClick">
                     <lv-icon v-if="icon" :name="icon" class="lv-horizontal-nav-item__icon" />
                     <div class="lv-horizontal-nav-item__label">{{ label }}</div>
                     <lv-icon class="lv-horizontal-nav-item__arrow" name="chevron-down" />
@@ -14,7 +14,7 @@
         </lv-popover>
     </template>
     <template v-else>
-        <a class="lv-horizontal-nav-item" :href="href" :class="classObject" @click="onClick">
+        <a class="lv-horizontal-nav-item" :class="classObject" @click="onClick">
             <lv-icon v-if="icon" :name="icon" class="lv-horizontal-nav-item__icon" />
             <div class="lv-horizontal-nav-item__label">{{ label }}</div>
         </a>
@@ -22,13 +22,11 @@
 </template>
 
 <script>
-import navigationMixin from '../../mixins/navigationMixin';
 import LvPopover from "../LvPopover/LvPopover.vue";
 import LvIcon from "../LvIcon/LvIcon.vue";
 
 export default {
     components: { LvIcon, LvPopover },
-    mixins: [navigationMixin],
     inheritAttrs: false,
     props: {
         label: {
@@ -60,10 +58,16 @@ export default {
             return {
                 'lv-horizontal-nav-item--disabled': this.disabled || this.loading,
                 'lv-horizontal-nav-item--loading': this.loading,
-                'lv-horizontal-nav-item--active': this.toEqualsCurrentRoute,
+                'lv-horizontal-nav-item--active': this.active,
             };
         },
     },
+    emits: ['click'],
+    methods: {
+        onClick() {
+            this.$emit('click')
+        }
+    }
 };
 </script>
 

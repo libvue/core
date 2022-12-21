@@ -178,7 +178,7 @@ const codeAlign = `
 export default {
     data() {
         return {
-            activeTab: 'colors',
+            activeTab: 'sizes',
             tabs: [
                 { id: 'sizes', title: 'Sizes', icon: 'scaling' },
                 { id: 'colors', title: 'Colors', icon: 'palette' },

@@ -1,19 +1,17 @@
 <template>
-    <a class="lv-vertical-nav-item" :href="href" :class="classObject" @click="onClick">
+    <div class="lv-vertical-nav-item" :class="classObject" @click="onClick">
         <lv-icon v-if="icon" :name="icon" class="lv-vertical-nav-item__icon" />
         <div class="lv-vertical-nav-item__label">
             <slot>{{ label }}</slot>
         </div>
-    </a>
+    </div>
 </template>
 
 <script>
-import navigationMixin from '../../mixins/navigationMixin';
 import LvIcon from "../LvIcon/LvIcon.vue";
 
 export default {
     components: { LvIcon },
-    mixins: [navigationMixin],
     inheritAttrs: false,
     props: {
         label: {
@@ -42,10 +40,16 @@ export default {
             return {
                 'lv-vertical-nav-item--disabled': this.disabled || this.loading,
                 'lv-vertical-nav-item--loading': this.loading,
-                'lv-vertical-nav-item--active': this.toEqualsCurrentRoute,
+                'lv-vertical-nav-item--active': this.active,
             };
         },
     },
+    emits: ['click'],
+    methods: {
+        onClick() {
+            this.$emit('click')
+        }
+    }
 };
 </script>
 

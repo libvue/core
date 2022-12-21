@@ -5,8 +5,8 @@
     <lv-heading v-space-after="1" :level="6">Example</lv-heading>
     <lv-card v-space-after="1">
         <lv-icon name="github" :push="0.5" />
-        <lv-icon name="rocket" :push="0.5" size="24" />
-        <lv-icon name="moon" size="32" />
+        <lv-icon name="rocket" :push="0.5" :size="24" />
+        <lv-icon name="moon" :size="32" />
     </lv-card>
     <lv-code v-space-after="1" lang="html" :code="code" />
     <lv-paragraph v-space-after="1">
