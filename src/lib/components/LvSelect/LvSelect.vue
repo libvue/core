@@ -319,7 +319,6 @@ export default {
         top: 50%;
         right: calc(var(--padding) - 2px);
         transform: translateY(-50%);
-        background-color: var(--background-color);
         color: var(--text-color-dimmed);
     }
 
