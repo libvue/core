@@ -23,14 +23,14 @@
                     <template #weight="{ value }"> {{ value }} kg </template>
                     <template #age="{ value }"> {{ value }} years </template>
                     <template #options>
-                        <lv-popover placement="left" trigger="mouseenter" interactive>
+                        <lv-popover placement="left" trigger="mouseenter focus" interactive>
                             <template #reference>
-                                <lv-button size="small" label="Options" color="solid-dimmed-primary" stop-propagation />
+                                <lv-button size="small" label="Options" color="solid-dimmed-primary" />
                             </template>
                             <template #content>
                                 <lv-flex direction="column">
-                                    <lv-button align="left" icon="plus-circle" size="small" label="Add" color="ghost-default" stop-propagation />
-                                    <lv-button align="left" icon="trash" size="small" label="Delete" color="ghost-default" stop-propagation />
+                                    <lv-button align="left" icon="plus-circle" size="small" label="Add" color="ghost-default"  />
+                                    <lv-button align="left" icon="trash" size="small" label="Delete" color="ghost-default" />
                                 </lv-flex>
                             </template>
                         </lv-popover>
@@ -59,7 +59,7 @@
             />
         </template>
         <template #empty>
-            <lv-card>
+            <lv-card v-space-after="1">
                 <lv-table :columns="columnsDefault" />
             </lv-card>
         </template>
@@ -76,12 +76,12 @@ const templateOptions = `
     <template #options>
         <lv-popover placement="bottom" trigger="mouseenter" interactive>
             <template #reference>
-                <lv-button size="small" label="Options" color="solid-dimmed-primary" stop-propagation />
+                <lv-button size="small" label="Options" color="solid-dimmed-primary" />
             </template>
             <template #content>
                 <lv-flex direction="column">
-                    <lv-button align="left" icon="plus-circle" size="small" label="Add" color="ghost-default" stop-propagation />
-                    <lv-button align="left" icon="trash" size="small" label="Delete" color="ghost-default" stop-propagation />
+                    <lv-button align="left" icon="plus-circle" size="small" label="Add" color="ghost-default" />
+                    <lv-button align="left" icon="trash" size="small" label="Delete" color="ghost-default" />
                 </lv-flex>
             </template>
         </lv-popover>

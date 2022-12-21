@@ -7,7 +7,7 @@
             <template #title>
                 <lv-heading :level="4" v-space-after="1">Make a choice</lv-heading>
             </template>
-            <template #description>
+            <template #content>
                 <lv-heading :level="6">Do you want to continue?</lv-heading>
                 <lv-paragraph v-space-after="0.5">Press continue to keep doing what you were doing.</lv-paragraph>
                 <lv-switch v-model="model" v-space-after="1" label="Enable something"/>
@@ -32,7 +32,7 @@ const code = `
     <template #title>
         <lv-heading :level="4" v-space-after="1">Make a choice</lv-heading>
     </template>
-    <template #description>
+    <template #content>
         <lv-heading :level="6">Do you want to continue?</lv-heading>
         <lv-paragraph v-space-after="0.5">Press continue to keep doing what you were doing.</lv-paragraph>
         <lv-input v-space-after="1" placeholder="Type something" />

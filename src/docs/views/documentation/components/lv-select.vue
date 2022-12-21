@@ -5,7 +5,7 @@
     <lv-tabs v-space-after="1" :tabs="tabs" :active="activeTab" @change-tab="(v) => (activeTab = v)">
         <template #single>
             <lv-card v-space-after="1">
-                <lv-select v-model="modelSingle" v-space-after="1" :options="options">
+                <lv-select v-model="modelSingle" v-space-after="1" :options="options" disabled>
                     <template #value="{ option }">
                         <lv-icon :name="option.icon" :push=".5" /> {{ option.label }}
                     </template>

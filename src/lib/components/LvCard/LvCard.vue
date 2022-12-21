@@ -1,5 +1,5 @@
 <template>
-    <div class="lv-card" :class="{ 'lv-card--inline': !!inline }">
+    <div class="lv-card" :class="classObject">
         <slot />
     </div>
 </template>
@@ -11,22 +11,50 @@ export default {
             type: Boolean,
             default: false,
         },
+        elevation: {
+            type: Boolean,
+            default: true,
+        },
+        padding: {
+            type: Boolean,
+            default: true,
+        },
+        border: {
+            type: Boolean,
+            default: true,
+        }
     },
+    computed: {
+        classObject() {
+            return {
+                'lv-card--elevation': !!this.elevation,
+                'lv-card--inline': !!this.inline,
+                'lv-card--padding': !!this.padding,
+                'lv-card--border': !!this.border,
+            }
+        }
+    }
 };
 </script>
 
 <style lang="scss">
 .lv-card {
-    box-shadow: var(--shadow);
-    border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
     background-color: var(--background-color);
-    padding: calc(var(--padding) * 1.5);
     color: var(--text-color);
     line-height: 1;
 
     &--inline {
         display: inline-block;
+    }
+    &--padding {
+        padding: calc(var(--padding) * 1.5);
+    }
+    &--elevation {
+        box-shadow: var(--shadow);
+    }
+    &--border {
+        border: 1px solid var(--border-color);
     }
 }
 </style>
