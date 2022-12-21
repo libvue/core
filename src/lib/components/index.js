@@ -64,6 +64,7 @@ import LvTabs from './LvTabs/LvTabs.vue';
 import LvToast from './LvToast/LvToast.vue';
 import LvToasts from './LvToasts/LvToasts.vue';
 import LvWidget from './LvWidget/LvWidget.vue';
+import LvDescriptionList from './LvDescriptionList/LvDescriptionList.vue';
 
 export {
     LvDatePicker,
@@ -132,6 +133,7 @@ export {
     LvToast,
     LvToasts,
     LvWidget,
+    LvDescriptionList,
 };
 
 export default {
@@ -201,4 +203,5 @@ export default {
     LvToast,
     LvToasts,
     LvWidget,
+    LvDescriptionList,
 };
