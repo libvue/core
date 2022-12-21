@@ -1,7 +1,6 @@
 <template>
-    <component
-        :is="href ? 'a' : 'button'"
-        :href="href"
+    <button
+        type="button"
         tabindex="0"
         class="lv-button"
         :class="classObject"
@@ -17,20 +16,19 @@
                 {{ label }}
             </slot>
         </span>
-    </component>
+    </button>
 </template>
 
 <script>
 import propColorMixin from '../../mixins/propColorMixin';
 import propSizeMixin from '../../mixins/propSizeMixin';
-import navigationMixin from '../../mixins/navigationMixin';
 import LvIcon from '../LvIcon/LvIcon.vue';
 
 export default {
     components: {
         LvIcon,
     },
-    mixins: [propColorMixin('solid-default'), navigationMixin, propSizeMixin()],
+    mixins: [propColorMixin('solid-default'), propSizeMixin()],
     props: {
         label: {
             type: String,
@@ -66,6 +64,12 @@ export default {
             };
         },
     },
+    emits: ['click'],
+    methods: {
+        onClick() {
+            this.$emit('click');
+        }
+    }
 };
 </script>
 

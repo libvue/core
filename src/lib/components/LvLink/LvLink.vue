@@ -1,14 +1,11 @@
 <template>
-    <a class="lv-link" :class="classObject" :href="href" @click="onClick" role="link">
+    <a class="lv-link" :class="classObject" @click="onClick" role="link" v-bind="$attrs">
         <slot />
     </a>
 </template>
 
 <script>
-import NavigationMixin from '../../mixins/navigationMixin';
-
 export default {
-    mixins: [NavigationMixin],
     props: {
         highlight: {
             type: Boolean,
@@ -20,6 +17,12 @@ export default {
             return {
                 'lv-link--highlight': !!this.highlight,
             }
+        }
+    },
+    emits: ['click'],
+    methods: {
+        onClick() {
+            this.$emit('click')
         }
     }
 };
