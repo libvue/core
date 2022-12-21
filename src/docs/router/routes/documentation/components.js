@@ -1,5 +1,8 @@
 import { defineAsyncComponent } from 'vue';
 
+const LvDescriptionList = defineAsyncComponent(() =>
+    import('../../../views/documentation/components/lv-description-list.vue')
+);
 const LvDatePicker = defineAsyncComponent(() => import('../../../views/documentation/components/lv-date-picker.vue'));
 const LvButtonGroup = defineAsyncComponent(() => import('../../../views/documentation/components/lv-button-group.vue'));
 const LvFileInput = defineAsyncComponent(() => import('../../../views/documentation/components/lv-file-input.vue'));
@@ -67,6 +70,11 @@ const LvHeader = defineAsyncComponent(() => import('../../../views/documentation
 const LvGrid = defineAsyncComponent(() => import('../../../views/documentation/components/lv-grid.vue'));
 
 export default [
+    {
+        path: '/docs/lv-description-list',
+        name: 'lv-description-list',
+        component: LvDescriptionList,
+    },
     {
         path: '/docs/lv-date-picker',
         name: 'lv-date-picker',

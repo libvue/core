@@ -104,6 +104,9 @@
                     <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-table' }" custom>
                         <lv-vertical-nav-item label="Table" :active="isActive" @click="navigate" />
                     </router-link>
+                    <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-description-list' }" custom>
+                        <lv-vertical-nav-item label="Description List" :active="isActive" @click="navigate" />
+                    </router-link>
                     <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-chart' }" custom>
                         <lv-vertical-nav-item label="Chart" :active="isActive" @click="navigate" />
                     </router-link>
