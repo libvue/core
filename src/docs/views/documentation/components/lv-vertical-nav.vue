@@ -17,6 +17,10 @@
         </lv-vertical-nav-group>
     </lv-card>
     <lv-code v-space-after="1" lang="html" :code="code" />
+
+    <component-details v-space-after="1" title="LvVerticalNavItem" component="LvVerticalNavItem"></component-details>
+    <component-details v-space-after="1" title="LvVerticalNavList" component="LvVerticalNavList"></component-details>
+    <component-details title="LvVerticalNavGroup" component="LvVerticalNavGroup"></component-details>
 </template>
 
 <script>
@@ -37,7 +41,7 @@ const code = `
 export default {
     data() {
         return {
-            code
+            code,
         };
     },
 };
