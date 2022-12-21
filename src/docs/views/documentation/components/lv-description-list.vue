@@ -29,10 +29,6 @@ items: [
 export default {
     data() {
         return {
-            activeTab: 'default',
-            tabs: [
-                { id: 'default', title: 'Default' },
-            ],
             items: [
                 { term: 'Name', description: 'My Product' },
                 { term: 'Feature One', description: 'It\'s awesome' },
