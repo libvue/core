@@ -1,6 +1,6 @@
 {
     "name": "@libvue/core",
-    "version": "0.0.44",
+    "version": "0.0.45",
     "private": false,
     "scripts": {
         "dev": "vite",
@@ -58,5 +58,5 @@
         "sass-loader": "^12.1.0",
         "vite": "^3.1.2",
         "vue-router": "^4.1.5"
-    },
+    }
 }
