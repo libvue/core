@@ -1,5 +1,5 @@
 <template>
-    <div class="lv-popover">
+    <div class="lv-popover" @click="prevent">
         <slot name="reference"></slot>
         <tippy target="_parent" :interactive="interactive" :placement="placement" :trigger="trigger" :visible="visible">
             <div class="lv-popover__content" :style="`padding: ${padding}`">
@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { Tippy } from "tippy.vue";
+import { Tippy } from 'tippy.vue';
 import tippy from 'tippy.js';
 import 'tippy.js/dist/svg-arrow.css';
 import 'tippy.js/animations/shift-toward-subtle.css';
@@ -44,6 +44,10 @@ export default {
             type: Boolean,
             default: true,
         },
+        hideOnClick: {
+            type: Boolean,
+            default: false,
+        },
         visible: {
             type: Boolean,
             default: true,
@@ -71,13 +75,17 @@ export default {
                 theme: 'libvue',
                 animation: 'shift-toward-subtle',
                 duration: 100,
+                hideOnClick: this.hideOnClick,
                 appendTo: this.appendTo,
             });
+        },
+        prevent(e) {
+            e.preventDefault();
+            e.stopPropagation();
         }
-    }
+    },
 };
 </script>
-
 
 <style lang="scss">
 @import '../../scss/transitions/fade';
@@ -109,8 +117,8 @@ export default {
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius);
     background-color: var(--background-color) !important;
-    color: var(--text-color);
     padding: 0;
+    color: var(--text-color);
     .tippy-content {
         padding: 0;
     }
