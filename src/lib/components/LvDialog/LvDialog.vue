@@ -2,12 +2,12 @@
     <Teleport :to="teleportTarget">
         <UseFocusTrap v-if="show && mounted" :options="focusTrapOptions">
             <div v-if="show" ref="dialog" class="lv-dialog" role="dialog" :aria-modal="modal" v-bind="$attrs">
-                <div class="lv-dialog__overlay" @click="onClickOverlay"></div>
-                <div ref="content" class="lv-dialog__content">
+                <div class="lv-dialog__backdrop" @click="onClickBackdrop"></div>
+                <div ref="content" class="lv-dialog__window">
                     <slot name="default">
                         <div v-if="!!$slots.title" class="lv-dialog__title"><slot name="title"></slot></div>
-                        <div v-if="!!$slots.description" class="lv-dialog__description">
-                            <slot name="description"></slot>
+                        <div v-if="!!$slots.content" class="lv-dialog__content">
+                            <slot name="content"></slot>
                         </div>
                         <div v-if="!!$slots.close" class="lv-dialog__close"><slot name="close"></slot></div>
                     </slot>
@@ -39,7 +39,7 @@ export default {
             default: 'body',
         },
     },
-    emits: ['click-overlay'],
+    emits: ['click-backdrop'],
     data() {
         return {
             mounted: false,
@@ -58,8 +58,8 @@ export default {
         this.mounted = true;
     },
     methods: {
-        onClickOverlay() {
-            this.$emit('click-overlay');
+        onClickBackdrop() {
+            this.$emit('click-backdrop');
         },
     },
 };
@@ -77,14 +77,14 @@ export default {
     width: 100%;
     height: 100%;
 
-    &__overlay {
+    &__backdrop {
         position: absolute;
         background-color: var(--backdrop-color);
         width: 100%;
         height: 100%;
     }
 
-    &__content {
+    &__window {
         position: relative;
         box-shadow: var(--shadow-dialog);
         border-radius: var(--border-radius);
