@@ -5,6 +5,12 @@
             <div class="lv-layout__header-container">
                 <slot name="header"></slot>
             </div>
+            <!-- Sub Header (f.e. local nav on mobile) -->
+            <div v-if="!!$slots['subheader']" class="lv-layout__subheader">
+                <div class="lv-layout__subheader-container">
+                    <slot name="subheader"></slot>
+                </div>
+            </div>
         </header>
 
         <div class="lv-layout__container">
@@ -80,6 +86,17 @@ body {
         z-index: 1;
         border-bottom: 1px solid var(--border-color);
         background-color: var(--header-background-color);
+        width: 100%;
+
+        &-container {
+            margin: 0 auto;
+            max-width: var(--max-width);
+        }
+    }
+
+    &__subheader {
+        z-index: 1;
+        border-top: 1px solid var(--border-color);
         width: 100%;
 
         &-container {
