@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import BreakpointMixin from '../../mixins/breakpointMixin.js';
+import BreakpointMixin from '../../mixins/breakpointMixin';
 
 export default {
     mixins: [BreakpointMixin],
