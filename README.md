@@ -3,7 +3,7 @@
 [![license](https://img.shields.io/badge/license-MIT-blue)](https://img.shields.io/badge/license-MIT-blue)
 [![npm (tag)](https://img.shields.io/npm/v/@libvue/core/latest?label=npm%20package)](https://badge.fury.io/js/@libvue%2Fcore)
 
-#### An opensource collection of vue 3 components.
+#### A collection of vue 3 components.
 
 [documentation](https://libvue.github.io/core/) - [playground](https://libvue.github.io/core/#/playground) - [npm](https://www.npmjs.com/package/@libvue/core)
 
