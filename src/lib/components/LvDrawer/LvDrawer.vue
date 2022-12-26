@@ -82,8 +82,8 @@ export default {
         });
     },
     methods: {
-        onClickOverlay() {
-            this.$emit('click-overlay');
+        onClickOverlay(e) {
+            this.$emit('click-overlay', e);
         },
     },
 };
