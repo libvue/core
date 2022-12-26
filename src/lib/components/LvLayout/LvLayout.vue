@@ -1,17 +1,18 @@
 <template>
-    <div class="lv-layout">
+    <div class="lv-layout" :class="classObject">
         <!-- Header (f.e. global navigation) -->
         <header v-if="!!$slots['header']" role="banner" class="lv-layout__header">
             <div class="lv-layout__header-container">
                 <slot name="header"></slot>
             </div>
-            <!-- Sub Header (f.e. local nav on mobile) -->
-            <div v-if="!!$slots['subheader']" class="lv-layout__subheader">
-                <div class="lv-layout__subheader-container">
-                    <slot name="subheader"></slot>
-                </div>
-            </div>
         </header>
+
+        <!-- Sub Header (f.e. local nav on mobile) -->
+        <div v-if="!!$slots['sub-header']" class="lv-layout__sub-header">
+            <div class="lv-layout__sub-header-container">
+                <slot name="sub-header"></slot>
+            </div>
+        </div>
 
         <div class="lv-layout__container">
             <!-- Sidebar (f.e. local navigation) -->
@@ -40,22 +41,36 @@ export default {
         sidebarWidth: {
             type: String,
             default: 'auto',
+        },
+        stickyHeader: {
+            type: Boolean,
+            default: true,
+        },
+        stickySubHeader: {
+            type: Boolean,
+            default: false,
         }
     },
     data() {
         return {
             headerHeight: null,
+            subHeaderHeight: null,
         };
     },
     mounted() {
         this.createHeaderResizeObserver();
+        this.createSubHeaderResizeObserver();
     },
     updated() {
         this.getHeaderHeight();
+        this.getSubHeaderHeight();
     },
     methods: {
         createHeaderResizeObserver() {
             new ResizeObserver(this.getHeaderHeight).observe(this.$el);
+        },
+        createSubHeaderResizeObserver() {
+            new ResizeObserver(this.getSubHeaderHeight).observe(this.$el);
         },
         getHeaderHeight() {
             const header = this.$el?.querySelector('.lv-layout__header');
@@ -65,7 +80,24 @@ export default {
                 this.headerHeight = '0px';
             }
         },
+        getSubHeaderHeight() {
+            const subHeader = this.$el?.querySelector('.lv-layout__sub-header');
+            if (subHeader) {
+                this.subHeaderHeight = window.getComputedStyle(subHeader).height;
+            } else {
+                this.subHeaderHeight = '0px';
+            }
+        },
     },
+    computed: {
+        classObject() {
+            return {
+                'lv-layout--sticky-header': this.stickyHeader && !this.stickySubHeader,
+                'lv-layout--sticky-sub-header': this.stickySubHeader && !this.stickyHeader,
+                'lv-layout--sticky-header-and-sub-header': this.stickySubHeader && this.stickyHeader,
+            }
+        }
+    }
 };
 </script>
 
@@ -81,8 +113,6 @@ body {
     width: 100%;
 
     &__header {
-        position: sticky;
-        top: 0;
         z-index: 1;
         border-bottom: 1px solid var(--border-color);
         background-color: var(--header-background-color);
@@ -94,9 +124,9 @@ body {
         }
     }
 
-    &__subheader {
+    &__sub-header {
         z-index: 1;
-        border-top: 1px solid var(--border-color);
+        border-bottom: 1px solid var(--border-color);
         width: 100%;
 
         &-container {
@@ -117,13 +147,13 @@ body {
     &__sidebar {
         box-sizing: border-box;
         border-right: 1px solid var(--border-color);
+        top: 0;
         position: sticky;
-        top: v-bind(headerHeight);
         background-color: var(--sidebar-background-color);
 
         &-container {
             position: sticky;
-            top: v-bind(headerHeight);
+            top: 0;
             box-sizing: border-box;
             padding: 1.5rem;
             max-height: calc(100vh - v-bind(headerHeight));
@@ -135,13 +165,59 @@ body {
         position: relative;
         flex-grow: 1;
         box-sizing: border-box;
-        padding: 3rem 3rem 1.5rem 3rem;
+        padding: 1.5rem;
         background-color: var(--main-background-color);
         overflow: hidden; // needed for chart.js
 
         &-container {
             margin: 0 auto;
             max-width: v-bind(mainMaxWidth);
+        }
+    }
+
+    &--sticky-header {
+        #{$self}__header {
+            position: sticky;
+            top: 0;
+            z-index: 2;
+        }
+        #{$self}__sidebar {
+            top: v-bind(headerHeight);
+            &-container {
+                top: v-bind(headerHeight);
+            }
+        }
+
+    }
+
+    &--sticky-sub-header {
+        #{$self}__sub-header {
+            position: sticky;
+            top: 0;
+            z-index: 2;
+        }
+        #{$self}__sidebar {
+            top: v-bind(subHeaderHeight);
+            &-container {
+                top: v-bind(subHeaderHeight);
+            }
+        }
+    }
+
+    &--sticky-header-and-sub-header {
+        #{$self}__header {
+            position: sticky;
+            top: 0;
+        }
+        #{$self}__sub-header {
+            position: sticky;
+            top: v-bind(headerHeight);
+        }
+        #{$self}__sidebar {
+            top: calc(v-bind(subHeaderHeight) + v-bind(headerHeight));
+            &-container {
+                top: calc(v-bind(subHeaderHeight) + v-bind(headerHeight));
+            }
         }
     }
 }

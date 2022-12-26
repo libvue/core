@@ -2,14 +2,14 @@
     <lv-drawer :show="showDrawer && !$route.meta.hideSidebar && !breakpoints.greaterOrEqual.md" placement="left" @click-overlay="showDrawer = false">
         <main-navigation></main-navigation>
     </lv-drawer>
-    <lv-layout>
+    <lv-layout :sticky-header="breakpoints.greaterOrEqual.md" :sticky-sub-header="!breakpoints.greaterOrEqual.md">
         <template #header>
             <lv-header>
                 <template #branding>
                     <lv-link class="logo" @click="$router.push({ path: '/' })" v-html="Logo"></lv-link>
                 </template>
                 <template #search> </template>
-                <template #navigation>
+                <template #navigation v-if="breakpoints.greaterOrEqual.md">
                     <lv-flex v-space-after="1">
                         <router-link v-slot="{ isActive, navigate }" :to="{ path: '/documentation' }" custom>
                             <lv-horizontal-nav-item label="Documentation" :active="isActive" @click="navigate" />
@@ -27,12 +27,12 @@
             </lv-header>
         </template>
 
-        <template v-if="!$route.meta.hideSidebar && !breakpoints.greaterOrEqual.md" #subheader>
+        <template v-if="!$route.meta.hideSidebar && !breakpoints.greaterOrEqual.md" #sub-header>
             <lv-sub-header>
                 <lv-button
                     icon="sidebar-open"
                     color="ghost-default"
-                    label="Show Navigation"
+                    label="Open Navigation"
                     @click="showDrawer = !showDrawer"
                 />
             </lv-sub-header>

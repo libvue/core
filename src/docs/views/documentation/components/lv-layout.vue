@@ -3,8 +3,11 @@
     <lv-heading v-space-after="2" sub :level="6">A simple layout component</lv-heading>
 
     <lv-card v-space-after="1">
-        <lv-layout>
+        <lv-layout :sticky-header="false" :sticky-sub-header="false">
             <template #header>
+                <div class="filler">Sticky Header</div>
+            </template>
+            <template #sub-header>
                 <div class="filler">Sticky Header</div>
             </template>
             <template #sidebar>
@@ -22,8 +25,11 @@
 
 <script>
 const code = `
-<lv-layout>
+<lv-layout :sticky-header="false" :sticky-sub-header="false">
     <template #header>
+        <div class="filler">Sticky Header</div>
+    </template>
+    <template #sub-header>
         <div class="filler">Sticky Header</div>
     </template>
     <template #sidebar>

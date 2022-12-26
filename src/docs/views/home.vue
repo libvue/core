@@ -121,7 +121,6 @@ export default {
     flex-direction: column;
     align-items: flex-start;
     margin: auto;
-    padding-top: 100px;
     height: 100%;
 }
 .feature-card {
