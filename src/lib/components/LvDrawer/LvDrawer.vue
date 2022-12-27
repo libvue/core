@@ -114,6 +114,7 @@ export default {
         box-shadow: var(--shadow-dialog);
         background-color: var(--background-color);
         padding: calc(var(--padding) * 2);
+        overflow: auto;
     }
 
     &__trap {
