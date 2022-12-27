@@ -102,12 +102,9 @@
                     <lv-badge text="Planned" size="tiny" color="solid-dimmed-primary" />
                 </lv-flex>
             </lv-vertical-nav-item>
-            <lv-vertical-nav-item to="/docs/lv-progress" disabled>
-                <lv-flex gap=".25rem">
-                    Progress
-                    <lv-badge text="Planned" size="tiny" color="solid-dimmed-primary" />
-                </lv-flex>
-            </lv-vertical-nav-item>
+            <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-progress' }" custom>
+                <lv-vertical-nav-item label="Progress" :active="isActive" @click="navigate" />
+            </router-link>
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-pill' }" custom>
                 <lv-vertical-nav-item label="Pill" :active="isActive" @click="navigate" />
             </router-link>
