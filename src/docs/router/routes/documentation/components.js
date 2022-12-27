@@ -68,12 +68,17 @@ const LvPagination = defineAsyncComponent(() => import('../../../views/documenta
 const LvAccordion = defineAsyncComponent(() => import('../../../views/documentation/components/lv-accordion.vue'));
 const LvHeader = defineAsyncComponent(() => import('../../../views/documentation/components/lv-header.vue'));
 const LvGrid = defineAsyncComponent(() => import('../../../views/documentation/components/lv-grid.vue'));
-
+const LvHero = defineAsyncComponent(() => import('../../../views/documentation/components/lv-hero.vue'));
 export default [
     {
         path: '/docs/lv-description-list',
         name: 'lv-description-list',
         component: LvDescriptionList,
+    },
+    {
+        path: '/docs/lv-hero',
+        name: 'lv-hero',
+        component: LvHero,
     },
     {
         path: '/docs/lv-date-picker',

@@ -9,7 +9,12 @@
             <lv-vertical-nav-item icon="palette" label="Theming" :active="isActive" @click="navigate" />
         </router-link>
         <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/spacing' }" custom>
-            <lv-vertical-nav-item icon="align-vertical-space-around" label="Spacing" :active="isActive" @click="navigate" />
+            <lv-vertical-nav-item
+                icon="align-vertical-space-around"
+                label="Spacing"
+                :active="isActive"
+                @click="navigate"
+            />
         </router-link>
         <lv-vertical-nav-item icon="accessibility" disabled>
             <lv-flex gap=".25rem">
@@ -31,6 +36,9 @@
             </router-link>
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-flex' }" custom>
                 <lv-vertical-nav-item label="Flex" :active="isActive" @click="navigate" />
+            </router-link>
+            <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-hero' }" custom>
+                <lv-vertical-nav-item label="Hero" :active="isActive" @click="navigate" />
             </router-link>
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-theme-toggle' }" custom>
                 <lv-vertical-nav-item label="Theme Toggle" :active="isActive" @click="navigate" />
@@ -232,5 +240,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>

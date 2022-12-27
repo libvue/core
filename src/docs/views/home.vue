@@ -122,6 +122,7 @@ export default {
     align-items: flex-start;
     margin: auto;
     height: 100%;
+    padding-top: 50px;
 }
 .feature-card {
     height: 100%;
