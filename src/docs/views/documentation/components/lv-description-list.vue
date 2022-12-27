@@ -3,7 +3,11 @@
     <lv-heading v-space-after="2" sub :level="6">The component encloses a list of groups of terms and descriptions.</lv-heading>
 
     <lv-card v-space-after="1">
-        <lv-description-list :items="items" />
+        <lv-description-list :items="items">
+            <template #fruit="{ description }">
+                {{ description.join(', ') }}
+            </template>
+        </lv-description-list>
     </lv-card>
     <lv-code v-space-after="1" lang="html" :files="files" :active="activeFile" @change-file="(v) => activeFile = v" />
 
@@ -13,7 +17,11 @@
 <script>
 const codeTemplate = `
 <lv-card v-space-after="1">
-    <lv-description-list :items="items" />
+    <lv-description-list :items="items">
+        <template #fruit="{ description }">
+            {{ description.join(', ') }}
+        </template>
+    </lv-description-list>
 </lv-card>
 `.trim();
 
@@ -22,7 +30,7 @@ items: [
     { term: 'Name', description: 'My Product' },
     { term: 'Feature One', description: 'It\\'s awesome' },
     { term: 'Feature two', description: 'It\\'s fabulous' },
-    { term: 'The Final feature', description: 'It\\'s done' },
+    { id: 'fruit', term: 'These are fruit', description: ['Apple', 'Banana', 'Orange'] },
 ],
 `.trim();
 
@@ -33,7 +41,7 @@ export default {
                 { term: 'Name', description: 'My Product' },
                 { term: 'Feature One', description: 'It\'s awesome' },
                 { term: 'Feature two', description: 'It\'s fabulous' },
-                { term: 'The Final feature', description: 'It\'s done' },
+                { id: 'fruit', term: 'These are fruit', description: ['Apple', 'Banana', 'Orange'] },
             ],
             activeFile: 'template',
             files: [
