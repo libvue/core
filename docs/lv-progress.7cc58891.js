@@ -1,0 +1,3 @@
+import{_ as m,o as t,c as u,w as s,b as c,d as n,e as r,F as f,f as l,g as e,h as g}from"./index.4898ef11.js";const h=`
+<lv-progress :value="60"/>
+`.trim(),x={data(){return{code:h}}},k=l("Progress"),w=l("Used for showing the completion progress of a task.");function B(P,$,b,C,_,D){const a=e("lv-heading"),d=e("lv-progress",!0),p=e("lv-card"),i=e("lv-code"),v=e("component-details"),o=g("space-after");return t(),u(f,null,[s((t(),c(a,{level:3},{default:n(()=>[k]),_:1})),[[o,.5]]),s((t(),c(a,{sub:"",level:6},{default:n(()=>[w]),_:1})),[[o,2]]),s((t(),c(p,null,{default:n(()=>[r(d,{value:60})]),_:1})),[[o,1]]),s(r(i,{code:_.code,lang:"html"},null,8,["code"]),[[o,1]]),r(v,{component:"LvProgress"})],64)}const N=m(x,[["render",B]]);export{N as default};
