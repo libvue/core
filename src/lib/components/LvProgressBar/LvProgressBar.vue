@@ -1,5 +1,5 @@
 <template>
-    <progress class="lv-progress" :value="value" :max="max"></progress>
+    <progress class="lv-progress-bar" :value="value" :max="max"></progress>
 </template>
 
 <script>
@@ -18,7 +18,7 @@ export default {
 </script>
 
 <style lang="scss">
-.lv-progress {
+.lv-progress-bar {
     width: 100%;
     height: 10px;
     -webkit-appearance: none;

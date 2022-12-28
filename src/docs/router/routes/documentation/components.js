@@ -10,7 +10,8 @@ const LvTextEditor = defineAsyncComponent(() => import('../../../views/documenta
 const LvFieldset = defineAsyncComponent(() => import('../../../views/documentation/components/lv-fieldset.vue'));
 const LvBadge = defineAsyncComponent(() => import('../../../views/documentation/components/lv-badge.vue'));
 const LvFileTree = defineAsyncComponent(() => import('../../../views/documentation/components/lv-file-tree.vue'));
-const LvProgress = defineAsyncComponent(() => import('../../../views/documentation/components/lv-progress.vue'));
+const LvProgressBar = defineAsyncComponent(() => import('../../../views/documentation/components/lv-progress-bar.vue'));
+const LvProgressSteps = defineAsyncComponent(() => import('../../../views/documentation/components/lv-progress-steps.vue'));
 const LvFragmentLink = defineAsyncComponent(() =>
     import('../../../views/documentation/components/lv-fragment-link.vue')
 );
@@ -121,9 +122,14 @@ export default [
         component: LvFileTree,
     },
     {
-        path: '/docs/lv-progress',
-        name: 'lv-progress',
-        component: LvProgress,
+        path: '/docs/lv-progress-bar',
+        name: 'lv-progress-bar',
+        component: LvProgressBar,
+    },
+    {
+        path: '/docs/lv-progress-steps',
+        name: 'lv-progress-steps',
+        component: LvProgressSteps,
     },
     {
         path: '/docs/lv-fragment-link',
