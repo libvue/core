@@ -9,7 +9,15 @@
                     @mousedown.prevent="onThumbMouseDown"
                     @touchstart="onThumbTouchStart"
                 >
-                    <lv-popover v-if="showPopover" :show="dragging" placement="top" trigger="manual" padding=".25rem">
+                    <lv-popover
+                        v-if="showPopover"
+                        :show="dragging"
+                        placement="top"
+                        follow-cursor="horizontal"
+                        trigger="manual"
+                        :visible="dragging"
+                        padding=".25rem"
+                    >
                         <template #reference>
                             <div class="lv-range-slider__thumb-hit-area"></div>
                         </template>
@@ -37,8 +45,8 @@
 
 <script>
 import { useThrottleFn } from '@vueuse/core';
-import LvPopover from "../LvPopover/LvPopover.vue";
-import LvIcon from "../LvIcon/LvIcon.vue";
+import LvPopover from '../LvPopover/LvPopover.vue';
+import LvIcon from '../LvIcon/LvIcon.vue';
 
 export default {
     components: { LvIcon, LvPopover },
@@ -94,7 +102,6 @@ export default {
     computed: {
         classNames() {
             return {
-                'lv-slider--invalid': this.invalid,
                 'lv-slider--disabled': this.disabled,
                 'lv-slider--loading': this.loading,
             };
@@ -197,8 +204,8 @@ export default {
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    height: 1rem;
     width: 100%;
+    height: 1rem;
 
     &--disabled {
         #{$self}__thumb {
@@ -240,16 +247,6 @@ export default {
         }
     }
 
-    &--invalid {
-        #{$self}__range-value {
-            color: var(--color-danger);
-        }
-
-        #{$self}__indicator {
-            background-color: var(--color-danger);
-        }
-    }
-
     &__thumb {
         position: absolute;
         top: 50%;
@@ -268,7 +265,6 @@ export default {
         &:active {
             cursor: grabbing;
         }
-
     }
 
     &__range {

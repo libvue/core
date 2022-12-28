@@ -6,10 +6,10 @@
             description="An opensource collection of vue 3 components."
         >
             <template #buttons>
-                <lv-button color="solid-default" icon="book-open" @click="$router.push({ path: '/docs/install' })">
+                <lv-button color="solid-primary" icon="book-open" @click="$router.push({ path: '/docs/install' })">
                     Documentation
                 </lv-button>
-                <lv-button color="solid-dimmed-default" icon="github" @click="onClickGithub" >Github</lv-button>
+                <lv-button color="solid-dimmed-primary" icon="github" @click="onClickGithub" >Github</lv-button>
             </template>
         </lv-hero>
 
@@ -121,8 +121,8 @@ export default {
     flex-direction: column;
     align-items: flex-start;
     margin: auto;
-    padding-top: 100px;
     height: 100%;
+    padding-top: 50px;
 }
 .feature-card {
     height: 100%;

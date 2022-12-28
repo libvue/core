@@ -3,16 +3,24 @@
     <lv-heading v-space-after="2" sub :level="6">How to get started with libvue</lv-heading>
 
     <lv-paragraph v-space-after="1">
-        Libvue is made for vite.js and only exposes the source files in the npm package.
+        Libvue is component library made for vue 3 and vite.js. It only exports the source files for now.
     </lv-paragraph>
 
     <lv-heading v-space-after="1" :level="6">Install</lv-heading>
     <lv-code v-space-after="1" :code="install" lang="javascript" />
 
     <lv-heading v-space-after="1" :level="6">Basic Configuration</lv-heading>
-    <lv-code v-space-after="2" :files="registerFiles" :active="activeRegisterFile" @change-file="(v) => activeRegisterFile = v" />
+    <lv-code
+        v-space-after="2"
+        :files="registerFiles"
+        :active="activeRegisterFile"
+        @change-file="(v) => (activeRegisterFile = v)"
+    />
 
-    <lv-notice icon="info" color="solid-dimmed-info" v-space-after="1">You are responsible for importing the components where they are needed.</lv-notice>
+    <lv-notice v-space-after="1" icon="info" color="solid-dimmed-info">
+        You can import all components one for one by using the named exports, or you can register the entire
+        'components' object at once which is also available as a named export.
+    </lv-notice>
 </template>
 
 <script>
@@ -59,7 +67,7 @@ export default {
             activeRegisterFile: 'main',
             registerFiles: [
                 { id: 'main', filename: 'main.js', lang: 'js', code: registerScript },
-                { id: 'scss', filename: 'app.scss', lang: 'css', code: registerScss }
+                { id: 'scss', filename: 'app.scss', lang: 'css', code: registerScss },
             ],
         };
     },

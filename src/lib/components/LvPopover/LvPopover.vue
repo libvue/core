@@ -11,7 +11,7 @@
 
 <script>
 import { Tippy } from 'tippy.vue';
-import tippy from 'tippy.js';
+import tippy, { followCursor } from 'tippy.js';
 import 'tippy.js/dist/svg-arrow.css';
 import 'tippy.js/animations/shift-toward-subtle.css';
 
@@ -60,6 +60,10 @@ export default {
             type: Boolean,
             default: false,
         },
+        followCursor: {
+            type: [Boolean, String],
+            default: false,
+        },
         interactive: {
             type: Boolean,
             default: false,
@@ -73,9 +77,11 @@ export default {
             tippy.setDefaultProps({
                 arrow: this.showArrow ? SVG_ARROW : false,
                 theme: 'libvue',
+                plugins: [followCursor],
                 animation: 'shift-toward-subtle',
                 duration: 100,
                 hideOnClick: this.hideOnClick,
+                followCursor: this.followCursor,
                 appendTo: this.appendTo,
             });
         },

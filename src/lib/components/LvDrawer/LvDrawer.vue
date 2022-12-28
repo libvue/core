@@ -82,8 +82,8 @@ export default {
         });
     },
     methods: {
-        onClickOverlay() {
-            this.$emit('click-overlay');
+        onClickOverlay(e) {
+            this.$emit('click-overlay', e);
         },
     },
 };
@@ -114,6 +114,7 @@ export default {
         box-shadow: var(--shadow-dialog);
         background-color: var(--background-color);
         padding: calc(var(--padding) * 2);
+        overflow: auto;
     }
 
     &__trap {

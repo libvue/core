@@ -43,6 +43,7 @@ export default {
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1;
+    overflow: auto;
 
     &--inline {
         display: inline-block;

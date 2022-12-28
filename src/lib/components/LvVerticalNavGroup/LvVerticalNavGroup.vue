@@ -32,7 +32,7 @@ export default {
     $self: &;
     display: flex;
     position: relative;
-    flex-grow: 1;
+    flex-grow: 0;
     flex-direction: column;
     margin-bottom: 1.25rem;
     width: 100%;

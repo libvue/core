@@ -45,10 +45,6 @@ export default {
     font-weight: 600;
     font-size: calc(v-bind(size) / 3);
 
-    &--has-image {
-        background: transparent;
-    }
-
     &__image {
         border-radius: 100%;
         width: 100%;

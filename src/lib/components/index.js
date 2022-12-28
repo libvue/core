@@ -65,6 +65,7 @@ import LvToast from './LvToast/LvToast.vue';
 import LvToasts from './LvToasts/LvToasts.vue';
 import LvWidget from './LvWidget/LvWidget.vue';
 import LvDescriptionList from './LvDescriptionList/LvDescriptionList.vue';
+import LvSubHeader from './LvSubHeader/LvSubHeader.vue';
 
 export {
     LvDatePicker,
@@ -134,6 +135,7 @@ export {
     LvToasts,
     LvWidget,
     LvDescriptionList,
+    LvSubHeader
 };
 
 export default {
@@ -204,4 +206,5 @@ export default {
     LvToasts,
     LvWidget,
     LvDescriptionList,
+    LvSubHeader
 };

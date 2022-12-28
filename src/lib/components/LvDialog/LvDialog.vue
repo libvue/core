@@ -58,8 +58,8 @@ export default {
         this.mounted = true;
     },
     methods: {
-        onClickBackdrop() {
-            this.$emit('click-backdrop');
+        onClickBackdrop(e) {
+            this.$emit('click-backdrop', e);
         },
     },
 };

@@ -10,7 +10,15 @@
                     @mousedown="onPrimaryMouseDown"
                     @touchstart="onPrimaryTouchStart"
                 >
-                    <lv-popover v-if="showPopover" :show="draggingPrimary" placement="top" trigger="manual" padding=".25rem">
+                    <lv-popover
+                        v-if="showPopover"
+                        :show="draggingPrimary"
+                        placement="top"
+                        trigger="manual"
+                        :visible="draggingPrimary"
+                        follow-cursor="horizontal"
+                        padding=".25rem"
+                    >
                         <template #reference>
                             <div class="lv-range-slider__thumb-hit-area"></div>
                         </template>
@@ -24,7 +32,15 @@
                     @mousedown="onSecondaryMouseDown"
                     @touchstart="onSecondaryTouchStart"
                 >
-                    <lv-popover v-if="showPopover" :show="draggingSecondary" placement="top" trigger="manual" padding=".25rem">
+                    <lv-popover
+                        v-if="showPopover"
+                        :show="draggingSecondary"
+                        placement="top"
+                        trigger="manual"
+                        :visible="draggingSecondary"
+                        follow-cursor="horizontal"
+                        padding=".25rem"
+                    >
                         <template #reference>
                             <div class="lv-range-slider__thumb-hit-area"></div>
                         </template>
@@ -52,8 +68,8 @@
 
 <script>
 import { useThrottleFn } from '@vueuse/core';
-import LvPopover from "../LvPopover/LvPopover.vue";
-import LvIcon from "../LvIcon/LvIcon.vue";
+import LvPopover from '../LvPopover/LvPopover.vue';
+import LvIcon from '../LvIcon/LvIcon.vue';
 
 export default {
     components: { LvIcon, LvPopover },
@@ -261,8 +277,8 @@ export default {
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    height: 1rem;
     width: 100%;
+    height: 1rem;
 
     &--disabled {
         #{$self}__thumb {

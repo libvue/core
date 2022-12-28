@@ -63,8 +63,8 @@ export default {
         onClickButton() {
             this.$emit('click-button');
         },
-        onClick() {
-            this.$emit('click');
+        onClick(e) {
+            this.$emit('click', e);
         },
     },
 };
