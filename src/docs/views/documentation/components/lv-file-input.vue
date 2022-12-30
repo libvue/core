@@ -45,5 +45,10 @@ export default {
             fileListMultiple: null,
         }
     },
+    computed: {
+        fileListSingleJson() {
+            return JSON.stringify(this.fileListSingle);
+        }
+    }
 }
 </script>

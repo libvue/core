@@ -1,5 +1,5 @@
 <template>
-    <div class="lv-file-input">
+    <div class="lv-file-input" :class="classObject">
         <div class="lv-file-input__container">
             <lv-button
                 class="lv-file-input__button"
@@ -7,29 +7,39 @@
                 :label="buttonText"
                 size="small"
                 @click="onClickSelectFile"
+                :icon="multiple ? 'files' : 'file'"
             />
             <div class="lv-file-input__files">
                 <template v-if="hasFiles">
-                    <lv-badge
+                    <lv-pill
                         v-for="(file, index) in modelValue"
-                        :key="index"
+                        :key="file.name"
                         class="lv-file-input__file"
+                        size="small"
+                        closable
                         :text="file.name"
                         color="solid-dimmed-primary"
+                        @close="onClickRemoveFile(index)"
                     />
+                </template>
+                <template v-else>
+                    <div class="lv-file-input__no-files">
+                        {{ noFilesText }}
+                    </div>
                 </template>
             </div>
         </div>
-        <input ref="input" type="file" class="lv-file-input__real" :multiple="multiple" @change="onFileChange" />
+        <lv-notice v-if="showInfo" class="lv-file-input__info" icon="info" color="solid-dimmed-info">Accept: {{ accept }}</lv-notice>
+        <input ref="input" type="file" class="lv-file-input__real" :accept="accept" :multiple="multiple" @change="onFileChange" />
     </div>
 </template>
 
 <script>
 import LvButton from "../LvButton/LvButton.vue";
-import LvBadge from "../LvBadge/LvBadge.vue";
+import LvPill from '../LvPill/LvPill.vue';
 
 export default {
-    components: { LvBadge, LvButton },
+    components: { LvButton, LvPill },
     props: {
         modelValue: {
             type: FileList,
@@ -43,10 +53,27 @@ export default {
             type: String,
             default: (props) => (props.multiple ? 'Select files' : 'Select a file'),
         },
+        noFilesText: {
+            type: String,
+            default: (props) => (props.multiple ? 'Select files' : 'Select a file'),
+        },
+        accept: {
+            type: String,
+            default: '.png, .jpg, .jpeg, .svg'
+        },
+        showInfo: {
+            type: Boolean,
+            default: false,
+        }
     },
     computed: {
         hasFiles() {
             return this.modelValue?.length > 0;
+        },
+        classObject() {
+            return {
+                'lv-file-input--has-files': !!this.hasFiles,
+            }
         }
     },
     methods: {
@@ -55,27 +82,47 @@ export default {
         },
         onFileChange(event) {
             // Check to see if there has been a file actually uploaded
-            if (event.target.files) {
+            if (event.target.files && event.target.files.length > 0) {
                 this.$emit('update:modelValue', event.target.files);
+            } else {
+                this.$refs.input.value = '';
+                this.$emit('update:modelValue', null);
             }
         },
+        onClickRemoveFile(index) {
+            const newFiles = Array.from(this.modelValue);
+            newFiles.splice(index, 1);
+
+            if(newFiles.length > 0) {
+                const dt = new DataTransfer();
+                newFiles.forEach((file) => {
+                    dt.items.add(file);
+                })
+                this.$refs.input.files = dt.files;
+                this.$emit('update:modelValue', dt.files);
+            } else {
+                this.$refs.input.value = '';
+                this.$emit('update:modelValue', null);
+            }
+        }
     },
 };
 </script>
 
 <style lang="scss">
 .lv-file-input {
+    $self: &;
     position: relative;
     width: 100%;
-    overflow: hidden;
     &__button {
         flex-grow: 0;
         flex-shrink: 0;
         margin-right: 0.5rem;
+        margin-bottom: auto;
     }
     &__container {
         display: flex;
-        align-items: flex-start;
+        align-items: center;
     }
     &__files {
         display: flex;
@@ -83,6 +130,13 @@ export default {
         flex-wrap: wrap;
         align-items: center;
         gap: 0.5rem;
+    }
+    &__no-files {
+        line-height: var(--font-size-small);
+        font-size: var(--font-size-small);
+    }
+    &__info {
+        margin-top: .5rem;
     }
     &__file {
         flex-shrink: 0;
