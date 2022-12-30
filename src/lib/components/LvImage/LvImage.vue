@@ -60,6 +60,7 @@ export default {
 .lv-image {
     $self: &;
     width: v-bind(width);
+    height: v-bind(height);
     max-width: 100%;
     padding: 0;
     margin: 0;
