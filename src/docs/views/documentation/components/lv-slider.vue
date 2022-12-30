@@ -3,7 +3,7 @@
     <lv-heading v-space-after="2" sub :level="6">An single slider input</lv-heading>
     <lv-card v-space-after="1">
         <lv-flex direction="column">
-            <lv-slider v-model="model" :min="100" :max="200" :step="5"></lv-slider>
+            <lv-slider v-model="model" :min="100" :max="200" :step="5" loading></lv-slider>
         </lv-flex>
     </lv-card>
     <lv-code :code="code" lang="html" />

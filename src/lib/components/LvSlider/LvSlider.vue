@@ -9,6 +9,8 @@
                     @mousedown.prevent="onThumbMouseDown"
                     @touchstart="onThumbTouchStart"
                 >
+                    <lv-spinner v-if="loading && !showRange" class="lv-slider__loader" :size="12" />
+
                     <lv-popover
                         v-if="showPopover"
                         :show="dragging"
@@ -28,13 +30,13 @@
         </div>
         <div v-if="showRange" class="lv-slider__range">
             <div class="lv-slider__range-value lv-slider__range-value--primary">
-                <lv-icon v-if="loading" class="lv-slider__loader" :size="12" name="loader-2" />
+                <lv-spinner v-if="loading" class="lv-slider__loader" :size="12" />
                 <template v-else>
                     {{ min.toFixed(decimals) }}
                 </template>
             </div>
             <div class="lv-slider__range-value lv-slider__range-value--secondary">
-                <lv-icon v-if="loading" class="lv-slider__loader" :size="12" name="loader-2" />
+                <lv-spinner v-if="loading" class="lv-slider__loader" :size="12" />
                 <template v-else>
                     {{ max.toFixed(decimals) }}
                 </template>
@@ -308,7 +310,8 @@ export default {
     }
 
     &__loader {
-        animation: rotate-cw 1s infinite linear;
+        margin-top: 1px;
+        margin-left: 1px;
     }
 }
 </style>

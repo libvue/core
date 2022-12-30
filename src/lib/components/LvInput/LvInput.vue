@@ -12,17 +12,19 @@
             tabindex="0"
             @input="onInput"
         />
-        <lv-icon v-if="loading" class="lv-input__loading" name="loader-2" />
+        <lv-spinner v-if="loading" class="lv-input__loading" />
     </div>
 </template>
 
 <script>
 import propSizeMixin from '../../mixins/propSizeMixin';
 import LvIcon from '../LvIcon/LvIcon.vue';
+import LvSpinner from '../LvSpinner/LvSpinner.vue';
 
 export default {
     components: {
         LvIcon,
+        LvSpinner,
     },
     mixins: [propSizeMixin()],
     inheritAttrs: false,
@@ -138,7 +140,6 @@ export default {
         position: absolute;
         top: 50%;
         right: calc(var(--padding) - 2px);
-        animation: rotate-cw 1s infinite linear;
         margin-top: -0.5em;
         background-color: var(--border-color-light);
         color: var(--text-color-dimmed);

@@ -76,7 +76,7 @@
         </template>
         <template #states>
             <lv-card v-space-after="1">
-                <lv-flex>
+                <lv-flex align-items="center">
                     <lv-button label="loading" loading />
                     <lv-button disabled label="Disabled" />
                 </lv-flex>

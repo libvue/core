@@ -10,12 +10,13 @@
                     @mousedown="onPrimaryMouseDown"
                     @touchstart="onPrimaryTouchStart"
                 >
+                    <lv-spinner v-if="loading && !showRange" class="lv-range-slider__loader" :size="12" />
                     <lv-popover
                         v-if="showPopover"
                         :show="draggingPrimary"
                         placement="top"
                         trigger="manual"
-                        :visible="draggingPrimary"
+                        :visible="draggingPrimary && !loading"
                         follow-cursor="horizontal"
                         padding=".25rem"
                     >
@@ -32,12 +33,13 @@
                     @mousedown="onSecondaryMouseDown"
                     @touchstart="onSecondaryTouchStart"
                 >
+                    <lv-spinner v-if="loading && !showRange" class="lv-range-slider__loader" :size="12" />
                     <lv-popover
                         v-if="showPopover"
                         :show="draggingSecondary"
                         placement="top"
                         trigger="manual"
-                        :visible="draggingSecondary"
+                        :visible="draggingSecondary && !loading"
                         follow-cursor="horizontal"
                         padding=".25rem"
                     >
@@ -51,13 +53,13 @@
         </div>
         <div v-if="showRange" class="lv-range-slider__range">
             <div class="lv-range-slider__range-value lv-range-slider__range-value--primary">
-                <lv-icon v-if="loading" class="lv-range-slider__loader" :size="12" name="loader-2" />
+                <lv-spinner v-if="loading" class="lv-range-slider__loader" :size="12" />
                 <template v-else>
                     {{ primaryValue.toFixed(decimals) }}
                 </template>
             </div>
             <div class="lv-range-slider__range-value lv-range-slider__range-value--secondary">
-                <lv-icon v-if="loading" class="lv-range-slider__loader" :size="12" name="loader-2" />
+                <lv-spinner v-if="loading" class="lv-range-slider__loader" :size="12" />
                 <template v-else>
                     {{ secondaryValue.toFixed(decimals) }}
                 </template>
@@ -392,9 +394,10 @@ export default {
     &__track-boundaries {
         position: relative;
     }
-
     &__loader {
-        animation: rotate-cw 1s infinite linear;
+        margin-top: 1px;
+        margin-left: 1px;
+        color: var(--text-color-dimmed)
     }
 }
 </style>

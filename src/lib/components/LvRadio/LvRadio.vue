@@ -1,6 +1,6 @@
 <template>
     <div class="lv-radio" role="radio" :class="classObject">
-        <lv-icon v-if="loading" class="lv-radio__loading" :size="12" name="loader-2" />
+        <lv-spinner v-if="loading" class="lv-radio__loading" :size="12"  />
         <input
             :id="identifier"
             class="lv-radio__input"
@@ -19,10 +19,10 @@
 
 <script>
 import useRandom from '../../composables/random';
-import LvIcon from "../LvIcon/LvIcon.vue";
+import LvSpinner from "../LvSpinner/LvSpinner.vue";
 
 export default {
-    components: { LvIcon },
+    components: { LvSpinner },
     props: {
         modelValue: {
             type: String,
@@ -88,7 +88,6 @@ export default {
         position: absolute;
         top: 2px;
         left: 2px;
-        animation: rotate-cw 1s infinite linear;
         border-radius: 100%;
         background-color: var(--border-color-light);
         color: var(--text-color-dimmed);
