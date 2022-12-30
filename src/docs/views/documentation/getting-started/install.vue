@@ -18,8 +18,7 @@
     />
 
     <lv-notice v-space-after="1" icon="info" color="solid-dimmed-info">
-        You can import all components one for one by using the named exports, or you can register the entire
-        'components' object at once which is also available as a named export.
+        Preferably use named exports, but you can also register all components at once by registering the named 'components' export.
     </lv-notice>
 </template>
 

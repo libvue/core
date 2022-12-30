@@ -18,7 +18,7 @@
         <lv-grid v-space-after="4" gap="1.5rem">
             <lv-grid-row gap="1.5rem">
                 <lv-grid-column :width="4" :md="12">
-                    <lv-link @click="$router.push({ path: '/docs/theming' })">
+                    <lv-link @click="$router.push({ path: '/docs/theming' })" zoom-on-hover>
                         <lv-card class="feature-card">
                             <lv-heading v-space-after="1" :level="5">
                                 <lv-icon v-space-after=".5" name="palette"/>Theming
@@ -30,7 +30,7 @@
                     </lv-link>
                 </lv-grid-column>
                 <lv-grid-column :width="4" :md="12">
-                    <lv-link @click="$router.push({ path: '/docs/lv-grid' })">
+                    <lv-link @click="$router.push({ path: '/docs/lv-grid' })" zoom-on-hover>
                         <lv-card class="feature-card">
                             <lv-heading v-space-after="1" :level="5">
                                 <lv-icon v-space-after=".5" name="grid"/>Grid
@@ -42,7 +42,7 @@
                     </lv-link>
                 </lv-grid-column>
                 <lv-grid-column :width="4" :md="12">
-                    <lv-link @click="$router.push({ path: '/docs/spacing' })">
+                    <lv-link @click="$router.push({ path: '/docs/spacing' })" zoom-on-hover>
                         <lv-card class="feature-card">
                             <lv-heading v-space-after="1" :level="5">
                                 <lv-icon v-space-after=".5" name="align-vertical-space-around"/>Spacing

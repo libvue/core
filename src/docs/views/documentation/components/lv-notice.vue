@@ -58,6 +58,17 @@
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeIcons" />
         </template>
+        <template #sizes>
+            <lv-card v-space-after="1">
+                <lv-flex align-items="center">
+                    <lv-notice size="large" text="Large" color="solid-dimmed-default" icon="smile" show-button />
+                    <lv-notice text="Default" color="solid-dimmed-default" icon="smile" show-button />
+                    <lv-notice size="small" text="Small" color="solid-dimmed-default" icon="smile" show-button />
+                    <lv-notice size="tiny" text="tiny" color="solid-dimmed-default" icon="smile" show-button />
+                </lv-flex>
+            </lv-card>
+            <lv-code v-space-after="1" lang="html" :code="codeIcons" />
+        </template>
     </lv-tabs>
     <component-details component="LvNotice"></component-details>
 </template>
@@ -91,7 +102,7 @@ const codeIcons = `<lv-notice text="This notice has an icon" icon="github"/>`.tr
 export default {
     data() {
         return {
-            activeTab: 'colors',
+            activeTab: 'sizes',
             codeColorSolid,
             codeColorSolidDimmed,
             codeColorOutline,
@@ -100,6 +111,7 @@ export default {
                 { id: 'colors', title: 'Colors', icon: 'palette' },
                 { id: 'icons', title: 'Icons', icon: 'box-select' },
                 { id: 'buttons', title: 'Buttons', icon: 'link-2' },
+                { id: 'sizes', title: 'Sizes', icon: 'scaling' },
             ],
         };
     },

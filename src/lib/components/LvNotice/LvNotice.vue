@@ -7,13 +7,14 @@
             <slot>{{ text }}</slot>
         </div>
         <div v-if="showButton" class="lv-notice__button">
-            <lv-button :color="buttonColor" :label="buttonText" size="small" @click="onClickButton" />
+            <lv-button :color="buttonColor" :label="buttonText" :size="size === 'tiny' || size === 'small' ? 'tiny' : 'small'" @click="onClickButton" />
         </div>
     </div>
 </template>
 
 <script>
 import propColorMixin from '../../mixins/propColorMixin';
+import propSizeMixin from '../../mixins/propSizeMixin';
 import LvIcon from '../LvIcon/LvIcon.vue';
 import LvButton from "../LvButton/LvButton.vue";
 
@@ -22,7 +23,7 @@ export default {
         LvButton,
         LvIcon,
     },
-    mixins: [propColorMixin('solid-dimmed-default')],
+    mixins: [propColorMixin('solid-dimmed-default'), propSizeMixin()],
     props: {
         icon: {
             type: String,
@@ -44,12 +45,18 @@ export default {
             type: String,
             default: 'solid-default',
         },
+        inline: {
+            type: Boolean,
+            default: false,
+        }
     },
     emits: ['click-button'],
     computed: {
         classObject() {
             return {
                 [`lv-notice--color-${this.color}`]: true,
+                [`lv-notice--size-${this.size}`]: true,
+                [`lv-notice--inline`]: !!this.inline,
             };
         },
     },
@@ -79,21 +86,29 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 1rem 0 1rem 1rem;
+        padding-right: 0 !important;
         font-size: var(--font-size);
     }
     &__content {
+        display: flex;
+        align-items: center;
         flex-grow: 1;
-        padding: 1rem;
     }
     &__button {
         display: flex;
         justify-content: center;
         align-items: center;
         margin-left: auto;
-        padding-right: 1rem;
+    }
+
+    &--inline {
+        display: inline-flex;
+        width: auto;
     }
 
     @include color-mixin;
+    @include size-mixin('.lv-notice__content');
+    @include size-mixin('.lv-notice__icon');
+    @include size-mixin('.lv-notice__button');
 }
 </style>
