@@ -11,11 +11,16 @@ export default {
             type: Boolean,
             default: false,
         },
+        zoomOnHover: {
+            type: Boolean,
+            default: false,
+        }
     },
     computed: {
         classObject() {
             return {
                 'lv-link--highlight': !!this.highlight,
+                'lv-link--zoom-on-hover': !!this.zoomOnHover,
             }
         }
     },
@@ -33,6 +38,10 @@ export default {
     $self: &;
     color: var(--text-color);
     text-decoration: none;
+    cursor: pointer;
+    transition: .2s transform;
+    display: inline-block;
+    height: 100%;
 
     &--highlight {
         transition: all var(--transition-time);
@@ -40,7 +49,7 @@ export default {
         color: var(--text-color);
         text-decoration: none;
 
-        &[href]:hover {
+        &:hover {
             border-bottom-color: var(--color-primary);
             color: var(--color-primary);
         }
@@ -48,6 +57,10 @@ export default {
             border-bottom-color: var(--color-primary);
             color: var(--color-primary);
         }
+    }
+
+    &--zoom-on-hover:hover {
+        transform: scale(1.05);
     }
 }
 </style>
