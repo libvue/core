@@ -1,14 +1,14 @@
 <template>
     <div class="lv-pill" v-bind="$attrs" :class="classObject">
         <div v-if="icon" class="lv-pill__icon">
-            <lv-icon :name="icon" :size="14" />
+            <lv-icon :name="icon" />
         </div>
         <div class="lv-pill__text">
             <div class="lv-pill__prefix" v-if="prefix">{{ prefix }}</div>
             {{ text }}
         </div>
         <div v-if="closable" class="lv-pill__close" @click="onClickClose">
-            <lv-icon name="x" :size="14" />
+            <lv-icon name="x" />
         </div>
     </div>
 </template>
@@ -20,7 +20,7 @@ import LvIcon from "../LvIcon/LvIcon.vue";
 
 export default {
     components: { LvIcon },
-    mixins: [propColorMixin('solid-default'), propSizeMixin],
+    mixins: [propColorMixin('solid-default'), propSizeMixin()],
     props: {
         prefix: {
             type: String,
@@ -44,6 +44,7 @@ export default {
         classObject() {
             return {
                 [`lv-pill--color-${this.color}`]: true,
+                [`lv-pill--size-${this.size}`]: true,
             };
         },
     },
@@ -57,10 +58,11 @@ export default {
 
 <style lang="scss">
 @import '../../scss/mixins/colorMixin';
+@import '../../scss/mixins/sizeMixin';
 
 .lv-pill {
     display: inline-flex;
-    border-radius: 1rem;
+    border-radius: 2rem;
     font-weight: 500;
     font-size: var(--font-size);
     line-height: var(--font-size);
@@ -68,7 +70,7 @@ export default {
     &__icon {
         display: flex;
         align-items: center;
-        padding: 0.5rem 0 0.5rem 0.625rem;
+        padding-right: 0 !important;
         font-size: var(--font-size);
         line-height: var(--font-size);
     }
@@ -87,9 +89,8 @@ export default {
         align-items: center;
         cursor: pointer;
         border-radius: 0 1rem 1rem 0;
-        background-color: rgba(255, 255, 255, 0.05);
+        background-color: rgba(0, 0, 0, 0.025);
         padding: 0.5rem 0.5rem 0.5rem 0.25rem;
-        margin-left: -.25rem;
 
         &:hover {
             background-color: rgba(0, 0, 0, 0.05);
@@ -97,5 +98,8 @@ export default {
     }
 
     @include color-mixin;
+    @include size-mixin('.lv-pill__text');
+    @include size-mixin('.lv-pill__icon');
+    @include size-mixin('.lv-pill__close');
 }
 </style>

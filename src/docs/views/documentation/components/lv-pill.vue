@@ -62,6 +62,17 @@
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeColorOutline" />
         </template>
+        <template #sizes>
+            <lv-card v-space-after="1">
+                <lv-flex align-items="center">
+                    <lv-pill size="large" text="Large" color="solid-dimmed-default" icon="smile" closable />
+                    <lv-pill text="Default" color="solid-dimmed-default" icon="smile" closable />
+                    <lv-pill size="small" text="Small" color="solid-dimmed-default" icon="smile" closable />
+                    <lv-pill size="tiny" text="tiny" color="solid-dimmed-default" icon="smile" closable />
+                </lv-flex>
+            </lv-card>
+            <lv-code v-space-after="1" lang="html" :code="codeIcons" />
+        </template>
     </lv-tabs>
     <component-details component="LvTabs"></component-details>
 </template>
@@ -105,6 +116,7 @@ export default {
                 { id: 'colors', title: 'Colors', icon: 'palette' },
                 { id: 'states', title: 'States', icon: 'loader-2' },
                 { id: 'icons', title: 'Icons', icon: 'box-select' },
+                { id: 'sizes', title: 'Sizes', icon: 'scaling' },
             ],
             codeColorSolid,
             codeColorSolidDimmed,
