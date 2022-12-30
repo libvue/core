@@ -1,6 +1,8 @@
 <template>
-    <a class="lv-link" :class="classObject" @click="onClick" role="link" v-bind="$attrs">
-        <slot />
+    <a class="lv-link" :class="classObject" role="link" v-bind="$attrs" @click="onClick">
+        <div class="lv-link__content">
+            <slot />
+        </div>
     </a>
 </template>
 
@@ -14,40 +16,42 @@ export default {
         zoomOnHover: {
             type: Boolean,
             default: false,
+        },
+        block: {
+            type: Boolean,
+            default: false,
         }
     },
+    emits: ['click'],
     computed: {
         classObject() {
             return {
                 'lv-link--highlight': !!this.highlight,
                 'lv-link--zoom-on-hover': !!this.zoomOnHover,
-            }
-        }
+                'lv-link--block': !!this.block,
+            };
+        },
     },
-    emits: ['click'],
     methods: {
         onClick(e) {
-            this.$emit('click', e)
-        }
-    }
+            this.$emit('click', e);
+        },
+    },
 };
 </script>
 
 <style lang="scss">
 .lv-link {
     $self: &;
+    cursor: pointer;
     color: var(--text-color);
     text-decoration: none;
-    cursor: pointer;
-    transition: .2s transform;
     display: inline-block;
-    height: 100%;
 
     &--highlight {
         transition: all var(--transition-time);
-        border-bottom: 1px dashed var(--text-color);
-        color: var(--text-color);
-        text-decoration: none;
+        color: var(--color-primary);
+        text-decoration: underline;
 
         &:hover {
             border-bottom-color: var(--color-primary);
@@ -59,8 +63,22 @@ export default {
         }
     }
 
+    &--block {
+        width: 100%;
+        height: 100%;
+    }
+
+    &__content {
+        transition: 0.2s transform;
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+    }
+
     &--zoom-on-hover:hover {
-        transform: scale(1.05);
+        #{$self}__content {
+            transform: scale(1.05);
+        }
     }
 }
 </style>

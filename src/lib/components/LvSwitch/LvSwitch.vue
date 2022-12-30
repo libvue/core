@@ -8,17 +8,17 @@
                 v-bind="$attrs"
                 @input="toggleCheckbox"
             />
-            <lv-icon v-if="loading" class="lv-switch__loader" :size="12" name="loader-2" />
+            <lv-spinner v-if="loading" class="lv-switch__loader" :size="12" />
         </div>
         <div v-if="label" class="lv-switch__label" @click="toggleCheckbox">{{ label }}</div>
     </div>
 </template>
 
 <script>
-import LvIcon from "../LvIcon/LvIcon.vue";
+import LvSpinner from "../LvSpinner/LvSpinner.vue";
 
 export default {
-    components: { LvIcon },
+    components: { LvSpinner },
     inheritAttrs: false,
     props: {
         modelValue: {
@@ -142,12 +142,11 @@ export default {
         position: absolute;
         top: 4px;
         left: 50%;
-        animation: rotate-cw 1s infinite linear;
         margin-left: -0.325rem;
         width: 11px;
         height: 11px;
         pointer-events: none;
-        color: var(--color-default);
+        color: var(--text-color-dimmed);
     }
 
     &--checked #{$self}__loader {

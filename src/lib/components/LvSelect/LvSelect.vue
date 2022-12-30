@@ -54,7 +54,7 @@
             </div>
 
             <!-- Icons -->
-            <lv-icon v-if="loading" class="lv-select__loading" name="loader-2" />
+            <lv-spinner v-if="loading" class="lv-select__loading" />
             <lv-icon v-else class="lv-select__icon" name="chevron-down"></lv-icon>
         </div>
         <!-- Dropdown -->
@@ -87,11 +87,13 @@ import { onClickOutside } from '@vueuse/core';
 import propSizeMixin from '../../mixins/propSizeMixin';
 import LvSelectOption from './LvSelectOption.vue';
 import LvIcon from "../LvIcon/LvIcon.vue";
+import LvSpinner from "../LvSpinner/LvSpinner.vue";
 
 export default {
     components: {
         LvIcon,
         LvSelectOption,
+        LvSpinner,
     },
     mixins: [propSizeMixin()],
     props: {
@@ -357,7 +359,6 @@ export default {
         position: absolute;
         top: 50%;
         right: calc(var(--padding) - 2px);
-        animation: rotate-cw 1s infinite linear;
         margin-top: -0.5em;
         color: var(--text-color-dimmed);
     }

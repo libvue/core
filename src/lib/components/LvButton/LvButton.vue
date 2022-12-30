@@ -10,7 +10,7 @@
         @keydown.enter.space="onClick"
     >
         <lv-icon v-if="icon" class="lv-button__icon" :class="{ 'lv-button__icon--hidden': loading }" :name="icon" />
-        <lv-icon v-if="loading" class="lv-button__loading" name="loader-2" />
+        <lv-spinner v-if="loading" class="lv-button__loading" :size="12"/>
         <span class="lv-button__content" :class="{ 'lv-button__content--hidden': loading }">
             <slot>
                 {{ label }}
@@ -23,10 +23,12 @@
 import propColorMixin from '../../mixins/propColorMixin';
 import propSizeMixin from '../../mixins/propSizeMixin';
 import LvIcon from '../LvIcon/LvIcon.vue';
+import LvSpinner from '../LvSpinner/LvSpinner.vue';
 
 export default {
     components: {
         LvIcon,
+        LvSpinner,
     },
     mixins: [propColorMixin('solid-default'), propSizeMixin()],
     props: {
@@ -105,9 +107,8 @@ export default {
 
     &__loading {
         position: absolute;
-        top: calc(50% - 8px);
-        left: calc(50% - 8px);
-        animation: rotate-cw 1s infinite linear;
+        top: calc(50% - 7px);
+        left: calc(50% - 6px);
         color: var(--text-color-inverted);
     }
 

@@ -7,6 +7,7 @@
                 :label="buttonText"
                 size="small"
                 @click="onClickSelectFile"
+                :loading="loading"
                 :icon="multiple ? 'files' : 'file'"
             />
             <div class="lv-file-input__files">
@@ -64,6 +65,10 @@ export default {
         showInfo: {
             type: Boolean,
             default: false,
+        },
+        loading: {
+            type: Boolean,
+            default: false,
         }
     },
     computed: {
@@ -73,6 +78,7 @@ export default {
         classObject() {
             return {
                 'lv-file-input--has-files': !!this.hasFiles,
+                'lv-file-input--loading': !!this.loading,
             }
         }
     },
@@ -145,6 +151,13 @@ export default {
         position: absolute;
         opacity: 0;
         height: 0;
+    }
+    &--loading {
+        #{$self}__files {
+            opacity: 0.5;
+            pointer-events: none;
+            user-select: none;
+        }
     }
 }
 </style>
