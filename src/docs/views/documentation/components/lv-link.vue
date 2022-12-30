@@ -12,18 +12,16 @@
     <lv-code v-space-after="1" lang="html" code='<lv-link highlight>Highlighted</lv-link>' />
 
     <lv-card v-space-after="1">
-        <lv-link><lv-card>Any content</lv-card></lv-link>
+        <lv-link :zoom-on-hover="true"><lv-card>Any content</lv-card></lv-link>
     </lv-card>
-    <lv-code v-space-after="1" lang="html" code='<lv-link><lv-card>Any content</lv-card></lv-link>' />
+    <lv-code v-space-after="1" lang="html" code='<lv-link :zoom-on-hover="true"><lv-card>Any content</lv-card></lv-link>' />
     <component-details component="LvLink"></component-details>
 </template>
 
 <script>
 export default {
     data() {
-        return {
-            code: `<lv-link>Hello im a link</lv-link>`,
-        };
+        return { };
     },
 };
 </script>
