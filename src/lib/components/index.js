@@ -67,6 +67,8 @@ import LvToasts from './LvToasts/LvToasts.vue';
 import LvWidget from './LvWidget/LvWidget.vue';
 import LvDescriptionList from './LvDescriptionList/LvDescriptionList.vue';
 import LvSubHeader from './LvSubHeader/LvSubHeader.vue';
+import LvColorPicker from './LvColorPicker/LvColorPicker.vue';
+import LvColorSwatch from './LvColorSwatch/LvColorSwatch.vue';
 
 export {
     LvDatePicker,
@@ -137,7 +139,9 @@ export {
     LvToasts,
     LvWidget,
     LvDescriptionList,
-    LvSubHeader
+    LvSubHeader,
+    LvColorPicker,
+    LvColorSwatch
 };
 
 export default {
@@ -209,5 +213,7 @@ export default {
     LvToasts,
     LvWidget,
     LvDescriptionList,
-    LvSubHeader
+    LvSubHeader,
+    LvColorPicker,
+    LvColorSwatch
 };
