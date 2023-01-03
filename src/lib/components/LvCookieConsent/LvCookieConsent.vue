@@ -1,19 +1,23 @@
 <template>
     <Teleport to="body">
-        <div v-if="modal" class="lv-cookie-consent__backdrop"></div>
-        <div class="lv-cookie-consent" role="dialog" :aria-modal="!!modal">
-            <slot>
-                <lv-heading v-space-after=".5" :level="5">{{ title }}</lv-heading>
-                <lv-paragraph v-space-after="1">
-                    {{ description }}
-                </lv-paragraph>
-                <lv-flex>
-                    <lv-button :label="acceptButtonText" color="solid-primary" @click="onClickAccept"/>
-                    <lv-button :label="declineButtonText" color="solid-dimmed-primary" @click="onClickDecline"/>
-                    <lv-button :label="moreButtonText" color="ghost-default" @click="onClickMore"/>
-                </lv-flex>
-            </slot>
-        </div>
+        <transition name="fade">
+            <div v-if="show" class="lv-cookie-consent__backdrop"></div>
+        </transition>
+        <transition name="slide-bottom-to-top">
+            <div v-if="show" class="lv-cookie-consent" role="dialog" :aria-modal="!!modal">
+                <slot>
+                    <lv-heading v-space-after=".5" :level="5">{{ title }}</lv-heading>
+                    <lv-paragraph v-space-after="1">
+                        {{ description }}
+                    </lv-paragraph>
+                    <lv-flex>
+                        <lv-button :label="acceptButtonText" color="solid-primary" @click="onClickAccept"/>
+                        <lv-button :label="declineButtonText" color="solid-dimmed-primary" @click="onClickDecline"/>
+                        <lv-button :label="moreButtonText" color="ghost-default" @click="onClickMore"/>
+                    </lv-flex>
+                </slot>
+            </div>
+        </transition>
     </Teleport>
 </template>
 
@@ -26,6 +30,10 @@ import LvButton from "../LvButton/LvButton.vue";
 export default {
     components: { LvButton, LvFlex, LvParagraph, LvHeading },
     props: {
+        show: {
+            type: Boolean,
+            default: false,
+        },
         modal: {
             type: Boolean,
             default: false,
@@ -67,6 +75,9 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../../scss/transitions/slide';
+@import '../../scss/transitions/fade';
+
 .lv-cookie-consent {
     position: fixed;
     bottom: 2rem;

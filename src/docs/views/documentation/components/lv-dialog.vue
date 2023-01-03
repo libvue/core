@@ -3,7 +3,7 @@
     <lv-heading v-space-after="2" sub :level="6">A non-modal or modal dialog</lv-heading>
     <lv-card v-space-after="1">
         <lv-button label="Open the dialog" @click="showDialog = true"/>
-        <lv-dialog :show="showDialog" @click-overlay="showDialog = false" :modal="false">
+        <lv-dialog :show="showDialog" @click-backdrop="showDialog = false" :modal="false">
             <template #title>
                 <lv-heading :level="4" v-space-after="1">Make a choice</lv-heading>
             </template>

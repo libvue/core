@@ -1,14 +1,12 @@
 <template>
     <Teleport :to="teleportTarget">
-        <div v-show="show" class="lv-drawer" :class="classObject" role="dialog">
+        <div class="lv-drawer" :class="classObject" role="dialog">
             <transition name="fade">
-                <div v-if="show" class="lv-drawer__overlay"></div>
+                <div v-show="show" class="lv-drawer__backdrop" @click="onClickBackDrop"></div>
             </transition>
             <transition :name="animation">
-                <div v-show="show" ref="content" class="lv-drawer__content">
-                    <UseFocusTrap v-if="show" class="lv-drawer__trap" :options="focusTrapOptions">
-                        <slot></slot>
-                    </UseFocusTrap>
+                <div v-if="show" ref="content" class="lv-drawer__content">
+                    <slot></slot>
                 </div>
             </transition>
         </div>
@@ -16,13 +14,7 @@
 </template>
 
 <script>
-import { UseFocusTrap } from '@vueuse/integrations/useFocusTrap/component';
-import { onClickOutside } from '@vueuse/core';
-
 export default {
-    components: {
-        UseFocusTrap,
-    },
     props: {
         show: {
             type: Boolean,
@@ -44,16 +36,16 @@ export default {
         topBottomHeight: {
             type: String,
             default: 'auto',
-        }
+        },
     },
-    emits: ['click-overlay'],
+    emits: ['click-backdrop'],
     computed: {
         focusTrapOptions() {
             return {
                 immediate: true,
                 escapeDeactivates: false,
                 fallbackFocus: document.body,
-            }
+            };
         },
         classObject() {
             return {
@@ -76,14 +68,9 @@ export default {
             return 'fade';
         },
     },
-    mounted() {
-        onClickOutside(this.$refs.content, () => {
-            this.onClickOverlay();
-        });
-    },
     methods: {
-        onClickOverlay(e) {
-            this.$emit('click-overlay', e);
+        onClickBackDrop(e) {
+            this.$emit('click-backdrop', e);
         },
     },
 };
@@ -100,12 +87,14 @@ export default {
     z-index: var(--z-index-dialog);
     width: 100%;
     height: 100%;
+    pointer-events: none;
 
-    &__overlay {
+    &__backdrop {
         position: absolute;
         background-color: var(--backdrop-color);
         width: 100%;
         height: 100%;
+        pointer-events: all;
     }
 
     &__content {
@@ -115,9 +104,7 @@ export default {
         background-color: var(--background-color);
         padding: calc(var(--padding) * 2);
         overflow: auto;
-    }
-
-    &__trap {
+        pointer-events: all;
         display: flex;
         flex-direction: column;
         height: 100%;
@@ -142,16 +129,16 @@ export default {
     &--placement-left {
         #{$self}__content {
             left: 0;
-            height: 100%;
             width: v-bind(leftRightWidth);
+            height: 100%;
         }
     }
 
     &--placement-right {
         #{$self}__content {
             right: 0;
-            height: 100%;
             width: v-bind(leftRightWidth);
+            height: 100%;
         }
     }
 }
