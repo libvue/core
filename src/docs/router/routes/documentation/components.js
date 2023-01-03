@@ -58,8 +58,20 @@ const LvAccordion = () => import('../../../views/documentation/components/lv-acc
 const LvHeader = () => import('../../../views/documentation/components/lv-header.vue');
 const LvGrid = () => import('../../../views/documentation/components/lv-grid.vue');
 const LvHero = () => import('../../../views/documentation/components/lv-hero.vue');
+const LvColorPicker = () => import('../../../views/documentation/components/lv-color-picker.vue');
+const LvColorSwatch = () => import('../../../views/documentation/components/lv-color-swatch.vue');
 
 export default [
+    {
+        path: '/docs/lv-color-swatch',
+        name: 'lv-color-swatch',
+        component: LvColorSwatch,
+    },
+    {
+        path: '/docs/lv-color-picker',
+        name: 'lv-color-picker',
+        component: LvColorPicker,
+    },
     {
         path: '/docs/lv-description-list',
         name: 'lv-description-list',

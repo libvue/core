@@ -146,6 +146,9 @@
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-select' }" custom>
                 <lv-vertical-nav-item label="Select" :active="isActive" @click="navigate" />
             </router-link>
+            <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-color-picker' }" custom>
+                <lv-vertical-nav-item label="Color Picker" :active="isActive" @click="navigate" />
+            </router-link>
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-textarea' }" custom>
                 <lv-vertical-nav-item label="Textarea" :active="isActive" @click="navigate" />
             </router-link>
@@ -203,6 +206,9 @@
             </router-link>
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-image-carousel' }" custom>
                 <lv-vertical-nav-item label="Image Carousel" :active="isActive" @click="navigate" />
+            </router-link>
+            <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-color-swatch' }" custom>
+                <lv-vertical-nav-item label="Color Swatch" :active="isActive" @click="navigate" />
             </router-link>
         </lv-vertical-nav-list>
         <lv-vertical-nav-list icon="layers" label="Overlay">

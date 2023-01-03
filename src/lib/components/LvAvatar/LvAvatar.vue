@@ -1,5 +1,5 @@
 <template>
-    <span class="lv-avatar" :style="`width: ${size}; height: ${size};`" :class="classObject">
+    <span class="lv-avatar" :class="classObject">
         <img v-if="image" :src="image" class="lv-avatar__image" alt="avatar" />
         <template v-else>
             {{ initials }}
@@ -44,6 +44,8 @@ export default {
     color: var(--text-color-inverted);
     font-weight: 600;
     font-size: calc(v-bind(size) / 3);
+    height: v-bind(size);
+    width: v-bind(size);
 
     &__image {
         border-radius: 100%;
