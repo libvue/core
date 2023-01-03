@@ -77,11 +77,13 @@ export default {
     },
     methods: {
         addToast() {
-            this.eventBus.$on.('toast', {
+            eventBus.$emit('toast', {
                 title: 'Ut enim ad minima veniam, quis nostrum exercitationem',
                 description: 'Quis autem vel eum iure reprehenderit',
-                button: 'Do Something',
+                button: 'Cancel',
                 icon: 'save',
+                iconColor: 'solid-dimmed-warning',
+                buttonColor: 'solid-success',
                 onClick: () => {
                     console.log('Clicking toast');
                 },

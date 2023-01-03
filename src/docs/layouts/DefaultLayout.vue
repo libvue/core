@@ -1,5 +1,5 @@
 <template>
-    <lv-drawer :show="showDrawer && !$route.meta.hideSidebar && !breakpoints.greaterOrEqual.md" placement="left" @click-overlay="showDrawer = false">
+    <lv-drawer :show="showDrawer && !$route.meta.hideSidebar && !breakpoints.greaterOrEqual.md" placement="left" @click-backdrop="showDrawer = false">
         <main-navigation></main-navigation>
     </lv-drawer>
     <lv-layout :sticky-header="breakpoints.greaterOrEqual.md" :sticky-sub-header="!breakpoints.greaterOrEqual.md">

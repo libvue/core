@@ -1,7 +1,15 @@
 <template>
     <Teleport :to="teleportTarget">
-        <UseFocusTrap v-if="show && mounted" :options="focusTrapOptions">
-            <div v-if="show" ref="dialog" class="lv-dialog" role="dialog" :aria-modal="modal" v-bind="$attrs">
+        <transition name="fade-slide-up">
+            <UseFocusTrap
+                v-if="show && mounted"
+                ref="dialog"
+                :options="focusTrapOptions"
+                class="lv-dialog"
+                role="dialog"
+                :aria-modal="modal"
+                v-bind="$attrs"
+            >
                 <div class="lv-dialog__backdrop" @click="onClickBackdrop"></div>
                 <div ref="content" class="lv-dialog__window">
                     <slot name="default">
@@ -12,8 +20,8 @@
                         <div v-if="!!$slots.close" class="lv-dialog__close"><slot name="close"></slot></div>
                     </slot>
                 </div>
-            </div>
-        </UseFocusTrap>
+            </UseFocusTrap>
+        </transition>
     </Teleport>
 </template>
 
@@ -43,7 +51,7 @@ export default {
     data() {
         return {
             mounted: false,
-        }
+        };
     },
     computed: {
         focusTrapOptions() {
@@ -51,7 +59,7 @@ export default {
                 immediate: true,
                 escapeDeactivates: false,
                 fallbackFocus: document.body,
-            }
+            };
         },
     },
     mounted() {
@@ -66,6 +74,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import './src/lib/scss/transitions/fade.scss';
+
 .lv-dialog {
     display: flex;
     position: fixed;

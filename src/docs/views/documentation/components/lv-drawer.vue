@@ -8,11 +8,11 @@
             <lv-button label="Top" @click="onClickDrawerTop"/>
             <lv-button label="Bottom" @click="onClickDrawerBottom"/>
 
-            <lv-drawer :placement="placement" :show="showDrawer" @click-overlay="showDrawer = false">
+            <lv-drawer :placement="placement" :show="showDrawer" @click-backdrop="showDrawer = false">
                 <lv-input placeholder="Enter something" v-space-after="1"/>
                 <lv-flex fill style="margin-top: auto;">
-                    <lv-button label="Save" color="solid-primary"/>
-                    <lv-button label="Cancel" color="solid-dimmed-primary"/>
+                    <lv-button label="Save" color="solid-primary" @click="showDrawer = false"/>
+                    <lv-button label="Cancel" color="solid-dimmed-primary" @click="showDrawer = false"/>
                 </lv-flex>
             </lv-drawer>
         </lv-flex>
@@ -28,7 +28,7 @@ const code = `
 <lv-button label="Top" @click="onClickDrawerTop"/>
 <lv-button label="Bottom" @click="onClickDrawerBottom"/>
 
-<lv-drawer :placement="placement" :show="showDrawer" @click-overlay="showDrawer = false">
+<lv-drawer :placement="placement" :show="showDrawer" @click-backdrop="showDrawer = false">
     <lv-input placeholder="Enter something" v-space-after="1"/>
     <lv-flex fill style="margin-top: auto;">
         <lv-button label="Save" color="solid-primary"/>
