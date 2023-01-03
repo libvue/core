@@ -74,7 +74,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import './src/lib/scss/transitions/fade.scss';
+@import '../../scss/transitions/fade';
 
 .lv-dialog {
     display: flex;
