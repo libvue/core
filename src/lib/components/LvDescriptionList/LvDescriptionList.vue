@@ -46,6 +46,7 @@ export default {
     margin: 0;
     border: none;
     padding: 0;
+    width: 100%;
 
     &__row {
         display: table-row;
@@ -55,6 +56,8 @@ export default {
         padding: 0.5rem;
         font-weight: bold;
         text-align: right;
+        width: 0;
+        white-space: nowrap;
     }
     &__description {
         display: table-cell;
