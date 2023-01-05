@@ -58,6 +58,7 @@ export default {
         text-align: right;
         width: 0;
         white-space: nowrap;
+        vertical-align: top;
     }
     &__description {
         display: table-cell;
