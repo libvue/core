@@ -1,15 +1,25 @@
 <template>
-    <textarea class="lv-textarea" :placeholder="placeholder"></textarea>
+    <textarea class="lv-textarea" :value="modelValue" @input="onChange" :placeholder="placeholder"></textarea>
 </template>
 
 <script>
 export default {
     props: {
+        modelValue: {
+            type: String,
+            default: null,
+        },
         placeholder: {
             type: String,
             default: 'Enter your text here',
         },
     },
+    emits: ['update:modelValue'],
+    methods: {
+        onChange(e) {
+            this.$emit('update:modelValue', e.target.value);
+        }
+    }
 };
 </script>
 
