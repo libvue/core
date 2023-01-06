@@ -7,6 +7,9 @@
             <!-- Table Head -->
             <thead v-if="!hideHead" class="lv-table__table-head">
                 <tr class="lv-table__row">
+                    <th v-if="expandableRows" class="lv-table__cell lv-table__cell--expand" @click="toggleExpandAll">
+                        <lv-icon :name="expandedRows.length === rows.length ? 'chevrons-up' : 'chevrons-down'"/>
+                    </th>
                     <th
                         v-for="(column, columnKey) in columns"
                         :key="columnKey"
@@ -70,33 +73,41 @@
             <tbody v-else class="lv-table__table-body">
                 <!-- No Rows -->
                 <tr v-if="!hasRows" class="lv-table__row">
-                    <td class="lv-table__cell lv-table__cell--no-data" :colspan="Object.entries(columns).length">
+                    <td class="lv-table__cell lv-table__cell--no-data" :colspan="visibleColumnCount">
                         {{ noDataText }}
                     </td>
                 </tr>
 
                 <!-- Normal Rows -->
-                <tr
-                    v-for="(row, rowIndex) in parsedRows"
-                    :key="rowIndex"
-                    class="lv-table__row"
-                    @click.stop="onClickRow(rowIndex)"
-                >
-                    <!-- Create a cell for each key in a row if the key exists in columns -->
-                    <template v-for="(value, rowKey) in row">
-                        <td
-                            v-if="typeof columns[rowKey] !== 'undefined'"
-                            :key="rowKey"
-                            class="lv-table__cell"
-                            :class="getCellModifiers(columns[rowKey])"
-                        >
-                            <!-- Make it slotable with props so you can mutate the data where you use it! -->
-                            <slot :name="rowKey" :value="value" :row="rows[rowIndex]">
-                                {{ value }}
-                            </slot>
+                <template v-for="(row, rowIndex) in parsedRows" :key="rowIndex">
+                    <tr
+                        class="lv-table__row"
+                        @click.stop="onClickRow(rowIndex)"
+                    >
+                        <td v-if="expandableRows" class="lv-table__cell lv-table__cell--expand" @click="toggleExpand(rowIndex)">
+                            <lv-icon :name="expandedRows.includes(rowIndex) ? 'chevron-up': 'chevron-down'"/>
                         </td>
-                    </template>
-                </tr>
+                        <!-- Create a cell for each key in a row if the key exists in columns -->
+                        <template v-for="(value, rowKey) in row">
+                            <td
+                                v-if="typeof columns[rowKey] !== 'undefined'"
+                                :key="rowKey"
+                                class="lv-table__cell"
+                                :class="getCellModifiers(columns[rowKey])"
+                            >
+                                <!-- Make it slotable with props so you can mutate the data where you use it! -->
+                                <slot :name="rowKey" :value="value" :row="rows[rowIndex]">
+                                    {{ value }}
+                                </slot>
+                            </td>
+                        </template>
+                    </tr>
+                    <tr v-if="expandableRows && expandedRows.includes(rowIndex)">
+                        <td :colspan="visibleColumnCount">
+                            <slot name="_expansion" :row="rows[rowIndex]"></slot>
+                        </td>
+                    </tr>
+                </template>
             </tbody>
 
             <!-- Table Foot (Totals) -->
@@ -247,6 +258,21 @@ export default {
             type: String,
             default: null,
         },
+        expandableRows: {
+            type: Boolean,
+            default: false,
+        }
+    },
+    data() {
+        return {
+            expandedRows: []
+        };
+    },
+    watch: {
+        rows() {
+            // Reset the expandedRows when the dataset changes
+            this.expandedRows = [];
+        }
     },
     computed: {
         parsedRows() {
@@ -291,7 +317,10 @@ export default {
             return this.rows.length > 0;
         },
         visibleColumnCount() {
-            return Object.keys(this.columns).length;
+            if (this.expandableRows) {
+                return Object.entries(this.columns).length + 1;
+            }
+            return Object.entries(this.columns).length;
         },
         showFoot() {
             let showFoot = false;
@@ -390,7 +419,23 @@ export default {
             } else {
                 this.$emit('update:sort', columnKey)
             }
-        }
+        },
+        toggleExpand(rowIndex) {
+            if(!this.expandedRows.includes(rowIndex)) {
+                this.expandedRows.push(rowIndex);
+            } else {
+                this.expandedRows.splice(this.expandedRows.indexOf(rowIndex), 1);
+            }
+        },
+        toggleExpandAll() {
+            if (this.expandedRows.length === this.rows.length) {
+                this.expandedRows = [];
+            } else {
+                this.rows.forEach((row, index) => {
+                    this.expandedRows.push(index);
+                })
+            }
+        },
     },
 };
 </script>
@@ -504,6 +549,11 @@ export default {
         }
         &--italic {
             font-style: italic;
+        }
+        &--expand {
+            cursor: pointer;
+            padding: 0 !important;
+            width: 0;
         }
 
         &--sortable {
