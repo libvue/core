@@ -44,9 +44,26 @@
                 @change-file="(v) => (activeOptionsFile = v)"
             />
         </template>
+        <template #expansion>
+            <lv-card v-space-after="1">
+                <lv-table :rows="rowsExpansion" :columns="columnsExpansion" :expandable-rows="true">
+                    <template #weight="{ value }"> {{ value }} kg </template>
+                    <template #age="{ value }"> {{ value }} years </template>
+                    <template #_expansion="{ row }">
+                        Expanded: {{ row }}
+                    </template>
+                </lv-table>
+            </lv-card>
+            <lv-code
+                v-space-after="1"
+                :files="expansionFiles"
+                :active="activeExpansionFile"
+                @change-file="(v) => (activeExpansionFile = v)"
+            />
+        </template>
         <template #sorting>
             <lv-card v-space-after="1">
-                <lv-table :rows="rowsSorting" :columns="columnsSorting" :sort="sort" @update:sort="(v) => sort = v" >
+                <lv-table :rows="rowsSorting" :columns="columnsSorting" :sort="sort" @update:sort="(v) => sort = v">
                     <template #weight="{ value }"> {{ value }} kg </template>
                     <template #age="{ value }"> {{ value }} years </template>
                 </lv-table>
@@ -180,9 +197,51 @@ columnsSorting: {
     },
 },
 `.trim();
+
+const templateExpansion = `
+<lv-table :rows="rowsExpansion" :columns="columnsExpansion" :expandable-rows="true">
+    <template #weight="{ value }"> {{ value }} kg </template>
+    <template #age="{ value }"> {{ value }} years </template>
+    <template #_expansion="{ row }">
+        Expanded: {{ row }}
+    </template>
+</lv-table>
+`.trim();
+
+const scriptExpansion = `
+rowsExpansion: [
+    { id: 1, age: 33, gender: 'male', name: 'Bob', weight: 80 },
+    { id: 2, age: 43, gender: 'female', name: 'Jane', weight: 69 },
+    { id: 3, age: 56, gender: 'male', name: 'George', weight: 131 },
+],
+columnsExpansion: {
+    name: {
+        title: 'Name',
+    },
+    gender: {
+        title: 'Gender',
+        align: 'center',
+    },
+    age: {
+        title: 'Age',
+        align: 'center',
+    },
+    weight: {
+        title: 'Weight',
+        align: 'center',
+        sortable: true,
+    },
+},
+`.trim();
+
 export default {
     data() {
         return {
+            activeExpansionFile: 'template',
+            expansionFiles: [
+                { id: 'template', filename: 'template', code: templateExpansion, lang: 'html' },
+                { id: 'script', filename: 'script', code: scriptExpansion, lang: 'js' },
+            ],
             activeSortFile: 'template',
             sortFiles: [
                 { id: 'template', filename: 'template', code: templateSort, lang: 'html' },
@@ -203,6 +262,7 @@ export default {
                 { id: 'default', title: 'Default', icon: 'table' },
                 { id: 'options', title: 'With Options', icon: 'more-vertical' },
                 { id: 'sorting', title: 'Sorting', icon: 'sort-desc' },
+                { id: 'expansion', title: 'Expandable Rows', icon: 'chevrons-down' },
                 { id: 'empty', title: 'Empty', icon: 'eraser' },
             ],
             rowsDefault: [
@@ -224,7 +284,7 @@ export default {
                 },
                 weight: {
                     title: 'Weight',
-                    align: 'center',
+                    align: 'right',
                 },
             },
             rowsOptions: [
@@ -255,6 +315,28 @@ export default {
                 },
             },
             sort: 'weight',
+            rowsExpansion: [
+                { id: 1, age: 33, gender: 'male', name: 'Bob', weight: 80 },
+                { id: 2, age: 43, gender: 'female', name: 'Jane', weight: 69 },
+                { id: 3, age: 56, gender: 'male', name: 'George', weight: 131 },
+            ],
+            columnsExpansion: {
+                name: {
+                    title: 'Name',
+                },
+                gender: {
+                    title: 'Gender',
+                    align: 'center',
+                },
+                age: {
+                    title: 'Age',
+                    align: 'center',
+                },
+                weight: {
+                    title: 'Weight',
+                    align: 'right',
+                },
+            },
             rowsSorting: [
                 { id: 1, age: 33, gender: 'male', name: 'Bob', weight: 80 },
                 { id: 2, age: 43, gender: 'female', name: 'Jane', weight: 69 },
@@ -274,7 +356,7 @@ export default {
                 },
                 weight: {
                     title: 'Weight',
-                    align: 'center',
+                    align: 'right',
                     sortable: true,
                 },
             },
