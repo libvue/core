@@ -1,11 +1,7 @@
 <template>
     <div class="lv-breadcrumbs">
         <lv-icon v-if="showHome" class="lv-breadcrumbs__home" name="home" @click="onClickHome" />
-        <lv-icon
-            v-if="hasCrumbs"
-            name="chevron-right"
-            class="lv-breadcrumbs__chevron-right"
-        />
+        <lv-icon v-if="hasCrumbs" name="chevron-right" class="lv-breadcrumbs__chevron-right" />
         <template v-for="(crumb, index) in crumbs">
             <a
                 class="lv-breadcrumbs__crumb"
@@ -14,17 +10,13 @@
             >
                 {{ crumb.title }}
             </a>
-            <lv-icon
-                v-if="index < crumbs.length - 1"
-                name="chevron-right"
-                class="lv-breadcrumbs__chevron-right"
-            />
+            <lv-icon v-if="index < crumbs.length - 1" name="chevron-right" class="lv-breadcrumbs__chevron-right" />
         </template>
     </div>
 </template>
 
 <script>
-import LvIcon from "../LvIcon/LvIcon.vue";
+import LvIcon from '../LvIcon/LvIcon.vue';
 
 export default {
     components: { LvIcon },
@@ -63,7 +55,7 @@ export default {
     display: flex;
     align-items: center;
     &__home {
-        margin-right: .5rem;
+        margin-right: 0.5rem;
         color: var(--text-color-dimmed);
         &:hover:not(&--active) {
             cursor: pointer;
@@ -71,7 +63,7 @@ export default {
         }
     }
     &__chevron-right {
-        margin: 0 .5rem;
+        margin: 0 0.5rem;
         color: var(--text-color-dimmed);
     }
     &__crumb {

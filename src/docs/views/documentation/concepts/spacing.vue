@@ -2,32 +2,37 @@
     <lv-heading v-space-after="0.5" :level="3">Spacing</lv-heading>
     <lv-heading v-space-after="2" sub :level="6">All of our components are marginless.</lv-heading>
 
-    <lv-heading v-space-after="1" :level="6">Use v-space-after directive</lv-heading>
     <lv-paragraph v-space-after="1">
-        You can use this directive immediately if you install libvue and register it as a vue plugin.
+        We don't know the spacing we should apply so we do NOT apply any. Use the <lv-code code="v-space-after" inline /> directive to apply
+        spacing after the components. This directive automatically checks the flex-direction if you are using flex or inline-flex.
     </lv-paragraph>
-    <lv-paragraph v-space-after="1">
-        We don't know the spacing we should apply, so we do NOT apply any. Use the v-space-after directive to apply
-        spacing to the components. This directive automatically checks for the flex direction if you are using (inline) flex.
-    </lv-paragraph>
+
+    <lv-heading v-space-after="1" :level="6">Install v-space-after directive</lv-heading>
+    <lv-code v-space-after="1" :code="installDirective" lang="javascript" />
+
     <lv-heading v-space-after="1" :level="6">Example</lv-heading>
     <lv-card v-space-after="1">
-        <lv-heading v-space-after="1" :level="5">Heading</lv-heading>
-        <lv-paragraph>
-            Hello
-        </lv-paragraph>
+        <lv-card v-space-after="1" :level="5">I'm a card with v-space-after=1</lv-card>
+        <lv-card v-space-after="2">
+            I'm a card with v-space-after=2
+        </lv-card>
+        <lv-card>
+            I'm here for fun
+        </lv-card>
     </lv-card>
     <lv-code v-space-after="1" :code="codeExample" lang="html" />
-    <lv-heading v-space-after="1" :level="6">Install directive only</lv-heading>
-    <lv-code v-space-after="1" :code="installDirective" lang="javascript" />
+
 </template>
 
 <script>
 const codeExample = `
-<lv-heading :level="5" v-space-after="1">Heading</lv-heading>
-<lv-paragraph>
-    Hello
-</lv-paragraph>
+<lv-card v-space-after="1" :level="5">I'm a card with v-space-after=1</lv-card>
+<lv-card v-space-after="2">
+    I'm a card with v-space-after=2
+</lv-card>
+<lv-card>
+    I'm here for fun
+</lv-card>
 `.trim();
 export default {
     data() {

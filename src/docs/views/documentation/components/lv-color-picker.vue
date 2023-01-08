@@ -11,7 +11,7 @@
 export default {
     data() {
         return {
-            color: '#000000'
+            color: '#ff5522'
         };
     },
 };

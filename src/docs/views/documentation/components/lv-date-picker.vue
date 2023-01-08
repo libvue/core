@@ -21,8 +21,17 @@
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeInline" />
         </template>
+        <template #states>
+            <lv-card v-space-after="1">
+                <lv-flex direction="column">
+                    <lv-date-picker :start="date" @update:start="(v) => { date = v }" />
+                    <lv-date-picker :start="date" @update:start="(v) => { date = v }" disabled />
+                    <lv-date-picker :start="date" @update:start="(v) => { date = v }" loading />
+                </lv-flex>
+            </lv-card>
+            <lv-code v-space-after="1" lang="html" :code="codeStates" />
+        </template>
     </lv-tabs>
-
 
     <component-details component="LvDatePicker"></component-details>
 </template>
@@ -40,6 +49,12 @@ const codeInline = `
 <lv-date-picker :start="date" @update:start="(v) => { date = v }" inline/>
 `.trim();
 
+const codeStates = `
+<lv-date-picker :start="date" @update:start="(v) => { date = v }" />
+<lv-date-picker :start="date" @update:start="(v) => { date = v }" disabled />
+<lv-date-picker :start="date" @update:start="(v) => { date = v }" loading />
+`.trim();
+
 export default {
     data() {
         return {
@@ -49,11 +64,13 @@ export default {
             codeSingle,
             codeRange,
             codeInline,
+            codeStates,
             activeTab: 'single',
             tabs: [
                 { id: 'single', title: 'Single Date', icon: 'calendar-days' },
                 { id: 'range', title: 'Date Range', icon: 'calendar-range' },
                 { id: 'inline', title: 'Inline', icon: 'pencil' },
+                { id: 'states', title: 'States', icon: 'loader-2' },
             ],
         }
     }

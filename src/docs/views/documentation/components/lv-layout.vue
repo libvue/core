@@ -3,18 +3,23 @@
     <lv-heading v-space-after="2" sub :level="6">A simple layout component</lv-heading>
 
     <lv-card v-space-after="1">
-        <lv-layout :sticky-header="false" :sticky-sub-header="false">
+        <lv-layout class="fixed-z-index" :sticky-header="false" :sticky-sub-header="false">
             <template #header>
-                <div class="filler">Sticky Header</div>
+                <lv-header>
+                    <template #branding>Logo</template>
+                    <template #navigation>Navigation</template>
+                </lv-header>
             </template>
             <template #sub-header>
-                <div class="filler">Sticky Header</div>
+                <lv-sub-header>
+                    Subheader
+                </lv-sub-header>
             </template>
             <template #sidebar>
-                <div class="filler">Sidebar</div>
+                Sidebar
             </template>
             <template #main>
-                <div class="filler">Main</div>
+                Content
             </template>
         </lv-layout>
     </lv-card>
@@ -27,16 +32,21 @@
 const code = `
 <lv-layout :sticky-header="false" :sticky-sub-header="false">
     <template #header>
-        <div class="filler">Sticky Header</div>
+        <lv-header>
+            <template #branding>Logo</template>
+            <template #navigation>Navigation</template>
+        </lv-header>
     </template>
     <template #sub-header>
-        <div class="filler">Sticky Header</div>
+        <lv-sub-header>
+            Subheader
+        </lv-sub-header>
     </template>
     <template #sidebar>
-        <div class="filler">Sidebar</div>
+        Sidebar
     </template>
     <template #main>
-        <div class="filler">Main</div>
+        Content
     </template>
 </lv-layout>
 `.trim();
@@ -62,5 +72,13 @@ export default {
     box-sizing: border-box;
     border-radius: 3px;
     color: var(--color-primary);
+}
+</style>
+
+<style lang="scss">
+.fixed-z-index {
+    .lv-layout__header {
+        z-index: 0;
+    }
 }
 </style>

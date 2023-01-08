@@ -83,7 +83,7 @@ export default {
             position: absolute;
             top: 2px;
             left: 2px;
-            transition: 0.2s all;
+            transition: var(--transition-time) left var(--transition-easing);
             border-radius: var(--border-radius);
             background-color: var(--border-color);
             width: calc(1rem - 5px);

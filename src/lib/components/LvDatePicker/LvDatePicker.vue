@@ -70,6 +70,7 @@
                 </div>
             </lv-card>
         </transition>
+        <lv-spinner v-if="loading" class="lv-input__loading" />
     </div>
 </template>
 
@@ -121,6 +122,14 @@ export default {
             type: Object,
             default: () => ({ from: 2000, to: 2030 }),
         },
+        loading: {
+            type: Boolean,
+            default: false,
+        },
+        disabled: {
+            type: Boolean,
+            default: false,
+        },
         clearable: {
             type: Boolean,
             default: false,
@@ -156,6 +165,8 @@ export default {
         classObject() {
             return {
                 'lv-date-picker--inline': this.inline,
+                'lv-date-picker--disabled': this.disabled || this.loading,
+                'lv-date-picker--loading': this.loading,
             };
         },
         inputModelValue() {
@@ -501,6 +512,31 @@ export default {
             border: 0;
             padding: 0;
             max-width: inherit;
+        }
+    }
+
+
+    &__loading {
+        position: absolute;
+        top: 50%;
+        right: calc(var(--padding) - 2px);
+        margin-top: -0.5em;
+        background-color: var(--border-color-light);
+        color: var(--text-color-dimmed);
+    }
+
+    &--disabled {
+        opacity: 1;
+        pointer-events: none;
+        user-select: none;
+        #{$self}__icon {
+            color: var(--placeholder-color);
+        }
+        #{$self}__input {
+            background-color: var(--border-color-light);
+            &::placeholder {
+                color: var(--placeholder-color);
+            }
         }
     }
 }

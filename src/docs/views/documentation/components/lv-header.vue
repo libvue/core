@@ -10,6 +10,9 @@
             <template #search>
                 <lv-input placeholder="Search docs" icon="search"/>
             </template>
+            <template #navigation>
+                Navigation
+            </template>
             <template #extra>
                 <lv-button icon="github" color="ghost-default" />
             </template>
@@ -29,8 +32,11 @@ const code = `
     <template #search>
         <lv-input placeholder="Search docs" icon="search"/>
     </template>
+    <template #navigation>
+        Navigation
+    </template>
     <template #extra>
-        <lv-button icon="github" color="light-default" />
+        <lv-button icon="github" color="ghost-default" />
     </template>
 </lv-header>
 `.trim();

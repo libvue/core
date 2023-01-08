@@ -62,7 +62,7 @@ export default {
     width: 100%;
 
     &__buttons {
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
     }
 
     &__button {

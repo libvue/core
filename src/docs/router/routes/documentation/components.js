@@ -56,6 +56,7 @@ const LvPopover = () => import('../../../views/documentation/components/lv-popov
 const LvPagination = () => import('../../../views/documentation/components/lv-pagination.vue');
 const LvAccordion = () => import('../../../views/documentation/components/lv-accordion.vue');
 const LvHeader = () => import('../../../views/documentation/components/lv-header.vue');
+const LvSubHeader = () => import('../../../views/documentation/components/lv-sub-header.vue');
 const LvGrid = () => import('../../../views/documentation/components/lv-grid.vue');
 const LvHero = () => import('../../../views/documentation/components/lv-hero.vue');
 const LvColorPicker = () => import('../../../views/documentation/components/lv-color-picker.vue');
@@ -191,6 +192,11 @@ export default [
         path: '/docs/lv-header',
         name: 'lv-header',
         component: LvHeader,
+    },
+    {
+        path: '/docs/lv-sub-header',
+        name: 'lv-sub-header',
+        component: LvSubHeader,
     },
     {
         path: '/docs/lv-theme-toggle',

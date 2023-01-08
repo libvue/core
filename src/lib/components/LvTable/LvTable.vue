@@ -102,7 +102,7 @@
                             </td>
                         </template>
                     </tr>
-                    <tr v-if="expandableRows && expandedRows.includes(rowIndex)">
+                    <tr v-if="expandableRows" v-show="expandedRows.includes(rowIndex)">
                         <td :colspan="visibleColumnCount">
                             <slot name="_expansion" :row="rows[rowIndex]"></slot>
                         </td>

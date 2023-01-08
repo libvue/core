@@ -1,14 +1,11 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">Theming</lv-heading>
     <lv-heading v-space-after="2" sub :level="6">Customize this crap!</lv-heading>
-    <lv-paragraph v-space-after="1">
-        All these variables below can be overridden in your own .scss files.
-    </lv-paragraph>
 
     <lv-tabs :tabs="tabs" :active="activeTab" @change-tab="(v) => (activeTab = v)">
         <template #global>
             <lv-paragraph v-space-after="1">
-                Global variables can be added to the :root directly.
+                You can overwrite global variables by adding them to the :root directly.
             </lv-paragraph>
             <lv-code v-space-after="1" :code="codeGlobalVariables" lang="scss" />
         </template>
@@ -97,6 +94,7 @@ const codeThemeVariables = `
 }
 `.trim();
 const codeGlobalVariables = `
+// Overwrite default global variables
 :root {
     --z-index-base: 1;
     --z-index-dropdown: 200;

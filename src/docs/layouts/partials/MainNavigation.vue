@@ -31,6 +31,9 @@
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-header' }" custom>
                 <lv-vertical-nav-item label="Header" :active="isActive" @click="navigate" />
             </router-link>
+            <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-sub-header' }" custom>
+                <lv-vertical-nav-item label="Sub Header" :active="isActive" @click="navigate" />
+            </router-link>
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-grid' }" custom>
                 <lv-vertical-nav-item label="Grid" :active="isActive" @click="navigate" />
             </router-link>

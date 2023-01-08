@@ -22,7 +22,7 @@ export default {
             default: 1,
             validator: (value) => Number.parseInt(value, 10) > 0 && Number.parseInt(value, 10) <= 6,
         },
-        inline: {
+        ellipsis: {
             type: Boolean,
             default: false,
         },
@@ -39,7 +39,7 @@ export default {
             return {
                 [`lv-heading--${this.tagName}`]: true,
                 'lv-heading--sub': this.sub,
-                'lv-heading--inline': this.inline,
+                'lv-heading--ellipsis': this.ellipsis,
             }
         }
     },
@@ -83,7 +83,10 @@ export default {
     &--sub {
         color: var(--text-color-dimmed);
     }
-    &--inline {
+    &--ellipsis {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         display: inline-block;
     }
 }

@@ -67,13 +67,10 @@ export default {
             codeMultiple,
             modelSingle: null,
             modelMultiple: [],
-            activeTab: 'multiple',
+            activeTab: 'single',
             tabs: [
                 { id: 'single', title: 'Single', icon: 'box' },
                 { id: 'multiple', title: 'Multiple', icon: 'tags' },
-                // { id: 'groups', title: 'Groups', icon: 'boxes' },
-                // { id: 'search', title: 'Search', icon: 'search' },
-                // { id: 'sizes', title: 'Sizes', icon: 'scaling' },
             ],
             options: [
                 { label: 'Bomb', value: 1, icon: 'bomb' },
