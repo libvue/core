@@ -71,6 +71,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../../scss/animations/animations';
+
 .lv-spinner {
     fill: none;
     stroke: currentColor;
@@ -81,5 +83,12 @@ export default {
     justify-content: center;
     align-items: center;
     font-size: inherit;
+}
+
+// Fallback for safari
+@media not all and (min-resolution:.001dpcm) {
+    .lv-spinner {
+        animation: rotate v-bind(duration) linear infinite;
+    }
 }
 </style>
