@@ -1,3 +1,0 @@
-import{_ as m,b as e,d as u,o as t,c as f,w as s,e as r,f as c,g as n,F as g,h as l}from"./index.37a3cef6.js";const h=`
-<lv-progress-bar :value="60"/>
-`.trim(),B={data(){return{code:h}}},b=l("Progress Bar"),x=l("Used for showing the completion progress of a task.");function k(w,P,$,C,_,D){const a=e("lv-heading"),d=e("lv-progress-bar",!0),p=e("lv-card"),i=e("lv-code"),v=e("component-details"),o=u("space-after");return t(),f(g,null,[s((t(),r(a,{level:3},{default:c(()=>[b]),_:1})),[[o,.5]]),s((t(),r(a,{sub:"",level:6},{default:c(()=>[x]),_:1})),[[o,2]]),s((t(),r(p,null,{default:c(()=>[n(d,{value:60})]),_:1})),[[o,1]]),s(n(i,{code:_.code,lang:"html"},null,8,["code"]),[[o,1]]),n(v,{component:"LvProgressBar"})],64)}const N=m(B,[["render",k]]);export{N as default};
