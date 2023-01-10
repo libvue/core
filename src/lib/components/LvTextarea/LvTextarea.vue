@@ -23,6 +23,14 @@ export default {
         disabled: {
             type: Boolean,
             default: false,
+        },
+        height: {
+            type: String,
+            default: 'auto',
+        },
+        minHeight: {
+            type: String,
+            default: '100px',
         }
     },
     emits: ['update:modelValue'],
@@ -58,6 +66,9 @@ export default {
         resize: vertical;
         color: var(--text-color);
         font-family: var(--font-family);
+        height: v-bind(height);
+        min-height: v-bind(minHeight);
+
         &::placeholder {
             color: var(--placeholder-color);
         }
