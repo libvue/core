@@ -286,6 +286,7 @@ export default {
     &__value {
         display: flex;
         width: 100%;
+        overflow-x: auto;
 
         &-item {
             display: flex;
@@ -295,6 +296,7 @@ export default {
             background-color: var(--color-primary);
             padding: calc(var(--padding) * 0.5);
             color: var(--color-white);
+            white-space: nowrap;
         }
     }
 

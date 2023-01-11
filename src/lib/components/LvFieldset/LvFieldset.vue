@@ -58,6 +58,7 @@ export default {
     margin: 0;
     border: 0;
     padding: 0;
+    min-width: 0; // Fix for overflow
 
     &__label {
         display: flex;
