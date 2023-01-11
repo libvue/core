@@ -69,7 +69,7 @@
                         :checkbox="!!multiple"
                         @click="onClickOption"
                     >
-                        <slot name="option" :option="option">{{ option.label }}</slot>
+                        <slot name="option" :option="option">{{ option[optionLabelKey] }}</slot>
                     </lv-select-option>
                 </template>
                 <template v-else>
