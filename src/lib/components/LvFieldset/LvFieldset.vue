@@ -69,6 +69,10 @@ export default {
         font-weight: 500;
     }
 
+    &__content {
+        width: 100%;
+    }
+
     &__reset-button {
         display: flex;
         cursor: pointer;
