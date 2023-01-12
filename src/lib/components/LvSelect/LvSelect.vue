@@ -21,13 +21,6 @@
                 <slot v-if="hasValue" name="value" :option="selectedOption">
                     {{ selectedOption[optionLabelKey] }}
                 </slot>
-                <input
-                    v-else-if="searchable"
-                    v-model="search"
-                    class="lv-select__search"
-                    type="text"
-                    :placeholder="placeholder"
-                />
                 <div v-else class="lv-select__placeholder">
                     {{ placeholder }}
                 </div>
@@ -41,13 +34,6 @@
                         </slot>
                     </span>
                 </template>
-                <input
-                    v-else-if="searchable"
-                    v-model="search"
-                    class="lv-select__search"
-                    type="text"
-                    :placeholder="placeholder"
-                />
                 <div v-else class="lv-select__placeholder">
                     {{ placeholder }}
                 </div>
@@ -60,6 +46,16 @@
         <!-- Dropdown -->
         <transition name="dropdown">
             <div v-show="dropdownVisible" class="lv-select__dropdown" role="listbox">
+
+                <div class="lv-select__search" v-if="searchable">
+                    <input
+                        v-model="search"
+                        class="lv-select__search-input"
+                        type="text"
+                        :placeholder="searchPlaceholder"
+                    />
+                </div>
+
                 <template v-if="searchedOptions.length > 0">
                     <lv-select-option
                         v-for="(option, index) in searchedOptions"
@@ -111,7 +107,11 @@ export default {
         },
         placeholder: {
             type: String,
-            default: (props) => (props.searchable ? 'Search an option' : 'Choose an option'),
+            default: 'Choose an option',
+        },
+        searchPlaceholder: {
+            type: String,
+            default: 'Search an option',
         },
         clearable: {
             type: Boolean,
@@ -301,18 +301,33 @@ export default {
     }
 
     &__search {
+        display: flex;
+        align-items: center;
+        position: sticky;
+        top: -.5rem;
+        margin-top: -.5rem;
         flex-grow: 1;
         box-sizing: border-box;
-        margin: -1px 0;
-        outline: 0;
-        border: 0;
-        background: transparent;
-        padding: 0;
-        color: var(--text-color);
+        background: var(--background-color);
+        padding: 1rem .75rem 1rem;
         font-size: inherit;
         line-height: inherit;
-        &::placeholder {
-            color: var(--placeholder-color);
+        width: 100%;
+
+        &-input {
+            outline: 0;
+            border: 0;
+            color: var(--text-color);
+            font-size: inherit;
+            line-height: inherit;
+            width: 100%;
+            &::placeholder {
+                color: var(--placeholder-color);
+            }
+        }
+
+        &-icon {
+            margin-right: .25rem;
         }
     }
     &__placeholder {
