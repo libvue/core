@@ -9,9 +9,6 @@
                     <template #value="{ option }">
                         <lv-icon :name="option.icon" :push=".5" /> {{ option.label }}
                     </template>
-                    <template #option="{ option }">
-                        <lv-icon :name="option.icon" :push=".5" /> {{ option.label }}
-                    </template>
                 </lv-select>
                 v-model: {{ modelSingle }}
             </lv-card>
@@ -19,11 +16,8 @@
         </template>
         <template #multiple>
             <lv-card v-space-after="1">
-                <lv-select v-model="modelMultiple" v-space-after="1" :options="options" multiple>
+                <lv-select v-model="modelMultiple" v-space-after="1" :options="options" multiple searchable>
                     <template #value="{ option }">
-                        <lv-icon :name="option.icon" :push=".5" /> {{ option.label }}
-                    </template>
-                    <template #option="{ option }">
                         <lv-icon :name="option.icon" :push=".5" /> {{ option.label }}
                     </template>
                 </lv-select>
@@ -37,13 +31,10 @@
                     <template #value="{ option }">
                         <lv-icon :name="option.icon" :push=".5" /> {{ option.label }}
                     </template>
-                    <template #option="{ option }">
-                        <lv-icon :name="option.icon" :push=".5" /> {{ option.label }}
-                    </template>
                 </lv-select>
-                v-model: {{ modelMultiple }}
+                v-model: {{ modelSearch }}
             </lv-card>
-            <lv-code v-space-after="1" :code="codeMultiple" lang="html" />
+            <lv-code v-space-after="1" :code="codeSearch" lang="html" />
         </template>
     </lv-tabs>
 
@@ -56,9 +47,6 @@ const codeSingle = `
     <template #value="{ option }">
         <lv-icon :name="option.icon" :push=".5" /> {{ option.label }}
     </template>
-    <template #option="{ option }">
-        <lv-icon :name="option.icon" :push=".5" /> {{ option.label }}
-    </template>
 </lv-select>
 `.trim();
 
@@ -67,7 +55,12 @@ const codeMultiple = `
     <template #value="{ option }">
         <lv-icon :name="option.icon" :push=".5" /> {{ option.label }}
     </template>
-    <template #option="{ option }">
+</lv-select>
+`.trim();
+
+const codeSearch = `
+<lv-select v-model="modelSearch" :options="options" searchable>
+    <template #value="{ option }">
         <lv-icon :name="option.icon" :push=".5" /> {{ option.label }}
     </template>
 </lv-select>
@@ -79,10 +72,11 @@ export default {
         return {
             codeSingle,
             codeMultiple,
+            codeSearch,
             modelSingle: null,
             modelMultiple: [],
             modelSearch: null,
-            activeTab: 'single',
+            activeTab: 'multiple',
             tabs: [
                 { id: 'single', title: 'Single', icon: 'box' },
                 { id: 'multiple', title: 'Multiple', icon: 'tags' },

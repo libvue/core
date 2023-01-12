@@ -313,6 +313,7 @@ export default {
         font-size: inherit;
         line-height: inherit;
         width: 100%;
+        z-index: 1;
 
         &-input {
             outline: 0;
