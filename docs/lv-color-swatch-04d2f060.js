@@ -1,0 +1,5 @@
+import{_ as h,b as o,d as m,o as t,c as w,w as l,e as a,f as r,g as e,F as f,h as _}from"./index-583188e6.js";const g=`
+<lv-color-swatch color="red"></lv-color-swatch>
+<lv-color-swatch color="var(--color-warning)" rounded></lv-color-swatch>
+<lv-color-swatch squared></lv-color-swatch>
+`.trim(),x={data(){return{code:g,color:"#000000"}}};function C(k,B,S,$,d,b){const s=o("lv-heading"),n=o("lv-color-swatch",!0),v=o("lv-flex"),p=o("lv-card"),i=o("lv-code"),u=o("component-details"),c=m("space-after");return t(),w(f,null,[l((t(),a(s,{level:3},{default:r(()=>[_("Color Swatch")]),_:1})),[[c,.5]]),l((t(),a(s,{sub:"",level:6},{default:r(()=>[_("A nice little wrapper around your content")]),_:1})),[[c,2]]),l((t(),a(p,null,{default:r(()=>[e(v,null,{default:r(()=>[e(n,{color:"red"}),e(n,{color:"var(--color-warning)",rounded:""}),e(n,{squared:""})]),_:1})]),_:1})),[[c,1]]),l(e(i,{code:d.code,lang:"html"},null,8,["code"]),[[c,1]]),e(u,{component:"LvColorSwatch"})],64)}const D=h(x,[["render",C]]);export{D as default};
