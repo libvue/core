@@ -99,7 +99,6 @@ export default {
 
 .lv-popover {
     $self: &;
-    display: flex;
     height: 100%;
 
     &__content {

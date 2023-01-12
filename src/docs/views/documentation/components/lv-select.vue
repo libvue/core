@@ -31,6 +31,20 @@
             </lv-card>
             <lv-code v-space-after="1" :code="codeMultiple" lang="html" />
         </template>
+        <template #search>
+            <lv-card v-space-after="1">
+                <lv-select v-model="modelSearch" v-space-after="1" :options="options" searchable>
+                    <template #value="{ option }">
+                        <lv-icon :name="option.icon" :push=".5" /> {{ option.label }}
+                    </template>
+                    <template #option="{ option }">
+                        <lv-icon :name="option.icon" :push=".5" /> {{ option.label }}
+                    </template>
+                </lv-select>
+                v-model: {{ modelMultiple }}
+            </lv-card>
+            <lv-code v-space-after="1" :code="codeMultiple" lang="html" />
+        </template>
     </lv-tabs>
 
     <component-details component="LvSelect"></component-details>
@@ -67,19 +81,27 @@ export default {
             codeMultiple,
             modelSingle: null,
             modelMultiple: [],
+            modelSearch: null,
             activeTab: 'single',
             tabs: [
                 { id: 'single', title: 'Single', icon: 'box' },
                 { id: 'multiple', title: 'Multiple', icon: 'tags' },
+                { id: 'search', title: 'Searchable', icon: 'search' },
             ],
             options: [
                 { label: 'Bomb', value: 1, icon: 'bomb' },
                 { label: 'Bookmark', value: 2, icon: 'bookmark' },
                 { label: 'Bot', value: 3, icon: 'bot' },
+                { label: 'Brush', value: 8, icon: 'brush' },
+                { label: 'Camera', value: 9, icon: 'camera' },
+                { label: 'Cat', value: 10, icon: 'cat' },
+                { label: 'Cigarette', value: 11, icon: 'cigarette' },
                 { label: 'Citrus', value: 4, icon: 'citrus' },
                 { label: 'Cookie', value: 5, icon: 'cookie' },
                 { label: 'Croissant', value: 6, icon: 'croissant' },
+                { label: 'Database', value: 13, icon: 'database' },
                 { label: 'Disc', value: 7, icon: 'disc' },
+                { label: 'Dog', value: 14, icon: 'dog' },
             ],
         };
     },
