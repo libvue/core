@@ -428,7 +428,6 @@ export default {
             }
         },
         toggleExpandAll() {
-            console.log(this.expandedRows.length, this.rows.length, this.expandedRows.length === this.rows.length)
             if (this.expandedRows.length === this.rows.length) {
                 this.expandedRows = [];
             } else {
