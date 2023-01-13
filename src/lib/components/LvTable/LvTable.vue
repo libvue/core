@@ -432,7 +432,9 @@ export default {
                 this.expandedRows = [];
             } else {
                 this.rows.forEach((row, index) => {
-                    this.expandedRows.push(index);
+                    if(!this.expandedRows.includes(index)) {
+                        this.expandedRows.push(index);
+                    }
                 })
             }
         },
