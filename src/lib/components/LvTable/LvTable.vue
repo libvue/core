@@ -428,11 +428,14 @@ export default {
             }
         },
         toggleExpandAll() {
+            console.log(this.expandedRows.length, this.rows.length, this.expandedRows.length === this.rows.length)
             if (this.expandedRows.length === this.rows.length) {
                 this.expandedRows = [];
             } else {
                 this.rows.forEach((row, index) => {
-                    this.expandedRows.push(index);
+                    if(!this.expandedRows.includes(index)) {
+                        this.expandedRows.push(index);
+                    }
                 })
             }
         },
