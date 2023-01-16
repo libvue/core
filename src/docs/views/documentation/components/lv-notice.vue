@@ -102,7 +102,7 @@ const codeIcons = `<lv-notice text="This notice has an icon" icon="github"/>`.tr
 export default {
     data() {
         return {
-            activeTab: 'sizes',
+            activeTab: 'colors',
             codeColorSolid,
             codeColorSolidDimmed,
             codeColorOutline,

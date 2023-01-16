@@ -1,5 +1,9 @@
 <template>
-    <lv-drawer :show="showDrawer && !$route.meta.hideSidebar && !breakpoints.greaterOrEqual.md" placement="left" @click-backdrop="showDrawer = false">
+    <lv-drawer
+        :show="showDrawer && !$route.meta.hideSidebar && !breakpoints.greaterOrEqual.md"
+        placement="left"
+        @click-backdrop="showDrawer = false"
+    >
         <main-navigation></main-navigation>
     </lv-drawer>
     <lv-layout :sticky-header="breakpoints.greaterOrEqual.md" :sticky-sub-header="!breakpoints.greaterOrEqual.md">
@@ -14,8 +18,8 @@
                         <router-link v-slot="{ isActive, navigate }" :to="{ path: '/documentation' }" custom>
                             <lv-horizontal-nav-item label="Documentation" :active="isActive" @click="navigate" />
                         </router-link>
-                        <router-link v-slot="{ isActive, navigate }" :to="{ path: '/playground' }" custom>
-                            <lv-horizontal-nav-item label="Playground" :active="isActive" @click="navigate" />
+                        <router-link v-slot="{ isActive, navigate }" :to="{ path: '/ecosystem' }" custom>
+                            <lv-horizontal-nav-item label="Ecosystem" :active="isActive" @click="navigate" />
                         </router-link>
                     </lv-flex>
                     <lv-separator direction="vertical" />

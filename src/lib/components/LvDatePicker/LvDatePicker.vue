@@ -417,7 +417,6 @@ export default {
         position: absolute;
         z-index: var(--z-index-dropdown);
         margin-top: calc(var(--padding) * 0.5);
-        width: 100%;
         max-width: 350px;
     }
     &__navigation {

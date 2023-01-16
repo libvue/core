@@ -322,6 +322,7 @@ export default {
             font-size: inherit;
             line-height: inherit;
             width: 100%;
+            background: var(--background-color);
             &::placeholder {
                 color: var(--placeholder-color);
             }
