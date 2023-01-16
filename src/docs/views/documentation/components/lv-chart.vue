@@ -29,7 +29,7 @@
 
 <script>
 const codeBarChartTemplate = `
-<lv-chart :loading="loading" :datasets="datasets" :labels="labels" height="300px" />
+<lv-chart :loading="loading" :datasets="datasets" :labels="labels" height="300px" show-grid />
 `.trim();
 const codeLineChartTemplate = `
 <lv-chart :loading="loading" :datasets="datasets" :labels="labels" type="bar" height="300px" />
