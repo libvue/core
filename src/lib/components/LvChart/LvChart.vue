@@ -1,18 +1,16 @@
 <template>
     <div class="lv-chart" :style="`height: ${height}; width: ${width}`">
-        <canvas
-            v-if="hasDatasets && hasLabels"
-            ref="canvas"
-            :height="height"
-            :style="`height: ${height}; width: ${width}`"
-        ></canvas>
-        <lv-paragraph v-else class="lv-chart__message">
-            <lv-icon class="lv-chart__message-icon" name="alert-circle" /> No data found
-        </lv-paragraph>
+        <lv-flex class="lv-chart__loading" v-if="loading"> <lv-spinner /> {{ loadingText }} </lv-flex>
+        <canvas v-show="hasDatasets" ref="canvas" :height="height" :style="`height: ${height}; width: ${width}`"></canvas>
+        <lv-flex v-if="!hasDatasets" class="lv-chart__no-data">
+            <lv-icon name="alert-circle" /> {{ noDataText }}
+        </lv-flex>
     </div>
 </template>
 
 <script>
+import { shallowRef } from 'vue';
+
 import {
     Chart,
     LineElement,
@@ -26,8 +24,8 @@ import {
     Filler, // Used for the gradients
     Tooltip,
 } from 'chart.js';
-import LvParagraph from "../LvParagraph/LvParagraph.vue";
-import LvIcon from "../LvIcon/LvIcon.vue";
+import LvFlex from '../LvFlex/LvFlex.vue';
+import LvIcon from '../LvIcon/LvIcon.vue';
 
 Chart.register(
     LineElement,
@@ -39,11 +37,11 @@ Chart.register(
     LogarithmicScale,
     LinearScale,
     Filler,
-    Tooltip,
+    Tooltip
 );
 
 export default {
-    components: { LvIcon, LvParagraph },
+    components: { LvIcon, LvFlex },
     props: {
         labels: {
             type: Array,
@@ -99,6 +97,18 @@ export default {
             type: Boolean,
             default: false,
         },
+        noDataText: {
+            type: String,
+            default: 'No data available',
+        },
+        loadingText: {
+            type: String,
+            default: 'Loading',
+        },
+        loading: {
+            type: Boolean,
+            default: false,
+        },
         tension: {
             type: Number,
             default: 0.3,
@@ -120,37 +130,12 @@ export default {
         hasLabels() {
             return this.labels.length > 0;
         },
-        parsedDataSets() {
-            const parsedDataSets = [];
-            // Clone the dataset to avoid reference collisions when having more then one chart in use!
-            const clonedDatasets = JSON.parse(JSON.stringify(this.datasets));
-            clonedDatasets.forEach((dataset) => {
-                const ctx = this.canvas.getContext('2d');
-                const gradientBackground = ctx.createLinearGradient(0, 0, 0, parseInt(this.height, 10));
-                gradientBackground.addColorStop(0, `hsla(${dataset.hue}, 100%, 60%, 0.2)`);
-                gradientBackground.addColorStop(1, `hsla(${dataset.hue}, 100%, 60%, 0)`);
-
-                if (this.type === 'line') {
-                    dataset.backgroundColor = gradientBackground;
-                }
-                if (this.type === 'bar') {
-                    dataset.backgroundColor = `hsla(${dataset.hue}, 100%, 60%, 1)`;
-                }
-
-                dataset.borderColor = `hsla(${dataset.hue}, 100%, 60%, 1)`;
-                dataset.pointBackgroundColor = `hsla(${dataset.hue}, 100%, 60%, 1)`;
-                dataset.fill = true;
-                dataset.tension = this.tension;
-                parsedDataSets.push(dataset);
-            });
-            return parsedDataSets;
-        },
         config() {
             return {
                 type: this.type,
                 data: {
                     labels: this.labels,
-                    datasets: this.parsedDataSets,
+                    datasets: this.parseDatasets(this.datasets),
                 },
                 options: {
                     animations: false,
@@ -189,8 +174,10 @@ export default {
         },
     },
     watch: {
-        datasets() {
-            this.updateDatasets();
+        datasets(newVal, oldVal) {
+            if(JSON.stringify(newVal) !== JSON.stringify(oldVal)) {
+                this.updateDatasets();
+            }
         },
         labels() {
             this.updateLabels();
@@ -214,20 +201,54 @@ export default {
     methods: {
         createChart() {
             if (this.hasLabels && this.hasDatasets) {
-                this.chart = new Chart(this.canvas, this.config);
+                this.chart = shallowRef(new Chart(this.canvas, this.config));
             }
         },
         updateOptions() {
+            if (!this.chart) this.createChart();
             this.chart.options = this.config.options;
             this.chart.update();
         },
         updateDatasets() {
-            this.chart.data.datasets = this.datasets;
-            this.chart.update();
+            if (!this.chart) {
+                this.createChart();
+                this.chart.data.datasets = this.parseDatasets(this.datasets);
+            } else {
+                this.chart.data.datasets = this.parseDatasets(this.datasets);
+                this.chart.update();
+            }
         },
         updateLabels() {
+            if (!this.chart) this.createChart();
             this.chart.data.labels = this.labels;
             this.chart.update();
+        },
+        parseDatasets(datasets) {
+            const parsedDataSets = [];
+            if (this.canvas) {
+                // Clone the dataset to avoid reference collisions when having more then one chart in use!
+                const clonedDatasets = JSON.parse(JSON.stringify(datasets));
+                clonedDatasets.forEach((dataset) => {
+                    const ctx = this.canvas.getContext('2d');
+                    const gradientBackground = ctx.createLinearGradient(0, 0, 0, parseInt(this.height, 10));
+                    gradientBackground.addColorStop(0, `hsla(${dataset.hue}, 100%, 60%, 0.2)`);
+                    gradientBackground.addColorStop(1, `hsla(${dataset.hue}, 100%, 60%, 0)`);
+
+                    if (this.type === 'line') {
+                        dataset.backgroundColor = gradientBackground;
+                    }
+                    if (this.type === 'bar') {
+                        dataset.backgroundColor = `hsla(${dataset.hue}, 100%, 60%, 1)`;
+                    }
+
+                    dataset.borderColor = `hsla(${dataset.hue}, 100%, 60%, 1)`;
+                    dataset.pointBackgroundColor = `hsla(${dataset.hue}, 100%, 60%, 1)`;
+                    dataset.fill = true;
+                    dataset.tension = this.tension;
+                    parsedDataSets.push(dataset);
+                });
+            }
+            return parsedDataSets;
         },
     },
 };
@@ -236,15 +257,18 @@ export default {
 <style lang="scss">
 .lv-chart {
     display: flex;
+    position: relative;
     justify-content: center;
     align-items: center;
 
-    &__message {
+    &__loading {
         display: flex;
+        position: absolute;
+        justify-content: center;
         align-items: center;
-        &-icon {
-            margin-right: 10px;
-        }
+        background: var(--background-color);
+        width: 100%;
+        height: 100%;
     }
 }
 </style>

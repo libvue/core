@@ -248,7 +248,6 @@ export default {
 
             // Add previous month days
             if (this.selectedMonth.startOfMonth > 0) {
-                console.log(this.selectedMonth.startOfMonth)
                 Array.from(new Array(this.selectedMonth.startOfMonth).keys()).forEach((offset) => {
                     const day = this.selectedMonth.daysInPrevMonth - this.selectedMonth.startOfMonth + offset + 1;
                     const date = set(sub(new Date(this.selectedMonth.year, this.selectedMonth.month), { months: 1 }), {
