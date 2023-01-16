@@ -175,7 +175,6 @@ export default {
     },
     watch: {
         datasets(newVal, oldVal) {
-            console.log(newVal, oldVal);
             if(JSON.stringify(newVal) !== JSON.stringify(oldVal)) {
                 this.updateDatasets();
             }
