@@ -100,8 +100,6 @@ export default {
         border-radius: var(--border-radius);
         background-color: var(--background-color);
         padding: calc(var(--padding) * 2);
-        overflow-y: auto;
-        max-height: 100vh;
     }
 }
 </style>
