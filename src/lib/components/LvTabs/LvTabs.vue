@@ -63,6 +63,8 @@ export default {
 
     &__buttons {
         margin-bottom: 1rem;
+        overflow-x: auto;
+        flex-wrap: nowrap;
     }
 
     &__button {

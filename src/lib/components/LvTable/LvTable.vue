@@ -121,13 +121,15 @@
                         :class="getCellModifiers(columnData)"
                     >
                         <template v-if="index === 0">
-                            <template v-if="columnData.totals">
+                            <slot v-if="columnData.totals" :name="columnKey" :value="getTotal(columnKey, columnData.totals)">
                                 {{ getTotal(columnKey, columnData.totals) }}
-                            </template>
-                            <template v-else> Total </template>
+                            </slot>
+                            <template v-else> {{ totalText }} </template>
                         </template>
                         <template v-else-if="columnData.totals">
-                            {{ getTotal(columnKey, columnData.totals) }}
+                            <slot :name="columnKey" :value="getTotal(columnKey, columnData.totals)">
+                                {{ getTotal(columnKey, columnData.totals) }}
+                            </slot>
                         </template>
                     </td>
                 </tr>
@@ -140,13 +142,15 @@
                         :class="getCellModifiers(columnData)"
                     >
                         <template v-if="index === 0">
-                            <template v-if="columnData.averages">
+                            <slot v-if="columnData.averages" :name="columnKey" :value="getAverage(columnKey, columnData.averages)">
                                 {{ getAverage(columnKey, columnData.averages) }}
-                            </template>
-                            <template v-else> Average </template>
+                            </slot>
+                            <template v-else> {{ averageText }} </template>
                         </template>
                         <template v-else-if="columnData.averages">
-                            {{ getAverage(columnKey, columnData.averages) }}
+                            <slot :name="columnKey" :value="getAverage(columnKey, columnData.averages)">
+                                {{ getAverage(columnKey, columnData.averages) }}
+                            </slot>
                         </template>
                     </td>
                 </tr>
@@ -241,6 +245,14 @@ export default {
         noDataText: {
             type: String,
             default: 'No data available',
+        },
+        totalText: {
+            type: String,
+            default: 'Total',
+        },
+        averageText: {
+            type: String,
+            default: 'Average',
         },
         groupRowsBy: {
             type: String,
@@ -367,6 +379,11 @@ export default {
             this.rows.forEach((row) => {
                 total += Number.parseFloat(row[columnKey], 10);
             });
+
+            if(!this.rows.length) {
+                return '-';
+            }
+
             // Check if type of totals is a function, use it as a formatter
             if (typeof callback === 'function') {
                 return callback(total);
@@ -377,10 +394,15 @@ export default {
             const total = this.getTotal(columnKey);
             const average = total / this.rows.length;
 
+            if (isNaN(average)) {
+                return '-'
+            }
+
             // Check if type of totals is a function, use it as a formatter
             if (typeof callback === 'function') {
                 return callback(average);
             }
+
             return useNumber(average);
         },
         getCellModifiers(column) {

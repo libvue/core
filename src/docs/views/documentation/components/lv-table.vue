@@ -80,6 +80,20 @@
                 <lv-table :columns="columnsDefault" />
             </lv-card>
         </template>
+        <template #aggregates>
+            <lv-card v-space-after="1">
+                <lv-table :rows="rowsAggregates" :columns="columnsAggregates">
+                    <template #weight="{ value }"> {{ Math.round(value) }} kg </template>
+                    <template #age="{ value }"> {{ Math.round(value) }} years </template>
+                </lv-table>
+            </lv-card>
+            <lv-code
+                v-space-after="1"
+                :files="aggregateFiles"
+                :active="activeAggregateFile"
+                @change-file="(v) => (activeAggregateFile = v)"
+            />
+        </template>
     </lv-tabs>
 
     <component-details component="LvTable"></component-details>
@@ -234,6 +248,41 @@ columnsExpansion: {
 },
 `.trim();
 
+const templateAggregates = `
+<lv-table :rows="rowsAggregates" :columns="columnsAggregates">
+    <template #weight="{ value }"> {{ Math.round(value) }} kg </template>
+    <template #age="{ value }"> {{ Math.round(value) }} years </template>
+</lv-table>
+`.trim();
+const scriptAggregates = `
+rowsAggregates: [
+    { age: 33, gender: 'male', name: 'Bob', weight: 80, hello: 'world' },
+    { age: 43, gender: 'female', name: 'Jane', weight: 69, hello: 'world' },
+    { age: 56, gender: 'male', name: 'George', weight: 131, hello: 'world' },
+],
+columnsAggregates: {
+    name: {
+        title: 'Name',
+    },
+    gender: {
+        title: 'Gender',
+        align: 'center',
+    },
+    age: {
+        title: 'Age',
+        align: 'center',
+        totals: true,
+        averages: true,
+    },
+    weight: {
+        title: 'Weight',
+        align: 'right',
+        totals: true,
+        averages: true,
+    },
+},
+`.trim();
+
 export default {
     data() {
         return {
@@ -257,6 +306,11 @@ export default {
                 { id: 'template', filename: 'template', code: templateOptions, lang: 'html' },
                 { id: 'script', filename: 'script', code: scriptOptions, lang: 'js' },
             ],
+            activeAggregateFile: 'template',
+            aggregateFiles: [
+                { id: 'template', filename: 'template', code: templateAggregates, lang: 'html' },
+                { id: 'script', filename: 'script', code: scriptAggregates, lang: 'js' },
+            ],
             activeTab: 'default',
             tabs: [
                 { id: 'default', title: 'Default', icon: 'table' },
@@ -264,6 +318,7 @@ export default {
                 { id: 'sorting', title: 'Sorting', icon: 'sort-desc' },
                 { id: 'expansion', title: 'Expandable Rows', icon: 'chevrons-down' },
                 { id: 'empty', title: 'Empty', icon: 'eraser' },
+                { id: 'aggregates', title: 'Aggregates', icon: 'sigma' },
             ],
             rowsDefault: [
                 { age: 33, gender: 'male', name: 'Bob', weight: 80, hello: 'world' },
@@ -285,6 +340,32 @@ export default {
                 weight: {
                     title: 'Weight',
                     align: 'right',
+                },
+            },
+            rowsAggregates: [
+                { age: 33, gender: 'male', name: 'Bob', weight: 80, hello: 'world' },
+                { age: 43, gender: 'female', name: 'Jane', weight: 69, hello: 'world' },
+                { age: 56, gender: 'male', name: 'George', weight: 131, hello: 'world' },
+            ],
+            columnsAggregates: {
+                name: {
+                    title: 'Name',
+                },
+                gender: {
+                    title: 'Gender',
+                    align: 'center',
+                },
+                age: {
+                    title: 'Age',
+                    align: 'center',
+                    totals: true,
+                    averages: true,
+                },
+                weight: {
+                    title: 'Weight',
+                    align: 'right',
+                    totals: true,
+                    averages: true,
                 },
             },
             rowsOptions: [
