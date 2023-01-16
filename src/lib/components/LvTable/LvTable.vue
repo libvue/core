@@ -394,7 +394,7 @@ export default {
             const total = this.getTotal(columnKey);
             const average = total / this.rows.length;
 
-            if (isNaN(average)) {
+            if (Number.isNaN(average)) {
                 return '-'
             }
 

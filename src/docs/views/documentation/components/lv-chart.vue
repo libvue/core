@@ -6,7 +6,8 @@
         <template #line>
             <lv-card v-space-after="1">
                 <lv-flex>
-                    <lv-chart :datasets="datasets" :labels="labels" height="300px" />
+                    <lv-chart :loading="loading" :datasets="datasets" :labels="labels" height="300px" />
+                    <lv-button label="Randomize" color="solid-dimmed-primary" icon="rotate-cw" @click="onClickRandomize"/>
                 </lv-flex>
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeLineChartTemplate" />
@@ -15,7 +16,8 @@
         <template #bar>
             <lv-card v-space-after="1">
                 <lv-flex>
-                    <lv-chart :datasets="datasets" :labels="labels" type="bar" height="300px" />
+                    <lv-chart :loading="loading" :datasets="datasets" :labels="labels" type="bar" height="300px" />
+                    <lv-button label="Randomize" color="solid-dimmed-primary" icon="rotate-cw" @click="onClickRandomize"/>
                 </lv-flex>
             </lv-card>
             <lv-code v-space-after="1" lang="html" :code="codeBarChartTemplate" />
@@ -26,8 +28,12 @@
 </template>
 
 <script>
-const codeBarChartTemplate = `<lv-chart :datasets="datasets" type="bar" :labels="labels" height="300px" />`.trim();
-const codeLineChartTemplate = `<lv-chart :datasets="datasets" :labels="labels" height="300px" />`.trim();
+const codeBarChartTemplate = `
+<lv-chart :loading="loading" :datasets="datasets" :labels="labels" height="300px" />
+`.trim();
+const codeLineChartTemplate = `
+<lv-chart :loading="loading" :datasets="datasets" :labels="labels" type="bar" height="300px" />
+`.trim();
 const codeChartScript = `
 export default {
     data() {
@@ -61,19 +67,41 @@ export default {
                 { id: 'line', title: 'Line Chart', icon: 'line-chart' },
                 { id: 'bar', title: 'Bar Chart', icon: 'bar-chart-3' },
             ],
-            datasets: [
+            datasets: [],
+            loading: true,
+        };
+    },
+    mounted() {
+        setTimeout(() => {
+            this.loading = false;
+            this.datasets = this.getRandomDatasets();
+        }, 1000);
+    },
+    methods: {
+        getRandomDatasets() {
+            return [
                 {
                     label: 'Temperature',
                     hue: 24,
-                    data: [55, 12, 20, 34, 11, 4],
+                    data: [this.getRandomNumber(), this.getRandomNumber(), this.getRandomNumber(), this.getRandomNumber(), this.getRandomNumber(), this.getRandomNumber()],
                 },
                 {
                     label: 'Ice Days',
                     hue: 11,
-                    data: [1, 4, 55, 12, 20, 34],
+                    data: [this.getRandomNumber(), this.getRandomNumber(), this.getRandomNumber(), this.getRandomNumber(), this.getRandomNumber(), this.getRandomNumber()],
                 },
-            ],
-        };
-    },
+            ];
+        },
+        getRandomNumber() {
+            return Math.floor(Math.random() * 101);
+        },
+        onClickRandomize() {
+            this.loading = true;
+            setTimeout(() => {
+                this.loading = false;
+                this.datasets = this.getRandomDatasets();
+            }, 300);
+        }
+    }
 };
 </script>
