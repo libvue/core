@@ -16,7 +16,7 @@
         <template #bar>
             <lv-card v-space-after="1">
                 <lv-flex>
-                    <lv-chart :loading="loading" :datasets="datasets" :labels="labels" type="bar" height="300px" />
+<!--                    <lv-chart :loading="loading" :datasets="[]" :labels="labels" type="bar" height="300px" />-->
                     <lv-button label="Randomize" color="solid-dimmed-primary" icon="rotate-cw" @click="onClickRandomize"/>
                 </lv-flex>
             </lv-card>
@@ -74,7 +74,7 @@ export default {
     mounted() {
         setTimeout(() => {
             this.loading = false;
-            this.datasets = this.getRandomDatasets();
+            this.datasets = [];
         }, 1000);
     },
     methods: {

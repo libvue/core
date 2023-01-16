@@ -1,10 +1,10 @@
 <template>
     <div class="lv-chart" :style="`height: ${height}; width: ${width}`">
         <lv-flex class="lv-chart__loading" v-if="loading"> <lv-spinner /> {{ loadingText }} </lv-flex>
-        <canvas ref="canvas" :height="height" :style="`height: ${height}; width: ${width}`"></canvas>
-        <!--        <lv-flex class="lv-chart__no-data">-->
-        <!--            <lv-icon name="alert-circle" /> {{ noDataText }}-->
-        <!--        </lv-flex>-->
+        <canvas v-show="hasDatasets" ref="canvas" :height="height" :style="`height: ${height}; width: ${width}`"></canvas>
+        <lv-flex v-if="!hasDatasets" class="lv-chart__no-data">
+            <lv-icon name="alert-circle" /> {{ noDataText }}
+        </lv-flex>
     </div>
 </template>
 
@@ -174,8 +174,11 @@ export default {
         },
     },
     watch: {
-        datasets() {
-            this.updateDatasets();
+        datasets(newVal, oldVal) {
+            console.log(newVal, oldVal);
+            if(JSON.stringify(newVal) !== JSON.stringify(oldVal)) {
+                this.updateDatasets();
+            }
         },
         labels() {
             this.updateLabels();
