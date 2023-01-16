@@ -1,6 +1,6 @@
 <template>
     <div class="lv-chart" :style="`height: ${height}; width: ${width}`">
-        <lv-flex class="lv-chart__loading" v-if="loading"> <lv-spinner /> {{ loadingText }} </lv-flex>
+        <lv-flex v-if="loading" class="lv-chart__loading"> <lv-spinner /> {{ loadingText }} </lv-flex>
         <canvas v-show="hasDatasets" ref="canvas" :height="height" :style="`height: ${height}; width: ${width}`"></canvas>
         <lv-flex v-if="!hasDatasets" class="lv-chart__no-data">
             <lv-icon name="alert-circle" /> {{ noDataText }}
@@ -97,6 +97,10 @@ export default {
             type: Boolean,
             default: false,
         },
+        beginAtZero: {
+            type: Boolean,
+            default: true
+        },
         noDataText: {
             type: String,
             default: 'No data available',
@@ -156,16 +160,28 @@ export default {
                     maintainAspectRatio: false,
                     scales: {
                         x: {
+                            beginAtZero: this.beginAtZero,
                             display: this.showAxis,
                             grid: {
                                 display: this.showGrid,
+                                color: () => {
+                                    const style = getComputedStyle(document.body);
+                                    const borderColor = style.getPropertyValue('--border-color-light');
+                                    return borderColor
+                                }
                             },
                         },
                         y: {
+                            beginAtZero: this.beginAtZero,
                             type: this.logarithmic ? 'logarithmic' : 'linear',
                             display: this.showAxis,
                             grid: {
                                 display: this.showGrid,
+                                color: () => {
+                                    const style = getComputedStyle(document.body);
+                                    const borderColor = style.getPropertyValue('--border-color-light');
+                                    return borderColor
+                                }
                             },
                         },
                     },
