@@ -134,6 +134,13 @@ export default {
             },
         });
     },
+    watch: {
+        modelValue(val) {
+            const { from, to } = this.editor.state.selection;
+            this.editor.commands.setContent(val);
+            this.editor.commands.setTextSelection({ from, to });
+        },
+    },
     beforeUnmount() {
         this.editor.destroy();
     },
