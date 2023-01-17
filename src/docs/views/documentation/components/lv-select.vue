@@ -16,7 +16,7 @@
         </template>
         <template #multiple>
             <lv-card v-space-after="1">
-                <lv-select v-model="modelMultiple" v-space-after="1" :options="options" multiple searchable>
+                <lv-select v-model="modelMultiple" v-space-after="1" :options="options" multiple>
                     <template #value="{ option }">
                         <lv-icon :name="option.icon" :push=".5" /> {{ option.label }}
                     </template>
@@ -76,7 +76,7 @@ export default {
             modelSingle: null,
             modelMultiple: [],
             modelSearch: null,
-            activeTab: 'multiple',
+            activeTab: 'single',
             tabs: [
                 { id: 'single', title: 'Single', icon: 'box' },
                 { id: 'multiple', title: 'Multiple', icon: 'tags' },
