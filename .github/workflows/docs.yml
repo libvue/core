@@ -9,29 +9,29 @@ on:
 jobs:
   # Build job
   build:
-  # <Not provided for brevity>
-  # At a minimum this job should upload artifacts using actions/upload-pages-artifact
-  steps:
-    - uses: actions/checkout@v3
-    - name: Setup node
-      uses: actions/setup-node@v3
-      with:
-        node-version: 18
+    # <Not provided for brevity>
+    # At a minimum this job should upload artifacts using actions/upload-pages-artifact
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
 
-    - name: Setup Pages
-      id: pages
-      uses: actions/configure-pages@v2
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v2
 
-    - name: Install dependencies
-      run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-    - name: Build the documentation
-      run: npm run build:docs
+      - name: Build the documentation
+        run: npm run build:docs
 
-    - name: Upload artifact
-      uses: actions/upload-pages-artifact@v1
-      with:
-        path: docs
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: docs
   # Deploy job
   deploy:
     # Add a dependency to the build job
