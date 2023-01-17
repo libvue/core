@@ -9,6 +9,7 @@ on:
 jobs:
   # Build job
   build:
+    runs-on: ubuntu-latest
     # <Not provided for brevity>
     # At a minimum this job should upload artifacts using actions/upload-pages-artifact
     steps:
