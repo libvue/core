@@ -18,9 +18,12 @@
         >
             <!-- Single value -->
             <div v-if="!multiple" class="lv-select__value">
-                <slot v-if="hasValue" name="value" :option="selectedOption">
-                    {{ selectedOption[optionLabelKey] }}
-                </slot>
+                <template v-if="hasValue">
+                    <slot name="value" :option="selectedOption">
+                        {{ selectedOption[optionLabelKey] }}
+                    </slot>
+                    <lv-icon v-if="clearable" class="lv-select__value-remove lv-select__value-remove--single" name="x-circle" @click="onClickClearOption(selectedOption)"/>
+                </template>
                 <div v-else class="lv-select__placeholder">
                     {{ placeholder }}
                 </div>
@@ -32,6 +35,7 @@
                         <slot name="value" :option="option">
                             {{ option[optionLabelKey] }}
                         </slot>
+                        <lv-icon class="lv-select__value-remove" name="x-circle" @click="onClickClearOption(option)"/>
                     </span>
                 </template>
                 <div v-else class="lv-select__placeholder">
@@ -219,11 +223,16 @@ export default {
         });
     },
     methods: {
-        onClickSelection() {
-            this.dropdownVisible = !this.dropdownVisible;
+        onClickSelection(e) {
+            if(!e.target.classList.contains('lv-select__value-remove') && e.target.classList.length > 0) {
+                this.dropdownVisible = !this.dropdownVisible;
+            }
         },
         onEscape() {
             this.dropdownVisible = false;
+        },
+        onClickClearOption(option) {
+            this.onClickOption(option);
         },
         onClickOption(option) {
             // Single Mode
@@ -297,6 +306,14 @@ export default {
             padding: calc(var(--padding) * 0.5);
             color: var(--color-white);
             white-space: nowrap;
+        }
+        &-remove {
+            margin-left: .5rem;
+
+            &--single {
+                margin-left: auto;
+                margin-right: 1.5rem;
+            }
         }
     }
 
