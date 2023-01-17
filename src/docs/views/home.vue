@@ -60,7 +60,7 @@
 
         <lv-paragraph align="center" v-space-after="2">
             Released under the MIT License.
-            Copyright © Harmen de Vries
+            Copyright © Herman de Vries
         </lv-paragraph>
     </div>
 </template>
