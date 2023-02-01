@@ -14,7 +14,7 @@
                         v-for="(column, columnKey) in columns"
                         :key="columnKey"
                         class="lv-table__cell"
-                        :class="getCellModifiers(column)"
+                        :class="getCellModifiers(column, true)"
                         @click="column.sortable ? onClickHeadCell(columnKey) : false"
                     >
                         <div class="lv-table__cell-container">
@@ -405,7 +405,7 @@ export default {
 
             return useNumber(average);
         },
-        getCellModifiers(column) {
+        getCellModifiers(column, isHeadCell = false) {
             const classes = [];
             if (column.align && column.align === 'right') {
                 classes.push('lv-table__cell--align-right');
@@ -422,7 +422,7 @@ export default {
             if (column.italic) {
                 classes.push('lv-table__cell--italic');
             }
-            if (column.sortable) {
+            if (column.sortable && isHeadCell) {
                 classes.push('lv-table__cell--sortable');
             }
             return classes;
