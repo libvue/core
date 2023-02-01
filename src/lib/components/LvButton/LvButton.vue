@@ -109,7 +109,7 @@ export default {
         position: absolute;
         top: calc(50% - 7px);
         left: calc(50% - 6px);
-        color: var(--text-color-inverted);
+        color: inherit;
     }
 
     &__content {
