@@ -56,6 +56,7 @@
                         v-model="search"
                         class="lv-select__search-input"
                         type="text"
+                        ref="search"
                         :placeholder="searchPlaceholder"
                     />
                 </div>
@@ -216,6 +217,13 @@ export default {
                 this.search = null;
             }
         },
+        dropdownVisible(val) {
+            if (val && this.searchable && this.$refs.search) {
+                this.$nextTick(() => {
+                    this.$refs.search.focus();
+                });
+            }
+        }
     },
     mounted() {
         onClickOutside(this.$refs.select, () => {
@@ -370,7 +378,7 @@ export default {
         background-color: var(--background-color);
         padding: calc(var(--padding) * 0.5);
         width: 100%;
-        max-height: 200px;
+        max-height: 300px;
         overflow-y: auto;
         font-size: inherit;
     }
