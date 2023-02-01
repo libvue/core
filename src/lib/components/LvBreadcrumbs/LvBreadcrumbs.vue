@@ -2,7 +2,7 @@
     <div class="lv-breadcrumbs">
         <lv-icon v-if="showHome" class="lv-breadcrumbs__home" name="home" @click="onClickHome" />
         <lv-icon v-if="hasCrumbs" name="chevron-right" class="lv-breadcrumbs__chevron-right" />
-        <template v-for="(crumb, index) in crumbs">
+        <template v-for="(crumb, index) in crumbs" :key="index">
             <a
                 class="lv-breadcrumbs__crumb"
                 :class="{ 'lv-breadcrumbs__crumb--active': index === crumbs.length - 1 }"
@@ -54,9 +54,13 @@ export default {
 .lv-breadcrumbs {
     display: flex;
     align-items: center;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
     &__home {
         margin-right: 0.5rem;
         color: var(--text-color-dimmed);
+        flex-shrink: 0;
         &:hover:not(&--active) {
             cursor: pointer;
             color: var(--text-color);
@@ -65,10 +69,12 @@ export default {
     &__chevron-right {
         margin: 0 0.5rem;
         color: var(--text-color-dimmed);
+        flex-shrink: 0;
     }
     &__crumb {
         color: var(--text-color-dimmed);
         font-weight: 500;
+        flex-shrink: 0;
 
         &:hover:not(&--active) {
             cursor: pointer;
