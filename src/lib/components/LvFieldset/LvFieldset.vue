@@ -67,6 +67,7 @@ export default {
         font-size: var(--font-size);
         line-height: var(--font-size);
         font-weight: 500;
+        color: var(--text-color);
     }
 
     &__content {
