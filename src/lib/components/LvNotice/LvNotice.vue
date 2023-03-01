@@ -93,6 +93,7 @@ export default {
         display: flex;
         align-items: center;
         flex-grow: 1;
+        word-break: break-all;
     }
     &__button {
         display: flex;
