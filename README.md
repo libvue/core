@@ -5,7 +5,7 @@
 
 #### A collection of vue 3 components.
 
-[documentation](https://libvue.github.io/core/) - [playground](https://libvue.github.io/core/#/playground) - [npm](https://www.npmjs.com/package/@libvue/core)
+[documentation](https://libvue.github.io/core/) - [npm](https://www.npmjs.com/package/@libvue/core)
 
 ### Install
 
