@@ -161,6 +161,9 @@
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-toggle-group' }" custom>
                 <lv-vertical-nav-item label="Toggle Group" :active="isActive" @click="navigate" />
             </router-link>
+            <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-quick-filter' }" custom>
+                <lv-vertical-nav-item label="Quick Filter" :active="isActive" @click="navigate" />
+            </router-link>
         </lv-vertical-nav-list>
         <lv-vertical-nav-list icon="pencil" label="Writing">
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-heading' }" custom>

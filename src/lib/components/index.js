@@ -69,6 +69,7 @@ import LvDescriptionList from './LvDescriptionList/LvDescriptionList.vue';
 import LvSubHeader from './LvSubHeader/LvSubHeader.vue';
 import LvColorPicker from './LvColorPicker/LvColorPicker.vue';
 import LvColorSwatch from './LvColorSwatch/LvColorSwatch.vue';
+import LvQuickFilter from './LvQuickFilter/LvQuickFilter.vue';
 
 export {
     LvDatePicker,
@@ -141,7 +142,8 @@ export {
     LvDescriptionList,
     LvSubHeader,
     LvColorPicker,
-    LvColorSwatch
+    LvColorSwatch,
+    LvQuickFilter
 };
 
 export default {
@@ -215,5 +217,6 @@ export default {
     LvDescriptionList,
     LvSubHeader,
     LvColorPicker,
-    LvColorSwatch
+    LvColorSwatch,
+    LvQuickFilter
 };
