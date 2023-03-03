@@ -192,11 +192,14 @@ export default {
         display: flex;
         border: 1px solid var(--border-color);
         border-radius: var(--border-radius);
+
     }
     &__search {
         flex-grow: 1;
         border: 0;
         font-size: inherit;
+        background: var(--background-color);
+        color: var(--text-color);
         &:focus {
             outline: 0;
         }
