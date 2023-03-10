@@ -1,5 +1,5 @@
 <template>
-    <div class="lv-checkbox" :class="classObject" aria-label="checkbox">
+    <div class="lv-checkbox" :class="classObject" aria-label="checkbox" @click.stop="toggleCheckbox">
         <div class="lv-checkbox__checkbox">
             <input
                 ref="checkbox"
@@ -7,13 +7,12 @@
                 type="checkbox"
                 :checked="modelValue"
                 v-bind="$attrs"
-                @input="toggleCheckbox"
             />
             <lv-icon v-if="indeterminate" class="lv-checkbox__icon" name="minus"/>
             <lv-icon v-else-if="modelValue && !loading" class="lv-checkbox__icon" name="check" />
             <lv-spinner v-if="loading" class="lv-checkbox__loader" />
         </div>
-        <div v-if="label" class="lv-checkbox__label" @click="toggleCheckbox">{{ label }}</div>
+        <div v-if="label" class="lv-checkbox__label">{{ label }}</div>
     </div>
 </template>
 
@@ -167,8 +166,9 @@ export default {
 
     &__label {
         cursor: pointer;
-        margin-left: 5px;
+        margin-left: .5rem;
         font-size: var(--font-size);
+        line-height: var(--line-height);
     }
 }
 </style>
