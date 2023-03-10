@@ -23,32 +23,31 @@ $sizes: (
     ),
 );
 
-// $selector should not contain &__ otherwise the input check will not work
-@mixin size-mixin($selector: '') {
+@mixin size-mixin($selector: '', $pixelFix: false) {
     $self: &;
     @each $size, $sizeMap in $sizes {
+        // Set font sizes
+        &--size-#{$size} #{$selector},
+        &--size-#{$size} {
+            font-size: map-get($sizeMap, "fontSize");
+            line-height: map-get($sizeMap, "fontSize");
+        }
+
         @if($selector) {
             &--size-#{$size} #{$selector} {
-                padding: map-get($sizeMap, "paddingY") map-get($sizeMap, "paddingX");
-                font-size: map-get($sizeMap, "fontSize");
-                line-height: map-get($sizeMap, "fontSize");
-            }
-            // Fix weird 2 pixel bug for inputs
-            &--size-#{$size} input#{$selector} {
-                padding: calc(map-get($sizeMap, "paddingY") - 2px) map-get($sizeMap, "paddingX") calc(map-get($sizeMap, "paddingY") - 1px);
-            }
-            &--size-#{$size} {
-                font-size: map-get($sizeMap, "fontSize");
-                line-height: map-get($sizeMap, "fontSize");
+                @if($pixelFix) {
+                    padding: calc(map-get($sizeMap, "paddingY") - 2px) map-get($sizeMap, "paddingX") calc(map-get($sizeMap, "paddingY") - 1px);
+                } @else {
+                    padding: map-get($sizeMap, "paddingY") map-get($sizeMap, "paddingX");
+                }
             }
         } @else {
             &--size-#{$size} {
-                padding: map-get($sizeMap, "paddingY") map-get($sizeMap, "paddingX");
-                font-size: map-get($sizeMap, "fontSize");
-                line-height: map-get($sizeMap, "fontSize");
-            }
-            input--size-#{$size} {
-                padding: calc(map-get($sizeMap, "paddingY") - 2px) map-get($sizeMap, "paddingX");
+                @if($pixelFix) {
+                    padding: calc(map-get($sizeMap, "paddingY") - 2px) map-get($sizeMap, "paddingX") calc(map-get($sizeMap, "paddingY") - 1px);
+                } @else {
+                    padding: map-get($sizeMap, "paddingY") map-get($sizeMap, "paddingX");
+                }
             }
         }
     }

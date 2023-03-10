@@ -11,6 +11,8 @@
             :readonly="readonly"
             tabindex="0"
             @input="onInput"
+            @blur="onBlur"
+            @focus="onFocus"
         />
         <lv-spinner v-if="loading" class="lv-input__loading" />
     </div>
@@ -67,7 +69,7 @@ export default {
             validator: (value) => ['text', 'email', 'password', 'tel'].includes(value),
         },
     },
-    emits: ['update:modelValue'],
+    emits: ['update:modelValue', 'focus', 'blur'],
     computed: {
         classObject() {
             return {
@@ -86,6 +88,12 @@ export default {
         onInput(e) {
             this.$emit('update:modelValue', e.target.value);
         },
+        onFocus(e) {
+            this.$emit('focus', e);
+        },
+        onBlur(e) {
+            this.$emit('blur', e);
+        }
     },
 };
 </script>
@@ -167,6 +175,6 @@ export default {
         }
     }
 
-    @include size-mixin('.lv-input__input');
+    @include size-mixin('.lv-input__input', true);
 }
 </style>

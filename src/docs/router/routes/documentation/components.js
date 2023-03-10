@@ -61,8 +61,14 @@ const LvGrid = () => import('../../../views/documentation/components/lv-grid.vue
 const LvHero = () => import('../../../views/documentation/components/lv-hero.vue');
 const LvColorPicker = () => import('../../../views/documentation/components/lv-color-picker.vue');
 const LvColorSwatch = () => import('../../../views/documentation/components/lv-color-swatch.vue');
+const LvQuickFilter = () => import('../../../views/documentation/components/lv-quick-filter.vue');
 
 export default [
+    {
+        path: '/docs/lv-quick-filter',
+        name: 'lv-quick-filter',
+        component: LvQuickFilter,
+    },
     {
         path: '/docs/lv-color-swatch',
         name: 'lv-color-swatch',
