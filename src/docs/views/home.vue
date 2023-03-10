@@ -36,7 +36,7 @@
                                 <lv-icon v-space-after=".5" name="layers"/>70+ Components
                             </lv-heading>
                             <lv-paragraph>
-                                Grid components ready to make any layout possible.
+                                A lot of components at your disposal and more are coming!
                             </lv-paragraph>
                         </lv-card>
                     </lv-link>
