@@ -9,7 +9,7 @@
             </template>
         </lv-description-list>
     </lv-card>
-    <lv-code v-space-after="1" lang="html" :files="files" :active="activeFile" @change-file="(v) => activeFile = v" />
+    <lv-code v-space-after="1" :files="files" :active="activeFile" @change-file="(v) => activeFile = v" />
 
     <component-details component="LvDescriptionList"></component-details>
 </template>
@@ -45,8 +45,8 @@ export default {
             ],
             activeFile: 'template',
             files: [
-                { id: 'template', filename: 'template', code: codeTemplate },
-                { id: 'script', filename: 'script', code: codeScript }
+                { id: 'template', filename: 'template', code: codeTemplate, lang: 'html' },
+                { id: 'script', filename: 'script', code: codeScript, lang: 'javascript' }
             ],
         };
     },
