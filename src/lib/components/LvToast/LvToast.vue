@@ -102,13 +102,13 @@ export default {
         margin-bottom: 0.35rem;
         font-weight: bold;
         font-size: var(--font-size);
-        line-height: var(--font-size);
+        line-height: var(--line-height);
         color: var(--text-color);
     }
     &__description {
         color: var(--text-color-dimmed);
         font-size: var(--font-size-small);
-        line-height: var(--font-size-small);
+        line-height: var(--line-height-small);
     }
 
     &__button {

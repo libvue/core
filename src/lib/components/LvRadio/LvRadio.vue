@@ -82,7 +82,7 @@ export default {
     position: relative;
     align-items: center;
     font-size: var(--font-size);
-    line-height: var(--font-size);
+    line-height: var(--line-height);
 
     &__loading {
         position: absolute;

@@ -130,7 +130,7 @@ export default {
         width: 100%;
         color: var(--text-color);
         font-size: var(--font-size);
-        line-height: var(--font-size);
+        line-height: var(--line-height);
         font-family: var(--font-family);
 
         &::placeholder {

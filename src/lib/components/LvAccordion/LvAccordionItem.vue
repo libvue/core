@@ -124,7 +124,7 @@ export default {
         padding: var(--padding);
         font-weight: normal;
         font-size: var(--font-size);
-        line-height: var(--font-size);
+        line-height: var(--line-height);
         font-weight: 600;
 
         &:hover {
@@ -138,7 +138,7 @@ export default {
     &__content {
         border-top: 1px solid var(--border-color);
         font-size: var(--font-size);
-        line-height: var(--font-size);
+        line-height: var(--line-height-large);
         padding: var(--padding);
         overflow: hidden;
     }

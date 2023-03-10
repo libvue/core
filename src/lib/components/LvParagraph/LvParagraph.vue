@@ -28,7 +28,7 @@ export default {
     margin: 0;
     color: var(--text-color);
     font-size: var(--font-size);
-    line-height: calc(var(--font-size) * 1.5);
+    line-height: var(--line-height-large);
     width: 100%;
 
     &--align-left {

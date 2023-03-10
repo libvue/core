@@ -57,7 +57,7 @@ export default {
         border-bottom: 1px solid var(--border-color);
         position: relative;
         font-size: var(--font-size);
-        line-height: var(--font-size);
+        line-height: var(--line-height);
         height: 2rem;
         flex-shrink: 0;
     }

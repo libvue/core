@@ -167,7 +167,7 @@ export default {
         margin-left: 5px;
         color: var(--text-color);
         font-size: var(--font-size);
-        line-height: var(--font-size);
+        line-height: var(--line-height);
     }
 }
 </style>

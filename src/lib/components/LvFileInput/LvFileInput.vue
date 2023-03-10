@@ -138,7 +138,7 @@ export default {
         gap: 0.5rem;
     }
     &__no-files {
-        line-height: var(--font-size-small);
+        line-height: var(--line-height-small);
         font-size: var(--font-size-small);
     }
     &__info {

@@ -51,7 +51,7 @@ export default {
     width: 50px;
     color: var(--text-color);
     font-size: var(--font-size);
-    line-height: var(--font-size);
+    line-height: var(--line-height);
     font-family: var(--font-family);
 
     &__thumb {
@@ -64,7 +64,7 @@ export default {
         border-radius: 100%;
         padding: calc(var(--padding) * 0.15);
         font-size: var(--font-size-small);
-        line-height: var(--font-size-small);
+        line-height: var(--line-height-small);
     }
     &--dark {
         #{$self}__thumb {
