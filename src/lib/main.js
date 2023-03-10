@@ -1,6 +1,6 @@
 import components from './components';
 import eventBus from './utils/eventBus';
-import breakpointMixin from './mixins/breakpointMixin';
+import { useBreakpoints } from "./composables/useBreakpoints";
 
 /**
  * expose components directly
@@ -16,6 +16,6 @@ export * from './directives';
 
 /**
  * Named Exports
- * @usage import { components } from '@libvue/core'
+ * @usage import { components, eventBus, useBreakpoints } from '@libvue/core'
  */
-export { components, eventBus, breakpointMixin };
+export { components, eventBus, useBreakpoints };

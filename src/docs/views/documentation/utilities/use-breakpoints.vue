@@ -1,8 +1,8 @@
 <template>
-    <lv-heading v-space-after="0.5" :level="3">Breakpoint Mixin</lv-heading>
-    <lv-heading v-space-after="2" sub :level="6">Some extra functionality for links</lv-heading>
+    <lv-heading v-space-after="0.5" :level="3">useBreakpoints</lv-heading>
+    <lv-heading v-space-after="2" sub :level="6">Extracts your CSS breakpoints so you can use it programmatically</lv-heading>
 
-    <lv-heading v-space-after="1" :level="6">Install the mixin</lv-heading>
+    <lv-heading v-space-after="1" :level="6">Install the composable</lv-heading>
     <lv-code v-space-after="1" lang="javascript" :code="codeInstall" />
 
     <lv-heading v-space-after="1" :level="6">Example</lv-heading>
@@ -13,7 +13,7 @@
 
     <lv-heading v-space-after="1" :level="6">Change the breakpoints</lv-heading>
     <lv-paragraph v-space-after="1">
-        The breakpoints in this mixin are extracted from the CSS variables.
+        The breakpoints in this composable are extracted from the CSS variables.
     </lv-paragraph>
     <lv-code v-space-after="1" lang="javascript" :code="codeChange" />
 
@@ -24,13 +24,18 @@
 </template>
 
 <script>
-import breakpointMixin from '../../../../lib/mixins/breakpointMixin';
+import { useBreakpoints } from "../../../../lib/composables/useBreakpoints";
 
 const codeInstall = `
-import { breakpointMixin } from 'libvue';
+import { useBreakpoints } from '@libvue/core';
 
 export default {
-  mixins: [breakpointMixin];
+    setup() {
+        const { breakpoints } = useBreakpoints();
+        return {
+            breakpoints,
+        }
+    },
 }
 `.trim();
 
@@ -46,7 +51,12 @@ const codeChange = `
 `.trim();
 
 export default {
-    mixins: [breakpointMixin],
+    setup() {
+        const { breakpoints } = useBreakpoints();
+        return {
+            breakpoints,
+        }
+    },
     data() {
         return {
             codeInstall,

@@ -82,6 +82,7 @@ export default {
     }
     &--sub {
         color: var(--text-color-dimmed);
+        font-weight: 500;
     }
     &--ellipsis {
         white-space: nowrap;

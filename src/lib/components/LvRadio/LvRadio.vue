@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import useRandom from '../../composables/random';
+import useRandom from '../../composables/useRandom';
 import LvSpinner from "../LvSpinner/LvSpinner.vue";
 
 export default {

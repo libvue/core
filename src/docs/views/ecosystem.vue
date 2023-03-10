@@ -6,17 +6,6 @@
     <lv-paragraph v-space-after="1">
         A Laravel Orion compatible repository-based Javascript http-client powered by axios.
     </lv-paragraph>
-    <lv-code v-space-after="2" code="npm install --save @libvue/laravel-orion-api" lang="bash"/>
+    <lv-code v-space-after="2" code="npm install --save @libvue/laravel-orion-api" lang="markup"/>
 
 </template>
-
-<script>
-export default {
-    data() {
-        return {
-            installFullCode: `import 'libvue/dist/style.css'; \nimport libvue from 'libvue';\n\napp.use(libvue);`,
-            installCherryCode: `import 'libvue/dist/style.css'; \nimport { LvButton } from 'libvue';\n\napp.component(LvButton);`,
-        };
-    },
-};
-</script>

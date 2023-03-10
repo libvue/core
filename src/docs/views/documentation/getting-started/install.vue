@@ -3,7 +3,8 @@
     <lv-heading v-space-after="2" sub :level="6">How to get started with libvue</lv-heading>
 
     <lv-paragraph v-space-after="1">
-        Libvue is component library made for vue 3 and vite.js. It only exports the source files for now.
+        Libvue is component library made for vue 3 and vite.js. It only exports the source files so you need to compile
+        them inside your own project.
     </lv-paragraph>
 
     <lv-heading v-space-after="1" :level="6">Install</lv-heading>
