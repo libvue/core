@@ -21,6 +21,7 @@
         "url": "https://github.com/libvue/core.git",
         "directory": "src/lib"
     },
+    "license": "MIT",
     "author": "Harmen de Vries <harmendv@gmail.com> (https://harmen.dev/)",
     "dependencies": {
         "@tiptap/extension-link": "^2.0.0-beta.202",
