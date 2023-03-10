@@ -7,8 +7,9 @@
             @click="onClickButton"
             @keydown.enter.space="onKeydownButton"
         >
+            <lv-icon v-if="icon" :name="icon" :push=".5" />
             {{ title }}
-            <lv-icon class="lv-accordion-item__icon" :name="expanded ? 'chevron-up' : 'chevron-down'" />
+            <lv-icon class="lv-accordion-item__toggle" :name="expanded ? 'chevron-up' : 'chevron-down'" />
         </h3>
         <div v-show="expanded" class="lv-accordion-item__content" role="region">
             <slot></slot>
@@ -26,6 +27,10 @@ export default {
         title: {
             type: String,
             default: '',
+        },
+        icon: {
+            type: String,
+            default: null,
         },
         initialOpen: {
             type: Boolean,
@@ -120,18 +125,20 @@ export default {
         font-weight: normal;
         font-size: var(--font-size);
         line-height: var(--font-size);
+        font-weight: 600;
 
         &:hover {
             background: var(--border-color-light);
         }
     }
 
-    &__icon {
+    &__toggle {
         margin-left: auto;
     }
     &__content {
         border-top: 1px solid var(--border-color);
-
+        font-size: var(--font-size);
+        line-height: var(--font-size);
         padding: var(--padding);
         overflow: hidden;
     }
