@@ -1,24 +1,51 @@
 <template>
-    <div class="lv-quick-filter" :class="classObject">
-        <div class="lv-quick-filter__input" tabindex="0" @focus="onFocusInput" @blur="onBlurInput" >
-            <lv-flex class="lv-quick-filter__pills" v-if="Object.values(modelResults).length > 0" gap=".25rem">
-                <lv-pill class="lv-quick-filter__pill" v-for="object, key in modelResults" :prefix="`${object.label}:`" :text="object.value" size="small" color="solid-dimmed-primary" @close="onClickClosePill(key)" closable/>
-            </lv-flex>
-            <input ref="input" tabindex="-1" @focus="onFocusInput" @blur="onBlurInput" class="lv-quick-filter__search" placeholder="Search anything" type="text" v-model="search" />
-        </div>
+    <div class="lv-quick-filter" :class="classObject" tabindex="-1">
+        <lv-input
+            v-model="search"
+            v-space-after="hasModelResults ? 0.5 : 0"
+            class="lv-quick-filter__input"
+            placeholder="Search anything"
+            type="text"
+            @focus="onFocusInput"
+            @blur="onBlurInput"
+        />
+
+        <lv-flex v-if="hasModelResults" class="lv-quick-filter__pills" gap=".25rem" align-items="center">
+            <lv-pill
+                v-for="(object, key) in modelResults"
+                class="lv-quick-filter__pill"
+                :key="key"
+                :prefix="`${object.label}:`"
+                :text="object.value"
+                size="small"
+                color="solid-dimmed-primary"
+                closable
+                @close="onClickClosePill(key)"
+            />
+        </lv-flex>
 
         <transition name="dropdown">
             <div v-show="dropdownVisible" class="lv-quick-filter__dropdown" role="listbox">
+                <!-- Generated dropdownResults -->
                 <template v-for="(object, key) in dropdownResults">
                     <div class="lv-quick-filter__results">
                         <div class="lv-quick-filter__results-title">{{ object.label }}</div>
                         <!-- Input -->
                         <template v-if="object.value">
-                            <div class="lv-quick-filter__result" @click="onClickResult(key)">{{ object.value }}</div>
+                            <div :key="key" class="lv-quick-filter__result" @click="onClickResult(key)">
+                                {{ object.value }}
+                            </div>
                         </template>
                         <!-- Select -->
-                        <template v-if="object.options">
-                            <div v-for="option in object.options" @click="onClickResult(key, option.value)" class="lv-quick-filter__result">{{ option.label }}</div>
+                        <template v-else-if="object.options">
+                            <div
+                                v-for="(option, optionKey) in object.options"
+                                :key="optionKey"
+                                class="lv-quick-filter__result"
+                                @click="onClickResult(key, option.value)"
+                            >
+                                {{ option.label }}
+                            </div>
                         </template>
                     </div>
                 </template>
@@ -29,12 +56,12 @@
 
 <script>
 import propSizeMixin from '../../mixins/propSizeMixin';
-import LvPill from '../LvPill/LvPill.vue'
+import LvPill from '../LvPill/LvPill.vue';
 
 export default {
     mixins: [propSizeMixin('default')],
     components: {
-        LvPill
+        LvPill,
     },
     props: {
         loading: {
@@ -48,7 +75,33 @@ export default {
         filters: {
             type: Object,
             default: () => ({}),
+            validator: (obj) => {
+                let isValid = true;
+                Object.values(obj).forEach((entry) => {
+                    if (typeof entry.model === 'undefined') {
+                        isValid = false;
+                        console.warn(`model field is missing in entry: ${JSON.stringify(entry)}`)
+                    }
+                    if (typeof entry.label === 'undefined') {
+                        isValid = false;
+                        console.warn(`label field is missing in entry: ${JSON.stringify(entry)}`)
+                    }
+                    if (typeof entry.type === 'undefined') {
+                        isValid = false;
+                        console.warn(`type field is missing in entry: ${JSON.stringify(entry)}`)
+                    }
+                });
+                return isValid;
+            }
         },
+    },
+    emits: ['clear:filter', 'update:filter'],
+    data() {
+        return {
+            focused: false,
+            dropdownVisible: false,
+            search: '',
+        };
     },
     computed: {
         classObject() {
@@ -56,7 +109,6 @@ export default {
                 [`lv-quick-filter--size-${this.size}`]: true,
                 'lv-quick-filter--disabled': !!this.disabled || !!this.loading,
                 'lv-quick-filter--loading': !!this.loading,
-                'lv-quick-filter--focused': !!this.focused,
             };
         },
         modelResults() {
@@ -87,6 +139,9 @@ export default {
                 }
             });
             return results;
+        },
+        hasModelResults() {
+            return Object.entries(this.modelResults).length > 0;
         },
         dropdownResults() {
             const results = {};
@@ -122,7 +177,7 @@ export default {
     watch: {
         search: {
             handler(val) {
-                if(val.length > 0 && Object.values(this.dropdownResults).length > 0) {
+                if (val.length > 0 && Object.values(this.dropdownResults).length > 0) {
                     this.dropdownVisible = true;
                 } else {
                     this.dropdownVisible = false;
@@ -132,53 +187,42 @@ export default {
         },
         focused: {
             handler(val) {
-                if(val && this.search.length > 0  && Object.values(this.dropdownResults).length > 0) {
+                if (val && this.search.length > 0 && Object.values(this.dropdownResults).length > 0) {
                     this.dropdownVisible = true;
                 } else {
                     this.dropdownVisible = false;
                 }
             },
-            immediate: true
-        }
+            immediate: true,
+        },
     },
-    data() {
-        return {
-            focused: false,
-            dropdownVisible: false,
-            search: '',
-        };
-    },
-    emits: ['clear:filter', 'update:filter'],
     methods: {
         onFocusInput() {
             this.focused = true;
-            this.$refs.input.focus();
         },
         onBlurInput() {
             this.focused = false;
-            this.$refs.input.blur();
         },
         onClickClosePill(key) {
             this.$emit('clear:filter', key);
         },
         onClickResult(key, value) {
             // No value? Use the search!
-            if(!value) {
+            if (!value) {
                 this.$emit('update:filter', {
                     key,
                     value: this.search,
-                })
+                });
             } else {
                 this.$emit('update:filter', {
                     key,
                     value,
-                })
-            };
+                });
+            }
             // clear the search
             this.search = '';
-            this.$refs.input.focus();
-        }
-    }
+        },
+    },
 };
 </script>
 
@@ -187,38 +231,12 @@ export default {
 .lv-quick-filter {
     $self: &;
     position: relative;
-    width: 100%;
-    &__input {
-        display: flex;
-        border: 1px solid var(--border-color);
-        border-radius: var(--border-radius);
 
-    }
-    &__search {
-        flex-grow: 1;
-        border: 0;
-        font-size: inherit;
-        background: var(--background-color);
-        color: var(--text-color);
-        &:focus {
-            outline: 0;
-        }
-    }
-    &__values {
-        font-size: inherit;
-    }
-    &__pills {
-        display: flex;
-        align-items: center;
-        margin-right: .25rem;
-    }
-    &__pill {
-        margin: -.25rem 0;
-    }
     &__dropdown {
         position: absolute;
         z-index: var(--z-index-dropdown);
         margin-top: calc(var(--padding) * 0.5);
+        outline: 0;
         box-shadow: var(--shadow);
         border: 1px solid var(--border-color);
         border-radius: var(--border-radius);
@@ -228,29 +246,23 @@ export default {
         max-height: 300px;
         overflow-y: auto;
         font-size: inherit;
-        outline: 0;
     }
     &__results {
         &-title {
+            margin-bottom: 0.25rem;
             font-weight: 600;
-            margin-bottom: .25rem;
         }
     }
     &__result {
+        cursor: pointer;
         border-radius: var(--border-radius);
         &:hover {
             background-color: var(--border-color-light);
         }
     }
 
-    &--focused {
-        #{$self}__input {
-            outline: -webkit-focus-ring-color auto 1px;
-        }
-    }
-
-    @include size-mixin('.lv-quick-filter__input');
-    @include size-mixin('.lv-quick-filter__results-title');
+    // Dropdown
     @include size-mixin('.lv-quick-filter__result');
+    @include size-mixin('.lv-quick-filter__results-title');
 }
 </style>
