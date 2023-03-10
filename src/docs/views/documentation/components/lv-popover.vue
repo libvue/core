@@ -3,7 +3,7 @@
     <lv-heading v-space-after="2" sub :level="6">A popup shown when a button is pressed</lv-heading>
     <lv-card v-space-after="1">
         <lv-flex>
-            <lv-popover placement="right" trigger="mouseenter">
+            <lv-popover placement="right" interactive trigger="mouseenter">
                 <template #reference>
                     <lv-button label="Hover me"/>
                 </template>
