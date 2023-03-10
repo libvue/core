@@ -6,6 +6,10 @@
             <lv-checkbox v-model="checkbox" label="im a checkbox" />
             <lv-checkbox v-model="checkbox" disabled label="im a disabled checkbox" />
             <lv-checkbox v-model="checkbox" loading label="im a loading checkbox" />
+            <lv-checkbox :model-value="false" indeterminate label="im a indeterminate checkbox" />
+            <lv-checkbox :model-value="true" indeterminate label="im a checked indeterminate checkbox" />
+            <lv-checkbox :model-value="false" disabled indeterminate label="im a disabled indeterminate checkbox" />
+            <lv-checkbox :model-value="true" disabled indeterminate label="im a disabled checked indeterminate checkbox" />
         </lv-flex>
     </lv-card>
     <lv-code v-space-after="1" lang="html" :code="code" />
@@ -17,6 +21,10 @@ const code = `
 <lv-checkbox v-model="checkbox" label="im a checkbox" />
 <lv-checkbox v-model="checkbox" disabled label="im a disabled checkbox" />
 <lv-checkbox v-model="checkbox" loading label="im a loading checkbox" />
+<lv-checkbox :model-value="false" indeterminate label="im a indeterminate checkbox" />
+<lv-checkbox :model-value="true" indeterminate label="im a checked indeterminate checkbox" />
+<lv-checkbox :model-value="false" disabled indeterminate label="im a disabled indeterminate checkbox" />
+<lv-checkbox :model-value="true" disabled indeterminate label="im a disabled checked indeterminate checkbox" />
 `.trim();
 export default {
     data() {
