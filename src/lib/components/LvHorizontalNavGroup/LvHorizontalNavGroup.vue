@@ -47,7 +47,7 @@ export default {
         padding: 5px 0;
         color: var(--text-color);
         font-size: var(--font-size-small);
-        line-height: 0.75;
+        line-height: var(--line-height-small);
     }
 
     &__icon {

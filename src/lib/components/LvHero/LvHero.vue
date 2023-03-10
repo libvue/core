@@ -68,12 +68,12 @@ export default {
         margin: 0;
         margin-bottom: 1rem;
         font-weight: bold;
-        font-size: 1.4rem;
+        font-size: var(--font-size-huge);
     }
     &__description {
         margin: 0;
         margin-bottom: 1rem;
-        font-size: 1.2rem;
+        font-size: var(--font-size-large);
     }
     &__buttons {
         display: flex;

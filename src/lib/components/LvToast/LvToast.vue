@@ -93,7 +93,7 @@ export default {
         justify-content: center;
         display: flex;
         margin-right: .5rem;
-        font-size: 1rem;
+        font-size: var(--font-size);
         cursor: default;
         pointer-events: none;
     }
@@ -102,13 +102,13 @@ export default {
         margin-bottom: 0.35rem;
         font-weight: bold;
         font-size: var(--font-size);
-        line-height: var(--font-size);
+        line-height: var(--line-height);
         color: var(--text-color);
     }
     &__description {
         color: var(--text-color-dimmed);
         font-size: var(--font-size-small);
-        line-height: var(--font-size-small);
+        line-height: var(--line-height-small);
     }
 
     &__button {

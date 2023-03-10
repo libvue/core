@@ -42,7 +42,8 @@ export default {
     border-radius: var(--border-radius);
     background-color: var(--background-color);
     color: var(--text-color);
-    line-height: 1;
+    font-size: var(--font-size);
+    line-height: var(--line-height);
 
     &--inline {
         display: inline-block;

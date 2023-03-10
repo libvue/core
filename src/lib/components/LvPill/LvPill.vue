@@ -65,14 +65,14 @@ export default {
     border-radius: 2rem;
     font-weight: 500;
     font-size: var(--font-size);
-    line-height: var(--font-size);
+    line-height: var(--line-height);
 
     &__icon {
         display: flex;
         align-items: center;
         padding-right: 0 !important;
         font-size: var(--font-size);
-        line-height: var(--font-size);
+        line-height: var(--line-height);
     }
     &__prefix {
         font-weight: 600;
