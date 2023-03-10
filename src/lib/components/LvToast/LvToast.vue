@@ -93,7 +93,7 @@ export default {
         justify-content: center;
         display: flex;
         margin-right: .5rem;
-        font-size: 1rem;
+        font-size: var(--font-size);
         cursor: default;
         pointer-events: none;
     }
