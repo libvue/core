@@ -10,7 +10,11 @@
 
 <script>
 const codeTemplate = `
-<lv-progress-steps :steps="steps" :active="activeStep" @change-step="(v) => (activeStep = v)" />
+<lv-progress-steps
+    :steps="steps"
+    :active="activeStep"
+    @change-step="(v) => (activeStep = v)"
+/>
 `.trim();
 const codeScript = `
 activeStep: 'check',
@@ -27,8 +31,8 @@ export default {
         return {
             activeFile: 'template',
             files: [
-                { id: 'template', filename: 'template', code: codeTemplate },
-                { id: 'script', filename: 'script', code: codeScript },
+                { id: 'template', filename: 'template', code: codeTemplate, lang: 'html' },
+                { id: 'script', filename: 'script', code: codeScript, lang: 'javascript' },
             ],
             activeStep: 'check',
             steps: [

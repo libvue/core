@@ -289,27 +289,27 @@ export default {
             activeExpansionFile: 'template',
             expansionFiles: [
                 { id: 'template', filename: 'template', code: templateExpansion, lang: 'html' },
-                { id: 'script', filename: 'script', code: scriptExpansion, lang: 'js' },
+                { id: 'script', filename: 'script', code: scriptExpansion, lang: 'javascript' },
             ],
             activeSortFile: 'template',
             sortFiles: [
                 { id: 'template', filename: 'template', code: templateSort, lang: 'html' },
-                { id: 'script', filename: 'script', code: scriptSort, lang: 'js' },
+                { id: 'script', filename: 'script', code: scriptSort, lang: 'javascript' },
             ],
             activeDefaultFile: 'template',
             defaultFiles: [
                 { id: 'template', filename: 'template', code: templateDefault, lang: 'html' },
-                { id: 'script', filename: 'script', code: scriptDefault, lang: 'js' },
+                { id: 'script', filename: 'script', code: scriptDefault, lang: 'javascript' },
             ],
             activeOptionsFile: 'template',
             optionsFiles: [
                 { id: 'template', filename: 'template', code: templateOptions, lang: 'html' },
-                { id: 'script', filename: 'script', code: scriptOptions, lang: 'js' },
+                { id: 'script', filename: 'script', code: scriptOptions, lang: 'javascript' },
             ],
             activeAggregateFile: 'template',
             aggregateFiles: [
                 { id: 'template', filename: 'template', code: templateAggregates, lang: 'html' },
-                { id: 'script', filename: 'script', code: scriptAggregates, lang: 'js' },
+                { id: 'script', filename: 'script', code: scriptAggregates, lang: 'javascript' },
             ],
             activeTab: 'default',
             tabs: [

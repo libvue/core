@@ -1,11 +1,11 @@
-import BreakpointMixin from '../../../views/documentation/utilities/breakpoint-mixin.vue';
+import useBreakpoints from '../../../views/documentation/utilities/use-breakpoints.vue';
 import VSpaceAfter from '../../../views/documentation/utilities/v-space-after.vue';
 
 export default [
     {
-        path: '/docs/breakpoint-mixin',
-        name: 'breakpoint-mixin',
-        component: BreakpointMixin,
+        path: '/docs/use-breakpoints',
+        name: 'use-breakpoints',
+        component: useBreakpoints,
     },
     {
         path: '/docs/v-space-after',

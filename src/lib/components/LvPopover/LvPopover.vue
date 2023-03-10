@@ -46,7 +46,7 @@ export default {
         },
         hideOnClick: {
             type: Boolean,
-            default: false,
+            default: true,
         },
         visible: {
             type: Boolean,
@@ -77,7 +77,9 @@ export default {
             tippy.setDefaultProps({
                 arrow: this.showArrow ? SVG_ARROW : false,
                 theme: 'libvue',
-                plugins: [followCursor],
+                plugins: [
+                    followCursor
+                ],
                 animation: 'shift-toward-subtle',
                 duration: 100,
                 hideOnClick: this.hideOnClick,

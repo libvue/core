@@ -5,10 +5,15 @@
 </template>
 
 <script>
-import BreakpointMixin from '../../mixins/breakpointMixin';
+import { useBreakpoints } from "../../composables/useBreakpoints";
 
 export default {
-    mixins: [BreakpointMixin],
+    setup() {
+        const { breakpoints } = useBreakpoints();
+        return {
+            breakpoints,
+        }
+    },
     inject: {
         rowGap: {
             default: 0,

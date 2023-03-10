@@ -1,45 +1,22 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">Spacing</lv-heading>
-    <lv-heading v-space-after="2" sub :level="6">All of our components are marginless.</lv-heading>
+    <lv-heading v-space-after="2" sub :level="6">Oops we forgot the spacing, or didn't we?</lv-heading>
 
     <lv-paragraph v-space-after="1">
-        We don't know the spacing we should apply so we do NOT apply any. Use the <lv-code code="v-space-after" inline /> directive to apply
-        spacing after the components. This directive automatically checks the flex-direction if you are using flex or inline-flex.
+        We didn't know the spacing we should apply so we decided to apply none. It's up to you!
     </lv-paragraph>
-
-    <lv-heading v-space-after="1" :level="6">Install v-space-after directive</lv-heading>
-    <lv-code v-space-after="1" :code="installDirective" lang="javascript" />
-
-    <lv-heading v-space-after="1" :level="6">Example</lv-heading>
-    <lv-card v-space-after="1">
-        <lv-card v-space-after="1" :level="5">I'm a card with v-space-after=1</lv-card>
-        <lv-card v-space-after="2">
-            I'm a card with v-space-after=2
-        </lv-card>
-        <lv-card>
-            I'm here for fun
-        </lv-card>
-    </lv-card>
-    <lv-code v-space-after="1" :code="codeExample" lang="html" />
-
+    <lv-paragraph>
+        Use the <lv-link @click="onClickLink" highlight>v-space-after</lv-link> directive to apply spacing after the components. This
+        directive automatically checks the flex-direction if you are using flex or inline-flex.
+    </lv-paragraph>
 </template>
 
 <script>
-const codeExample = `
-<lv-card v-space-after="1" :level="5">I'm a card with v-space-after=1</lv-card>
-<lv-card v-space-after="2">
-    I'm a card with v-space-after=2
-</lv-card>
-<lv-card>
-    I'm here for fun
-</lv-card>
-`.trim();
 export default {
-    data() {
-        return {
-            codeExample,
-            installDirective: `import { spaceAfter } from '@libvue/core';\napp.directive(spaceAfter)`,
-        };
-    },
-};
+    methods: {
+        onClickLink() {
+            this.$router.push({ path: 'v-space-after' })
+        }
+    }
+}
 </script>

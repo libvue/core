@@ -177,7 +177,7 @@
 </template>
 
 <script>
-import useNumber from '../../composables/number';
+import useNumber from '../../composables/useNumber';
 import LvIcon from "../LvIcon/LvIcon.vue";
 import LvSpinner from "../LvSpinner/LvSpinner.vue";
 

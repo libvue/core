@@ -61,13 +61,18 @@ import LocalStorage from '../utils/localStorage';
 // eslint-disable-next-line import/no-unresolved
 import Logo from '../assets/images/logo-header.svg?raw';
 import MainNavigation from './partials/MainNavigation.vue';
-import BreakpointMixin from '../../lib/mixins/breakpointMixin';
+import { useBreakpoints } from "../../lib/composables/useBreakpoints";
 
 export default {
     components: {
         MainNavigation,
     },
-    mixins: [BreakpointMixin],
+    setup() {
+        const { breakpoints } = useBreakpoints();
+        return {
+            breakpoints,
+        }
+    },
     data() {
         return {
             showDrawer: false,

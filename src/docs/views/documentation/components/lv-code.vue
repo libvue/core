@@ -23,13 +23,27 @@ const code = `<lv-code code="Hello World" lang="html" />`.trim();
 const codeFilesScript = `
 activeFile: 'template',
 files: [
-    { id: 'template', filename: 'template', lang: 'html', code: codeFilesTemplate },
-    { id: 'script', filename: 'script', lang: 'js', code: codeFilesScript },
+    {
+        id: 'template',
+        filename: 'template',
+        lang: 'html',
+        code: codeFilesTemplate
+    },
+    {
+        id: 'script',
+        filename: 'script',
+        lang: 'js',
+        code: codeFilesScript
+    },
 ]
 `.trim();
 
 const codeFilesTemplate = `
-<lv-code :files="files" :active="activeFile" @change-file="(v) => activeFile = v"/>
+<lv-code
+    :files="files"
+    :active="activeFile"
+    @change-file="(v) => activeFile = v"
+/>
 `.trim();
 
 export default {

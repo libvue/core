@@ -39,7 +39,7 @@
 <script>
 import Prism from 'prismjs';
 import 'prismjs/themes/prism.css';
-import useCopyToClipboard from '../../composables/clipboard';
+import useCopyToClipboard from '../../composables/useCopyToClipboard';
 import LvIcon from '../LvIcon/LvIcon.vue';
 
 export default {
@@ -183,5 +183,11 @@ export default {
             }
         }
     }
+}
+</style>
+
+<style lang="scss">
+.token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string {
+    background: none;
 }
 </style>

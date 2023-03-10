@@ -9,13 +9,51 @@
                 <lv-button color="solid-primary" icon="book-open" @click="$router.push({ path: '/docs/install' })">
                     Documentation
                 </lv-button>
-                <lv-button color="solid-dimmed-primary" icon="github" @click="onClickGithub" >Github</lv-button>
+                <lv-button color="solid-dimmed-primary" icon="github" @click="onClickGithub">Github</lv-button>
             </template>
         </lv-hero>
 
         <lv-separator v-space-after="4"></lv-separator>
 
         <lv-grid v-space-after="4" gap="1.5rem">
+            <lv-grid-row gap="1.5rem">
+                <lv-grid-column :width="4" :md="12">
+                    <lv-link @click="$router.push({ path: '/docs/use-breakpoints' })" block zoom-on-hover>
+                        <lv-card class="feature-card">
+                            <lv-heading v-space-after="1" :level="5">
+                                <lv-icon v-space-after=".5" name="scaling"/>Responsive
+                            </lv-heading>
+                            <lv-paragraph>
+                                Use your CSS breakpoints programmatically
+                            </lv-paragraph>
+                        </lv-card>
+                    </lv-link>
+                </lv-grid-column>
+                <lv-grid-column :width="4" :md="12">
+                    <lv-link @click="$router.push({ path: '/docs/install' })" block zoom-on-hover>
+                        <lv-card class="feature-card">
+                            <lv-heading v-space-after="1" :level="5">
+                                <lv-icon v-space-after=".5" name="layers"/>70+ Components
+                            </lv-heading>
+                            <lv-paragraph>
+                                A lot of components at your disposal and more are coming!
+                            </lv-paragraph>
+                        </lv-card>
+                    </lv-link>
+                </lv-grid-column>
+                <lv-grid-column :width="4" :md="12">
+                    <lv-link @click="onClickGithub" block zoom-on-hover>
+                        <lv-card class="feature-card">
+                            <lv-heading v-space-after="1" :level="5">
+                                <lv-icon v-space-after=".5" name="package-open"/>Open Source
+                            </lv-heading>
+                            <lv-paragraph>
+                                We love open-source and we are ready for your contributions!
+                            </lv-paragraph>
+                        </lv-card>
+                    </lv-link>
+                </lv-grid-column>
+            </lv-grid-row>
             <lv-grid-row gap="1.5rem">
                 <lv-grid-column :width="4" :md="12">
                     <lv-link @click="$router.push({ path: '/docs/theming' })" block zoom-on-hover>
@@ -48,12 +86,14 @@
                                 <lv-icon v-space-after=".5" name="align-vertical-space-around"/>Spacing
                             </lv-heading>
                             <lv-paragraph>
-                                Our components don't have margins. Use our directive for adding it on the fly.
+                                Our components don't have outer spacing. Use our directive instead.
                             </lv-paragraph>
                         </lv-card>
                     </lv-link>
                 </lv-grid-column>
             </lv-grid-row>
+
+
         </lv-grid>
 
         <lv-separator v-space-after="4"></lv-separator>
