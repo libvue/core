@@ -84,9 +84,6 @@ export default {
         },
     },
     methods: {
-        getHtml(lang, code) {
-            return JSON.stringify(code);
-        },
         copyCodeToClipboard(code) {
             this.copyIcon = 'check';
             setTimeout(() => {
@@ -180,104 +177,5 @@ export default {
             }
         }
     }
-}
-</style>
-
-<style lang="scss">
-code[class*='language-'],
-pre[class*='language-'] {
-    word-wrap: normal;
-    background: 0 0;
-    color: #ccc;
-    font-size: 1em;
-    line-height: var(--line-height);
-    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-    -webkit-hyphens: none;
-    -moz-hyphens: none;
-    -ms-hyphens: none;
-    hyphens: none;
-    text-align: left;
-    white-space: pre;
-    word-break: normal;
-    word-spacing: normal;
-    -moz-tab-size: 4;
-    -o-tab-size: 4;
-    tab-size: 4;
-}
-pre[class*='language-'] {
-    margin: 0.5em 0;
-    padding: 1em;
-    overflow: auto;
-}
-:not(pre) > code[class*='language-'],
-pre[class*='language-'] {
-    background: #2d2d2d;
-}
-:not(pre) > code[class*='language-'] {
-    border-radius: 0.3em;
-    padding: 0.1em;
-    white-space: normal;
-}
-.token.block-comment,
-.token.cdata,
-.token.comment,
-.token.doctype,
-.token.prolog {
-    color: #999;
-}
-.token.punctuation {
-    color: #ccc;
-}
-.token.attr-name,
-.token.deleted,
-.token.namespace,
-.token.tag {
-    color: var(--color-info);
-}
-.token.function-name {
-    color: #6196cc;
-}
-.token.boolean,
-.token.function,
-.token.number {
-    color: #f08d49;
-}
-.token.class-name,
-.token.constant,
-.token.property,
-.token.symbol {
-    color: var(--color-secondary);
-}
-.token.atrule,
-.token.builtin,
-.token.important,
-.token.keyword,
-.token.selector {
-    color: var(--color-primary);
-}
-.token.attr-value,
-.token.char,
-.token.regex,
-.token.string,
-.token.variable {
-    color: var(--color-primary);
-}
-.token.entity,
-.token.operator,
-.token.url {
-    color: var(--color-warning);
-}
-.token.bold,
-.token.important {
-    font-weight: 700;
-}
-.token.italic {
-    font-style: italic;
-}
-.token.entity {
-    cursor: help;
-}
-.token.inserted {
-    color: green;
 }
 </style>
