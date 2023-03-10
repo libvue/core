@@ -8,6 +8,7 @@ $font-size-tiny: 0.625rem !default;
 $font-size-small: 0.75rem !default;
 $font-size: 0.875rem !default;
 $font-size-large: 1.2rem !default;
+$font-size-huge: 1.7rem !default;
 
 $font-size-h1: 2rem !default;
 $font-size-h2: 1.6rem !default;
@@ -27,6 +28,7 @@ $line-height-tiny: 0.75rem !default;
 $line-height-small: 0.875rem !default;
 $line-height: 1rem !default;
 $line-height-large: 1.2rem !default;
+$line-height-huge: 1.7rem !default;
 
 $fonts: (
     font-family: $font-family,
@@ -35,6 +37,7 @@ $fonts: (
     font-size-small: $font-size-small,
     font-size: $font-size,
     font-size-large: $font-size-large,
+    font-size-huge: $font-size-huge,
     font-size-h1: $font-size-h1,
     font-size-h2: $font-size-h2,
     font-size-h3: $font-size-h3,
@@ -51,4 +54,5 @@ $fonts: (
     line-height-small: $line-height-small,
     line-height: $line-height,
     line-height-large: $line-height-large,
+    line-height-huge: $line-height-huge,
 );
