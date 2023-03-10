@@ -14,7 +14,7 @@
         <div class="lv-code__content">
             <template v-if="hasFiles">
                 <div  v-for="(file, index) in files" v-show="active === file.id" :key="index" class="lv-code__file-code">
-                    <pre class="lv-code__code">{{ file.code }}</pre>
+                    <pre class="lv-code__code" v-html="getHtml(file.lang, file.code)"></pre>
                     <lv-icon
                         v-if="!inline"
                         class="lv-code__content-copy"
@@ -24,7 +24,7 @@
                 </div>
             </template>
             <template v-else>
-                <pre class="lv-code__code">{{ code }}</pre>
+                <pre class="lv-code__code" v-html="getHtml(lang, code)"></pre>
                 <lv-icon
                     v-if="!inline"
                     class="lv-code__content-copy"
@@ -37,11 +37,14 @@
 </template>
 
 <script>
+import Prism from 'prismjs';
+import 'prismjs/themes/prism.css';
 import useCopyToClipboard from '../../composables/clipboard';
 import LvIcon from '../LvIcon/LvIcon.vue';
 
 export default {
     components: { LvIcon },
+
     props: {
         files: {
             type: Array,
@@ -57,9 +60,9 @@ export default {
         },
         lang: {
             type: String,
-            default: 'shell',
+            default: 'javascript',
             required: false,
-            validator: (value) => ['javascript', 'html', 'shell', 'css', 'scss'].includes(value),
+            validator: (value) => ['javascript', 'markup', 'html', 'css'].includes(value),
         },
         inline: {
             type: Boolean,
@@ -84,6 +87,9 @@ export default {
         },
     },
     methods: {
+        getHtml(lang, code) {
+            return Prism.highlight(code, Prism.languages[lang], lang);
+        },
         copyCodeToClipboard(code) {
             this.copyIcon = 'check';
             setTimeout(() => {

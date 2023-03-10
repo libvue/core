@@ -7,14 +7,14 @@
             <lv-paragraph v-space-after="1">
                 You can overwrite global variables by adding them to the :root directly.
             </lv-paragraph>
-            <lv-code v-space-after="1" :code="codeGlobalVariables" lang="scss" />
+            <lv-code v-space-after="1" :code="codeGlobalVariables" lang="css" />
         </template>
         <template #theme>
             <lv-paragraph v-space-after="1">
                 When changing theme variables you must assign them to prefers-color-scheme media query for automatically setting the correct theme.
-                <lv-code code='@media (prefers-color-scheme: dark|light)' lang="scss" inline/> and use the HTML attribute <lv-code code='[data-theme="dark|light"]' lang="scss" inline/> for overrides.
+                <lv-code code='@media (prefers-color-scheme: dark|light)' lang="css" inline/> and use the HTML attribute <lv-code code='[data-theme="dark|light"]' lang="css" inline/> for overrides.
             </lv-paragraph>
-            <lv-code v-space-after="1" :code="codeThemeVariables" lang="scss" />
+            <lv-code v-space-after="1" :code="codeThemeVariables" lang="css" />
         </template>
     </lv-tabs>
 

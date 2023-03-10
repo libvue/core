@@ -7,7 +7,7 @@
     </lv-paragraph>
 
     <lv-heading v-space-after="1" :level="6">Install</lv-heading>
-    <lv-code v-space-after="1" :code="install" lang="javascript" />
+    <lv-code v-space-after="1" :code="install" lang="markup" />
 
     <lv-heading v-space-after="1" :level="6">Basic Configuration</lv-heading>
     <lv-code
