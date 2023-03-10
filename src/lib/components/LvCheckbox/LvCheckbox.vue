@@ -2,13 +2,15 @@
     <div class="lv-checkbox" :class="classObject" aria-label="checkbox">
         <div class="lv-checkbox__checkbox">
             <input
+                ref="checkbox"
                 class="lv-checkbox__input"
                 type="checkbox"
                 :checked="modelValue"
                 v-bind="$attrs"
                 @input="toggleCheckbox"
             />
-            <lv-icon v-if="modelValue && !loading" class="lv-checkbox__icon" name="check" />
+            <lv-icon v-if="indeterminate" class="lv-checkbox__icon" name="minus"/>
+            <lv-icon v-else-if="modelValue && !loading" class="lv-checkbox__icon" name="check" />
             <lv-spinner v-if="loading" class="lv-checkbox__loader" />
         </div>
         <div v-if="label" class="lv-checkbox__label" @click="toggleCheckbox">{{ label }}</div>
@@ -43,8 +45,21 @@ export default {
             type: Boolean,
             default: false,
         },
+        indeterminate: {
+            type: Boolean,
+            default: false,
+        }
     },
     emits: ['update:modelValue'],
+    watch: {
+        indeterminate(val) {
+            if (val) {
+                this.$refs.checkbox.indeterminate = true;
+            } else {
+                this.$refs.checkbox.indeterminate = false;
+            }
+        },
+    },
     computed: {
         classObject() {
             return {
@@ -92,6 +107,9 @@ export default {
             border: 2px solid var(--color-primary);
             background-color: var(--color-primary);
         }
+        #{$self}__icon {
+            color: var(--background-color);
+        }
     }
 
     &--disabled {
@@ -101,6 +119,9 @@ export default {
         }
         #{$self}__label {
             cursor: default;
+            color: var(--text-color-dimmed);
+        }
+        #{$self}__icon {
             color: var(--text-color-dimmed);
         }
     }
@@ -114,6 +135,9 @@ export default {
         #{$self}__label {
             cursor: default;
             color: var(--text-color-dimmed);
+        }
+        #{$self}__icon {
+            color: var(--background-color);
         }
     }
 
@@ -138,7 +162,7 @@ export default {
         width: 14px;
         height: 14px;
         pointer-events: none;
-        color: var(--background-color);
+        color: var(--color-default);
     }
 
     &__label {
