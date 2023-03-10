@@ -119,6 +119,7 @@ export default {
         color: var(--text-color);
         font-weight: 500;
         font-size: var(--font-size-small);
+        line-height: var(--line-height-small);
         font-family: var(--font-family);
     }
 
@@ -140,7 +141,7 @@ export default {
         padding-right: 35px;
         color: var(--text-color);
         font-size: var(--font-size);
-        line-height: 24px;
+        line-height: var(--line-height-large);
         font-family: var(--font-family-monospace);
 
         &-copy {
@@ -182,14 +183,14 @@ export default {
 }
 </style>
 
-<style>
+<style lang="scss">
 code[class*='language-'],
 pre[class*='language-'] {
     word-wrap: normal;
     background: 0 0;
     color: #ccc;
     font-size: 1em;
-    line-height: 1.5;
+    line-height: var(--line-height);
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     -webkit-hyphens: none;
     -moz-hyphens: none;

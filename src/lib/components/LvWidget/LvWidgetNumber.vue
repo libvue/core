@@ -78,16 +78,16 @@ export default {
         margin-right: 10px;
         color: var(--text-color);
         font-weight: 600;
-        font-size: 1.7rem;
-        line-height: 1.7rem;
+        font-size: var(--font-size-huge);
+        line-height: var(--font-size-huge);
     }
 
     &__prefix {
         margin-right: 5px;
         color: var(--text-color-dimmed);
         font-weight: 500;
-        font-size: 1.2rem;
-        line-height: 1.2rem;
+        font-size: var(--font-size-large);
+        line-height: var(--font-size-large);
     }
 }
 </style>
