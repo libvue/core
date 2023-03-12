@@ -5,7 +5,7 @@
                 <div v-show="show" class="lv-drawer__backdrop" @click="onClickBackDrop"></div>
             </transition>
             <transition :name="animation">
-                <div v-if="show" ref="content" class="lv-drawer__content">
+                <div v-show="show" ref="content" class="lv-drawer__content">
                     <slot></slot>
                 </div>
             </transition>
@@ -14,7 +14,15 @@
 </template>
 
 <script>
+import { useScrollLock } from "@vueuse/core";
+
 export default {
+    setup() {
+        const scrollLock = useScrollLock(document.body);
+        return {
+            scrollLock,
+        }
+    },
     props: {
         show: {
             type: Boolean,
@@ -39,6 +47,15 @@ export default {
         },
     },
     emits: ['click-backdrop'],
+    watch: {
+        show(val) {
+            if (val) {
+                this.scrollLock = true;
+            } else {
+                this.scrollLock = false;
+            }
+        }
+    },
     computed: {
         focusTrapOptions() {
             return {
