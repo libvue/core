@@ -17,10 +17,12 @@
 import LvAvatarGroup from '../../../../lib/components/LvAvatarGroup/LvAvatarGroup.vue';
 
 const code = `
-<lv-avatar initials="LV" />
-<lv-avatar initials="LV" size="2rem"/>
-<lv-avatar image="https://i.pravatar.cc/512?img=19" />
-<lv-avatar image="https://i.pravatar.cc/512?img=19" size="2rem" />
+<lv-avatar-group>
+    <lv-avatar initials="AB" />
+    <lv-avatar initials="CD" />
+    <lv-avatar initials="EF" />
+    <lv-avatar initials="GH" />
+</lv-avatar-group>
 `.trim();
 export default {
     components: { LvAvatarGroup },
