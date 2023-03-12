@@ -85,6 +85,9 @@ export default {
             document.body.setAttribute('data-theme', val);
             LocalStorage.setItem('theme', val);
         },
+        $route() {
+            this.showDrawer = false;
+        }
     },
     mounted() {
         if (LocalStorage.getItem('theme')) {
