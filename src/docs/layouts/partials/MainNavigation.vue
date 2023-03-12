@@ -207,6 +207,9 @@
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-avatar' }" custom>
                 <lv-vertical-nav-item label="Avatar" :active="isActive" @click="navigate" />
             </router-link>
+            <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-avatar-group' }" custom>
+                <lv-vertical-nav-item label="Avatar Group" :active="isActive" @click="navigate" />
+            </router-link>
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-image' }" custom>
                 <lv-vertical-nav-item label="Image" :active="isActive" @click="navigate" />
             </router-link>

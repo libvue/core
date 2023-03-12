@@ -49,6 +49,7 @@ const LvKeyboard = () => import('../../../views/documentation/components/lv-keyb
 const LvSeparator = () => import('../../../views/documentation/components/lv-separator.vue');
 const LvIcon = () => import('../../../views/documentation/components/lv-icon.vue');
 const LvAvatar = () => import('../../../views/documentation/components/lv-avatar.vue');
+const LvAvatarGroup = () => import('../../../views/documentation/components/lv-avatar-group.vue');
 const LvDialog = () => import('../../../views/documentation/components/lv-dialog.vue');
 const LvDrawer = () => import('../../../views/documentation/components/lv-drawer.vue');
 const LvToast = () => import('../../../views/documentation/components/lv-toast.vue');
@@ -68,6 +69,11 @@ export default [
         path: '/docs/lv-quick-filter',
         name: 'lv-quick-filter',
         component: LvQuickFilter,
+    },
+    {
+        path: '/docs/lv-avatar-group',
+        name: 'lv-avatar-group',
+        component: LvAvatarGroup,
     },
     {
         path: '/docs/lv-color-swatch',
