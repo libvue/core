@@ -30,6 +30,7 @@ import LvHorizontalNavItem from './LvHorizontalNavItem/LvHorizontalNavItem.vue';
 import LvHorizontalNavGroup from './LvHorizontalNavGroup/LvHorizontalNavGroup.vue';
 import LvHeader from './LvHeader/LvHeader.vue';
 import LvAvatar from './LvAvatar/LvAvatar.vue';
+import LvAvatarGroup from './LvAvatarGroup/LvAvatarGroup.vue';
 import LvAccordion from './LvAccordion/LvAccordion.vue';
 import LvAccordionItem from './LvAccordion/LvAccordionItem.vue';
 import LvBlockquote from './LvBlockquote/LvBlockquote.vue';
@@ -106,6 +107,7 @@ export {
     LvAccordion,
     LvAccordionItem,
     LvAvatar,
+    LvAvatarGroup,
     LvBlockquote,
     LvBreadcrumbs,
     LvButton,
@@ -181,6 +183,7 @@ export default {
     LvAccordion,
     LvAccordionItem,
     LvAvatar,
+    LvAvatarGroup,
     LvBlockquote,
     LvBreadcrumbs,
     LvButton,

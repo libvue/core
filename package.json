@@ -13,9 +13,6 @@
     ],
     "main": "./src/lib/main.js",
     "style": "./src/lib/scss/core.scss",
-    "bin": {
-        "libvue": "./bin/libvue.js"
-    },
     "repository": {
         "type": "git",
         "url": "https://github.com/libvue/core.git",
@@ -45,8 +42,6 @@
     "devDependencies": {
         "@vitejs/plugin-vue": "^4.0.0",
         "@vue/compiler-sfc": "^3.2.39",
-        "commander": "^9.4.1",
-        "detect-case": "^1.0.0",
         "eslint": "^8.24.0",
         "eslint-config-airbnb-base": "^15.0.0",
         "eslint-config-prettier": "^8.5.0",
