@@ -24,7 +24,7 @@
         </lv-vertical-nav-item>
     </lv-vertical-nav-group>
     <lv-vertical-nav-group label="Components">
-        <lv-vertical-nav-list :open="breakpoints.smallerOrEqual.md" icon="layout" label="Layout">
+        <lv-vertical-nav-list icon="layout" label="Layout">
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-layout' }" custom>
                 <lv-vertical-nav-item label="Layout" :active="isActive" @click="navigate" />
             </router-link>
@@ -56,7 +56,7 @@
                 <lv-vertical-nav-item label="Spinner" :active="isActive" @click="navigate" />
             </router-link>
         </lv-vertical-nav-list>
-        <lv-vertical-nav-list :open="breakpoints.smallerOrEqual.md" icon="compass" label="Navigation">
+        <lv-vertical-nav-list icon="compass" label="Navigation">
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-button' }" custom>
                 <lv-vertical-nav-item label="Button" :active="isActive" @click="navigate" />
             </router-link>
@@ -85,7 +85,7 @@
                 <lv-vertical-nav-item label="Breadcrumbs" :active="isActive" @click="navigate" />
             </router-link>
         </lv-vertical-nav-list>
-        <lv-vertical-nav-list :open="breakpoints.smallerOrEqual.md" icon="bar-chart-2" label="Data Visualization">
+        <lv-vertical-nav-list icon="bar-chart-2" label="Data Visualization">
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-table' }" custom>
                 <lv-vertical-nav-item label="Table" :active="isActive" @click="navigate" />
             </router-link>
@@ -118,7 +118,7 @@
                 <lv-vertical-nav-item label="Badge" :active="isActive" @click="navigate" />
             </router-link>
         </lv-vertical-nav-list>
-        <lv-vertical-nav-list :open="breakpoints.smallerOrEqual.md" icon="form-input" label="Form Elements">
+        <lv-vertical-nav-list icon="form-input" label="Form Elements">
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-fieldset' }" custom>
                 <lv-vertical-nav-item label="Fieldset" :active="isActive" @click="navigate" />
             </router-link>
@@ -165,7 +165,7 @@
                 <lv-vertical-nav-item label="Quick Filter" :active="isActive" @click="navigate" />
             </router-link>
         </lv-vertical-nav-list>
-        <lv-vertical-nav-list :open="breakpoints.smallerOrEqual.md" icon="pencil" label="Writing">
+        <lv-vertical-nav-list icon="pencil" label="Writing">
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-heading' }" custom>
                 <lv-vertical-nav-item label="Heading" :active="isActive" @click="navigate" />
             </router-link>
@@ -200,7 +200,7 @@
                 <lv-vertical-nav-item label="Skeleton" :active="isActive" @click="navigate" />
             </router-link>
         </lv-vertical-nav-list>
-        <lv-vertical-nav-list :open="breakpoints.smallerOrEqual.md" icon="image" label="Media">
+        <lv-vertical-nav-list icon="image" label="Media">
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-icon' }" custom>
                 <lv-vertical-nav-item label="Icon" :active="isActive" @click="navigate" />
             </router-link>
@@ -220,7 +220,7 @@
                 <lv-vertical-nav-item label="Color Swatch" :active="isActive" @click="navigate" />
             </router-link>
         </lv-vertical-nav-list>
-        <lv-vertical-nav-list :open="breakpoints.smallerOrEqual.md" icon="layers" label="Overlay">
+        <lv-vertical-nav-list icon="layers" label="Overlay">
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-dialog' }" custom>
                 <lv-vertical-nav-item label="Dialog" :active="isActive" @click="navigate" />
             </router-link>
@@ -239,12 +239,12 @@
         </lv-vertical-nav-list>
     </lv-vertical-nav-group>
     <lv-vertical-nav-group label="Utilities">
-        <lv-vertical-nav-list :open="breakpoints.smallerOrEqual.md" icon="puzzle" label="Composables">
+        <lv-vertical-nav-list icon="puzzle" label="Composables">
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/use-breakpoints' }" custom>
                 <lv-vertical-nav-item label="useBreakpoints" :active="isActive" @click="navigate" />
             </router-link>
         </lv-vertical-nav-list>
-        <lv-vertical-nav-list :open="breakpoints.smallerOrEqual.md" icon="wand-2" label="Directives">
+        <lv-vertical-nav-list icon="wand-2" label="Directives">
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/v-space-after' }" custom>
                 <lv-vertical-nav-item label="spaceAfter" :active="isActive" @click="navigate" />
             </router-link>
