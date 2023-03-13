@@ -31,7 +31,7 @@ $theme-dark-placeholder-color-info: lighten($theme-dark-color-info, 30) !default
 $theme-dark-placeholder-color-warning: lighten($theme-dark-color-warning, 30) !default;
 $theme-dark-placeholder-color-danger: lighten($theme-dark-color-danger, 30) !default;
 $theme-dark-placeholder-color: darken($theme-dark-text-color, 40) !default;
-$theme-dark-backdrop-color: rgba(255,255,255,0.1);
+$theme-dark-backdrop-color: rgba(255,255,255,0.05);
 $theme-dark-backdrop-color-inverted: rgba(#0e0e0e,0.5);
 $theme-dark-shadow: 0 12px 8px -8px rgba(0, 0, 0, 0.4);
 $theme-dark-shadow-dialog: 0 5px 8px 2px rgba(0, 0, 0, 0.15);

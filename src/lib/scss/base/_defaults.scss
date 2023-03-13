@@ -17,7 +17,7 @@ body {
 }
 
 // Add ability to change scrollbar styling for desktop only
-@media screen and (hover: none) {
+@media only screen and (hover: hover) and (pointer: fine) {
   /* width */
   ::-webkit-scrollbar {
     width: 10px;
