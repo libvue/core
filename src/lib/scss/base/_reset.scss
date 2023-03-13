@@ -1,25 +1,3 @@
 * {
     box-sizing: border-box;
 }
-
-/* width */
-::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-    background: var(--scrollbar-track-background-color);
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-    border-radius: var(--scrollbar-thumb-border-radius);
-    background: var(--scrollbar-thumb-background-color);
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #555;
-}
