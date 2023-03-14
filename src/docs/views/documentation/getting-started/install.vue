@@ -8,7 +8,7 @@
     </lv-paragraph>
 
     <lv-heading v-space-after="1" :level="6">Install</lv-heading>
-    <lv-code v-space-after="1" :code="install" lang="markup" />
+    <lv-code v-space-after="1" :code="install" lang="bash" />
 
     <lv-heading v-space-after="1" :level="6">Basic Configuration</lv-heading>
     <lv-code

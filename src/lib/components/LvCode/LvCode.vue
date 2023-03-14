@@ -13,7 +13,7 @@
         </div>
         <div class="lv-code__content">
             <template v-if="hasFiles">
-                <div  v-for="(file, index) in files" v-show="active === file.id" :key="index" class="lv-code__file-code">
+                <div v-for="(file, index) in files" v-show="active === file.id" :key="index" class="lv-code__file-code">
                     <pre class="lv-code__code" v-html="getHtml(file.lang, file.code)"></pre>
                     <lv-icon
                         v-if="!inline"
@@ -37,14 +37,24 @@
 </template>
 
 <script>
-import Prism from 'prismjs';
-import 'prismjs/themes/prism.css';
+import { lowlight } from 'lowlight/lib/core';
+import { toHtml } from 'hast-util-to-html';
+import langCss from 'highlight.js/lib/languages/css';
+import langScss from 'highlight.js/lib/languages/scss';
+import langBash from 'highlight.js/lib/languages/bash';
+import langXml from 'highlight.js/lib/languages/xml';
+import langJavascript from 'highlight.js/lib/languages/javascript';
 import useCopyToClipboard from '../../composables/useCopyToClipboard';
 import LvIcon from '../LvIcon/LvIcon.vue';
 
+lowlight.registerLanguage('css', langCss);
+lowlight.registerLanguage('scss', langScss);
+lowlight.registerLanguage('bash', langBash);
+lowlight.registerLanguage('html', langXml);
+lowlight.registerLanguage('javascript', langJavascript);
+
 export default {
     components: { LvIcon },
-
     props: {
         files: {
             type: Array,
@@ -62,7 +72,7 @@ export default {
             type: String,
             default: 'javascript',
             required: false,
-            validator: (value) => ['javascript', 'markup', 'html', 'css'].includes(value),
+            validator: (value) => ['javascript', 'bash', 'html', 'css', 'scss'].includes(value),
         },
         inline: {
             type: Boolean,
@@ -88,7 +98,8 @@ export default {
     },
     methods: {
         getHtml(lang, code) {
-            return Prism.highlight(code, Prism.languages[lang], lang);
+            const tree = lowlight.highlight(lang, code, { prefix: 'lv-code-' });
+            return toHtml(tree);
         },
         copyCodeToClipboard(code) {
             this.copyIcon = 'check';
@@ -187,7 +198,77 @@ export default {
 </style>
 
 <style lang="scss">
-.token.operator, .token.entity, .token.url, .language-css .token.string, .style .token.string {
-    background: none;
+.lv-code-doctag,
+.lv-code-keyword,
+.lv-code-meta .lv-code-keyword,
+.lv-code-template-tag,
+.lv-code-template-variable,
+.lv-code-type,
+.lv-code-variable.language_ {
+    color: #ff7b72;
+}
+.lv-code-title,
+.lv-code-title.class_,
+.lv-code-title.class_.inherited__,
+.lv-code-title.function_ {
+    color: #d2a8ff;
+}
+.lv-code-attr,
+.lv-code-attribute,
+.lv-code-literal,
+.lv-code-meta,
+.lv-code-number,
+.lv-code-operator,
+.lv-code-selector-attr,
+.lv-code-selector-class,
+.lv-code-selector-id,
+.lv-code-variable {
+    color: var(--color-primary);
+}
+.lv-code-meta .lv-code-string,
+.lv-code-regexp,
+.lv-code-string {
+    color: var(--color-secondary);
+}
+.lv-code-built_in,
+.lv-code-symbol {
+    color: var(--color-warning);
+}
+.lv-code-code,
+.lv-code-comment,
+.lv-code-formula {
+    color: var(--text-color);
+}
+.lv-code-name,
+.lv-code-quote,
+.lv-code-selector-pseudo,
+.lv-code-selector-tag {
+    color: var(--color-success);
+}
+.lv-code-subst {
+    color: #c9d1d9;
+}
+.lv-code-section {
+    color: #1f6feb;
+    font-weight: 700;
+}
+.lv-code-bullet {
+    color: #f2cc60;
+}
+.lv-code-emphasis {
+    color: #c9d1d9;
+    font-style: italic;
+}
+.lv-code-strong {
+    color: #c9d1d9;
+    font-weight: 700;
+}
+.lv-code-addition {
+    background-color: #033a16;
+    color: #aff5b4;
+}
+.lv-code-deletion {
+    background-color: #67060c;
+    color: #ffdcd7;
 }
 </style>
