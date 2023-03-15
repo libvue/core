@@ -33,7 +33,6 @@
         "focus-trap": "^7.0.0",
         "hast-util-to-html": "^8.0.4",
         "highlight.js": "^11.7.0",
-        "lowlight": "^2.8.1",
         "lucide-static": "^0.104.0",
         "tiny-emitter": "^2.1.0",
         "tippy.js": "^6.3.7",
