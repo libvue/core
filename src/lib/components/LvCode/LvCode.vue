@@ -37,21 +37,21 @@
 </template>
 
 <script>
-import { lowlight } from 'lowlight/lib/core';
-import { toHtml } from 'hast-util-to-html';
-import langCss from 'highlight.js/lib/languages/css';
-import langScss from 'highlight.js/lib/languages/scss';
-import langBash from 'highlight.js/lib/languages/bash';
-import langXml from 'highlight.js/lib/languages/xml';
-import langJavascript from 'highlight.js/lib/languages/javascript';
+import hljs from 'highlight.js/es/core';
+import langCss from 'highlight.js/es/languages/css';
+import langScss from 'highlight.js/es/languages/scss';
+import langBash from 'highlight.js/es/languages/bash';
+import langXml from 'highlight.js/es/languages/xml';
+import langJavascript from 'highlight.js/es/languages/javascript';
 import useCopyToClipboard from '../../composables/useCopyToClipboard';
 import LvIcon from '../LvIcon/LvIcon.vue';
 
-lowlight.registerLanguage('css', langCss);
-lowlight.registerLanguage('scss', langScss);
-lowlight.registerLanguage('bash', langBash);
-lowlight.registerLanguage('html', langXml);
-lowlight.registerLanguage('javascript', langJavascript);
+hljs.configure({ classPrefix: 'lv-code-' });
+hljs.registerLanguage('css', langCss);
+hljs.registerLanguage('scss', langScss);
+hljs.registerLanguage('bash', langBash);
+hljs.registerLanguage('html', langXml);
+hljs.registerLanguage('javascript', langJavascript);
 
 export default {
     components: { LvIcon },
@@ -98,8 +98,7 @@ export default {
     },
     methods: {
         getHtml(lang, code) {
-            const tree = lowlight.highlight(lang, code, { prefix: 'lv-code-' });
-            return toHtml(tree);
+            return hljs.highlight(code, { language: lang }).value;
         },
         copyCodeToClipboard(code) {
             this.copyIcon = 'check';
