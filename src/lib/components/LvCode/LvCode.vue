@@ -14,7 +14,7 @@
         <div class="lv-code__content">
             <template v-if="hasFiles">
                 <div v-for="(file, index) in files" v-show="active === file.id" :key="index" class="lv-code__file-code">
-                    <pre class="lv-code__code" v-html="getHtml(file.lang, file.code)"></pre>
+                    <pre class="lv-code__code">{{ file.code }}</pre>
                     <lv-icon
                         v-if="!inline"
                         class="lv-code__content-copy"
@@ -24,7 +24,7 @@
                 </div>
             </template>
             <template v-else>
-                <pre class="lv-code__code" v-html="getHtml(lang, code)"></pre>
+                <pre class="lv-code__code">{{ code }}</pre>
                 <lv-icon
                     v-if="!inline"
                     class="lv-code__content-copy"
@@ -37,21 +37,8 @@
 </template>
 
 <script>
-import hljs from 'highlight.js/es/core';
-import langCss from 'highlight.js/es/languages/css';
-import langScss from 'highlight.js/es/languages/scss';
-import langBash from 'highlight.js/es/languages/bash';
-import langXml from 'highlight.js/es/languages/xml';
-import langJavascript from 'highlight.js/es/languages/javascript';
 import useCopyToClipboard from '../../composables/useCopyToClipboard';
 import LvIcon from '../LvIcon/LvIcon.vue';
-
-hljs.configure({ classPrefix: 'lv-code-' });
-hljs.registerLanguage('css', langCss);
-hljs.registerLanguage('scss', langScss);
-hljs.registerLanguage('bash', langBash);
-hljs.registerLanguage('html', langXml);
-hljs.registerLanguage('javascript', langJavascript);
 
 export default {
     components: { LvIcon },
@@ -98,7 +85,7 @@ export default {
     },
     methods: {
         getHtml(lang, code) {
-            return hljs.highlight(code, { language: lang }).value;
+            return code;
         },
         copyCodeToClipboard(code) {
             this.copyIcon = 'check';
