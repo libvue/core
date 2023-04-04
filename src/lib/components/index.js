@@ -32,7 +32,7 @@ import LvHeader from './LvHeader/LvHeader.vue';
 import LvAvatar from './LvAvatar/LvAvatar.vue';
 import LvAvatarGroup from './LvAvatarGroup/LvAvatarGroup.vue';
 import LvAccordion from './LvAccordion/LvAccordion.vue';
-import LvAccordionItem from './LvAccordion/LvAccordionItem.vue';
+import LvAccordionItem from './LvAccordion/LvAccordion.vue';
 import LvBlockquote from './LvBlockquote/LvBlockquote.vue';
 import LvBreadcrumbs from './LvBreadcrumbs/LvBreadcrumbs.vue';
 import LvButton from './LvButton/LvButton.vue';
