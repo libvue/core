@@ -93,7 +93,6 @@ export default {
         cursor: pointer;
         margin: 0;
         padding: var(--padding);
-        font-weight: normal;
         font-weight: 600;
         font-size: var(--font-size);
         line-height: var(--line-height);
