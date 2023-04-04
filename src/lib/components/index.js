@@ -179,7 +179,6 @@ export default {
     LvHorizontalNavGroup,
     LvHeader,
     LvAccordion,
-    LvAccordionItem,
     LvAvatar,
     LvAvatarGroup,
     LvBlockquote,
