@@ -46,7 +46,7 @@ export default {
     cursor: pointer;
     color: var(--text-color);
     text-decoration: none;
-    display: inline-block;
+    display: inline-flex;
 
     &--highlight {
         transition: all var(--transition-time);
@@ -72,7 +72,9 @@ export default {
         transition: 0.2s transform;
         width: 100%;
         height: 100%;
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        gap: 5px;
     }
 
     &--zoom-on-hover:hover {
