@@ -65,6 +65,7 @@ export default {
                 'lv-checkbox--checked': !!this.modelValue,
                 'lv-checkbox--disabled': this.disabled || this.loading,
                 'lv-checkbox--loading': this.loading,
+                [`${this.$attrs.class}`]: !!this.$attrs.class
             };
         },
     },
