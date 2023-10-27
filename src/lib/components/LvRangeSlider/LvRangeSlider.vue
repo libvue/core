@@ -71,10 +71,10 @@
 <script>
 import { useThrottleFn } from '@vueuse/core';
 import LvPopover from '../LvPopover/LvPopover.vue';
-import LvIcon from '../LvIcon/LvIcon.vue';
+import LvSpinner from "../LvSpinner/LvSpinner.vue";
 
 export default {
-    components: { LvIcon, LvPopover },
+    components: { LvSpinner, LvPopover },
     props: {
         min: {
             type: Number,
@@ -98,10 +98,6 @@ export default {
             default: 1,
             validator: (value) => value > 0,
         },
-        invalid: {
-            type: Boolean,
-            default: false,
-        },
         disabled: {
             type: Boolean,
             default: false,
@@ -118,6 +114,10 @@ export default {
             type: Boolean,
             default: true,
         },
+        realtimeUpdate: {
+            type: Boolean,
+            default: false,
+        }
     },
     emits: ['update:modelValue'],
     data() {
@@ -133,7 +133,6 @@ export default {
     computed: {
         classNames() {
             return {
-                'lv-range-slider--invalid': this.invalid,
                 'lv-range-slider--disabled': this.disabled,
                 'lv-range-slider--loading': this.loading,
             };
@@ -195,6 +194,9 @@ export default {
         },
         onPrimaryMouseMove(event) {
             this.primaryPosition = this.getRelativePosition(event.pageX);
+            if(this.realtimeUpdate) {
+                this.emitInputEvent();
+            }
         },
         onSecondaryMouseDown(event) {
             this.draggingSecondary = true;
@@ -206,6 +208,9 @@ export default {
         },
         onSecondaryMouseMove(event) {
             this.secondaryPosition = this.getRelativePosition(event.pageX);
+            if(this.realtimeUpdate) {
+                this.emitInputEvent();
+            }
         },
         onMouseUp() {
             this.draggingPrimary = false;
@@ -224,6 +229,9 @@ export default {
         onPrimaryTouchMove(event) {
             event.preventDefault();
             this.primaryPosition = this.getRelativePosition(event.touches[0].clientX);
+            if(this.realtimeUpdate) {
+                this.emitInputEvent();
+            }
         },
         onSecondaryTouchStart() {
             if (this.disabled) return;
@@ -234,6 +242,9 @@ export default {
         onSecondaryTouchMove(event) {
             event.preventDefault();
             this.secondaryPosition = this.getRelativePosition(event.touches[0].clientX);
+            if(this.realtimeUpdate) {
+                this.emitInputEvent();
+            }
         },
         onTouchEnd() {
             document.removeEventListener('touchmove', this.onPrimaryTouchMoveThrottled);

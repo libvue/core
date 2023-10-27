@@ -1,9 +1,9 @@
 <template>
     <kbd class="lv-keyboard">
-        <span v-if="meta" v-space-after="0.25">⌘</span>
-        <span v-if="ctrl" v-space-after="0.25">⌃</span>
-        <span v-if="alt" v-space-after="0.25">⌥</span>
-        <span v-if="shift" v-space-after="0.25">⇧</span>
+        <span v-if="meta" v-space-after="0.25">{{ layoutMap[layout].meta }} +</span>
+        <span v-if="ctrl" v-space-after="0.25">{{ layoutMap[layout].ctrl }} +</span>
+        <span v-if="alt" v-space-after="0.25">{{ layoutMap[layout].alt }} +</span>
+        <span v-if="shift" v-space-after="0.25">{{ layoutMap[layout].shift }} +</span>
         <slot />
     </kbd>
 </template>
@@ -11,6 +11,11 @@
 <script>
 export default {
     props: {
+        layout: {
+            type: String,
+            default: 'mac',
+            validator: (val) =>  ['mac', 'windows', 'linux'].includes(val),
+        },
         meta: {
             type: Boolean,
             default: false,
@@ -28,6 +33,30 @@ export default {
             default: false,
         },
     },
+    data() {
+        return {
+            layoutMap: {
+                mac: {
+                    meta: '⌘',
+                    ctrl: '⌃',
+                    alt: '⌥',
+                    shift: '⇧',
+                },
+                windows: {
+                    meta: 'WIN',
+                    ctrl: 'CTRL',
+                    alt: 'ALT',
+                    shift: 'SHIFT',
+                },
+                linux: {
+                    meta: 'SUPER',
+                    ctrl: 'CTRL',
+                    alt: 'ALT',
+                    shift: 'SHIFT',
+                }
+            }
+        }
+    }
 };
 </script>
 

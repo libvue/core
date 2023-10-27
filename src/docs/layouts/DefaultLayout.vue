@@ -33,12 +33,10 @@
 
         <template v-if="!$route.meta.hideSidebar && !breakpoints.greaterOrEqual.md" #sub-header>
             <lv-sub-header>
-                <lv-button
-                    icon="sidebar-open"
-                    color="ghost-default"
-                    label="Open Navigation"
-                    @click="showDrawer = !showDrawer"
-                />
+                <lv-link @click="showDrawer = !showDrawer">
+                    <lv-icon name="panel-left-open"/>
+                    Show Navigation
+                </lv-link>
             </lv-sub-header>
         </template>
 

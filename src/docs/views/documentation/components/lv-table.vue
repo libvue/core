@@ -315,7 +315,7 @@ export default {
             tabs: [
                 { id: 'default', title: 'Default', icon: 'table' },
                 { id: 'options', title: 'With Options', icon: 'more-vertical' },
-                { id: 'sorting', title: 'Sorting', icon: 'sort-desc' },
+                { id: 'sorting', title: 'Sorting', icon: 'arrow-up-down' },
                 { id: 'expansion', title: 'Expandable Rows', icon: 'chevrons-down' },
                 { id: 'empty', title: 'Empty', icon: 'eraser' },
                 { id: 'aggregates', title: 'Aggregates', icon: 'sigma' },

@@ -48,10 +48,10 @@
 <script>
 import { useThrottleFn } from '@vueuse/core';
 import LvPopover from '../LvPopover/LvPopover.vue';
-import LvIcon from '../LvIcon/LvIcon.vue';
+import LvSpinner from "../LvSpinner/LvSpinner.vue";
 
 export default {
-    components: { LvIcon, LvPopover },
+    components: { LvSpinner, LvPopover },
     props: {
         min: {
             type: Number,
@@ -91,6 +91,10 @@ export default {
             type: Boolean,
             default: true,
         },
+        realtimeUpdate: {
+            type: Boolean,
+            default: false,
+        }
     },
     emits: ['update:modelValue'],
     data() {
@@ -151,6 +155,9 @@ export default {
         },
         onThumbMouseMove(event) {
             this.thumbPosition = this.getRelativePosition(event.pageX);
+            if(this.realtimeUpdate) {
+                this.emitInputEvent();
+            }
         },
         onMouseUp() {
             this.dragging = false;
@@ -167,6 +174,9 @@ export default {
         onThumbTouchMove(event) {
             event.preventDefault();
             this.thumbPosition = this.getRelativePosition(event.touches[0].clientX);
+            if(this.realtimeUpdate) {
+                this.emitInputEvent();
+            }
         },
         onTouchEnd() {
             document.removeEventListener('touchmove', this.onThumbTouchMoveThrottled);
