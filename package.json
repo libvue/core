@@ -32,7 +32,7 @@
         "embla-carousel": "^7.0.5",
         "focus-trap": "^7.0.0",
         "hast-util-to-html": "^8.0.4",
-        "lucide-static": "^0.104.0",
+        "lucide-static": "^0.290.0",
         "tiny-emitter": "^2.1.0",
         "tippy.js": "^6.3.7",
         "tippy.vue": "^3.2.1",
