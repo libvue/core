@@ -118,6 +118,10 @@ export default {
             type: Boolean,
             default: true,
         },
+        realtimeUpdate: {
+            type: Boolean,
+            default: false,
+        }
     },
     emits: ['update:modelValue'],
     data() {
@@ -195,6 +199,9 @@ export default {
         },
         onPrimaryMouseMove(event) {
             this.primaryPosition = this.getRelativePosition(event.pageX);
+            if(this.realtimeUpdate) {
+                this.emitInputEvent();
+            }
         },
         onSecondaryMouseDown(event) {
             this.draggingSecondary = true;
@@ -206,6 +213,9 @@ export default {
         },
         onSecondaryMouseMove(event) {
             this.secondaryPosition = this.getRelativePosition(event.pageX);
+            if(this.realtimeUpdate) {
+                this.emitInputEvent();
+            }
         },
         onMouseUp() {
             this.draggingPrimary = false;
@@ -224,6 +234,9 @@ export default {
         onPrimaryTouchMove(event) {
             event.preventDefault();
             this.primaryPosition = this.getRelativePosition(event.touches[0].clientX);
+            if(this.realtimeUpdate) {
+                this.emitInputEvent();
+            }
         },
         onSecondaryTouchStart() {
             if (this.disabled) return;
@@ -234,6 +247,9 @@ export default {
         onSecondaryTouchMove(event) {
             event.preventDefault();
             this.secondaryPosition = this.getRelativePosition(event.touches[0].clientX);
+            if(this.realtimeUpdate) {
+                this.emitInputEvent();
+            }
         },
         onTouchEnd() {
             document.removeEventListener('touchmove', this.onPrimaryTouchMoveThrottled);
