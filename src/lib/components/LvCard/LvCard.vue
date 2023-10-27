@@ -39,6 +39,8 @@ export default {
 
 <style lang="scss">
 .lv-card {
+    display: block;
+    width: 100%;
     border-radius: var(--border-radius);
     background-color: var(--background-color);
     color: var(--text-color);
@@ -47,6 +49,7 @@ export default {
 
     &--inline {
         display: inline-block;
+        width: initial;
     }
     &--padding {
         padding: calc(var(--padding) * 1.5);
