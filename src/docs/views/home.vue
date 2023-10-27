@@ -6,7 +6,7 @@
             description="An opensource collection of vue 3 components."
         >
             <template #buttons>
-                <lv-button color="solid-primary" icon="book-open" @click="$router.push({ path: '/docs/install' })">
+                <lv-button color="solid-primary" icon="book" @click="$router.push({ path: '/docs/install' })">
                     Documentation
                 </lv-button>
                 <lv-button color="solid-dimmed-primary" icon="github" @click="onClickGithub">Github</lv-button>
@@ -33,7 +33,7 @@
                     <lv-link @click="$router.push({ path: '/docs/install' })" block zoom-on-hover>
                         <lv-card class="feature-card">
                             <lv-heading v-space-after="1" :level="5">
-                                <lv-icon v-space-after=".5" name="layers"/>70+ Components
+                                <lv-icon v-space-after=".5" name="component"/>70+ Components
                             </lv-heading>
                             <lv-paragraph>
                                 A lot of components at your disposal and more are coming!
@@ -71,7 +71,7 @@
                     <lv-link @click="$router.push({ path: '/docs/lv-grid' })" block zoom-on-hover>
                         <lv-card class="feature-card">
                             <lv-heading v-space-after="1" :level="5">
-                                <lv-icon v-space-after=".5" name="grid"/>Grid
+                                <lv-icon v-space-after=".5" name="grid-2x2"/>Grid
                             </lv-heading>
                             <lv-paragraph>
                                 Grid components ready to make any layout possible.
