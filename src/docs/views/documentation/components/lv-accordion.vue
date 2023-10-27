@@ -5,52 +5,50 @@
         thumbnail representing a section of content.
     </lv-heading>
     <lv-card v-space-after="1">
-        <lv-accordion single :event-bus="eventBus">
-            <lv-accordion-item icon="github" title="Github" initial-open :event-bus="eventBus">
-                GitHub is a web-based platform that provides version control and collaboration tools for software
-                development projects.
-            </lv-accordion-item>
-            <lv-accordion-item icon="accessibility" title="Accessibility" :event-bus="eventBus">
-                Accessibility refers to designing products, services, or environments to ensure that they can be used by
-                people with disabilities.
-            </lv-accordion-item>
-            <lv-accordion-item icon="bike" title="Bike" :event-bus="eventBus">
-                A bike is a two-wheeled vehicle that is powered by pedaling and commonly used for transportation,
-                recreation, or exercise.
-            </lv-accordion-item>
+        <lv-accordion icon="github" title="Github" initial-expanded>
+            GitHub is a web-based platform that provides version control and collaboration tools for software
+            development projects.
+        </lv-accordion>
+        <lv-accordion icon="accessibility" title="Accessibility">
+            Accessibility refers to designing products, services, or environments to ensure that they can be used by
+            people with disabilities.
+        </lv-accordion>
+        <lv-accordion icon="bike" title="Bike">
+            A bike is a two-wheeled vehicle that is powered by pedaling and commonly used for transportation,
+            recreation, or exercise.
         </lv-accordion>
     </lv-card>
-    <lv-code :code="code" lang="html" />
+    <lv-code v-space-after="1" :code="code" lang="html" />
+    <component-details component="LvAccordion"></component-details>
 </template>
 
 <script>
-import { eventBus } from '../../../../lib/main';
+import LvAccordion from '../../../../lib/components/LvAccordion/LvAccordion.vue';
+import LvCard from '../../../../lib/components/LvCard/LvCard.vue';
+import LvHeading from '../../../../lib/components/LvHeading/LvHeading.vue';
+import LvCode from '../../../../lib/components/LvCode/LvCode.vue';
 
 const code = `
-<lv-accordion single :event-bus="eventBus">
-    <lv-accordion-item icon="github" title="Github" initial-open :event-bus="eventBus">
-        GitHub is a web-based platform that provides version control and
-        collaboration tools for software development projects.
-    </lv-accordion-item>
-    <lv-accordion-item icon="accessibility" title="Accessibility" :event-bus="eventBus">
-        Accessibility refers to designing products, services, or environments
-        to ensure that they can be used by people with disabilities.
-    </lv-accordion-item>
-    <lv-accordion-item icon="bike"  title="Bike" :event-bus="eventBus">
-        A bike is a two-wheeled vehicle that is powered by pedaling and
-        commonly used for transportation, recreation, or exercise.
-    </lv-accordion-item>
+<lv-accordion icon="github" title="Github" initial-expanded>
+    GitHub is a web-based platform that provides version control and collaboration tools for software
+    development projects.
+</lv-accordion>
+<lv-accordion icon="accessibility" title="Accessibility">
+    Accessibility refers to designing products, services, or environments to ensure that they can be used by
+    people with disabilities.
+</lv-accordion>
+<lv-accordion icon="bike" title="Bike">
+    A bike is a two-wheeled vehicle that is powered by pedaling and commonly used for transportation,
+    recreation, or exercise.
 </lv-accordion>
 `.trim();
 export default {
+    components: { LvCode, LvHeading, LvCard, LvAccordion },
     data() {
         return {
-            eventBus,
             code,
+            model: 'github',
         };
-    },
-    mounted() {
-        console.log(this.$root);
     },
 };
 </script>
