@@ -55,6 +55,9 @@
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-spinner' }" custom>
                 <lv-vertical-nav-item label="Spinner" :active="isActive" @click="navigate" />
             </router-link>
+            <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-skeleton' }" custom>
+                <lv-vertical-nav-item label="Skeleton" :active="isActive" @click="navigate" />
+            </router-link>
         </lv-vertical-nav-list>
         <lv-vertical-nav-list icon="compass" label="Navigation">
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-button' }" custom>
@@ -196,9 +199,6 @@
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-window' }" custom>
                 <lv-vertical-nav-item label="Window" :active="isActive" @click="navigate" />
             </router-link>
-            <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-skeleton' }" custom>
-                <lv-vertical-nav-item label="Skeleton" :active="isActive" @click="navigate" />
-            </router-link>
         </lv-vertical-nav-list>
         <lv-vertical-nav-list icon="image" label="Media">
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-icon' }" custom>
@@ -239,7 +239,7 @@
         </lv-vertical-nav-list>
     </lv-vertical-nav-group>
     <lv-vertical-nav-group label="Utilities">
-        <lv-vertical-nav-list icon="puzzle" label="Composables">
+        <lv-vertical-nav-list icon="plug" label="Composables">
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/use-breakpoints' }" custom>
                 <lv-vertical-nav-item label="useBreakpoints" :active="isActive" @click="navigate" />
             </router-link>
