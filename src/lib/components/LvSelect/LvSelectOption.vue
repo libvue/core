@@ -68,6 +68,7 @@ export default {
 
     &__checkbox {
         margin-right: 0.5rem !important;
+        pointer-events: none;
     }
 
     &:hover {
