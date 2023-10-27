@@ -1,14 +1,8 @@
 <template>
     <div class="lv-checkbox" :class="classObject" aria-label="checkbox" @click.stop="toggleCheckbox">
         <div class="lv-checkbox__checkbox">
-            <input
-                ref="checkbox"
-                class="lv-checkbox__input"
-                type="checkbox"
-                :checked="modelValue"
-                v-bind="$attrs"
-            />
-            <lv-icon v-if="indeterminate" class="lv-checkbox__icon" name="minus"/>
+            <input ref="checkbox" class="lv-checkbox__input" type="checkbox" :checked="modelValue" v-bind="$attrs" />
+            <lv-icon v-if="indeterminate" class="lv-checkbox__icon" name="minus" />
             <lv-icon v-else-if="modelValue && !loading" class="lv-checkbox__icon" name="check" />
             <lv-spinner v-if="loading" class="lv-checkbox__loader" />
         </div>
@@ -17,8 +11,8 @@
 </template>
 
 <script>
-import LvIcon from "../LvIcon/LvIcon.vue";
-import LvSpinner from "../LvSpinner/LvSpinner.vue";
+import LvIcon from '../LvIcon/LvIcon.vue';
+import LvSpinner from '../LvSpinner/LvSpinner.vue';
 
 export default {
     components: { LvIcon, LvSpinner },
@@ -47,26 +41,22 @@ export default {
         indeterminate: {
             type: Boolean,
             default: false,
-        }
-    },
-    emits: ['update:modelValue'],
-    watch: {
-        indeterminate(val) {
-            if (val) {
-                this.$refs.checkbox.indeterminate = true;
-            } else {
-                this.$refs.checkbox.indeterminate = false;
-            }
         },
     },
+    emits: ['update:modelValue'],
     computed: {
         classObject() {
             return {
                 'lv-checkbox--checked': !!this.modelValue,
                 'lv-checkbox--disabled': this.disabled || this.loading,
                 'lv-checkbox--loading': this.loading,
-                [`${this.$attrs.class}`]: !!this.$attrs.class
+                [`${this.$attrs.class}`]: !!this.$attrs.class,
             };
+        },
+    },
+    watch: {
+        indeterminate(val) {
+            this.$refs.checkbox.indeterminate = !!val;
         },
     },
     methods: {
@@ -167,7 +157,7 @@ export default {
 
     &__label {
         cursor: pointer;
-        margin-left: .5rem;
+        margin-left: 0.5rem;
         font-size: var(--font-size);
         line-height: var(--line-height);
     }
