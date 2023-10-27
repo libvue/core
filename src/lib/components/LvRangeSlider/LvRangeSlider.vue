@@ -98,10 +98,6 @@ export default {
             default: 1,
             validator: (value) => value > 0,
         },
-        invalid: {
-            type: Boolean,
-            default: false,
-        },
         disabled: {
             type: Boolean,
             default: false,
@@ -137,7 +133,6 @@ export default {
     computed: {
         classNames() {
             return {
-                'lv-range-slider--invalid': this.invalid,
                 'lv-range-slider--disabled': this.disabled,
                 'lv-range-slider--loading': this.loading,
             };

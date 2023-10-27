@@ -37,10 +37,6 @@ export default {
             type: Boolean,
             default: false,
         },
-        error: {
-            type: Boolean,
-            default: false,
-        },
     },
     emits: ['update:modelValue'],
     computed: {

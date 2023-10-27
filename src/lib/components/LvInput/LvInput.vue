@@ -39,14 +39,6 @@ export default {
             type: String,
             default: '',
         },
-        error: {
-            type: Boolean,
-            default: false,
-        },
-        success: {
-            type: Boolean,
-            default: false,
-        },
         disabled: {
             type: Boolean,
             default: false,
@@ -74,8 +66,6 @@ export default {
         classObject() {
             return {
                 [`lv-input--size-${this.size}`]: true,
-                'lv-input--error': this.error,
-                'lv-input--success': this.success,
                 'lv-input--icon': this.icon,
                 'lv-input--readonly': this.readonly,
                 'lv-input--disabled': this.disabled || this.loading,

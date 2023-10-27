@@ -34,10 +34,6 @@ export default {
             type: Boolean,
             default: false,
         },
-        error: {
-            type: Boolean,
-            default: false,
-        },
         indeterminate: {
             type: Boolean,
             default: false,
