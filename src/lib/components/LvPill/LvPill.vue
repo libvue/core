@@ -66,6 +66,7 @@ export default {
     font-weight: 500;
     font-size: var(--font-size);
     line-height: var(--line-height);
+    flex-shrink: 0;
 
     &__icon {
         display: flex;
