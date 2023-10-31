@@ -1,29 +1,29 @@
 <template>
     <div class="lv-quick-filter" :class="classObject" tabindex="-1">
-        <lv-input
-            v-model="search"
-            v-space-after="hasModelResults ? 0.5 : 0"
-            class="lv-quick-filter__input"
-            :placeholder="placeholder"
-            :icon="icon"
-            type="text"
-            @focus="onFocusInput"
-            @blur="onBlurInput"
-        />
-
-        <lv-flex v-if="hasModelResults" class="lv-quick-filter__pills" gap=".25rem" align-items="center">
-            <lv-pill
-                v-for="(object, key) in modelResults"
-                class="lv-quick-filter__pill"
-                :key="key"
-                :prefix="`${object.label}:`"
-                :text="object.value"
-                size="small"
-                color="solid-dimmed-primary"
-                closable
-                @close="onClickClosePill(key)"
+        <div class="lv-quick-filter__input-container">
+            <lv-input
+                v-model="search"
+                class="lv-quick-filter__input"
+                :placeholder="placeholder"
+                :icon="icon"
+                type="text"
+                @focus="onFocusInput"
+                @blur="onBlurInput"
             />
-        </lv-flex>
+            <lv-flex v-if="hasModelResults" class="lv-quick-filter__pills" gap=".25rem" align-items="center">
+                <lv-pill
+                    v-for="(object, key) in modelResults"
+                    class="lv-quick-filter__pill"
+                    :key="key"
+                    :prefix="`${object.label}:`"
+                    :text="object.value"
+                    size="small"
+                    color="solid-dimmed-primary"
+                    closable
+                    @close="onClickClosePill(key)"
+                />
+            </lv-flex>
+        </div>
 
         <transition name="dropdown">
             <div v-show="dropdownVisible" class="lv-quick-filter__dropdown" role="listbox">
@@ -118,6 +118,7 @@ export default {
                 [`lv-quick-filter--size-${this.size}`]: true,
                 'lv-quick-filter--disabled': !!this.disabled || !!this.loading,
                 'lv-quick-filter--loading': !!this.loading,
+                'lv-quick-filter--focused': !!this.focused,
             };
         },
         modelResults() {
@@ -241,6 +242,34 @@ export default {
     $self: &;
     position: relative;
 
+    &__input-container {
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        background-color: var(--background-color);
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    &__input {
+        border: 0 !important;
+        flex-basis: 100%;
+        flex-shrink: 1;
+        flex-grow: 1;
+        background: none;
+        &:focus {
+            outline: 0;
+        }
+    }
+    &__pills {
+        display: flex;
+        flex-direction: row;
+        padding: .25rem;
+        flex-shrink: 0;
+        overflow: auto;
+        max-width: 75%;
+        flex-wrap: nowrap;
+    }
     &__dropdown {
         position: absolute;
         z-index: var(--z-index-dropdown);
@@ -267,6 +296,12 @@ export default {
         border-radius: var(--border-radius);
         &:hover {
             background-color: var(--border-color-light);
+        }
+    }
+
+    &--focused {
+        #{$self}__input-container {
+            outline: -webkit-focus-ring-color auto 1px;
         }
     }
 
