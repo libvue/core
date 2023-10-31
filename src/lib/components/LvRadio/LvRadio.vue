@@ -1,5 +1,5 @@
 <template>
-    <div class="lv-radio" role="radio" :class="classObject">
+    <div class="lv-radio" role="radio" :class="classObject" @click="onClick">
         <lv-spinner v-if="loading" class="lv-radio__loading" :size="12"  />
         <input
             :id="identifier"
@@ -11,7 +11,6 @@
             :name="name"
             :value="value"
             tabindex="0"
-            @input="onInput"
         />
         <label v-if="label" class="lv-radio__label" :for="identifier">{{ label }}</label>
     </div>
@@ -67,9 +66,10 @@ export default {
         },
     },
     methods: {
-        onInput(e) {
+        onClick(e) {
             if (!this.loading && !this.disabled) {
-                this.$emit('update:modelValue', e.target.value);
+                e.preventDefault();
+                this.$emit('update:modelValue', this.value);
             }
         },
     },
