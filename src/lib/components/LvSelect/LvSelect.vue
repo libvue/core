@@ -192,7 +192,7 @@ export default {
             if (this.multiple && this.modelValue.length > 0) {
                 return true;
             }
-            if (!this.multiple && this.modelValue) {
+            if (!this.multiple && this.modelValue !== null) {
                 return true;
             }
             return false;
