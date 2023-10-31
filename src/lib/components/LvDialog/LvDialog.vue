@@ -1,10 +1,11 @@
 <template>
     <Teleport :to="teleportTarget">
         <transition name="fade-slide-up">
-            <UseFocusTrap
+            <component
+                :is="focusTrap ? 'UseFocusTrap' : 'div'"
                 v-if="show && mounted"
                 ref="dialog"
-                :options="focusTrapOptions"
+                :options="focusTrap ? focusTrapOptions : null"
                 class="lv-dialog"
                 role="dialog"
                 :aria-modal="modal"
@@ -20,13 +21,14 @@
                         <div v-if="!!$slots.close" class="lv-dialog__close"><slot name="close"></slot></div>
                     </slot>
                 </div>
-            </UseFocusTrap>
+            </component>
         </transition>
     </Teleport>
 </template>
 
 <script>
 import { UseFocusTrap } from '@vueuse/integrations/useFocusTrap/component';
+import { useScrollLock } from '@vueuse/core';
 
 export default {
     components: {
@@ -46,8 +48,23 @@ export default {
             type: String,
             default: 'body',
         },
+        focusTrap: {
+            type: Boolean,
+            default: true,
+        },
+        scrollLock: {
+            type: Boolean,
+            default: true,
+        },
     },
     emits: ['click-backdrop'],
+    setup() {
+        const { body } = document;
+        const isLocked = useScrollLock(body);
+        return {
+            isLocked,
+        };
+    },
     data() {
         return {
             mounted: false,
@@ -60,6 +77,11 @@ export default {
                 escapeDeactivates: false,
                 fallbackFocus: document.body,
             };
+        },
+    },
+    watch: {
+        show(val) {
+            this.isLocked = !!val;
         },
     },
     mounted() {

@@ -75,7 +75,7 @@
                 </template>
                 <template v-else>
                     <div class="lv-select__no-options">
-                        <slot name="no-options"> No options found </slot>
+                        <slot name="no-options">{{ noOptionsText }}</slot>
                     </div>
                 </template>
             </div>
@@ -117,6 +117,10 @@ export default {
         searchPlaceholder: {
             type: String,
             default: 'Search an option',
+        },
+        noOptionsText: {
+            type: String,
+            default: 'No options found',
         },
         clearable: {
             type: Boolean,
