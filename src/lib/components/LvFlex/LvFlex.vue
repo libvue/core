@@ -15,12 +15,13 @@ export default {
         justifyContent: {
             type: String,
             default: 'start',
-            validator: (value) => ['start', 'center', 'end'].includes(value),
+            validator: (value) =>
+                ['start', 'center', 'end', 'space-between', 'space-around', 'space-evenly'].includes(value),
         },
         alignItems: {
             type: String,
             default: null,
-            validator: (value) => ['start', 'center', 'end'].includes(value),
+            validator: (value) => ['start', 'center', 'end', 'stretch'].includes(value),
         },
         gap: {
             type: [String, Number],
@@ -33,7 +34,7 @@ export default {
         wrap: {
             type: Boolean,
             default: true,
-        }
+        },
     },
     computed: {
         classObject() {
@@ -67,6 +68,18 @@ export default {
         justify-content: center;
     }
 
+    &--justify-content-space-between {
+        justify-content: space-between;
+    }
+
+    &--justify-content-space-around {
+        justify-content: space-around;
+    }
+
+    &--justify-content-space-evenly {
+        justify-content: space-evenly;
+    }
+
     &--align-items-start {
         align-items: flex-start;
     }
@@ -77,6 +90,10 @@ export default {
 
     &--align-items-center {
         align-items: center;
+    }
+
+    &--align-items-stretch {
+        align-items: stretch;
     }
 
     &--direction-column {
