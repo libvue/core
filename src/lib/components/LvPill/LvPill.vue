@@ -4,10 +4,16 @@
             <lv-icon :name="icon" />
         </div>
         <div class="lv-pill__text">
-            <div class="lv-pill__prefix" v-if="prefix">{{ prefix }}</div>
+            <div v-if="prefix" class="lv-pill__prefix">{{ prefix }}</div>
             {{ text }}
         </div>
-        <div v-if="closable" class="lv-pill__close" @click="onClickClose">
+        <div
+            v-if="closable"
+            class="lv-pill__close"
+            tabindex="0"
+            @click="onClickClose"
+            @keydown.space.enter.prevent="onClickClose"
+        >
             <lv-icon name="x" />
         </div>
     </div>
@@ -16,7 +22,7 @@
 <script>
 import propColorMixin from '../../mixins/propColorMixin';
 import propSizeMixin from '../../mixins/propSizeMixin';
-import LvIcon from "../LvIcon/LvIcon.vue";
+import LvIcon from '../LvIcon/LvIcon.vue';
 
 export default {
     components: { LvIcon },
@@ -62,6 +68,7 @@ export default {
 
 .lv-pill {
     display: inline-flex;
+    flex-shrink: 0;
     border-radius: 2rem;
     font-weight: 500;
     font-size: var(--font-size);
@@ -69,17 +76,20 @@ export default {
 
     &__icon {
         display: flex;
+        flex-shrink: 0;
         align-items: center;
         padding-right: 0 !important;
         font-size: var(--font-size);
         line-height: var(--line-height);
     }
     &__prefix {
+        flex-shrink: 0;
+        margin-right: 0.5rem;
         font-weight: 600;
-        margin-right: .5rem;
     }
     &__text {
         display: flex;
+        flex-shrink: 0;
         align-items: center;
         padding: 0.5rem 0.625rem;
     }
