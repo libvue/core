@@ -2,7 +2,7 @@
     <lv-heading v-space-after="0.5" :level="3">Quick Filter</lv-heading>
     <lv-heading v-space-after="2" sub :level="6">A single component that contains inputs, selects and checkboxes</lv-heading>
 
-    <lv-quick-filter :filters="filters" @update:filter="onUpdateFilter" @clear:filter="onClearFilter" v-space-after="1"></lv-quick-filter>
+    <lv-quick-filter :filters="filters" icon="search" @update:filter="onUpdateFilter" @clear:filter="onClearFilter" v-space-after="1"></lv-quick-filter>
 
     <lv-code v-space-after="1" :files="files" :active="activeFile" @change-file="(v) => (activeFile = v)"></lv-code>
     <component-details component="LvQuickFilter"></component-details>
@@ -11,6 +11,7 @@
 <script>
 const codeTemplate = `
 <lv-quick-filter
+    icon="search"
     :filters="filters"
     @update:filter="onUpdateFilter"
     @clear:filter="onClearFilter"

@@ -4,7 +4,8 @@
             v-model="search"
             v-space-after="hasModelResults ? 0.5 : 0"
             class="lv-quick-filter__input"
-            placeholder="Search anything"
+            :placeholder="placeholder"
+            :icon="icon"
             type="text"
             @focus="onFocusInput"
             @blur="onBlurInput"
@@ -32,7 +33,7 @@
                         <div class="lv-quick-filter__results-title">{{ object.label }}</div>
                         <!-- Input -->
                         <template v-if="object.value">
-                            <div :key="key" class="lv-quick-filter__result" @click="onClickResult(key)">
+                            <div :key="key" class="lv-quick-filter__result" tabindex="0" @click="onClickResult(key)">
                                 {{ object.value }}
                             </div>
                         </template>
@@ -94,6 +95,14 @@ export default {
                 return isValid;
             }
         },
+        placeholder: {
+            type: String,
+            default: 'Search anything'
+        },
+        icon: {
+            type: String,
+            default: null,
+        }
     },
     emits: ['clear:filter', 'update:filter'],
     data() {
