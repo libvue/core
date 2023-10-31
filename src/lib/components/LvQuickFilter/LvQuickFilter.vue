@@ -44,9 +44,9 @@
                                 v-for="(option, optionKey) in object.options"
                                 :key="optionKey"
                                 class="lv-quick-filter__result"
-                                @click="onClickResult(key, option.value)"
+                                @click="onClickResult(key, option[object.valueKey])"
                             >
-                                {{ option.label }}
+                                {{ option[object.labelKey || 'label'] }}
                             </div>
                         </template>
                     </div>
@@ -135,9 +135,13 @@ export default {
                 } else if (value.type === 'select' && value.model) {
                     // Find the label of the model
                     let label = null;
+
+                    const labelKey = value.labelKey || 'label';
+                    const valueKey = value.valueKey || 'value';
+
                     value.options.forEach((option) => {
-                        if (option.value === value.model) {
-                            label = option.label;
+                        if (option[valueKey] === value.model) {
+                            label = option[labelKey];
                         }
                     });
                     // Check if options has any results;
@@ -165,10 +169,14 @@ export default {
                             value: this.search,
                         };
                     } else if (value.type === 'select' && value.options.length > 0) {
+
+                        const labelKey = value.labelKey || 'label';
+                        const valueKey = value.valueKey || 'value';
+
                         // Check if search matches any options
                         const options = [];
                         value.options.forEach((option) => {
-                            if (option.label.toLowerCase().includes(this.search.toLowerCase())) {
+                            if (option[labelKey].toLowerCase().includes(this.search.toLowerCase())) {
                                 options.push(option);
                             }
                         });
@@ -177,6 +185,8 @@ export default {
                             results[key] = {
                                 label: value.label,
                                 options,
+                                labelKey,
+                                valueKey,
                             };
                         }
                     }
