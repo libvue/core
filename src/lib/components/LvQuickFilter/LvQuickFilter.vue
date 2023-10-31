@@ -1,29 +1,30 @@
 <template>
     <div class="lv-quick-filter" :class="classObject" tabindex="-1">
-        <lv-input
-            v-model="search"
-            v-space-after="hasModelResults ? 0.5 : 0"
-            class="lv-quick-filter__input"
-            :placeholder="placeholder"
-            :icon="icon"
-            type="text"
-            @focus="onFocusInput"
-            @blur="onBlurInput"
-        />
-
-        <lv-flex v-if="hasModelResults" class="lv-quick-filter__pills" gap=".25rem" align-items="center">
-            <lv-pill
-                v-for="(object, key) in modelResults"
-                class="lv-quick-filter__pill"
-                :key="key"
-                :prefix="`${object.label}:`"
-                :text="object.value"
-                size="small"
-                color="solid-dimmed-primary"
-                closable
-                @close="onClickClosePill(key)"
+        <div class="lv-quick-filter__input-container">
+            <lv-input
+                ref="input"
+                v-model="search"
+                class="lv-quick-filter__input"
+                :placeholder="placeholder"
+                :icon="icon"
+                type="text"
+                @focus="onFocusInput"
+                @blur="onBlurInput"
             />
-        </lv-flex>
+            <lv-flex v-if="hasModelResults" class="lv-quick-filter__pills" gap=".25rem" align-items="center">
+                <lv-pill
+                    v-for="(object, key) in modelResults"
+                    :key="key"
+                    class="lv-quick-filter__pill"
+                    :prefix="`${object.label}:`"
+                    :text="object.value"
+                    size="small"
+                    color="solid-dimmed-primary"
+                    closable
+                    @close="onClickClosePill(key)"
+                />
+            </lv-flex>
+        </div>
 
         <transition name="dropdown">
             <div v-show="dropdownVisible" class="lv-quick-filter__dropdown" role="listbox">
@@ -81,28 +82,28 @@ export default {
                 Object.values(obj).forEach((entry) => {
                     if (typeof entry.model === 'undefined') {
                         isValid = false;
-                        console.warn(`model field is missing in entry: ${JSON.stringify(entry)}`)
+                        console.warn(`model field is missing in entry: ${JSON.stringify(entry)}`);
                     }
                     if (typeof entry.label === 'undefined') {
                         isValid = false;
-                        console.warn(`label field is missing in entry: ${JSON.stringify(entry)}`)
+                        console.warn(`label field is missing in entry: ${JSON.stringify(entry)}`);
                     }
                     if (typeof entry.type === 'undefined') {
                         isValid = false;
-                        console.warn(`type field is missing in entry: ${JSON.stringify(entry)}`)
+                        console.warn(`type field is missing in entry: ${JSON.stringify(entry)}`);
                     }
                 });
                 return isValid;
-            }
+            },
         },
         placeholder: {
             type: String,
-            default: 'Search anything'
+            default: 'Search anything',
         },
         icon: {
             type: String,
             default: null,
-        }
+        },
     },
     emits: ['clear:filter', 'update:filter'],
     data() {
@@ -118,6 +119,7 @@ export default {
                 [`lv-quick-filter--size-${this.size}`]: true,
                 'lv-quick-filter--disabled': !!this.disabled || !!this.loading,
                 'lv-quick-filter--loading': !!this.loading,
+                'lv-quick-filter--focused': !!this.focused,
             };
         },
         modelResults() {
@@ -228,6 +230,9 @@ export default {
                     value,
                 });
             }
+            // Refocus the input
+            this.$refs.input.$el.querySelector('.lv-input__input').focus();
+
             // clear the search
             this.search = '';
         },
@@ -241,6 +246,34 @@ export default {
     $self: &;
     position: relative;
 
+    &__input-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        border: 1px solid var(--border-color);
+        border-radius: var(--border-radius);
+        background-color: var(--background-color);
+    }
+
+    &__input {
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 100%;
+        border: 0 !important;
+        background: none;
+        &:focus {
+            outline: 0;
+        }
+    }
+    &__pills {
+        display: flex;
+        flex-shrink: 0;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        padding: 0.25rem;
+        max-width: 75%;
+        overflow: auto;
+    }
     &__dropdown {
         position: absolute;
         z-index: var(--z-index-dropdown);
@@ -267,6 +300,12 @@ export default {
         border-radius: var(--border-radius);
         &:hover {
             background-color: var(--border-color-light);
+        }
+    }
+
+    &--focused {
+        #{$self}__input-container {
+            outline: -webkit-focus-ring-color auto 1px;
         }
     }
 
