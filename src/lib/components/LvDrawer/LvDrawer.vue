@@ -1,6 +1,6 @@
 <template>
     <Teleport :to="teleportTarget">
-        <div class="lv-drawer" :class="classObject" role="dialog">
+        <div class="lv-drawer" :class="classObject" v-bind="$attrs" role="dialog">
             <transition name="fade">
                 <div v-show="show" class="lv-drawer__backdrop" @click="onClickBackDrop"></div>
             </transition>
@@ -14,15 +14,10 @@
 </template>
 
 <script>
-import { useScrollLock } from "@vueuse/core";
+import { useScrollLock } from '@vueuse/core';
 
 export default {
-    setup() {
-        const scrollLock = useScrollLock(document.body);
-        return {
-            scrollLock,
-        }
-    },
+    inheritAttrs: false,
     props: {
         show: {
             type: Boolean,
@@ -47,14 +42,11 @@ export default {
         },
     },
     emits: ['click-backdrop'],
-    watch: {
-        show(val) {
-            if (val) {
-                this.scrollLock = true;
-            } else {
-                this.scrollLock = false;
-            }
-        }
+    setup() {
+        const scrollLock = useScrollLock(document.body);
+        return {
+            scrollLock,
+        };
     },
     computed: {
         focusTrapOptions() {
@@ -83,6 +75,15 @@ export default {
                 return 'slide-right-to-left';
             }
             return 'fade';
+        },
+    },
+    watch: {
+        show(val) {
+            if (val) {
+                this.scrollLock = true;
+            } else {
+                this.scrollLock = false;
+            }
         },
     },
     methods: {
@@ -115,16 +116,16 @@ export default {
     }
 
     &__content {
+        display: flex;
         position: absolute;
+        flex-direction: column;
         box-sizing: border-box;
         box-shadow: var(--shadow-dialog);
         background-color: var(--background-color);
         padding: calc(var(--padding) * 2);
+        height: 100%;
         overflow: auto;
         pointer-events: all;
-        display: flex;
-        flex-direction: column;
-        height: 100%;
     }
 
     &--placement-bottom {
