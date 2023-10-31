@@ -30,6 +30,10 @@ export default {
             type: Boolean,
             default: false,
         },
+        wrap: {
+            type: Boolean,
+            default: true,
+        }
     },
     computed: {
         classObject() {
@@ -38,6 +42,7 @@ export default {
                 [`lv-flex--align-items-${this.alignItems}`]: !!this.alignItems,
                 [`lv-flex--direction-${this.direction}`]: !!this.direction,
                 'lv-flex--fill': this.fill,
+                'lv-flex--wrap': this.wrap,
             };
         },
     },
@@ -48,7 +53,6 @@ export default {
 .lv-flex {
     $self: &;
     display: flex;
-    flex-wrap: wrap;
     gap: v-bind(gap);
 
     &--justify-content-start {
@@ -86,6 +90,10 @@ export default {
     }
     &--fill#{$self}--direction-column {
         align-items: stretch !important;
+    }
+
+    &--wrap {
+        flex-wrap: wrap;
     }
 }
 </style>
