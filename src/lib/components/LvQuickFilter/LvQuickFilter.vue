@@ -2,6 +2,7 @@
     <div class="lv-quick-filter" :class="classObject" tabindex="-1">
         <div class="lv-quick-filter__input-container">
             <lv-input
+                ref="input"
                 v-model="search"
                 class="lv-quick-filter__input"
                 :placeholder="placeholder"
@@ -13,8 +14,8 @@
             <lv-flex v-if="hasModelResults" class="lv-quick-filter__pills" gap=".25rem" align-items="center">
                 <lv-pill
                     v-for="(object, key) in modelResults"
-                    class="lv-quick-filter__pill"
                     :key="key"
+                    class="lv-quick-filter__pill"
                     :prefix="`${object.label}:`"
                     :text="object.value"
                     size="small"
@@ -81,28 +82,28 @@ export default {
                 Object.values(obj).forEach((entry) => {
                     if (typeof entry.model === 'undefined') {
                         isValid = false;
-                        console.warn(`model field is missing in entry: ${JSON.stringify(entry)}`)
+                        console.warn(`model field is missing in entry: ${JSON.stringify(entry)}`);
                     }
                     if (typeof entry.label === 'undefined') {
                         isValid = false;
-                        console.warn(`label field is missing in entry: ${JSON.stringify(entry)}`)
+                        console.warn(`label field is missing in entry: ${JSON.stringify(entry)}`);
                     }
                     if (typeof entry.type === 'undefined') {
                         isValid = false;
-                        console.warn(`type field is missing in entry: ${JSON.stringify(entry)}`)
+                        console.warn(`type field is missing in entry: ${JSON.stringify(entry)}`);
                     }
                 });
                 return isValid;
-            }
+            },
         },
         placeholder: {
             type: String,
-            default: 'Search anything'
+            default: 'Search anything',
         },
         icon: {
             type: String,
             default: null,
-        }
+        },
     },
     emits: ['clear:filter', 'update:filter'],
     data() {
@@ -229,6 +230,9 @@ export default {
                     value,
                 });
             }
+            // Refocus the input
+            this.$refs.input.$el.querySelector('.lv-input__input').focus();
+
             // clear the search
             this.search = '';
         },
@@ -243,19 +247,19 @@ export default {
     position: relative;
 
     &__input-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
         border: 1px solid var(--border-color);
         border-radius: var(--border-radius);
         background-color: var(--background-color);
-        display: flex;
-        align-items: center;
-        flex-direction: row;
     }
 
     &__input {
-        border: 0 !important;
-        flex-basis: 100%;
-        flex-shrink: 1;
         flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 100%;
+        border: 0 !important;
         background: none;
         &:focus {
             outline: 0;
@@ -263,12 +267,12 @@ export default {
     }
     &__pills {
         display: flex;
-        flex-direction: row;
-        padding: .25rem;
         flex-shrink: 0;
-        overflow: auto;
-        max-width: 75%;
+        flex-direction: row;
         flex-wrap: nowrap;
+        padding: 0.25rem;
+        max-width: 75%;
+        overflow: auto;
     }
     &__dropdown {
         position: absolute;
