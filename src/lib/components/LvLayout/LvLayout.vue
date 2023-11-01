@@ -111,7 +111,6 @@ body {
     flex-direction: column;
     background-color: var(--main-background-color);
     width: 100%;
-    overflow: hidden;
 
     &__header {
         z-index: 1;
