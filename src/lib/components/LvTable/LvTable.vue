@@ -15,14 +15,14 @@
                         :key="columnKey"
                         class="lv-table__cell"
                         :class="getCellModifiers(column, true)"
-                        @click="column.sortable ? onClickHeadCell(columnKey) : false"
+                        @click="column.sortable ? onClickHeadCell(column.sortKey ? column.sortKey : columnKey) : false"
                     >
                         <div class="lv-table__cell-container">
                             {{ typeof column.title !== 'undefined' ? column.title : columnKey }}
                             <lv-icon
                                 class="lv-table__sort-icon"
-                                :name="sort && columnKey === sort.replace('-', '') && sort.startsWith('-') ? 'chevron-up' : 'chevron-down'"
-                                :class="{ 'lv-table__sort-icon--active': sort && columnKey === sort.replace('-', '') }"
+                                :name="sort && (column.sortKey || columnKey) === sort.replace('-', '') && sort.startsWith('-') ? 'chevron-up' : 'chevron-down'"
+                                :class="{ 'lv-table__sort-icon--active': sort && (column.sortKey || columnKey) === sort.replace('-', '') }"
                             />
                         </div>
                     </th>
@@ -60,8 +60,8 @@
                                 :class="getCellModifiers(columns[rowKey])"
                             >
                                 <!-- Make it slotable with props so you can mutate the data where you use it! -->
-                                <slot :name="rowKey" :value="value" :row="row">
-                                    {{ value }}
+                                <slot :name="rowKey" :value="columns[rowKey]['dataKey'] ? objectReferenceByPath(columns[rowKey]['dataKey'], rows[rowIndex]) : value" :row="row">
+                                    {{ columns[rowKey]['dataKey'] ? objectReferenceByPath(columns[rowKey]['dataKey'], rows[rowIndex]) : value }}
                                 </slot>
                             </td>
                         </template>
@@ -96,8 +96,8 @@
                                 :class="getCellModifiers(columns[rowKey])"
                             >
                                 <!-- Make it slotable with props so you can mutate the data where you use it! -->
-                                <slot :name="rowKey" :value="value" :row="rows[rowIndex]">
-                                    {{ value }}
+                                <slot :name="rowKey" :value="columns[rowKey]['dataKey'] ? objectReferenceByPath(columns[rowKey]['dataKey'], rows[rowIndex]) : value" :row="rows[rowIndex]">
+                                    {{ columns[rowKey]['dataKey'] ? objectReferenceByPath(columns[rowKey]['dataKey'], rows[rowIndex]) : value }}
                                 </slot>
                             </td>
                         </template>
@@ -180,6 +180,7 @@
 import useNumber from '../../composables/useNumber';
 import LvIcon from "../LvIcon/LvIcon.vue";
 import LvSpinner from "../LvSpinner/LvSpinner.vue";
+import objectReferenceByPath from "../../utils/objectReferenceByPath";
 
 export default {
     components: { LvSpinner, LvIcon },
@@ -277,6 +278,7 @@ export default {
     },
     data() {
         return {
+            objectReferenceByPath,
             expandedRows: []
         };
     },
@@ -290,7 +292,7 @@ export default {
         parsedRows() {
             const parsedRows = [];
             // Pick only the given columns from the rows
-            // And froce the order in the columns in each row
+            // And force the order in the columns in each row
             this.rows.forEach((row) => {
                 const newRow = {};
                 // Get only the given columns
@@ -433,13 +435,13 @@ export default {
                 this.rowAction({ row: clonedRow, index: rowIndex });
             }
         },
-        onClickHeadCell(columnKey) {
-            if(columnKey === this.sort) {
-                this.$emit('update:sort', `-${columnKey}`);
-            } else if (columnKey === this.sort.replace('-', '')) {
-                this.$emit('update:sort', `${columnKey}`);
+        onClickHeadCell(sort) {
+            if(sort === this.sort) {
+                this.$emit('update:sort', `-${sort}`);
+            } else if (sort === this.sort.replace('-', '')) {
+                this.$emit('update:sort', `${sort}`);
             } else {
-                this.$emit('update:sort', columnKey)
+                this.$emit('update:sort', sort)
             }
         },
         toggleExpand(rowIndex) {
