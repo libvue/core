@@ -12,6 +12,12 @@
                 <lv-table :rows="rowsEmits" :columns="columnsEmits" />
             </lv-card>
         </div>
+        <div class="emits-table" v-if="slots.length > 0">
+            <lv-heading v-space-after="1" :level="6">{{ title }} Slots</lv-heading>
+            <lv-card>
+                <lv-table :rows="rowsSlots" :columns="columnsSlots" />
+            </lv-card>
+        </div>
     </div>
 </template>
 
@@ -26,6 +32,10 @@ export default {
             type: String,
             default: '',
         },
+        slots: {
+            type: Array,
+            default: () => [],
+        }
     },
     data() {
         return {
@@ -133,7 +143,27 @@ export default {
                 },
             };
             return columnObject;
-        }
+        },
+        columnsSlots() {
+            const columnObject = {
+                name: {
+                    title: 'Name'
+                },
+            };
+            return columnObject;
+        },
+        rowsSlots() {
+            if(!this.slots) {
+                return [];
+            }
+            const rowsSlots = [];
+            this.slots.forEach((slot) => {
+                rowsSlots.push({
+                    name: slot,
+                })
+            })
+            return rowsSlots;
+        },
     },
     mounted() {
         this.getComponent();
