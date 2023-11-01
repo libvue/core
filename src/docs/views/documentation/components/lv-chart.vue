@@ -72,10 +72,8 @@ export default {
         };
     },
     mounted() {
-        setTimeout(() => {
-            this.loading = false;
-            this.datasets = this.getRandomDatasets();
-        }, 1000);
+        this.loading = false;
+        this.datasets = this.getRandomDatasets();
     },
     methods: {
         getRandomDatasets() {
