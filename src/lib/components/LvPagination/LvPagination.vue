@@ -1,12 +1,20 @@
 <template>
     <div class="lv-pagination">
         <lv-button
+            v-if="showArrows && showFastArrows"
+            icon="chevrons-left"
+            color="ghost-default"
+            :disabled="parsedModelValue === 1 || loading"
+            class="lv-pagination__button"
+            @click="onClickFirst"
+        ></lv-button>
+        <lv-button
             v-if="showArrows"
             icon="chevron-left"
             color="ghost-default"
             :disabled="parsedModelValue === 1 || loading"
-            @click="onClickPrev"
             class="lv-pagination__button"
+            @click="onClickPrev"
         ></lv-button>
         <!-- visible pages -->
         <lv-button
@@ -14,20 +22,28 @@
             :key="page"
             :label="page.toString()"
             :color="page === parsedModelValue ? 'solid-primary' : 'ghost-default'"
-            @click="onClick(page)"
             class="lv-pagination__button"
             :loading="page === parsedModelValue && loading"
             :disabled="page !== parsedModelValue && loading"
+            @click="onClick(page)"
         />
         <lv-button
             v-if="showArrows"
             icon="chevron-right"
             color="ghost-default"
             :disabled="parsedModelValue === totalPages || loading"
-            @click="onClickNext"
             class="lv-pagination__button"
+            @click="onClickNext"
         ></lv-button>
-        <div class="lv-pagination__info" v-if="showInfo">
+        <lv-button
+            v-if="showArrows && showFastArrows"
+            icon="chevrons-right"
+            color="ghost-default"
+            :disabled="parsedModelValue === totalPages || loading"
+            class="lv-pagination__button"
+            @click="onClickLast"
+        ></lv-button>
+        <div v-if="showInfo" class="lv-pagination__info">
             {{ parsedModelValue }}/{{ totalPages }}
         </div>
     </div>
@@ -93,6 +109,13 @@ export default {
             default: true,
         },
         /**
+         * Show/hide fast arrows
+         */
+        showFastArrows: {
+            type: Boolean,
+            default: false,
+        },
+        /**
          * Loading
          */
         loading: {
@@ -100,6 +123,7 @@ export default {
             default: false,
         },
     },
+    emits: ['update:modelValue'],
     computed: {
         parsedModelValue() {
             return parseInt(this.modelValue, 10);
@@ -139,7 +163,6 @@ export default {
             return this.totalPages - this.visiblePages.length > 1 && !visiblePagesSecondToLastVisible;
         },
     },
-    emits: ['update:modelValue'],
     methods: {
         onClick(v) {
             this.$emit('update:modelValue', v);
@@ -150,6 +173,12 @@ export default {
         onClickNext() {
             this.$emit('update:modelValue', this.parsedModelValue + 1);
         },
+        onClickFirst() {
+            this.$emit('update:modelValue', 1);
+        },
+        onClickLast() {
+            this.$emit('update:modelValue', this.totalPages);
+        }
     },
 };
 </script>
