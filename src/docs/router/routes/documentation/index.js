@@ -1,6 +1,6 @@
 import Components from './components';
 import Concepts from './concepts';
 import GettingStarted from './getting-started';
-import Utilities from './utilities';
+import Extras from './extras';
 
-export default [...Components, ...Concepts, ...GettingStarted, ...Utilities];
+export default [...Components, ...Concepts, ...GettingStarted, ...Extras];

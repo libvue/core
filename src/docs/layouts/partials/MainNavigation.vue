@@ -238,7 +238,7 @@
             </router-link>
         </lv-vertical-nav-list>
     </lv-vertical-nav-group>
-    <lv-vertical-nav-group label="Utilities">
+    <lv-vertical-nav-group label="Extra's">
         <lv-vertical-nav-list icon="plug" label="Composables">
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/use-breakpoints' }" custom>
                 <lv-vertical-nav-item label="useBreakpoints" :active="isActive" @click="navigate" />
@@ -247,6 +247,11 @@
         <lv-vertical-nav-list icon="wand-2" label="Directives">
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/v-space-after' }" custom>
                 <lv-vertical-nav-item label="spaceAfter" :active="isActive" @click="navigate" />
+            </router-link>
+        </lv-vertical-nav-list>
+        <lv-vertical-nav-list icon="pocket-knife" label="Utilities">
+            <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/event-bus' }" custom>
+                <lv-vertical-nav-item label="eventBus" :active="isActive" @click="navigate" />
             </router-link>
         </lv-vertical-nav-list>
     </lv-vertical-nav-group>
