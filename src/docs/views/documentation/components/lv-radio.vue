@@ -14,7 +14,7 @@
 
     <lv-code v-space-after="1" lang="html" :code="code"/>
 
-    <component-details component="LvCheckbox"></component-details>
+    <component-details component="LvRadio"></component-details>
 </template>
 
 <script>

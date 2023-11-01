@@ -30,6 +30,10 @@ export default {
             type: Boolean,
             default: false,
         },
+        inline: {
+            type: Boolean,
+            default: false,
+        },
     },
     computed: {
         tagName() {
@@ -38,6 +42,7 @@ export default {
         classObject() {
             return {
                 [`lv-heading--${this.tagName}`]: true,
+                'lv-heading--inline': this.inline,
                 'lv-heading--sub': this.sub,
                 'lv-heading--ellipsis': this.ellipsis,
             }
@@ -88,6 +93,10 @@ export default {
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        display: inline-block;
+    }
+    &--inline {
+        width: auto;
         display: inline-block;
     }
 }

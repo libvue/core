@@ -7,7 +7,7 @@
             <div class="lv-pill__prefix" v-if="prefix">{{ prefix }}</div>
             {{ text }}
         </div>
-        <div v-if="closable" class="lv-pill__close" @click="onClickClose">
+        <div v-if="closable" class="lv-pill__close" tabindex="0" @click="onClickClose" @keydown.enter.space="onClickClose">
             <lv-icon name="x" />
         </div>
     </div>
@@ -66,6 +66,7 @@ export default {
     font-weight: 500;
     font-size: var(--font-size);
     line-height: var(--line-height);
+    flex-shrink: 0;
 
     &__icon {
         display: flex;

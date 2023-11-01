@@ -2,8 +2,11 @@
     <lv-heading v-space-after="0.5" :level="3">Quick Filter</lv-heading>
     <lv-heading v-space-after="2" sub :level="6">A single component that contains inputs, selects and checkboxes</lv-heading>
 
-    <lv-quick-filter :filters="filters" @update:filter="onUpdateFilter" @clear:filter="onClearFilter" v-space-after="1"></lv-quick-filter>
+    <lv-quick-filter :filters="filters" icon="search" @update:filter="onUpdateFilter" @clear:filter="onClearFilter" v-space-after="1"></lv-quick-filter>
 
+    <lv-heading level="6" v-space-after="1">Filter Models</lv-heading>
+    <lv-code :code="JSON.stringify(models, null, 2)" v-space-after="1"></lv-code>
+    <lv-heading level="6" v-space-after="1">Code</lv-heading>
     <lv-code v-space-after="1" :files="files" :active="activeFile" @change-file="(v) => (activeFile = v)"></lv-code>
     <component-details component="LvQuickFilter"></component-details>
 </template>
@@ -11,6 +14,7 @@
 <script>
 const codeTemplate = `
 <lv-quick-filter
+    icon="search"
     :filters="filters"
     @update:filter="onUpdateFilter"
     @clear:filter="onClearFilter"
@@ -49,13 +53,15 @@ export default {
                 color: {
                     label: 'Color',
                     type: 'select',
+                    labelKey: 'name',
+                    valueKey: 'id',
                     options: [
-                        { value: 1,label: 'Red' },
-                        { value: 2, label: 'Blue' },
-                        { value: 3, label: 'Yellow' },
-                        { value: 4, label: 'Purple' },
-                        { value: 5, label: 'Green' },
-                        { value: 6, label: 'Orange' },
+                        { id: 1, name: 'Red' },
+                        { id: 2, name: 'Blue' },
+                        { id: 3, name: 'Yellow' },
+                        { id: 4, name: 'Purple' },
+                        { id: 5, name: 'Green' },
+                        { id: 6, name: 'Orange' },
                     ],
                     model: null,
                 },
@@ -118,13 +124,15 @@ export default {
                 color: {
                     label: 'Color',
                     type: 'select',
+                    labelKey: 'name',
+                    valueKey: 'id',
                     options: [
-                        { value: 1,label: 'Red' },
-                        { value: 2, label: 'Blue' },
-                        { value: 3, label: 'Yellow' },
-                        { value: 4, label: 'Purple' },
-                        { value: 5, label: 'Green' },
-                        { value: 6, label: 'Orange' },
+                        { id: 1, name: 'Red' },
+                        { id: 2, name: 'Blue' },
+                        { id: 3, name: 'Yellow' },
+                        { id: 4, name: 'Purple' },
+                        { id: 5, name: 'Green' },
+                        { id: 6, name: 'Orange' },
                     ],
                     model: null,
                 },
@@ -155,6 +163,13 @@ export default {
                 },
             },
         };
+    },
+    computed: {
+        models() {
+            return Object.values(this.filters).flatMap((i) => {
+                return { label: i.label, model: i.model }
+            })
+        }
     },
     methods: {
         onUpdateFilter({ key, value }) {
