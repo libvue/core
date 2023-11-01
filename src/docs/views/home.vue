@@ -1,6 +1,21 @@
 <template>
     <div class="splash">
-        <lv-hero v-space-after="4" title="Libvue" description="An opensource collection of vue 3 components.">
+        <lv-hero v-space-after="4" :align="breakpoints.smallerOrEqual.md ? 'center' : 'right'" title="Libvue" description="An opensource collection of vue 3 components.">
+            <template #image>
+                <div class="preview">
+                    <lv-card class="preview__login">
+                        <lv-heading level="3">Welcome Back</lv-heading>
+                        <lv-heading level="6" v-space-after="1" sub>Please login</lv-heading>
+                        <lv-input v-space-after=".5" icon="user" placeholder="Enter your username"></lv-input>
+                        <lv-input v-space-after="1" icon="key" placeholder="Enter your password"></lv-input>
+                        <lv-flex fill>
+                            <lv-button label="Login" color="solid-primary"></lv-button>
+                            <lv-button label="Cancel" color="outline-dimmed-default"></lv-button>
+                        </lv-flex>
+                    </lv-card>
+                    <lv-widget class="preview__chart" title="Followers" amount="2,530" :diff="10" type="chart" :labels="labels" :datasets="followersDatasets"/>
+                </div>
+            </template>
             <template #buttons>
                 <lv-button color="solid-primary" icon="book" @click="$router.push({ path: '/docs/install' })">
                     Documentation
@@ -89,6 +104,8 @@
 </template>
 
 <script>
+import { useBreakpoints } from '../../lib/composables/useBreakpoints';
+
 const install = `
 > npm install --save @libvue/core
 `.trim();
@@ -120,6 +137,12 @@ body {
 `.trim();
 
 export default {
+    setup() {
+        const { breakpoints } = useBreakpoints();
+        return {
+            breakpoints,
+        }
+    },
     data() {
         return {
             install,
@@ -127,6 +150,14 @@ export default {
             registerFiles: [
                 { id: 'main', filename: 'main.js', lang: 'js', code: registerScript },
                 { id: 'scss', filename: 'app.scss', lang: 'css', code: registerScss },
+            ],
+            labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+            followersDatasets: [
+                {
+                    label: 'Followers',
+                    hue: 24,
+                    data: [55, 12, 20, 34, 7, 4],
+                },
             ],
         };
     },
@@ -141,8 +172,6 @@ export default {
 <style lang="scss">
 .splash {
     --max-width: 1200px !important;
-}
-.splash {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -152,5 +181,23 @@ export default {
 }
 .feature-card {
     height: 100%;
+}
+
+.preview {
+    position: relative;
+    width: 400px;
+    height: 300px;
+    &__login {
+        width: 70%;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+    &__chart {
+        width: 70%;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
 }
 </style>
