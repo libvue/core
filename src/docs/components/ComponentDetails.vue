@@ -1,18 +1,18 @@
 <template>
     <div class="component-details">
-        <div class="props-table" v-space-after="1" v-if="props">
+        <div v-if="props" v-space-after="1" class="props-table">
             <lv-heading v-space-after="1" :level="6">{{ title }} Props</lv-heading>
             <lv-card>
                 <lv-table :rows="rowsProps" :columns="columnsProps"></lv-table>
             </lv-card>
         </div>
-        <div class="emits-table" v-if="emits">
+        <div v-if="emits" class="emits-table">
             <lv-heading v-space-after="1" :level="6">{{ title }} Emits</lv-heading>
             <lv-card>
                 <lv-table :rows="rowsEmits" :columns="columnsEmits" />
             </lv-card>
         </div>
-        <div class="emits-table" v-if="slots.length > 0">
+        <div v-if="slots.length > 0" class="slots-table">
             <lv-heading v-space-after="1" :level="6">{{ title }} Slots</lv-heading>
             <lv-card>
                 <lv-table :rows="rowsSlots" :columns="columnsSlots" />
