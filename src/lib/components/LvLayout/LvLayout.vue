@@ -36,7 +36,7 @@ export default {
     props: {
         mainMaxWidth: {
             type: String,
-            default: '700px',
+            default: '900px',
         },
         sidebarWidth: {
             type: String,
@@ -111,6 +111,7 @@ body {
     flex-direction: column;
     background-color: var(--main-background-color);
     width: 100%;
+    overflow: hidden;
 
     &__header {
         z-index: 1;
@@ -150,7 +151,15 @@ body {
         top: 0;
         position: sticky;
         background-color: var(--sidebar-background-color);
-
+        &:before {
+            content: '';
+            width: 100vw;
+            height: 100%;
+            background-color: var(--sidebar-background-color);
+            position: absolute;
+            right: 100%;
+            top: 0;
+        }
         &-container {
             position: sticky;
             top: 0;

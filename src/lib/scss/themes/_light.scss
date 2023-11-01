@@ -1,6 +1,6 @@
 $theme-light-background-color: #ffffff !default;
 $theme-light-sidebar-background-color: #fff !default;
-$theme-light-main-background-color: #fff !default;
+$theme-light-main-background-color: #fcfcfc !default;
 $theme-light-header-background-color: rgba(255, 255, 255, 0.8) !default;
 $theme-light-color-default: #121315 !default;
 $theme-light-color-default-dimmed: lighten($theme-light-color-default, 85) !default;
@@ -43,7 +43,7 @@ $theme-light-shadow-focus-warning: 0px 0px 0px 3px rgba($theme-light-color-warni
 $theme-light-shadow-focus-danger: 0px 0px 0px 3px rgba($theme-light-color-danger, 0.24) !default;
 $theme-light-shadow-focus-info: 0px 0px 0px 3px rgba($theme-light-color-info, 0.23) !default;
 $theme-light-shadow-focus-ghost: 0px 0px 0px 3px rgba(darken($theme-light-color-ghost, 56), 0.23) !default;
-$theme-light-code-background-color: #f9f9f9;
+$theme-light-code-background-color: #ffffff;
 $theme-light-code-header-color: #ececec;
 $theme-light-code-button-color: #dadada;
 $theme-light-blockquote-background-color: #f9f9f9;
