@@ -25,7 +25,7 @@
                     <lv-separator direction="vertical" />
                 </template>
                 <template #extra>
-                    <lv-theme-toggle v-model="theme" v-space-after="1" />
+                    <lv-theme-toggle v-model="theme" type="button" v-space-after=".5" />
                     <lv-button icon="github" target="_blank" color="ghost-default" @click="onClickGithub" />
                 </template>
             </lv-header>
