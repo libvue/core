@@ -9,7 +9,7 @@
     </lv-card>
 
     <lv-code v-space-after="1" lang="html" :code="code" />
-    <component-details component="LvSubHeader"></component-details>
+    <component-details component="LvSubHeader" :slots="['default']"></component-details>
 </template>
 
 <script>
