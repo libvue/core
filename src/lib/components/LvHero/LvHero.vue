@@ -125,6 +125,7 @@ export default {
         justify-content: center;
 
         #{$self}__content {
+            order: 1;
             justify-content: center;
         }
         #{$self}__description,
@@ -141,9 +142,10 @@ export default {
             justify-content: center;
         }
         #{$self}__image {
+            order: 0;
             display: flex;
             justify-content: center;
-            margin-top: 1rem;
+            margin-bottom: 1rem;
             text-align: center;
         }
     }
