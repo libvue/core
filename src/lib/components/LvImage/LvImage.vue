@@ -64,6 +64,8 @@ export default {
     max-width: 100%;
     padding: 0;
     margin: 0;
+    line-height: 0;
+
     &__image {
         height: v-bind(height);
         width: v-bind(width);
@@ -77,6 +79,7 @@ export default {
         display: block;
         margin-top: v-bind(captionDistance);
         text-align: v-bind(captionAlign);
+        line-height: initial;
     }
     &--rounded {
         #{$self}__image {
