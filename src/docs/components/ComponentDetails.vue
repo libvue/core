@@ -1,15 +1,21 @@
 <template>
     <div class="component-details">
-        <div class="props-table" v-space-after="1" v-if="props">
+        <div v-if="props" v-space-after="1" class="props-table">
             <lv-heading v-space-after="1" :level="6">{{ title }} Props</lv-heading>
             <lv-card>
                 <lv-table :rows="rowsProps" :columns="columnsProps"></lv-table>
             </lv-card>
         </div>
-        <div class="emits-table" v-if="emits">
+        <div v-if="emits" class="emits-table">
             <lv-heading v-space-after="1" :level="6">{{ title }} Emits</lv-heading>
             <lv-card>
                 <lv-table :rows="rowsEmits" :columns="columnsEmits" />
+            </lv-card>
+        </div>
+        <div v-if="slots.length > 0" class="slots-table">
+            <lv-heading v-space-after="1" :level="6">{{ title }} Slots</lv-heading>
+            <lv-card>
+                <lv-table :rows="rowsSlots" :columns="columnsSlots" />
             </lv-card>
         </div>
     </div>
@@ -26,6 +32,10 @@ export default {
             type: String,
             default: '',
         },
+        slots: {
+            type: Array,
+            default: () => [],
+        }
     },
     data() {
         return {
@@ -133,7 +143,27 @@ export default {
                 },
             };
             return columnObject;
-        }
+        },
+        columnsSlots() {
+            const columnObject = {
+                name: {
+                    title: 'Name'
+                },
+            };
+            return columnObject;
+        },
+        rowsSlots() {
+            if(!this.slots) {
+                return [];
+            }
+            const rowsSlots = [];
+            this.slots.forEach((slot) => {
+                rowsSlots.push({
+                    name: slot,
+                })
+            })
+            return rowsSlots;
+        },
     },
     mounted() {
         this.getComponent();

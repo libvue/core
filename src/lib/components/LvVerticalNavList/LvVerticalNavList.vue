@@ -99,9 +99,9 @@ export default {
         flex-direction: column;
         margin-top: 10px;
         margin-bottom: 10px;
-        margin-left: 18px;
+        margin-left: 7px;
         border-left: 1px solid var(--border-color);
-        padding-left: 13px;
+        padding-left: 18px;
         overflow: hidden;
 
         > [class^='lv-menu-item'] {

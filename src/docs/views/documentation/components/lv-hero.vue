@@ -4,10 +4,10 @@
 
     <lv-tabs :tabs="tabs" :active="activeTab" @change-tab="(v) => (activeTab = v)" v-space-after="1">
         <template #left>
-            <lv-card>
+            <lv-card v-space-after="1">
                 <lv-hero align="left" title="This is a hero component" description="This is the description of the hero component">
                     <template #image>
-                        <lv-image src="https://picsum.photos/id/56/2880/1920" width="200px" rounded/>
+                        <lv-image src="https://picsum.photos/id/56/2880/1920" width="220px" rounded/>
                     </template>
                     <template #buttons>
                         <lv-button label="Call to action" color="solid-primary"/>
@@ -15,22 +15,27 @@
                     </template>
                 </lv-hero>
             </lv-card>
+            <lv-code v-space-after="1" :code="codeLeft" lang="html"/>
         </template>
         <template #center>
-            <lv-card>
+            <lv-card v-space-after="1">
                 <lv-hero title="This is a hero component" description="This is the description of the hero component">
+                    <template #image>
+                        <lv-image src="https://picsum.photos/id/56/2880/1920" width="220px" rounded/>
+                    </template>
                     <template #buttons>
                         <lv-button label="Call to action" color="solid-primary"/>
                         <lv-button label="Alternative action" color="solid-dimmed-primary"/>
                     </template>
                 </lv-hero>
             </lv-card>
+            <lv-code v-space-after="1" :code="codeCenter" lang="html"/>
         </template>
         <template #right>
-            <lv-card>
+            <lv-card v-space-after="1">
                 <lv-hero align="right" title="This is a hero component" description="This is the description of the hero component">
                     <template #image>
-                        <lv-image src="https://picsum.photos/id/56/2880/1920" width="200px" rounded/>
+                        <lv-image src="https://picsum.photos/id/56/2880/1920" width="220px" rounded/>
                     </template>
                     <template #buttons>
                         <lv-button label="Call to action" color="solid-primary"/>
@@ -38,15 +43,61 @@
                     </template>
                 </lv-hero>
             </lv-card>
+            <lv-code v-space-after="1" :code="codeRight" lang="html"/>
         </template>
     </lv-tabs>
-    <component-details component="LvHero"></component-details>
+
+    <component-details component="LvHero" :slots="['image', 'buttons']"></component-details>
 </template>
 
 <script>
+const codeLeft = `
+<lv-card>
+    <lv-hero align="left" title="This is a hero component" description="This is the description of the hero component">
+        <template #image>
+            <lv-image src="https://picsum.photos/id/56/2880/1920" width="220px" rounded/>
+        </template>
+        <template #buttons>
+            <lv-button label="Call to action" color="solid-primary"/>
+            <lv-button label="Alternative action" color="solid-dimmed-primary"/>
+        </template>
+    </lv-hero>
+</lv-card>
+`.trim();
+
+const codeCenter = `
+<lv-card>
+    <lv-hero title="This is a hero component" description="This is the description of the hero component">
+        <template #image>
+            <lv-image src="https://picsum.photos/id/56/2880/1920" width="220px" rounded/>
+        </template>
+        <template #buttons>
+            <lv-button label="Call to action" color="solid-primary"/>
+            <lv-button label="Alternative action" color="solid-dimmed-primary"/>
+        </template>
+    </lv-hero>
+</lv-card>
+`.trim();
+
+const codeRight = `
+<lv-card>
+    <lv-hero align="right" title="This is a hero component" description="This is the description of the hero component">
+        <template #image>
+            <lv-image src="https://picsum.photos/id/56/2880/1920" width="220px" rounded/>
+        </template>
+        <template #buttons>
+            <lv-button label="Call to action" color="solid-primary"/>
+            <lv-button label="Alternative action" color="solid-dimmed-primary"/>
+        </template>
+    </lv-hero>
+</lv-card>
+`.trim();
 export default {
     data() {
         return {
+            codeLeft,
+            codeCenter,
+            codeRight,
             activeTab: 'left',
             tabs: [
                 { id: 'left', title: 'Left' },
