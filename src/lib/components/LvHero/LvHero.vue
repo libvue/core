@@ -79,18 +79,44 @@ export default {
         display: flex;
         flex-shrink: 0;
         gap: 10px;
-        margin-top: auto;
     }
 
     &--align-right {
         #{$self}__image {
             display: flex;
             justify-content: center;
-            margin-left: 1rem;
+            margin-left: 3rem;
             text-align: center;
         }
         #{$self}__content {
-            justify-content: flex-end;
+            justify-content: center;
+        }
+        #{$self}__description,
+        #{$self}__title {
+            display: flex;
+            justify-content: flex-start;
+            text-align: left;
+            > * {
+                display: inline;
+            }
+        }
+        #{$self}__buttons {
+            display: flex;
+            justify-content: flex-start;
+        }
+    }
+
+    &--align-left {
+        #{$self}__image {
+            order: 0;
+            display: flex;
+            justify-content: center;
+            margin-right: 1rem;
+            text-align: center;
+        }
+        #{$self}__content {
+            order: 1;
+            justify-content: center;
         }
         #{$self}__description,
         #{$self}__title {
@@ -107,25 +133,12 @@ export default {
         }
     }
 
-    &--align-left {
-        #{$self}__image {
-            order: 0;
-            display: flex;
-            justify-content: center;
-            margin-right: 1rem;
-            text-align: center;
-        }
-        #{$self}__content {
-            order: 1;
-        }
-    }
-
     &--align-center {
         flex-direction: column;
         justify-content: center;
 
         #{$self}__content {
-            order: 1;
+            order: 0;
             justify-content: center;
         }
         #{$self}__description,
@@ -142,10 +155,10 @@ export default {
             justify-content: center;
         }
         #{$self}__image {
-            order: 0;
+            order: 1;
             display: flex;
             justify-content: center;
-            margin-bottom: 1rem;
+            margin-top: 2rem;
             text-align: center;
         }
     }
