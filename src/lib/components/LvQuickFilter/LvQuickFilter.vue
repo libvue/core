@@ -21,7 +21,8 @@
                 :placeholder="placeholder"
                 :icon="icon"
                 type="text"
-                @click="onFocusInput"
+                @focus="onFocusInput"
+                @blur="onBlurInput"
             />
         </div>
 
@@ -33,7 +34,7 @@
                         <div class="lv-quick-filter__results-title">{{ object.label }}</div>
                         <!-- Input -->
                         <template v-if="object.value">
-                            <div :key="key" class="lv-quick-filter__result" tabindex="0" @click="onClickResult(key)">
+                            <div :key="key" class="lv-quick-filter__result" tabindex="0" @click="onClickResult(key)" @keydown.enter.space="onClickResult(key)">
                                 {{ object.value }}
                             </div>
                         </template>
@@ -43,7 +44,9 @@
                                 v-for="(option, optionKey) in object.options"
                                 :key="optionKey"
                                 class="lv-quick-filter__result"
+                                tabindex="0"
                                 @click="onClickResult(key, option[object.valueKey])"
+                                @keydown.enter.space="onClickResult(key, option[object.valueKey])"
                             >
                                 {{ option[object.labelKey || 'label'] }}
                             </div>
@@ -216,8 +219,6 @@ export default {
             handler(val) {
                 if (val && this.search.length > 0 && Object.values(this.dropdownResults).length > 0) {
                     this.dropdownVisible = true;
-                } else {
-                    this.dropdownVisible = false;
                 }
             },
             immediate: true,
@@ -286,7 +287,7 @@ export default {
         display: flex;
         flex-shrink: 0;
         flex-direction: row;
-        flex-wrap: nowrap;
+        max-width: 100%;
         padding: 0.25rem;
         overflow: auto;
     }
