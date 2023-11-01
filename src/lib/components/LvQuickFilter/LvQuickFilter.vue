@@ -1,16 +1,6 @@
 <template>
-    <div class="lv-quick-filter" :class="classObject" tabindex="-1">
+    <div class="lv-quick-filter" ref="quickfilter" :class="classObject" tabindex="-1">
         <div class="lv-quick-filter__input-container">
-            <lv-input
-                ref="input"
-                v-model="search"
-                class="lv-quick-filter__input"
-                :placeholder="placeholder"
-                :icon="icon"
-                type="text"
-                @focus="onFocusInput"
-                @blur="onBlurInput"
-            />
             <lv-flex v-if="hasModelResults" class="lv-quick-filter__pills" gap=".25rem" align-items="center">
                 <lv-pill
                     v-for="(object, key) in modelResults"
@@ -24,6 +14,15 @@
                     @close="onClickClosePill(key)"
                 />
             </lv-flex>
+            <lv-input
+                ref="input"
+                v-model="search"
+                class="lv-quick-filter__input"
+                :placeholder="placeholder"
+                :icon="icon"
+                type="text"
+                @click="onFocusInput"
+            />
         </div>
 
         <transition name="dropdown">
@@ -58,6 +57,7 @@
 
 <script>
 import propSizeMixin from '../../mixins/propSizeMixin';
+import { onClickOutside } from "@vueuse/core";
 import LvPill from '../LvPill/LvPill.vue';
 
 export default {
@@ -112,6 +112,12 @@ export default {
             dropdownVisible: false,
             search: '',
         };
+    },
+    mounted() {
+        onClickOutside(this.$refs.quickfilter, () => {
+            this.dropdownVisible = false;
+            this.focused = false;
+        });
     },
     computed: {
         classObject() {
@@ -244,7 +250,7 @@ export default {
             this.$refs.input.$el.querySelector('.lv-input__input').focus();
 
             // clear the search
-            this.search = '';
+            // this.search = '';
         },
     },
 };
@@ -263,14 +269,15 @@ export default {
         border: 1px solid var(--border-color);
         border-radius: var(--border-radius);
         background-color: var(--background-color);
+        flex-wrap: wrap;
     }
 
     &__input {
         flex-grow: 1;
         flex-shrink: 1;
-        flex-basis: 100%;
         border: 0 !important;
         background: none;
+        min-width: 200px;
         &:focus {
             outline: 0;
         }
@@ -281,7 +288,6 @@ export default {
         flex-direction: row;
         flex-wrap: nowrap;
         padding: 0.25rem;
-        max-width: 75%;
         overflow: auto;
     }
     &__dropdown {
