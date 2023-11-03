@@ -4,8 +4,7 @@
             <template #image>
                 <div class="preview">
                     <lv-card class="preview__login">
-                        <lv-heading level="3">Welcome Back</lv-heading>
-                        <lv-heading level="6" v-space-after="1" sub>Please login</lv-heading>
+                        <lv-heading v-space-after="1" level="3">Login</lv-heading>
                         <lv-input v-space-after=".5" icon="user" placeholder="Enter your username"></lv-input>
                         <lv-input v-space-after="1" icon="key" placeholder="Enter your password"></lv-input>
                         <lv-flex fill>
@@ -25,6 +24,8 @@
         </lv-hero>
 
         <lv-separator v-space-after="4"></lv-separator>
+
+        <lv-code :code="install" v-space-after="2"></lv-code>
 
         <lv-grid v-space-after="4" gap="1.5rem">
             <lv-grid-row gap="1.5rem">
@@ -107,33 +108,7 @@
 import { useBreakpoints } from '../../lib/composables/useBreakpoints';
 
 const install = `
-> npm install --save @libvue/core
-`.trim();
-
-const registerScript = `
-import libvue from '@libvue/core';
-app.use(libvue);
-`.trim();
-
-const registerScss = `
-@import '@libvue/core';
-
-html {
-    min-height: 100%;
-    height: 100%;
-    font-size: 100%;
-}
-body {
-    margin: 0;
-    font-family: "Inter", sans-serif;
-    height: 100%;
-    font-size: .875rem;
-    line-height: 1.5;
-}
-#app {
-    display: flex;
-    min-height: 100%;
-}
+npm install --save @libvue/core
 `.trim();
 
 export default {
@@ -146,11 +121,6 @@ export default {
     data() {
         return {
             install,
-            activeRegisterFile: 'main',
-            registerFiles: [
-                { id: 'main', filename: 'main.js', lang: 'js', code: registerScript },
-                { id: 'scss', filename: 'app.scss', lang: 'css', code: registerScss },
-            ],
             labels: ['January', 'February', 'March', 'April', 'May', 'June'],
             followersDatasets: [
                 {

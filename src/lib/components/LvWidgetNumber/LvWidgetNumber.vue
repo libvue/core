@@ -21,11 +21,6 @@ import LvCard from "../LvCard/LvCard.vue";
 export default {
     components: { LvCard },
     props: {
-        type: {
-            type: String,
-            default: 'number',
-            validator: (val) => ['number', 'graph', 'bar', 'list'].includes(val),
-        },
         title: {
             type: String,
             default: null,
