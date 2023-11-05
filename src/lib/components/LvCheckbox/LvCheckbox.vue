@@ -1,5 +1,5 @@
 <template>
-    <div class="lv-checkbox" :class="classObject" aria-label="checkbox" @click.stop="toggleCheckbox">
+    <div class="lv-checkbox" :class="classObject" aria-label="checkbox" :aria-checked="indeterminate ? 'mixed' : !!modelValue" @click.stop="toggleCheckbox">
         <div class="lv-checkbox__checkbox">
             <input ref="checkbox" class="lv-checkbox__input" type="checkbox" :checked="modelValue" v-bind="$attrs" />
             <lv-icon v-if="indeterminate" class="lv-checkbox__icon" name="minus" />
