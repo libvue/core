@@ -2,10 +2,6 @@
     <lv-heading v-space-after="0.5" :level="3">Installation</lv-heading>
     <lv-heading v-space-after="2" sub :level="6">How to get started with libvue</lv-heading>
 
-    <lv-notice v-space-after="1" icon="info" color="solid-dimmed-info">
-        Libvue only exports the src files so you need to use and compile it in your own vite project.
-    </lv-notice>
-
     <lv-heading v-space-after="1" :level="6">Install</lv-heading>
     <lv-code v-space-after="1" :code="install" lang="bash" />
 
