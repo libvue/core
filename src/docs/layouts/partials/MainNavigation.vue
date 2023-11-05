@@ -16,12 +16,14 @@
                 @click="navigate"
             />
         </router-link>
-        <lv-vertical-nav-item icon="accessibility" disabled>
-            <lv-flex gap=".25rem">
-                Accessibility
-                <lv-badge text="Planned" size="tiny" color="solid-dimmed-primary" />
-            </lv-flex>
-        </lv-vertical-nav-item>
+        <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/accessibility' }" custom>
+            <lv-vertical-nav-item
+                icon="accessibility"
+                label="Accessibility"
+                :active="isActive"
+                @click="navigate"
+            />
+        </router-link>
     </lv-vertical-nav-group>
     <lv-vertical-nav-group label="Components">
         <lv-vertical-nav-list icon="layout" label="Layout">
