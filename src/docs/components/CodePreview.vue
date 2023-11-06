@@ -14,7 +14,7 @@
         <div class="code-preview__content">
             <template v-if="hasFiles">
                 <div v-for="(file, index) in files" v-show="active === file.id" :key="index" class="code-preview__file-code">
-                    <pre class="code-preview__code">{{ file.code }}</pre>
+                    <highlightjs class="code-preview__code" :code="file.code" :language="file.lang"></highlightjs>
                     <lv-icon
                         v-if="!inline"
                         class="code-preview__content-copy"
@@ -24,7 +24,7 @@
                 </div>
             </template>
             <template v-else>
-                <pre class="code-preview__code">{{ code }}</pre>
+                <highlightjs class="code-preview__code" :code="code" :language="lang"></highlightjs>
                 <lv-icon
                     v-if="!inline"
                     class="code-preview__content-copy"
@@ -137,8 +137,6 @@ export default {
         border: 1px solid var(--border-color);
         border-radius: var(--border-radius);
         background-color: var(--code-background-color);
-        padding: var(--padding) calc(var(--padding) * 1.5);
-        padding-right: 35px;
         color: var(--code-text-color);
         font-size: var(--font-size);
         line-height: var(--line-height-large);
@@ -162,7 +160,6 @@ export default {
         #{$self}__content {
             border-top: 1px solid transparent;
             border-radius: 0 0 var(--border-radius) var(--border-radius);
-            padding-right: var(--code-padding);
         }
     }
 
@@ -172,13 +169,92 @@ export default {
         width: auto;
 
         #{$self}__content {
-            padding: calc(var(--padding) * 0.2) calc(var(--padding) * 0.8);
-
             &-copy {
                 top: 10px;
                 right: 11px;
             }
         }
     }
+}
+</style>
+
+
+<style lang="scss">
+.hljs {
+    background: none;
+    color: var(--text-color);
+}
+.lv-code-doctag,
+.lv-code-keyword,
+.lv-code-meta .lv-code-keyword,
+.lv-code-template-tag,
+.lv-code-template-variable,
+.lv-code-type,
+.lv-code-variable.language_ {
+    color: #ff7b72;
+}
+.lv-code-title,
+.lv-code-title.class_,
+.lv-code-title.class_.inherited__,
+.lv-code-title.function_ {
+    color: #d2a8ff;
+}
+.lv-code-attr,
+.lv-code-attribute,
+.lv-code-literal,
+.lv-code-meta,
+.lv-code-number,
+.lv-code-operator,
+.lv-code-selector-attr,
+.lv-code-selector-class,
+.lv-code-selector-id,
+.lv-code-variable {
+    color: var(--color-primary);
+}
+.lv-code-meta .lv-code-string,
+.lv-code-regexp,
+.lv-code-string {
+    color: var(--color-secondary);
+}
+.lv-code-built_in,
+.lv-code-symbol {
+    color: var(--color-warning);
+}
+.lv-code-code,
+.lv-code-comment,
+.lv-code-formula {
+    color: var(--text-color);
+}
+.lv-code-name,
+.lv-code-quote,
+.lv-code-selector-pseudo,
+.lv-code-selector-tag {
+    color: var(--color-success);
+}
+.lv-code-subst {
+    color: #c9d1d9;
+}
+.lv-code-section {
+    color: #1f6feb;
+    font-weight: 700;
+}
+.lv-code-bullet {
+    color: #f2cc60;
+}
+.lv-code-emphasis {
+    color: #c9d1d9;
+    font-style: italic;
+}
+.lv-code-strong {
+    color: #c9d1d9;
+    font-weight: 700;
+}
+.lv-code-addition {
+    background-color: #033a16;
+    color: #aff5b4;
+}
+.lv-code-deletion {
+    background-color: #67060c;
+    color: #ffdcd7;
 }
 </style>

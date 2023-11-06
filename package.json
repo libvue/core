@@ -40,6 +40,7 @@
         "vue": "^3.2.39"
     },
     "devDependencies": {
+        "@highlightjs/vue-plugin": "github:highlightjs/vue-plugin",
         "@vitejs/plugin-vue": "^4.0.0",
         "@vue/compiler-sfc": "^3.2.39",
         "eslint": "^8.24.0",
@@ -48,6 +49,7 @@
         "eslint-plugin-import": "^2.26.0",
         "eslint-plugin-prettier": "^4.2.1",
         "eslint-plugin-vue": "^9.6.0",
+        "highlight.js": "^11.9.0",
         "postcss": "^8.4.17",
         "prettier": "^2.8.2",
         "prettier-plugin-css-order": "^1.3.0",

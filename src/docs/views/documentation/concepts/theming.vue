@@ -12,7 +12,7 @@
         <template #theme>
             <lv-text v-space-after="1">
                 When changing theme variables you must assign them to prefers-color-scheme media query for automatically setting the correct theme.
-                <code-preview code='@media (prefers-color-scheme: dark|light)' lang="css" inline/> and use the HTML attribute <code-preview code='[data-theme="dark|light"]' lang="css" inline/> for overrides.
+                <lv-code>@media (prefers-color-scheme: dark|light)</lv-code> and use the HTML attribute <lv-code>[data-theme="dark|light"]</lv-code> for overrides.
             </lv-text>
             <code-preview v-space-after="1" :code="codeThemeVariables" lang="css" />
         </template>

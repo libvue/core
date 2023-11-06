@@ -43,7 +43,7 @@ $theme-light-shadow-focus-warning: 0px 0px 0px 3px rgba($theme-light-color-warni
 $theme-light-shadow-focus-danger: 0px 0px 0px 3px rgba($theme-light-color-danger, 0.24) !default;
 $theme-light-shadow-focus-info: 0px 0px 0px 3px rgba($theme-light-color-info, 0.23) !default;
 $theme-light-shadow-focus-ghost: 0px 0px 0px 3px rgba(darken($theme-light-color-ghost, 56), 0.23) !default;
-$theme-light-code-background-color: lighten($theme-light-color-primary, 40);
+$theme-light-code-background-color: #fff;
 $theme-light-code-text-color: $theme-light-color-primary;
 $theme-light-code-header-color: #fff;
 $theme-light-code-button-color: lighten($theme-light-color-primary, 39);

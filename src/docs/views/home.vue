@@ -25,7 +25,7 @@
 
         <lv-separator v-space-after="4"></lv-separator>
 
-        <code-preview :code="install" v-space-after="2"></code-preview>
+        <code-preview :code="install" lang="shell" v-space-after="2"></code-preview>
 
         <lv-grid v-space-after="4" gap="1.5rem">
             <lv-grid-row gap="1.5rem">
