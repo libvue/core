@@ -6,15 +6,15 @@
     <code-preview v-space-after="1" lang="javascript" :code="codeInstall" />
 
     <lv-heading v-space-after="1" :level="6">Example</lv-heading>
-    <lv-paragraph v-space-after="1">
+    <lv-text v-space-after="1">
         Resize the page to see updates.
-    </lv-paragraph>
+    </lv-text>
     <code-preview v-space-after="1" :code="JSON.stringify(breakpoints, null, 2)"></code-preview>
 
     <lv-heading v-space-after="1" :level="6">Change the breakpoints</lv-heading>
-    <lv-paragraph v-space-after="1">
+    <lv-text v-space-after="1">
         The breakpoints in this composable are extracted from the CSS variables.
-    </lv-paragraph>
+    </lv-text>
     <code-preview v-space-after="1" lang="javascript" :code="codeChange" />
 
     <lv-heading v-space-after="1" :level="6">Computed Properties</lv-heading>

@@ -27,7 +27,7 @@ const LvCheckbox = () => import('../../../views/documentation/components/lv-chec
 const LvVerticalNav = () => import('../../../views/documentation/components/lv-vertical-nav.vue');
 const LvHorizontalNav = () => import('../../../views/documentation/components/lv-horizontal-nav.vue');
 const LvHeading = () => import('../../../views/documentation/components/lv-heading.vue');
-const LvParagraph = () => import('../../../views/documentation/components/lv-paragraph.vue');
+const LvText = () => import('../../../views/documentation/components/lv-text.vue');
 const LvBlockquote = () => import('../../../views/documentation/components/lv-blockquote.vue');
 const LvCode = () => import('../../../views/documentation/components/lv-code.vue');
 const LvThemeToggle = () => import('../../../views/documentation/components/lv-theme-toggle.vue');
@@ -347,9 +347,9 @@ export default [
         component: LvHeading,
     },
     {
-        path: '/docs/lv-paragraph',
-        name: 'lv-paragraph',
-        component: LvParagraph,
+        path: '/docs/lv-text',
+        name: 'lv-text',
+        component: LvText,
     },
     {
         path: '/docs/lv-blockquote',

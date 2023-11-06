@@ -4,16 +4,16 @@
 
     <lv-tabs :tabs="tabs" :active="activeTab" @change-tab="(v) => (activeTab = v)">
         <template #global>
-            <lv-paragraph v-space-after="1">
+            <lv-text v-space-after="1">
                 You can overwrite global variables by adding them to the :root directly.
-            </lv-paragraph>
+            </lv-text>
             <code-preview v-space-after="1" :code="codeGlobalVariables" lang="css" />
         </template>
         <template #theme>
-            <lv-paragraph v-space-after="1">
+            <lv-text v-space-after="1">
                 When changing theme variables you must assign them to prefers-color-scheme media query for automatically setting the correct theme.
                 <code-preview code='@media (prefers-color-scheme: dark|light)' lang="css" inline/> and use the HTML attribute <code-preview code='[data-theme="dark|light"]' lang="css" inline/> for overrides.
-            </lv-paragraph>
+            </lv-text>
             <code-preview v-space-after="1" :code="codeThemeVariables" lang="css" />
         </template>
     </lv-tabs>

@@ -35,7 +35,7 @@
                             <lv-heading v-space-after="1" :level="5">
                                 <lv-icon v-space-after="0.5" name="scaling" />Responsive
                             </lv-heading>
-                            <lv-paragraph> Use your CSS breakpoints programmatically </lv-paragraph>
+                            <lv-text> Use your CSS breakpoints programmatically </lv-text>
                         </lv-card>
                     </lv-link>
                 </lv-grid-column>
@@ -45,7 +45,7 @@
                             <lv-heading v-space-after="1" :level="5">
                                 <lv-icon v-space-after="0.5" name="component" />70+ Components
                             </lv-heading>
-                            <lv-paragraph> A lot of components at your disposal and more are coming! </lv-paragraph>
+                            <lv-text> A lot of components at your disposal and more are coming! </lv-text>
                         </lv-card>
                     </lv-link>
                 </lv-grid-column>
@@ -55,7 +55,7 @@
                             <lv-heading v-space-after="1" :level="5">
                                 <lv-icon v-space-after="0.5" name="package-open" />Open Source
                             </lv-heading>
-                            <lv-paragraph> We love open-source and we are ready for your contributions! </lv-paragraph>
+                            <lv-text> We love open-source and we are ready for your contributions! </lv-text>
                         </lv-card>
                     </lv-link>
                 </lv-grid-column>
@@ -67,7 +67,7 @@
                             <lv-heading v-space-after="1" :level="5">
                                 <lv-icon v-space-after="0.5" name="palette" />Theming
                             </lv-heading>
-                            <lv-paragraph> Out of the box support for light and dark color schemes. </lv-paragraph>
+                            <lv-text> Out of the box support for light and dark color schemes. </lv-text>
                         </lv-card>
                     </lv-link>
                 </lv-grid-column>
@@ -77,7 +77,7 @@
                             <lv-heading v-space-after="1" :level="5">
                                 <lv-icon v-space-after="0.5" name="grid-2x2" />Grid
                             </lv-heading>
-                            <lv-paragraph> Grid components ready to make any layout possible. </lv-paragraph>
+                            <lv-text> Grid components ready to make any layout possible. </lv-text>
                         </lv-card>
                     </lv-link>
                 </lv-grid-column>
@@ -87,9 +87,9 @@
                             <lv-heading v-space-after="1" :level="5">
                                 <lv-icon v-space-after="0.5" name="align-vertical-space-around" />Spacing
                             </lv-heading>
-                            <lv-paragraph>
+                            <lv-text>
                                 Our components don't have outer spacing. Use our directive instead.
-                            </lv-paragraph>
+                            </lv-text>
                         </lv-card>
                     </lv-link>
                 </lv-grid-column>
@@ -98,9 +98,9 @@
 
         <lv-separator v-space-after="4"></lv-separator>
 
-        <lv-paragraph v-space-after="2" align="center">
+        <lv-text v-space-after="2" align="center">
             Released under the MIT License. Copyright © Harmen de Vries
-        </lv-paragraph>
+        </lv-text>
     </div>
 </template>
 

@@ -2,10 +2,10 @@
     <lv-heading v-space-after="0.5" :level="3">Accessibility</lv-heading>
     <lv-heading v-space-after="2" sub :level="6">If possible, we try to follow the ARIA Authoring Practices Guide (APG)</lv-heading>
 
-    <lv-paragraph v-space-after="1">
+    <lv-text v-space-after="1">
         When applicable, our components follow the ARIA Authoring Practices Guide (APG). You can see if a
         component is following these guidelines by a notice above on that page. It look likes this:
-    </lv-paragraph>
+    </lv-text>
 
     <lv-notice color="solid-dimmed-success" v-space-after="1" icon="accessibility">
         <lv-flex gap=".2rem">
@@ -13,9 +13,9 @@
         </lv-flex>
     </lv-notice>
 
-    <lv-paragraph v-space-after="1">
+    <lv-text v-space-after="1">
         Below is a list of design choices we made or you should be aware of.
-    </lv-paragraph>
+    </lv-text>
 
     <lv-heading v-space-after="1" :level="5">Design Choices</lv-heading>
     <lv-list v-space-after="1">

@@ -55,7 +55,7 @@ import LvVerticalNavGroup from './LvVerticalNavGroup/LvVerticalNavGroup.vue';
 import LvVerticalNavItem from './LvVerticalNavItem/LvVerticalNavItem.vue';
 import LvVerticalNavList from './LvVerticalNavList/LvVerticalNavList.vue';
 import LvNotice from './LvNotice/LvNotice.vue';
-import LvParagraph from './LvParagraph/LvParagraph.vue';
+import LvText from './LvText/LvText.vue';
 import LvPill from './LvPill/LvPill.vue';
 import LvPopover from './LvPopover/LvPopover.vue';
 import LvRadio from './LvRadio/LvRadio.vue';
@@ -131,7 +131,7 @@ export {
     LvVerticalNavItem,
     LvVerticalNavList,
     LvNotice,
-    LvParagraph,
+    LvText,
     LvPill,
     LvPopover,
     LvRadio,
@@ -208,7 +208,7 @@ export default {
     LvVerticalNavItem,
     LvVerticalNavList,
     LvNotice,
-    LvParagraph,
+    LvText,
     LvPill,
     LvPopover,
     LvRadio,

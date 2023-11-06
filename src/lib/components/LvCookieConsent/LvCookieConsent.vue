@@ -7,9 +7,9 @@
             <div v-if="show" class="lv-cookie-consent" role="dialog" :aria-modal="!!modal">
                 <slot>
                     <lv-heading v-space-after=".5" :level="5">{{ title }}</lv-heading>
-                    <lv-paragraph v-space-after="1">
+                    <lv-text v-space-after="1">
                         {{ description }}
-                    </lv-paragraph>
+                    </lv-text>
                     <lv-flex>
                         <lv-button :label="acceptButtonText" color="solid-primary" @click="onClickAccept"/>
                         <lv-button :label="declineButtonText" color="solid-dimmed-primary" @click="onClickDecline"/>
@@ -23,12 +23,12 @@
 
 <script>
 import LvHeading from "../LvHeading/LvHeading.vue";
-import LvParagraph from "../LvParagraph/LvParagraph.vue";
+import LvText from "../LvText/LvText.vue";
 import LvFlex from "../LvFlex/LvFlex.vue";
 import LvButton from "../LvButton/LvButton.vue";
 
 export default {
-    components: { LvButton, LvFlex, LvParagraph, LvHeading },
+    components: { LvButton, LvFlex, LvText, LvHeading },
     props: {
         show: {
             type: Boolean,

@@ -174,8 +174,8 @@
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-heading' }" custom>
                 <lv-vertical-nav-item label="Heading" :active="isActive" @click="navigate" />
             </router-link>
-            <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-paragraph' }" custom>
-                <lv-vertical-nav-item label="Paragraph" :active="isActive" @click="navigate" />
+            <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-text' }" custom>
+                <lv-vertical-nav-item label="Text" :active="isActive" @click="navigate" />
             </router-link>
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-list' }" custom>
                 <lv-vertical-nav-item label="List" :active="isActive" @click="navigate" />

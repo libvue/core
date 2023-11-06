@@ -9,14 +9,14 @@
         <lv-icon name="moon" :size="32" />
     </lv-card>
     <code-preview v-space-after="1" lang="html" :code="code" />
-    <lv-paragraph v-space-after="1">
+    <lv-text v-space-after="1">
         You can check all possible icons at <lv-link to="http://www.lucide.dev" target="_blank">lucide.dev</lv-link>!
-    </lv-paragraph>
+    </lv-text>
 
     <component-details component="LvIcon"></component-details>
 
     <lv-heading v-space-after="1" :level="6">Accessibility</lv-heading>
-    <lv-paragraph v-space-after="1">
+    <lv-text v-space-after="1">
         Applies the
         <lv-link
             to="https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Attributes/aria-hidden"
@@ -24,7 +24,7 @@
         >
             aria-hidden
         </lv-link> attribute.
-    </lv-paragraph>
+    </lv-text>
 </template>
 
 <script>
