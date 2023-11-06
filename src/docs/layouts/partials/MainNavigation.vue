@@ -177,6 +177,9 @@
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-paragraph' }" custom>
                 <lv-vertical-nav-item label="Paragraph" :active="isActive" @click="navigate" />
             </router-link>
+            <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-list' }" custom>
+                <lv-vertical-nav-item label="List" :active="isActive" @click="navigate" />
+            </router-link>
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-blockquote' }" custom>
                 <lv-vertical-nav-item label="Blockquote" :active="isActive" @click="navigate" />
             </router-link>
