@@ -11,5 +11,7 @@ export default {};
 <style lang="scss">
 .lv-list-item {
     color: var(--text-color);
+    font-size: var(--font-size);
+    line-height: var(--line-height-large);
 }
 </style>

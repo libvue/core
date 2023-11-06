@@ -19,5 +19,7 @@ export default {
 .lv-list {
     margin: 0;
     padding-left: 1rem;
+    font-size: var(--font-size);
+    line-height: var(--line-height-large);
 }
 </style>
