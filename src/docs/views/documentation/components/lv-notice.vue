@@ -2,7 +2,11 @@
     <lv-heading v-space-after="0.5" :level="3">Notice</lv-heading>
     <lv-heading v-space-after="2" sub :level="6">A inline text to pop out. Also known as an alert.</lv-heading>
 
-    <lv-notice color="solid-dimmed-success" v-space-after="1" icon="accessibility">Follows w3.org Aria Alert Pattern</lv-notice>
+    <lv-notice color="solid-dimmed-success" v-space-after="1" icon="accessibility">
+        <lv-flex gap=".2rem">
+            Using <lv-link color="currentColor" href="https://www.w3.org/WAI/ARIA/apg/patterns/alert/" target="_blank" highlight>w3.org Aria Alert Pattern</lv-link>
+        </lv-flex>
+    </lv-notice>
 
     <lv-tabs v-space-after="1" :tabs="tabs" :active="activeTab" @change-tab="(v) => (activeTab = v)">
         <template #colors>

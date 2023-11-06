@@ -2,7 +2,11 @@
     <lv-heading v-space-after="0.5" :level="3">Checkbox</lv-heading>
     <lv-heading v-space-after="2" sub :level="6">A simple checkbox</lv-heading>
 
-    <lv-notice color="solid-dimmed-success" v-space-after="1" icon="accessibility">Follows w3.org Aria Checkbox Pattern</lv-notice>
+    <lv-notice color="solid-dimmed-success" v-space-after="1" icon="accessibility">
+        <lv-flex gap=".2rem">
+            Using <lv-link color="currentColor" href="https://www.w3.org/WAI/ARIA/apg/patterns/checkbox/" target="_blank" highlight>w3.org Aria Checkbox Pattern</lv-link>
+        </lv-flex>
+    </lv-notice>
 
     <lv-card v-space-after="1">
         <lv-flex direction="column">

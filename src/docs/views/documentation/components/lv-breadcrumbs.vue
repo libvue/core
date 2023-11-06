@@ -2,7 +2,11 @@
     <lv-heading v-space-after="0.5" :level="3">Breadcrumbs</lv-heading>
     <lv-heading v-space-after="2" sub :level="6">Visualize a path within your site</lv-heading>
 
-    <lv-notice color="solid-dimmed-success" v-space-after="1" icon="accessibility">Follows w3.org Aria Breadcrumb Pattern</lv-notice>
+    <lv-notice color="solid-dimmed-success" v-space-after="1" icon="accessibility">
+        <lv-flex gap=".2rem">
+            Using <lv-link color="currentColor" href="https://www.w3.org/WAI/ARIA/apg/patterns/breadcrumb/" target="_blank" highlight>w3.org Aria Breadcrumb Pattern</lv-link>
+        </lv-flex>
+    </lv-notice>
 
     <lv-card v-space-after="1">
         <lv-breadcrumbs :crumbs="crumbs" home-path="/docs/lv-breadcrumbs" show-home />

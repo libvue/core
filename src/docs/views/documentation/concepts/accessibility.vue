@@ -7,7 +7,11 @@
         component is following these guidelines by a notice above on that page. It look likes this:
     </lv-paragraph>
 
-    <lv-notice color="solid-dimmed-success" v-space-after="1" icon="accessibility">Follows w3.org Pattern x</lv-notice>
+    <lv-notice color="solid-dimmed-success" v-space-after="1" icon="accessibility">
+        <lv-flex gap=".2rem">
+            Using <lv-link color="currentColor" href="https://www.w3.org/WAI/ARIA/apg/patterns/" target="_blank" highlight>w3.org Aria Patterns</lv-link>
+        </lv-flex>
+    </lv-notice>
 
     <lv-paragraph v-space-after="1">
         Below is a list of design choices we made or you should be aware of.
