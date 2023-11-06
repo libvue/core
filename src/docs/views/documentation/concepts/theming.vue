@@ -1,20 +1,20 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">Theming</lv-heading>
-    <lv-heading v-space-after="2" sub :level="6">Customize this crap!</lv-heading>
+    <lv-heading v-space-after="2" sub :level="6">This describes how to customize the theme of libvue</lv-heading>
 
     <lv-tabs :tabs="tabs" :active="activeTab" @change-tab="(v) => (activeTab = v)">
         <template #global>
             <lv-text v-space-after="1">
                 You can overwrite global variables by adding them to the :root directly.
             </lv-text>
-            <code-preview v-space-after="1" :code="codeGlobalVariables" lang="css" />
+            <code-preview v-space-after="1" :code="codeGlobalVariables" lang="scss" />
         </template>
         <template #theme>
             <lv-text v-space-after="1">
                 When changing theme variables you must assign them to prefers-color-scheme media query for automatically setting the correct theme.
                 <lv-code>@media (prefers-color-scheme: dark|light)</lv-code> and use the HTML attribute <lv-code>[data-theme="dark|light"]</lv-code> for overrides.
             </lv-text>
-            <code-preview v-space-after="1" :code="codeThemeVariables" lang="css" />
+            <code-preview v-space-after="1" :code="codeThemeVariables" lang="scss" />
         </template>
     </lv-tabs>
 

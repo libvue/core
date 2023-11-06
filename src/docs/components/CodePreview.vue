@@ -59,7 +59,7 @@ export default {
             type: String,
             default: 'javascript',
             required: false,
-            validator: (value) => ['javascript', 'bash', 'html', 'css', 'scss'].includes(value),
+            validator: (value) => ['javascript', 'shell', 'html', 'scss'].includes(value),
         },
         inline: {
             type: Boolean,
@@ -103,7 +103,6 @@ export default {
 
 <style lang="scss">
 .code-preview {
-    --code-padding: 14px;
     $self: &;
     width: 100%;
 

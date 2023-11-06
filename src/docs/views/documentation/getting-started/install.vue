@@ -3,7 +3,7 @@
     <lv-heading v-space-after="2" sub :level="6">How to get started with libvue</lv-heading>
 
     <lv-heading v-space-after="1" :level="6">Install</lv-heading>
-    <code-preview v-space-after="1" :code="install" lang="bash" />
+    <code-preview v-space-after="1" :code="install" lang="shell" />
 
     <lv-heading v-space-after="1" :level="6">Basic Configuration</lv-heading>
     <code-preview
@@ -58,7 +58,7 @@ export default {
             activeRegisterFile: 'main',
             registerFiles: [
                 { id: 'main', filename: 'main.js', lang: 'js', code: registerScript },
-                { id: 'scss', filename: 'app.scss', lang: 'css', code: registerScss },
+                { id: 'scss', filename: 'app.scss', lang: 'scss', code: registerScss },
             ],
         };
     },
