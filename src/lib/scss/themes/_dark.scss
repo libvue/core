@@ -43,9 +43,10 @@ $theme-dark-shadow-focus-warning: 0px 0px 0px 3px rgba($theme-dark-color-warning
 $theme-dark-shadow-focus-danger: 0px 0px 0px 3px rgba($theme-dark-color-danger, 0.24) !default;
 $theme-dark-shadow-focus-info: 0px 0px 0px 3px rgba($theme-dark-color-info, 0.23) !default;
 $theme-dark-shadow-focus-ghost: 0px 0px 0px 3px rgba(darken($theme-dark-color-ghost, 56), 0.23) !default;
-$theme-dark-code-background-color: #060606;
-$theme-dark-code-header-color: #000000;
-$theme-dark-code-button-color: #2a2a2a;
+$theme-dark-code-background-color: #16141c;
+$theme-dark-code-text-color: $theme-dark-color-primary;
+$theme-dark-code-header-color: #0e0e0e;
+$theme-dark-code-button-color: #2c2936;
 $theme-dark-blockquote-background-color: #151515;
 $theme-dark-scrollbar-track-background-color: #141414;
 $theme-dark-scrollbar-thumb-background-color: #303030;
@@ -101,6 +102,7 @@ $theme-dark: (
     shadow-focus-info: $theme-dark-shadow-focus-info,
     shadow-focus-ghost: $theme-dark-shadow-focus-ghost,
     code-background-color: $theme-dark-code-background-color,
+    code-text-color: $theme-dark-code-text-color,
     code-header-color: $theme-dark-code-header-color,
     code-button-color: $theme-dark-code-button-color,
     blockquote-background-color: $theme-dark-blockquote-background-color,
