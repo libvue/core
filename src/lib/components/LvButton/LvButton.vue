@@ -5,6 +5,7 @@
         class="lv-button"
         :class="classObject"
         :disabled="disabled"
+        :aria-disabled="disabled"
         role="button"
         @click="onClick"
         @keydown.enter.space="onClick"
