@@ -2,6 +2,7 @@
     <div class="lv-switch" :class="classObject" role="switch">
         <div class="lv-switch__checkbox">
             <input
+                :id="labelFor"
                 class="lv-switch__input"
                 type="checkbox"
                 :checked="modelValue"
@@ -10,7 +11,7 @@
             />
             <lv-spinner v-if="loading" class="lv-switch__loader" :size="12" />
         </div>
-        <div v-if="label" class="lv-switch__label" @click="toggleCheckbox">{{ label }}</div>
+        <label v-if="label" :for="labelFor" class="lv-switch__label" @click="toggleCheckbox">{{ label }}</label>
     </div>
 </template>
 
@@ -28,6 +29,10 @@ export default {
         label: {
             type: String,
             default: '',
+        },
+        labelFor: {
+            type: String,
+            default: null,
         },
         disabled: {
             type: Boolean,

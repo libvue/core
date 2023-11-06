@@ -25,7 +25,7 @@
         <lv-list-item>
             Our form elements support placeholders but you should always use labels for form elements and placeholders as an addition.
             <lv-list>
-                <lv-list-item>LvCheckbox and the LvRadio component have a prop:label and prop:labelFor that inserts a label as text next to it.</lv-list-item>
+                <lv-list-item>LvCheckbox, LvSwitch and the LvRadio component have a prop:label and prop:labelFor that inserts a label as text next to it.</lv-list-item>
                 <lv-list-item>All other form elements should use LvText with the prop:as set to 'label' and the prop:labelFor set to the id of the form element.</lv-list-item>
             </lv-list>
         </lv-list-item>
@@ -36,13 +36,14 @@
 
     <lv-heading v-space-after="1" :level="5">ARIA Compatible Components</lv-heading>
     <lv-list>
-        <lv-list-item>LvCheckbox</lv-list-item>
-        <lv-list-item>LvRadio</lv-list-item>
-        <lv-list-item>LvNotice</lv-list-item>
         <lv-list-item>LvBreadcrumbs</lv-list-item>
         <lv-list-item>LvButton</lv-list-item>
-        <lv-list-item>LvToggle</lv-list-item>
+        <lv-list-item>LvCheckbox</lv-list-item>
         <lv-list-item>LvDialog</lv-list-item>
+        <lv-list-item>LvNotice</lv-list-item>
+        <lv-list-item>LvRadio</lv-list-item>
+        <lv-list-item>LvToggle</lv-list-item>
+        <lv-list-item>lvSwitch</lv-list-item>
         <lv-list-item>and more to come</lv-list-item>
     </lv-list>
 </template>
