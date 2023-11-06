@@ -5,7 +5,7 @@
         <lv-textarea v-model="text"/>
         {{ text }}
     </lv-card>
-    <lv-code v-space-after="1" :code="code" lang="html"/>
+    <code-preview v-space-after="1" :code="code" lang="html"/>
     <component-details component="LvTextarea"></component-details>
 </template>
 

@@ -10,8 +10,8 @@
                     <lv-button label="Randomize" color="solid-dimmed-primary" icon="rotate-cw" @click="onClickRandomize"/>
                 </lv-flex>
             </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeLineChartTemplate" />
-            <lv-code v-space-after="1" lang="javascript" :code="codeChartScript" />
+            <code-preview v-space-after="1" lang="html" :code="codeLineChartTemplate" />
+            <code-preview v-space-after="1" lang="javascript" :code="codeChartScript" />
         </template>
         <template #bar>
             <lv-card v-space-after="1">
@@ -20,8 +20,8 @@
                     <lv-button label="Randomize" color="solid-dimmed-primary" icon="rotate-cw" @click="onClickRandomize"/>
                 </lv-flex>
             </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeBarChartTemplate" />
-            <lv-code v-space-after="1" lang="javascript" :code="codeChartScript" />
+            <code-preview v-space-after="1" lang="html" :code="codeBarChartTemplate" />
+            <code-preview v-space-after="1" lang="javascript" :code="codeChartScript" />
         </template>
     </lv-tabs>
     <component-details component="LvChart"></component-details>

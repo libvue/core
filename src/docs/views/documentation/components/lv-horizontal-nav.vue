@@ -17,7 +17,7 @@
             <lv-horizontal-nav-item v-space-after="1" label="Extensions" />
         </lv-flex>
     </lv-card>
-    <lv-code v-space-after="1" lang="html" :code="code" />
+    <code-preview v-space-after="1" lang="html" :code="code" />
     <component-details
         v-space-after="1"
         title="LvHorizontalNavItem"

@@ -4,7 +4,7 @@
     <lv-card v-space-after="1">
         <lv-progress-steps :steps="steps" :active="activeStep" @change-step="(v) => (activeStep = v)" />
     </lv-card>
-    <lv-code v-space-after="1" :files="files" :active="activeFile" @change-file="(v) => (activeFile = v)"></lv-code>
+    <code-preview v-space-after="1" :files="files" :active="activeFile" @change-file="(v) => (activeFile = v)"></code-preview>
     <component-details component="LvProgressSteps"></component-details>
 </template>
 

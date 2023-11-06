@@ -12,7 +12,7 @@
                 </lv-select>
                 v-model: {{ modelSingle }}
             </lv-card>
-            <lv-code v-space-after="1" :code="codeSingle" lang="html" />
+            <code-preview v-space-after="1" :code="codeSingle" lang="html" />
         </template>
         <template #multiple>
             <lv-card v-space-after="1">
@@ -23,7 +23,7 @@
                 </lv-select>
                 v-model: {{ modelMultiple }}
             </lv-card>
-            <lv-code v-space-after="1" :code="codeMultiple" lang="html" />
+            <code-preview v-space-after="1" :code="codeMultiple" lang="html" />
         </template>
         <template #search>
             <lv-card v-space-after="1">
@@ -34,7 +34,7 @@
                 </lv-select>
                 v-model: {{ modelSearch }}
             </lv-card>
-            <lv-code v-space-after="1" :code="codeSearch" lang="html" />
+            <code-preview v-space-after="1" :code="codeSearch" lang="html" />
         </template>
     </lv-tabs>
 

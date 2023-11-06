@@ -27,7 +27,7 @@
             </lv-toggle-group>
         </lv-flex>
     </lv-card>
-    <lv-code v-space-after="1" :code="code" lang="html"></lv-code>
+    <code-preview v-space-after="1" :code="code" lang="html"></code-preview>
     <component-details component="LvToggleGroup"></component-details>
 </template>
 

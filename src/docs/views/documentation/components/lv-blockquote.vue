@@ -9,7 +9,7 @@
         <lv-paragraph> Lorem ipsum dolor sit amet, consectetur adipiscing elit </lv-paragraph>
     </lv-card>
 
-    <lv-code v-space-after="1" lang="html" :code="codeBlockquote" />
+    <code-preview v-space-after="1" lang="html" :code="codeBlockquote" />
     <component-details component="LvBlockquote"></component-details>
 </template>
 

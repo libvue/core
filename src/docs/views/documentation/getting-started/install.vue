@@ -3,10 +3,10 @@
     <lv-heading v-space-after="2" sub :level="6">How to get started with libvue</lv-heading>
 
     <lv-heading v-space-after="1" :level="6">Install</lv-heading>
-    <lv-code v-space-after="1" :code="install" lang="bash" />
+    <code-preview v-space-after="1" :code="install" lang="bash" />
 
     <lv-heading v-space-after="1" :level="6">Basic Configuration</lv-heading>
-    <lv-code
+    <code-preview
         v-space-after="2"
         :files="registerFiles"
         :active="activeRegisterFile"

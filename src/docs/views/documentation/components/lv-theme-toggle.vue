@@ -4,7 +4,7 @@
     <lv-card v-space-after="1">
         <lv-theme-toggle v-model="theme"/>
     </lv-card>
-    <lv-code v-space-after="1" lang="html" :active="activeFile" :files="files" @change-file="(v) => activeFile = v" />
+    <code-preview v-space-after="1" lang="html" :active="activeFile" :files="files" @change-file="(v) => activeFile = v" />
     <component-details component="LvThemeToggle"></component-details>
 </template>
 

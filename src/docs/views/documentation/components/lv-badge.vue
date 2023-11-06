@@ -10,14 +10,14 @@
             <lv-badge text="hello" color="outline-info" />
         </lv-flex>
     </lv-card>
-    <lv-code v-space-after="1" lang="html" :code="codeDefault" />
+    <code-preview v-space-after="1" lang="html" :code="codeDefault" />
     <lv-heading v-space-after="1" :level="6">Slotted</lv-heading>
     <lv-card v-space-after="1">
         <lv-badge text="hello">
             <lv-button label="Im a button" />
         </lv-badge>
     </lv-card>
-    <lv-code v-space-after="1" lang="html" :code="codeSlotted" />
+    <code-preview v-space-after="1" lang="html" :code="codeSlotted" />
     <component-details component="LvBadge"></component-details>
 </template>
 

@@ -4,18 +4,18 @@
     <lv-card v-space-after="1">
         <lv-skeleton/>
     </lv-card>
-    <lv-code v-space-after="1" lang="html" :code="codeDefault"/>
+    <code-preview v-space-after="1" lang="html" :code="codeDefault"/>
     <lv-card v-space-after="1">
         <lv-skeleton width="200px" height="100px"/>
     </lv-card>
-    <lv-code v-space-after="1" lang="html" :code="codeDimensions"/>
+    <code-preview v-space-after="1" lang="html" :code="codeDimensions"/>
     <lv-card v-space-after="1">
         <lv-flex>
             <lv-skeleton width="50px" height="50px" rounded/>
             <lv-skeleton width="50px" height="50px" squared/>
         </lv-flex>
     </lv-card>
-    <lv-code v-space-after="1" lang="html" :code="codeShapes"/>
+    <code-preview v-space-after="1" lang="html" :code="codeShapes"/>
     <component-details component="LvSkeleton"></component-details>
 </template>
 

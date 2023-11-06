@@ -10,7 +10,7 @@
         </lv-flex>
     </lv-card>
 
-    <lv-code :code="code" v-space-after="1" lang="html"/>
+    <code-preview :code="code" v-space-after="1" lang="html"/>
 
     <component-details component="LvColorSwatch"></component-details>
 </template>

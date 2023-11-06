@@ -9,7 +9,7 @@
         <lv-paragraph align="center"> Lorem ipsum dolor sit amet, consectetur adipiscing elit </lv-paragraph>
         <lv-paragraph align="right"> Lorem ipsum dolor sit amet, consectetur adipiscing elit </lv-paragraph>
     </lv-card>
-    <lv-code v-space-after="1" lang="html" :code="codeParagraph" />
+    <code-preview v-space-after="1" lang="html" :code="codeParagraph" />
     <component-details component="LvParagraph"></component-details>
 </template>
 

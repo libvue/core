@@ -1,6 +1,9 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">Dialog</lv-heading>
     <lv-heading v-space-after="2" sub :level="6">A non-modal or modal dialog</lv-heading>
+
+    <lv-notice color="solid-dimmed-success" v-space-after="1" icon="accessibility">Follows w3.org Aria Dialog Pattern</lv-notice>
+
     <lv-card v-space-after="1">
         <lv-button label="Open the dialog" @click="showDialog = true"/>
         <lv-dialog :show="showDialog" @click-backdrop="showDialog = false" :modal="false">
@@ -21,7 +24,7 @@
             </template>
         </lv-dialog>
     </lv-card>
-    <lv-code v-space-after="1" :code="code" lang="html"/>
+    <code-preview v-space-after="1" :code="code" lang="html"/>
     <component-details component="LvDialog"></component-details>
 </template>
 

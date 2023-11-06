@@ -7,6 +7,7 @@ import router from './router';
 import './assets/sass/app.scss';
 
 import ComponentDetails from './components/ComponentDetails.vue';
+import CodePreview from './components/CodePreview.vue';
 
 // Create app
 const app = createApp(App);
@@ -16,6 +17,7 @@ app.config.unwrapInjectedRef = true;
 
 // Register custom components
 app.component('ComponentDetails', ComponentDetails);
+app.component('CodePreview', CodePreview);
 
 // Use plugins
 app.use(router);

@@ -8,7 +8,7 @@
         <lv-icon name="rocket" :push="0.5" :size="24" />
         <lv-icon name="moon" :size="32" />
     </lv-card>
-    <lv-code v-space-after="1" lang="html" :code="code" />
+    <code-preview v-space-after="1" lang="html" :code="code" />
     <lv-paragraph v-space-after="1">
         You can check all possible icons at <lv-link to="http://www.lucide.dev" target="_blank">lucide.dev</lv-link>!
     </lv-paragraph>

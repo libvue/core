@@ -2,7 +2,7 @@
     <lv-heading v-space-after="0.5" :level="3">v-space-after</lv-heading>
     <lv-heading v-space-after="2" sub :level="6">Used for creating some space between your elements</lv-heading>
     <lv-heading v-space-after="1" :level="6">Install v-space-after directive</lv-heading>
-    <lv-code v-space-after="1" :code="installDirective" lang="javascript" />
+    <code-preview v-space-after="1" :code="installDirective" lang="javascript" />
 
     <lv-heading v-space-after="1" :level="6">Example</lv-heading>
     <lv-card v-space-after="1">
@@ -14,7 +14,7 @@
             I'm here for fun
         </lv-card>
     </lv-card>
-    <lv-code v-space-after="1" :code="codeExample" lang="html" />
+    <code-preview v-space-after="1" :code="codeExample" lang="html" />
 </template>
 
 <script>

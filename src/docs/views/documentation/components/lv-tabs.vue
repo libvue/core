@@ -11,8 +11,8 @@
             </template>
         </lv-tabs>
     </lv-card>
-    <lv-code v-space-after="1" lang="html" :code="codeTemplate" />
-    <lv-code v-space-after="1" lang="javascript" :code="codeScript" />
+    <code-preview v-space-after="1" lang="html" :code="codeTemplate" />
+    <code-preview v-space-after="1" lang="javascript" :code="codeScript" />
     <component-details component="LvTabs"></component-details>
 </template>
 

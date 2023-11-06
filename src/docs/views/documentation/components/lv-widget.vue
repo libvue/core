@@ -14,7 +14,7 @@
                     </lv-grid-column>
                 </lv-grid-row>
             </lv-grid>
-            <lv-code v-space-after="1" lang="html" :code="codeNumberWidget" />
+            <code-preview v-space-after="1" lang="html" :code="codeNumberWidget" />
             <component-details component="LvWidget" title="LvWidget"></component-details>
             <component-details component="LvWidgetNumber" title="Extra"></component-details>
         </template>
@@ -44,8 +44,8 @@
                     </lv-grid-column>
                 </lv-grid-row>
             </lv-grid>
-            <lv-code v-space-after="1" lang="html" :code="codeChartWidget" />
-            <lv-code v-space-after="1" lang="javascript" :code="codeChartWidgetScript" />
+            <code-preview v-space-after="1" lang="html" :code="codeChartWidget" />
+            <code-preview v-space-after="1" lang="javascript" :code="codeChartWidgetScript" />
             <component-details component="LvWidget" title="LvWidget"></component-details>
             <component-details component="LvWidgetChart" title="Extra"></component-details>
         </template>

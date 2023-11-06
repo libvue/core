@@ -22,7 +22,7 @@
                     @click-button="onClickButton"
                 />
             </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="code" />
+            <code-preview v-space-after="1" lang="html" :code="code" />
             <component-details component="LvToast"></component-details>
         </template>
         <template #toasts>
@@ -30,7 +30,7 @@
                 <lv-toasts :max="3" :decay="1000" :event-bus="eventBus" />
                 <lv-button color="solid-dimmed-primary" label="Add toast" icon="plus" @click="addToast" />
             </lv-card>
-            <lv-code
+            <code-preview
                 v-space-after="1"
                 :files="toastFiles"
                 :active="activeToastFile"

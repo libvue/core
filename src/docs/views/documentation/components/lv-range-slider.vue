@@ -6,7 +6,7 @@
             <lv-range-slider :min="100" :max="200" :step="5" v-model="model"></lv-range-slider>
         </lv-flex>
     </lv-card>
-    <lv-code v-space-after="1" :code="code" lang="html" />
+    <code-preview v-space-after="1" :code="code" lang="html" />
     <component-details component="LvRangeSlider"></component-details>
 </template>
 

@@ -28,7 +28,7 @@
             </lv-grid-row>
         </lv-grid>
     </lv-card>
-    <lv-code v-space-after="1" :code="code" lang="html" />
+    <code-preview v-space-after="1" :code="code" lang="html" />
 
     <component-details v-space-after="1" title="Grid" component="LvGrid"></component-details>
 

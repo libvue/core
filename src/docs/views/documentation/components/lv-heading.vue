@@ -11,14 +11,14 @@
         <lv-heading v-space-after="1" :level="5">Heading5</lv-heading>
         <lv-heading :level="6">Heading6</lv-heading>
     </lv-card>
-    <lv-code v-space-after="1" lang="html" :code="codeLevels" />
+    <code-preview v-space-after="1" lang="html" :code="codeLevels" />
 
     <lv-heading v-space-after="1" :level="6">Subheading</lv-heading>
     <lv-card v-space-after="1">
         <lv-heading v-space-after="0.5" :level="1">Heading1</lv-heading>
         <lv-heading sub :level="6">Subheading</lv-heading>
     </lv-card>
-    <lv-code v-space-after="1" lang="html" :code="codeSub" />
+    <code-preview v-space-after="1" lang="html" :code="codeSub" />
     <component-details component="LvHeading"></component-details>
 </template>
 

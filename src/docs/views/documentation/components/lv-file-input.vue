@@ -9,7 +9,7 @@
                     <lv-file-input v-model="fileListSingle"/>
                 </lv-flex>
             </lv-card>
-            <lv-code lang="html" :code="codeSingle"/>
+            <code-preview lang="html" :code="codeSingle"/>
         </template>
         <template #multiple>
             <lv-card v-space-after="1">
@@ -17,7 +17,7 @@
                     <lv-file-input v-model="fileListMultiple" multiple/>
                 </lv-flex>
             </lv-card>
-            <lv-code lang="html" :code="codeMultiple"/>
+            <code-preview lang="html" :code="codeMultiple"/>
         </template>
     </lv-tabs>
     <component-details component="LvFileInput"></component-details>

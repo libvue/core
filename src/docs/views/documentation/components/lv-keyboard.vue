@@ -20,7 +20,7 @@
         </lv-paragraph>
     </lv-card>
 
-    <lv-code v-space-after="1" lang="html" :code="code" />
+    <code-preview v-space-after="1" lang="html" :code="code" />
     <component-details component="LvKeyboard"></component-details>
 </template>
 
