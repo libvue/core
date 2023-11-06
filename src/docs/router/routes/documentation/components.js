@@ -39,6 +39,7 @@ const LvTabs = () => import('../../../views/documentation/components/lv-tabs.vue
 const LvChart = () => import('../../../views/documentation/components/lv-chart.vue');
 const LvNotice = () => import('../../../views/documentation/components/lv-notice.vue');
 const LvLink = () => import('../../../views/documentation/components/lv-link.vue');
+const LvList = () => import('../../../views/documentation/components/lv-list.vue');
 const LvBreadcrumbs = () => import('../../../views/documentation/components/lv-breadcrumbs.vue');
 const LvSelect = () => import('../../../views/documentation/components/lv-select.vue');
 const LvRadio = () => import('../../../views/documentation/components/lv-radio.vue');
@@ -94,6 +95,11 @@ export default [
         path: '/docs/lv-hero',
         name: 'lv-hero',
         component: LvHero,
+    },
+    {
+        path: '/docs/lv-list',
+        name: 'lv-list',
+        component: LvList,
     },
     {
         path: '/docs/lv-date-picker',
