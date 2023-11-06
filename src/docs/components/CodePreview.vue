@@ -101,10 +101,42 @@ export default {
 };
 </script>
 
+<style>
+// If no [data-theme] is set, and the user prefers dark, we load dark mode
+@media (prefers-color-scheme: dark) {
+    :root {
+        --code-background-color: #090909;;
+        --code-header-color: #171717;
+        --code-button-color: #090909;
+    }
+}
+
+// If no [data-theme] is set, and the user prefers light, we load light mode
+@media (prefers-color-scheme: light) {
+    :root {
+        --code-background-color: #f2f0fd;;
+        --code-header-color: #fff;
+        --code-button-color: #e8e8e8;
+    }
+}
+
+[data-theme="light"] {
+    --code-background-color: #f6f5f8;;
+    --code-header-color: #fff;
+    --code-button-color: #e8e8e8;
+}
+[data-theme="dark"] {
+    --code-background-color: #090909;;
+    --code-header-color: #171717;
+    --code-button-color: #090909;
+}
+</style>
+
 <style lang="scss">
 .code-preview {
     $self: &;
     width: 100%;
+    --code-text-color: var(--text-color);
 
     &__header {
         display: flex;
@@ -126,7 +158,22 @@ export default {
         cursor: pointer;
         border-radius: var(--border-radius);
         padding: 0.25rem 0.5rem;
+        position: relative;
+
         &--active {
+            font-weight: bold;
+            &:after {
+                content: '';
+                border-bottom: 3px solid var(--color-primary);
+                position: absolute;
+                width: 100%;
+                height: 0;
+                bottom: -8px;
+                left: 0;
+            }
+        }
+
+        &:hover {
             background-color: var(--code-button-color);
         }
     }
@@ -190,13 +237,13 @@ export default {
 .lv-code-template-variable,
 .lv-code-type,
 .lv-code-variable.language_ {
-    color: #ff7b72;
+    color: var(--color-warning);
 }
 .lv-code-title,
 .lv-code-title.class_,
 .lv-code-title.class_.inherited__,
 .lv-code-title.function_ {
-    color: #d2a8ff;
+    color: var(--color-info);
 }
 .lv-code-attr,
 .lv-code-attribute,
@@ -228,7 +275,7 @@ export default {
 .lv-code-quote,
 .lv-code-selector-pseudo,
 .lv-code-selector-tag {
-    color: var(--color-success);
+    color: var(--color-info);
 }
 .lv-code-subst {
     color: #c9d1d9;
