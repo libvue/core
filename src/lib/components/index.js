@@ -49,6 +49,8 @@ import LvInput from './LvInput/LvInput.vue';
 import LvKeyboard from './LvKeyboard/LvKeyboard.vue';
 import LvLayout from './LvLayout/LvLayout.vue';
 import LvLink from './LvLink/LvLink.vue';
+import LvList from './LvList/LvList.vue';
+import LvListItem from './LvListItem/LvListItem.vue';
 import LvVerticalNavGroup from './LvVerticalNavGroup/LvVerticalNavGroup.vue';
 import LvVerticalNavItem from './LvVerticalNavItem/LvVerticalNavItem.vue';
 import LvVerticalNavList from './LvVerticalNavList/LvVerticalNavList.vue';
@@ -123,6 +125,8 @@ export {
     LvKeyboard,
     LvLayout,
     LvLink,
+    LvList,
+    LvListItem,
     LvVerticalNavGroup,
     LvVerticalNavItem,
     LvVerticalNavList,
@@ -198,6 +202,8 @@ export default {
     LvKeyboard,
     LvLayout,
     LvLink,
+    LvList,
+    LvListItem,
     LvVerticalNavGroup,
     LvVerticalNavItem,
     LvVerticalNavList,
