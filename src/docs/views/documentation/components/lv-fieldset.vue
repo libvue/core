@@ -5,8 +5,8 @@
         <lv-grid>
             <lv-grid-row gap="1rem">
                 <lv-grid-column :width="6">
-                    <lv-fieldset label="Username" label-for="input-username" reset-button>
-                        <lv-input placeholder="Enter username" id="input-username"/>
+                    <lv-fieldset legend="Username" reset-button>
+                        <lv-input placeholder="Enter username" />
                         <template #hint>
                             Please enter a username
                         </template>
@@ -16,8 +16,8 @@
                     </lv-fieldset>
                 </lv-grid-column>
                 <lv-grid-column :width="6">
-                    <lv-fieldset label="Country" label-for="select-country" reset-button>
-                        <lv-select id="select-country" />
+                    <lv-fieldset legend="Country" reset-button>
+                        <lv-select />
                         <template #hint>
                             The country where you are living
                         </template>
@@ -38,8 +38,8 @@ const code = `
 <lv-grid>
     <lv-grid-row gap="1rem">
         <lv-grid-column :width="6">
-            <lv-fieldset label="Username" label-for="input-username" reset-button>
-                <lv-input placeholder="Enter username" id="input-username"/>
+            <lv-fieldset legend="Username" reset-button disabled>
+                <lv-input placeholder="Enter username" />
                 <template #hint>
                     Please enter a username
                 </template>
@@ -49,8 +49,8 @@ const code = `
             </lv-fieldset>
         </lv-grid-column>
         <lv-grid-column :width="6">
-            <lv-fieldset label="Country" label-for="select-country" reset-button>
-                <lv-select id="select-country" />
+            <lv-fieldset legend="Country" reset-button>
+                <lv-select />
                 <template #hint>
                     The country where you are living
                 </template>
