@@ -1,8 +1,8 @@
 <template>
-    <div class="lv-radio" role="radio" :class="classObject" @click="onClick">
+    <div class="lv-radio" role="radio" :class="classObject" :aria-label="label">
         <lv-spinner v-if="loading" class="lv-radio__loading" :size="12"  />
         <input
-            :id="identifier"
+            :id="labelFor"
             class="lv-radio__input"
             type="radio"
             :checked="isChecked"
@@ -11,13 +11,13 @@
             :name="name"
             :value="value"
             tabindex="0"
+            @click="onClick"
         />
-        <label v-if="label" class="lv-radio__label" :for="identifier">{{ label }}</label>
+        <label v-if="label" class="lv-radio__label" :for="labelFor">{{ label }}</label>
     </div>
 </template>
 
 <script>
-import useRandom from '../../composables/useRandom';
 import LvSpinner from "../LvSpinner/LvSpinner.vue";
 
 export default {
@@ -39,6 +39,10 @@ export default {
             type: String,
             default: null,
         },
+        labelFor: {
+            type: String,
+            default: null,
+        },
         loading: {
             type: Boolean,
             default: false,
@@ -49,11 +53,6 @@ export default {
         },
     },
     emits: ['update:modelValue'],
-    data() {
-        return {
-            identifier: useRandom(),
-        };
-    },
     computed: {
         isChecked() {
             return this.value === this.modelValue;
@@ -66,9 +65,8 @@ export default {
         },
     },
     methods: {
-        onClick(e) {
-            if (!this.loading && !this.disabled) {
-                e.preventDefault();
+        onClick() {
+            if(!this.loading && !this.disabled) {
                 this.$emit('update:modelValue', this.value);
             }
         },
