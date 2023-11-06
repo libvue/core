@@ -7,6 +7,6 @@
         A Laravel Orion compatible repository-based Javascript http-client powered by axios. You can use this package if you
         want to connect your project to an existing Laravel Orion API.
     </lv-text>
-    <code-preview v-space-after="2" code="npm install --save @libvue/laravel-orion-api" lang="bash"/>
+    <code-preview v-space-after="2" code="npm install --save @libvue/laravel-orion-api" lang="shell"/>
 
 </template>
