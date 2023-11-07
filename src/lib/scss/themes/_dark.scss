@@ -44,6 +44,8 @@ $theme-dark-shadow-focus-danger: 0px 0px 0px 3px rgba($theme-dark-color-danger, 
 $theme-dark-shadow-focus-info: 0px 0px 0px 3px rgba($theme-dark-color-info, 0.23) !default;
 $theme-dark-shadow-focus-ghost: 0px 0px 0px 3px rgba(darken($theme-dark-color-ghost, 56), 0.23) !default;
 $theme-dark-blockquote-background-color: #151515;
+$theme-dark-code-background-color: mix($theme-dark-color-primary, black, 25%) !default;
+$theme-dark-code-text-color: $theme-dark-color-primary;
 $theme-dark-scrollbar-track-background-color: #141414;
 $theme-dark-scrollbar-thumb-background-color: #303030;
 $theme-dark-scrollbar-thumb-border-radius: 0px;
@@ -87,6 +89,8 @@ $theme-dark: (
     placeholder-color: $theme-dark-placeholder-color,
     backdrop-color: $theme-dark-backdrop-color,
     backdrop-color-inverted: $theme-dark-backdrop-color-inverted,
+    code-background-color: $theme-dark-code-background-color,
+    code-text-color: $theme-dark-code-text-color,
     shadow: $theme-dark-shadow,
     shadow-dialog: $theme-dark-shadow-dialog,
     shadow-popover: $theme-dark-shadow-popover,

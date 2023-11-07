@@ -105,30 +105,30 @@ export default {
 // If no [data-theme] is set, and the user prefers dark, we load dark mode
 @media (prefers-color-scheme: dark) {
     :root {
-        --code-background-color: #090909;;
-        --code-header-color: #171717;
-        --code-button-color: #090909;
+        --code-preview-background-color: #090909;;
+        --code-preview-header-color: #171717;
+        --code-preview-button-color: #090909;
     }
 }
 
 // If no [data-theme] is set, and the user prefers light, we load light mode
 @media (prefers-color-scheme: light) {
     :root {
-        --code-background-color: #f2f0fd;;
-        --code-header-color: #fff;
-        --code-button-color: #e8e8e8;
+        --code-preview-background-color: #f2f0fd;;
+        --code-preview-header-color: #fff;
+        --code-preview-button-color: #e8e8e8;
     }
 }
 
 [data-theme="light"] {
-    --code-background-color: #f6f5f8;;
-    --code-header-color: #fff;
-    --code-button-color: #e8e8e8;
+    --code-preview-background-color: #f6f5f8;;
+    --code-preview-header-color: #fff;
+    --code-preview-button-color: #e8e8e8;
 }
 [data-theme="dark"] {
-    --code-background-color: #090909;;
-    --code-header-color: #171717;
-    --code-button-color: #090909;
+    --code-preview-background-color: #090909;;
+    --code-preview-header-color: #171717;
+    --code-preview-button-color: #090909;
 }
 </style>
 
@@ -136,7 +136,7 @@ export default {
 .code-preview {
     $self: &;
     width: 100%;
-    --code-text-color: var(--text-color);
+    --code-preview-text-color: var(--text-color);
 
     &__header {
         display: flex;
@@ -145,7 +145,7 @@ export default {
         margin-bottom: 0;
         border: 1px solid var(--border-color);
         border-radius: var(--border-radius) var(--border-radius) 0 0;
-        background-color: var(--code-header-color);
+        background-color: var(--code-preview-header-color);
         padding: 0.5rem;
         color: var(--text-color);
         font-weight: 500;
@@ -174,7 +174,7 @@ export default {
         }
 
         &:hover {
-            background-color: var(--code-button-color);
+            background-color: var(--code-preview-button-color);
         }
     }
 
@@ -182,8 +182,8 @@ export default {
         position: relative;
         border: 1px solid var(--border-color);
         border-radius: var(--border-radius);
-        background-color: var(--code-background-color);
-        color: var(--code-text-color);
+        background-color: var(--code-preview-background-color);
+        color: var(--code-preview-text-color);
         font-size: var(--font-size);
         line-height: var(--line-height-large);
         font-family: var(--font-family-monospace);
