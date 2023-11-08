@@ -46,6 +46,7 @@
         <lv-list-item>LvLink</lv-list-item>
         <lv-list-item>LvToggle</lv-list-item>
         <lv-list-item>lvSwitch</lv-list-item>
+        <lv-list-item>lvSlider</lv-list-item>
         <lv-list-item>and more to come</lv-list-item>
     </lv-list>
 </template>
