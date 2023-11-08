@@ -36,12 +36,14 @@
 
     <lv-heading v-space-after="1" :level="5">ARIA Compatible Components</lv-heading>
     <lv-list>
+        <lv-list-item>LvAccordion</lv-list-item>
         <lv-list-item>LvBreadcrumbs</lv-list-item>
         <lv-list-item>LvButton</lv-list-item>
         <lv-list-item>LvCheckbox</lv-list-item>
         <lv-list-item>LvDialog</lv-list-item>
         <lv-list-item>LvNotice</lv-list-item>
         <lv-list-item>LvRadio</lv-list-item>
+        <lv-list-item>LvLink</lv-list-item>
         <lv-list-item>LvToggle</lv-list-item>
         <lv-list-item>lvSwitch</lv-list-item>
         <lv-list-item>and more to come</lv-list-item>
