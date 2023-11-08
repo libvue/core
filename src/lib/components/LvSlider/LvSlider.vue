@@ -1,5 +1,5 @@
 <template>
-    <div class="lv-slider" :class="classNames">
+    <div class="lv-slider" :class="classNames" role="slider" :aria-valuenow="modelValue" :aria-valuemin="min" :aria-valuemax="max">
         <div class="lv-slider__track">
             <div ref="track" class="lv-slider__track-boundaries">
                 <div class="lv-slider__indicator" :style="styleObjectIndicator" />
@@ -8,6 +8,11 @@
                     :style="styleObjectThumb"
                     @mousedown.prevent="onThumbMouseDown"
                     @touchstart="onThumbTouchStart"
+                    @keydown.right="onThumbKeydownRight"
+                    @keydown.left="onThumbKeydownLeft"
+                    @keydown.prevent.home="onThumbKeydownHome"
+                    @keydown.prevent.end="onThumbKeydownEnd"
+                    tabindex="0"
                 >
                     <lv-spinner v-if="loading && !showRange" class="lv-slider__loader" :size="12" />
 
@@ -146,6 +151,22 @@ export default {
         this.onThumbTouchMoveThrottled = useThrottleFn(this.onThumbTouchMove, 25, false);
     },
     methods: {
+        onThumbKeydownHome() {
+            this.$emit('update:modelValue', this.min);
+        },
+        onThumbKeydownEnd() {
+            this.$emit('update:modelValue', this.max);
+        },
+        onThumbKeydownRight() {
+            if(this.modelValue + this.step <= this.max) {
+                this.$emit('update:modelValue', this.modelValue + this.step);
+            }
+        },
+        onThumbKeydownLeft() {
+            if(this.modelValue - this.step >= this.min) {
+                this.$emit('update:modelValue', this.modelValue - this.step);
+            }
+        },
         onThumbMouseDown() {
             if (this.disabled || this.loading) return;
             this.dragging = true;
