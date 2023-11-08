@@ -1,6 +1,6 @@
 <template>
     <div class="lv-vertical-nav-list">
-        <div class="lv-vertical-nav-list__label" @click="toggleState">
+        <div class="lv-vertical-nav-list__label" tabindex="0" @click="toggleState" @keydown.enter.space="toggleState">
             <lv-icon v-if="icon" :name="icon" class="lv-vertical-nav-list__icon" />
             <div class="lv-vertical-nav-list__label-text">{{ label }}</div>
             <lv-icon class="lv-vertical-nav-list__label-icon" :name="iconName"></lv-icon>
@@ -102,7 +102,6 @@ export default {
         margin-left: 7px;
         border-left: 1px solid var(--border-color);
         padding-left: 18px;
-        overflow: hidden;
 
         > [class^='lv-menu-item'] {
             &:last-of-type {
