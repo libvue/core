@@ -43,6 +43,7 @@
         <lv-list-item>LvDialog</lv-list-item>
         <lv-list-item>LvNotice</lv-list-item>
         <lv-list-item>LvRadio</lv-list-item>
+        <lv-list-item>LvRangeSlider</lv-list-item>
         <lv-list-item>LvLink</lv-list-item>
         <lv-list-item>LvToggle</lv-list-item>
         <lv-list-item>lvSwitch</lv-list-item>

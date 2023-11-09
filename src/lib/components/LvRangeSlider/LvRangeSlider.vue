@@ -9,6 +9,15 @@
                     :style="styleObjectThumbPrimary"
                     @mousedown="onPrimaryMouseDown"
                     @touchstart="onPrimaryTouchStart"
+                    @keydown.right="onPrimaryKeydownRight"
+                    @keydown.left="onPrimaryKeydownLeft"
+                    @keydown.prevent.home="onPrimaryKeydownHome"
+                    @keydown.prevent.end="onPrimaryKeydownEnd"
+                    role="slider"
+                    :aria-valuenow="primaryValue"
+                    :aria-valuemin="min"
+                    :aria-valuemax="secondaryValue"
+                    tabindex="0"
                 >
                     <lv-spinner v-if="loading && !showRange" class="lv-range-slider__loader" :size="12" />
                     <lv-popover
@@ -32,6 +41,15 @@
                     :style="styleObjectThumbSecondary"
                     @mousedown="onSecondaryMouseDown"
                     @touchstart="onSecondaryTouchStart"
+                    @keydown.right="onSecondaryKeydownRight"
+                    @keydown.left="onSecondaryKeydownLeft"
+                    @keydown.prevent.home="onSecondaryKeydownHome"
+                    @keydown.prevent.end="onSecondaryKeydownEnd"
+                    role="slider"
+                    :aria-valuenow="secondaryValue"
+                    :aria-valuemin="primaryValue"
+                    :aria-valuemax="max"
+                    tabindex="0"
                 >
                     <lv-spinner v-if="loading && !showRange" class="lv-range-slider__loader" :size="12" />
                     <lv-popover
@@ -163,6 +181,12 @@ export default {
         styleObjectThumbSecondary() {
             return { left: `${this.secondaryPosition}%` };
         },
+        fromToValues() {
+            return {
+                from: this.primaryValue <= this.secondaryValue ? this.primaryValue : this.secondaryValue,
+                to: this.primaryValue <= this.secondaryValue ? this.secondaryValue : this.primaryValue,
+            }
+        }
     },
     watch: {
         modelValue: {
@@ -184,6 +208,62 @@ export default {
         this.onSecondaryTouchMoveThrottled = useThrottleFn(this.onSecondaryTouchMove, 24);
     },
     methods: {
+        onPrimaryKeydownRight() {
+            if(this.modelValue.from + this.step <= this.secondaryValue) {
+                this.$emit('update:modelValue', {
+                    from: this.fromToValues.from + this.step,
+                    to: this.fromToValues.to,
+                });
+            }
+        },
+        onPrimaryKeydownLeft() {
+            if(this.modelValue.from - this.step >= this.min) {
+                this.$emit('update:modelValue', {
+                    from: this.fromToValues.from - this.step,
+                    to: this.fromToValues.to,
+                });
+            }
+        },
+        onPrimaryKeydownHome() {
+            this.$emit('update:modelValue', {
+                from: this.min,
+                to: this.fromToValues.to,
+            });
+        },
+        onPrimaryKeydownEnd() {
+            this.$emit('update:modelValue', {
+                from: this.fromToValues.to,
+                to: this.fromToValues.to,
+            });
+        },
+        onSecondaryKeydownRight() {
+            if(this.modelValue.to + this.step <= this.max) {
+                this.$emit('update:modelValue', {
+                    from: this.fromToValues.from,
+                    to: this.fromToValues.to + this.step,
+                });
+            }
+        },
+        onSecondaryKeydownLeft() {
+            if(this.modelValue.to - this.step >= this.primaryValue) {
+                this.$emit('update:modelValue', {
+                    from: this.fromToValues.from,
+                    to: this.fromToValues.to - this.step,
+                });
+            }
+        },
+        onSecondaryKeydownHome() {
+            this.$emit('update:modelValue', {
+                from: this.fromToValues.from,
+                to: this.fromToValues.from,
+            });
+        },
+        onSecondaryKeydownEnd() {
+            this.$emit('update:modelValue', {
+                from: this.fromToValues.from,
+                to: this.max,
+            });
+        },
         onPrimaryMouseDown(event) {
             this.draggingPrimary = true;
             event.preventDefault();
@@ -253,11 +333,9 @@ export default {
             this.emitInputEvent();
         },
         emitInputEvent() {
-            const fromValue = this.primaryValue <= this.secondaryValue ? this.primaryValue : this.secondaryValue;
-            const toValue = this.primaryValue <= this.secondaryValue ? this.secondaryValue : this.primaryValue;
             this.$emit('update:modelValue', {
-                from: fromValue,
-                to: toValue,
+                from: this.fromToValues.from,
+                to: this.fromToValues.to,
             });
         },
         cacheDimensions() {
