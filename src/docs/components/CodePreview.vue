@@ -4,9 +4,11 @@
             <div
                 v-for="(file, index) in files"
                 :key="index"
+                tabindex="0"
                 class="code-preview__file-button"
                 :class="{ 'code-preview__file-button--active': active === file.id }"
                 @click="onClickFile(file.id)"
+                @keydown.space.enter="onClickFile(file.id)"
             >
                 {{ file.filename }}
             </div>
