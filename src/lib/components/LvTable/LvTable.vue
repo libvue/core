@@ -1,5 +1,5 @@
 <template>
-    <div class="lv-table" :class="classObject" role="table">
+    <div class="lv-table" :class="classObject">
         <div v-if="loading" class="lv-table__loading">
             <lv-spinner />
         </div>
