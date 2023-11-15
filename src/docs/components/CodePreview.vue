@@ -116,14 +116,14 @@ export default {
 // If no [data-theme] is set, and the user prefers light, we load light mode
 @media (prefers-color-scheme: light) {
     :root {
-        --code-preview-background-color: #f2f0fd;;
+        --code-preview-background-color: #ffffff;;
         --code-preview-header-color: #fff;
         --code-preview-button-color: #e8e8e8;
     }
 }
 
 [data-theme="light"] {
-    --code-preview-background-color: #f6f5f8;;
+    --code-preview-background-color: #ffffff;;
     --code-preview-header-color: #fff;
     --code-preview-button-color: #e8e8e8;
 }
