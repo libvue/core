@@ -86,6 +86,9 @@
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-pagination' }" custom>
                 <lv-vertical-nav-item label="Pagination" :active="isActive" @click="navigate" />
             </router-link>
+            <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-progress-steps' }" custom>
+                <lv-vertical-nav-item label="Progress Steps" :active="isActive" @click="navigate" />
+            </router-link>
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-breadcrumbs' }" custom>
                 <lv-vertical-nav-item label="Breadcrumbs" :active="isActive" @click="navigate" />
             </router-link>
@@ -112,9 +115,6 @@
             </lv-vertical-nav-item>
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-progress-bar' }" custom>
                 <lv-vertical-nav-item label="Progress Bar" :active="isActive" @click="navigate" />
-            </router-link>
-            <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-progress-steps' }" custom>
-                <lv-vertical-nav-item label="Progress Steps" :active="isActive" @click="navigate" />
             </router-link>
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-pill' }" custom>
                 <lv-vertical-nav-item label="Pill" :active="isActive" @click="navigate" />
