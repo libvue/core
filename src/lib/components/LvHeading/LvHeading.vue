@@ -1,8 +1,9 @@
 <template>
     <component
-        :is="tagName"
+        :is="as"
         class="lv-heading"
         role="heading"
+        :aria-level="level"
         :class="classObject"
     >
         <slot />
@@ -34,14 +35,16 @@ export default {
             type: Boolean,
             default: false,
         },
+        as: {
+            type: String,
+            default: 'div',
+            validator: (val) => ['span', 'div', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'label'].includes(val)
+        }
     },
     computed: {
-        tagName() {
-            return `h${this.level}`;
-        },
         classObject() {
             return {
-                [`lv-heading--${this.tagName}`]: true,
+                [`lv-heading--level-${this.level}`]: true,
                 'lv-heading--inline': this.inline,
                 'lv-heading--sub': this.sub,
                 'lv-heading--ellipsis': this.ellipsis,
@@ -61,27 +64,27 @@ export default {
     font-weight: 600;
     font-family: var(--font-family);
 
-    &--h1 {
+    &--level-1 {
         font-size: var(--font-size-h1);
         line-height: var(--line-height-h1);
     }
-    &--h2 {
+    &--level-2 {
         font-size: var(--font-size-h2);
         line-height: var(--line-height-h2);
     }
-    &--h3 {
+    &--level-3 {
         font-size: var(--font-size-h3);
         line-height: var(--line-height-h3);
     }
-    &--h4 {
+    &--level-4 {
         font-size: var(--font-size-h4);
         line-height: var(--line-height-h4);
     }
-    &--h5 {
+    &--level-5 {
         font-size: var(--font-size-h5);
         line-height: var(--line-height-h5);
     }
-    &--h6 {
+    &--level-6 {
         font-size: var(--font-size-h6);
         line-height: var(--line-height-h6);
     }
