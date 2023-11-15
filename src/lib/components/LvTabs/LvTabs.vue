@@ -1,6 +1,6 @@
 <template>
-    <div class="lv-tabs" role="tablist">
-        <lv-flex class="lv-tabs__buttons" gap="20px">
+    <div class="lv-tabs">
+        <lv-flex class="lv-tabs__buttons" gap="20px" role="tablist">
             <div
                 v-for="tab in tabs"
                 :key="tab.id"
@@ -15,8 +15,8 @@
                 {{ tab.title }}
             </div>
         </lv-flex>
-        <div class="lv-tabs__panels">
-            <div v-for="tab in tabs" v-show="tab.id === active" :key="tab.id" class="lv-tabs__panel" role="tabpanel">
+        <div class="lv-tabs__panels" role="tabpanel">
+            <div v-for="tab in tabs" v-show="tab.id === active" :key="tab.id" class="lv-tabs__panel">
                 <slot :name="tab.id" :tab="tab" />
             </div>
         </div>

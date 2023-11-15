@@ -20,6 +20,8 @@
                     :aria-valuenow="modelValue"
                     :aria-valuemin="min"
                     :aria-valuemax="max"
+                    :aria-label="ariaLabel"
+                    :aria-labelledby="arialLabelledBy"
                 >
                     <lv-spinner v-if="loading && !showRange" class="lv-slider__loader" :size="12" />
 
@@ -106,6 +108,14 @@ export default {
         realtimeUpdate: {
             type: Boolean,
             default: false,
+        },
+        ariaLabel: {
+            type: String,
+            default: null,
+        },
+        arialLabelledBy: {
+            type: String,
+            default: null,
         },
     },
     emits: ['update:modelValue'],

@@ -9,6 +9,8 @@
                 class="lv-dialog"
                 role="dialog"
                 :aria-modal="modal"
+                :aria-label="ariaLabel"
+                :aria-labelledby="arialLabelledBy"
                 v-bind="$attrs"
             >
                 <div class="lv-dialog__backdrop" @click="onClickBackdrop"></div>
@@ -43,6 +45,14 @@ export default {
         modal: {
             type: Boolean,
             default: false,
+        },
+        ariaLabel: {
+            type: String,
+            default: null,
+        },
+        arialLabelledBy: {
+            type: String,
+            default: null,
         },
         teleportTarget: {
             type: String,

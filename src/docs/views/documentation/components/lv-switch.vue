@@ -10,9 +10,9 @@
 
     <lv-card v-space-after="1">
         <lv-flex direction="column">
-            <lv-switch v-model="model" label="im a switch" />
-            <lv-switch v-model="model" disabled label="im a disabled switch" />
-            <lv-switch v-model="model" loading label="im a loading switch" />
+            <lv-switch v-model="model" label="im a switch" aria-label="im a switch" label-for="switch" />
+            <lv-switch v-model="model" disabled label="im a disabled switch" aria-label="im a disabled switch" label-for="disabled-switch" />
+            <lv-switch v-model="model" loading label="im a loading switch" aria-label="im a loading switch" label-for="loading-switch" />
         </lv-flex>
     </lv-card>
     <code-preview v-space-after="1" lang="html" :code="code" />
@@ -21,9 +21,9 @@
 
 <script>
 const code = `
-<lv-switch v-model="model" label="im a switch" />
-<lv-switch v-model="model" disabled label="im a disabled switch" />
-<lv-switch v-model="model" loading label="im a loading switch" />
+<lv-switch v-model="model" label="im a switch" aria-label="im a switch" label-for="switch" />
+<lv-switch v-model="model" disabled label="im a disabled switch" aria-label="im a disabled switch" label-for="disabled-switch" />
+<lv-switch v-model="model" loading label="im a loading switch" aria-label="im a loading switch" label-for="loading-switch" />
 `.trim();
 export default {
     data() {

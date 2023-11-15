@@ -1,6 +1,13 @@
 <template>
     <Teleport :to="teleportTarget">
-        <div class="lv-drawer" :class="classObject" v-bind="$attrs" role="dialog">
+        <div
+            class="lv-drawer"
+            :class="classObject"
+            v-bind="$attrs"
+            role="dialog"
+            :aria-label="ariaLabel"
+            :aria-labelledby="arialLabelledBy"
+        >
             <transition name="fade">
                 <div v-show="show" class="lv-drawer__backdrop" @click="onClickBackDrop"></div>
             </transition>
@@ -27,6 +34,14 @@ export default {
             type: String,
             default: 'bottom',
             validator: (val) => ['right', 'left', 'top', 'bottom'].includes(val),
+        },
+        ariaLabel: {
+            type: String,
+            default: null,
+        },
+        arialLabelledBy: {
+            type: String,
+            default: null,
         },
         teleportTarget: {
             type: String,

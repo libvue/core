@@ -10,7 +10,7 @@
 
     <lv-card v-space-after="1">
         <lv-flex direction="column">
-            <lv-range-slider :min="100" :max="200" :step="5" v-model="model"></lv-range-slider>
+            <lv-range-slider :min="100" :max="200" :step="5" v-model="model" aria-label-thumb-one="Choose first value" aria-label-thumb-two="Choose second value"></lv-range-slider>
         </lv-flex>
     </lv-card>
     <code-preview v-space-after="1" :code="code" lang="html" />
@@ -19,7 +19,7 @@
 
 <script>
 const code = `
-<lv-range-slider :min="100" :max="200" :step="5" v-model="model"></lv-range-slider>
+<lv-range-slider :min="100" :max="200" :step="5" v-model="model" aria-label-thumb-one="Choose first value" aria-label-thumb-two="Choose second value"></lv-range-slider>
 `.trim();
 export default {
     data() {

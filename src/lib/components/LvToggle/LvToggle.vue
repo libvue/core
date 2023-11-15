@@ -1,5 +1,5 @@
 <template>
-    <button class="lv-toggle" type="button" :class="classObject" :aria-pressed="modelValue" @click="onClickToggle">
+    <button class="lv-toggle" type="button" :aria-label="ariaLabel" :aria-labelledby="arialLabelledBy" :class="classObject" :aria-pressed="modelValue" @click="onClickToggle">
         <slot></slot>
     </button>
 </template>
@@ -10,7 +10,15 @@ export default {
         modelValue: {
             type: Boolean,
             required: true,
-        }
+        },
+        ariaLabel: {
+            type: String,
+            default: null,
+        },
+        arialLabelledBy: {
+            type: String,
+            default: null,
+        },
     },
     emits: ['update:modelValue'],
     computed: {

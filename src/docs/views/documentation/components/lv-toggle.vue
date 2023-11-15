@@ -10,10 +10,10 @@
 
     <lv-card v-space-after="1">
         <lv-flex>
-            <lv-toggle v-model="pressedItalic">
+            <lv-toggle v-model="pressedItalic" aria-label="Toggle Italic">
                 <lv-icon name="italic"/>
             </lv-toggle>
-            <lv-toggle v-model="pressedAlign">
+            <lv-toggle v-model="pressedAlign" aria-label="Toggle Align">
                 <lv-icon name="align-left"/>
             </lv-toggle>
         </lv-flex>
@@ -24,10 +24,10 @@
 
 <script>
 const code = `
-<lv-toggle v-model="pressedItalic">
+<lv-toggle v-model="pressedItalic" aria-label="Toggle Italic">
     <lv-icon name="italic"/>
 </lv-toggle>
-<lv-toggle v-model="pressedAlign">
+<lv-toggle v-model="pressedAlign" aria-label="Toggle Align">
     <lv-icon name="align-left"/>
 </lv-toggle>
 `.trim();

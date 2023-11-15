@@ -3,7 +3,7 @@
         <span v-if="type === 'switch'" class="lv-theme-toggle__thumb">
             <lv-icon :name="modelValue === 'light' ? 'sun' : 'moon'" />
         </span>
-        <lv-button v-else color="ghost-default" :icon="modelValue === 'light' ? 'sun' : 'moon'"></lv-button>
+        <lv-button v-else color="ghost-default" aria-label="theme" :icon="modelValue === 'light' ? 'sun' : 'moon'"></lv-button>
     </span>
 </template>
 

@@ -1,5 +1,12 @@
 <template>
-    <div class="lv-switch" :class="classObject" role="switch">
+    <div
+        class="lv-switch"
+        :class="classObject"
+        role="switch"
+        :aria-label="ariaLabel"
+        :aria-labelledby="arialLabelledBy"
+        :aria-checked="!!modelValue"
+    >
         <div class="lv-switch__checkbox">
             <input
                 :id="labelFor"
@@ -16,7 +23,7 @@
 </template>
 
 <script>
-import LvSpinner from "../LvSpinner/LvSpinner.vue";
+import LvSpinner from '../LvSpinner/LvSpinner.vue';
 
 export default {
     components: { LvSpinner },
@@ -41,6 +48,14 @@ export default {
         loading: {
             type: Boolean,
             default: false,
+        },
+        ariaLabel: {
+            type: String,
+            default: null,
+        },
+        arialLabelledBy: {
+            type: String,
+            default: null,
         },
     },
     emits: ['update:modelValue'],

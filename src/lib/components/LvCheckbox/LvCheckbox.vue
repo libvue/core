@@ -2,8 +2,10 @@
     <div
         class="lv-checkbox"
         :class="classObject"
-        aria-label="checkbox"
+        :aria-label="ariaLabel"
+        :aria-labelledby="arialLabelledBy"
         :aria-checked="indeterminate ? 'mixed' : !!modelValue"
+        role="checkbox"
     >
         <div class="lv-checkbox__checkbox">
             <input
@@ -54,6 +56,14 @@ export default {
         indeterminate: {
             type: Boolean,
             default: false,
+        },
+        ariaLabel: {
+            type: String,
+            default: null,
+        },
+        arialLabelledBy: {
+            type: String,
+            default: null,
         },
     },
     emits: ['update:modelValue'],

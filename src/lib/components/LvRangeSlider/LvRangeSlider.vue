@@ -17,6 +17,8 @@
                     :aria-valuenow="primaryValue"
                     :aria-valuemin="min"
                     :aria-valuemax="secondaryValue"
+                    :aria-label="ariaLabelThumbOne"
+                    :aria-labelledby="arialLabelledByThumbOne"
                     tabindex="0"
                 >
                     <lv-spinner v-if="loading && !showRange" class="lv-range-slider__loader" :size="12" />
@@ -49,6 +51,8 @@
                     :aria-valuenow="secondaryValue"
                     :aria-valuemin="primaryValue"
                     :aria-valuemax="max"
+                    :aria-label="ariaLabelThumbTwo"
+                    :aria-labelledby="arialLabelledByThumbTwo"
                     tabindex="0"
                 >
                     <lv-spinner v-if="loading && !showRange" class="lv-range-slider__loader" :size="12" />
@@ -135,7 +139,23 @@ export default {
         realtimeUpdate: {
             type: Boolean,
             default: false,
-        }
+        },
+        ariaLabelThumbOne: {
+            type: String,
+            default: null,
+        },
+        arialLabelledByThumbOne: {
+            type: String,
+            default: null,
+        },
+        ariaLabelThumbTwo: {
+            type: String,
+            default: null,
+        },
+        arialLabelledByThumbTwo: {
+            type: String,
+            default: null,
+        },
     },
     emits: ['update:modelValue'],
     data() {

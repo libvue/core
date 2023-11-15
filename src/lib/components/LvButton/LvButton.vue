@@ -6,6 +6,8 @@
         :class="classObject"
         :disabled="disabled"
         :aria-disabled="disabled"
+        :aria-label="ariaLabel"
+        :aria-labelledby="arialLabelledBy"
         @click="onClick"
         @keydown.enter.space="onClick"
     >
@@ -35,6 +37,14 @@ export default {
         label: {
             type: String,
             default: '',
+        },
+        ariaLabel: {
+            type: String,
+            default: null,
+        },
+        arialLabelledBy: {
+            type: String,
+            default: null,
         },
         disabled: {
             type: Boolean,

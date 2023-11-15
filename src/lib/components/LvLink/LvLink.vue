@@ -1,5 +1,5 @@
 <template>
-    <a class="lv-link" :class="classObject" role="link" v-bind="$attrs" @click="onClick">
+    <a class="lv-link" :class="classObject" role="link" :title="title" v-bind="$attrs" @click="onClick">
         <div class="lv-link__content">
             <slot />
         </div>
@@ -24,6 +24,10 @@ export default {
         color: {
             type: String,
             default: 'var(--text-color)'
+        },
+        title: {
+            type: String,
+            default: null,
         }
     },
     emits: ['click'],
