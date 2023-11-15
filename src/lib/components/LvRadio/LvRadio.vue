@@ -1,5 +1,5 @@
 <template>
-    <div class="lv-radio" role="radio" :class="classObject" @click="onClick">
+    <div class="lv-radio" role="radio" :class="classObject">
         <lv-spinner v-if="loading" class="lv-radio__loading" :size="12"  />
         <input
             :id="identifier"
@@ -11,6 +11,7 @@
             :name="name"
             :value="value"
             tabindex="0"
+            @change="onClick"
         />
         <label v-if="label" class="lv-radio__label" :for="identifier">{{ label }}</label>
     </div>
