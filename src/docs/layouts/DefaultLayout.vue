@@ -2,6 +2,7 @@
     <lv-drawer
         :show="showDrawer && !$route.meta.hideSidebar && !breakpoints.greaterOrEqual.md"
         placement="left"
+        aria-label="Navigation"
         @click-backdrop="showDrawer = false"
     >
         <main-navigation></main-navigation>
@@ -10,7 +11,7 @@
         <template #header>
             <lv-header>
                 <template #branding>
-                    <lv-link class="logo" @click="$router.push({ path: '/' })" v-html="Logo"></lv-link>
+                    <lv-link class="logo" title="logo" @click="$router.push({ path: '/' })" v-html="Logo"></lv-link>
                 </template>
                 <template #search> </template>
                 <template #navigation v-if="breakpoints.greaterOrEqual.md">
@@ -26,7 +27,7 @@
                 </template>
                 <template #extra>
                     <lv-theme-toggle v-model="theme" type="button" v-space-after=".5" />
-                    <lv-button icon="github" target="_blank" color="ghost-default" @click="onClickGithub" />
+                    <lv-button icon="github" aria-label="Github" target="_blank" color="ghost-default" @click="onClickGithub" />
                 </template>
             </lv-header>
         </template>
