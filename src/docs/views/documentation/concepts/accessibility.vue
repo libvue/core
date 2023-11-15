@@ -1,6 +1,6 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">Accessibility</lv-heading>
-    <lv-heading v-space-after="2" sub :level="6">If possible, we try to follow the ARIA Authoring Practices Guide (APG)</lv-heading>
+    <lv-heading v-space-after="2" sub :level="6">Making your components a bit more user friendly following the ARIA Authoring Practices Guide (APG)</lv-heading>
 
     <lv-text v-space-after="1">
         When applicable, our components follow the ARIA Authoring Practices Guide (APG). You can see if a
