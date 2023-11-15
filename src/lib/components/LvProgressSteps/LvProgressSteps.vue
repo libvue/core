@@ -9,10 +9,12 @@
                 'lv-progress-steps__step--active': step.id === active,
                 'lv-progress-steps__step--disabled': !!step.disabled,
             }"
-            @click="onClickStep(step.id)"
+            tabindex="0"
+            @click="onClickStep(step)"
+            @keydown.space.enter="onClickStep(step)"
         >
             <div class="lv-progress-steps__title">
-                <span class="lv-progress-steps__prefix" v-if="step.prefix">{{ step.prefix }}</span>
+                <span v-if="step.prefix" class="lv-progress-steps__prefix">{{ step.prefix }}</span>
                 {{ step.title }}
             </div>
             <div class="lv-progress-steps__bar"></div>
@@ -30,14 +32,20 @@ export default {
         active: {
             type: String,
             default: null,
-        }
+        },
+        overflowX: {
+            type: String,
+            default: 'visible',
+        },
     },
     emits: ['change-step'],
     methods: {
-        onClickStep(id) {
-            this.$emit('change-step', id)
-        }
-    }
+        onClickStep(step) {
+            if (!step.disabled) {
+                this.$emit('change-step', step.id);
+            }
+        },
+    },
 };
 </script>
 
@@ -47,7 +55,7 @@ export default {
     display: flex;
     gap: 1rem;
     width: 100%;
-    overflow-x: auto;
+    overflow-x: v-bind(overflowX);
 
     &__step {
         display: flex;
@@ -70,7 +78,7 @@ export default {
             pointer-events: none;
             #{$self}__title,
             #{$self}__prefix {
-                color: var(--text-color-dimmed)
+                color: var(--text-color-dimmed);
             }
         }
     }
@@ -79,6 +87,7 @@ export default {
         margin-right: 0.5rem;
     }
     &__title {
+        margin-top: 1px;
         font-weight: 600;
         white-space: nowrap;
     }
