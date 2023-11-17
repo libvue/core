@@ -136,6 +136,7 @@ export default {
         flex-wrap: wrap;
         align-items: center;
         gap: 0.5rem;
+        overflow-x: auto;
     }
     &__no-files {
         line-height: var(--line-height-small);
