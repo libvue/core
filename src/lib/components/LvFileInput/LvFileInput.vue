@@ -6,22 +6,48 @@
                 color="solid-primary"
                 :label="buttonText"
                 size="small"
-                @click="onClickSelectFile"
                 :loading="loading"
                 :icon="multiple ? 'files' : 'file'"
+                @click="onClickSelectFile"
             />
             <div class="lv-file-input__files">
-                <template v-if="hasFiles">
-                    <lv-pill
-                        v-for="(file, index) in modelValue"
-                        :key="file.name"
-                        class="lv-file-input__file"
-                        size="small"
-                        closable
-                        :text="file.name"
-                        color="solid-dimmed-primary"
-                        @close="onClickRemoveFile(index)"
-                    />
+                <template v-if="hasModelValue">
+                    <template v-if="hasFileList">
+                        <lv-pill
+                            v-for="(file, index) in modelValue"
+                            :key="file.name"
+                            class="lv-file-input__file"
+                            size="small"
+                            closable
+                            :text="file.name"
+                            color="solid-dimmed-primary"
+                            @close="onClickRemoveFile(index)"
+                        />
+                    </template>
+                    <template v-else>
+                        <template v-if="hasString">
+                            <lv-pill
+                                class="lv-file-input__file"
+                                size="small"
+                                closable
+                                :text="modelValue"
+                                color="solid-dimmed-primary"
+                                @close="onClickRemoveString"
+                            />
+                        </template>
+                        <template v-else-if="hasArrayWithStrings">
+                            <lv-pill
+                                v-for="(name, index) in modelValue"
+                                :key="`${name}${index}`"
+                                class="lv-file-input__file"
+                                size="small"
+                                closable
+                                :text="name"
+                                color="solid-dimmed-primary"
+                                @close="onClickRemoveStringFromArray(index)"
+                            />
+                        </template>
+                    </template>
                 </template>
                 <template v-else>
                     <div class="lv-file-input__no-files">
@@ -43,7 +69,7 @@ export default {
     components: { LvButton, LvPill },
     props: {
         modelValue: {
-            type: FileList,
+            type: [FileList, String, Array],
             default: null,
         },
         multiple: {
@@ -72,12 +98,21 @@ export default {
         }
     },
     computed: {
-        hasFiles() {
+        hasModelValue() {
             return this.modelValue?.length > 0;
+        },
+        hasFileList() {
+            return typeof this.modelValue !== 'string' && !Array.isArray(this.modelValue) && this.modelValue !== null;
+        },
+        hasString() {
+            return typeof this.modelValue === 'string';
+        },
+        hasArrayWithStrings() {
+            return Array.isArray(this.modelValue);
         },
         classObject() {
             return {
-                'lv-file-input--has-files': !!this.hasFiles,
+                'lv-file-input--has-files': !!this.hasModelValue,
                 'lv-file-input--loading': !!this.loading,
             }
         }
@@ -92,6 +127,18 @@ export default {
                 this.$emit('update:modelValue', event.target.files);
             } else {
                 this.$refs.input.value = '';
+                this.$emit('update:modelValue', null);
+            }
+        },
+        onClickRemoveString() {
+            this.$emit('update:modelValue', null);
+        },
+        onClickRemoveStringFromArray(index) {
+            const newArray = Array.from(this.modelValue);
+            newArray.splice(index, 1);
+            if(newArray.length > 0) {
+                this.$emit('update:modelValue', newArray);
+            } else {
                 this.$emit('update:modelValue', null);
             }
         },

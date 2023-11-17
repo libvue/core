@@ -41,8 +41,8 @@ export default {
                 { id: 'single', title: 'Single', icon: 'box' },
                 { id: 'multiple', title: 'Multiple', icon: 'tags' },
             ],
-            fileListSingle: null,
-            fileListMultiple: null,
+            fileListSingle: 'file1.jpg',
+            fileListMultiple: ['file1.jpg', 'file2.jpg'],
         }
     },
     computed: {
