@@ -1,6 +1,9 @@
 <template>
     <div class="splash">
         <lv-hero v-space-after="4" :align="breakpoints.smallerOrEqual.md ? 'center' : 'right'" title="Libvue" description="An opensource collection of vue 3 components.">
+            <template #title>
+                <span class="content-logo" v-html="Logo"></span>
+            </template>
             <template #image>
                 <div class="preview">
                     <lv-card class="preview__login">
@@ -106,6 +109,7 @@
 
 <script>
 import { useBreakpoints } from '../../lib/composables/useBreakpoints';
+import Logo from '../assets/images/logo-header.svg?raw';
 
 const install = `
 npm install --save @libvue/core
@@ -121,6 +125,7 @@ export default {
     data() {
         return {
             install,
+            Logo,
             labels: ['January', 'February', 'March', 'April', 'May', 'June'],
             followersDatasets: [
                 {
@@ -151,6 +156,10 @@ export default {
 }
 .feature-card {
     height: 100%;
+}
+.content-logo {
+    width: 100%;
+    max-width: 200px;
 }
 
 .preview {
