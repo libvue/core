@@ -18,11 +18,24 @@
         >
             <!-- Single value -->
             <div v-if="!multiple" class="lv-select__value">
-                <template v-if="hasValue">
+                <div v-if="hasValue && !hasOptions" class="lv-select__placeholder">
+                    <template v-if="loading">
+                        {{ noOptionsWithValueLoadingPlaceholder }}
+                    </template>
+                    <template v-else>
+                        {{ noOptionsWithValuePlaceholder }}
+                    </template>
+                </div>
+                <template v-else-if="hasValue">
                     <slot name="value" :option="selectedOption">
                         {{ selectedOption[optionLabelKey] }}
                     </slot>
-                    <lv-icon v-if="clearable" class="lv-select__value-remove lv-select__value-remove--single" name="x-circle" @click="onClickClearOption(selectedOption)"/>
+                    <lv-icon
+                        v-if="clearable"
+                        class="lv-select__value-remove lv-select__value-remove--single"
+                        name="x-circle"
+                        @click="onClickClearOption(selectedOption)"
+                    />
                 </template>
                 <div v-else class="lv-select__placeholder">
                     {{ placeholder }}
@@ -30,12 +43,20 @@
             </div>
             <!-- Multi value -->
             <div v-else-if="multiple" class="lv-select__value">
-                <template v-if="hasValue">
+                <div v-if="hasValue && !hasOptions" class="lv-select__placeholder">
+                    <template v-if="loading">
+                        {{ noOptionsWithValueLoadingPlaceholder }}
+                    </template>
+                    <template v-else>
+                        {{ noOptionsWithValuePlaceholder }}
+                    </template>
+                </div>
+                <template v-else-if="hasValue">
                     <span v-for="(option, index) in selectedOptions" :key="index" class="lv-select__value-item">
                         <slot name="value" :option="option">
                             {{ option[optionLabelKey] }}
                         </slot>
-                        <lv-icon class="lv-select__value-remove" name="x-circle" @click="onClickClearOption(option)"/>
+                        <lv-icon class="lv-select__value-remove" name="x-circle" @click="onClickClearOption(option)" />
                     </span>
                 </template>
                 <div v-else class="lv-select__placeholder">
@@ -50,13 +71,12 @@
         <!-- Dropdown -->
         <transition name="dropdown">
             <div v-show="dropdownVisible" class="lv-select__dropdown" role="listbox">
-
-                <div class="lv-select__search" v-if="searchable">
+                <div v-if="searchable" class="lv-select__search">
                     <input
+                        ref="search"
                         v-model="search"
                         class="lv-select__search-input"
                         type="text"
-                        ref="search"
                         :placeholder="searchPlaceholder"
                     />
                 </div>
@@ -87,8 +107,8 @@
 import { onClickOutside } from '@vueuse/core';
 import propSizeMixin from '../../mixins/propSizeMixin';
 import LvSelectOption from './LvSelectOption.vue';
-import LvIcon from "../LvIcon/LvIcon.vue";
-import LvSpinner from "../LvSpinner/LvSpinner.vue";
+import LvIcon from '../LvIcon/LvIcon.vue';
+import LvSpinner from '../LvSpinner/LvSpinner.vue';
 
 export default {
     components: {
@@ -121,6 +141,14 @@ export default {
         noOptionsText: {
             type: String,
             default: 'No options found',
+        },
+        noOptionsWithValuePlaceholder: {
+            type: String,
+            default: 'Error: No options found for current selection',
+        },
+        noOptionsWithValueLoadingPlaceholder: {
+            type: String,
+            default: 'Loading, one moment please',
         },
         clearable: {
             type: Boolean,
@@ -188,6 +216,9 @@ export default {
                 fallbackFocus: document.body,
             };
         },
+        hasOptions() {
+            return this.options.length > 0;
+        },
         hasValue() {
             if (this.multiple && this.modelValue.length > 0) {
                 return true;
@@ -227,7 +258,7 @@ export default {
                     this.$refs.search.focus();
                 });
             }
-        }
+        },
     },
     mounted() {
         onClickOutside(this.$refs.select, () => {
@@ -236,7 +267,7 @@ export default {
     },
     methods: {
         onClickSelection(e) {
-            if(!e.target.classList.contains('lv-select__value-remove') && e.target.classList.length > 0) {
+            if (!e.target.classList.contains('lv-select__value-remove') && e.target.classList.length > 0) {
                 this.dropdownVisible = !this.dropdownVisible;
             }
         },
@@ -320,45 +351,45 @@ export default {
             white-space: nowrap;
         }
         &-remove {
-            margin-left: .5rem;
+            margin-left: 0.5rem;
 
             &--single {
-                margin-left: auto;
                 margin-right: 1.5rem;
+                margin-left: auto;
             }
         }
     }
 
     &__search {
         display: flex;
-        align-items: center;
         position: sticky;
-        top: -.5rem;
-        margin-top: -.5rem;
+        top: -0.5rem;
         flex-grow: 1;
+        align-items: center;
+        z-index: 1;
         box-sizing: border-box;
+        margin-top: -0.5rem;
         background: var(--background-color);
-        padding: 1rem .75rem 1rem;
+        padding: 1rem 0.75rem 1rem;
+        width: 100%;
         font-size: inherit;
         line-height: inherit;
-        width: 100%;
-        z-index: 1;
 
         &-input {
             outline: 0;
             border: 0;
+            background: var(--background-color);
+            width: 100%;
             color: var(--text-color);
             font-size: inherit;
             line-height: inherit;
-            width: 100%;
-            background: var(--background-color);
             &::placeholder {
                 color: var(--placeholder-color);
             }
         }
 
         &-icon {
-            margin-right: .25rem;
+            margin-right: 0.25rem;
         }
     }
     &__placeholder {
@@ -400,6 +431,9 @@ export default {
             &::placeholder {
                 color: var(--placeholder-color);
             }
+        }
+        #{$self}__value {
+            opacity: 0.5;
         }
     }
 
