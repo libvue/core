@@ -8,7 +8,6 @@ const LvBadge = () => import('../../../views/documentation/components/lv-badge.v
 const LvFileTree = () => import('../../../views/documentation/components/lv-file-tree.vue');
 const LvProgressBar = () => import('../../../views/documentation/components/lv-progress-bar.vue');
 const LvProgressSteps = () => import('../../../views/documentation/components/lv-progress-steps.vue');
-const LvFragmentLink = () => import('../../../views/documentation/components/lv-fragment-link.vue');
 const LvImageCarousel = () => import('../../../views/documentation/components/lv-image-carousel.vue');
 const LvImage = () => import('../../../views/documentation/components/lv-image.vue');
 const LvSkeleton = () => import('../../../views/documentation/components/lv-skeleton.vue');
@@ -150,11 +149,6 @@ export default [
         path: '/docs/lv-progress-steps',
         name: 'lv-progress-steps',
         component: LvProgressSteps,
-    },
-    {
-        path: '/docs/lv-fragment-link',
-        name: 'lv-fragment-link',
-        component: LvFragmentLink,
     },
     {
         path: '/docs/lv-image-carousel',

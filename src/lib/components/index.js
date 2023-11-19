@@ -7,7 +7,6 @@ import LvBadge from './LvBadge/LvBadge.vue';
 import LvFileTree from './LvFileTree/LvFileTree.vue';
 import LvProgressBar from './LvProgressBar/LvProgressBar.vue';
 import LvProgressSteps from './LvProgressSteps/LvProgressSteps.vue';
-import LvFragmentLink from './LvFragmentLink/LvFragmentLink.vue';
 import LvImageCarousel from './LvImageCarousel/LvImageCarousel.vue';
 import LvImageCarouselItem from './LvImageCarousel/LvImageCarouselItem.vue';
 import LvImage from './LvImage/LvImage.vue';
@@ -83,7 +82,6 @@ export {
     LvFileTree,
     LvProgressBar,
     LvProgressSteps,
-    LvFragmentLink,
     LvImageCarousel,
     LvImageCarouselItem,
     LvImage,
@@ -160,7 +158,6 @@ export default {
     LvFileTree,
     LvProgressBar,
     LvProgressSteps,
-    LvFragmentLink,
     LvImageCarousel,
     LvImageCarouselItem,
     LvImage,

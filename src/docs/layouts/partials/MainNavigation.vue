@@ -74,9 +74,6 @@
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-link' }" custom>
                 <lv-vertical-nav-item label="Link" :active="isActive" @click="navigate" />
             </router-link>
-            <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-fragment-link' }" custom>
-                <lv-vertical-nav-item label="Fragment Link" :active="isActive" @click="navigate" />
-            </router-link>
             <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/lv-horizontal-nav' }" custom>
                 <lv-vertical-nav-item label="Horizontal Nav" :active="isActive" @click="navigate" />
             </router-link>
