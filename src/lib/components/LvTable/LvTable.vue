@@ -102,8 +102,8 @@
                             </td>
                         </template>
                     </tr>
-                    <tr v-if="expandableRows" v-show="expandedRows.includes(rowIndex)">
-                        <td :colspan="visibleColumnCount">
+                    <tr class="lv-table__row lv-table__row--expansion" v-if="expandableRows" v-show="expandedRows.includes(rowIndex)">
+                        <td class="lv-table__cell" :colspan="visibleColumnCount">
                             <slot name="_expansion" :row="rows[rowIndex]"></slot>
                         </td>
                     </tr>
@@ -550,6 +550,11 @@ export default {
         &:first-of-type {
             #{$self}__cell--group-title {
                 padding-top: 0;
+            }
+        }
+        &--expansion {
+            #{$self}__cell {
+                white-space: initial !important;
             }
         }
     }
