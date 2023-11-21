@@ -103,6 +103,12 @@ export default {
                     path: 'lv-dialog',
                 },
                 {
+                    name: 'LvDrawer',
+                    notes: 'Needs aria-label',
+                    link: 'https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/',
+                    path: 'lv-drawer',
+                },
+                {
                     name: 'LvHeading',
                     notes: '-',
                     link: 'https://www.w3.org/WAI/ARIA/apg/practices/structural-roles/',
