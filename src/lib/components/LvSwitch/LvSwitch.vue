@@ -97,8 +97,9 @@ export default {
         height: 1.2rem;
         &:before {
             position: absolute;
-            top: 2px;
+            top: 50%;
             left: 2px;
+            transform: translate(0, -50%);
             transition: var(--transition-time) left var(--transition-easing);
             border-radius: var(--border-radius);
             background-color: var(--border-color);
