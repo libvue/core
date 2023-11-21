@@ -1,20 +1,21 @@
 <template>
     <Teleport :to="teleportTarget">
-        <transition name="fade-slide-up">
-            <component
-                :is="focusTrap ? 'UseFocusTrap' : 'div'"
-                v-if="show && mounted"
-                ref="dialog"
-                :options="focusTrap ? focusTrapOptions : null"
-                class="lv-dialog"
-                role="dialog"
-                :aria-modal="modal"
-                :aria-label="ariaLabel"
-                :aria-labelledby="arialLabelledBy"
-                v-bind="$attrs"
-            >
-                <div class="lv-dialog__backdrop" @click="onClickBackdrop"></div>
-                <div ref="content" class="lv-dialog__window">
+        <component
+            :is="focusTrap ? 'UseFocusTrap' : 'div'"
+            v-if="computedShow && mounted"
+            :options="focusTrap ? focusTrapOptions : null"
+            class="lv-dialog"
+            role="dialog"
+            :aria-modal="modal"
+            :aria-label="ariaLabel"
+            :aria-labelledby="arialLabelledBy"
+            v-bind="$attrs"
+        >
+            <transition name="fade" appear>
+                <div v-if="show" class="lv-dialog__backdrop" @click="onClickBackdrop"></div>
+            </transition>
+            <transition name="fade-slide-up" appear>
+                <div v-if="show" ref="content" class="lv-dialog__window">
                     <slot name="default">
                         <div v-if="!!$slots.title" class="lv-dialog__title"><slot name="title"></slot></div>
                         <div v-if="!!$slots.content" class="lv-dialog__content">
@@ -23,14 +24,15 @@
                         <div v-if="!!$slots.close" class="lv-dialog__close"><slot name="close"></slot></div>
                     </slot>
                 </div>
-            </component>
-        </transition>
+            </transition>
+        </component>
     </Teleport>
 </template>
 
 <script>
 import { UseFocusTrap } from '@vueuse/integrations/useFocusTrap/component';
 import { useScrollLock } from '@vueuse/core';
+import { useTimings } from '../../composables/useTimings';
 
 export default {
     components: {
@@ -60,24 +62,24 @@ export default {
         },
         focusTrap: {
             type: Boolean,
-            default: true,
-        },
-        scrollLock: {
-            type: Boolean,
-            default: true,
+            default: (props) => !!props.modal,
         },
     },
     emits: ['click-backdrop'],
     setup() {
-        const { body } = document;
-        const isLocked = useScrollLock(body);
+        const isLocked = useScrollLock(document.body);
+        const { timeDouble, cssTimeToMilliSeconds } = useTimings();
+
         return {
             isLocked,
+            timeDouble,
+            cssTimeToMilliSeconds,
         };
     },
     data() {
         return {
             mounted: false,
+            computedShow: false,
         };
     },
     computed: {
@@ -92,6 +94,16 @@ export default {
     watch: {
         show(val) {
             this.isLocked = !!val;
+
+            // If invisible, directly show
+            // Otherwise hide with a delay
+            if (val) {
+                this.computedShow = true;
+            } else {
+                setTimeout(() => {
+                    this.computedShow = false;
+                }, this.cssTimeToMilliSeconds(this.timeDouble));
+            }
         },
     },
     mounted() {
