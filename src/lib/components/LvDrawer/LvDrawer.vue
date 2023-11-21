@@ -1,32 +1,45 @@
 <template>
     <Teleport :to="teleportTarget">
-        <div
+        <component
+            :is="focusTrap ? 'UseFocusTrap' : 'div'"
+            v-if="computedShow && mounted"
+            :options="focusTrap ? focusTrapOptions : null"
             class="lv-drawer"
-            :class="classObject"
-            v-bind="$attrs"
             role="dialog"
+            :class="classObject"
+            :aria-modal="modal"
             :aria-label="ariaLabel"
             :aria-labelledby="arialLabelledBy"
+            v-bind="$attrs"
         >
-            <transition name="fade">
+            <transition name="fade" appear>
                 <div v-show="show" class="lv-drawer__backdrop" @click="onClickBackDrop"></div>
             </transition>
-            <transition :name="animation">
+            <transition :name="animation" appear>
                 <div v-show="show" ref="content" class="lv-drawer__content">
                     <slot></slot>
                 </div>
             </transition>
-        </div>
+        </component>
     </Teleport>
 </template>
 
 <script>
+import { UseFocusTrap } from '@vueuse/integrations/useFocusTrap/component';
 import { useScrollLock } from '@vueuse/core';
+import { useTimings } from "../../composables/useTimings";
 
 export default {
+    components: {
+        UseFocusTrap,
+    },
     inheritAttrs: false,
     props: {
         show: {
+            type: Boolean,
+            default: false,
+        },
+        modal: {
             type: Boolean,
             default: false,
         },
@@ -34,6 +47,14 @@ export default {
             type: String,
             default: 'bottom',
             validator: (val) => ['right', 'left', 'top', 'bottom'].includes(val),
+        },
+        leftRightWidth: {
+            type: String,
+            default: 'auto',
+        },
+        topBottomHeight: {
+            type: String,
+            default: 'auto',
         },
         ariaLabel: {
             type: String,
@@ -47,20 +68,26 @@ export default {
             type: String,
             default: 'body',
         },
-        leftRightWidth: {
-            type: String,
-            default: 'auto',
-        },
-        topBottomHeight: {
-            type: String,
-            default: 'auto',
+        focusTrap: {
+            type: Boolean,
+            default: (props) => !!props.modal,
         },
     },
     emits: ['click-backdrop'],
     setup() {
-        const scrollLock = useScrollLock(document.body);
+        const isLocked = useScrollLock(document.body);
+        const { timeDouble, cssTimeToMilliSeconds } = useTimings();
+
         return {
-            scrollLock,
+            isLocked,
+            timeDouble,
+            cssTimeToMilliSeconds,
+        };
+    },
+    data() {
+        return {
+            mounted: false,
+            computedShow: false,
         };
     },
     computed: {
@@ -94,12 +121,19 @@ export default {
     },
     watch: {
         show(val) {
+            this.isLocked = !!val;
+
             if (val) {
-                this.scrollLock = true;
+                this.computedShow = true;
             } else {
-                this.scrollLock = false;
+                setTimeout(() => {
+                    this.computedShow = false;
+                }, this.cssTimeToMilliSeconds(this.timeDouble));
             }
         },
+    },
+    mounted() {
+        this.mounted = true;
     },
     methods: {
         onClickBackDrop(e) {
