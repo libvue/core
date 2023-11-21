@@ -2,6 +2,12 @@
     <lv-heading v-space-after="0.5" :level="3">Heading</lv-heading>
     <lv-heading v-space-after="2" sub :level="6">Headings rock</lv-heading>
 
+    <lv-notice color="solid-dimmed-success" v-space-after="1" icon="accessibility">
+        <lv-flex gap=".2rem">
+            Using <lv-link color="currentColor" href="https://www.w3.org/WAI/ARIA/apg/practices/structural-roles/" target="_blank" highlight>w3.org Aria Structural Roles</lv-link>
+        </lv-flex>
+    </lv-notice>
+
     <lv-heading v-space-after="1" :level="6">Levels</lv-heading>
     <lv-card v-space-after="1">
         <lv-heading v-space-after="1" :level="1">Heading1</lv-heading>

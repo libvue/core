@@ -8,14 +8,6 @@
         <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/theming' }" custom>
             <lv-vertical-nav-item icon="palette" label="Theming" :active="isActive" @click="navigate" />
         </router-link>
-        <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/spacing' }" custom>
-            <lv-vertical-nav-item
-                icon="align-vertical-space-around"
-                label="Spacing"
-                :active="isActive"
-                @click="navigate"
-            />
-        </router-link>
         <router-link v-slot="{ isActive, navigate }" :to="{ path: '/docs/accessibility' }" custom>
             <lv-vertical-nav-item
                 icon="accessibility"

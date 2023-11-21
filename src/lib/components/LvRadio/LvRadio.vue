@@ -1,12 +1,18 @@
 <template>
-    <div class="lv-radio" role="radio" :class="classObject">
-        <lv-spinner v-if="loading" class="lv-radio__loading" :size="12"  />
+    <div
+        class="lv-radio"
+        role="radio"
+        :aria-label="ariaLabel"
+        :aria-labelledby="arialLabelledBy"
+        :aria-checked="isChecked"
+        :class="classObject"
+    >
+        <lv-spinner v-if="loading" class="lv-radio__loading" :size="12" />
         <input
             :id="labelFor"
             class="lv-radio__input"
             type="radio"
             :checked="isChecked"
-            :aria-checked="isChecked"
             :disabled="disabled || loading"
             :name="name"
             :value="value"
@@ -18,7 +24,7 @@
 </template>
 
 <script>
-import LvSpinner from "../LvSpinner/LvSpinner.vue";
+import LvSpinner from '../LvSpinner/LvSpinner.vue';
 
 export default {
     components: { LvSpinner },
@@ -51,6 +57,14 @@ export default {
             type: Boolean,
             default: false,
         },
+        ariaLabel: {
+            type: String,
+            default: null,
+        },
+        arialLabelledBy: {
+            type: String,
+            default: null,
+        },
     },
     emits: ['update:modelValue'],
     computed: {
@@ -66,7 +80,7 @@ export default {
     },
     methods: {
         onClick() {
-            if(!this.loading && !this.disabled) {
+            if (!this.loading && !this.disabled) {
                 this.$emit('update:modelValue', this.value);
             }
         },
