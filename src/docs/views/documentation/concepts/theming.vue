@@ -11,8 +11,7 @@
         </template>
         <template #theme>
             <lv-text v-space-after="1">
-                When changing theme variables you must assign them to prefers-color-scheme media query for automatically setting the correct theme.
-                <lv-code>@media (prefers-color-scheme: dark|light)</lv-code> and use the HTML attribute <lv-code>[data-theme="dark|light"]</lv-code> for overrides.
+                When changing theme variables you must assign them to the <lv-code>@media (prefers-color-scheme: dark|light)</lv-code> media query for automatically setting the correct theme and use the HTML attribute <lv-code>[data-theme="dark|light"]</lv-code> for overrides.
             </lv-text>
             <code-preview v-space-after="1" :code="codeThemeVariables" lang="scss" />
         </template>
@@ -97,10 +96,13 @@ const codeThemeVariables = `
 const codeGlobalVariables = `
 // Overwrite default global variables
 :root {
-    --z-index-base: 1;
-    --z-index-dropdown: 200;
-    --z-index-dialog: 300;
-    --z-index-toast: 400;
+    --z-overlay: 1;
+    --z-tooltip: 2;
+    --z-dropdown: 3;
+    --z-sticky: 4;
+    --z-drawer: 5;
+    --z-dialog: 6;
+    --z-toast: 7;
     --font-family: Inter, sans-serif;
     --font-family-monospace: Roboto Mono, monospace;
     --font-size-tiny: 0.625rem;
@@ -114,21 +116,23 @@ const codeGlobalVariables = `
     --font-size-h4: 1.2rem;
     --font-size-h5: 1rem;
     --font-size-h6: 0.875rem;
-    --line-height-h1: 2.2rem;
-    --line-height-h2: 1.8rem;
-    --line-height-h3: 1.6rem;
-    --line-height-h4: 1.5rem;
-    --line-height-h5: 1.2rem;
-    --line-height-h6: 1rem;
-    --line-height-tiny: 0.75rem;
-    --line-height-small: 0.875rem;
-    --line-height: 1rem;
-    --line-height-large: 1.2rem;
-    --line-height-huge: 1.7rem;
+    --line-height-h1: 1.6;
+    --line-height-h2: 1.4;
+    --line-height-h3: 1.3;
+    --line-height-h4: 1.2;
+    --line-height-h5: 1.1;
+    --line-height-h6: 1;
+    --line-height-tiny: 0.875;
+    --line-height-small: 1;
+    --line-height: 1.2;
+    --line-height-large: 1.5;
+    --line-height-huge: 1.7;
     --border-radius: 6px;
     --padding: 12px;
-    --max-width: 1200px;
-    --transition-time: 0.1337s;
+    --max-width: 100%;
+    --transition-time-half: 0.1s;
+    --transition-time: 0.2s;
+    --transition-time-double: 0.4s;
     --transition-easing: ease-in-out;
     --breakpoint-xs: 0;
     --breakpoint-sm: 576px;
