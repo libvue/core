@@ -116,12 +116,13 @@ export default {
         &:checked {
             &:after {
                 position: absolute;
-                top: 2px;
+                top: 50%;
                 left: 2px;
+                transform: translate(0, -50%);
                 border-radius: 100%;
                 background-color: var(--color-primary);
-                width: calc(100% - 4px);
-                height: calc(100% - 4px);
+                width: calc(100% - 5px);
+                height: calc(100% - 5px);
                 content: '';
             }
         }
