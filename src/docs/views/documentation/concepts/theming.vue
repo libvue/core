@@ -2,21 +2,17 @@
     <lv-heading v-space-after="0.5" :level="3">Theming</lv-heading>
     <lv-heading v-space-after="2" sub :level="6">This describes how to customize the theme of libvue</lv-heading>
 
-    <lv-tabs :tabs="tabs" :active="activeTab" @change-tab="(v) => (activeTab = v)">
-        <template #global>
-            <lv-text v-space-after="1">
-                You can overwrite global variables by adding them to the :root directly.
-            </lv-text>
-            <code-preview v-space-after="1" :code="codeGlobalVariables" lang="scss" />
-        </template>
-        <template #theme>
-            <lv-text v-space-after="1">
-                When changing theme variables you must assign them to the <lv-code>@media (prefers-color-scheme: dark|light)</lv-code> media query for automatically setting the correct theme and use the HTML attribute <lv-code>[data-theme="dark|light"]</lv-code> for overrides.
-            </lv-text>
-            <code-preview v-space-after="1" :code="codeThemeVariables" lang="scss" />
-        </template>
-    </lv-tabs>
+    <lv-heading v-space-after="1" :level="6">Global Variables</lv-heading>
+    <lv-text v-space-after="1">
+        You can overwrite global variables by adding them to the :root directly.
+    </lv-text>
+    <code-preview v-space-after="2" :code="codeGlobalVariables" lang="scss" />
 
+    <lv-heading v-space-after="1" :level="6">Dark or Light Theme Variables</lv-heading>
+    <lv-text v-space-after="1">
+        When changing theme variables you must assign them to the <lv-code>@media (prefers-color-scheme: dark|light)</lv-code> media query for automatically setting the correct theme and use the HTML attribute <lv-code>[data-theme="dark|light"]</lv-code> for overrides.
+    </lv-text>
+    <code-preview v-space-after="1" :code="codeThemeVariables" lang="scss" />
 </template>
 
 <script>
@@ -24,7 +20,7 @@ const codeThemeVariables = `
 // Create a mixin so you can reuse it
 @mixin lightThemeOverrides {
     --background-color: #ffffff;
-    --main-background-color: #fff;
+    --main-background-color: #fcfcfc;
     --sidebar-background-color: #fff;
     --header-background-color: rgba(255, 255, 255, 0.8);
     --color-default: #121315;
@@ -58,6 +54,8 @@ const codeThemeVariables = `
     --placeholder-color: #bbbbc1;
     --backdrop-color: rgba(0, 0, 0, 0.1);
     --backdrop-color-inverted: rgba(255, 255, 255, 0.5);
+    --code-background-color: #f1eefe;
+    --code-text-color: #5937f3;
     --shadow: 0 12px 8px -8px rgba(0, 0, 0, 0.05);
     --shadow-dialog: 0 5px 8px 2px rgba(0, 0, 0, 0.15);
     --shadow-popover: 0 0 8px 2px rgba(0, 0, 0, 0.05);
@@ -68,15 +66,12 @@ const codeThemeVariables = `
     --shadow-focus-danger: 0px 0px 0px 3px rgba(255, 39, 64, 0.24);
     --shadow-focus-info: 0px 0px 0px 3px rgba(63, 140, 255, 0.23);
     --shadow-focus-ghost: 0px 0px 0px 3px rgba(112, 112, 112, 0.23);
-    --code-background-color: #f9f9f9;
-    --code-header-color: #ececec;
-    --code-button-color: #dadada;
     --blockquote-background-color: #f9f9f9;
     --scrollbar-track-background-color: #eeeeee;
     --scrollbar-thumb-background-color: #c5c5c5;
     --scrollbar-thumb-border-radius: 0px;
-    --skeleton-tint1: #eeeeee;
-    --skeleton-tint2: #d9d9d9;
+    --skeleton-tint1: #fafafa;
+    --skeleton-tint2: #eeeeee;
     --table-row-hover-background-color: #fdfdfd;
 }
 

@@ -131,7 +131,7 @@ export default {
                 {
                     label: 'Followers',
                     hue: 24,
-                    data: [55, 12, 20, 34, 7, 4],
+                    data: [4, 34, 20, 34, 27, 55],
                 },
             ],
         };
