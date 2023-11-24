@@ -82,7 +82,7 @@ export default {
     position: fixed;
     bottom: 2rem;
     left: 2rem;
-    z-index: var(--z-index-dialog);
+    z-index: var(--z-dialog);
     background-color: var(--background-color);
     border: 1px solid var(--border-color);
     padding: calc(var(--padding) * 2);
@@ -93,7 +93,7 @@ export default {
         height: 100%;
         background-color: rgba(0,0,0,0.3);
         position: fixed;
-        z-index: var(--z-index-dialog);
+        z-index: var(--z-dialog);
         top: 0;
         left: 0;
     }

@@ -151,7 +151,7 @@ export default {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: var(--z-index-dialog);
+    z-index: var(--z-dialog);
     width: 100%;
     height: 100%;
     pointer-events: none;

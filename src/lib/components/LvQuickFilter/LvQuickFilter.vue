@@ -293,7 +293,7 @@ export default {
     }
     &__dropdown {
         position: absolute;
-        z-index: var(--z-index-dropdown);
+        z-index: var(--z-dropdown);
         margin-top: calc(var(--padding) * 0.5);
         outline: 0;
         box-shadow: var(--shadow);

@@ -127,7 +127,7 @@ export default {
     left: 0;
     justify-content: center;
     align-items: center;
-    z-index: var(--z-index-dialog);
+    z-index: var(--z-dialog);
     width: 100%;
     height: 100%;
 
