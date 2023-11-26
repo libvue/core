@@ -7,7 +7,7 @@
     >
         <main-navigation></main-navigation>
     </lv-drawer>
-    <lv-layout :sticky-header="breakpoints.greaterOrEqual.md" :sticky-sub-header="!breakpoints.greaterOrEqual.md">
+    <lv-layout :sticky-header="breakpoints.greaterOrEqual.md" :sticky-sub-header="!breakpoints.greaterOrEqual.md" sidebar-width="200px">
         <template #header>
             <lv-header>
                 <template #branding>
