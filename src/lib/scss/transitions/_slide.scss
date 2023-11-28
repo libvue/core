@@ -1,7 +1,7 @@
 // Slide left-to-right
 .slide-left-to-right-enter-active,
 .slide-left-to-right-leave-active {
-    transition: all 0.3s ease;
+    transition: all var(--transition-time) var(--transition-easing);
 }
 .slide-left-to-right-enter-from,
 .slide-left-to-right-leave-to {
@@ -12,7 +12,7 @@
 // Slide right-to-left
 .slide-right-to-left-enter-active,
 .slide-right-to-left-leave-active {
-    transition: all 0.3s ease;
+    transition: all var(--transition-time) var(--transition-easing);
 }
 .slide-right-to-left-enter-from,
 .slide-right-to-left-leave-to {
@@ -23,7 +23,7 @@
 // Slide top-to-bottom
 .slide-top-to-bottom-enter-active,
 .slide-top-to-bottom-leave-active {
-    transition: all 0.3s ease;
+    transition: all var(--transition-time) var(--transition-easing);
 }
 .slide-top-to-bottom-enter-from,
 .slide-top-to-bottom-leave-to {
@@ -34,7 +34,7 @@
 // Slide bottom-to-top
 .slide-bottom-to-top-enter-active,
 .slide-bottom-to-top-leave-active {
-    transition: all 0.3s ease;
+    transition: all var(--transition-time) var(--transition-easing);
 }
 .slide-bottom-to-top-enter-from,
 .slide-bottom-to-top-leave-to {

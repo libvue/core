@@ -1,6 +1,6 @@
 .fade-enter-active,
 .fade-leave-active {
-    transition: opacity calc(var(--transition-time) * 2) var(--transition-easing);
+    transition: opacity var(--transition-time) var(--transition-easing);
 }
 .fade-enter-from,
 .fade-leave-to {
@@ -9,7 +9,7 @@
 
 .fade-slide-up-enter-active,
 .fade-slide-up-leave-active {
-    transition: all calc(var(--transition-time) * 2) var(--transition-easing);
+    transition: all var(--transition-time) var(--transition-easing);
 }
 
 .fade-slide-up-enter-from,
