@@ -123,7 +123,6 @@ export default {
         background-color: var(--background-color);
         padding: calc(var(--padding) * 2);
         max-height: 100vh;
-        overflow-y: auto;
     }
 }
 </style>
