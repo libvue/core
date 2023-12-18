@@ -1,8 +1,7 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">Code</lv-heading>
-    <lv-heading v-space-after="2" sub :level="6">Used for highlighting a piece of code inline</lv-heading>
+    <lv-heading v-space-after="2" sub :level="6">Used for highlighting a piece of inline code</lv-heading>
 
-    <lv-heading v-space-after="1" :level="6">Default</lv-heading>
     <lv-card v-space-after="1">
         <lv-code>Hello World</lv-code>
     </lv-card>
@@ -12,7 +11,7 @@
 </template>
 
 <script>
-const code = `<code-preview code="Hello World" lang="html" />`.trim();
+const code = `<lv-code>Hello World</lv-code>`.trim();
 const codeFilesScript = `
 activeFile: 'template',
 files: [
