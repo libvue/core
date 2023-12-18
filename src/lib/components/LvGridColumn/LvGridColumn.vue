@@ -8,12 +8,6 @@
 import { useBreakpoints } from "../../composables/useBreakpoints";
 
 export default {
-    setup() {
-        const { breakpoints } = useBreakpoints();
-        return {
-            breakpoints,
-        }
-    },
     inject: {
         rowGap: {
             default: 0,
@@ -55,6 +49,12 @@ export default {
             default: null,
             validator: (v) => v > 0 && v < 13,
         },
+    },
+    setup() {
+        const { breakpoints } = useBreakpoints();
+        return {
+            breakpoints,
+        }
     },
     computed: {
         childrenInRow() {
