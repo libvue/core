@@ -57,6 +57,15 @@ export default {
             subHeaderHeight: null,
         };
     },
+    computed: {
+        classObject() {
+            return {
+                'lv-layout--sticky-header': this.stickyHeader && !this.stickySubHeader,
+                'lv-layout--sticky-sub-header': this.stickySubHeader && !this.stickyHeader,
+                'lv-layout--sticky-header-and-sub-header': this.stickySubHeader && this.stickyHeader,
+            }
+        }
+    },
     mounted() {
         this.createHeaderResizeObserver();
         this.createSubHeaderResizeObserver();
@@ -88,15 +97,6 @@ export default {
                 this.subHeaderHeight = '0px';
             }
         },
-    },
-    computed: {
-        classObject() {
-            return {
-                'lv-layout--sticky-header': this.stickyHeader && !this.stickySubHeader,
-                'lv-layout--sticky-sub-header': this.stickySubHeader && !this.stickyHeader,
-                'lv-layout--sticky-header-and-sub-header': this.stickySubHeader && this.stickyHeader,
-            }
-        }
     }
 };
 </script>
