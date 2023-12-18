@@ -102,7 +102,7 @@
                             </td>
                         </template>
                     </tr>
-                    <tr class="lv-table__row lv-table__row--expansion" v-if="expandableRows" v-show="expandedRows.includes(rowIndex)">
+                    <tr v-if="expandableRows" v-show="expandedRows.includes(rowIndex)" class="lv-table__row lv-table__row--expansion">
                         <td class="lv-table__cell" :colspan="visibleColumnCount">
                             <slot name="_expansion" :row="rows[rowIndex]"></slot>
                         </td>
@@ -276,17 +276,12 @@ export default {
             default: false,
         }
     },
+    emits: ['update:sort'],
     data() {
         return {
             objectReferenceByPath,
             expandedRows: []
         };
-    },
-    watch: {
-        rows() {
-            // Reset the expandedRows when the dataset changes
-            this.expandedRows = [];
-        }
     },
     computed: {
         parsedRows() {
@@ -374,7 +369,12 @@ export default {
             };
         },
     },
-    emits: ['update:sort'],
+    watch: {
+        rows() {
+            // Reset the expandedRows when the dataset changes
+            this.expandedRows = [];
+        }
+    },
     methods: {
         getTotal(columnKey, callback) {
             let total = 0;
