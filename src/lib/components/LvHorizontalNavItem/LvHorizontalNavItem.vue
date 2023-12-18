@@ -2,7 +2,7 @@
     <template v-if="hasChildren">
         <lv-popover trigger="mouseenter" placement="bottom" interactive>
             <template #reference>
-                <a class="lv-horizontal-nav-item" ref="link" :class="classObject" tabindex="0" @click="onClick" @keydown.space.enter="onClick">
+                <a ref="link" class="lv-horizontal-nav-item" :class="classObject" tabindex="0" @click="onClick" @keydown.space.enter="onClick">
                     <lv-icon v-if="icon" :name="icon" class="lv-horizontal-nav-item__icon" />
                     <div class="lv-horizontal-nav-item__label">{{ label }}</div>
                     <lv-icon class="lv-horizontal-nav-item__arrow" name="chevron-down" />
@@ -50,6 +50,7 @@ export default {
             default: false,
         },
     },
+    emits: ['click'],
     computed: {
         hasChildren() {
             return !!this.$slots.default;
@@ -62,7 +63,6 @@ export default {
             };
         },
     },
-    emits: ['click'],
     methods: {
         onClick(e) {
             this.$emit('click', e)
