@@ -64,6 +64,7 @@ export default {
             validator: (value) => ['center', 'left', 'right'].includes(value),
         },
     },
+    emits: ['click'],
     computed: {
         classObject() {
             return {
@@ -76,7 +77,6 @@ export default {
             };
         },
     },
-    emits: ['click'],
     methods: {
         onClick(e) {
             this.$emit('click', e);
