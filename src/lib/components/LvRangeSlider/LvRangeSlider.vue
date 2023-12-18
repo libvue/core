@@ -7,12 +7,6 @@
                     ref="primary"
                     class="lv-range-slider__thumb lv-range-slider__thumb--primary"
                     :style="styleObjectThumbPrimary"
-                    @mousedown="onPrimaryMouseDown"
-                    @touchstart="onPrimaryTouchStart"
-                    @keydown.right="onPrimaryKeydownRight"
-                    @keydown.left="onPrimaryKeydownLeft"
-                    @keydown.prevent.home="onPrimaryKeydownHome"
-                    @keydown.prevent.end="onPrimaryKeydownEnd"
                     role="slider"
                     :aria-valuenow="primaryValue"
                     :aria-valuemin="min"
@@ -20,6 +14,12 @@
                     :aria-label="ariaLabelThumbOne"
                     :aria-labelledby="arialLabelledByThumbOne"
                     tabindex="0"
+                    @mousedown="onPrimaryMouseDown"
+                    @touchstart="onPrimaryTouchStart"
+                    @keydown.right="onPrimaryKeydownRight"
+                    @keydown.left="onPrimaryKeydownLeft"
+                    @keydown.prevent.home="onPrimaryKeydownHome"
+                    @keydown.prevent.end="onPrimaryKeydownEnd"
                 >
                     <lv-spinner v-if="loading && !showRange" class="lv-range-slider__loader" :size="12" />
                     <lv-popover
@@ -41,12 +41,6 @@
                     ref="secondary"
                     class="lv-range-slider__thumb lv-range-slider__thumb--secondary"
                     :style="styleObjectThumbSecondary"
-                    @mousedown="onSecondaryMouseDown"
-                    @touchstart="onSecondaryTouchStart"
-                    @keydown.right="onSecondaryKeydownRight"
-                    @keydown.left="onSecondaryKeydownLeft"
-                    @keydown.prevent.home="onSecondaryKeydownHome"
-                    @keydown.prevent.end="onSecondaryKeydownEnd"
                     role="slider"
                     :aria-valuenow="secondaryValue"
                     :aria-valuemin="primaryValue"
@@ -54,6 +48,12 @@
                     :aria-label="ariaLabelThumbTwo"
                     :aria-labelledby="arialLabelledByThumbTwo"
                     tabindex="0"
+                    @mousedown="onSecondaryMouseDown"
+                    @touchstart="onSecondaryTouchStart"
+                    @keydown.right="onSecondaryKeydownRight"
+                    @keydown.left="onSecondaryKeydownLeft"
+                    @keydown.prevent.home="onSecondaryKeydownHome"
+                    @keydown.prevent.end="onSecondaryKeydownEnd"
                 >
                     <lv-spinner v-if="loading && !showRange" class="lv-range-slider__loader" :size="12" />
                     <lv-popover
