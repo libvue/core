@@ -1,5 +1,5 @@
 <template>
-    <div class="lv-table" :class="classObject" role="table">
+    <div class="lv-table" :class="classObject">
         <div v-if="loading" class="lv-table__loading">
             <lv-spinner />
         </div>
@@ -102,8 +102,8 @@
                             </td>
                         </template>
                     </tr>
-                    <tr v-if="expandableRows" v-show="expandedRows.includes(rowIndex)">
-                        <td :colspan="visibleColumnCount">
+                    <tr v-if="expandableRows" v-show="expandedRows.includes(rowIndex)" class="lv-table__row lv-table__row--expansion">
+                        <td class="lv-table__cell" :colspan="visibleColumnCount">
                             <slot name="_expansion" :row="rows[rowIndex]"></slot>
                         </td>
                     </tr>
@@ -276,17 +276,12 @@ export default {
             default: false,
         }
     },
+    emits: ['update:sort'],
     data() {
         return {
             objectReferenceByPath,
             expandedRows: []
         };
-    },
-    watch: {
-        rows() {
-            // Reset the expandedRows when the dataset changes
-            this.expandedRows = [];
-        }
     },
     computed: {
         parsedRows() {
@@ -374,7 +369,12 @@ export default {
             };
         },
     },
-    emits: ['update:sort'],
+    watch: {
+        rows() {
+            // Reset the expandedRows when the dataset changes
+            this.expandedRows = [];
+        }
+    },
     methods: {
         getTotal(columnKey, callback) {
             let total = 0;
@@ -550,6 +550,11 @@ export default {
         &:first-of-type {
             #{$self}__cell--group-title {
                 padding-top: 0;
+            }
+        }
+        &--expansion {
+            #{$self}__cell {
+                white-space: initial !important;
             }
         }
     }

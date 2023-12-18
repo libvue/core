@@ -1,11 +1,11 @@
 <template>
-    <div class="lv-tabs" role="tablist">
-        <lv-flex class="lv-tabs__buttons" gap="20px">
+    <div class="lv-tabs">
+        <lv-flex class="lv-tabs__buttons" gap="20px" role="tablist">
             <div
                 v-for="tab in tabs"
                 :key="tab.id"
                 class="lv-tabs__button"
-                :tabindex="tab.disabled ? '-1' : '0'"
+                tabindex="0"
                 :class="{ 'lv-tabs__button--active': tab.id === active, 'lv-tabs__button--disabled': !!tab.disabled }"
                 role="tab"
                 @click.stop="onClickButton(tab)"
@@ -15,8 +15,8 @@
                 {{ tab.title }}
             </div>
         </lv-flex>
-        <div class="lv-tabs__panels">
-            <div v-for="tab in tabs" v-show="tab.id === active" :key="tab.id" class="lv-tabs__panel" role="tabpanel">
+        <div class="lv-tabs__panels" role="tabpanel">
+            <div v-for="tab in tabs" v-show="tab.id === active" :key="tab.id" class="lv-tabs__panel">
                 <slot :name="tab.id" :tab="tab" />
             </div>
         </div>
@@ -63,6 +63,7 @@ export default {
 
     &__buttons {
         margin-bottom: 1rem;
+        padding: 1px 0;
         overflow-x: auto;
         flex-wrap: nowrap;
     }
@@ -72,7 +73,6 @@ export default {
         justify-content: center;
         align-items: center;
         cursor: pointer;
-        outline: 0;
         border-bottom: 2px solid transparent;
         background-color: transparent;
         padding: 5px 0;
@@ -83,8 +83,7 @@ export default {
         text-align: center;
         white-space: nowrap;
 
-        &:hover:not(&--active),
-        &:focus:not(&--active) {
+        &:hover:not(&--active) {
             border-color: var(--text-color);
         }
 

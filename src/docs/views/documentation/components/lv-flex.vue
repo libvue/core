@@ -20,7 +20,7 @@
             <lv-card></lv-card>
         </lv-flex>
     </lv-card>
-    <lv-code v-space-after="1" lang="html" :code="codeRow" />
+    <code-preview v-space-after="1" lang="html" :code="codeRow" />
 
     <lv-heading v-space-after="1" :level="6">Column Direction</lv-heading>
     <lv-card v-space-after="1">
@@ -40,7 +40,7 @@
             <lv-card></lv-card>
         </lv-flex>
     </lv-card>
-    <lv-code v-space-after="1" lang="html" :code="codeColumn" />
+    <code-preview v-space-after="1" lang="html" :code="codeColumn" />
 
     <lv-heading v-space-after="1" :level="6">Fill space</lv-heading>
     <lv-card v-space-after="1">
@@ -55,7 +55,7 @@
             <lv-card></lv-card>
         </lv-flex>
     </lv-card>
-    <lv-code v-space-after="1" lang="html" :code="codeFill" />
+    <code-preview v-space-after="1" lang="html" :code="codeFill" />
     <component-details component="LvFlex"></component-details>
 </template>
 

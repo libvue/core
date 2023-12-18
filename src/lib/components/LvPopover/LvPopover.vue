@@ -105,7 +105,7 @@ export default {
 
     &__content {
         position: relative;
-        z-index: var(--z-index-dropdown);
+        z-index: var(--z-dropdown);
         transition: 0.2s opacity ease;
         box-shadow: var(--shadow-popover);
         padding-bottom: 0;

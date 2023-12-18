@@ -43,10 +43,9 @@ $theme-light-shadow-focus-warning: 0px 0px 0px 3px rgba($theme-light-color-warni
 $theme-light-shadow-focus-danger: 0px 0px 0px 3px rgba($theme-light-color-danger, 0.24) !default;
 $theme-light-shadow-focus-info: 0px 0px 0px 3px rgba($theme-light-color-info, 0.23) !default;
 $theme-light-shadow-focus-ghost: 0px 0px 0px 3px rgba(darken($theme-light-color-ghost, 56), 0.23) !default;
-$theme-light-code-background-color: #ffffff;
-$theme-light-code-header-color: #ececec;
-$theme-light-code-button-color: #dadada;
 $theme-light-blockquote-background-color: #f9f9f9;
+$theme-light-code-background-color: lighten($theme-light-color-primary, 38) !default;
+$theme-light-code-text-color: $theme-light-color-primary;
 $theme-light-scrollbar-track-background-color: #eeeeee;
 $theme-light-scrollbar-thumb-background-color: #c5c5c5;
 $theme-light-scrollbar-thumb-border-radius: 0px;
@@ -90,6 +89,8 @@ $theme-light: (
     placeholder-color: $theme-light-placeholder-color,
     backdrop-color: $theme-light-backdrop-color,
     backdrop-color-inverted: $theme-light-backdrop-color-inverted,
+    code-background-color: $theme-light-code-background-color,
+    code-text-color: $theme-light-code-text-color,
     shadow: $theme-light-shadow,
     shadow-dialog: $theme-light-shadow-dialog,
     shadow-popover: $theme-light-shadow-popover,
@@ -100,9 +101,6 @@ $theme-light: (
     shadow-focus-danger: $theme-light-shadow-focus-danger,
     shadow-focus-info: $theme-light-shadow-focus-info,
     shadow-focus-ghost: $theme-light-shadow-focus-ghost,
-    code-background-color: $theme-light-code-background-color,
-    code-header-color: $theme-light-code-header-color,
-    code-button-color: $theme-light-code-button-color,
     blockquote-background-color: $theme-light-blockquote-background-color,
     scrollbar-track-background-color: $theme-light-scrollbar-track-background-color,
     scrollbar-thumb-background-color: $theme-light-scrollbar-thumb-background-color,

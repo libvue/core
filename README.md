@@ -9,24 +9,40 @@
 
 ### Install
 
-```bash
-> npm install --save @libvue/core
+```shell
+npm install --save @libvue/core
 ```
 
+#### main.js
 ```js
-// app.js
-import { spaceAfter, LvButton, LvTable } from '@libvue/core';
+import { LvButton, LvTable, spaceAfter } from '@libvue/core';
 
-// Register spaceAfter directive
-app.directive('space-after', spaceAfter);
-
-// Register Common Components
+// Register components
 app.component('LvButton', LvButton);
 app.component('LvTable', LvTable);
 
+// Register directives
+app.directive('space-after', spaceAfter);
 ```
 
+#### app.scss
 ```scss
-// app.scss
 @import '@libvue/core';
+
+html {
+  min-height: 100%;
+  height: 100%;
+  font-size: 100%;
+}
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  height: 100%;
+  font-size: .875rem;
+  line-height: 1.5;
+}
+#app {
+  display: flex;
+  min-height: 100%;
+}
 ```

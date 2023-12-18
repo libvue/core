@@ -1,7 +1,7 @@
 <template>
     <figure class="lv-image" :class="classObject">
         <img class="lv-image__image" :src="src" />
-        <figcaption class="lv-image__caption" v-if="caption">{{ caption }}</figcaption>
+        <figcaption v-if="caption" class="lv-image__caption">{{ caption }}</figcaption>
     </figure>
 </template>
 
@@ -59,8 +59,6 @@ export default {
 <style lang="scss">
 .lv-image {
     $self: &;
-    width: v-bind(width);
-    height: v-bind(height);
     max-width: 100%;
     padding: 0;
     margin: 0;

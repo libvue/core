@@ -1,5 +1,5 @@
 <template>
-    <a class="lv-link" :class="classObject" role="link" v-bind="$attrs" @click="onClick">
+    <a class="lv-link" :class="classObject" role="link" :title="title" v-bind="$attrs" @click="onClick">
         <div class="lv-link__content">
             <slot />
         </div>
@@ -20,6 +20,14 @@ export default {
         block: {
             type: Boolean,
             default: false,
+        },
+        color: {
+            type: String,
+            default: 'var(--text-color)'
+        },
+        title: {
+            type: String,
+            default: null,
         }
     },
     emits: ['click'],
@@ -44,22 +52,19 @@ export default {
 .lv-link {
     $self: &;
     cursor: pointer;
-    color: var(--text-color);
+    color: v-bind(color);
     text-decoration: none;
     display: inline-flex;
 
     &--highlight {
         transition: all var(--transition-time);
-        color: var(--color-primary);
         text-decoration: underline;
 
         &:hover {
             border-bottom-color: var(--color-primary);
-            color: var(--color-primary);
         }
         &--active {
             border-bottom-color: var(--color-primary);
-            color: var(--color-primary);
         }
     }
 

@@ -8,7 +8,7 @@
             <lv-button label="Button Three" color="solid-primary"/>
         </lv-button-group>
     </lv-card>
-    <lv-code v-space-after="1" lang="html" :code="code"/>
+    <code-preview v-space-after="1" lang="html" :code="code"/>
     <component-details component="LvButtonGroup"></component-details>
 </template>
 

@@ -5,9 +5,9 @@
     <lv-quick-filter :filters="filters" icon="search" @update:filter="onUpdateFilter" @clear:filter="onClearFilter" v-space-after="1"></lv-quick-filter>
 
     <lv-heading level="6" v-space-after="1">Filter Models</lv-heading>
-    <lv-code :code="JSON.stringify(models, null, 2)" v-space-after="1"></lv-code>
+    <code-preview :code="JSON.stringify(models, null, 2)" v-space-after="1"></code-preview>
     <lv-heading level="6" v-space-after="1">Code</lv-heading>
-    <lv-code v-space-after="1" :files="files" :active="activeFile" @change-file="(v) => (activeFile = v)"></lv-code>
+    <code-preview v-space-after="1" :files="files" :active="activeFile" @change-file="(v) => (activeFile = v)"></code-preview>
     <component-details component="LvQuickFilter"></component-details>
 </template>
 

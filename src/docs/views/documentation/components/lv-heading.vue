@@ -2,6 +2,12 @@
     <lv-heading v-space-after="0.5" :level="3">Heading</lv-heading>
     <lv-heading v-space-after="2" sub :level="6">Headings rock</lv-heading>
 
+    <lv-notice color="solid-dimmed-success" v-space-after="1" icon="accessibility">
+        <lv-flex gap=".2rem">
+            Using <lv-link color="currentColor" href="https://www.w3.org/WAI/ARIA/apg/practices/structural-roles/" target="_blank" highlight>w3.org Aria Structural Roles</lv-link>
+        </lv-flex>
+    </lv-notice>
+
     <lv-heading v-space-after="1" :level="6">Levels</lv-heading>
     <lv-card v-space-after="1">
         <lv-heading v-space-after="1" :level="1">Heading1</lv-heading>
@@ -11,14 +17,14 @@
         <lv-heading v-space-after="1" :level="5">Heading5</lv-heading>
         <lv-heading :level="6">Heading6</lv-heading>
     </lv-card>
-    <lv-code v-space-after="1" lang="html" :code="codeLevels" />
+    <code-preview v-space-after="1" lang="html" :code="codeLevels" />
 
     <lv-heading v-space-after="1" :level="6">Subheading</lv-heading>
     <lv-card v-space-after="1">
         <lv-heading v-space-after="0.5" :level="1">Heading1</lv-heading>
         <lv-heading sub :level="6">Subheading</lv-heading>
     </lv-card>
-    <lv-code v-space-after="1" lang="html" :code="codeSub" />
+    <code-preview v-space-after="1" lang="html" :code="codeSub" />
     <component-details component="LvHeading"></component-details>
 </template>
 

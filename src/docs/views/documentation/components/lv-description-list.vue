@@ -9,7 +9,7 @@
             </template>
         </lv-description-list>
     </lv-card>
-    <lv-code v-space-after="1" :files="files" :active="activeFile" @change-file="(v) => activeFile = v" />
+    <code-preview v-space-after="1" :files="files" :active="activeFile" @change-file="(v) => activeFile = v" />
 
     <component-details component="LvDescriptionList"></component-details>
 </template>

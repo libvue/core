@@ -1,12 +1,27 @@
 <template>
-    <div class="lv-checkbox" :class="classObject" aria-label="checkbox" @click.stop="toggleCheckbox">
+    <div
+        class="lv-checkbox"
+        :class="classObject"
+        :aria-label="ariaLabel"
+        :aria-labelledby="arialLabelledBy"
+        :aria-checked="indeterminate ? 'mixed' : !!modelValue"
+        role="checkbox"
+    >
         <div class="lv-checkbox__checkbox">
-            <input ref="checkbox" class="lv-checkbox__input" type="checkbox" :checked="modelValue" v-bind="$attrs" />
+            <input
+                :id="labelFor"
+                ref="checkbox"
+                class="lv-checkbox__input"
+                type="checkbox"
+                :checked="modelValue"
+                v-bind="$attrs"
+                @click.stop="toggleCheckbox"
+            />
             <lv-icon v-if="indeterminate" class="lv-checkbox__icon" name="minus" />
             <lv-icon v-else-if="modelValue && !loading" class="lv-checkbox__icon" name="check" />
             <lv-spinner v-if="loading" class="lv-checkbox__loader" />
         </div>
-        <div v-if="label" class="lv-checkbox__label">{{ label }}</div>
+        <label v-if="label" :for="labelFor" class="lv-checkbox__label">{{ label }}</label>
     </div>
 </template>
 
@@ -26,6 +41,10 @@ export default {
             type: String,
             default: '',
         },
+        labelFor: {
+            type: String,
+            default: null,
+        },
         disabled: {
             type: Boolean,
             default: false,
@@ -37,6 +56,14 @@ export default {
         indeterminate: {
             type: Boolean,
             default: false,
+        },
+        ariaLabel: {
+            type: String,
+            default: null,
+        },
+        arialLabelledBy: {
+            type: String,
+            default: null,
         },
     },
     emits: ['update:modelValue'],

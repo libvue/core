@@ -405,7 +405,7 @@ export default {
 
     &__dropdown {
         position: absolute;
-        z-index: var(--z-index-dropdown);
+        z-index: var(--z-dropdown);
         margin-top: calc(var(--padding) * 0.5);
         box-shadow: var(--shadow);
         border: 1px solid var(--border-color);

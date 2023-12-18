@@ -14,7 +14,7 @@
             </lv-image-carousel-item>
         </lv-image-carousel>
     </lv-card>
-    <lv-code v-space-after="1" lang="html" :code="code" />
+    <code-preview v-space-after="1" lang="html" :code="code" />
 
     <component-details component="LvImageCarousel"></component-details>
 </template>

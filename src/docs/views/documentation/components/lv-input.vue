@@ -11,7 +11,7 @@
                     <lv-input type="tel" icon="phone" placeholder="Enter your phonenumber" />
                 </lv-flex>
             </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeTypes" />
+            <code-preview v-space-after="1" lang="html" :code="codeTypes" />
         </template>
         <template #states>
             <lv-card v-space-after="1">
@@ -22,7 +22,7 @@
                     <lv-input loading placeholder="Loading" />
                 </lv-flex>
             </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeStates" />
+            <code-preview v-space-after="1" lang="html" :code="codeStates" />
         </template>
         <template #sizes>
             <lv-card v-space-after="1">
@@ -33,7 +33,7 @@
                     <lv-input icon="github" placeholder="Tiny size" size="tiny" loading />
                 </lv-flex>
             </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeStates" />
+            <code-preview v-space-after="1" lang="html" :code="codeStates" />
         </template>
     </lv-tabs>
     <component-details component="LvInput"></component-details>

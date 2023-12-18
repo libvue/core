@@ -1,7 +1,15 @@
 <template>
-    <div class="lv-switch" :class="classObject" role="switch">
+    <div
+        class="lv-switch"
+        :class="classObject"
+        role="switch"
+        :aria-label="ariaLabel"
+        :aria-labelledby="arialLabelledBy"
+        :aria-checked="!!modelValue"
+    >
         <div class="lv-switch__checkbox">
             <input
+                :id="labelFor"
                 class="lv-switch__input"
                 type="checkbox"
                 :checked="modelValue"
@@ -10,12 +18,12 @@
             />
             <lv-spinner v-if="loading" class="lv-switch__loader" :size="12" />
         </div>
-        <div v-if="label" class="lv-switch__label" @click="toggleCheckbox">{{ label }}</div>
+        <label v-if="label" :for="labelFor" class="lv-switch__label" @click="toggleCheckbox">{{ label }}</label>
     </div>
 </template>
 
 <script>
-import LvSpinner from "../LvSpinner/LvSpinner.vue";
+import LvSpinner from '../LvSpinner/LvSpinner.vue';
 
 export default {
     components: { LvSpinner },
@@ -29,6 +37,10 @@ export default {
             type: String,
             default: '',
         },
+        labelFor: {
+            type: String,
+            default: null,
+        },
         disabled: {
             type: Boolean,
             default: false,
@@ -36,6 +48,14 @@ export default {
         loading: {
             type: Boolean,
             default: false,
+        },
+        ariaLabel: {
+            type: String,
+            default: null,
+        },
+        arialLabelledBy: {
+            type: String,
+            default: null,
         },
     },
     emits: ['update:modelValue'],
@@ -77,8 +97,9 @@ export default {
         height: 1.2rem;
         &:before {
             position: absolute;
-            top: 2px;
+            top: 50%;
             left: 2px;
+            transform: translate(0, -50%);
             transition: var(--transition-time) left var(--transition-easing);
             border-radius: var(--border-radius);
             background-color: var(--border-color);

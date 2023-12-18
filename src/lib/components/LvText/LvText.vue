@@ -1,7 +1,7 @@
 <template>
-    <p class="lv-paragraph" :class="classObject">
+    <component :is="as" class="lv-text" :for="as === 'label' ? labelFor : null" :class="classObject">
         <slot></slot>
-    </p>
+    </component>
 </template>
 
 <script>
@@ -12,11 +12,20 @@ export default {
             default: 'left',
             validator: (val) => ['left', 'center', 'right', 'justify'].includes(val),
         },
+        as: {
+            type: String,
+            default: 'p',
+            validator: (val) => ['p', 'span', 'div', 'label'].includes(val),
+        },
+        labelFor: {
+            type: String,
+            default: null,
+        }
     },
     computed: {
         classObject() {
             return {
-                [`lv-paragraph--align-${this.align}`]: !!this.align,
+                [`lv-text--align-${this.align}`]: !!this.align,
             };
         },
     },
@@ -24,7 +33,7 @@ export default {
 </script>
 
 <style lang="scss">
-.lv-paragraph {
+.lv-text {
     margin: 0;
     color: var(--text-color);
     font-size: var(--font-size);

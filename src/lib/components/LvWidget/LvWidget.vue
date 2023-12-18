@@ -3,8 +3,8 @@
 </template>
 
 <script>
-import LvWidgetNumber from './LvWidgetNumber.vue';
-import LvWidgetChart from './LvWidgetChart.vue';
+import LvWidgetNumber from '../LvWidgetNumber/LvWidgetNumber.vue';
+import LvWidgetChart from '../LvWidgetChart/LvWidgetChart.vue';
 
 export default {
     props: {

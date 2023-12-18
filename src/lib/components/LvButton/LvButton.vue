@@ -5,7 +5,9 @@
         class="lv-button"
         :class="classObject"
         :disabled="disabled"
-        role="button"
+        :aria-disabled="disabled"
+        :aria-label="ariaLabel"
+        :aria-labelledby="arialLabelledBy"
         @click="onClick"
         @keydown.enter.space="onClick"
     >
@@ -36,6 +38,14 @@ export default {
             type: String,
             default: '',
         },
+        ariaLabel: {
+            type: String,
+            default: null,
+        },
+        arialLabelledBy: {
+            type: String,
+            default: null,
+        },
         disabled: {
             type: Boolean,
             default: null,
@@ -54,6 +64,7 @@ export default {
             validator: (value) => ['center', 'left', 'right'].includes(value),
         },
     },
+    emits: ['click'],
     computed: {
         classObject() {
             return {
@@ -66,7 +77,6 @@ export default {
             };
         },
     },
-    emits: ['click'],
     methods: {
         onClick(e) {
             this.$emit('click', e);

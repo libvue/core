@@ -1,25 +1,30 @@
 <template>
-    <div class="lv-radio" role="radio" :class="classObject">
-        <lv-spinner v-if="loading" class="lv-radio__loading" :size="12"  />
+    <div
+        class="lv-radio"
+        role="radio"
+        :aria-label="ariaLabel"
+        :aria-labelledby="arialLabelledBy"
+        :aria-checked="isChecked"
+        :class="classObject"
+    >
+        <lv-spinner v-if="loading" class="lv-radio__loading" :size="12" />
         <input
-            :id="identifier"
+            :id="labelFor"
             class="lv-radio__input"
             type="radio"
             :checked="isChecked"
-            :aria-checked="isChecked"
             :disabled="disabled || loading"
             :name="name"
             :value="value"
             tabindex="0"
             @change="onClick"
         />
-        <label v-if="label" class="lv-radio__label" :for="identifier">{{ label }}</label>
+        <label v-if="label" class="lv-radio__label" :for="labelFor">{{ label }}</label>
     </div>
 </template>
 
 <script>
-import useRandom from '../../composables/useRandom';
-import LvSpinner from "../LvSpinner/LvSpinner.vue";
+import LvSpinner from '../LvSpinner/LvSpinner.vue';
 
 export default {
     components: { LvSpinner },
@@ -40,6 +45,10 @@ export default {
             type: String,
             default: null,
         },
+        labelFor: {
+            type: String,
+            default: null,
+        },
         loading: {
             type: Boolean,
             default: false,
@@ -48,13 +57,16 @@ export default {
             type: Boolean,
             default: false,
         },
+        ariaLabel: {
+            type: String,
+            default: null,
+        },
+        arialLabelledBy: {
+            type: String,
+            default: null,
+        },
     },
     emits: ['update:modelValue'],
-    data() {
-        return {
-            identifier: useRandom(),
-        };
-    },
     computed: {
         isChecked() {
             return this.value === this.modelValue;
@@ -67,9 +79,8 @@ export default {
         },
     },
     methods: {
-        onClick(e) {
+        onClick() {
             if (!this.loading && !this.disabled) {
-                e.preventDefault();
                 this.$emit('update:modelValue', this.value);
             }
         },
@@ -105,12 +116,13 @@ export default {
         &:checked {
             &:after {
                 position: absolute;
-                top: 2px;
+                top: 50%;
                 left: 2px;
+                transform: translate(0, -50%);
                 border-radius: 100%;
                 background-color: var(--color-primary);
-                width: calc(100% - 4px);
-                height: calc(100% - 4px);
+                width: calc(100% - 5px);
+                height: calc(100% - 5px);
                 content: '';
             }
         }

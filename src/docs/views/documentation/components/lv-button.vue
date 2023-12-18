@@ -2,6 +2,12 @@
     <lv-heading v-space-after="0.5" :level="3">Button</lv-heading>
     <lv-heading v-space-after="2" sub :level="6">A simple button component</lv-heading>
 
+    <lv-notice color="solid-dimmed-success" v-space-after="1" icon="accessibility">
+        <lv-flex gap=".2rem">
+            Using <lv-link color="currentColor" href="https://www.w3.org/WAI/ARIA/apg/patterns/button/" target="_blank" highlight>w3.org Aria Button Pattern</lv-link>
+        </lv-flex>
+    </lv-notice>
+
     <lv-tabs :tabs="tabs" :active="activeTab" @change-tab="(v) => (activeTab = v)">
         <template #colors>
             <lv-heading v-space-after="1" :level="6">Solid</lv-heading>
@@ -16,7 +22,7 @@
                     <lv-button label="Secondary" color="solid-secondary" />
                 </lv-flex>
             </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeColorSolid" />
+            <code-preview v-space-after="1" lang="html" :code="codeColorSolid" />
 
             <lv-heading v-space-after="1" :level="6">Solid Dimmed</lv-heading>
             <lv-card v-space-after="1">
@@ -30,7 +36,7 @@
                     <lv-button label="Dimmed Secondary" color="solid-dimmed-secondary" />
                 </lv-flex>
             </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeColorSolidDimmed" />
+            <code-preview v-space-after="1" lang="html" :code="codeColorSolidDimmed" />
 
             <lv-heading v-space-after="1" :level="6">Outline</lv-heading>
             <lv-card v-space-after="1">
@@ -44,7 +50,7 @@
                     <lv-button label="Outline Secondary" color="outline-secondary" />
                 </lv-flex>
             </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeColorOutline" />
+            <code-preview v-space-after="1" lang="html" :code="codeColorOutline" />
 
             <lv-heading v-space-after="1" :level="6">Outline Dimmed</lv-heading>
             <lv-card v-space-after="1">
@@ -58,7 +64,7 @@
                     <lv-button label="Outline Dimmed Secondary" color="outline-dimmed-secondary" />
                 </lv-flex>
             </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeColorOutline" />
+            <code-preview v-space-after="1" lang="html" :code="codeColorOutline" />
 
             <lv-heading v-space-after="1" :level="6">Ghost</lv-heading>
             <lv-card v-space-after="1">
@@ -72,7 +78,7 @@
                     <lv-button label="Ghost Secondary" color="ghost-secondary" />
                 </lv-flex>
             </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeColorGhost" />
+            <code-preview v-space-after="1" lang="html" :code="codeColorGhost" />
         </template>
         <template #states>
             <lv-card v-space-after="1">
@@ -81,7 +87,7 @@
                     <lv-button disabled label="Disabled" />
                 </lv-flex>
             </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeStates" />
+            <code-preview v-space-after="1" lang="html" :code="codeStates" />
         </template>
         <template #icons>
             <lv-card v-space-after="1">
@@ -89,7 +95,7 @@
                     <lv-button icon="rocket" label="Hello" />
                 </lv-flex>
             </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeIcons" />
+            <code-preview v-space-after="1" lang="html" :code="codeIcons" />
         </template>
         <template #align>
             <lv-card v-space-after="1">
@@ -99,7 +105,7 @@
                     <lv-button icon="rocket" label="Right" align="right" />
                 </lv-flex>
             </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeAlign" />
+            <code-preview v-space-after="1" lang="html" :code="codeAlign" />
         </template>
         <template #sizes>
             <lv-card v-space-after="1">
@@ -109,7 +115,7 @@
                     <lv-button label="Small" size="small" icon="github" />
                 </lv-flex>
             </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeSizes" />
+            <code-preview v-space-after="1" lang="html" :code="codeSizes" />
         </template>
     </lv-tabs>
 

@@ -1,18 +1,19 @@
 <template>
-    <div class="lv-breadcrumbs">
+    <nav class="lv-breadcrumbs" aria-label="Breadcrumb">
         <lv-icon v-if="showHome" class="lv-breadcrumbs__home" name="home" @click="onClickHome" />
         <lv-icon v-if="hasCrumbs" name="chevron-right" class="lv-breadcrumbs__chevron-right" />
         <template v-for="(crumb, index) in crumbs" :key="index">
             <a
                 class="lv-breadcrumbs__crumb"
                 :class="{ 'lv-breadcrumbs__crumb--active': index === crumbs.length - 1 }"
+                :aria-current="index === crumbs.length - 1 ? 'page' : null"
                 @click="onClickCrumb(crumb.path)"
             >
                 {{ crumb.title }}
             </a>
             <lv-icon v-if="index < crumbs.length - 1" name="chevron-right" class="lv-breadcrumbs__chevron-right" />
         </template>
-    </div>
+    </nav>
 </template>
 
 <script>

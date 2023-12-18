@@ -7,7 +7,6 @@ import LvBadge from './LvBadge/LvBadge.vue';
 import LvFileTree from './LvFileTree/LvFileTree.vue';
 import LvProgressBar from './LvProgressBar/LvProgressBar.vue';
 import LvProgressSteps from './LvProgressSteps/LvProgressSteps.vue';
-import LvFragmentLink from './LvFragmentLink/LvFragmentLink.vue';
 import LvImageCarousel from './LvImageCarousel/LvImageCarousel.vue';
 import LvImageCarouselItem from './LvImageCarousel/LvImageCarouselItem.vue';
 import LvImage from './LvImage/LvImage.vue';
@@ -49,11 +48,13 @@ import LvInput from './LvInput/LvInput.vue';
 import LvKeyboard from './LvKeyboard/LvKeyboard.vue';
 import LvLayout from './LvLayout/LvLayout.vue';
 import LvLink from './LvLink/LvLink.vue';
+import LvList from './LvList/LvList.vue';
+import LvListItem from './LvListItem/LvListItem.vue';
 import LvVerticalNavGroup from './LvVerticalNavGroup/LvVerticalNavGroup.vue';
 import LvVerticalNavItem from './LvVerticalNavItem/LvVerticalNavItem.vue';
 import LvVerticalNavList from './LvVerticalNavList/LvVerticalNavList.vue';
 import LvNotice from './LvNotice/LvNotice.vue';
-import LvParagraph from './LvParagraph/LvParagraph.vue';
+import LvText from './LvText/LvText.vue';
 import LvPill from './LvPill/LvPill.vue';
 import LvPopover from './LvPopover/LvPopover.vue';
 import LvRadio from './LvRadio/LvRadio.vue';
@@ -81,7 +82,6 @@ export {
     LvFileTree,
     LvProgressBar,
     LvProgressSteps,
-    LvFragmentLink,
     LvImageCarousel,
     LvImageCarouselItem,
     LvImage,
@@ -123,11 +123,13 @@ export {
     LvKeyboard,
     LvLayout,
     LvLink,
+    LvList,
+    LvListItem,
     LvVerticalNavGroup,
     LvVerticalNavItem,
     LvVerticalNavList,
     LvNotice,
-    LvParagraph,
+    LvText,
     LvPill,
     LvPopover,
     LvRadio,
@@ -156,7 +158,6 @@ export default {
     LvFileTree,
     LvProgressBar,
     LvProgressSteps,
-    LvFragmentLink,
     LvImageCarousel,
     LvImageCarouselItem,
     LvImage,
@@ -198,11 +199,13 @@ export default {
     LvKeyboard,
     LvLayout,
     LvLink,
+    LvList,
+    LvListItem,
     LvVerticalNavGroup,
     LvVerticalNavItem,
     LvVerticalNavList,
     LvNotice,
-    LvParagraph,
+    LvText,
     LvPill,
     LvPopover,
     LvRadio,

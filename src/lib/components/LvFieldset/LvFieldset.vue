@@ -1,11 +1,11 @@
 <template>
-    <fieldset class="lv-fieldset">
-        <label class="lv-fieldset__label" :for="labelFor">
-            {{ label }} <lv-icon v-if="required" class="lv-fieldset__required-symbol" name="asterisk"/>
+    <fieldset class="lv-fieldset" :disabled="disabled">
+        <legend class="lv-fieldset__legend">
+            {{ legend }} <lv-icon v-if="required" class="lv-fieldset__required-symbol" name="asterisk"/>
             <button v-if="resetButton" class="lv-fieldset__reset-button" type="button" @click="onClickResetButton">
                 <lv-icon class="lv-fieldset__reset-button-icon" name="rotate-ccw" /> Reset
             </button>
-        </label>
+        </legend>
         <lv-flex direction="column">
             <div class="lv-fieldset__content">
                 <slot></slot>
@@ -27,11 +27,7 @@ import LvFlex from "../LvFlex/LvFlex.vue";
 export default {
     components: { LvFlex, LvIcon },
     props: {
-        label: {
-            type: String,
-            default: null,
-        },
-        labelFor: {
+        legend: {
             type: String,
             default: null,
         },
@@ -40,6 +36,10 @@ export default {
             default: false,
         },
         required: {
+            type: Boolean,
+            default: false,
+        },
+        disabled: {
             type: Boolean,
             default: false,
         }
@@ -60,7 +60,9 @@ export default {
     padding: 0;
     min-width: 0; // Fix for overflow
 
-    &__label {
+    &__legend {
+        width: 100%;
+        appearance: none;
         display: flex;
         align-items: center;
         margin-bottom: 1rem;

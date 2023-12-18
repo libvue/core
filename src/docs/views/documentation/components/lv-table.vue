@@ -10,7 +10,7 @@
                     <template #age="{ value }"> {{ value }} years </template>
                 </lv-table>
             </lv-card>
-            <lv-code
+            <code-preview
                 v-space-after="1"
                 :files="defaultFiles"
                 :active="activeDefaultFile"
@@ -37,7 +37,7 @@
                     </template>
                 </lv-table>
             </lv-card>
-            <lv-code
+            <code-preview
                 v-space-after="1"
                 :files="optionsFiles"
                 :active="activeOptionsFile"
@@ -54,7 +54,7 @@
                     </template>
                 </lv-table>
             </lv-card>
-            <lv-code
+            <code-preview
                 v-space-after="1"
                 :files="expansionFiles"
                 :active="activeExpansionFile"
@@ -68,7 +68,7 @@
                     <template #age="{ value }"> {{ value }} years </template>
                 </lv-table>
             </lv-card>
-            <lv-code
+            <code-preview
                 v-space-after="1"
                 :files="sortFiles"
                 :active="activeSortFile"
@@ -87,7 +87,7 @@
                     <template #age="{ value }"> {{ Math.round(value) }} years </template>
                 </lv-table>
             </lv-card>
-            <lv-code
+            <code-preview
                 v-space-after="1"
                 :files="aggregateFiles"
                 :active="activeAggregateFile"

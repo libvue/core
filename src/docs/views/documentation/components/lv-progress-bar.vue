@@ -4,7 +4,7 @@
     <lv-card v-space-after="1">
         <lv-progress-bar :value="60"/>
     </lv-card>
-    <lv-code :code="code" lang="html" v-space-after="1"></lv-code>
+    <code-preview :code="code" lang="html" v-space-after="1"></code-preview>
     <component-details component="LvProgressBar"></component-details>
 </template>
 

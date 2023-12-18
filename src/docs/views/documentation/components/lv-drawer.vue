@@ -1,6 +1,13 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">Drawer</lv-heading>
     <lv-heading v-space-after="2" sub :level="6">Some kind of dialog drawn from a side</lv-heading>
+
+    <lv-notice color="solid-dimmed-success" v-space-after="1" icon="accessibility">
+        <lv-flex gap=".2rem">
+            Using <lv-link color="currentColor" href="https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/" target="_blank" highlight>w3.org Aria Dialog Pattern</lv-link>
+        </lv-flex>
+    </lv-notice>
+
     <lv-card v-space-after="1">
         <lv-flex>
             <lv-button label="Left" @click="onClickDrawerLeft"/>
@@ -17,7 +24,7 @@
             </lv-drawer>
         </lv-flex>
     </lv-card>
-    <lv-code v-space-after="1" lang="html" :code="code"/>
+    <code-preview v-space-after="1" lang="html" :code="code"/>
     <component-details component="LvDrawer"></component-details>
 </template>
 

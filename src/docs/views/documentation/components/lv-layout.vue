@@ -2,7 +2,7 @@
     <lv-heading v-space-after="0.5" :level="3">Layout</lv-heading>
     <lv-heading v-space-after="2" sub :level="6">A simple layout component</lv-heading>
 
-    <lv-card v-space-after="1">
+    <lv-card v-space-after="1" style="overflow: hidden;">
         <lv-layout class="fixed-z-index" :sticky-header="false" :sticky-sub-header="false">
             <template #header>
                 <lv-header>
@@ -24,7 +24,7 @@
         </lv-layout>
     </lv-card>
 
-    <lv-code v-space-after="1" lang="html" :code="code" />
+    <code-preview v-space-after="1" lang="html" :code="code" />
     <component-details component="LvLayout" :slots="['header', 'sub-header', 'sidebar', 'main']"></component-details>
 </template>
 

@@ -1,6 +1,6 @@
 <template>
     <div class="lv-toast" :class="classObject">
-        <div class="lv-toast__icon" v-if="icon">
+        <div v-if="icon" class="lv-toast__icon">
             <lv-button :icon="icon" :size="hasDescription ? 'default' : 'small'" :color="iconColor" />
         </div>
         <div class="lv-toast__message" @click="onClick">

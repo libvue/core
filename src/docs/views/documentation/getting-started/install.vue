@@ -2,41 +2,32 @@
     <lv-heading v-space-after="0.5" :level="3">Installation</lv-heading>
     <lv-heading v-space-after="2" sub :level="6">How to get started with libvue</lv-heading>
 
-    <lv-paragraph v-space-after="1">
-        Libvue is component library made for vue 3 and vite.js. It only exports the source files so you need to compile
-        them inside your own project.
-    </lv-paragraph>
-
     <lv-heading v-space-after="1" :level="6">Install</lv-heading>
-    <lv-code v-space-after="1" :code="install" lang="bash" />
+    <code-preview v-space-after="1" :code="install" lang="shell" />
 
     <lv-heading v-space-after="1" :level="6">Basic Configuration</lv-heading>
-    <lv-code
+    <code-preview
         v-space-after="2"
         :files="registerFiles"
         :active="activeRegisterFile"
         @change-file="(v) => (activeRegisterFile = v)"
     />
-
-    <lv-notice v-space-after="1" icon="info" color="solid-dimmed-info">
-        Preferably use named exports, but you can also register all components at once by registering the named 'components' export.
-    </lv-notice>
 </template>
 
 <script>
 const install = `
-> npm install --save @libvue/core
+npm install --save @libvue/core
 `.trim();
 
 const registerScript = `
-import { spaceAfter, LvButton, LvTable } from '@libvue/core';
+import { LvButton, LvTable, spaceAfter } from '@libvue/core';
 
-// Register spaceAfter directive
-app.directive('space-after', spaceAfter);
-
-// Register Common Components
+// Register components
 app.component('LvButton', LvButton);
 app.component('LvTable', LvTable);
+
+// Register directives
+app.directive('space-after', spaceAfter);
 `.trim();
 
 const registerScss = `
@@ -67,7 +58,7 @@ export default {
             activeRegisterFile: 'main',
             registerFiles: [
                 { id: 'main', filename: 'main.js', lang: 'js', code: registerScript },
-                { id: 'scss', filename: 'app.scss', lang: 'css', code: registerScss },
+                { id: 'scss', filename: 'app.scss', lang: 'scss', code: registerScss },
             ],
         };
     },

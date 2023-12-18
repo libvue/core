@@ -7,9 +7,9 @@
             <div v-if="show" class="lv-cookie-consent" role="dialog" :aria-modal="!!modal">
                 <slot>
                     <lv-heading v-space-after=".5" :level="5">{{ title }}</lv-heading>
-                    <lv-paragraph v-space-after="1">
+                    <lv-text v-space-after="1">
                         {{ description }}
-                    </lv-paragraph>
+                    </lv-text>
                     <lv-flex>
                         <lv-button :label="acceptButtonText" color="solid-primary" @click="onClickAccept"/>
                         <lv-button :label="declineButtonText" color="solid-dimmed-primary" @click="onClickDecline"/>
@@ -23,12 +23,12 @@
 
 <script>
 import LvHeading from "../LvHeading/LvHeading.vue";
-import LvParagraph from "../LvParagraph/LvParagraph.vue";
+import LvText from "../LvText/LvText.vue";
 import LvFlex from "../LvFlex/LvFlex.vue";
 import LvButton from "../LvButton/LvButton.vue";
 
 export default {
-    components: { LvButton, LvFlex, LvParagraph, LvHeading },
+    components: { LvButton, LvFlex, LvText, LvHeading },
     props: {
         show: {
             type: Boolean,
@@ -82,7 +82,7 @@ export default {
     position: fixed;
     bottom: 2rem;
     left: 2rem;
-    z-index: var(--z-index-dialog);
+    z-index: var(--z-dialog);
     background-color: var(--background-color);
     border: 1px solid var(--border-color);
     padding: calc(var(--padding) * 2);
@@ -93,7 +93,7 @@ export default {
         height: 100%;
         background-color: rgba(0,0,0,0.3);
         position: fixed;
-        z-index: var(--z-index-dialog);
+        z-index: var(--z-dialog);
         top: 0;
         left: 0;
     }

@@ -1,11 +1,9 @@
-$z-index-base: 1;
-$z-index-dropdown: 200;
-$z-index-dialog: 300;
-$z-index-toast: 400;
-
 $depth: (
-    z-index-base: $z-index-base,
-    z-index-dropdown: $z-index-dropdown,
-    z-index-dialog: $z-index-dialog,
-    z-index-toast: $z-index-toast,
+    z-overlay: 1,
+    z-tooltip: 2,
+    z-dropdown: 3,
+    z-sticky: 4,
+    z-drawer: 5,
+    z-dialog: 6,
+    z-toast: 7,
 );

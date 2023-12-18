@@ -6,7 +6,7 @@
     <lv-card v-space-after="1">
         <lv-separator></lv-separator>
     </lv-card>
-    <lv-code v-space-after="1" lang="html" :code="code" />
+    <code-preview v-space-after="1" lang="html" :code="code" />
 
     <lv-heading v-space-after="1" :level="6">Vertical</lv-heading>
     <lv-card v-space-after="1">
@@ -16,7 +16,7 @@
             <lv-button label="Text" />
         </lv-flex>
     </lv-card>
-    <lv-code v-space-after="1" lang="html" :code="codeVertical" />
+    <code-preview v-space-after="1" lang="html" :code="codeVertical" />
     <component-details component="LvSeparator"></component-details>
 </template>
 

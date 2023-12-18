@@ -1,7 +1,9 @@
-$transition-time: 0.1337s !default;
+$transition-time: 0.2s !default;
 $transition-easing: ease-in-out !default;
 
 $timings: (
+    transition-time-half: calc($transition-time / 2),
     transition-time: $transition-time,
+    transition-time-double: calc($transition-time * 2),
     transition-easing: $transition-easing,
 );

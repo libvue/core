@@ -9,7 +9,7 @@
             <lv-avatar initials="GH" />
         </lv-avatar-group>
     </lv-card>
-    <lv-code v-space-after="1" :code="code" lang="html" />
+    <code-preview v-space-after="1" :code="code" lang="html" />
     <component-details component="LvAvatarGroup"></component-details>
 </template>
 

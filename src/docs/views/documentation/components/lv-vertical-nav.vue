@@ -16,7 +16,7 @@
             </lv-vertical-nav-list>
         </lv-vertical-nav-group>
     </lv-card>
-    <lv-code v-space-after="1" lang="html" :code="code" />
+    <code-preview v-space-after="1" lang="html" :code="code" />
 
     <component-details v-space-after="1" title="LvVerticalNavItem" component="LvVerticalNavItem"></component-details>
     <component-details v-space-after="1" title="LvVerticalNavList" component="LvVerticalNavList"></component-details>

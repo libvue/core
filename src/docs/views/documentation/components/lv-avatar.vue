@@ -9,7 +9,7 @@
             <lv-avatar image="https://i.pravatar.cc/512?img=19" size="2rem" />
         </lv-flex>
     </lv-card>
-    <lv-code v-space-after="1" :code="code" lang="html" />
+    <code-preview v-space-after="1" :code="code" lang="html" />
     <component-details component="LvAvatar"></component-details>
 </template>
 

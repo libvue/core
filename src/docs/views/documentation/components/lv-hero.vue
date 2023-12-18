@@ -15,7 +15,7 @@
                     </template>
                 </lv-hero>
             </lv-card>
-            <lv-code v-space-after="1" :code="codeLeft" lang="html"/>
+            <code-preview v-space-after="1" :code="codeLeft" lang="html"/>
         </template>
         <template #center>
             <lv-card v-space-after="1">
@@ -29,7 +29,7 @@
                     </template>
                 </lv-hero>
             </lv-card>
-            <lv-code v-space-after="1" :code="codeCenter" lang="html"/>
+            <code-preview v-space-after="1" :code="codeCenter" lang="html"/>
         </template>
         <template #right>
             <lv-card v-space-after="1">
@@ -43,7 +43,7 @@
                     </template>
                 </lv-hero>
             </lv-card>
-            <lv-code v-space-after="1" :code="codeRight" lang="html"/>
+            <code-preview v-space-after="1" :code="codeRight" lang="html"/>
         </template>
     </lv-tabs>
 

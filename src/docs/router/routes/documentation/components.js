@@ -8,7 +8,6 @@ const LvBadge = () => import('../../../views/documentation/components/lv-badge.v
 const LvFileTree = () => import('../../../views/documentation/components/lv-file-tree.vue');
 const LvProgressBar = () => import('../../../views/documentation/components/lv-progress-bar.vue');
 const LvProgressSteps = () => import('../../../views/documentation/components/lv-progress-steps.vue');
-const LvFragmentLink = () => import('../../../views/documentation/components/lv-fragment-link.vue');
 const LvImageCarousel = () => import('../../../views/documentation/components/lv-image-carousel.vue');
 const LvImage = () => import('../../../views/documentation/components/lv-image.vue');
 const LvSkeleton = () => import('../../../views/documentation/components/lv-skeleton.vue');
@@ -27,7 +26,7 @@ const LvCheckbox = () => import('../../../views/documentation/components/lv-chec
 const LvVerticalNav = () => import('../../../views/documentation/components/lv-vertical-nav.vue');
 const LvHorizontalNav = () => import('../../../views/documentation/components/lv-horizontal-nav.vue');
 const LvHeading = () => import('../../../views/documentation/components/lv-heading.vue');
-const LvParagraph = () => import('../../../views/documentation/components/lv-paragraph.vue');
+const LvText = () => import('../../../views/documentation/components/lv-text.vue');
 const LvBlockquote = () => import('../../../views/documentation/components/lv-blockquote.vue');
 const LvCode = () => import('../../../views/documentation/components/lv-code.vue');
 const LvThemeToggle = () => import('../../../views/documentation/components/lv-theme-toggle.vue');
@@ -39,6 +38,7 @@ const LvTabs = () => import('../../../views/documentation/components/lv-tabs.vue
 const LvChart = () => import('../../../views/documentation/components/lv-chart.vue');
 const LvNotice = () => import('../../../views/documentation/components/lv-notice.vue');
 const LvLink = () => import('../../../views/documentation/components/lv-link.vue');
+const LvList = () => import('../../../views/documentation/components/lv-list.vue');
 const LvBreadcrumbs = () => import('../../../views/documentation/components/lv-breadcrumbs.vue');
 const LvSelect = () => import('../../../views/documentation/components/lv-select.vue');
 const LvRadio = () => import('../../../views/documentation/components/lv-radio.vue');
@@ -96,6 +96,11 @@ export default [
         component: LvHero,
     },
     {
+        path: '/docs/lv-list',
+        name: 'lv-list',
+        component: LvList,
+    },
+    {
         path: '/docs/lv-date-picker',
         name: 'lv-date-picker',
         component: LvDatePicker,
@@ -144,11 +149,6 @@ export default [
         path: '/docs/lv-progress-steps',
         name: 'lv-progress-steps',
         component: LvProgressSteps,
-    },
-    {
-        path: '/docs/lv-fragment-link',
-        name: 'lv-fragment-link',
-        component: LvFragmentLink,
     },
     {
         path: '/docs/lv-image-carousel',
@@ -341,9 +341,9 @@ export default [
         component: LvHeading,
     },
     {
-        path: '/docs/lv-paragraph',
-        name: 'lv-paragraph',
-        component: LvParagraph,
+        path: '/docs/lv-text',
+        name: 'lv-text',
+        component: LvText,
     },
     {
         path: '/docs/lv-blockquote',

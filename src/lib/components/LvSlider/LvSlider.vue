@@ -1,13 +1,27 @@
 <template>
-    <div class="lv-slider" :class="classNames">
+    <div
+        class="lv-slider"
+        :class="classNames"
+    >
         <div class="lv-slider__track">
             <div ref="track" class="lv-slider__track-boundaries">
                 <div class="lv-slider__indicator" :style="styleObjectIndicator" />
                 <div
                     class="lv-slider__thumb lv-slider__thumb"
                     :style="styleObjectThumb"
+                    tabindex="0"
+                    role="slider"
+                    :aria-valuenow="modelValue"
+                    :aria-valuemin="min"
+                    :aria-valuemax="max"
+                    :aria-label="ariaLabel"
+                    :aria-labelledby="arialLabelledBy"
                     @mousedown.prevent="onThumbMouseDown"
                     @touchstart="onThumbTouchStart"
+                    @keydown.right="onThumbKeydownRight"
+                    @keydown.left="onThumbKeydownLeft"
+                    @keydown.prevent.home="onThumbKeydownHome"
+                    @keydown.prevent.end="onThumbKeydownEnd"
                 >
                     <lv-spinner v-if="loading && !showRange" class="lv-slider__loader" :size="12" />
 
@@ -48,7 +62,7 @@
 <script>
 import { useThrottleFn } from '@vueuse/core';
 import LvPopover from '../LvPopover/LvPopover.vue';
-import LvSpinner from "../LvSpinner/LvSpinner.vue";
+import LvSpinner from '../LvSpinner/LvSpinner.vue';
 
 export default {
     components: { LvSpinner, LvPopover },
@@ -94,7 +108,15 @@ export default {
         realtimeUpdate: {
             type: Boolean,
             default: false,
-        }
+        },
+        ariaLabel: {
+            type: String,
+            default: null,
+        },
+        arialLabelledBy: {
+            type: String,
+            default: null,
+        },
     },
     emits: ['update:modelValue'],
     data() {
@@ -146,6 +168,22 @@ export default {
         this.onThumbTouchMoveThrottled = useThrottleFn(this.onThumbTouchMove, 25, false);
     },
     methods: {
+        onThumbKeydownHome() {
+            this.$emit('update:modelValue', this.min);
+        },
+        onThumbKeydownEnd() {
+            this.$emit('update:modelValue', this.max);
+        },
+        onThumbKeydownRight() {
+            if (this.modelValue + this.step <= this.max) {
+                this.$emit('update:modelValue', this.modelValue + this.step);
+            }
+        },
+        onThumbKeydownLeft() {
+            if (this.modelValue - this.step >= this.min) {
+                this.$emit('update:modelValue', this.modelValue - this.step);
+            }
+        },
         onThumbMouseDown() {
             if (this.disabled || this.loading) return;
             this.dragging = true;
@@ -155,7 +193,7 @@ export default {
         },
         onThumbMouseMove(event) {
             this.thumbPosition = this.getRelativePosition(event.pageX);
-            if(this.realtimeUpdate) {
+            if (this.realtimeUpdate) {
                 this.emitInputEvent();
             }
         },
@@ -174,7 +212,7 @@ export default {
         onThumbTouchMove(event) {
             event.preventDefault();
             this.thumbPosition = this.getRelativePosition(event.touches[0].clientX);
-            if(this.realtimeUpdate) {
+            if (this.realtimeUpdate) {
                 this.emitInputEvent();
             }
         },

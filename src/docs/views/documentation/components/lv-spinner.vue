@@ -4,7 +4,7 @@
     <lv-card v-space-after="1">
         <lv-spinner/>
     </lv-card>
-    <lv-code lang="html" code="<lv-spinner/>"/>
+    <code-preview lang="html" code="<lv-spinner/>"/>
     <component-details v-space-after="1" component="LvSpinner"></component-details>
 </template>
 

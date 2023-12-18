@@ -1,5 +1,5 @@
 <template>
-    <div class="lv-select-option-group" v-show="visibleOptions">
+    <div v-show="visibleOptions" class="lv-select-option-group">
         <div class="lv-select-option-group__title">{{ title }}</div>
         <slot></slot>
     </div>

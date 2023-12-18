@@ -5,23 +5,23 @@
     <lv-tabs :tabs="tabs" :active="activeTab" @change-tab="(v) => (activeTab = v)">
         <template #default>
             <lv-card v-space-after="1">I'm a default card</lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeDefault" />
+            <code-preview v-space-after="1" lang="html" :code="codeDefault" />
         </template>
         <template #inline>
             <lv-card v-space-after="1" inline>I'm an inline card</lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeInline" />
+            <code-preview v-space-after="1" lang="html" :code="codeInline" />
         </template>
         <template #no-padding>
             <lv-card v-space-after="1" :padding="false">No padding</lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeNoPadding" />
+            <code-preview v-space-after="1" lang="html" :code="codeNoPadding" />
         </template>
         <template #no-elevation>
             <lv-card v-space-after="1" :elevation="false">No elevation</lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeNoElevation" />
+            <code-preview v-space-after="1" lang="html" :code="codeNoElevation" />
         </template>
         <template #no-border>
             <lv-card v-space-after="1" :border="false">No border</lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeNoBorder" />
+            <code-preview v-space-after="1" lang="html" :code="codeNoBorder" />
         </template>
     </lv-tabs>
     <component-details component="LvCard"></component-details>

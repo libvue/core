@@ -3,19 +3,19 @@
     <lv-heading v-space-after="2" sub :level="6">Extracts your CSS breakpoints so you can use it programmatically</lv-heading>
 
     <lv-heading v-space-after="1" :level="6">Install the composable</lv-heading>
-    <lv-code v-space-after="1" lang="javascript" :code="codeInstall" />
+    <code-preview v-space-after="1" lang="javascript" :code="codeInstall" />
 
     <lv-heading v-space-after="1" :level="6">Example</lv-heading>
-    <lv-paragraph v-space-after="1">
+    <lv-text v-space-after="1">
         Resize the page to see updates.
-    </lv-paragraph>
-    <lv-code v-space-after="1" :code="JSON.stringify(breakpoints, null, 2)"></lv-code>
+    </lv-text>
+    <code-preview v-space-after="1" :code="JSON.stringify(breakpoints, null, 2)"></code-preview>
 
     <lv-heading v-space-after="1" :level="6">Change the breakpoints</lv-heading>
-    <lv-paragraph v-space-after="1">
+    <lv-text v-space-after="1">
         The breakpoints in this composable are extracted from the CSS variables.
-    </lv-paragraph>
-    <lv-code v-space-after="1" lang="javascript" :code="codeChange" />
+    </lv-text>
+    <code-preview v-space-after="1" lang="javascript" :code="codeChange" />
 
     <lv-heading v-space-after="1" :level="6">Computed Properties</lv-heading>
     <lv-card>

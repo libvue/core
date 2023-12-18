@@ -5,10 +5,10 @@
         <lv-text-editor v-model="content"/>
     </lv-card>
     <lv-separator v-space-after="1" />
-    <lv-paragraph v-space-after="1">
+    <lv-text v-space-after="1">
         {{ content }}
-    </lv-paragraph>
-    <lv-code v-space-after="1" lang="html" :code="code"/>
+    </lv-text>
+    <code-preview v-space-after="1" lang="html" :code="code"/>
     <component-details component="LvTextEditor"></component-details>
 </template>
 

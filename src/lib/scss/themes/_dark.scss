@@ -1,6 +1,6 @@
 $theme-dark-background-color: #0e0e0e !default;
 $theme-dark-sidebar-background-color: #0e0e0e !default;
-$theme-dark-main-background-color: #171717 !default;
+$theme-dark-main-background-color: #070707 !default;
 $theme-dark-header-background-color: rgba(14, 14, 15, 0.75) !default;
 $theme-dark-color-default: #3e4042 !default;
 $theme-dark-color-default-dimmed: #161515 !default;
@@ -43,10 +43,9 @@ $theme-dark-shadow-focus-warning: 0px 0px 0px 3px rgba($theme-dark-color-warning
 $theme-dark-shadow-focus-danger: 0px 0px 0px 3px rgba($theme-dark-color-danger, 0.24) !default;
 $theme-dark-shadow-focus-info: 0px 0px 0px 3px rgba($theme-dark-color-info, 0.23) !default;
 $theme-dark-shadow-focus-ghost: 0px 0px 0px 3px rgba(darken($theme-dark-color-ghost, 56), 0.23) !default;
-$theme-dark-code-background-color: #060606;
-$theme-dark-code-header-color: #000000;
-$theme-dark-code-button-color: #101010;
 $theme-dark-blockquote-background-color: #151515;
+$theme-dark-code-background-color: mix($theme-dark-color-primary, black, 25%) !default;
+$theme-dark-code-text-color: $theme-dark-color-primary;
 $theme-dark-scrollbar-track-background-color: #141414;
 $theme-dark-scrollbar-thumb-background-color: #303030;
 $theme-dark-scrollbar-thumb-border-radius: 0px;
@@ -90,6 +89,8 @@ $theme-dark: (
     placeholder-color: $theme-dark-placeholder-color,
     backdrop-color: $theme-dark-backdrop-color,
     backdrop-color-inverted: $theme-dark-backdrop-color-inverted,
+    code-background-color: $theme-dark-code-background-color,
+    code-text-color: $theme-dark-code-text-color,
     shadow: $theme-dark-shadow,
     shadow-dialog: $theme-dark-shadow-dialog,
     shadow-popover: $theme-dark-shadow-popover,
@@ -100,9 +101,6 @@ $theme-dark: (
     shadow-focus-danger: $theme-dark-shadow-focus-danger,
     shadow-focus-info: $theme-dark-shadow-focus-info,
     shadow-focus-ghost: $theme-dark-shadow-focus-ghost,
-    code-background-color: $theme-dark-code-background-color,
-    code-header-color: $theme-dark-code-header-color,
-    code-button-color: $theme-dark-code-button-color,
     blockquote-background-color: $theme-dark-blockquote-background-color,
     scrollbar-track-background-color: $theme-dark-scrollbar-track-background-color,
     scrollbar-thumb-background-color: $theme-dark-scrollbar-thumb-background-color,

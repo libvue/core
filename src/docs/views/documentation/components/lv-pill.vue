@@ -9,7 +9,7 @@
                     <lv-pill text="Github Icon" color="solid-dimmed-default" icon="github" />
                 </lv-flex>
             </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeIcons" />
+            <code-preview v-space-after="1" lang="html" :code="codeIcons" />
         </template>
         <template #states>
             <lv-card v-space-after="1">
@@ -18,7 +18,7 @@
                     <lv-pill prefix="State:" text="Closable" color="solid-dimmed-primary" closable />
                 </lv-flex>
             </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeStates" />
+            <code-preview v-space-after="1" lang="html" :code="codeStates" />
         </template>
         <template #colors>
             <lv-heading v-space-after="1" :level="6">Solid</lv-heading>
@@ -33,7 +33,7 @@
                     <lv-pill text="Secondary" color="solid-secondary" />
                 </lv-flex>
             </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeColorSolid" />
+            <code-preview v-space-after="1" lang="html" :code="codeColorSolid" />
 
             <lv-heading v-space-after="1" :level="6">Solid Dimmed</lv-heading>
             <lv-card v-space-after="1">
@@ -47,7 +47,7 @@
                     <lv-pill text="Dimmed Secondary" color="solid-dimmed-secondary" />
                 </lv-flex>
             </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeColorSolidDimmed" />
+            <code-preview v-space-after="1" lang="html" :code="codeColorSolidDimmed" />
 
             <lv-heading v-space-after="1" :level="6">Outline</lv-heading>
             <lv-card v-space-after="1">
@@ -60,7 +60,7 @@
                     <lv-pill text="Info" color="outline-info" />
                 </lv-flex>
             </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeColorOutline" />
+            <code-preview v-space-after="1" lang="html" :code="codeColorOutline" />
         </template>
         <template #sizes>
             <lv-card v-space-after="1">
@@ -71,7 +71,7 @@
                     <lv-pill size="tiny" text="tiny" color="solid-dimmed-default" icon="smile" closable />
                 </lv-flex>
             </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeIcons" />
+            <code-preview v-space-after="1" lang="html" :code="codeIcons" />
         </template>
     </lv-tabs>
     <component-details component="LvTabs"></component-details>

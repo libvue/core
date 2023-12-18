@@ -1,5 +1,5 @@
 <template>
-    <div class="lv-vertical-nav-item" :class="classObject" @click="onClick">
+    <div class="lv-vertical-nav-item" :class="classObject" tabindex="0" @click="onClick" @keydown.enter.space="onClick">
         <lv-icon v-if="icon" :name="icon" class="lv-vertical-nav-item__icon" />
         <div class="lv-vertical-nav-item__label">
             <slot>{{ label }}</slot>
@@ -35,6 +35,7 @@ export default {
             default: false,
         },
     },
+    emits: ['click'],
     computed: {
         classObject() {
             return {
@@ -44,7 +45,6 @@ export default {
             };
         },
     },
-    emits: ['click'],
     methods: {
         onClick(e) {
             this.$emit('click', e)

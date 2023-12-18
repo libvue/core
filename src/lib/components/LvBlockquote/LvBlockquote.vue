@@ -1,6 +1,6 @@
 <template>
     <figure class="lv-figure">
-        <blockquote class="lv-blockquote">"<slot />"</blockquote>
+        <blockquote class="lv-blockquote"><slot /></blockquote>
         <figcaption v-if="caption" class="lv-caption">⎯ {{ caption }}</figcaption>
     </figure>
 </template>
@@ -22,10 +22,9 @@ export default {
 }
 .lv-blockquote {
     margin: 0;
-    border-radius: var(--border-radius);
-    background-color: var(--blockquote-background-color);
-    padding: 1rem;
+    padding: .5rem;
     font-style: italic;
+    border-left: 4px solid var(--color-primary-dimmed)
 }
 .lv-caption {
     margin-top: 0.5rem;

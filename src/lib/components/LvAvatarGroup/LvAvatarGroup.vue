@@ -25,8 +25,6 @@ export default {
     display: flex;
     > *:not(:first-child) {
         margin-left: v-bind(distance);
-        transition: calc(var(--transition-time) / 2) all;
-        transition-timing-function: ease-out;
     }
 }
 </style>

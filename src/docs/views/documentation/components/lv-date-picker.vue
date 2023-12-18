@@ -7,19 +7,19 @@
             <lv-card v-space-after="1">
                 <lv-date-picker :start="date" @update:start="(v) => { date = v }" />
             </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeSingle" />
+            <code-preview v-space-after="1" lang="html" :code="codeSingle" />
         </template>
         <template #range>
             <lv-card v-space-after="1">
                 <lv-date-picker :start="start" :end="end" @update:start="(v) => { start = v }" @update:end="(v) => { end = v }" range/>
             </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeRange" />
+            <code-preview v-space-after="1" lang="html" :code="codeRange" />
         </template>
         <template #inline>
             <lv-card v-space-after="1">
                 <lv-date-picker :start="date" @update:start="(v) => { date = v }" inline/>
             </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeInline" />
+            <code-preview v-space-after="1" lang="html" :code="codeInline" />
         </template>
         <template #states>
             <lv-card v-space-after="1">
@@ -29,7 +29,7 @@
                     <lv-date-picker :start="date" @update:start="(v) => { date = v }" loading />
                 </lv-flex>
             </lv-card>
-            <lv-code v-space-after="1" lang="html" :code="codeStates" />
+            <code-preview v-space-after="1" lang="html" :code="codeStates" />
         </template>
     </lv-tabs>
 

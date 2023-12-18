@@ -4,7 +4,7 @@
             <lv-icon :name="icon" />
         </div>
         <div class="lv-pill__text">
-            <div class="lv-pill__prefix" v-if="prefix">{{ prefix }}</div>
+            <div v-if="prefix" class="lv-pill__prefix">{{ prefix }}</div>
             {{ text }}
         </div>
         <div v-if="closable" class="lv-pill__close" tabindex="0" @click="onClickClose" @keydown.enter.space="onClickClose">

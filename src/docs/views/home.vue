@@ -1,11 +1,13 @@
 <template>
     <div class="splash">
         <lv-hero v-space-after="4" :align="breakpoints.smallerOrEqual.md ? 'center' : 'right'" title="Libvue" description="An opensource collection of vue 3 components.">
+            <template #title>
+                <span class="content-logo" v-html="Logo"></span>
+            </template>
             <template #image>
                 <div class="preview">
                     <lv-card class="preview__login">
-                        <lv-heading level="3">Welcome Back</lv-heading>
-                        <lv-heading level="6" v-space-after="1" sub>Please login</lv-heading>
+                        <lv-heading v-space-after="1" level="3">Login</lv-heading>
                         <lv-input v-space-after=".5" icon="user" placeholder="Enter your username"></lv-input>
                         <lv-input v-space-after="1" icon="key" placeholder="Enter your password"></lv-input>
                         <lv-flex fill>
@@ -26,6 +28,8 @@
 
         <lv-separator v-space-after="4"></lv-separator>
 
+        <code-preview :code="install" lang="shell" v-space-after="2"></code-preview>
+
         <lv-grid v-space-after="4" gap="1.5rem">
             <lv-grid-row gap="1.5rem">
                 <lv-grid-column :width="4" :md="12">
@@ -34,7 +38,7 @@
                             <lv-heading v-space-after="1" :level="5">
                                 <lv-icon v-space-after="0.5" name="scaling" />Responsive
                             </lv-heading>
-                            <lv-paragraph> Use your CSS breakpoints programmatically </lv-paragraph>
+                            <lv-text> Use your CSS breakpoints programmatically </lv-text>
                         </lv-card>
                     </lv-link>
                 </lv-grid-column>
@@ -44,7 +48,7 @@
                             <lv-heading v-space-after="1" :level="5">
                                 <lv-icon v-space-after="0.5" name="component" />70+ Components
                             </lv-heading>
-                            <lv-paragraph> A lot of components at your disposal and more are coming! </lv-paragraph>
+                            <lv-text> A lot of components at your disposal and more are coming! </lv-text>
                         </lv-card>
                     </lv-link>
                 </lv-grid-column>
@@ -54,7 +58,7 @@
                             <lv-heading v-space-after="1" :level="5">
                                 <lv-icon v-space-after="0.5" name="package-open" />Open Source
                             </lv-heading>
-                            <lv-paragraph> We love open-source and we are ready for your contributions! </lv-paragraph>
+                            <lv-text> We love open-source and we are ready for your contributions! </lv-text>
                         </lv-card>
                     </lv-link>
                 </lv-grid-column>
@@ -66,7 +70,7 @@
                             <lv-heading v-space-after="1" :level="5">
                                 <lv-icon v-space-after="0.5" name="palette" />Theming
                             </lv-heading>
-                            <lv-paragraph> Out of the box support for light and dark color schemes. </lv-paragraph>
+                            <lv-text> Out of the box support for light and dark color schemes. </lv-text>
                         </lv-card>
                     </lv-link>
                 </lv-grid-column>
@@ -76,7 +80,7 @@
                             <lv-heading v-space-after="1" :level="5">
                                 <lv-icon v-space-after="0.5" name="grid-2x2" />Grid
                             </lv-heading>
-                            <lv-paragraph> Grid components ready to make any layout possible. </lv-paragraph>
+                            <lv-text> Grid components ready to make any layout possible. </lv-text>
                         </lv-card>
                     </lv-link>
                 </lv-grid-column>
@@ -86,9 +90,9 @@
                             <lv-heading v-space-after="1" :level="5">
                                 <lv-icon v-space-after="0.5" name="align-vertical-space-around" />Spacing
                             </lv-heading>
-                            <lv-paragraph>
+                            <lv-text>
                                 Our components don't have outer spacing. Use our directive instead.
-                            </lv-paragraph>
+                            </lv-text>
                         </lv-card>
                     </lv-link>
                 </lv-grid-column>
@@ -97,43 +101,18 @@
 
         <lv-separator v-space-after="4"></lv-separator>
 
-        <lv-paragraph v-space-after="2" align="center">
+        <lv-text v-space-after="2" align="center">
             Released under the MIT License. Copyright © Harmen de Vries
-        </lv-paragraph>
+        </lv-text>
     </div>
 </template>
 
 <script>
 import { useBreakpoints } from '../../lib/composables/useBreakpoints';
+import Logo from '../assets/images/logo-header.svg?raw';
 
 const install = `
-> npm install --save @libvue/core
-`.trim();
-
-const registerScript = `
-import libvue from '@libvue/core';
-app.use(libvue);
-`.trim();
-
-const registerScss = `
-@import '@libvue/core';
-
-html {
-    min-height: 100%;
-    height: 100%;
-    font-size: 100%;
-}
-body {
-    margin: 0;
-    font-family: "Inter", sans-serif;
-    height: 100%;
-    font-size: .875rem;
-    line-height: 1.5;
-}
-#app {
-    display: flex;
-    min-height: 100%;
-}
+npm install --save @libvue/core
 `.trim();
 
 export default {
@@ -146,17 +125,13 @@ export default {
     data() {
         return {
             install,
-            activeRegisterFile: 'main',
-            registerFiles: [
-                { id: 'main', filename: 'main.js', lang: 'js', code: registerScript },
-                { id: 'scss', filename: 'app.scss', lang: 'css', code: registerScss },
-            ],
+            Logo,
             labels: ['January', 'February', 'March', 'April', 'May', 'June'],
             followersDatasets: [
                 {
                     label: 'Followers',
                     hue: 24,
-                    data: [55, 12, 20, 34, 7, 4],
+                    data: [4, 34, 20, 34, 27, 55],
                 },
             ],
         };
@@ -181,6 +156,10 @@ export default {
 }
 .feature-card {
     height: 100%;
+}
+.content-logo {
+    width: 100%;
+    max-width: 200px;
 }
 
 .preview {
