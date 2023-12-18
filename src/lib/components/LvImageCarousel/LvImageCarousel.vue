@@ -1,5 +1,5 @@
 <template>
-    <div class="lv-image-carousel" ref="carousel">
+    <div ref="carousel" class="lv-image-carousel">
         <div class="lv-image-carousel__container">
             <slot></slot>
         </div>
