@@ -1,5 +1,5 @@
 <template>
-    <div class="lv-quick-filter" ref="quickfilter" :class="classObject" tabindex="-1">
+    <div ref="quickfilter" class="lv-quick-filter" :class="classObject" tabindex="-1">
         <div class="lv-quick-filter__input-container">
             <lv-flex v-if="hasModelResults" class="lv-quick-filter__pills" gap=".25rem" align-items="center">
                 <lv-pill
@@ -59,8 +59,8 @@
 </template>
 
 <script>
-import propSizeMixin from '../../mixins/propSizeMixin';
 import { onClickOutside } from "@vueuse/core";
+import propSizeMixin from '../../mixins/propSizeMixin';
 import LvPill from '../LvPill/LvPill.vue';
 
 export default {
@@ -115,12 +115,6 @@ export default {
             dropdownVisible: false,
             search: '',
         };
-    },
-    mounted() {
-        onClickOutside(this.$refs.quickfilter, () => {
-            this.dropdownVisible = false;
-            this.focused = false;
-        });
     },
     computed: {
         classObject() {
@@ -223,6 +217,12 @@ export default {
             },
             immediate: true,
         },
+    },
+    mounted() {
+        onClickOutside(this.$refs.quickfilter, () => {
+            this.dropdownVisible = false;
+            this.focused = false;
+        });
     },
     methods: {
         onFocusInput() {
