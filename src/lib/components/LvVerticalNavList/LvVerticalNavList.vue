@@ -35,15 +35,15 @@ export default {
             isOpen: this.open,
         };
     },
-    watch: {
-        open(val) {
-            this.isOpen = val;
-        }
-    },
     computed: {
         iconName() {
             return this.isOpen ? 'chevron-up' : 'chevron-down';
         },
+    },
+    watch: {
+        open(val) {
+            this.isOpen = val;
+        }
     },
     methods: {
         toggleState() {

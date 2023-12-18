@@ -125,6 +125,13 @@ export default {
             linkTargetModel: true,
         };
     },
+    watch: {
+        modelValue(val) {
+            const { from, to } = this.editor.state.selection;
+            this.editor.commands.setContent(val);
+            this.editor.commands.setTextSelection({ from, to });
+        },
+    },
     mounted() {
         this.editor = new Editor({
             extensions: [StarterKit, Underline, Link],
@@ -133,13 +140,6 @@ export default {
                 this.$emit('update:modelValue', editor.getHTML());
             },
         });
-    },
-    watch: {
-        modelValue(val) {
-            const { from, to } = this.editor.state.selection;
-            this.editor.commands.setContent(val);
-            this.editor.commands.setTextSelection({ from, to });
-        },
     },
     beforeUnmount() {
         this.editor.destroy();

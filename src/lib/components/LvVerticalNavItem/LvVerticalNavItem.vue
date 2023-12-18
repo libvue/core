@@ -35,6 +35,7 @@ export default {
             default: false,
         },
     },
+    emits: ['click'],
     computed: {
         classObject() {
             return {
@@ -44,7 +45,6 @@ export default {
             };
         },
     },
-    emits: ['click'],
     methods: {
         onClick(e) {
             this.$emit('click', e)
