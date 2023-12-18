@@ -1,7 +1,7 @@
 <template>
     <figure class="lv-image" :class="classObject">
         <img class="lv-image__image" :src="src" />
-        <figcaption class="lv-image__caption" v-if="caption">{{ caption }}</figcaption>
+        <figcaption v-if="caption" class="lv-image__caption">{{ caption }}</figcaption>
     </figure>
 </template>
 
