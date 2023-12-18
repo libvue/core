@@ -37,14 +37,7 @@ export default {
             default: false,
         }
     },
-    methods: {
-        onChangeInput(e) {
-            this.$emit('update:modelValue', e);
-        },
-        onChangeColorPicker(e) {
-            this.$emit('update:modelValue', e.target.value);
-        },
-    },
+    emits: ['update:modelValue'],
     computed: {
         classObject() {
             return {
@@ -54,6 +47,14 @@ export default {
                 'lv-color-picker--readonly-input': this.readonlyInput,
             }
         }
+    },
+    methods: {
+        onChangeInput(e) {
+            this.$emit('update:modelValue', e);
+        },
+        onChangeColorPicker(e) {
+            this.$emit('update:modelValue', e.target.value);
+        },
     }
 };
 </script>
