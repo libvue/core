@@ -21,15 +21,15 @@
                         class="lv-date-picker__month-select"
                         :options="monthSelectOptions"
                         :model-value="monthSelectModel"
-                        @update:modelValue="onChangeMonth"
                         :clearable="false"
+                        @update:modelValue="onChangeMonth"
                     />
                     <lv-select
                         class="lv-date-picker__month-select"
                         :options="yearSelectOptions"
                         :model-value="yearSelectModel"
-                        @update:modelValue="onChangeYear"
                         :clearable="false"
+                        @update:modelValue="onChangeYear"
                     />
                     <lv-button
                         class="lv-date-picker__next-month"
