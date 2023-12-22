@@ -109,17 +109,20 @@ export default {
         }
     },
     watch: {
-        show(val) {
-            this.isLocked = !!val;
-            // If invisible, directly show
-            // Otherwise hide with a delay
-            if (val) {
-                this.computedShow = true;
-            } else {
-                setTimeout(() => {
-                    this.computedShow = false;
-                }, this.cssTimeToMilliSeconds(this.timeDouble));
-            }
+        show: {
+            handler(val) {
+                this.isLocked = !!val;
+                // If invisible, directly show
+                // Otherwise hide with a delay
+                if (val) {
+                    this.computedShow = true;
+                } else {
+                    setTimeout(() => {
+                        this.computedShow = false;
+                    }, this.cssTimeToMilliSeconds(this.timeDouble));
+                }
+            },
+            immediate: true,
         },
     },
     mounted() {
