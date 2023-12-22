@@ -67,6 +67,10 @@ export default {
             type: String,
             default: '900px'
         },
+        overflowY: {
+            type: String,
+            default: 'auto',
+        },
         fullscreen: {
             type: Boolean,
             default: false,
@@ -168,7 +172,7 @@ export default {
 
     #{$self}__content {
         flex-shrink: 1;
-        overflow-y: auto;
+        overflow-y: v-bind(overflowY);
     }
     #{$self}__footer {
         padding-top: 1rem;
@@ -184,6 +188,7 @@ export default {
         }
         #{$self}__content {
             flex-grow: 1;
+            overflow-y: auto;
         }
     }
 }
