@@ -60,7 +60,6 @@ export default {
 .lv-image {
     $self: &;
     max-width: 100%;
-    height: 100%;
     padding: 0;
     margin: 0;
     line-height: 0;
