@@ -30,9 +30,6 @@ hljs.registerLanguage('scss', scss);
 hljs.registerLanguage('html', xml);
 hljs.registerLanguage('shell', shell);
 
-// opt-in to the new behavior now
-app.config.unwrapInjectedRef = true;
-
 // Register custom components
 app.component('ComponentDetails', ComponentDetails);
 app.component('CodePreview', CodePreview);
