@@ -5,6 +5,7 @@
             v-if="computedShow && mounted"
             :options="focusTrap ? focusTrapOptions : null"
             class="lv-dialog"
+            :class="classObject"
             role="dialog"
             :aria-modal="modal"
             :aria-label="ariaLabel"
@@ -15,13 +16,11 @@
                 <div v-if="show" class="lv-dialog__backdrop" @click="onClickBackdrop"></div>
             </transition>
             <transition name="fade-slide-up" appear>
-                <div v-if="show" ref="content" class="lv-dialog__window">
+                <div v-if="show" ref="content" class="lv-dialog__window" :style="windowStyleObject">
                     <slot name="default">
-                        <div v-if="!!$slots.title" class="lv-dialog__title"><slot name="title"></slot></div>
-                        <div v-if="!!$slots.content" class="lv-dialog__content">
-                            <slot name="content"></slot>
-                        </div>
-                        <div v-if="!!$slots.close" class="lv-dialog__close"><slot name="close"></slot></div>
+                        <div v-if="!!$slots.header" class="lv-dialog__header"><slot name="header"></slot></div>
+                        <div v-if="!!$slots.content" class="lv-dialog__content"><slot name="content"></slot></div>
+                        <div v-if="!!$slots.footer" class="lv-dialog__footer"><slot name="footer"></slot></div>
                     </slot>
                 </div>
             </transition>
@@ -64,6 +63,14 @@ export default {
             type: Boolean,
             default: (props) => !!props.modal,
         },
+        maxWidth: {
+            type: String,
+            default: '900px'
+        },
+        fullscreen: {
+            type: Boolean,
+            default: false,
+        },
     },
     emits: ['click-backdrop'],
     setup() {
@@ -90,11 +97,20 @@ export default {
                 fallbackFocus: document.body,
             };
         },
+        windowStyleObject() {
+            return {
+                'maxWidth': this.maxWidth,
+            }
+        },
+        classObject() {
+            return {
+                'lv-dialog--fullscreen': this.fullscreen,
+            };
+        }
     },
     watch: {
         show(val) {
             this.isLocked = !!val;
-
             // If invisible, directly show
             // Otherwise hide with a delay
             if (val) {
@@ -121,6 +137,7 @@ export default {
 @import '../../scss/transitions/fade';
 
 .lv-dialog {
+    $self: &;
     display: flex;
     position: fixed;
     top: 0;
@@ -128,6 +145,7 @@ export default {
     justify-content: center;
     align-items: center;
     z-index: var(--z-dialog);
+    padding: 1.5rem;
     width: 100%;
     height: 100%;
 
@@ -144,7 +162,30 @@ export default {
         border-radius: var(--border-radius);
         background-color: var(--background-color);
         padding: calc(var(--padding) * 2);
-        max-height: 100vh;
+        max-height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #{$self}__content {
+        flex-shrink: 1;
+        overflow-y: auto;
+    }
+    #{$self}__footer {
+        padding-top: 1rem;
+    }
+
+    &--fullscreen {
+        padding: 0;
+        #{$self}__window {
+            width: 100vw;
+            height: 100vh;
+            max-width: none !important;
+            border-radius: 0;
+        }
+        #{$self}__content {
+            flex-grow: 1;
+        }
     }
 }
 </style>
