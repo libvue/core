@@ -31,7 +31,7 @@
             <div v-show="dropdownVisible" class="lv-quick-filter__dropdown" role="listbox">
                 <!-- Generated dropdownResults -->
                 <template v-for="(object, key) in dropdownResults">
-                    <div :key="key" class="lv-quick-filter__results">
+                    <div class="lv-quick-filter__results">
                         <div class="lv-quick-filter__results-title">{{ object.label }}</div>
                         <!-- Input -->
                         <template v-if="object.value">
