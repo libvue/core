@@ -16,7 +16,7 @@
                 <div v-if="show" class="lv-dialog__backdrop" @click="onClickBackdrop"></div>
             </transition>
             <transition name="fade-slide-up" appear>
-                <div v-if="show" ref="content" class="lv-dialog__window" :style="windowStyleObject">
+                <div v-if="show" ref="content" class="lv-dialog__window">
                     <slot name="default">
                         <div v-if="!!$slots.header" class="lv-dialog__header"><slot name="header"></slot></div>
                         <div v-if="!!$slots.content" class="lv-dialog__content"><slot name="content"></slot></div>
@@ -97,11 +97,6 @@ export default {
                 fallbackFocus: document.body,
             };
         },
-        windowStyleObject() {
-            return {
-                'maxWidth': this.maxWidth,
-            }
-        },
         classObject() {
             return {
                 'lv-dialog--fullscreen': this.fullscreen,
@@ -168,6 +163,7 @@ export default {
         max-height: 100%;
         display: flex;
         flex-direction: column;
+        max-width: v-bind(maxWidth);
     }
 
     #{$self}__content {
