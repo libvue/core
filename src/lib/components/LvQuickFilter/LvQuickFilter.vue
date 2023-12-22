@@ -21,6 +21,7 @@
                 :placeholder="placeholder"
                 :icon="icon"
                 type="text"
+                @keydown.enter="onEnter"
                 @focus="onFocusInput"
                 @blur="onBlurInput"
             />
@@ -108,7 +109,7 @@ export default {
             default: null,
         },
     },
-    emits: ['clear:filter', 'update:filter'],
+    emits: ['clear:filter', 'update:filter', 'enter'],
     data() {
         return {
             focused: false,
@@ -230,6 +231,9 @@ export default {
         },
         onBlurInput() {
             this.focused = false;
+        },
+        onEnter() {
+            this.$emit('enter');
         },
         onClickClosePill(key) {
             this.$emit('clear:filter', key);
