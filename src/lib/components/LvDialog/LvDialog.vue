@@ -165,6 +165,7 @@ export default {
         background-color: var(--background-color);
         padding: calc(var(--padding) * 2);
         max-height: 100%;
+        width: 100%;
         display: flex;
         flex-direction: column;
         max-width: v-bind(maxWidth);
