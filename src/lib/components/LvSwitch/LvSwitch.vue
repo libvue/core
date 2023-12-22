@@ -18,7 +18,7 @@
             />
             <lv-spinner v-if="loading" class="lv-switch__loader" :size="12" />
         </div>
-        <label v-if="label" :for="labelFor" class="lv-switch__label" @click="toggleCheckbox">{{ label }}</label>
+        <label v-if="label" :for="labelFor" class="lv-switch__label">{{ label }}</label>
     </div>
 </template>
 

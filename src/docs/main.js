@@ -1,4 +1,5 @@
 // Highlightjs
+/* eslint-disable import/no-extraneous-dependencies */
 import 'highlight.js/styles/stackoverflow-light.css';
 import hljs from 'highlight.js/lib/core';
 import javascript from 'highlight.js/lib/languages/javascript';
@@ -29,9 +30,6 @@ hljs.registerLanguage('javascript', javascript);
 hljs.registerLanguage('scss', scss);
 hljs.registerLanguage('html', xml);
 hljs.registerLanguage('shell', shell);
-
-// opt-in to the new behavior now
-app.config.unwrapInjectedRef = true;
 
 // Register custom components
 app.component('ComponentDetails', ComponentDetails);

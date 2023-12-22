@@ -1,6 +1,13 @@
 <template>
     <div class="lv-textarea" :class="classObject">
-        <textarea class="lv-textarea__textarea" :value="modelValue" :disabled="disabled" :placeholder="placeholder" @input="onChange"></textarea>
+        <textarea
+            class="lv-textarea__textarea"
+            :value="modelValue"
+            :disabled="disabled"
+            :readonly="readonly"
+            :placeholder="placeholder"
+            @input="onChange"
+        ></textarea>
         <lv-spinner v-if="loading" class="lv-textarea__loading" />
     </div>
 </template>
@@ -24,6 +31,10 @@ export default {
             type: Boolean,
             default: false,
         },
+        readonly: {
+            type: Boolean,
+            default: false,
+        },
         height: {
             type: String,
             default: 'auto',
@@ -31,7 +42,7 @@ export default {
         minHeight: {
             type: String,
             default: '100px',
-        }
+        },
     },
     emits: ['update:modelValue'],
     computed: {
@@ -46,8 +57,8 @@ export default {
     methods: {
         onChange(e) {
             this.$emit('update:modelValue', e.target.value);
-        }
-    }
+        },
+    },
 };
 </script>
 
@@ -93,6 +104,5 @@ export default {
             }
         }
     }
-
 }
 </style>

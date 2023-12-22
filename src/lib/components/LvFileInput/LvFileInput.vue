@@ -188,6 +188,7 @@ export default {
     &__no-files {
         line-height: var(--line-height-small);
         font-size: var(--font-size-small);
+        height: calc(var(--font-size-small) + 1px);
     }
     &__info {
         margin-top: .5rem;
