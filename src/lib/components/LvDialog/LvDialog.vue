@@ -174,7 +174,6 @@ export default {
     #{$self}__content {
         flex-shrink: 1;
         overflow-y: v-bind(overflowY);
-        overflow-x: hidden;
     }
     #{$self}__footer {
         padding-top: 1rem;
