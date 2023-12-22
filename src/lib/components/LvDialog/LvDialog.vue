@@ -16,7 +16,7 @@
                 <div v-if="show" class="lv-dialog__backdrop" @click="onClickBackdrop"></div>
             </transition>
             <transition name="fade-slide-up" appear>
-                <div v-if="show" ref="content" class="lv-dialog__window" :style="windowStyleObject">
+                <div v-if="show" ref="content" class="lv-dialog__window">
                     <slot name="default">
                         <div v-if="!!$slots.header" class="lv-dialog__header"><slot name="header"></slot></div>
                         <div v-if="!!$slots.content" class="lv-dialog__content"><slot name="content"></slot></div>
@@ -67,6 +67,10 @@ export default {
             type: String,
             default: '900px'
         },
+        overflowY: {
+            type: String,
+            default: 'auto',
+        },
         fullscreen: {
             type: Boolean,
             default: false,
@@ -97,11 +101,6 @@ export default {
                 fallbackFocus: document.body,
             };
         },
-        windowStyleObject() {
-            return {
-                'maxWidth': this.maxWidth,
-            }
-        },
         classObject() {
             return {
                 'lv-dialog--fullscreen': this.fullscreen,
@@ -109,17 +108,20 @@ export default {
         }
     },
     watch: {
-        show(val) {
-            this.isLocked = !!val;
-            // If invisible, directly show
-            // Otherwise hide with a delay
-            if (val) {
-                this.computedShow = true;
-            } else {
-                setTimeout(() => {
-                    this.computedShow = false;
-                }, this.cssTimeToMilliSeconds(this.timeDouble));
-            }
+        show: {
+            handler(val) {
+                this.isLocked = !!val;
+                // If invisible, directly show
+                // Otherwise hide with a delay
+                if (val) {
+                    this.computedShow = true;
+                } else {
+                    setTimeout(() => {
+                        this.computedShow = false;
+                    }, this.cssTimeToMilliSeconds(this.timeDouble));
+                }
+            },
+            immediate: true,
         },
     },
     mounted() {
@@ -165,11 +167,12 @@ export default {
         max-height: 100%;
         display: flex;
         flex-direction: column;
+        max-width: v-bind(maxWidth);
     }
 
     #{$self}__content {
         flex-shrink: 1;
-        overflow-y: auto;
+        overflow-y: v-bind(overflowY);
     }
     #{$self}__footer {
         padding-top: 1rem;
@@ -185,6 +188,7 @@ export default {
         }
         #{$self}__content {
             flex-grow: 1;
+            overflow-y: auto;
         }
     }
 }
