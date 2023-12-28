@@ -85,7 +85,7 @@
                     </lv-link>
                 </lv-grid-column>
                 <lv-grid-column :width="4" :md="12">
-                    <lv-link block zoom-on-hover @click="$router.push({ path: '/docs/spacing' })">
+                    <lv-link block zoom-on-hover @click="$router.push({ path: '/docs/v-space-after' })">
                         <lv-card class="feature-card">
                             <lv-heading v-space-after="1" :level="5">
                                 <lv-icon v-space-after="0.5" name="align-vertical-space-around" />Spacing

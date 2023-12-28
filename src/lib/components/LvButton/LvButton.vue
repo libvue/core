@@ -9,7 +9,7 @@
         :aria-label="ariaLabel"
         :aria-labelledby="arialLabelledBy"
         @click="onClick"
-        @keydown.enter.space="onClick"
+        @keydown.enter.space="onKeydown"
     >
         <lv-icon v-if="icon" class="lv-button__icon" :class="{ 'lv-button__icon--hidden': loading }" :name="icon" />
         <lv-spinner v-if="loading" class="lv-button__loading" :size="12"/>
@@ -79,6 +79,12 @@ export default {
     },
     methods: {
         onClick(e) {
+            e.stopPropagation();
+            this.$emit('click', e);
+        },
+        onKeydown(e) {
+            e.stopPropagation();
+            e.preventDefault();
             this.$emit('click', e);
         }
     }
