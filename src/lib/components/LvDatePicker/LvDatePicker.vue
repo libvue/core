@@ -622,10 +622,11 @@ export default {
             }
         },
         setSecondMonthAndYearSelectToStartDate() {
-            // This must always be one month AFTER the first month
+            // This must always be one month after the first month
             const {firstMonthSelectModel} = this;
             const {firstYearSelectModel} = this;
 
+            // Theoretically, this should always be true
             if (firstMonthSelectModel) {
                 // Check if december, then go to january and add a year
                 if (firstMonthSelectModel === 11) {
@@ -636,7 +637,7 @@ export default {
                     this.secondYearSelectModel = firstYearSelectModel;
                 }
             } else {
-                // Otherwise fallback to the month of today and add One month (TODO)
+                // Otherwise fallback to the month of today and add One month
                 this.secondMonthSelectModel = this.monthSelectOptions.find(
                     (i) => i.value === getMonth(new Date())
                 ).value;
