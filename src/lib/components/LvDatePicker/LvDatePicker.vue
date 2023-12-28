@@ -46,13 +46,7 @@
                         <div class="lv-date-picker__content">
                             <!-- Day of Week days -->
                             <div class="lv-date-picker__dow-days">
-                                <div class="lv-date-picker__dow-day">Su</div>
-                                <div class="lv-date-picker__dow-day">Sa</div>
-                                <div class="lv-date-picker__dow-day">Mo</div>
-                                <div class="lv-date-picker__dow-day">Tu</div>
-                                <div class="lv-date-picker__dow-day">We</div>
-                                <div class="lv-date-picker__dow-day">Th</div>
-                                <div class="lv-date-picker__dow-day">Fr</div>
+                                <div v-for="day in locale.daysOfWeek" :key="day" class="lv-date-picker__dow-day">{{ day }}</div>
                             </div>
                             <!-- Day of Month days -->
                             <div class="lv-date-picker__dom-days">
@@ -60,6 +54,7 @@
                                     v-for="(day, index) in selectedFirstMonthDays"
                                     :key="index"
                                     class="lv-date-picker__dom-day"
+                                    tabindex="0"
                                     :class="{
                                         'lv-date-picker__dom-day--dimmed': day.isDimmed,
                                         'lv-date-picker__dom-day--today': day.isToday,
@@ -68,6 +63,7 @@
                                         'lv-date-picker__dom-day--in-range': day.isInRange,
                                     }"
                                     @click="onClickDomDay(day)"
+                                    @keydown.enter.space="onClickDomDay(day)"
                                 >
                                     {{ day.day }}
                                 </div>
@@ -110,13 +106,7 @@
                         <div class="lv-date-picker__content">
                             <!-- Day of Week days -->
                             <div class="lv-date-picker__dow-days">
-                                <div class="lv-date-picker__dow-day">Su</div>
-                                <div class="lv-date-picker__dow-day">Sa</div>
-                                <div class="lv-date-picker__dow-day">Mo</div>
-                                <div class="lv-date-picker__dow-day">Tu</div>
-                                <div class="lv-date-picker__dow-day">We</div>
-                                <div class="lv-date-picker__dow-day">Th</div>
-                                <div class="lv-date-picker__dow-day">Fr</div>
+                                <div v-for="day in locale.daysOfWeek" :key="day" class="lv-date-picker__dow-day">{{ day }}</div>
                             </div>
                             <!-- Day of Month days -->
                             <div class="lv-date-picker__dom-days">
@@ -124,6 +114,7 @@
                                     v-for="(day, index) in selectedSecondMonthDays"
                                     :key="index"
                                     class="lv-date-picker__dom-day"
+                                    tabindex="0"
                                     :class="{
                                         'lv-date-picker__dom-day--dimmed': day.isDimmed,
                                         'lv-date-picker__dom-day--today': day.isToday,
@@ -132,6 +123,7 @@
                                         'lv-date-picker__dom-day--in-range': day.isInRange,
                                     }"
                                     @click="onClickDomDay(day)"
+                                    @keydown.enter.space="onClickDomDay(day)"
                                 >
                                     {{ day.day }}
                                 </div>
@@ -217,6 +209,27 @@ export default {
             type: Boolean,
             default: false,
         },
+        locale: {
+            type: Object,
+            default: () => ({
+                monthNames: [
+                    'January',
+                    'February',
+                    'March',
+                    'April',
+                    'May',
+                    'June',
+                    'July',
+                    'August',
+                    'September',
+                    'October',
+                    'November',
+                    'December',
+                ],
+                daysOfWeek: ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'],
+            }),
+            validator: (val) => val.monthNames && val.monthNames.length === 12 && val.daysOfWeek && val.daysOfWeek.length === 7
+        },
     },
     emits: ['update:start', 'update:end'],
     data() {
@@ -226,20 +239,7 @@ export default {
             firstYearSelectModel: null,
             secondMonthSelectModel: null,
             secondYearSelectModel: null,
-            monthSelectOptions: [
-                { value: 0, label: 'January' },
-                { value: 1, label: 'February' },
-                { value: 2, label: 'March' },
-                { value: 3, label: 'April' },
-                { value: 4, label: 'May' },
-                { value: 5, label: 'June' },
-                { value: 6, label: 'July' },
-                { value: 7, label: 'August' },
-                { value: 8, label: 'September' },
-                { value: 9, label: 'October' },
-                { value: 10, label: 'November' },
-                { value: 11, label: 'December' },
-            ],
+            monthSelectOptions: Array.from(this.locale.monthNames, (name, index) => ({ value: index, label: name })),
         };
     },
     computed: {
@@ -570,7 +570,7 @@ export default {
             }
         },
         onChangeFirstYear(value) {
-            if(this.firstYearSelectModel !== value) {
+            if (this.firstYearSelectModel !== value) {
                 this.firstYearSelectModel = value;
                 // Copy the year and month to the firstMonth
                 this.secondYearSelectModel = value;
@@ -580,7 +580,7 @@ export default {
             }
         },
         onChangeSecondMonth(value) {
-            if(this.secondMonthSelectModel !== value) {
+            if (this.secondMonthSelectModel !== value) {
                 this.secondMonthSelectModel = value;
                 // Copy the month and year to the firstMonth
                 this.firstMonthSelectModel = value;
@@ -590,7 +590,7 @@ export default {
             }
         },
         onChangeSecondYear(value) {
-            if(this.secondYearSelectModel !== value) {
+            if (this.secondYearSelectModel !== value) {
                 this.secondYearSelectModel = value;
                 // Copy the year and month to the firstMonth
                 this.firstYearSelectModel = value;
@@ -623,17 +623,21 @@ export default {
         },
         setSecondMonthAndYearSelectToStartDate() {
             // This must always be one month after the first month
-            const {firstMonthSelectModel} = this;
-            const {firstYearSelectModel} = this;
+            const { firstMonthSelectModel } = this;
+            const { firstYearSelectModel } = this;
 
             // Theoretically, this should always be true
             if (firstMonthSelectModel) {
                 // Check if december, then go to january and add a year
                 if (firstMonthSelectModel === 11) {
-                    this.secondYearSelectModel = this.yearSelectOptions.find((i) => i.value === firstYearSelectModel + 1).value;
+                    this.secondYearSelectModel = this.yearSelectOptions.find(
+                        (i) => i.value === firstYearSelectModel + 1
+                    ).value;
                     this.secondMonthSelectModel = this.monthSelectOptions.find((i) => i.value === 0).value;
                 } else {
-                    this.secondMonthSelectModel = this.monthSelectOptions.find((i) => i.value === firstMonthSelectModel + 1).value;
+                    this.secondMonthSelectModel = this.monthSelectOptions.find(
+                        (i) => i.value === firstMonthSelectModel + 1
+                    ).value;
                     this.secondYearSelectModel = firstYearSelectModel;
                 }
             } else {
@@ -651,7 +655,7 @@ export default {
                 this.$emit('update:start', format(day.date, this.ioFormat));
             } else if (this.startDate && !this.endDate) {
                 // Check if enddate is before startdate then swap end and start
-                if(isBefore(day.date, this.startDate)) {
+                if (isBefore(day.date, this.startDate)) {
                     this.$emit('update:end', format(this.startDate, this.ioFormat));
                     this.$emit('update:start', format(day.date, this.ioFormat));
                 } else {
@@ -702,7 +706,7 @@ export default {
                 this.firstMonthSelectModel = this.monthSelectOptions.find((i) => i.value === currentMonth + 1).value;
             }
         },
-        subSecondMonth(referenceMonth = this.secondMonthSelectModel, referenceYear = this.secondYearSelectModel){
+        subSecondMonth(referenceMonth = this.secondMonthSelectModel, referenceYear = this.secondYearSelectModel) {
             // Check if december, then go to december and subtract a year
             if (referenceMonth === 0) {
                 this.secondYearSelectModel = this.yearSelectOptions.find((i) => i.value === referenceYear - 1).value;
@@ -711,7 +715,7 @@ export default {
                 this.secondMonthSelectModel = this.monthSelectOptions.find((i) => i.value === referenceMonth - 1).value;
             }
         },
-        addSecondMonth(referenceMonth = this.secondMonthSelectModel, referenceYear = this.secondYearSelectModel){
+        addSecondMonth(referenceMonth = this.secondMonthSelectModel, referenceYear = this.secondYearSelectModel) {
             // Check if december, then go to january and add a year
             if (referenceMonth === 11) {
                 this.secondYearSelectModel = this.yearSelectOptions.find((i) => i.value === referenceYear + 1).value;
