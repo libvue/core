@@ -79,11 +79,9 @@ export default {
     },
     methods: {
         onClick(e) {
-            e.stopPropagation();
             this.$emit('click', e);
         },
         onKeydown(e) {
-            e.stopPropagation();
             e.preventDefault();
             this.$emit('click', e);
         }
