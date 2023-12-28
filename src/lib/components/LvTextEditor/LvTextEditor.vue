@@ -2,35 +2,37 @@
     <div class="lv-text-editor">
         <div class="lv-text-editor__buttons">
             <lv-flex direction="row">
+
                 <lv-toggle-group>
                     <lv-toggle
-                        :model-value="editor && editor.isActive('bold')"
+                        :model-value="!!(editor && editor.isActive('bold'))"
                         @click="editor.chain().focus().toggleBold().run()"
                     >
                         <lv-icon name="bold" />
                     </lv-toggle>
                     <lv-toggle
-                        :model-value="editor && editor.isActive('italic')"
+                        :model-value="!!(editor && editor.isActive('italic'))"
                         @click="editor.chain().focus().toggleItalic().run()"
                     >
                         <lv-icon name="italic" />
                     </lv-toggle>
                     <lv-toggle
-                        :model-value="editor && editor.isActive('underline')"
+                        :model-value="!!(editor && editor.isActive('underline'))"
                         @click="editor.chain().focus().toggleUnderline().run()"
                     >
                         <lv-icon name="underline" />
                     </lv-toggle>
                 </lv-toggle-group>
+
                 <lv-toggle-group>
                     <lv-toggle
-                        :model-value="editor && editor.isActive('bulletList')"
+                        :model-value="!!(editor && editor.isActive('bulletList'))"
                         @click="editor.chain().focus().toggleBulletList().run()"
                     >
                         <lv-icon name="list" />
                     </lv-toggle>
                     <lv-toggle
-                        :model-value="editor && editor.isActive('orderedList')"
+                        :model-value="!!(editor && editor.isActive('orderedList'))"
                         @click="editor.chain().focus().toggleOrderedList().run()"
                     >
                         <lv-icon name="list-ordered" />
@@ -38,27 +40,39 @@
                 </lv-toggle-group>
 
                 <lv-toggle-group>
-                    <lv-toggle :model-value="editor && editor.isActive('heading', { level: 1 })" @click="editor.chain().focus().toggleHeading({ level: 1 }).run()">
+                    <lv-toggle
+                        :model-value="!!(editor && editor.isActive('heading', { level: 1 }))"
+                        @click="editor.chain().focus().toggleHeading({ level: 1 }).run()"
+                    >
                         h1
                     </lv-toggle>
-                    <lv-toggle :model-value="editor && editor.isActive('heading', { level: 2 })" @click="editor.chain().focus().toggleHeading({ level: 2 }).run()">
+                    <lv-toggle
+                        :model-value="!!(editor && editor.isActive('heading', { level: 2 }))"
+                        @click="editor.chain().focus().toggleHeading({ level: 2 }).run()"
+                    >
                         h2
                     </lv-toggle>
-                    <lv-toggle :model-value="editor && editor.isActive('heading', { level: 3 })" @click="editor.chain().focus().toggleHeading({ level: 3 }).run()">
+                    <lv-toggle
+                        :model-value="!!(editor && editor.isActive('heading', { level: 3 }))"
+                        @click="editor.chain().focus().toggleHeading({ level: 3 }).run()"
+                    >
                         h3
                     </lv-toggle>
-                    <lv-toggle :model-value="editor && editor.isActive('heading', { level: 4 })" @click="editor.chain().focus().toggleHeading({ level: 4 }).run()">
+                    <lv-toggle
+                        :model-value="!!(editor && editor.isActive('heading', { level: 4 }))"
+                        @click="editor.chain().focus().toggleHeading({ level: 4 }).run()"
+                    >
                         h4
                     </lv-toggle>
                 </lv-toggle-group>
 
                 <lv-toggle
-                    :model-value="editor && editor.isActive('code')"
+                    :model-value="!!(editor && editor.isActive('code'))"
                     @click="editor.chain().focus().toggleCode().run()"
                 >
                     <lv-icon name="code" />
                 </lv-toggle>
-                <lv-toggle :model-value="editor && editor.isActive('link')" @click="onClickToggleLink">
+                <lv-toggle :model-value="!!(editor && editor.isActive('link'))" @click="onClickToggleLink">
                     <lv-icon name="link" />
                 </lv-toggle>
             </lv-flex>
@@ -83,19 +97,33 @@ import { Editor, EditorContent } from '@tiptap/vue-3';
 import { Underline } from '@tiptap/extension-underline';
 import { Link } from '@tiptap/extension-link';
 import StarterKit from '@tiptap/starter-kit';
-import LvFlex from "../LvFlex/LvFlex.vue";
-import LvToggleGroup from "../LvToggleGroup/LvToggleGroup.vue";
-import LvToggle from "../LvToggle/LvToggle.vue";
-import LvIcon from "../LvIcon/LvIcon.vue";
-import LvDialog from "../LvDialog/LvDialog.vue";
-import LvHeading from "../LvHeading/LvHeading.vue";
-import LvInput from "../LvInput/LvInput.vue";
-import LvSwitch from "../LvSwitch/LvSwitch.vue";
-import LvButton from "../LvButton/LvButton.vue";
+import LvFlex from '../LvFlex/LvFlex.vue';
+import LvToggleGroup from '../LvToggleGroup/LvToggleGroup.vue';
+import LvToggle from '../LvToggle/LvToggle.vue';
+import LvIcon from '../LvIcon/LvIcon.vue';
+import LvDialog from '../LvDialog/LvDialog.vue';
+import LvHeading from '../LvHeading/LvHeading.vue';
+import LvInput from '../LvInput/LvInput.vue';
+import LvSwitch from '../LvSwitch/LvSwitch.vue';
+import LvButton from '../LvButton/LvButton.vue';
 
 Link.configure({
     openOnClick: false,
 });
+
+const DEFAULT_FEATURES = {
+    bold: true,
+    italic: true,
+    underline: true,
+    bulletList: true,
+    orderedList: true,
+    heading1: true,
+    heading2: true,
+    heading3: true,
+    heading4: true,
+    code: true,
+    link: true,
+}
 
 export default {
     components: {
@@ -114,6 +142,10 @@ export default {
         modelValue: {
             type: String,
             default: '',
+        },
+        features: {
+            type: Object,
+            default: () => ({ ...DEFAULT_FEATURES }),
         },
     },
     emits: ['update:modelValue'],
@@ -199,7 +231,10 @@ export default {
     a {
         pointer-events: none;
     }
-    h1,h2,h3,h4 {
+    h1,
+    h2,
+    h3,
+    h4 {
         margin-top: 0;
     }
 }

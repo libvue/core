@@ -9,6 +9,7 @@ export default {
     props: {
         modelValue: {
             type: Boolean,
+            default: false,
             required: true,
         },
         ariaLabel: {
