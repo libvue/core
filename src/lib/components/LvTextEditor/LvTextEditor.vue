@@ -201,7 +201,7 @@ export default {
     watch: {
         modelValue(val) {
             const { from, to } = this.editor.state.selection;
-            this.editor.commands.setContent(val);
+            this.editor.commands.setContent(val, false, {preserveWhitespace: "full"});
             this.editor.commands.setTextSelection({ from, to });
         },
     },
@@ -209,6 +209,9 @@ export default {
         this.editor = new Editor({
             extensions: [StarterKit, Underline, Link],
             content: this.modelValue,
+            parseOptions: {
+                preserveWhitespace: 'full',
+            },
             onUpdate: ({ editor }) => {
                 this.$emit('update:modelValue', editor.getHTML());
             },
