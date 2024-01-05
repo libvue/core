@@ -22,9 +22,7 @@ export default {
     data() {
         return {
             code,
-            content: `
-                <h3>I'm a text editor powered by tiptap</h3><p>How are you <strong>doing</strong> today?</p>
-            `,
+            content: `<h3>I'm a text editor powered by tiptap</h3><p>How are you <strong>doing</strong> today?</p><ul><li>One</li><li>Two</li></ul>`,
         }
     }
 }
