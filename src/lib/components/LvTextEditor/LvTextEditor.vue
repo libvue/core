@@ -1,81 +1,96 @@
 <template>
     <div class="lv-text-editor">
         <div class="lv-text-editor__buttons">
-            <lv-flex direction="row">
+            <slot name="buttons" :editor="editor">
+                <lv-flex direction="row">
+                    <lv-toggle-group v-if="bold || italic || underline">
+                        <lv-toggle
+                            v-if="bold"
+                            :model-value="!!(editor && editor.isActive('bold'))"
+                            @click="editor.chain().focus().toggleBold().run()"
+                        >
+                            <lv-icon name="bold" />
+                        </lv-toggle>
+                        <lv-toggle
+                            v-if="italic"
+                            :model-value="!!(editor && editor.isActive('italic'))"
+                            @click="editor.chain().focus().toggleItalic().run()"
+                        >
+                            <lv-icon name="italic" />
+                        </lv-toggle>
+                        <lv-toggle
+                            v-if="underline"
+                            :model-value="!!(editor && editor.isActive('underline'))"
+                            @click="editor.chain().focus().toggleUnderline().run()"
+                        >
+                            <lv-icon name="underline" />
+                        </lv-toggle>
+                    </lv-toggle-group>
 
-                <lv-toggle-group>
-                    <lv-toggle
-                        :model-value="!!(editor && editor.isActive('bold'))"
-                        @click="editor.chain().focus().toggleBold().run()"
-                    >
-                        <lv-icon name="bold" />
-                    </lv-toggle>
-                    <lv-toggle
-                        :model-value="!!(editor && editor.isActive('italic'))"
-                        @click="editor.chain().focus().toggleItalic().run()"
-                    >
-                        <lv-icon name="italic" />
-                    </lv-toggle>
-                    <lv-toggle
-                        :model-value="!!(editor && editor.isActive('underline'))"
-                        @click="editor.chain().focus().toggleUnderline().run()"
-                    >
-                        <lv-icon name="underline" />
-                    </lv-toggle>
-                </lv-toggle-group>
+                    <lv-toggle-group v-if="bulletList || orderedList">
+                        <lv-toggle
+                            v-if="bulletList"
+                            :model-value="!!(editor && editor.isActive('bulletList'))"
+                            @click="editor.chain().focus().toggleBulletList().run()"
+                        >
+                            <lv-icon name="list" />
+                        </lv-toggle>
+                        <lv-toggle
+                            v-if="orderedList"
+                            :model-value="!!(editor && editor.isActive('orderedList'))"
+                            @click="editor.chain().focus().toggleOrderedList().run()"
+                        >
+                            <lv-icon name="list-ordered" />
+                        </lv-toggle>
+                    </lv-toggle-group>
 
-                <lv-toggle-group>
-                    <lv-toggle
-                        :model-value="!!(editor && editor.isActive('bulletList'))"
-                        @click="editor.chain().focus().toggleBulletList().run()"
-                    >
-                        <lv-icon name="list" />
-                    </lv-toggle>
-                    <lv-toggle
-                        :model-value="!!(editor && editor.isActive('orderedList'))"
-                        @click="editor.chain().focus().toggleOrderedList().run()"
-                    >
-                        <lv-icon name="list-ordered" />
-                    </lv-toggle>
-                </lv-toggle-group>
+                    <lv-toggle-group v-if="heading1 || heading2 || heading3 || heading4">
+                        <lv-toggle
+                            v-if="heading1"
+                            :model-value="!!(editor && editor.isActive('heading', { level: 1 }))"
+                            @click="editor.chain().focus().toggleHeading({ level: 1 }).run()"
+                        >
+                            h1
+                        </lv-toggle>
+                        <lv-toggle
+                            v-if="heading2"
+                            :model-value="!!(editor && editor.isActive('heading', { level: 2 }))"
+                            @click="editor.chain().focus().toggleHeading({ level: 2 }).run()"
+                        >
+                            h2
+                        </lv-toggle>
+                        <lv-toggle
+                            v-if="heading3"
+                            :model-value="!!(editor && editor.isActive('heading', { level: 3 }))"
+                            @click="editor.chain().focus().toggleHeading({ level: 3 }).run()"
+                        >
+                            h3
+                        </lv-toggle>
+                        <lv-toggle
+                            v-if="heading4"
+                            :model-value="!!(editor && editor.isActive('heading', { level: 4 }))"
+                            @click="editor.chain().focus().toggleHeading({ level: 4 }).run()"
+                        >
+                            h4
+                        </lv-toggle>
+                    </lv-toggle-group>
 
-                <lv-toggle-group>
                     <lv-toggle
-                        :model-value="!!(editor && editor.isActive('heading', { level: 1 }))"
-                        @click="editor.chain().focus().toggleHeading({ level: 1 }).run()"
+                        v-if="code"
+                        :model-value="!!(editor && editor.isActive('code'))"
+                        @click="editor.chain().focus().toggleCode().run()"
                     >
-                        h1
+                        <lv-icon name="code" />
                     </lv-toggle>
                     <lv-toggle
-                        :model-value="!!(editor && editor.isActive('heading', { level: 2 }))"
-                        @click="editor.chain().focus().toggleHeading({ level: 2 }).run()"
+                        v-if="link"
+                        :model-value="!!(editor && editor.isActive('link'))"
+                        @click="onClickToggleLink"
                     >
-                        h2
+                        <lv-icon name="link" />
                     </lv-toggle>
-                    <lv-toggle
-                        :model-value="!!(editor && editor.isActive('heading', { level: 3 }))"
-                        @click="editor.chain().focus().toggleHeading({ level: 3 }).run()"
-                    >
-                        h3
-                    </lv-toggle>
-                    <lv-toggle
-                        :model-value="!!(editor && editor.isActive('heading', { level: 4 }))"
-                        @click="editor.chain().focus().toggleHeading({ level: 4 }).run()"
-                    >
-                        h4
-                    </lv-toggle>
-                </lv-toggle-group>
-
-                <lv-toggle
-                    :model-value="!!(editor && editor.isActive('code'))"
-                    @click="editor.chain().focus().toggleCode().run()"
-                >
-                    <lv-icon name="code" />
-                </lv-toggle>
-                <lv-toggle :model-value="!!(editor && editor.isActive('link'))" @click="onClickToggleLink">
-                    <lv-icon name="link" />
-                </lv-toggle>
-            </lv-flex>
+                </lv-flex>
+            </slot>
         </div>
         <div class="lv-text-editor__content">
             <editor-content :editor="editor" />
@@ -111,20 +126,6 @@ Link.configure({
     openOnClick: false,
 });
 
-const DEFAULT_FEATURES = {
-    bold: true,
-    italic: true,
-    underline: true,
-    bulletList: true,
-    orderedList: true,
-    heading1: true,
-    heading2: true,
-    heading3: true,
-    heading4: true,
-    code: true,
-    link: true,
-}
-
 export default {
     components: {
         LvButton,
@@ -143,9 +144,49 @@ export default {
             type: String,
             default: '',
         },
-        features: {
-            type: Object,
-            default: () => ({ ...DEFAULT_FEATURES }),
+        bold: {
+            type: Boolean,
+            default: true,
+        },
+        italic: {
+            type: Boolean,
+            default: true,
+        },
+        underline: {
+            type: Boolean,
+            default: true,
+        },
+        bulletList: {
+            type: Boolean,
+            default: true,
+        },
+        orderedList: {
+            type: Boolean,
+            default: true,
+        },
+        heading1: {
+            type: Boolean,
+            default: true,
+        },
+        heading2: {
+            type: Boolean,
+            default: true,
+        },
+        heading3: {
+            type: Boolean,
+            default: true,
+        },
+        heading4: {
+            type: Boolean,
+            default: true,
+        },
+        code: {
+            type: Boolean,
+            default: false,
+        },
+        link: {
+            type: Boolean,
+            default: true,
         },
     },
     emits: ['update:modelValue'],
