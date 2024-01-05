@@ -14,12 +14,15 @@ export default {};
     .lv-toggle {
         border-radius: 0;
         margin-right: -1px;
-        &:first-of-type {
+        &:first-child:not(&:last-child) {
             border-radius: var(--border-radius) 0 0 var(--border-radius);
         }
-        &:last-child {
+        &:last-child:not(&:first-child) {
             margin-right: inherit;
             border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        }
+        &:first-child:is(&:last-child) {
+            border-radius: var(--border-radius);
         }
     }
 }
