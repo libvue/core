@@ -16,8 +16,8 @@ export default {
             default: true,
         },
         padding: {
-            type: Boolean,
-            default: true,
+            type: String,
+            default: 'calc(var(--padding) * 1.5)',
         },
         border: {
             type: Boolean,
@@ -29,7 +29,6 @@ export default {
             return {
                 'lv-card--elevation': !!this.elevation,
                 'lv-card--inline': !!this.inline,
-                'lv-card--padding': !!this.padding,
                 'lv-card--border': !!this.border,
             }
         }
@@ -46,13 +45,11 @@ export default {
     color: var(--text-color);
     font-size: var(--font-size);
     line-height: var(--line-height);
+    padding: v-bind(padding);
 
     &--inline {
         display: inline-block;
         width: initial;
-    }
-    &--padding {
-        padding: calc(var(--padding) * 1.5);
     }
     &--elevation {
         box-shadow: var(--shadow);
