@@ -193,6 +193,7 @@ export default {
         datasets(newVal, oldVal) {
             if(JSON.stringify(newVal) !== JSON.stringify(oldVal)) {
                 this.updateDatasets();
+                this.updateOptions();
             }
         },
         labels() {

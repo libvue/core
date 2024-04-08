@@ -113,6 +113,7 @@
                     <lv-button label="Large" size="large" icon="github" />
                     <lv-button label="Default" size="default" icon="github" />
                     <lv-button label="Small" size="small" icon="github" />
+                    <lv-button label="Tiny" size="tiny" icon="github" />
                 </lv-flex>
             </lv-card>
             <code-preview v-space-after="1" lang="html" :code="codeSizes" />

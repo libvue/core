@@ -44,7 +44,16 @@ export default {
     },
     computed: {
         props() {
-            return this.componentData.props;
+            const props = {};
+            if(this.componentData.mixins) {
+                this.componentData.mixins.forEach((mixin) => {
+                    if(mixin.props) {
+                        Object.assign(props, mixin.props);
+                    }
+                })
+            }
+            Object.assign(props, this.componentData.props)
+            return props;
         },
         emits() {
             return this.componentData.emits;

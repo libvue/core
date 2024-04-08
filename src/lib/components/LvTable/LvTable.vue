@@ -74,7 +74,7 @@
                 <!-- No Rows -->
                 <tr v-if="!hasRows" class="lv-table__row">
                     <td class="lv-table__cell lv-table__cell--no-data" :colspan="visibleColumnCount">
-                        {{ noDataText }}
+                        {{ loading ? loadingText : noDataText }}
                     </td>
                 </tr>
 
@@ -246,6 +246,10 @@ export default {
         noDataText: {
             type: String,
             default: 'No data available',
+        },
+        loadingText: {
+            type: String,
+            default: 'Loading data',
         },
         totalText: {
             type: String,

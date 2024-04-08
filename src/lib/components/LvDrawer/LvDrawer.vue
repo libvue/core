@@ -88,6 +88,7 @@ export default {
         return {
             mounted: false,
             computedShow: false,
+            timeout: null,
         };
     },
     computed: {
@@ -125,9 +126,11 @@ export default {
 
             if (val) {
                 this.computedShow = true;
-            } else {
-                setTimeout(() => {
+            } else if(!val && !this.timeout) {
+                this.timeout = setTimeout(() => {
                     this.computedShow = false;
+                    clearTimeout(this.timeout);
+                    this.timeout = null;
                 }, this.cssTimeToMilliSeconds(this.timeDouble));
             }
         },
