@@ -157,7 +157,7 @@ export default {
         }
     }
 
-    @include color-mixin;
+    @include color-mixin(true);
     @include size-mixin;
 }
 </style>
