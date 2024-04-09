@@ -1,6 +1,6 @@
 <template>
     <div class="lv-tabs">
-        <lv-flex class="lv-tabs__buttons" gap="20px" role="tablist">
+        <lv-flex class="lv-tabs__buttons" gap="10px" role="tablist">
             <div
                 v-for="tab in tabs"
                 :key="tab.id"
@@ -25,9 +25,10 @@
 
 <script>
 import LvFlex from "../LvFlex/LvFlex.vue";
+import LvIcon from "../LvIcon/LvIcon.vue";
 
 export default {
-    components: { LvFlex },
+    components: { LvIcon, LvFlex },
     props: {
         tabs: {
             type: Array,
@@ -75,7 +76,7 @@ export default {
         cursor: pointer;
         border-bottom: 2px solid transparent;
         background-color: transparent;
-        padding: 5px 0;
+        padding: 5px;
         color: var(--text-color);
         font-weight: bold;
         font-size: var(--font-size);
