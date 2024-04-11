@@ -1,79 +1,113 @@
 $colors: (
-    "default": (
+    'default': (
         normal: var(--color-default),
         dimmed: var(--color-default-dimmed),
     ),
-    "danger": (
+    'danger': (
         normal: var(--color-danger),
         dimmed: var(--color-danger-dimmed),
     ),
-    "warning": (
+    'warning': (
         normal: var(--color-warning),
         dimmed: var(--color-warning-dimmed),
     ),
-    "success": (
+    'success': (
         normal: var(--color-success),
         dimmed: var(--color-success-dimmed),
     ),
-    "info": (
+    'info': (
         normal: var(--color-info),
         dimmed: var(--color-info-dimmed),
     ),
-    "primary": (
+    'primary': (
         normal: var(--color-primary),
         dimmed: var(--color-primary-dimmed),
     ),
-    "secondary": (
+    'secondary': (
         normal: var(--color-secondary),
         dimmed: var(--color-secondary-dimmed),
     ),
 );
 
-@mixin color-mixin {
+@mixin color-mixin($hover: false) {
     // Walk through each color and create classes for every combination of colorType + color
 
     @each $color, $classMap in $colors {
         // Solid
         &--color-solid-#{$color} {
-            background-color: map-get($classMap, "normal");
+            background-color: map-get($classMap, 'normal');
             color: var(--color-white);
+            &:focus {
+                outline-offset: 4px;
+            }
+            @if $hover {
+                &:hover::after {
+                    content: '';
+                    width: calc(2px + 100%);
+                    height: calc(2px + 100%);
+                    position: absolute;
+                    top: -1px;
+                    left: -1px;
+                    pointer-events: none;
+                    background-color: map-get($classMap, 'dimmed');
+                    opacity: .2;
+                }
+            }
         }
         // Solid Light
         &--color-solid-dimmed-#{$color} {
-            background-color: map-get($classMap, "dimmed");
-            @if $color == "default" {
+            background-color: map-get($classMap, 'dimmed');
+            border: 1px solid map-get($classMap, 'dimmed');
+            @if $color == 'default' {
                 color: var(--text-color);
             } @else {
-                color: map-get($classMap, "normal");
+                color: map-get($classMap, 'normal');
+            }
+            @if $hover {
+                &:hover {
+                    border: 1px solid map-get($classMap, 'normal');
+                }
             }
         }
         // Outline
         &--color-outline-#{$color} {
-            border: 1px solid map-get($classMap, "normal");
-            @if $color == "default" {
+            border: 1px solid map-get($classMap, 'normal');
+            @if $color == 'default' {
                 color: var(--text-color);
             } @else {
-                color: map-get($classMap, "normal");
+                color: map-get($classMap, 'normal');
+            }
+            @if $hover {
+                &:hover {
+                    background-color: map-get($classMap, 'dimmed');
+                }
             }
         }
         // Outline Dimmed
         &--color-outline-dimmed-#{$color} {
-            border: 1px solid map-get($classMap, "dimmed");
-            @if $color == "default" {
+            border: 1px solid map-get($classMap, 'dimmed');
+            @if $color == 'default' {
                 color: var(--text-color);
             } @else {
-                color: map-get($classMap, "normal");
+                color: map-get($classMap, 'normal');
+            }
+            @if $hover {
+                &:hover {
+                    border: 1px solid map-get($classMap, 'normal');
+                }
             }
         }
         // Ghost
         &--color-ghost-#{$color} {
-            @if $color == "default" {
+            @if $color == 'default' {
                 color: var(--text-color);
             } @else {
-                color: map-get($classMap, "normal");
+                color: map-get($classMap, 'normal');
             }
-            &:hover {
-                background-color: map-get($classMap, "dimmed");
+            @if $hover {
+                &:hover {
+                    background-color: map-get($classMap, 'dimmed');
+                }
             }
         }
     }

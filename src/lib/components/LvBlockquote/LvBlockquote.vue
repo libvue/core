@@ -24,7 +24,7 @@ export default {
     margin: 0;
     padding: .5rem;
     font-style: italic;
-    border-left: 4px solid var(--color-primary-dimmed)
+    border-left: 4px solid var(--color-primary)
 }
 .lv-caption {
     margin-top: 0.5rem;

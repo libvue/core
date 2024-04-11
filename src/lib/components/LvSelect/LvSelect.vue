@@ -349,6 +349,7 @@ export default {
             padding: calc(var(--padding) * 0.5);
             color: var(--color-white);
             white-space: nowrap;
+            align-items: center;
         }
         &-remove {
             margin-left: 0.5rem;
