@@ -151,6 +151,7 @@ export default {
         padding: 0.5rem;
         color: var(--text-color);
         font-weight: 500;
+        gap: .5rem;
         font-size: var(--font-size-small);
         line-height: var(--line-height-small);
         font-family: var(--font-family);
@@ -163,7 +164,6 @@ export default {
         position: relative;
 
         &--active {
-            font-weight: bold;
             &:after {
                 content: '';
                 border-bottom: 3px solid var(--color-primary);
@@ -175,8 +175,16 @@ export default {
             }
         }
 
-        &:hover {
-            background-color: var(--code-preview-button-color);
+        &:hover:not(&--active) {
+            &:after {
+                content: '';
+                border-bottom: 3px solid var(--text-color);
+                position: absolute;
+                width: 100%;
+                height: 0;
+                bottom: -8px;
+                left: 0;
+            }
         }
     }
 
