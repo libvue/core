@@ -10,7 +10,7 @@
         </lv-avatar-group>
     </lv-card>
     <code-preview v-space-after="1" :code="code" lang="html" />
-    <component-details component="LvAvatarGroup"></component-details>
+    <component-details :slots="['default']" component="LvAvatarGroup"></component-details>
 </template>
 
 <script>

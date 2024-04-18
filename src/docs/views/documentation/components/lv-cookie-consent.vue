@@ -12,7 +12,7 @@
         />
     </lv-card>
     <code-preview v-space-after="1" lang="html" :code="code" />
-    <component-details component="LvCookieConsent"></component-details>
+    <component-details :slots="['default']" component="LvCookieConsent"></component-details>
 </template>
 
 <script>

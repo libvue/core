@@ -77,7 +77,7 @@
             <code-preview v-space-after="1" lang="html" :code="codeIcons" />
         </template>
     </lv-tabs>
-    <component-details component="LvNotice"></component-details>
+    <component-details :slots="['default']" component="LvNotice"></component-details>
 </template>
 
 <script>

@@ -13,7 +13,7 @@
     </lv-card>
     <code-preview v-space-after="1" lang="html" :code="codeTemplate" />
     <code-preview v-space-after="1" lang="javascript" :code="codeScript" />
-    <component-details component="LvTabs"></component-details>
+    <component-details :slots="['%tab.id%']" component="LvTabs"></component-details>
 </template>
 
 <script>

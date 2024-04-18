@@ -25,7 +25,7 @@
         </lv-flex>
     </lv-card>
     <code-preview v-space-after="1" lang="html" :code="code"/>
-    <component-details component="LvDrawer"></component-details>
+    <component-details :slots="['default']" component="LvDrawer"></component-details>
 </template>
 
 <script>

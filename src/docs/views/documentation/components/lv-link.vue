@@ -22,7 +22,7 @@
         <lv-link :zoom-on-hover="true"><lv-card>Any content</lv-card></lv-link>
     </lv-card>
     <code-preview v-space-after="1" lang="html" code='<lv-link :zoom-on-hover="true"><lv-card>Any content</lv-card></lv-link>' />
-    <component-details component="LvLink"></component-details>
+    <component-details :slots="['default']" component="LvLink"></component-details>
 </template>
 
 <script>

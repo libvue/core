@@ -31,7 +31,7 @@
         </lv-flex>
     </lv-card>
     <code-preview v-space-after="1" lang="html" :code="code"/>
-    <component-details component="LvPopover"></component-details>
+    <component-details :slots="['reference', 'content']" component="LvPopover"></component-details>
 </template>
 
 <script>

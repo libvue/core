@@ -7,7 +7,7 @@
         </lv-window>
     </lv-card>
     <code-preview v-space-after="1" :code="code" lang="html"></code-preview>
-    <component-details component="LvWindow"></component-details>
+    <component-details :slots="['default']" component="LvWindow"></component-details>
 </template>
 
 <script>

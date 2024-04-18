@@ -20,10 +20,11 @@
     <code-preview v-space-after="1" lang="html" :code="code" />
     <component-details
         v-space-after="1"
+        :slots="['default']"
         title="LvHorizontalNavItem"
         component="LvHorizontalNavItem"
     ></component-details>
-    <component-details title="LvHorizontalNavGroup" component="LvHorizontalNavGroup"></component-details>
+    <component-details title="LvHorizontalNavGroup" :slots="['default']" component="LvHorizontalNavGroup"></component-details>
 </template>
 
 <script>

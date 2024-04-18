@@ -30,16 +30,18 @@
     </lv-card>
     <code-preview v-space-after="1" :code="code" lang="html" />
 
-    <component-details v-space-after="1" title="Grid" component="LvGrid"></component-details>
+    <component-details v-space-after="1" :slots="['default']" title="Grid" component="LvGrid"></component-details>
 
     <component-details
         v-space-after="1"
+        :slots="['default']"
         title="Grid Row"
         component="LvGridRow"
     ></component-details>
 
     <component-details
         v-space-after="1"
+        :slots="['default']"
         title="Grid Column"
         component="LvGridColumn"
     ></component-details>

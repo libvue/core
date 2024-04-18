@@ -6,7 +6,7 @@
     </lv-card>
 
     <code-preview v-space-after="1" lang="html" :code="codeBlockquote" />
-    <component-details component="LvBlockquote"></component-details>
+    <component-details :slots="['default']" component="LvBlockquote"></component-details>
 </template>
 
 <script>

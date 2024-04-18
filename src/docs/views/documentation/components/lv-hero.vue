@@ -47,7 +47,7 @@
         </template>
     </lv-tabs>
 
-    <component-details component="LvHero" :slots="['image', 'buttons']"></component-details>
+    <component-details component="LvHero" :slots="['image', 'buttons', 'description', 'title']"></component-details>
 </template>
 
 <script>

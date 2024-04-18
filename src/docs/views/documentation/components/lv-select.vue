@@ -38,7 +38,7 @@
         </template>
     </lv-tabs>
 
-    <component-details component="LvSelect"></component-details>
+    <component-details :slots="['option', 'no-options', 'value']" component="LvSelect"></component-details>
 </template>
 
 <script>

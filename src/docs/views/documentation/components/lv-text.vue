@@ -10,7 +10,7 @@
         <lv-text align="right"> Lorem ipsum dolor sit amet, consectetur adipiscing elit </lv-text>
     </lv-card>
     <code-preview v-space-after="1" lang="html" :code="codeParagraph" />
-    <component-details component="LvText"></component-details>
+    <component-details :slots="['default']" component="LvText"></component-details>
 </template>
 
 <script>

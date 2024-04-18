@@ -26,7 +26,7 @@
             <code-preview v-space-after="1" lang="html" :code="codeNoBorder" />
         </template>
     </lv-tabs>
-    <component-details component="LvCard"></component-details>
+    <component-details :slots="['default']" component="LvCard"></component-details>
 </template>
 
 <script>

@@ -9,7 +9,7 @@
         {{ content }}
     </lv-text>
     <code-preview v-space-after="1" lang="html" :code="code"/>
-    <component-details component="LvTextEditor"></component-details>
+    <component-details :slots="['buttons']" component="LvTextEditor"></component-details>
 </template>
 
 <script>

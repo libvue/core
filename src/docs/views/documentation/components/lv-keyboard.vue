@@ -21,7 +21,7 @@
     </lv-card>
 
     <code-preview v-space-after="1" lang="html" :code="code" />
-    <component-details component="LvKeyboard"></component-details>
+    <component-details :slots="['default']" component="LvKeyboard"></component-details>
 </template>
 
 <script>
