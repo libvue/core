@@ -1,6 +1,6 @@
 <template>
     <div class="component-details">
-        <div v-if="props" v-space-after="1" class="props-table">
+        <div v-if="props && rowsProps.length > 0" v-space-after="1" class="props-table">
             <lv-heading v-space-after="1" :level="6">{{ title }} Props</lv-heading>
             <lv-card>
                 <lv-table :rows="rowsProps" :columns="columnsProps"></lv-table>
