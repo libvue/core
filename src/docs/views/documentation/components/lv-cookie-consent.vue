@@ -1,7 +1,6 @@
 <template>
     <lv-heading v-space-after="0.5" :level="3">Cookie Consent</lv-heading>
     <lv-heading v-space-after="2" sub :level="6">Because we have to somehow</lv-heading>
-    <lv-heading v-space-after="1" :level="6">Default</lv-heading>
     <lv-card v-space-after="1">
         <lv-button color="solid-primary" label="Toggle Consent" @click="showCookieConsent = !showCookieConsent" />
         <lv-cookie-consent
