@@ -96,7 +96,7 @@
         </template>
     </lv-tabs>
 
-    <component-details component="LvTable"></component-details>
+    <component-details :slots="['%column.key%']" component="LvTable"></component-details>
 </template>
 
 <script>

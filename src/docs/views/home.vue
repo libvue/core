@@ -6,6 +6,7 @@
             </template>
             <template #image>
                 <div class="preview">
+                    <lv-widget class="preview__chart" title="Revenue" amount="2,530" :diff="10" type="chart" :labels="labels" :datasets="followersDatasets"/>
                     <lv-card class="preview__login">
                         <lv-heading v-space-after="1" level="3">Login</lv-heading>
                         <lv-input v-space-after=".5" icon="user" placeholder="Enter your username"></lv-input>
@@ -15,7 +16,6 @@
                             <lv-button label="Cancel" color="outline-dimmed-default"></lv-button>
                         </lv-flex>
                     </lv-card>
-                    <lv-widget class="preview__chart" title="Followers" amount="2,530" :diff="10" type="chart" :labels="labels" :datasets="followersDatasets"/>
                 </div>
             </template>
             <template #buttons>
@@ -27,8 +27,6 @@
         </lv-hero>
 
         <lv-separator v-space-after="4"></lv-separator>
-
-        <code-preview :code="install" lang="shell" v-space-after="2"></code-preview>
 
         <lv-grid v-space-after="4" gap="1.5rem">
             <lv-grid-row gap="1.5rem">
@@ -129,9 +127,14 @@ export default {
             labels: ['January', 'February', 'March', 'April', 'May', 'June'],
             followersDatasets: [
                 {
-                    label: 'Followers',
-                    hue: 24,
-                    data: [4, 34, 20, 34, 27, 55],
+                    label: 'Revenue',
+                    hue: 250,
+                    data: [4, 34, 20, 34, 27, 95],
+                },
+                {
+                    label: 'Views',
+                    hue: 220,
+                    data: [334, 210, 364, 217, 255, 334],
                 },
             ],
         };

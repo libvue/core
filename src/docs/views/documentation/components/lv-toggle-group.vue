@@ -28,7 +28,7 @@
         </lv-flex>
     </lv-card>
     <code-preview v-space-after="1" :code="code" lang="html"></code-preview>
-    <component-details component="LvToggleGroup"></component-details>
+    <component-details :slots="['default']" component="LvToggleGroup"></component-details>
 </template>
 
 <script>

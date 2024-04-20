@@ -18,9 +18,9 @@
     </lv-card>
     <code-preview v-space-after="1" lang="html" :code="code" />
 
-    <component-details v-space-after="1" title="LvVerticalNavItem" component="LvVerticalNavItem"></component-details>
-    <component-details v-space-after="1" title="LvVerticalNavList" component="LvVerticalNavList"></component-details>
-    <component-details title="LvVerticalNavGroup" component="LvVerticalNavGroup"></component-details>
+    <component-details v-space-after="1" :slots="['default']" title="LvVerticalNavItem" component="LvVerticalNavItem"></component-details>
+    <component-details v-space-after="1" :slots="['default']" title="LvVerticalNavList" component="LvVerticalNavList"></component-details>
+    <component-details :slots="['default']" title="LvVerticalNavGroup" component="LvVerticalNavGroup"></component-details>
 </template>
 
 <script>

@@ -12,8 +12,8 @@
     </lv-card>
 
     <code-preview v-space-after="1" lang="html" :code="code" />
-    <component-details component="LvList" title="LvList"></component-details>
-    <component-details component="LvListItem" title="LvListItem"></component-details>
+    <component-details :slots="['default']" component="LvList" title="LvList"></component-details>
+    <component-details :slots="['default']" component="LvListItem" title="LvListItem"></component-details>
 </template>
 
 <script>

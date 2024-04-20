@@ -25,7 +25,7 @@
         <lv-heading sub :level="6">Subheading</lv-heading>
     </lv-card>
     <code-preview v-space-after="1" lang="html" :code="codeSub" />
-    <component-details component="LvHeading"></component-details>
+    <component-details :slots="['default']" component="LvHeading"></component-details>
 </template>
 
 <script>

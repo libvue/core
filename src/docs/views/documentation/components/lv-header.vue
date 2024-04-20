@@ -20,7 +20,7 @@
     </lv-card>
 
     <code-preview v-space-after="1" lang="html" :code="code" />
-    <component-details component="LvHeader" :slots="['branding', 'search', 'extra']"></component-details>
+    <component-details component="LvHeader" :slots="['branding', 'search', 'navigation', 'extra']"></component-details>
 </template>
 
 <script>

@@ -11,7 +11,7 @@
     </lv-card>
     <code-preview v-space-after="1" :files="files" :active="activeFile" @change-file="(v) => activeFile = v" />
 
-    <component-details component="LvDescriptionList"></component-details>
+    <component-details :slots="['%item.id%']" component="LvDescriptionList"></component-details>
 </template>
 
 <script>

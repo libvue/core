@@ -1,12 +1,12 @@
 <template>
     <div class="component-details">
-        <div v-if="props" v-space-after="1" class="props-table">
+        <div v-if="props && rowsProps.length > 0" v-space-after="1" class="props-table">
             <lv-heading v-space-after="1" :level="6">{{ title }} Props</lv-heading>
             <lv-card>
                 <lv-table :rows="rowsProps" :columns="columnsProps"></lv-table>
             </lv-card>
         </div>
-        <div v-if="emits" class="emits-table">
+        <div v-if="emits" v-space-after="slots.length > 0 ? 1 : 0" class="emits-table">
             <lv-heading v-space-after="1" :level="6">{{ title }} Emits</lv-heading>
             <lv-card>
                 <lv-table :rows="rowsEmits" :columns="columnsEmits" />

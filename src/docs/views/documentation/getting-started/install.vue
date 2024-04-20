@@ -32,6 +32,7 @@ app.directive('space-after', spaceAfter);
 
 const registerScss = `
 @import '@libvue/core';
+@import 'theme-overrides';
 
 html {
     min-height: 100%;
@@ -51,6 +52,25 @@ body {
 }
 `.trim();
 
+const themeOverrides = `
+@mixin lightThemeOverrides {
+    --color-primary: red;
+}
+
+// Add it to the media query first
+@media (prefers-color-scheme: light) {
+    :root {
+        @include('lightThemeOverrides');
+    }
+}
+
+// Add it to the data-theme attribute second so it wins from the media query
+// This data-attribute can be added to the html or body tag
+[data-theme=light]  {
+   @include('lightThemeOverrides');
+}
+`.trim();
+
 export default {
     data() {
         return {
@@ -59,6 +79,7 @@ export default {
             registerFiles: [
                 { id: 'main', filename: 'main.js', lang: 'js', code: registerScript },
                 { id: 'scss', filename: 'app.scss', lang: 'scss', code: registerScss },
+                { id: 'theme', filename: 'theme-overrides.scss', lang: 'scss', code: themeOverrides },
             ],
         };
     },

@@ -26,7 +26,7 @@
         </lv-accordion>
     </lv-card>
     <code-preview v-space-after="1" :code="code" lang="html" />
-    <component-details component="LvAccordion"></component-details>
+    <component-details :slots="['default']" component="LvAccordion"></component-details>
 </template>
 
 <script>

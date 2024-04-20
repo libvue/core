@@ -56,7 +56,7 @@
         </lv-flex>
     </lv-card>
     <code-preview v-space-after="1" lang="html" :code="codeFill" />
-    <component-details component="LvFlex"></component-details>
+    <component-details :slots="['default']" component="LvFlex"></component-details>
 </template>
 
 <script>

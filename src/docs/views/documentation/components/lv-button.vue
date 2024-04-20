@@ -120,7 +120,7 @@
         </template>
     </lv-tabs>
 
-    <component-details v-space-after="1" component="LvButton"></component-details>
+    <component-details v-space-after="1" :slots="['default']" component="LvButton"></component-details>
 
 </template>
 

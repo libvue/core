@@ -9,7 +9,7 @@
         </lv-button-group>
     </lv-card>
     <code-preview v-space-after="1" lang="html" :code="code"/>
-    <component-details component="LvButtonGroup"></component-details>
+    <component-details :slots="['default']" component="LvButtonGroup"></component-details>
 </template>
 
 <script>

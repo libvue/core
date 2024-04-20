@@ -36,7 +36,7 @@
         </lv-dialog>
     </lv-card>
     <code-preview v-space-after="1" :code="code" lang="html"/>
-    <component-details component="LvDialog"></component-details>
+    <component-details :slots="['default', 'header', 'content', 'footer']" component="LvDialog"></component-details>
 </template>
 
 <script>

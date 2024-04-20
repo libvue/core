@@ -30,7 +30,7 @@
         </lv-grid>
     </lv-card>
     <code-preview v-space-after="1" lang="html" :code="code"/>
-    <component-details component="LvFieldset"></component-details>
+    <component-details :slots="['default', 'hint', 'invalid']" component="LvFieldset"></component-details>
 </template>
 
 <script>
