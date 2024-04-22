@@ -3,7 +3,7 @@ import { defineConfig } from 'vite';
 // eslint-disable-next-line import/no-extraneous-dependencies
 import vue from '@vitejs/plugin-vue';
 
-const path = require('path');
+import * as path from 'path';
 
 // https://vitejs.dev/config/
 export default defineConfig({
