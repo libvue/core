@@ -31,7 +31,7 @@
         "date-fns": "^2.30.0",
         "embla-carousel": "^8.0.0-rc14",
         "focus-trap": "^7.5.4",
-        "lucide-static": "^0.290.0",
+        "lucide-static": "^0.372.0",
         "tiny-emitter": "^2.1.0",
         "tippy.js": "^6.3.7",
         "tippy.vue": "^3.2.1",
