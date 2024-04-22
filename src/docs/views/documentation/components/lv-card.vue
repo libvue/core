@@ -14,7 +14,7 @@
         <template #alt-padding>
             <lv-card v-space-after="1" padding="3rem">Altered padding</lv-card>
             <code-preview v-space-after="1" lang="html" :code="codeAltPadding" />
-            <lv-card v-space-after="1" :padding="false">No padding</lv-card>
+            <lv-card v-space-after="1" :padding="null">No padding</lv-card>
             <code-preview v-space-after="1" lang="html" :code="codeNoPadding" />
         </template>
         <template #no-elevation>
@@ -37,7 +37,7 @@ const codeInline = `
 <lv-card inline>I'm an inline card</lv-card>
 `.trim();
 const codeNoPadding = `
-<lv-card v-space-after="1" :padding="false">No padding</lv-card>
+<lv-card v-space-after="1" :padding="null">No padding</lv-card>
 `.trim();
 const codeAltPadding = `
 <lv-card v-space-after="1" padding="3rem">No padding</lv-card>
