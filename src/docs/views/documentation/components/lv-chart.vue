@@ -6,8 +6,7 @@
         <template #line>
             <lv-card v-space-after="1">
                 <lv-flex>
-                    <lv-chart :loading="loading" :datasets="datasets" :labels="labels" height="300px" show-grid />
-                    <lv-button label="Randomize" color="solid-dimmed-primary" icon="rotate-cw" @click="onClickRandomize"/>
+                    <lv-chart :datasets="defaultDataSets" :labels="labels" height="300px" show-grid />
                 </lv-flex>
             </lv-card>
             <code-preview v-space-after="1" lang="html" :code="codeLineChartTemplate" />
@@ -16,12 +15,20 @@
         <template #bar>
             <lv-card v-space-after="1">
                 <lv-flex>
-                    <lv-chart :loading="loading" :datasets="datasets" :labels="labels" type="bar" height="300px" />
-                    <lv-button label="Randomize" color="solid-dimmed-primary" icon="rotate-cw" @click="onClickRandomize"/>
+                    <lv-chart :datasets="defaultDataSets" :labels="labels" type="bar" height="300px" />
                 </lv-flex>
             </lv-card>
             <code-preview v-space-after="1" lang="html" :code="codeBarChartTemplate" />
             <code-preview v-space-after="1" lang="javascript" :code="codeChartScript" />
+        </template>
+        <template #combined>
+            <lv-card v-space-after="1">
+                <lv-flex>
+                    <lv-chart :datasets="combinedDataSets" :labels="labels" height="300px" />
+                </lv-flex>
+            </lv-card>
+            <code-preview v-space-after="1" lang="html" :code="codeCombinedChartTemplate" />
+            <code-preview v-space-after="1" lang="javascript" :code="codeCombinedScript" />
         </template>
     </lv-tabs>
     <component-details component="LvChart"></component-details>
@@ -29,10 +36,13 @@
 
 <script>
 const codeBarChartTemplate = `
-<lv-chart :loading="loading" :datasets="datasets" :labels="labels" height="300px" show-grid />
+<lv-chart :loading="loading" :datasets="datasets" :labels="labels" height="300px" type="bar" show-grid />
 `.trim();
 const codeLineChartTemplate = `
-<lv-chart :loading="loading" :datasets="datasets" :labels="labels" type="bar" height="300px" />
+<lv-chart :loading="loading" :datasets="datasets" :labels="labels" height="300px" />
+`.trim();
+const codeCombinedChartTemplate = `
+<lv-chart :loading="loading" :datasets="datasets" :labels="labels" height="300px" />
 `.trim();
 const codeChartScript = `
 export default {
@@ -41,14 +51,37 @@ export default {
             labels: ['January', 'February', 'March', 'April', 'May', 'June'],
             datasets: [
                 {
-                    label: 'Temperature',
-                    hue: 24,
-                    data: [55, 12, 20, 34, 1, 4],
+                    label: 'Ice Days',
+                    hue: 200,
+                    data: [10, 50, 90, 30, 40, 50],
                 },
                 {
+                    label: 'Temperature',
+                    hue: 250,
+                    data: [50, 90, 30, 40, 50, 10],
+                },
+            ],
+        };
+    },
+};
+`.trim();
+const codeCombinedScript = `
+export default {
+    data() {
+        return {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+            datasets: [
+                {
                     label: 'Ice Days',
-                    hue: 11,
-                    data: [1, 4, 55, 12, 20, 34],
+                    hue: 200,
+                    type: 'bar',
+                    data: [10, 50, 90, 30, 40, 50],
+                },
+                {
+                    label: 'Temperature',
+                    hue: 250,
+                    type: 'line',
+                    data: [50, 90, 30, 40, 50, 10],
                 },
             ],
         };
@@ -60,46 +93,43 @@ export default {
         return {
             codeChartScript,
             codeLineChartTemplate,
+            codeCombinedChartTemplate,
             codeBarChartTemplate,
+            codeCombinedScript,
             labels: ['January', 'February', 'March', 'April', 'May', 'June'],
             activeTab: 'line',
             tabs: [
                 { id: 'line', title: 'Line Chart', icon: 'line-chart' },
                 { id: 'bar', title: 'Bar Chart', icon: 'bar-chart-3' },
+                { id: 'combined', title: 'Combined Chart', icon: 'blend' },
             ],
-            datasets: [],
-            loading: true,
-        };
-    },
-    mounted() {
-        this.loading = false;
-        this.datasets = this.getRandomDatasets();
-    },
-    methods: {
-        getRandomDatasets() {
-            return [
-                {
-                    label: 'Temperature',
-                    hue: 24,
-                    data: [this.getRandomNumber(), this.getRandomNumber(), this.getRandomNumber(), this.getRandomNumber(), this.getRandomNumber(), this.getRandomNumber()],
-                },
+            defaultDataSets: [
                 {
                     label: 'Ice Days',
-                    hue: 11,
-                    data: [this.getRandomNumber(), this.getRandomNumber(), this.getRandomNumber(), this.getRandomNumber(), this.getRandomNumber(), this.getRandomNumber()],
+                    hue: 200,
+                    data: [10, 50, 90, 30, 40, 50],
                 },
-            ];
-        },
-        getRandomNumber() {
-            return Math.floor(Math.random() * 101);
-        },
-        onClickRandomize() {
-            this.loading = true;
-            setTimeout(() => {
-                this.loading = false;
-                this.datasets = this.getRandomDatasets();
-            }, 300);
-        }
-    }
+                {
+                    label: 'Temperature',
+                    hue: 250,
+                    data: [50, 90, 30, 40, 50, 10],
+                },
+            ],
+            combinedDataSets: [
+                {
+                    label: 'Ice Days',
+                    hue: 200,
+                    type: 'line',
+                    data: [10, 50, 90, 30, 40, 50],
+                },
+                {
+                    label: 'Temperature',
+                    hue: 250,
+                    type: 'bar',
+                    data: [50, 90, 30, 40, 50, 10],
+                },
+            ],
+        };
+    },
 };
 </script>
