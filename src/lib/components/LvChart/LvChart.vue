@@ -251,12 +251,22 @@ export default {
                     gradientBackground.addColorStop(0, `hsla(${dataset.hue}, 100%, 60%, 0.2)`);
                     gradientBackground.addColorStop(1, `hsla(${dataset.hue}, 100%, 60%, 0)`);
 
-                    if (this.type === 'line') {
-                        dataset.backgroundColor = gradientBackground;
+                    if(dataset.type) {
+                        if (dataset.type === 'line') {
+                            dataset.backgroundColor = gradientBackground;
+                        }
+                        if (dataset.type === 'bar') {
+                            dataset.backgroundColor = `hsla(${dataset.hue}, 100%, 60%, 1)`;
+                        }
+                    } else {
+                        if (this.type === 'line') {
+                            dataset.backgroundColor = gradientBackground;
+                        }
+                        if (this.type === 'bar') {
+                            dataset.backgroundColor = `hsla(${dataset.hue}, 100%, 60%, 1)`;
+                        }
                     }
-                    if (this.type === 'bar') {
-                        dataset.backgroundColor = `hsla(${dataset.hue}, 100%, 60%, 1)`;
-                    }
+
 
                     dataset.borderColor = `hsla(${dataset.hue}, 100%, 60%, 1)`;
                     dataset.pointBackgroundColor = `hsla(${dataset.hue}, 100%, 60%, 1)`;
