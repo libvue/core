@@ -422,9 +422,6 @@ export default {
             if (column.fitContent) {
                 classes.push('lv-table__cell--fit-content');
             }
-            if (column.zeroWidth) {
-                classes.push('lv-table__cell--zero-width');
-            }
             if (column.bold) {
                 classes.push('lv-table__cell--bold');
             }
