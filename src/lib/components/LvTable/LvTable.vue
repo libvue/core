@@ -103,7 +103,7 @@
                         </template>
                     </tr>
                     <tr v-if="expandableRows" v-show="expandedRows.includes(rowIndex)" class="lv-table__row lv-table__row--expansion">
-                        <td class="lv-table__cell" :colspan="visibleColumnCount">
+                        <td class="lv-table__cell lv-table__cell--expand" :colspan="visibleColumnCount">
                             <slot name="_expansion" :row="rows[rowIndex]"></slot>
                         </td>
                     </tr>
@@ -573,7 +573,6 @@ export default {
             text-align: center;
         }
         &--fit-content {
-            padding: 0 !important;
             width: 0;
         }
         &--no-data {

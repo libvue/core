@@ -314,7 +314,7 @@ export default {
             activeTab: 'default',
             tabs: [
                 { id: 'default', title: 'Default', icon: 'table' },
-                { id: 'options', title: 'With Options', icon: 'more-vertical' },
+                { id: 'options', title: 'With Options', icon: 'grip-vertical' },
                 { id: 'sorting', title: 'Sorting', icon: 'arrow-up-down' },
                 { id: 'expansion', title: 'Expandable Rows', icon: 'chevrons-down' },
                 { id: 'empty', title: 'Empty', icon: 'eraser' },
@@ -357,7 +357,7 @@ export default {
                 },
                 age: {
                     title: 'Age',
-                    align: 'center',
+                    align: 'right',
                     totals: true,
                     averages: true,
                 },
@@ -366,6 +366,7 @@ export default {
                     align: 'right',
                     totals: true,
                     averages: true,
+                    fitContent: true,
                 },
             },
             rowsOptions: [
