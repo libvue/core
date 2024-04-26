@@ -70,7 +70,7 @@ export default {
                 { id: 'single', title: 'Single Date', icon: 'calendar-days' },
                 { id: 'range', title: 'Date Range', icon: 'calendar-range' },
                 { id: 'inline', title: 'Inline', icon: 'pencil' },
-                { id: 'states', title: 'States', icon: 'loader-2' },
+                { id: 'states', title: 'States', icon: 'loader-circle' },
             ],
         }
     }

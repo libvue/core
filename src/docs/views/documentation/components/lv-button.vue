@@ -189,7 +189,7 @@ export default {
             tabs: [
                 { id: 'colors', title: 'Colors', icon: 'palette' },
                 { id: 'sizes', title: 'Sizes', icon: 'scaling' },
-                { id: 'states', title: 'States', icon: 'loader-2' },
+                { id: 'states', title: 'States', icon: 'loader-circle' },
                 { id: 'icons', title: 'Icons', icon: 'box-select' },
                 { id: 'align', title: 'Text Alignment', icon: 'align-center' },
             ],
