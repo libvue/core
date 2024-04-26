@@ -114,7 +114,7 @@ export default {
             activeTab: 'colors',
             tabs: [
                 { id: 'colors', title: 'Colors', icon: 'palette' },
-                { id: 'states', title: 'States', icon: 'loader-2' },
+                { id: 'states', title: 'States', icon: 'loader-circle' },
                 { id: 'icons', title: 'Icons', icon: 'box-select' },
                 { id: 'sizes', title: 'Sizes', icon: 'scaling' },
             ],

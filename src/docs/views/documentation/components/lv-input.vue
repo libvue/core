@@ -70,7 +70,7 @@ export default {
             activeTab: 'types',
             tabs: [
                 { id: 'types', title: 'Types', icon: 'form-input' },
-                { id: 'states', title: 'States', icon: 'loader-2' },
+                { id: 'states', title: 'States', icon: 'loader-circle' },
                 { id: 'sizes', title: 'Sizes', icon: 'scaling' },
             ],
         };
