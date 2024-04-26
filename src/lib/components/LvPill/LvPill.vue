@@ -83,6 +83,7 @@ export default {
         display: flex;
         align-items: center;
         padding: 0.5rem 0.625rem;
+        margin: 0 2px;
     }
 
     &__close {
