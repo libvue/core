@@ -7,9 +7,9 @@
         :height="computedSize"
         aria-hidden="true"
         :style="push ? `margin-right: ${push}rem;` : false"
-        data-name="loader-2"
+        data-name="loader-circle"
     >
-        <use :href="`${spritePath}#loader-2`" />
+        <use :href="`${spritePath}#loader-circle`" />
         <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 0 0" to="359 0 0" :dur="duration" additive="sum" repeatCount="indefinite" />
     </svg>
 </template>
